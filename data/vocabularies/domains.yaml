@@ -1,0 +1,73 @@
+version: 1
+vocabulary: domains
+title: Domains
+summary: Controlled vocabulary for contextual domains where canonical workflow patterns commonly appear.
+source_fields:
+  - domain
+usage_notes:
+  - Domains provide context for a pattern and should not replace pattern-first classification.
+  - Reuse existing anchor domains before proposing narrower sector-specific labels.
+  - A pattern may reference multiple domains when the workflow structure truly recurs across them.
+terms:
+  - id: engineering
+    label: Engineering
+    summary: Software and technical delivery work involving systems, code, infrastructure, and incident response.
+    definition: Use for workflows centered on building, operating, debugging, validating, or changing technical systems and development processes.
+    selection_guidance: Choose this when the workflow primarily serves product engineering, platform engineering, infrastructure, reliability, or developer operations.
+    related_ids:
+      - operations
+      - support
+
+  - id: finance
+    label: Finance
+    summary: Financial operations involving transactions, reporting, controls, and resource allocation.
+    definition: Use for workflows tied to accounting, treasury, forecasting, expense control, month-end close, or financial review and reconciliation.
+    selection_guidance: Choose this when monetary records, financial decisions, or fiscal controls are central to the workflow.
+    related_ids:
+      - compliance
+      - operations
+
+  - id: compliance
+    label: Compliance
+    summary: Policy, regulatory, and control-assurance work that must satisfy explicit obligations.
+    definition: Use for workflows that interpret requirements, gather evidence, verify adherence, or escalate exceptions against legal, policy, or audit standards.
+    selection_guidance: Choose this when external or internal obligations define success criteria more strongly than general operational efficiency.
+    related_ids:
+      - finance
+      - hr
+
+  - id: operations
+    label: Operations
+    summary: Day-to-day business process execution, coordination, and service delivery.
+    definition: Use for workflows that keep business processes running, allocate work, manage throughput, and resolve execution issues across functions.
+    selection_guidance: Choose this when the workflow is primarily about ongoing operational flow rather than specialized technical or regulatory work.
+    related_ids:
+      - engineering
+      - support
+
+  - id: research
+    label: Research
+    summary: Knowledge-building work focused on exploration, evidence gathering, and synthesis.
+    definition: Use for workflows that investigate questions, gather sources, compare findings, and produce grounded summaries, hypotheses, or recommendations.
+    selection_guidance: Choose this when discovery and synthesis are primary deliverables, including analyst research and evidence-grounded briefing.
+    related_ids:
+      - engineering
+      - compliance
+
+  - id: support
+    label: Support
+    summary: Service and case-handling work that responds to user, customer, or internal help requests.
+    definition: Use for workflows involving intake, triage, diagnosis, resolution guidance, escalation, and follow-up for issues or requests.
+    selection_guidance: Choose this when the workflow mainly manages incoming cases, incidents, or service interactions.
+    related_ids:
+      - operations
+      - engineering
+
+  - id: hr
+    label: HR
+    summary: People operations work involving staffing, employee support, policy handling, and workforce coordination.
+    definition: Use for workflows tied to hiring, onboarding, employee requests, policy review, performance processes, or workforce administration.
+    selection_guidance: Choose this when the workflow primarily concerns employees, candidates, managers, or people-policy operations.
+    related_ids:
+      - compliance
+      - operations

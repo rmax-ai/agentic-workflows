@@ -1,0 +1,155 @@
+version: 1
+vocabulary: capabilities
+title: Capabilities
+summary: Controlled vocabulary for reusable capability requirements that canonical workflow patterns depend on.
+source_fields:
+  - capability_requirements
+  - capability_requirements[].capability
+usage_notes:
+  - Capabilities describe reusable abilities required by a pattern, not implementation-specific tools.
+  - List only the capabilities that are materially necessary for success or control.
+  - Prefer combining multiple focused capabilities rather than inventing one domain-specific catch-all term.
+terms:
+  - id: retrieval
+    label: Retrieval
+    summary: Locate and gather relevant information from documents, systems, or external sources.
+    definition: Use for workflows that must search, fetch, or assemble context before reasoning or action can proceed.
+    selection_guidance: Choose this when incomplete context is a primary challenge. Pair with synthesis or verification when gathered evidence must be consolidated or checked.
+    related_ids:
+      - synthesis
+      - verification
+
+  - id: synthesis
+    label: Synthesis
+    summary: Combine evidence from multiple inputs into a coherent, decision-ready output.
+    definition: Use for workflows that summarize, compare, or integrate multiple pieces of information into a briefing, explanation, or recommendation.
+    selection_guidance: Choose this when combining signals is more important than simply collecting them. Pair with retrieval for research-heavy workflows.
+    related_ids:
+      - retrieval
+      - recommendation
+
+  - id: transformation
+    label: Transformation
+    summary: Convert inputs into normalized, structured, or enriched outputs.
+    definition: Use for workflows that reformat, classify, extract, or enrich data so later steps can consume it reliably.
+    selection_guidance: Choose this when reshaping content is materially necessary to the workflow rather than incidental formatting.
+    related_ids:
+      - memory-and-state-tracking
+      - tool-use
+
+  - id: discrepancy-analysis
+    label: Discrepancy analysis
+    summary: Detect, interpret, and explain mismatches across records, signals, or outcomes.
+    definition: Use for workflows that investigate why two sources disagree or why an observed state diverges from the expected one.
+    selection_guidance: Choose this when root-cause analysis or mismatch interpretation is central. Pair with verification or memory tracking for reconciliation patterns.
+    related_ids:
+      - verification
+      - memory-and-state-tracking
+
+  - id: verification
+    label: Verification
+    summary: Check whether information, outputs, or conditions are correct against trusted evidence or rules.
+    definition: Use for workflows that validate claims, assess confidence, or confirm completion before downstream use or execution.
+    selection_guidance: Choose this when correctness checks are first-class rather than optional QA.
+    related_ids:
+      - discrepancy-analysis
+      - policy-and-constraint-checking
+
+  - id: planning
+    label: Planning
+    summary: Construct a sequence of actions that satisfies goals, constraints, and dependencies.
+    definition: Use for workflows that must generate or revise plans, schedules, task graphs, or resource allocations.
+    selection_guidance: Choose this when determining what should happen next is non-trivial and state dependent.
+    related_ids:
+      - coordination
+      - recommendation
+
+  - id: coordination
+    label: Coordination
+    summary: Manage dependencies, handoffs, and commitments across actors or systems.
+    definition: Use for workflows that synchronize steps among multiple teams, tools, or agents and keep shared state aligned.
+    selection_guidance: Choose this when the workflow spans multiple parties and timing or ownership alignment is essential.
+    related_ids:
+      - planning
+      - memory-and-state-tracking
+
+  - id: monitoring
+    label: Monitoring
+    summary: Observe events, metrics, or state changes over time.
+    definition: Use for workflows that continuously or repeatedly inspect signals to detect noteworthy conditions.
+    selection_guidance: Choose this when watchfulness over changing inputs is a core function rather than a one-time check.
+    related_ids:
+      - triage
+      - optimization
+
+  - id: triage
+    label: Triage
+    summary: Classify incoming work or signals by urgency, importance, or next action.
+    definition: Use for workflows that prioritize alerts, tickets, anomalies, or cases for routing, escalation, or response.
+    selection_guidance: Choose this when sorting and prioritizing is a primary workflow step.
+    related_ids:
+      - monitoring
+      - exception-handling
+
+  - id: recommendation
+    label: Recommendation
+    summary: Generate ranked options or a justified next-best action.
+    definition: Use for workflows that compare alternatives and provide a rationale for a suggested decision or escalation path.
+    selection_guidance: Choose this when advising a human or downstream system is part of the expected output.
+    related_ids:
+      - planning
+      - synthesis
+
+  - id: tool-use
+    label: Tool use
+    summary: Invoke external systems, APIs, applications, or data stores to complete work.
+    definition: Use for workflows that need the agent to act through deterministic tools rather than only produce text or analysis.
+    selection_guidance: Choose this when reliable interaction with systems of record or operational services is necessary.
+    related_ids:
+      - action-execution
+      - transformation
+
+  - id: action-execution
+    label: Action execution
+    summary: Carry out approved steps that create, update, or trigger real-world system changes.
+    definition: Use for workflows that move beyond advice and into making operational changes, submissions, or task completions.
+    selection_guidance: Choose this when the workflow includes consequential actions, especially under approval or policy controls.
+    related_ids:
+      - tool-use
+      - exception-handling
+
+  - id: memory-and-state-tracking
+    label: Memory and state tracking
+    summary: Preserve evolving workflow context, decisions, and intermediate state across steps.
+    definition: Use for workflows that depend on continuity across time, multi-step reasoning, or multiple actors interacting with the same case.
+    selection_guidance: Choose this when loss of state would materially degrade quality, coordination, or auditability.
+    related_ids:
+      - coordination
+      - discrepancy-analysis
+
+  - id: exception-handling
+    label: Exception handling
+    summary: Detect off-nominal conditions and route them to retries, fallbacks, or escalation.
+    definition: Use for workflows that must adapt when data is missing, tools fail, policies conflict, or confidence is too low.
+    selection_guidance: Choose this when robust handling of edge cases is essential for safe completion.
+    related_ids:
+      - triage
+      - action-execution
+
+  - id: optimization
+    label: Optimization
+    summary: Improve performance, allocation, or outcomes using feedback and trade-off reasoning.
+    definition: Use for workflows that tune plans, thresholds, resources, or actions against goals such as quality, cost, speed, or risk.
+    selection_guidance: Choose this when iterative improvement or trade-off management is a central behavior.
+    related_ids:
+      - monitoring
+      - planning
+
+  - id: policy-and-constraint-checking
+    label: Policy and constraint checking
+    summary: Evaluate whether proposed or completed work stays within rules, limits, and approvals.
+    definition: Use for workflows that must enforce policies, hard constraints, compliance obligations, or threshold-based controls.
+    selection_guidance: Choose this when rule adherence meaningfully shapes what the agent may recommend or do.
+    related_ids:
+      - verification
+      - action-execution

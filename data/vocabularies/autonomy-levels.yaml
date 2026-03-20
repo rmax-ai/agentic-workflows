@@ -1,0 +1,64 @@
+version: 1
+vocabulary: autonomy-levels
+title: Autonomy levels
+summary: Controlled vocabulary for autonomy_profile.level values that describe agent discretion and human control boundaries.
+source_fields:
+  - autonomy_profile.level
+usage_notes:
+  - Choose the highest level of discretion the pattern normally allows, not the most optimistic implementation possibility.
+  - Human review that occurs only for rare exceptions is different from review embedded in the normal loop.
+  - Pair autonomy choices with matching risk and approval requirements in canonical pattern entries.
+terms:
+  - id: human-directed
+    label: Human directed
+    summary: The agent assists with analysis or drafting, while humans retain all consequential decisions and actions.
+    definition: Use for workflows where the agent organizes information, drafts outputs, or surfaces context but does not independently choose or execute material next steps.
+    selection_guidance: Choose this when the agent behaves as a copilot and human operators remain fully accountable for every decision and action.
+    related_ids:
+      - recommendation-only
+      - approval-gated
+
+  - id: recommendation-only
+    label: Recommendation only
+    summary: The agent can analyze options and suggest next steps, but a human decides and initiates any consequential change.
+    definition: Use for workflows where the agent produces rankings, plans, or escalation advice without being allowed to commit changes on its own.
+    selection_guidance: Choose this when high-value support comes from prioritization or reasoning, yet execution authority stays entirely with a person.
+    related_ids:
+      - human-directed
+      - approval-gated
+
+  - id: approval-gated
+    label: Approval gated
+    summary: The agent may prepare actions or plans, but explicit human approval is required before execution proceeds.
+    definition: Use for workflows where an agent can assemble an execution package, trigger-ready payload, or proposed workflow step that remains blocked until a reviewer authorizes it.
+    selection_guidance: Choose this when the normal operating model includes a formal approval checkpoint before any consequential action.
+    related_ids:
+      - recommendation-only
+      - bounded-delegation
+
+  - id: bounded-delegation
+    label: Bounded delegation
+    summary: The agent may act autonomously within preapproved scope, thresholds, and reversible limits.
+    definition: Use for workflows where humans define guardrails in advance and the agent executes routine actions without case-by-case approval unless it hits a boundary.
+    selection_guidance: Choose this when there is real delegated authority, but scope, spend, targets, or reversibility constraints are intentionally tight.
+    related_ids:
+      - approval-gated
+      - exception-gated-autonomy
+
+  - id: exception-gated-autonomy
+    label: Exception-gated autonomy
+    summary: The agent runs most of the workflow autonomously and escalates only exceptions, low-confidence cases, or policy conflicts.
+    definition: Use for workflows where continuous operation is expected without routine approval, while humans stay available for off-nominal conditions and sensitive edge cases.
+    selection_guidance: Choose this when the normal path is autonomous and human attention is reserved for exceptions rather than every case.
+    related_ids:
+      - bounded-delegation
+      - autonomous-with-audit
+
+  - id: autonomous-with-audit
+    label: Autonomous with audit
+    summary: The agent can make and execute operational decisions independently under strong logging, controls, and retrospective oversight.
+    definition: Use for workflows where the agent has broad discretion to proceed without immediate human checkpoints, and governance relies on ex ante policy plus ex post audit.
+    selection_guidance: Choose this only when the workflow tolerates sustained autonomy and the control environment can support detailed auditability, rollback strategy, and accountability.
+    related_ids:
+      - exception-gated-autonomy
+      - bounded-delegation

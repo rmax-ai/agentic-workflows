@@ -1,0 +1,44 @@
+version: 1
+vocabulary: risk-levels
+title: Risk levels
+summary: Controlled vocabulary for risk_governance.level values that capture failure impact and control expectations.
+source_fields:
+  - risk_governance.level
+usage_notes:
+  - Risk level should reflect plausible failure impact in the intended workflow, not only average-case behavior.
+  - Raise the level when privacy, regulatory exposure, irreversible actions, or large downstream effects are present.
+  - Risk level and autonomy level should be chosen together so control expectations remain coherent.
+terms:
+  - id: low
+    label: Low
+    summary: Failures are usually reversible, localized, and inexpensive to detect and correct.
+    definition: Use for workflows where mistakes create limited inconvenience or rework and do not materially affect regulated outcomes, finances, safety, or trust.
+    selection_guidance: Choose this when lightweight review and basic logging are usually sufficient because impacts are small and recovery is straightforward.
+    related_ids:
+      - moderate
+
+  - id: moderate
+    label: Moderate
+    summary: Failures can create material rework, customer impact, or localized policy issues, but harm is still usually containable.
+    definition: Use for workflows where mistakes may affect service quality, internal controls, or team productivity and require deliberate correction before they spread.
+    selection_guidance: Choose this when stronger validation, clearer ownership, and routine audit trails are needed, even though failures are not generally existential.
+    related_ids:
+      - low
+      - high
+
+  - id: high
+    label: High
+    summary: Failures can cause significant financial, operational, compliance, or customer harm if not tightly controlled.
+    definition: Use for workflows where incorrect recommendations or actions could produce major losses, meaningful regulatory exposure, or difficult-to-reverse downstream effects.
+    selection_guidance: Choose this when approvals, segregation of duties, strong evidence capture, or constrained autonomy are expected parts of the operating model.
+    related_ids:
+      - moderate
+      - critical
+
+  - id: critical
+    label: Critical
+    summary: Failures can create severe or systemic harm, including major legal, safety, fiduciary, or enterprise-wide consequences.
+    definition: Use for workflows where errors could trigger substantial regulatory breach, major financial exposure, unsafe outcomes, or widespread irreversible damage.
+    selection_guidance: Choose this only when the workflow demands the highest control posture, with rigorous approvals, complete auditability, and very limited tolerance for autonomous action.
+    related_ids:
+      - high

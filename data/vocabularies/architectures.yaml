@@ -1,0 +1,56 @@
+version: 1
+vocabulary: architectures
+title: Execution architectures
+summary: Controlled vocabulary for execution architecture styles used to realize canonical workflow patterns.
+source_fields:
+  - execution_architecture
+  - execution_architecture[].architecture
+usage_notes:
+  - Use architecture ids to describe how the workflow is typically implemented, not which pattern family it belongs to.
+  - A pattern may list multiple architectures when materially different implementations are common.
+  - Prefer existing coverage-matrix architecture ids to avoid naming drift.
+terms:
+  - id: tool-using-single-agent
+    label: Tool-using single agent
+    summary: One primary agent plans and acts through tools within a bounded workflow scope.
+    definition: Use for architectures where a single agent handles most reasoning, state tracking, and tool orchestration without delegating to peer agents.
+    selection_guidance: Choose this when workflow complexity can remain inside one coherent control loop and multi-agent coordination would add unnecessary overhead.
+    related_ids:
+      - human-in-the-loop
+      - approval-gated-execution
+
+  - id: orchestrated-multi-agent
+    label: Orchestrated multi-agent
+    summary: Multiple specialized agents or roles coordinate under an explicit orchestration layer.
+    definition: Use for architectures that split work across agents with differentiated responsibilities such as planning, retrieval, verification, or execution.
+    selection_guidance: Choose this when specialization, parallel work, or strict separation of concerns outweigh the complexity cost of orchestration.
+    related_ids:
+      - tool-using-single-agent
+      - approval-gated-execution
+
+  - id: human-in-the-loop
+    label: Human in the loop
+    summary: Humans remain embedded in the operational loop for review, correction, or decision points.
+    definition: Use for architectures where a person routinely validates outputs, resolves ambiguity, or provides approvals before consequential progression.
+    selection_guidance: Choose this when human judgment is a normal part of the workflow, not just a rare escalation path.
+    related_ids:
+      - tool-using-single-agent
+      - approval-gated-execution
+
+  - id: event-driven-monitoring
+    label: Event-driven monitoring
+    summary: Agents react to incoming events, signals, or state changes rather than only running on demand.
+    definition: Use for architectures built around subscriptions, polling, alert streams, or trigger-based workflows that continuously monitor and respond to conditions.
+    selection_guidance: Choose this when timely detection and response to changing signals define the workflow.
+    related_ids:
+      - human-in-the-loop
+      - orchestrated-multi-agent
+
+  - id: approval-gated-execution
+    label: Approval-gated execution
+    summary: Execution is technically enabled but blocked by explicit control gates until approval conditions are met.
+    definition: Use for architectures that prepare actions automatically yet require a formal approval token, sign-off, or policy check before committing changes.
+    selection_guidance: Choose this when governance boundaries are implemented as concrete execution gates rather than informal reviewer expectations.
+    related_ids:
+      - human-in-the-loop
+      - tool-using-single-agent

@@ -1,0 +1,118 @@
+version: 1
+vocabulary: problem-structures
+title: Problem structures
+summary: Controlled vocabulary for reusable workflow problem forms used by canonical pattern entries.
+source_fields:
+  - problem_structure
+usage_notes:
+  - Use the stable id in canonical pattern YAML and reserve the label for display text.
+  - Choose the term that best matches the primary workflow shape, not every secondary behavior.
+  - Prefer the most reusable structure across domains rather than domain-specific phrasing.
+terms:
+  - id: context-gathering-and-synthesis
+    label: Context gathering and synthesis
+    summary: Retrieve information from multiple inputs and compress it into a grounded brief or artifact.
+    definition: Use for workflows whose main challenge is collecting scattered evidence, assembling relevant context, and producing a concise synthesis that informs later work.
+    selection_guidance: Choose this when information coverage and evidence integration are primary. Prefer investigation or planning structures when the core task is resolving discrepancies or sequencing action.
+    related_ids:
+      - evidence-backed-verification
+      - recommendation-and-decision-support
+
+  - id: discrepancy-investigation
+    label: Discrepancy investigation
+    summary: Identify why observed facts, records, or outcomes do not align.
+    definition: Use for workflows that trace causes, inspect conflicting signals, and build an explanation for a mismatch, anomaly, or unexpected outcome.
+    selection_guidance: Choose this when the workflow centers on finding causes and narrowing hypotheses. Prefer record reconciliation when the goal is restoring consistency across systems of record.
+    related_ids:
+      - record-reconciliation
+      - evidence-backed-verification
+
+  - id: record-reconciliation
+    label: Record reconciliation
+    summary: Compare representations of the same entity or event and restore a trusted state.
+    definition: Use for workflows that match records, detect inconsistencies, and determine the authoritative resolution across ledgers, tickets, inventories, or other structured systems.
+    selection_guidance: Choose this when alignment across records is the primary outcome. Prefer discrepancy investigation when explanation matters more than state correction.
+    related_ids:
+      - discrepancy-investigation
+      - evidence-backed-verification
+
+  - id: evidence-backed-verification
+    label: Evidence-backed verification
+    summary: Confirm whether a claim, condition, or output is correct against trusted evidence.
+    definition: Use for workflows that validate facts, outputs, compliance conditions, or execution results using independent checks or corroborating evidence.
+    selection_guidance: Choose this when the core task is proving correctness or confidence. Prefer context gathering and synthesis when the workflow mainly summarizes rather than verifies.
+    related_ids:
+      - context-gathering-and-synthesis
+      - record-reconciliation
+
+  - id: continuous-monitoring-and-triage
+    label: Continuous monitoring and triage
+    summary: Watch streams of events or signals and prioritize which ones need attention.
+    definition: Use for workflows that monitor changing conditions, detect notable events, and classify or route alerts, incidents, or requests by urgency and likely next step.
+    selection_guidance: Choose this when the workflow is ongoing and event-driven. Prefer discrepancy investigation for episodic deep dives into a specific mismatch.
+    related_ids:
+      - discrepancy-investigation
+      - exception-aware-orchestration
+
+  - id: constraint-aware-planning
+    label: Constraint-aware planning
+    summary: Produce a workable plan that respects limits, dependencies, and objectives.
+    definition: Use for workflows that create task sequences, schedules, or resource allocations while balancing constraints such as deadlines, policies, availability, and priorities.
+    selection_guidance: Choose this when generating a viable plan is the main deliverable. Prefer multi-party-coordination when stakeholder alignment is the harder problem than plan construction.
+    related_ids:
+      - multi-party-coordination
+      - recommendation-and-decision-support
+
+  - id: multi-party-coordination
+    label: Multi-party coordination
+    summary: Align actors, handoffs, and commitments across people, teams, or systems.
+    definition: Use for workflows that keep multiple participants synchronized, negotiate sequencing, and update plans or ownership as conditions change.
+    selection_guidance: Choose this when coordination overhead and dependency management dominate. Prefer constraint-aware planning when a single feasible plan is the primary output.
+    related_ids:
+      - constraint-aware-planning
+      - human-agent-collaboration
+
+  - id: recommendation-and-decision-support
+    label: Recommendation and decision support
+    summary: Rank options and present a justified next-best action or escalation path.
+    definition: Use for workflows that evaluate alternatives, weigh evidence against policy or goals, and recommend a decision while keeping the rationale inspectable.
+    selection_guidance: Choose this when advising a human or downstream system is the main purpose. Prefer approval-gated-execution when the workflow proceeds into acting on the selected option.
+    related_ids:
+      - constraint-aware-planning
+      - approval-gated-execution
+
+  - id: approval-gated-execution
+    label: Approval-gated execution
+    summary: Prepare and carry out actions once required approvals and checks are satisfied.
+    definition: Use for workflows that transform a selected plan or decision into operational steps under explicit approval boundaries and control gates.
+    selection_guidance: Choose this when action execution matters and a formal approval checkpoint remains central. Prefer recommendation and decision support when the workflow stops at advice.
+    related_ids:
+      - recommendation-and-decision-support
+      - exception-aware-orchestration
+
+  - id: exception-aware-orchestration
+    label: Exception-aware orchestration
+    summary: Drive multi-step work forward while detecting failures, retries, and escalation cases.
+    definition: Use for workflows that execute or coordinate a process across systems and adapt when the normal path fails, stalls, or encounters policy exceptions.
+    selection_guidance: Choose this when the hard part is keeping execution moving through edge cases. Prefer approval-gated execution when the main control point is a human authorization gate.
+    related_ids:
+      - approval-gated-execution
+      - continuous-monitoring-and-triage
+
+  - id: feedback-driven-optimization
+    label: Feedback-driven optimization
+    summary: Improve plans, thresholds, or actions based on observed results.
+    definition: Use for workflows that compare outcomes against targets, learn from feedback, and adjust future behavior or configurations within stated constraints.
+    selection_guidance: Choose this when iterative improvement is the primary loop. Prefer continuous monitoring and triage when the workflow focuses on ongoing detection rather than adaptation.
+    related_ids:
+      - continuous-monitoring-and-triage
+      - constraint-aware-planning
+
+  - id: human-agent-collaboration
+    label: Human-agent collaboration
+    summary: Structure shared work so humans and agents each handle the parts they are best suited for.
+    definition: Use for workflows that depend on back-and-forth refinement, explicit handoffs, and joint ownership between a person and an agentic system.
+    selection_guidance: Choose this when collaboration is intrinsic to the workflow rather than just an approval step. Prefer recommendation-only autonomy choices for patterns where the agent never acts beyond advice.
+    related_ids:
+      - multi-party-coordination
+      - recommendation-and-decision-support
