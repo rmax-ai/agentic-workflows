@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Use the newly expanded canonical pattern layer to resume Phase 6 with a small grounded-instance batch that fills uncovered domains before returning to the remaining empty families.
+Use the newly expanded canonical pattern layer to resume Phase 6 with a three-instance batch for compliance, operations, and HR grounded in the planning, recommendation, and execution patterns before returning to the remaining empty families.
 
 ## Current phase
 
@@ -15,8 +15,8 @@ Use the newly expanded canonical pattern layer to resume Phase 6 with a small gr
 
 ## Ordered tasks
 
-1. Add a small follow-on instance batch tied to `calendar-conflict-coordination`, `deal-desk-recommendation-support`, or `browser-based-form-completion-with-approval-gates`.
-2. Prioritize uncovered instance domains such as compliance, operations, HR, or support so grounded coverage catches up with the canonical layer.
+1. Add a three-instance follow-on batch tied to `calendar-conflict-coordination`, `deal-desk-recommendation-support`, and `browser-based-form-completion-with-approval-gates`.
+2. Prioritize uncovered instance domains by landing one concrete compliance instance, one operations instance, and one HR instance so grounded coverage catches up with the canonical layer.
 3. Keep each instance tightly linked to one or more canonical YAML patterns and focused on a real operational scenario rather than a generic domain essay.
 4. After the instance batch lands, reassess whether the next highest-leverage step is an `optimize-adapt` or `human-agent-collaborative-work` pattern batch.
 5. Continue to avoid `transform-process` until a concrete pattern is justified despite the current `problem-structures` vocabulary gap, or until that gap is deliberately refined.
@@ -36,4 +36,4 @@ Use the newly expanded canonical pattern layer to resume Phase 6 with a small gr
 
 ## Expected outcome
 
-The next iteration should leave the repository with broader grounded coverage for the newly added patterns, clearer support for compliance, operations, HR, or support scenarios, and a better-informed basis for the next family-expansion decision.
+The next iteration should leave the repository with broader grounded coverage for the newly added patterns, explicit compliance/operations/HR scenario support, and a better-informed basis for the next family-expansion decision.
