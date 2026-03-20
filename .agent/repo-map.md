@@ -63,6 +63,9 @@
 - `data/patterns/gather-retrieve-synthesize/research-synthesis-with-citation-verification.yaml` — canonical gather/synthesize pattern for evidence-grounded synthesis with citation verification.
 - `data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml` — canonical investigation pattern for evidence-backed incident diagnosis and reconciled timelines.
 - `data/patterns/monitor-detect-triage/risk-alert-triage.yaml` — canonical monitoring pattern for governed alert prioritization and escalation packaging.
+- `data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml` — canonical planning and coordination pattern for low-risk multi-party scheduling under bounded delegation.
+- `data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml` — canonical recommendation pattern for governed commercial option ranking, approval guidance, and escalation packaging.
+- `data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml` — canonical execution pattern for sensitive browser-based submissions under explicit approval gates and exception handling.
 
 ### Current grounded examples
 

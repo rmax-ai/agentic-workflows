@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: first-grounded-instances-landed
+repository_stage: second-seed-pattern-batch-landed
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -28,28 +28,28 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 3
+  pattern_files: 6
   instance_files: 3
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
   pattern_families_defined: 9
-  pattern_families_with_patterns: 3
-  domains_with_patterns: 6
+  pattern_families_with_patterns: 6
+  domains_with_patterns: 7
   domains_with_instances: 3
   architectures_mapped: 5
   autonomy_levels_mapped: 6
   risk_levels_mapped: 4
-  autonomy_levels_with_patterns: 3
-  risk_levels_with_patterns: 2
+  autonomy_levels_with_patterns: 4
+  risk_levels_with_patterns: 4
 pattern_counts_by_family:
   gather-retrieve-synthesize: 1
   transform-process: 0
   investigate-reconcile-verify: 1
   monitor-detect-triage: 1
-  plan-coordinate-schedule: 0
-  recommend-decide-escalate: 0
-  execute-automate: 0
+  plan-coordinate-schedule: 1
+  recommend-decide-escalate: 1
+  execute-automate: 1
   optimize-adapt: 0
   human-agent-collaborative-work: 0
 instance_counts_by_domain:
@@ -82,6 +82,9 @@ repo_reality:
     - data/patterns/gather-retrieve-synthesize/research-synthesis-with-citation-verification.yaml
     - data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml
     - data/patterns/monitor-detect-triage/risk-alert-triage.yaml
+    - data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml
+    - data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml
+    - data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml
     - instances/research/regulatory-obligation-synthesis-for-data-retention-review.md
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
@@ -100,11 +103,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, a first canonical pattern batch spanning gather/synthesize, investigate/verify, and monitor/triage workflows, and an initial grounded instance batch across research, engineering, and finance.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, six canonical patterns across six families, and an initial grounded instance batch across research, engineering, and finance.
 immediate_gaps:
-  - Most canonical pattern YAML entries are still missing, especially in planning, recommendation, execution, optimization, and collaborative-work families.
-  - Grounded instances exist only for three domains, leaving compliance, operations, support, and HR without direct instance coverage.
-  - transform-process currently has no direct problem-structure vocabulary mapping, so its browse-view linkage is intentionally left empty until a justified vocabulary refinement is made.
+  - Canonical patterns are still missing in `transform-process`, `optimize-adapt`, and `human-agent-collaborative-work`.
+  - Grounded instances still exist only for research, engineering, and finance, leaving compliance, operations, support, and HR without direct instance coverage.
+  - The newly added planning, recommendation, and execution patterns have no grounded Markdown instances yet, so their new coverage cells remain canonical-only.
+  - "`transform-process` still has no direct problem-structure vocabulary mapping, so its browse-view linkage remains intentionally empty until a justified vocabulary refinement is made."
 next_action:
-  id: phase-5-second-seed-pattern-batch
-  summary: Add a second canonical pattern batch in still-empty families, with special attention to uncovered architecture and risk combinations before expanding instances again.
+  id: phase-6-follow-on-instance-batch
+  summary: Add a small grounded instance batch for compliance, operations, HR, or support using the newly added planning, recommendation, and execution patterns before returning to the remaining empty families.

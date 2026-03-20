@@ -40,9 +40,9 @@ matrices:
     transform-process: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
     investigate-reconcile-verify: {engineering: covered, finance: none, compliance: none, operations: partial, research: none, support: partial, hr: none}
     monitor-detect-triage: {engineering: none, finance: covered, compliance: partial, operations: partial, research: none, support: none, hr: none}
-    plan-coordinate-schedule: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
-    recommend-decide-escalate: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
-    execute-automate: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
+    plan-coordinate-schedule: {engineering: none, finance: none, compliance: none, operations: partial, research: none, support: partial, hr: partial}
+    recommend-decide-escalate: {engineering: none, finance: partial, compliance: partial, operations: partial, research: none, support: none, hr: none}
+    execute-automate: {engineering: none, finance: partial, compliance: partial, operations: none, research: none, support: none, hr: partial}
     optimize-adapt: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
     human-agent-collaborative-work: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
   pattern_family_x_architecture:
@@ -50,9 +50,9 @@ matrices:
     transform-process: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
     investigate-reconcile-verify: {tool-using-single-agent: none, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
     monitor-detect-triage: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: covered, approval-gated-execution: none}
-    plan-coordinate-schedule: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
-    recommend-decide-escalate: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
-    execute-automate: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
+    plan-coordinate-schedule: {tool-using-single-agent: partial, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
+    recommend-decide-escalate: {tool-using-single-agent: partial, orchestrated-multi-agent: none, human-in-the-loop: partial, event-driven-monitoring: none, approval-gated-execution: none}
+    execute-automate: {tool-using-single-agent: partial, orchestrated-multi-agent: none, human-in-the-loop: partial, event-driven-monitoring: none, approval-gated-execution: partial}
     optimize-adapt: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
     human-agent-collaborative-work: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
   pattern_family_x_risk:
@@ -60,14 +60,14 @@ matrices:
     transform-process: {low: none, moderate: none, high: none, critical: none}
     investigate-reconcile-verify: {low: none, moderate: none, high: covered, critical: none}
     monitor-detect-triage: {low: none, moderate: none, high: covered, critical: none}
-    plan-coordinate-schedule: {low: none, moderate: none, high: none, critical: none}
-    recommend-decide-escalate: {low: none, moderate: none, high: none, critical: none}
-    execute-automate: {low: none, moderate: none, high: none, critical: none}
+    plan-coordinate-schedule: {low: partial, moderate: none, high: none, critical: none}
+    recommend-decide-escalate: {low: none, moderate: none, high: partial, critical: none}
+    execute-automate: {low: none, moderate: none, high: none, critical: partial}
     optimize-adapt: {low: none, moderate: none, high: none, critical: none}
     human-agent-collaborative-work: {low: none, moderate: none, high: none, critical: none}
 summary:
   overall_status: partial
   notes:
-    - Three canonical pattern entries still anchor the only populated families, but the repository now also has its first linked instances in research, engineering, and finance.
-    - Covered domain cells now indicate both canonical pattern support and at least one grounded instance, while partial cells indicate that only the canonical layer exists so far.
-    - The highest-leverage next gaps are still-empty families, the uncovered approval-gated-execution architecture bucket, and low-risk or critical-risk combinations.
+    - Six canonical pattern entries now populate six of the nine top-level families, including first entries in planning, recommendation, and execution.
+    - The repository now covers the previously empty `approval-gated-execution` architecture bucket and introduces explicit low-risk and critical-risk canonical patterns.
+    - The highest-leverage next gaps are grounded instances for the new planning, recommendation, and execution patterns plus the still-empty `transform-process`, `optimize-adapt`, and `human-agent-collaborative-work` families.

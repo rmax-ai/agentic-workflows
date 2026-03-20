@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Resume Phase 5 expansion with a second canonical pattern batch in still-empty families, using the newly proven instance layer as grounding support rather than expanding instances broadly again immediately.
+Use the newly expanded canonical pattern layer to resume Phase 6 with a small grounded-instance batch that fills uncovered domains before returning to the remaining empty families.
 
 ## Current phase
 
@@ -10,17 +10,16 @@ Resume Phase 5 expansion with a second canonical pattern batch in still-empty fa
 - Phase 3: navigation views are complete
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
 - Tooling baseline: uv-managed Python 3.14 helper workflow is in place
-- Phase 5: first canonical pattern batch landed in `data/patterns/`
-- Phase 6: first grounded instances have landed under `instances/`, proving the initial instance format and cross-linking model
+- Phase 5: a second canonical pattern batch now covers planning, recommendation, and execution families in addition to the initial gather, investigate, and monitor anchors
+- Phase 6: the repository has first grounded instances plus several newly stable patterns that now justify another targeted instance batch
 
 ## Ordered tasks
 
-1. Author a second seed-pattern batch in still-empty families such as `plan-coordinate-schedule`, `recommend-decide-escalate`, or `execute-automate`.
-2. Prioritize combinations that improve structural coverage rather than adding more variants inside already-started families.
-3. Use the existing schema, vocabularies, browse views, and the new instance layer to keep new patterns normalized and easy to ground later.
-4. After the next pattern batch lands, update derived views and then add follow-on instances only for the newly stable patterns that most improve domain or governance coverage.
-5. Look for opportunities to cover low-risk or critical-risk cells and the currently empty `approval-gated-execution` architecture bucket.
-6. Continue to avoid `transform-process` until a concrete pattern is justified despite the current `problem-structures` vocabulary gap, or until that gap is deliberately refined.
+1. Add a small follow-on instance batch tied to `calendar-conflict-coordination`, `deal-desk-recommendation-support`, or `browser-based-form-completion-with-approval-gates`.
+2. Prioritize uncovered instance domains such as compliance, operations, HR, or support so grounded coverage catches up with the canonical layer.
+3. Keep each instance tightly linked to one or more canonical YAML patterns and focused on a real operational scenario rather than a generic domain essay.
+4. After the instance batch lands, reassess whether the next highest-leverage step is an `optimize-adapt` or `human-agent-collaborative-work` pattern batch.
+5. Continue to avoid `transform-process` until a concrete pattern is justified despite the current `problem-structures` vocabulary gap, or until that gap is deliberately refined.
 
 ## Constraints
 
@@ -32,8 +31,9 @@ Resume Phase 5 expansion with a second canonical pattern batch in still-empty fa
 - Keep views aligned with the controlled vocabulary ids and treat them as derived browse artifacts.
 - Ensure every subagent task ends with exactly one git commit.
 - Keep instance work tightly tied to existing canonical patterns; do not create standalone domain essays.
-- Prefer pattern additions that unlock new family, architecture, autonomy, or risk coverage rather than duplicating already-represented cells.
+- Prefer tasks that improve domain grounding and governance coverage rather than duplicating already-grounded examples.
+- Favor next steps that make the coverage matrix more balanced across domains, architectures, autonomy levels, and risk levels.
 
 ## Expected outcome
 
-The next iteration should leave the repository with a broader but still normalized canonical pattern set, ready for another small instance batch once additional families are stable.
+The next iteration should leave the repository with broader grounded coverage for the newly added patterns, clearer support for compliance, operations, HR, or support scenarios, and a better-informed basis for the next family-expansion decision.

@@ -89,8 +89,9 @@ items:
     notes:
       - Begin with high-value seed patterns only after schema, vocabularies, and views exist.
       - Use the Phase 4 family docs as narrative anchors so seed patterns stay within stable family boundaries.
-      - The first batch now covers gather/synthesize, investigate/verify, and monitor/triage with browse-view linkage already in place.
-      - The next batch should target still-empty families and preferably improve low-risk, critical-risk, or approval-gated architecture coverage.
+      - The first batch covered gather/synthesize, investigate/verify, and monitor/triage with browse-view linkage already in place.
+      - The second batch now adds first canonical entries in `plan-coordinate-schedule`, `recommend-decide-escalate`, and `execute-automate` while covering the low-risk, critical-risk, and `approval-gated-execution` architecture gaps.
+      - Remaining family gaps are now concentrated in `transform-process`, `optimize-adapt`, and `human-agent-collaborative-work`.
 
   - id: phase-6-grounded-instances
     phase: 6
@@ -103,7 +104,8 @@ items:
       - instances/
     notes:
       - The first three grounded examples now exist for research, engineering, and finance, each tied directly to one of the initial canonical patterns.
-      - Continue Phase 6 in small follow-on batches only after new canonical patterns become stable enough to justify more grounded examples.
+      - The next follow-on instance batch should target newly supported domains such as compliance, operations, HR, or support using the new planning, recommendation, and execution patterns.
+      - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement
     phase: 7
