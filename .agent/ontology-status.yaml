@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: optimize-adapt-anchor-landed
+repository_stage: human-agent-collaboration-anchor-landed
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -28,13 +28,13 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 7
+  pattern_files: 8
   instance_files: 6
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
   pattern_families_defined: 9
-  pattern_families_with_patterns: 7
+  pattern_families_with_patterns: 8
   domains_with_patterns: 7
   domains_with_instances: 6
   architectures_mapped: 5
@@ -51,7 +51,7 @@ pattern_counts_by_family:
   recommend-decide-escalate: 1
   execute-automate: 1
   optimize-adapt: 1
-  human-agent-collaborative-work: 0
+  human-agent-collaborative-work: 1
 instance_counts_by_domain:
   engineering: 1
   finance: 1
@@ -107,12 +107,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, seven canonical patterns across seven families, and six grounded instances spanning research, engineering, finance, operations, compliance, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, eight canonical patterns across eight families, and six grounded instances spanning research, engineering, finance, operations, compliance, and HR.
 immediate_gaps:
-  - "Canonical patterns are still missing in `transform-process` and `human-agent-collaborative-work`."
+  - "Canonical patterns are still missing only in `transform-process`."
   - Support remains the only currently modeled domain without any grounded instance coverage.
   - "`transform-process` still has no direct problem-structure vocabulary mapping, so its browse-view linkage remains intentionally empty until a justified vocabulary refinement is made."
-  - Several canonical domain cells remain partial because the newer planning, recommendation, execution, and optimize/adapt patterns still have only one or zero grounded examples each.
+  - Several canonical domain cells remain partial because the newer planning, recommendation, execution, optimize/adapt, and human-agent collaboration patterns still have only one or zero grounded examples each.
 next_action:
-  id: phase-5-human-agent-collaboration-anchor
-  summary: "Add a narrow canonical pattern in `human-agent-collaborative-work`, then reassess whether support-domain grounding or a justified `transform-process` refinement is the next best coverage move."
+  id: phase-6-support-grounding
+  summary: "Add the first support-domain grounded instance, preferably tied to `analyst-copilot-loop`, while keeping `transform-process` blocked until a justified vocabulary-supported candidate emerges."

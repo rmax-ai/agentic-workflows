@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Land the first canonical pattern in `human-agent-collaborative-work`, then refresh execution memory so the next iteration can decide between support-domain grounding and a justified `transform-process` refinement from a cleaner baseline.
+Ground the support domain with a first linked Markdown instance now that `analyst-copilot-loop` gives the repository a direct collaboration-oriented support anchor, while keeping `transform-process` blocked until vocabulary support is justified.
 
 ## Current phase
 
@@ -10,16 +10,17 @@ Land the first canonical pattern in `human-agent-collaborative-work`, then refre
 - Phase 3: navigation views are complete
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
 - Tooling baseline: uv-managed Python 3.14 helper workflow is in place
-- Phase 5: canonical patterns now cover `optimize-adapt` in addition to the initial gather, investigate, monitor, planning, recommendation, and execution anchors
+- Phase 5: canonical patterns now cover `human-agent-collaborative-work` in addition to the initial gather, investigate, monitor, planning, recommendation, execution, and optimize/adapt anchors
 - Phase 6: the repository now has six grounded instances spanning research, engineering, finance, operations, compliance, and HR
+- Remaining empty family: `transform-process`
 
 ## Ordered tasks
 
-1. Add the first canonical pattern in `human-agent-collaborative-work`, using the existing `human-agent-collaboration` problem-structure term and keeping the pattern centered on mixed initiative, explicit handoffs, and shared responsibility rather than a thin approval wrapper.
-2. Re-read the relevant family overview doc, schema, vocabularies, neighboring patterns, and coverage matrix before authoring the pattern and the minimum required derived-view updates.
-3. Validate repository YAML after the canonical pattern lands so the new family anchor does not break the existing schema-aligned corpus.
-4. After the empty-family pattern lands, reassess the next highest-leverage gap between support-domain grounding and a justified `transform-process` vocabulary refinement.
-5. Continue using grounded instances only as domain evidence and cross-link context rather than as substitutes for canonical YAML pattern structure.
+1. Add the first support-domain grounded instance in `instances/support/`, preferably tied to `analyst-copilot-loop`, so the support domain is no longer canonical-only.
+2. Re-read the relevant pattern YAML, neighboring support-relevant patterns, coverage matrix, and existing instance conventions before authoring the new Markdown file.
+3. Keep the instance specific to a concrete support workflow or target-system scenario, with explicit links back to one or more canonical pattern entries.
+4. Validate repository YAML after memory updates and any new instance-adjacent YAML changes.
+5. Keep `transform-process` blocked unless a justified direct problem-structure mapping and seed candidate emerge.
 
 ## Constraints
 
@@ -36,4 +37,4 @@ Land the first canonical pattern in `human-agent-collaborative-work`, then refre
 
 ## Expected outcome
 
-The next iteration should leave the repository with the first canonical pattern in `human-agent-collaborative-work`, updated browse linkage for that family, validated YAML, and refreshed execution memory that points cleanly to the next coverage move.
+The next iteration should leave the repository with the first support-domain grounded example, refreshed execution memory, and a clearer decision about whether the following step should be more support grounding or a justified `transform-process` ontology refinement.
