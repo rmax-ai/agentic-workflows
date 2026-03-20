@@ -97,7 +97,7 @@ Keep shell entrypoints thin and put reusable repository logic in checked-in Pyth
 
 ## Status
 
-Foundational docs, schema, and core controlled vocabularies are now in place. The current priority is Phase 3 navigation views, with repository helper tooling standardized on `uv`-managed Python 3.14.
+Foundational docs, schema, controlled vocabularies, browse views, family docs, and the first canonical patterns are now in place. The next priority is to expand the seed pattern set and begin grounding stable patterns with instances, with repository helper tooling standardized on `uv`-managed Python 3.14.
 
 ## License
 
