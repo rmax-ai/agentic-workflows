@@ -64,16 +64,18 @@
 - `data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml` — canonical investigation pattern for evidence-backed incident diagnosis and reconciled timelines.
 - `data/patterns/monitor-detect-triage/risk-alert-triage.yaml` — canonical monitoring pattern for governed alert prioritization and escalation packaging.
 
+### Current grounded examples
+
+- `instances/research/regulatory-obligation-synthesis-for-data-retention-review.md` — grounded research/compliance-adjacent instance for evidence-backed policy synthesis and citation review.
+- `instances/engineering/payments-api-latency-incident-investigation.md` — grounded engineering incident case for reconciled telemetry and root-cause analysis.
+- `instances/finance/suspicious-wire-transfer-alert-triage.md` — grounded finance triage case for governed alert prioritization and escalation.
+
 ## Not yet present but planned
 
 ### Additional documentation
 
 - `docs/domains/`
 - `docs/architectures/`
-
-### Grounded examples
-
-- `instances/`
 
 ## Reading order for future contributors and agents
 
@@ -87,3 +89,4 @@
 8. `data/vocabularies/`
 9. `docs/patterns/`
 10. `schema/pattern.schema.json`
+11. `instances/`

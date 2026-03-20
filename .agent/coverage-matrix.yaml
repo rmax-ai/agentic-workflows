@@ -2,7 +2,7 @@ version: 1
 last_updated: 2026-03-21
 legend:
   none: No repository artifact exists for the cell.
-  partial: Some artifacts exist, but coverage is incomplete.
+  partial: A canonical pattern exists for the cell, but grounded instance coverage is still incomplete.
   covered: Representative artifacts exist and are linked.
 dimensions:
   pattern_families:
@@ -36,10 +36,10 @@ dimensions:
     - critical
 matrices:
   pattern_family_x_domain:
-    gather-retrieve-synthesize: {engineering: covered, finance: none, compliance: covered, operations: none, research: covered, support: none, hr: none}
+    gather-retrieve-synthesize: {engineering: partial, finance: none, compliance: partial, operations: none, research: covered, support: none, hr: none}
     transform-process: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
-    investigate-reconcile-verify: {engineering: covered, finance: none, compliance: none, operations: covered, research: none, support: covered, hr: none}
-    monitor-detect-triage: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
+    investigate-reconcile-verify: {engineering: covered, finance: none, compliance: none, operations: partial, research: none, support: partial, hr: none}
+    monitor-detect-triage: {engineering: none, finance: covered, compliance: partial, operations: partial, research: none, support: none, hr: none}
     plan-coordinate-schedule: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
     recommend-decide-escalate: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
     execute-automate: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
@@ -68,6 +68,6 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Three canonical pattern entries now cover representative gather/synthesize, investigate/verify, and monitor/triage cells, so the matrix has moved from all-`none` scaffolding to real coverage guidance.
-    - Empty cells now indicate specific families, domains, architectures, and risk combinations that still need canonical patterns or grounded instances.
-    - There is still no grounded instance coverage, so future iterations should add instances linked to the new seed patterns before broadening expansion too aggressively.
+    - Three canonical pattern entries still anchor the only populated families, but the repository now also has its first linked instances in research, engineering, and finance.
+    - Covered domain cells now indicate both canonical pattern support and at least one grounded instance, while partial cells indicate that only the canonical layer exists so far.
+    - The highest-leverage next gaps are still-empty families, the uncovered approval-gated-execution architecture bucket, and low-risk or critical-risk combinations.

@@ -90,18 +90,20 @@ items:
       - Begin with high-value seed patterns only after schema, vocabularies, and views exist.
       - Use the Phase 4 family docs as narrative anchors so seed patterns stay within stable family boundaries.
       - The first batch now covers gather/synthesize, investigate/verify, and monitor/triage with browse-view linkage already in place.
+      - The next batch should target still-empty families and preferably improve low-risk, critical-risk, or approval-gated architecture coverage.
 
   - id: phase-6-grounded-instances
     phase: 6
     priority: P2
-    status: pending
+    status: in_progress
     title: Add Markdown instances linked to mature patterns
     depends_on:
       - phase-5-seed-patterns
     deliverables:
       - instances/
     notes:
-      - Start with a few grounded examples tied directly to the first three canonical patterns rather than broad domain sweeps.
+      - The first three grounded examples now exist for research, engineering, and finance, each tied directly to one of the initial canonical patterns.
+      - Continue Phase 6 in small follow-on batches only after new canonical patterns become stable enough to justify more grounded examples.
 
   - id: phase-7-coverage-refinement
     phase: 7

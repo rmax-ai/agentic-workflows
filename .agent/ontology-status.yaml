@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: first-canonical-patterns-landed
+repository_stage: first-grounded-instances-landed
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -20,20 +20,23 @@ phase_status:
   phase_5:
     name: seed canonical patterns
     status: in_progress
+  phase_6:
+    name: grounded instances
+    status: in_progress
 inventory:
   foundational_docs: 4
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
   pattern_files: 3
-  instance_files: 0
+  instance_files: 3
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
   pattern_families_defined: 9
   pattern_families_with_patterns: 3
   domains_with_patterns: 6
-  domains_with_instances: 0
+  domains_with_instances: 3
   architectures_mapped: 5
   autonomy_levels_mapped: 6
   risk_levels_mapped: 4
@@ -50,11 +53,11 @@ pattern_counts_by_family:
   optimize-adapt: 0
   human-agent-collaborative-work: 0
 instance_counts_by_domain:
-  engineering: 0
-  finance: 0
+  engineering: 1
+  finance: 1
   compliance: 0
   operations: 0
-  research: 0
+  research: 1
   support: 0
   hr: 0
 repo_reality:
@@ -79,6 +82,9 @@ repo_reality:
     - data/patterns/gather-retrieve-synthesize/research-synthesis-with-citation-verification.yaml
     - data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml
     - data/patterns/monitor-detect-triage/risk-alert-triage.yaml
+    - instances/research/regulatory-obligation-synthesis-for-data-retention-review.md
+    - instances/engineering/payments-api-latency-incident-investigation.md
+    - instances/finance/suspicious-wire-transfer-alert-triage.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -94,11 +100,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, and a first canonical pattern batch spanning gather/synthesize, investigate/verify, and monitor/triage workflows.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, a first canonical pattern batch spanning gather/synthesize, investigate/verify, and monitor/triage workflows, and an initial grounded instance batch across research, engineering, and finance.
 immediate_gaps:
   - Most canonical pattern YAML entries are still missing, especially in planning, recommendation, execution, optimization, and collaborative-work families.
-  - Missing every grounded instance Markdown file.
+  - Grounded instances exist only for three domains, leaving compliance, operations, support, and HR without direct instance coverage.
   - transform-process currently has no direct problem-structure vocabulary mapping, so its browse-view linkage is intentionally left empty until a justified vocabulary refinement is made.
 next_action:
-  id: phase-6-grounded-instances
-  summary: Add a small first batch of grounded Markdown instances linked to the new canonical patterns, then resume Phase 5 expansion into still-empty families.
+  id: phase-5-second-seed-pattern-batch
+  summary: Add a second canonical pattern batch in still-empty families, with special attention to uncovered architecture and risk combinations before expanding instances again.
