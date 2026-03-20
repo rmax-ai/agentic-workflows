@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Begin Phase 5 by authoring a small, high-value batch of canonical YAML pattern entries now that the family overview docs are in place.
+Shift from initial pattern authoring to grounded expansion by adding the first Markdown instances for the new canonical patterns while planning the next seed-pattern batch.
 
 ## Current phase
 
@@ -10,15 +10,17 @@ Begin Phase 5 by authoring a small, high-value batch of canonical YAML pattern e
 - Phase 3: navigation views are complete
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
 - Tooling baseline: uv-managed Python 3.14 helper workflow is in place
-- Phase 5: start the first canonical pattern batch in `data/patterns/`
+- Phase 5: first canonical pattern batch landed in `data/patterns/`
+- Phase 6: grounded instances are now the next dependency-safe expansion target for the mature seed patterns already in the repo
 
 ## Ordered tasks
 
-1. Author a small first batch of canonical pattern YAML files in representative families with strong vocabulary support, starting with investigation, monitoring, and gather/synthesis workflows before broader expansion.
-2. Keep every seed pattern aligned with `schema/pattern.schema.json`, the existing controlled vocabularies, `data/views/index-tree.yaml`, and the new `docs/patterns/` family boundaries.
-3. Prefer patterns with clear governance and evaluation surfaces so the initial batch sets a high-quality template for later authoring.
-4. Avoid `transform-process` until a concrete pattern is justified despite the current `problem-structures` vocabulary gap, or until that gap is deliberately refined.
-5. Validate new YAML files with the existing `uv`-managed helper tooling after each pattern batch.
+1. Author the first grounded Markdown instances under `instances/` for `research-synthesis-with-citation-verification`, `incident-root-cause-analysis`, and `risk-alert-triage`, making sure each instance points back to one or more canonical YAML patterns.
+2. Choose concrete but reusable scenarios that deepen domain grounding without collapsing the ontology into vendor-specific documentation.
+3. Keep instance authoring aligned with the existing schema, vocabularies, browse views, and the governance posture already established in the canonical pattern files.
+4. After the first instances land, resume Phase 5 with a second seed-pattern batch in still-empty families such as planning, recommendation, or execution.
+5. Continue to avoid `transform-process` until a concrete pattern is justified despite the current `problem-structures` vocabulary gap, or until that gap is deliberately refined.
+6. Validate new YAML and Markdown-adjacent references with the existing `uv`-managed helper tooling and normal repo review discipline after each batch.
 
 ## Constraints
 
@@ -29,7 +31,8 @@ Begin Phase 5 by authoring a small, high-value batch of canonical YAML pattern e
 - Use the family overview docs as narrative constraints, not as alternate canonical data.
 - Keep views aligned with the controlled vocabulary ids and treat them as derived browse artifacts.
 - Ensure every subagent task ends with exactly one git commit.
+- Keep early instance work tightly tied to existing canonical patterns; do not create standalone domain essays.
 
 ## Expected outcome
 
-The next iteration should land a modest, schema-valid first batch of canonical pattern YAML files that establish the repository's pattern authoring standard without over-expanding coverage.
+The next iteration should land a modest first set of grounded instances linked to the new canonical patterns, leaving the repository more navigable across both ontology and instance layers.

@@ -58,16 +58,18 @@
 - `data/views/by-autonomy.yaml` — derived autonomy view that organizes future canonical patterns by discretion and control boundary.
 - `data/views/by-risk.yaml` — derived risk view that organizes future canonical patterns by governance posture.
 
+### Current canonical pattern data
+
+- `data/patterns/gather-retrieve-synthesize/research-synthesis-with-citation-verification.yaml` — canonical gather/synthesize pattern for evidence-grounded synthesis with citation verification.
+- `data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml` — canonical investigation pattern for evidence-backed incident diagnosis and reconciled timelines.
+- `data/patterns/monitor-detect-triage/risk-alert-triage.yaml` — canonical monitoring pattern for governed alert prioritization and escalation packaging.
+
 ## Not yet present but planned
 
 ### Additional documentation
 
 - `docs/domains/`
 - `docs/architectures/`
-
-### Structured ontology data
-
-- `data/patterns/`
 
 ### Grounded examples
 

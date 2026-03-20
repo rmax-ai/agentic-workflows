@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: family-docs-established
+repository_stage: first-canonical-patterns-landed
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -19,22 +19,44 @@ phase_status:
     status: complete
   phase_5:
     name: seed canonical patterns
-    status: pending
+    status: in_progress
 inventory:
   foundational_docs: 4
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 0
+  pattern_files: 3
   instance_files: 0
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
   pattern_families_defined: 9
+  pattern_families_with_patterns: 3
+  domains_with_patterns: 6
   domains_with_instances: 0
   architectures_mapped: 5
   autonomy_levels_mapped: 6
   risk_levels_mapped: 4
+  autonomy_levels_with_patterns: 3
+  risk_levels_with_patterns: 2
+pattern_counts_by_family:
+  gather-retrieve-synthesize: 1
+  transform-process: 0
+  investigate-reconcile-verify: 1
+  monitor-detect-triage: 1
+  plan-coordinate-schedule: 0
+  recommend-decide-escalate: 0
+  execute-automate: 0
+  optimize-adapt: 0
+  human-agent-collaborative-work: 0
+instance_counts_by_domain:
+  engineering: 0
+  finance: 0
+  compliance: 0
+  operations: 0
+  research: 0
+  support: 0
+  hr: 0
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -54,6 +76,9 @@ repo_reality:
     - data/views/by-architecture.yaml
     - data/views/by-autonomy.yaml
     - data/views/by-risk.yaml
+    - data/patterns/gather-retrieve-synthesize/research-synthesis-with-citation-verification.yaml
+    - data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml
+    - data/patterns/monitor-detect-triage/risk-alert-triage.yaml
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -69,11 +94,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, and a complete first set of top-level pattern family overview docs. Canonical patterns and grounded instances have not been authored yet.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, and a first canonical pattern batch spanning gather/synthesize, investigate/verify, and monitor/triage workflows.
 immediate_gaps:
-  - Missing every canonical pattern YAML entry.
+  - Most canonical pattern YAML entries are still missing, especially in planning, recommendation, execution, optimization, and collaborative-work families.
   - Missing every grounded instance Markdown file.
   - transform-process currently has no direct problem-structure vocabulary mapping, so its browse-view linkage is intentionally left empty until a justified vocabulary refinement is made.
 next_action:
-  id: phase-5-seed-patterns
-  summary: Author a small first batch of canonical pattern YAML files in representative families using the schema, vocabularies, views, and new family docs as the authoring baseline.
+  id: phase-6-grounded-instances
+  summary: Add a small first batch of grounded Markdown instances linked to the new canonical patterns, then resume Phase 5 expansion into still-empty families.

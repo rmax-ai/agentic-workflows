@@ -1,5 +1,5 @@
 version: 1
-last_updated: 2026-03-20
+last_updated: 2026-03-21
 principle: Build the ontology in dependency order and do not skip prerequisites.
 items:
   - id: phase-0-memory-bootstrap
@@ -89,6 +89,7 @@ items:
     notes:
       - Begin with high-value seed patterns only after schema, vocabularies, and views exist.
       - Use the Phase 4 family docs as narrative anchors so seed patterns stay within stable family boundaries.
+      - The first batch now covers gather/synthesize, investigate/verify, and monitor/triage with browse-view linkage already in place.
 
   - id: phase-6-grounded-instances
     phase: 6
@@ -99,6 +100,8 @@ items:
       - phase-5-seed-patterns
     deliverables:
       - instances/
+    notes:
+      - Start with a few grounded examples tied directly to the first three canonical patterns rather than broad domain sweeps.
 
   - id: phase-7-coverage-refinement
     phase: 7

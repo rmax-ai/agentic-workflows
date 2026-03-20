@@ -36,30 +36,30 @@ dimensions:
     - critical
 matrices:
   pattern_family_x_domain:
-    gather-retrieve-synthesize: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
+    gather-retrieve-synthesize: {engineering: covered, finance: none, compliance: covered, operations: none, research: covered, support: none, hr: none}
     transform-process: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
-    investigate-reconcile-verify: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
-    monitor-detect-triage: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
+    investigate-reconcile-verify: {engineering: covered, finance: none, compliance: none, operations: covered, research: none, support: covered, hr: none}
+    monitor-detect-triage: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
     plan-coordinate-schedule: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
     recommend-decide-escalate: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
     execute-automate: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
     optimize-adapt: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
     human-agent-collaborative-work: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
   pattern_family_x_architecture:
-    gather-retrieve-synthesize: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
+    gather-retrieve-synthesize: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
     transform-process: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
-    investigate-reconcile-verify: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
-    monitor-detect-triage: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
+    investigate-reconcile-verify: {tool-using-single-agent: none, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
+    monitor-detect-triage: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: covered, approval-gated-execution: none}
     plan-coordinate-schedule: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
     recommend-decide-escalate: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
     execute-automate: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
     optimize-adapt: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
     human-agent-collaborative-work: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
   pattern_family_x_risk:
-    gather-retrieve-synthesize: {low: none, moderate: none, high: none, critical: none}
+    gather-retrieve-synthesize: {low: none, moderate: covered, high: none, critical: none}
     transform-process: {low: none, moderate: none, high: none, critical: none}
-    investigate-reconcile-verify: {low: none, moderate: none, high: none, critical: none}
-    monitor-detect-triage: {low: none, moderate: none, high: none, critical: none}
+    investigate-reconcile-verify: {low: none, moderate: none, high: covered, critical: none}
+    monitor-detect-triage: {low: none, moderate: none, high: covered, critical: none}
     plan-coordinate-schedule: {low: none, moderate: none, high: none, critical: none}
     recommend-decide-escalate: {low: none, moderate: none, high: none, critical: none}
     execute-automate: {low: none, moderate: none, high: none, critical: none}
@@ -68,7 +68,6 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Schema, foundational docs, core controlled vocabularies, browse views, and family overview docs now exist, so the matrix dimensions and navigation layer are stable enough to guide early pattern authoring.
-    - The Phase 4 family docs provide narrative boundaries for all nine top-level families, but they do not change cell status because coverage requires canonical pattern or instance artifacts.
-    - Coverage cells remain `none` because no canonical pattern or instance artifacts have been added yet.
-    - Use the empty cells to choose the first pattern batches once pattern family docs are in place.
+    - Three canonical pattern entries now cover representative gather/synthesize, investigate/verify, and monitor/triage cells, so the matrix has moved from all-`none` scaffolding to real coverage guidance.
+    - Empty cells now indicate specific families, domains, architectures, and risk combinations that still need canonical patterns or grounded instances.
+    - There is still no grounded instance coverage, so future iterations should add instances linked to the new seed patterns before broadening expansion too aggressively.
