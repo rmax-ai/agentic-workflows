@@ -107,7 +107,8 @@ items:
     notes:
       - The first three grounded examples now exist for research, engineering, and finance, each tied directly to one of the initial canonical patterns.
       - A follow-on instance batch now grounds the planning, recommendation, and execution patterns in operations, compliance, and HR scenarios.
-      - Support remains the most obvious uncovered domain for another near-term instance, and `analyst-copilot-loop` now provides a direct collaboration-oriented support pattern to ground.
+      - Support is now grounded through a collaboration-oriented escalation example linked to `analyst-copilot-loop`, so every currently modeled domain has at least one instance.
+      - Several families still have only one grounded example, so future Phase 6 work should deepen representative coverage without turning instances into generic domain overviews.
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement
@@ -119,3 +120,6 @@ items:
       - phase-6-grounded-instances
     deliverables:
       - Balanced coverage across families, domains, architectures, and governance profiles
+    notes:
+      - The highest-leverage remaining ontology gap is still the empty `transform-process` family, which requires a justified problem-structure refinement before canonical seed authoring.
+      - After that gap is addressed, rebalance partial coverage across orchestrated architectures and lightly grounded families.

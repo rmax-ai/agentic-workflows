@@ -44,7 +44,7 @@ matrices:
     recommend-decide-escalate: {engineering: none, finance: partial, compliance: covered, operations: partial, research: none, support: none, hr: none}
     execute-automate: {engineering: none, finance: partial, compliance: partial, operations: none, research: none, support: none, hr: covered}
     optimize-adapt: {engineering: none, finance: none, compliance: partial, operations: partial, research: none, support: partial, hr: none}
-    human-agent-collaborative-work: {engineering: none, finance: none, compliance: partial, operations: none, research: partial, support: partial, hr: none}
+    human-agent-collaborative-work: {engineering: none, finance: none, compliance: partial, operations: none, research: partial, support: covered, hr: none}
   pattern_family_x_architecture:
     gather-retrieve-synthesize: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
     transform-process: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
@@ -68,6 +68,6 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Eight canonical pattern entries now populate eight of the nine top-level families, with `human-agent-collaborative-work` no longer empty and grounded examples extending across six distinct domains.
-    - The new collaboration anchor adds canonical coverage for research, compliance, and support inside a mixed-initiative pattern shape while filling the previously empty family slices in the autonomy, architecture, and risk browse views.
-    - The highest-leverage next gaps are the still-empty `transform-process` family and the lack of any support-domain grounded instance.
+    - Eight canonical pattern entries now populate eight of the nine top-level families, and grounded examples now extend across all seven currently modeled domains.
+    - The support-domain collaboration instance upgrades `human-agent-collaborative-work` from partial to covered in the support slice while keeping mixed-initiative grounding distinct from recommendation or execution families.
+    - The highest-leverage next gaps are the still-empty `transform-process` family and the many partial cells in newer families that still have only one grounded example each.

@@ -76,6 +76,7 @@
 - `instances/finance/suspicious-wire-transfer-alert-triage.md` — grounded finance triage case for governed alert prioritization and escalation.
 - `instances/operations/cross-functional-maintenance-review-scheduling.md` — grounded operations scheduling case for bounded-delegation coordination around maintenance review timing.
 - `instances/compliance/cross-border-deal-exception-review.md` — grounded compliance review case for governed recommendation support on cross-border commercial exceptions.
+- `instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md` — grounded support escalation case for mixed-initiative diagnosis, customer messaging, and explicit engineering/security handoff ownership.
 - `instances/hr/approved-payroll-status-change-submission.md` — grounded HR execution case for approval-gated payroll status changes in a browser-only portal.
 
 ## Not yet present but planned
