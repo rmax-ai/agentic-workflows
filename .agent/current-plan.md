@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Resume Phase 3 navigation-view authoring on top of the new uv-managed Python helper baseline.
+Complete Phase 3 navigation-view authoring in one scoped batch, then update repository memory to mark browse-view prerequisites as satisfied.
 
 ## Current phase
 
@@ -15,8 +15,8 @@ Resume Phase 3 navigation-view authoring on top of the new uv-managed Python hel
 1. Create `data/views/index-tree.yaml` using the established pattern families and link strategy from `docs/index-tree.md`.
 2. Create alternate browse views for domain, architecture, autonomy, and risk using the controlled vocabulary ids from `data/vocabularies/`.
 3. Keep view artifacts reference-oriented so they can be regenerated once pattern files exist.
-4. Extend Python helper tooling only when repository automation needs reusable logic beyond shell orchestration.
-5. After views land, prepare the top-level `docs/patterns/` family docs before seed pattern authoring.
+4. Validate the new YAML view files with the existing `uv`-managed helper tooling.
+5. After views land, move immediately to top-level `docs/patterns/` family docs before seed pattern authoring.
 
 ## Constraints
 
@@ -30,4 +30,4 @@ Resume Phase 3 navigation-view authoring on top of the new uv-managed Python hel
 
 ## Expected outcome
 
-The next iteration should land committed browse views that make the ontology more navigable, while relying on the new uv-managed Python helper path for any reusable validation needed along the way.
+This iteration should land committed browse views that make the ontology more navigable, validate them with the checked-in Python helper path, and leave the repository ready for Phase 4 pattern-family docs.
