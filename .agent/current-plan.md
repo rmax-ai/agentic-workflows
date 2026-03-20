@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Build on the new `optimize-adapt` anchor by choosing the next highest-leverage gap between the remaining empty `human-agent-collaborative-work` family and the still-ungrounded support domain.
+Land the first canonical pattern in `human-agent-collaborative-work`, then refresh execution memory so the next iteration can decide between support-domain grounding and a justified `transform-process` refinement from a cleaner baseline.
 
 ## Current phase
 
@@ -15,10 +15,10 @@ Build on the new `optimize-adapt` anchor by choosing the next highest-leverage g
 
 ## Ordered tasks
 
-1. Add the first canonical pattern in `human-agent-collaborative-work`, using the existing `human-agent-collaboration` problem-structure term and keeping the pattern centered on shared initiative rather than a thin approval wrapper.
-2. Re-read the relevant family overview doc, schema, vocabularies, neighboring patterns, and coverage matrix before authoring the next pattern and any derived-view updates.
-3. After the next empty-family pattern lands, consider a small support-domain instance batch so the support domain is no longer canonical-only.
-4. Keep `transform-process` blocked unless a justified vocabulary-supported candidate or explicit vocabulary refinement emerges.
+1. Add the first canonical pattern in `human-agent-collaborative-work`, using the existing `human-agent-collaboration` problem-structure term and keeping the pattern centered on mixed initiative, explicit handoffs, and shared responsibility rather than a thin approval wrapper.
+2. Re-read the relevant family overview doc, schema, vocabularies, neighboring patterns, and coverage matrix before authoring the pattern and the minimum required derived-view updates.
+3. Validate repository YAML after the canonical pattern lands so the new family anchor does not break the existing schema-aligned corpus.
+4. After the empty-family pattern lands, reassess the next highest-leverage gap between support-domain grounding and a justified `transform-process` vocabulary refinement.
 5. Continue using grounded instances only as domain evidence and cross-link context rather than as substitutes for canonical YAML pattern structure.
 
 ## Constraints
@@ -36,4 +36,4 @@ Build on the new `optimize-adapt` anchor by choosing the next highest-leverage g
 
 ## Expected outcome
 
-The next iteration should leave the repository with the first canonical pattern in `human-agent-collaborative-work` or, if instance leverage is clearly higher, the first support-domain grounded example tied to an existing canonical pattern.
+The next iteration should leave the repository with the first canonical pattern in `human-agent-collaborative-work`, updated browse linkage for that family, validated YAML, and refreshed execution memory that points cleanly to the next coverage move.
