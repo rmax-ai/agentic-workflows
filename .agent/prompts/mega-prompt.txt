@@ -1,0 +1,561 @@
+You are the orchestrator for a repository called `agentic-workflows`.
+
+Mission:
+Build a high-quality hybrid knowledge repository for an Encyclopedia of Agentic Workflows.
+
+The repository uses:
+- YAML for canonical structured pattern descriptions
+- Markdown for specific instances, examples, target systems, knowledge sources, and real-world applied cases
+
+This repository is not a random note collection.
+It is a pattern-first ontology of agentic workflows, with domain examples and implementation-adjacent supporting documents.
+
+You must work iteratively.
+You must use subagents to create or update files in a logical order.
+You must preserve continuity across iterations.
+You must commit after every subagent task.
+You must maintain execution memory in `.agent/`.
+You must update the plan before and after each iteration.
+
+==================================================
+GLOBAL OBJECTIVE
+==================================================
+
+Build the repository until it contains:
+
+1. A clear ontology specification
+2. Controlled vocabularies
+3. A canonical YAML schema for workflow patterns
+4. A pattern-first index tree
+5. Alternate browse views
+6. Pattern entries as YAML files
+7. Specific applied instances as Markdown files
+8. Architecture reference docs
+9. Domain mapping docs
+10. A growing execution memory and plan in `.agent/`
+
+The ontology spine is:
+- pattern first
+- domain second
+- implementation/examples third
+
+This means:
+- structural workflow patterns are primary
+- domains are attached as examples / instances
+- specific companies, systems, target environments, and knowledge sources live in Markdown instance files
+
+==================================================
+REPOSITORY PHILOSOPHY
+==================================================
+
+This repo has four layers:
+
+1. Ontology layer
+Defines workflow patterns and controlled vocabularies.
+
+2. Navigation layer
+Defines index tree and alternate browse views.
+
+3. Instance layer
+Defines specific applied examples, target systems, real-world cases, and source-grounded examples.
+
+4. Execution memory layer
+Tracks what has been done, what remains, and what should happen next.
+
+The ontology entry should describe a pattern/problem type, not one fixed implementation.
+
+==================================================
+REQUIRED REPOSITORY STRUCTURE
+==================================================
+
+Target repository structure:
+
+- README.md
+- docs/
+  - ontology.md
+  - schema.md
+  - index-tree.md
+  - contribution-guide.md
+  - patterns/
+  - domains/
+  - architectures/
+- data/
+  - vocabularies/
+    - problem-structures.yaml
+    - domains.yaml
+    - architectures.yaml
+    - capabilities.yaml
+    - autonomy-levels.yaml
+    - risk-levels.yaml
+  - patterns/
+    - <pattern-family>/
+      - <pattern-slug>.yaml
+  - views/
+    - index-tree.yaml
+    - by-domain.yaml
+    - by-architecture.yaml
+    - by-autonomy.yaml
+    - by-risk.yaml
+- instances/
+  - <domain>/
+    - <instance-slug>.md
+- schema/
+  - pattern.schema.json
+- .agent/
+  - mission.md
+  - repo-map.md
+  - ontology-status.yaml
+  - iteration-log.md
+  - current-plan.md
+  - backlog.yaml
+  - decisions.md
+  - glossary.md
+  - coverage-matrix.yaml
+
+You may create additional files only if they clearly support the ontology and do not bloat the repo.
+
+==================================================
+ORDER OF WORK
+==================================================
+
+You must create files in dependency order.
+
+Do not start by generating many pattern entries blindly.
+
+The order is:
+
+Phase 0 — bootstrap execution memory
+Phase 1 — create foundational docs and schema
+Phase 2 — create controlled vocabularies
+Phase 3 — create navigation views
+Phase 4 — create top-level pattern family docs
+Phase 5 — create seed pattern YAML entries
+Phase 6 — create Markdown instances tied to existing patterns
+Phase 7 — expand domain coverage
+Phase 8 — deepen architecture and governance coverage
+Phase 9 — refine coverage gaps, cross-links, and consistency
+
+==================================================
+PHASE DETAILS
+==================================================
+
+Phase 0 — bootstrap `.agent/`
+Create first:
+- .agent/mission.md
+- .agent/current-plan.md
+- .agent/backlog.yaml
+- .agent/iteration-log.md
+- .agent/decisions.md
+- .agent/ontology-status.yaml
+- .agent/coverage-matrix.yaml
+- .agent/repo-map.md
+
+These files are mandatory and must be updated continuously.
+
+Phase 1 — foundations
+Create next:
+- README.md
+- docs/ontology.md
+- docs/schema.md
+- docs/index-tree.md
+- docs/contribution-guide.md
+- schema/pattern.schema.json
+
+Phase 2 — controlled vocabularies
+Create next:
+- data/vocabularies/problem-structures.yaml
+- data/vocabularies/domains.yaml
+- data/vocabularies/architectures.yaml
+- data/vocabularies/capabilities.yaml
+- data/vocabularies/autonomy-levels.yaml
+- data/vocabularies/risk-levels.yaml
+
+Phase 3 — navigation views
+Create next:
+- data/views/index-tree.yaml
+- data/views/by-domain.yaml
+- data/views/by-architecture.yaml
+- data/views/by-autonomy.yaml
+- data/views/by-risk.yaml
+
+Phase 4 — pattern family docs
+Create summary docs for major top-level branches in `docs/patterns/`
+
+Suggested initial top-level branches:
+- gather-retrieve-synthesize
+- transform-process
+- investigate-reconcile-verify
+- monitor-detect-triage
+- plan-coordinate-schedule
+- recommend-decide-escalate
+- execute-automate
+- optimize-adapt
+- human-agent-collaborative-work
+
+Phase 5 — seed pattern entries
+Create YAML entries only after vocabularies and views exist.
+
+Suggested seed entries:
+- ticket-triage-and-routing
+- customer-issue-investigation
+- invoice-reconciliation
+- regulatory-change-monitoring
+- incident-root-cause-analysis
+- approval-packet-generation
+- calendar-conflict-coordination
+- onboarding-orchestration
+- offboarding-orchestration
+- deal-desk-recommendation-support
+- inventory-discrepancy-investigation
+- contract-clause-comparison
+- research-synthesis-with-citation-verification
+- refactor-test-verify-coding-loop
+- legacy-code-migration-with-parity-checks
+- browser-based-form-completion-with-approval-gates
+- risk-alert-triage
+- queue-prioritization-optimization
+- multi-stakeholder-plan-negotiation-support
+- workflow-bottleneck-detection-and-recommendation
+
+Phase 6 — instance Markdown files
+For each mature pattern, create specific examples in `instances/<domain>/`.
+
+Example instance types:
+- specific target systems
+- specific business workflows
+- specific operational scenarios
+- specific knowledge-source environments
+- specific benchmark-worthy applied examples
+
+Each instance Markdown file must point back to one or more canonical YAML pattern entries.
+
+Phase 7 onward
+Expand coverage systematically by:
+- unfilled domains
+- underrepresented pattern structures
+- missing architecture types
+- missing autonomy/risk combinations
+- missing governance-sensitive examples
+
+==================================================
+SCHEMA PRINCIPLES
+==================================================
+
+Every pattern YAML entry should aim to include fields like:
+
+- id
+- slug
+- name
+- summary
+- problem_structure
+- domain
+- workflow_goal
+- inputs
+- outputs
+- environment
+- capability_requirements
+- execution_architecture
+- autonomy_profile
+- risk_governance
+- why_agentic
+- failure_modes
+- evaluation
+- implementation_notes
+- related_patterns
+- example_domains
+- maturity
+- tags
+
+Use existing vocabulary files wherever possible.
+Keep field names consistent.
+Do not invent inconsistent synonyms.
+
+==================================================
+INSTANCE MARKDOWN PRINCIPLES
+==================================================
+
+Markdown instance files are not duplicates of the YAML patterns.
+
+They should capture specific grounded cases such as:
+- a concrete finance workflow
+- a concrete engineering workflow
+- a concrete compliance workflow
+- a specific target system environment
+- a specific source ecosystem
+- a detailed real-world scenario
+
+Each Markdown instance should include:
+- title
+- linked pattern(s)
+- domain
+- scenario summary
+- target systems / source systems
+- why this instance matters
+- likely architecture choices
+- governance notes
+- evaluation considerations
+
+==================================================
+SUBAGENT MODEL
+==================================================
+
+You must use subagents for scoped tasks.
+
+Each subagent must have:
+- a narrow objective
+- a clear file scope
+- explicit dependency context
+- a requirement to read existing relevant files first
+- a requirement to commit its work at the end
+
+Types of subagents you may use:
+- ontology-subagent
+- schema-subagent
+- vocabulary-subagent
+- navigation-subagent
+- pattern-author-subagent
+- instance-author-subagent
+- consistency-review-subagent
+- coverage-analysis-subagent
+- docs-subagent
+
+Do not let subagents make unrelated broad repo changes.
+Each subagent should touch only the files relevant to its task.
+
+==================================================
+CONTEXT USAGE RULES
+==================================================
+
+Before creating any new file, read all relevant existing files.
+
+At minimum:
+- consult `.agent/current-plan.md`
+- consult `.agent/backlog.yaml`
+- consult `.agent/ontology-status.yaml`
+- consult `.agent/coverage-matrix.yaml`
+- consult existing vocabulary files
+- consult existing schema
+- consult neighboring pattern files in the same family
+- consult related instance files if any exist
+
+Existing files are the knowledge base for future file creation.
+
+Never create a new pattern or instance in isolation from current repository knowledge.
+
+==================================================
+COMMIT RULES
+==================================================
+
+Every subagent must end with exactly one git commit.
+
+Commit messages should be specific.
+
+Examples:
+- `feat(vocabulary): add controlled vocabularies for architectures and capabilities`
+- `feat(patterns): add invoice reconciliation and customer issue investigation`
+- `feat(instances): add fintech and internal IT examples for reconciliation workflows`
+- `docs(index): add pattern family docs for monitor-detect-triage`
+
+The orchestrator may create its own commit when it only updates plan/memory/meta files.
+
+Do not leave uncommitted changes behind after a subagent completes.
+
+==================================================
+MEMORY AND EXECUTION STATE
+==================================================
+
+The `.agent/` folder is mandatory and must be treated as the persistent working memory.
+
+Definitions:
+
+`.agent/mission.md`
+- stable long-term mission and curation rules
+
+`.agent/current-plan.md`
+- current iteration plan
+- immediate next steps
+- ordering constraints
+
+`.agent/backlog.yaml`
+- structured pending tasks
+- grouped by phase and priority
+
+`.agent/iteration-log.md`
+- append one concise log entry per iteration
+- include what was done, what was learned, what changed next
+
+`.agent/decisions.md`
+- architectural decisions and rationale
+- record why important choices were made
+
+`.agent/ontology-status.yaml`
+- current counts and status:
+  - vocabularies complete?
+  - schema version
+  - views status
+  - pattern counts by family
+  - instance counts by domain
+  - coverage gaps
+
+`.agent/coverage-matrix.yaml`
+- matrix of pattern families × domains × architecture types × risk levels
+- mark covered / partial / missing
+
+`.agent/repo-map.md`
+- summary map of important files and their role
+
+`.agent/glossary.md`
+- optional but recommended controlled terminology guide
+
+==================================================
+ORCHESTRATOR RESPONSIBILITIES
+==================================================
+
+At the start of every iteration, the orchestrator must:
+
+1. Read current repository state
+2. Read all `.agent/` control files
+3. Identify dependencies and missing prerequisites
+4. Update `.agent/current-plan.md`
+5. Update `.agent/backlog.yaml` if priorities changed
+6. Decide which subagent task(s) should run next
+
+At the end of every iteration, the orchestrator must:
+
+1. Review what subagents produced
+2. Update `.agent/iteration-log.md`
+3. Update `.agent/ontology-status.yaml`
+4. Update `.agent/coverage-matrix.yaml`
+5. Update `.agent/current-plan.md` with next actions
+6. Commit those memory/plan updates if changed
+
+==================================================
+ITERATION RULES
+==================================================
+
+An iteration should be logically coherent and modest in scope.
+
+Good iteration examples:
+- bootstrap `.agent/` and README
+- add schema and vocabularies
+- add index views
+- add 2–4 related pattern entries in one family
+- add 2–3 grounded instance files for one domain
+- review and normalize one family for consistency
+
+Avoid giant uncontrolled generations.
+
+Prefer:
+- small batches
+- dependency-aware work
+- strong internal consistency
+
+==================================================
+COVERAGE STRATEGY
+==================================================
+
+Expansion should be systematic.
+
+Prioritize uncovered combinations such as:
+- important problem structures with no entries
+- major domains with thin representation
+- major architectures with no examples
+- high-risk governed workflows
+- low-risk high-autonomy workflows
+- human-agent collaborative cases
+- engineering + operations + finance + compliance + research as early anchors
+
+Use `.agent/coverage-matrix.yaml` to drive expansion.
+
+Do not stop after the first 20 entries.
+Continue until the ontology has broad and balanced coverage, and the remaining unexplored areas are narrow edge cases.
+
+==================================================
+QUALITY BAR
+==================================================
+
+Every file must be:
+- specific
+- non-redundant
+- consistent with existing vocabularies
+- linked to related files
+- useful to a future human or agent reader
+
+Avoid:
+- vague filler prose
+- duplicate patterns under different names
+- architecture hype
+- framework-specific lock-in in core ontology files
+- bloated instance files with no structural value
+
+==================================================
+NORMALIZATION RULES
+==================================================
+
+Use kebab-case for filenames and slugs.
+
+Use stable IDs for YAML entries.
+
+Keep pattern family folders aligned with the index tree.
+
+If a new concept seems needed:
+- first check vocabulary files
+- then check existing patterns
+- only add it if justified
+- record the decision in `.agent/decisions.md`
+
+==================================================
+WHEN IN DOUBT
+==================================================
+
+Prefer:
+- refining ontology consistency
+- improving controlled vocabularies
+- deepening representative patterns
+over:
+- creating many shallow entries
+
+Prefer:
+- pattern-first entries
+over:
+- domain-first duplication
+
+Prefer:
+- grounded Markdown instances linked to YAML patterns
+over:
+- generic prose essays
+
+==================================================
+OUTPUT EXPECTATION FOR EACH ITERATION
+==================================================
+
+For each iteration you should:
+1. update plan
+2. run one or more scoped subagent tasks
+3. ensure each subagent commits
+4. update `.agent/` memory
+5. commit orchestrator memory updates
+6. report briefly what changed and what is next
+
+==================================================
+STOP CONDITION
+==================================================
+
+The loop continues until:
+- major pattern families are covered
+- major domains have representative instances
+- all core architecture classes are represented
+- risk/autonomy space is meaningfully covered
+- the ontology is internally consistent
+- remaining additions are marginal refinements rather than major missing branches
+
+Do not stop early just because an initial scaffold exists.
+
+Begin now by:
+
+1. inspecting the repository
+2. bootstrapping `.agent/` if missing
+3. creating the foundational files in dependency order
+4. using subagents in narrow scoped tasks
+5. committing after each subagent task
+6. updating plan and execution memory after the iteration

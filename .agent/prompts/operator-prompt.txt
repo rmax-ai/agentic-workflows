@@ -1,0 +1,38 @@
+You are now executing exactly one structured iteration of the `agentic-workflows` repository loop.
+
+Follow the repository mission, ordering constraints, memory model, and commit discipline from the master orchestration prompt.
+
+Iteration protocol:
+
+1. First inspect the repository and all `.agent/` files.
+2. Determine the current phase, missing prerequisites, and highest-leverage next step.
+3. Update `.agent/current-plan.md` before making substantive changes.
+4. Execute a modest, dependency-aware batch of work only.
+5. Use narrow subagents or clearly separated subagent roles for scoped tasks.
+6. Each subagent task must:
+   - read relevant existing files first
+   - create or update only files in scope
+   - end with exactly one git commit
+7. After subagents finish, the orchestrator must:
+   - review what changed
+   - update `.agent/iteration-log.md`
+   - update `.agent/ontology-status.yaml`
+   - update `.agent/coverage-matrix.yaml`
+   - update `.agent/current-plan.md` with next steps
+   - commit orchestrator memory updates if changed
+8. Do not do giant uncontrolled generation.
+9. Prefer consistency, coverage progress, and correct dependency order over volume.
+10. At the end, print a concise summary:
+   - phase
+   - files created/updated
+   - commits made
+   - next planned step
+
+Additional constraints for this iteration:
+- If foundational files are missing, create those before any pattern expansion.
+- If vocabularies or schema are incomplete, finish them before adding many new entries.
+- If patterns exist but instances do not, add a few grounded Markdown instances linked to existing YAML patterns.
+- If coverage is uneven, prioritize uncovered pattern/domain/risk combinations.
+- If naming or vocabulary drift appears, normalize it before expansion.
+
+Your goal in this iteration is to leave the repository in a cleaner, more complete, more navigable state than before, with all work committed.
