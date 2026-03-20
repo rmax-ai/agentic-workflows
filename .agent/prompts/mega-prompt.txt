@@ -105,6 +105,7 @@ Target repository structure:
   - mission.md
   - repo-map.md
   - ontology-status.yaml
+  - proposals/
   - iterations/
     - <year>/
       - <timestamp>.md
@@ -391,6 +392,11 @@ Definitions:
 - architectural decisions and rationale
 - record why important choices were made
 
+`.agent/proposals/`
+- bounded improvement proposals for the loop, prompt system, tooling, schema, vocabularies, views, patterns, ontology, governance, or evaluation
+- use when reflection surfaces a specific, durable improvement that should be considered or tracked
+- do not generate a proposal unless there is a concrete justified change
+
 `.agent/ontology-status.yaml`
 - current counts and status:
   - vocabularies complete?
@@ -426,11 +432,16 @@ At the start of every iteration, the orchestrator must:
 At the end of every iteration, the orchestrator must:
 
 1. Review what subagents produced
-2. Add a new dated file under `.agent/iterations/`
-3. Update `.agent/ontology-status.yaml`
-4. Update `.agent/coverage-matrix.yaml`
-5. Update `.agent/current-plan.md` with next actions
-6. Commit those memory/plan updates if changed
+2. Perform a short post-iteration reflection on workflow quality, prompt quality, ontology coherence, pattern quality, and loop/tooling friction
+3. If that reflection surfaces a specific, durable, and dependency-aware improvement that is not already captured, add or update exactly one proposal under `.agent/proposals/`
+4. Add a new dated file under `.agent/iterations/`
+5. Update `.agent/ontology-status.yaml`
+6. Update `.agent/coverage-matrix.yaml`
+7. Update `.agent/current-plan.md` with next actions
+8. Commit those memory/plan updates if changed
+
+Treat reflection as bounded process improvement, not open-ended self-modification.
+Any proposal should be concrete, scoped, and relevant to the repository system rather than vague future ideation.
 
 ==================================================
 ITERATION RULES
