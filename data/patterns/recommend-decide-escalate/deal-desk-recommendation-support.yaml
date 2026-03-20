@@ -1,0 +1,251 @@
+id: deal-desk-recommendation-support
+slug: deal-desk-recommendation-support
+name: Deal desk recommendation support
+summary: Evaluate commercial options, policy constraints, and approval thresholds to recommend a governed deal path without directly executing the transaction.
+pattern_family:
+  id: recommend-decide-escalate
+  label: Recommend / Decide / Escalate
+problem_structure:
+  id: recommendation-and-decision-support
+  label: Recommendation and decision support
+  source_vocabulary: problem-structures
+domain:
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+workflow_goal: Produce a defensible recommendation for how to structure, approve, or escalate a proposed commercial deal based on pricing guardrails, policy constraints, and downstream operational implications.
+inputs:
+  - name: Proposed deal package
+    description: The requested commercial terms, products, quantities, discounts, commitments, and exceptions under consideration.
+    kind: proposal
+    required: true
+    examples:
+      - Enterprise renewal with expanded seats and custom payment terms
+      - Net-new services package requesting a nonstandard discount
+  - name: Policy and approval framework
+    description: Pricing guardrails, authority matrices, legal constraints, revenue rules, and escalation thresholds that shape what can be recommended.
+    kind: policy
+    required: true
+    examples:
+      - Discount thresholds requiring finance approval
+      - Contracting rules for nonstandard indemnity language
+  - name: Historical and contextual evidence
+    description: Prior deal precedents, customer context, forecast impact, and operational delivery considerations relevant to the decision.
+    kind: record-set
+    required: false
+    examples:
+      - Similar closed deals with approved exception paths
+      - Margin impact analysis and implementation capacity notes
+  - name: Stakeholder feedback
+    description: Inputs from account teams, finance reviewers, compliance owners, or operations leads about risks and trade-offs.
+    kind: narrative
+    required: false
+    examples:
+      - Sales notes on strategic customer importance
+      - Compliance concern about export or data-handling obligations
+outputs:
+  - name: Ranked deal path recommendation
+    description: Ordered options with rationale, trade-offs, and a recommended approval or escalation route.
+    kind: recommendation
+    required: true
+    examples:
+      - Recommend standard terms with a capped discount and finance sign-off
+      - Recommend executive escalation because requested terms exceed delegated authority
+  - name: Decision support packet
+    description: Evidence bundle linking the recommendation to pricing rules, precedents, risk notes, and unresolved questions.
+    kind: case-packet
+    required: true
+    examples:
+      - Margin summary with cited guardrail exceptions
+      - Approval matrix showing which stakeholders must review the deal
+  - name: Escalation trigger list
+    description: Explicit conditions that should stop local approval and route the deal to a higher authority.
+    kind: escalation-rules
+    required: true
+    examples:
+      - Escalate if requested discount exceeds the regional threshold
+      - Escalate if nonstandard payment timing changes revenue recognition treatment
+environment:
+  summary: Operates in governance-sensitive commercial workflows where deal quality depends on balancing win probability, margin, policy compliance, and operational feasibility without hiding the rationale.
+  systems:
+    - CRM and quoting systems
+    - Pricing and approval policy repositories
+    - Finance and contract review tools
+    - Forecasting and delivery planning systems
+  actors:
+    - Account team or requester
+    - Deal desk analyst
+    - Finance or compliance approver
+    - Commercial operations lead
+  constraints:
+    - Recommendations must reflect current approval matrices and policy thresholds.
+    - Strategic context may influence option ranking but should not override non-waivable constraints silently.
+    - The output must separate recommendation rationale from final decision authority.
+    - Exceptions and unresolved policy issues must remain visible to approvers.
+  assumptions:
+    - Relevant pricing, approval, and margin data can be retrieved in time to support deal review.
+    - Final decision rights are clearly assigned outside the agent workflow.
+    - Reviewers can inspect the evidence packet before acting on the recommendation.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow needs historical precedents, policy thresholds, and contextual records before a recommendation can be justified.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Commercial, operational, and governance inputs must be combined into a decision-ready packet rather than remaining as disconnected facts.
+  - capability:
+      id: recommendation
+      label: Recommendation
+      source_vocabulary: capabilities
+    necessity: The central deliverable is a ranked next-best path with clear trade-offs and escalation guidance.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Pricing guardrails, approval limits, and compliance rules materially determine which options are viable.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Key assumptions such as discount bands, precedent fit, and required approvers should be checked before advice is surfaced.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow must preserve rationale, prior exceptions, and reviewer feedback across iterative deal revisions.
+execution_architecture:
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: One recommendation agent can usually retrieve deal context, compare options, and prepare a coherent decision packet within a bounded review loop.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human stakeholders remain embedded because the workflow is explicitly about informing, not replacing, governed commercial decisions.
+autonomy_profile:
+  level:
+    id: recommendation-only
+    label: Recommendation only
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the deal scope, strategic context, and authority boundary before recommendation generation begins.
+    - Review the ranked recommendation and evidence packet before any quote, contract change, or escalation action is taken.
+    - Approve or reject proposed exception rationales when the requested terms exceed standard policy bands.
+  reversibility: Recommendations can be revised as deal terms change, but weak advice can still waste negotiation time, distort forecasts, or bias approvers toward a poor outcome.
+  escalation: Escalate when non-waivable policy constraints are implicated, precedent fit is weak, requested terms exceed delegated authority, or material legal or revenue-treatment uncertainty remains.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Poor recommendations can erode margin, create compliance or contract exposure, delay revenue, and push approvers toward decisions that are difficult to unwind after customer communication.
+  approval_requirements:
+    - Human approval is required before recommendation output is used to finalize pricing, contract exceptions, or customer commitments.
+    - Policy owners must approve any override path that treats strategic context as sufficient reason to bypass standard thresholds.
+  auditability: Preserve the options considered, policy checks applied, historical precedents consulted, reviewer comments, and final rationale for why one path was recommended or escalated.
+  privacy:
+    - Limit exposure of sensitive customer, pricing, and contractual information to the minimum needed for governed review.
+    - Apply retention and access controls consistent with commercial confidentiality obligations.
+  security:
+    - Restrict write access so recommendation tooling cannot directly alter quotes or approval records.
+    - Log policy lookups, recommendation revisions, and human overrides for later inspection.
+  notes: High-risk governance is appropriate because the pattern influences consequential commercial decisions even though it stops short of execution.
+why_agentic:
+  - The workflow must weigh policy limits, commercial context, and operational trade-offs rather than apply one static rule.
+  - Useful recommendations depend on stateful comparison to precedents, reviewer feedback, and evolving deal terms across multiple revisions.
+  - The system must know when confidence or authority is insufficient and surface escalation instead of forcing a misleading answer.
+failure_modes:
+  - mode: The recommendation overweights win probability and underweights governance constraints
+    impact: Approvers are nudged toward an attractive but noncompliant or financially unsound deal structure.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Keep non-waivable constraints explicit and impossible to downgrade silently.
+      - Show trade-offs and blocked options in the decision packet rather than only the preferred path.
+  - mode: Historical precedents are applied out of context
+    impact: The workflow recommends terms that appear justified but do not match current policy or delivery realities.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Compare precedent age, segment, and approval basis before using it as support.
+      - Require explicit notes when a recommendation relies on analogical rather than directly matching history.
+  - mode: Required approvers or escalation paths are omitted
+    impact: The deal advances with incomplete governance coverage and must be reworked late in the cycle.
+    severity: high
+    detectability: high
+    mitigations:
+      - Verify approver determination against the current authority matrix.
+      - Include unresolved approval dependencies in the output packet.
+  - mode: Recommendation state is not updated after deal terms change
+    impact: Reviewers act on stale rationale that no longer matches the current proposal.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Tie recommendation versions to explicit deal revisions.
+      - Re-run policy and margin checks whenever material terms change.
+evaluation:
+  success_metrics:
+    - Reviewer acceptance rate of recommendations without major policy or approver corrections.
+    - Time to produce a complete recommendation packet for governed deal review.
+    - Frequency with which escalations are triggered before customer-facing commitments exceed authority.
+  quality_criteria:
+    - Recommendations clearly separate viable options, blocked options, and the rationale for the preferred path.
+    - Policy constraints, approval needs, and unresolved uncertainties remain visible to decision-makers.
+    - Recommendation outputs stay synchronized with the current deal revision and supporting evidence.
+  robustness_checks:
+    - Test with deals that mix strategic importance and hard policy limits to ensure the workflow escalates rather than rationalizes exceptions silently.
+    - Test sparse precedent coverage and verify the output degrades into explicit uncertainty instead of false precision.
+    - Test late-stage term changes and confirm approval routing and rationale are recomputed.
+  benchmark_notes: Strong evaluation should measure both commercial usefulness and governance discipline; faster approval support is not helpful if it normalizes unsafe exceptions.
+implementation_notes:
+  orchestration_notes:
+    - Keep retrieval, option comparison, policy checking, and escalation packaging as explicit stages so reviewers can inspect where a recommendation came from.
+    - Preserve prior recommendation versions alongside reviewer feedback to avoid losing decision context across deal revisions.
+  integration_notes:
+    - Common implementations integrate CRM, quoting, pricing, contracting, and approval matrix systems.
+    - Keep the pattern neutral about any specific CPQ, CRM, or contract platform.
+  deployment_notes:
+    - Start with recommendation visibility only before connecting the workflow to approval-routing automation.
+    - Monitor disagreement between recommendations and final approved outcomes to tune policy interpretation carefully.
+  references:
+    - docs/patterns/recommend-decide-escalate.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: browser-based-form-completion-with-approval-gates
+    relationship: hands-off-to
+    notes: Once a governed deal path is chosen, downstream execution often proceeds through controlled system submissions and approvals.
+example_domains:
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Recommend a renewal structure that balances discount policy, margin targets, and approval thresholds.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Evaluate whether a cross-border commercial exception requires escalation because contractual commitments alter compliance exposure.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Recommend whether a proposed services package is operationally feasible before routing it for executive approval.
+maturity: draft
+tags:
+  - recommend-decide-escalate
+  - deal-desk
+  - recommendation-and-decision-support
+  - governed-escalation
+  - commercial-policy

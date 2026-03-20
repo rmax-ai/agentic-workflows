@@ -1,0 +1,235 @@
+id: calendar-conflict-coordination
+slug: calendar-conflict-coordination
+name: Calendar conflict coordination
+summary: Reconcile participant constraints, calendar conflicts, and scheduling policies into a workable meeting plan that can be delegated safely within bounded limits.
+pattern_family:
+  id: plan-coordinate-schedule
+  label: Plan / Coordinate / Schedule
+problem_structure:
+  id: multi-party-coordination
+  label: Multi-party coordination
+  source_vocabulary: problem-structures
+domain:
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+workflow_goal: Produce a conflict-resolved schedule proposal or delegated booking action that aligns multiple participants, timing constraints, and calendar policies without repeated manual back-and-forth.
+inputs:
+  - name: Scheduling request
+    description: A request defining the meeting purpose, preferred time horizon, duration, modality, and required participants.
+    kind: request
+    required: true
+    examples:
+      - Schedule a quarterly review with regional managers next week
+      - Find a 30-minute interview panel slot for three interviewers and one candidate
+  - name: Calendar availability and conflicts
+    description: Free-busy data, holds, recurring commitments, focus time blocks, and room availability relevant to the scheduling window.
+    kind: calendar-state
+    required: true
+    examples:
+      - Attendee calendars with working-hour preferences
+      - Room booking conflicts for the target office
+  - name: Scheduling rules and preferences
+    description: Hard constraints and soft preferences that govern how the schedule can be built or adjusted.
+    kind: policy
+    required: true
+    examples:
+      - Do not book outside local working hours without approval
+      - Prefer customer-facing meetings before internal staff meetings
+  - name: Participant responses
+    description: Optional replies, exceptions, or updated constraints from invitees or coordinators.
+    kind: response-set
+    required: false
+    examples:
+      - Executive assistant notes that one attendee can move only on Thursday
+      - Candidate asks to avoid early-morning slots
+outputs:
+  - name: Coordinated meeting proposal
+    description: Ranked meeting slots or a selected slot with rationale showing how conflicts and preferences were resolved.
+    kind: plan
+    required: true
+    examples:
+      - Top three feasible times with fairness and attendance notes
+      - Selected slot that satisfies all required attendees
+  - name: Booking and notification packet
+    description: Tentative or confirmed invite details, attached rationale, and follow-up actions for unresolved conflicts.
+    kind: schedule-packet
+    required: true
+    examples:
+      - Tentative hold with timezone-normalized details
+      - Escalation note for an out-of-policy booking request
+  - name: Coordination log
+    description: Record of constraints considered, conflicts encountered, exceptions requested, and delegation limits applied.
+    kind: audit-log
+    required: true
+    examples:
+      - Log of rejected time slots and why they failed
+      - Record of who approved an exception to working-hour rules
+environment:
+  summary: Operates in collaboration environments where calendar state changes frequently, participants have asymmetric authority, and repeated coordination overhead can outweigh the meeting itself.
+  systems:
+    - Calendar and room-booking systems
+    - Messaging or email systems
+    - Directory and timezone services
+  actors:
+    - Requesting organizer
+    - Participants or delegates
+    - Executive assistant or coordinator
+  constraints:
+    - Respect participant working hours, room constraints, and declared scheduling preferences.
+    - Distinguish required attendees from optional attendees when resolving conflicts.
+    - Avoid silently overriding focus blocks, travel buffers, or approval-only constraints.
+    - Keep timezone handling explicit so invitees can inspect the proposed schedule.
+  assumptions:
+    - Calendar systems expose current free-busy state and support tentative or reversible holds.
+    - Organizers can predefine delegation guardrails for routine scheduling moves.
+    - Participants or delegates can respond when the workflow escalates an exception.
+capability_requirements:
+  - capability:
+      id: planning
+      label: Planning
+      source_vocabulary: capabilities
+    necessity: The core task is to construct a workable schedule that satisfies duration, ordering, and availability constraints.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Multiple participants, delegates, and shared resources must stay synchronized as candidate slots change.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Scheduling choices must respect working-hour rules, priority policies, and delegation boundaries.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow needs durable state for rejected options, participant responses, and changing availability.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The agent must read calendars, place tentative holds, and send coordination updates through operational systems.
+execution_architecture:
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: A single scheduling agent can usually gather constraints, compare availability, and place reversible holds without requiring multi-agent specialization.
+autonomy_profile:
+  level:
+    id: bounded-delegation
+    label: Bounded delegation
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Define participant priority rules, working-hour boundaries, and booking guardrails before autonomous coordination begins.
+    - Review escalated cases involving executive calendars, out-of-hours slots, or unresolved required-attendee conflicts.
+    - Audit recurring scheduling rules when delegation scope or room policies materially change.
+  reversibility: Most actions are reversible because tentative holds and invites can be edited or canceled, though late changes may still inconvenience participants.
+  escalation: Escalate when no in-policy slot exists, the workflow would book outside delegated boundaries, or a required attendee conflict cannot be resolved with reversible holds.
+risk_governance:
+  level:
+    id: low
+    label: Low
+    source_vocabulary: risk-levels
+  failure_impact: Mistakes usually create inconvenience, missed attendance, or minor coordination churn rather than material financial, regulatory, or safety harm.
+  approval_requirements:
+    - Case-by-case approval is not required for in-policy tentative holds and routine bookings within delegated guardrails.
+    - Policy owners must approve changes to default scheduling guardrails that affect working-hour, attendee-priority, or room-use rules.
+  auditability: Preserve proposed slots, rejected conflicts, participant responses, delegated actions, and exception requests so organizers can reconstruct why a meeting was placed where it was.
+  privacy:
+    - Limit exposed calendar details to availability and policy-relevant metadata rather than full private event contents.
+    - Avoid copying sensitive participant notes into broad distribution channels.
+  security:
+    - Use least-privilege calendar scopes for reading availability and creating invites.
+    - Record delegated booking actions so unexpected changes can be traced and reversed.
+  notes: Low-risk governance fits because failures are typically localized and reversible, but explicit delegation limits still matter for trust.
+why_agentic:
+  - The workflow must replan as participant availability, responses, and constraints shift over time.
+  - Effective coordination depends on tracking shared state across calendars, delegates, and tentative holds rather than evaluating one slot in isolation.
+  - Static scheduling rules rarely balance fairness, priority, and conflict resolution well enough without adaptive reasoning.
+failure_modes:
+  - mode: Required attendees are omitted from the final slot
+    impact: The meeting occurs without necessary decision-makers or must be rescheduled.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Keep required and optional attendee roles explicit in scheduling logic.
+      - Confirm attendee coverage before converting tentative holds into final invites.
+  - mode: The workflow books an out-of-policy time without escalation
+    impact: Participants are inconvenienced and trust in delegated scheduling drops.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Enforce hard checks on working-hour and authority constraints before booking.
+      - Surface exception requests to the organizer instead of silently choosing the least-bad slot.
+  - mode: Calendar state changes after a slot is selected
+    impact: The chosen plan becomes invalid and downstream attendees receive conflicting signals.
+    severity: low
+    detectability: high
+    mitigations:
+      - Revalidate availability immediately before sending final invites.
+      - Keep a fallback slot set for rapid replanning.
+  - mode: Tentative holds accumulate without cleanup
+    impact: Calendars become noisy and future scheduling quality degrades.
+    severity: low
+    detectability: high
+    mitigations:
+      - Expire stale tentative holds automatically.
+      - Log hold ownership and release conditions as part of coordination state.
+evaluation:
+  success_metrics:
+    - Percentage of scheduling requests resolved without manual back-and-forth beyond defined checkpoints.
+    - Median time from request intake to viable coordinated slot.
+    - Rate of booked meetings that satisfy all required attendees on the first attempt.
+  quality_criteria:
+    - Proposed slots clearly reflect which hard constraints were satisfied and which soft preferences were traded off.
+    - Delegated bookings remain within defined guardrails and are easy for organizers to inspect.
+    - Exception cases are escalated promptly instead of being hidden inside a weak plan.
+  robustness_checks:
+    - Test with rapidly changing free-busy data to verify the workflow replans instead of committing stale slots.
+    - Test with conflicting timezone and working-hour rules to ensure policy boundaries stay explicit.
+    - Test cases with no feasible slot and confirm the workflow returns a clear escalation path rather than a bad booking.
+  benchmark_notes: Evaluate both coordination efficiency and trustworthiness; a faster calendar action is not a success if it routinely violates organizer intent.
+implementation_notes:
+  orchestration_notes:
+    - Keep constraint gathering, slot ranking, hold placement, and exception escalation as explicit stages with shared state.
+    - Prefer reversible tentative actions before issuing final commitments.
+  integration_notes:
+    - Typical integrations include calendar APIs, room-booking systems, directory services, and messaging channels.
+    - Keep the pattern neutral about any specific calendar vendor or enterprise suite.
+  deployment_notes:
+    - Start with narrow delegation scopes such as internal meetings or interview loops before expanding to more sensitive calendars.
+    - Audit stale-hold cleanup and timezone normalization behavior as part of rollout.
+  references:
+    - docs/patterns/plan-coordinate-schedule.md
+    - data/vocabularies/problem-structures.yaml
+example_domains:
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Coordinate a cross-functional maintenance review across teams with different shift windows and room constraints.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Schedule an interview panel while balancing interviewer availability, candidate preferences, and recruiting SLAs.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Arrange an escalation meeting among support leads, engineers, and the customer success owner without repeated email loops.
+maturity: draft
+tags:
+  - plan-coordinate-schedule
+  - calendar-coordination
+  - multi-party-coordination
+  - bounded-delegation
+  - low-risk

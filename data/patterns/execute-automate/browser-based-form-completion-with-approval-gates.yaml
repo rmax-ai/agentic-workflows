@@ -1,0 +1,256 @@
+id: browser-based-form-completion-with-approval-gates
+slug: browser-based-form-completion-with-approval-gates
+name: Browser-based form completion with approval gates
+summary: Prepare and execute browser-mediated form submissions through explicit approval checkpoints, with strong exception handling for sensitive or irreversible outcomes.
+pattern_family:
+  id: execute-automate
+  label: Execute / Automate
+problem_structure:
+  id: approval-gated-execution
+  label: Approval-gated execution
+  source_vocabulary: problem-structures
+domain:
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
+workflow_goal: Convert an approved request into a correctly completed browser-based transaction or submission while enforcing formal sign-off, preserving evidence, and stopping safely on policy conflicts or execution exceptions.
+inputs:
+  - name: Approved task request
+    description: A request package describing the intended submission, target system, required fields, and authority to proceed once approvals are satisfied.
+    kind: request
+    required: true
+    examples:
+      - Submit a payroll profile change after manager and payroll approval
+      - File a regulated portal update after compliance review
+  - name: Form data and supporting documents
+    description: Structured field values, attachments, and reference materials needed to complete the browser workflow accurately.
+    kind: form-packet
+    required: true
+    examples:
+      - Approved vendor banking details and tax documentation
+      - Employee status change data with supporting forms
+  - name: Approval state and policy controls
+    description: Formal approvals, segregation-of-duties checks, submission thresholds, and policy rules that gate execution.
+    kind: approval-record
+    required: true
+    examples:
+      - Signed approval record authorizing submission to the target portal
+      - Policy check showing dual approval for bank-account changes
+  - name: Runtime browser context
+    description: Live session details, authentication context, page state, and detected UI conditions during execution.
+    kind: execution-state
+    required: false
+    examples:
+      - Browser page showing a changed field layout
+      - Portal warning requiring additional confirmation
+outputs:
+  - name: Submitted transaction record
+    description: Evidence that the form was completed and either submitted, saved for review, or halted before commit.
+    kind: execution-result
+    required: true
+    examples:
+      - Submission confirmation with portal reference number
+      - Saved draft awaiting a final human approval token
+  - name: Execution evidence bundle
+    description: Trace of filled fields, approvals used, checkpoints passed, attachments uploaded, and browser observations.
+    kind: audit-packet
+    required: true
+    examples:
+      - Field-by-field trace with screenshots at approval gates
+      - Record of which approval token unlocked final submission
+  - name: Exception and fallback log
+    description: Structured record of validation failures, UI changes, policy conflicts, and human takeover points encountered during execution.
+    kind: exception-log
+    required: true
+    examples:
+      - Portal timeout that triggered safe retry and review
+      - Policy mismatch that blocked final submission
+environment:
+  summary: Operates in operational systems that expose critical actions through browser interfaces, where execution is feasible to automate but control gates, fragile UIs, and consequential submissions demand conservative behavior.
+  systems:
+    - Browser-accessed enterprise portals
+    - Approval and ticketing systems
+    - Identity and access management systems
+    - Evidence storage or audit systems
+  actors:
+    - Request owner
+    - Approving reviewer
+    - Operations or compliance executor
+    - System administrator
+  constraints:
+    - Do not submit final actions until all required approval conditions are positively verified.
+    - Preserve enough evidence for reviewers to confirm what was entered and why.
+    - Stop safely on UI drift, missing fields, policy conflicts, or ambiguous confirmation states.
+    - Respect least-privilege access and segregation-of-duties boundaries for portal interactions.
+  assumptions:
+    - Target systems expose browser workflows that can be automated or assisted reliably enough to justify the pattern.
+    - Approval state can be checked against a trusted source before submission proceeds.
+    - Human reviewers are available to take over when approvals, UI state, or confirmation signals are unclear.
+capability_requirements:
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow must operate real browser sessions, navigate pages, upload files, and interact with external portals.
+  - capability:
+      id: action-execution
+      label: Action execution
+      source_vocabulary: capabilities
+    necessity: Success depends on carrying an approved request through to an actual saved or submitted system change.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Approval tokens, segregation-of-duties rules, and submission thresholds determine whether execution may continue.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: The workflow must confirm field values, approval state, and final submission outcomes against trusted signals.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Browser automation must recover safely from layout drift, missing data, portal warnings, or ambiguous confirmation states.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Multi-step browser workflows require durable state for completed checkpoints, attachments, retries, and takeover points.
+execution_architecture:
+  - architecture:
+      id: approval-gated-execution
+      label: Approval-gated execution
+      source_vocabulary: architectures
+    fit: The workflow is defined by an execution package that remains technically ready but blocked until explicit approvals and policy checks unlock submission.
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: A single browser-automation agent can often carry the request through page navigation, field entry, and evidence capture within one controlled loop.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human checkpoints remain part of the normal operating model because final submission authority and exception resolution cannot be delegated away.
+autonomy_profile:
+  level:
+    id: approval-gated
+    label: Approval gated
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Review the prepared submission packet and confirm approvals before the browser workflow enters its final commit path.
+    - Approve any override, retry beyond normal bounds, or execution path affected by UI drift or policy ambiguity.
+    - Confirm the final evidence bundle when the target action changes regulated records, payroll, funds, or other highly sensitive state.
+  reversibility: Some drafts or saved forms can be reversed, but final portal submissions may be slow, costly, or impossible to unwind once accepted by the external system.
+  escalation: Escalate whenever approval state is incomplete, field-level confidence is low, the browser workflow diverges from expected UI state, or the submission would create a high-impact irreversible outcome.
+risk_governance:
+  level:
+    id: critical
+    label: Critical
+    source_vocabulary: risk-levels
+  failure_impact: Incorrect or unauthorized submission can create severe financial loss, regulatory breach, payroll harm, privacy exposure, or other systemic consequences that may be difficult to reverse.
+  approval_requirements:
+    - Final submission requires explicit verification of all required human approvals and policy checks immediately before commit.
+    - Overrides for UI drift, changed portal behavior, or sensitive data mismatches require a human reviewer to approve or take over the task.
+  auditability: Preserve submission intent, approval evidence, field-level inputs, screenshots or equivalent browser traces, retry history, and final confirmation artifacts so the full execution path can be reconstructed.
+  privacy:
+    - Minimize retention of sensitive personal, payroll, banking, or regulatory data outside approved evidence stores.
+    - Mask or restrict screenshots and logs that contain confidential information.
+  security:
+    - Use tightly scoped credentials, session isolation, and strong logging for all browser automation actions.
+    - Enforce segregation of duties so the same authority does not both approve and silently execute a sensitive submission without oversight.
+  notes: Critical-risk posture is warranted because this pattern crosses from preparation into real-world system change in environments with limited tolerance for error.
+why_agentic:
+  - Browser workflows often require adaptive action selection because page layouts, validation messages, and branching paths vary at runtime.
+  - Safe execution depends on stateful tracking of approvals, entered fields, and exception paths across multiple steps rather than one-shot scripting.
+  - The workflow must decide when to pause, retry, or escalate instead of blindly completing a brittle automation path.
+failure_modes:
+  - mode: The workflow submits without a valid approval gate
+    impact: A consequential system change occurs without the required human authorization or policy basis.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Re-verify approval state from a trusted source immediately before final commit.
+      - Block submission when approval evidence is missing, stale, or inconsistent.
+  - mode: Browser UI drift causes data to be entered into the wrong fields
+    impact: The target system records incorrect information and downstream correction becomes costly or slow.
+    severity: critical
+    detectability: low
+    mitigations:
+      - Use structural page validation before and after sensitive entry steps.
+      - Escalate to human review when expected labels, confirmation text, or field mappings differ.
+  - mode: Confirmation state is ambiguous after submission
+    impact: Operators cannot tell whether the action committed, leading to duplicate submissions or missed obligations.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Require positive confirmation signals or reference numbers before marking completion.
+      - Route ambiguous outcomes into a human-controlled reconciliation path.
+  - mode: Sensitive evidence leaks through logs or screenshots
+    impact: Privacy, compliance, or security obligations are breached during otherwise controlled automation.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Mask sensitive fields in evidence capture where possible.
+      - Restrict access to execution traces and enforce retention limits.
+evaluation:
+  success_metrics:
+    - Percentage of approved browser tasks completed without unauthorized submission or manual rework.
+    - Rate of exception cases stopped safely before an incorrect final commit.
+    - Completeness of execution evidence for reviewed submissions.
+  quality_criteria:
+    - Every submitted action is traceable to a verified approval state and an inspectable execution record.
+    - The workflow stops or escalates on ambiguous UI or policy conditions instead of guessing.
+    - Browser automation remains aligned with least-privilege and segregation-of-duties expectations.
+  robustness_checks:
+    - Test with realistic UI changes and confirm the workflow escalates before filling or submitting the wrong form.
+    - Test expired or conflicting approval records and ensure final submission remains blocked.
+    - Test network and portal timeouts to verify retries stay bounded and do not create duplicate submissions.
+  benchmark_notes: Evaluate controlled completion and safe failure handling together; raw submission throughput is not meaningful if the workflow cannot prove approval integrity.
+implementation_notes:
+  orchestration_notes:
+    - Separate packet preparation, approval verification, browser execution, and confirmation capture so control gates are inspectable.
+    - Keep checkpoint state durable enough for human takeover after any interruption or exception.
+  integration_notes:
+    - Common implementations integrate browser automation, approval systems, ticketing, and evidence storage.
+    - Keep the pattern neutral about specific RPA tools, browsers, or enterprise portals.
+  deployment_notes:
+    - Roll out first on high-volume but tightly governed workflows where browser automation is already partially standardized.
+    - Revalidate selectors, confirmation signals, and masking controls continuously as portal UIs evolve.
+  references:
+    - docs/patterns/execute-automate.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: deal-desk-recommendation-support
+    relationship: follows-from
+    notes: Recommendation-centric workflows often hand approved decisions into controlled browser execution paths.
+example_domains:
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Submit a vendor banking update through a browser-only finance portal after dual approval and evidence capture.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: File a regulated disclosure update through a portal that requires documented review before final submission.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Complete a sensitive employee status or payroll change in a browser workflow only after required manager and payroll approvals.
+maturity: draft
+tags:
+  - execute-automate
+  - approval-gated-execution
+  - browser-automation
+  - controlled-submission
+  - critical-risk

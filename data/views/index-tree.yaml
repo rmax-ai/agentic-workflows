@@ -80,7 +80,7 @@ families:
   - id: multi-party-coordination
     label: Multi-party coordination
     source_vocabulary: problem-structures
-  pattern_ids: []
+  pattern_ids: [calendar-conflict-coordination]
 - family:
     id: recommend-decide-escalate
   path: patterns/recommend-decide-escalate
@@ -88,7 +88,7 @@ families:
   - id: recommendation-and-decision-support
     label: Recommendation and decision support
     source_vocabulary: problem-structures
-  pattern_ids: []
+  pattern_ids: [deal-desk-recommendation-support]
 - family:
     id: execute-automate
   path: patterns/execute-automate
@@ -99,7 +99,7 @@ families:
   - id: exception-aware-orchestration
     label: Exception-aware orchestration
     source_vocabulary: problem-structures
-  pattern_ids: []
+  pattern_ids: [browser-based-form-completion-with-approval-gates]
 - family:
     id: optimize-adapt
   path: patterns/optimize-adapt
