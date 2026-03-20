@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-20
-repository_stage: vocabulary-established
+repository_stage: navigation-established
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -13,12 +13,15 @@ phase_status:
     status: complete
   phase_3:
     name: navigation views
+    status: complete
+  phase_4:
+    name: pattern family docs
     status: pending
 inventory:
   foundational_docs: 4
   schema_files: 1
   vocabulary_files: 6
-  view_files: 0
+  view_files: 5
   pattern_files: 0
   instance_files: 0
   pattern_family_docs: 0
@@ -43,17 +46,22 @@ repo_reality:
     - data/vocabularies/capabilities.yaml
     - data/vocabularies/autonomy-levels.yaml
     - data/vocabularies/risk-levels.yaml
+    - data/views/index-tree.yaml
+    - data/views/by-domain.yaml
+    - data/views/by-architecture.yaml
+    - data/views/by-autonomy.yaml
+    - data/views/by-risk.yaml
     - .agent/current-plan.md
     - .agent/prompts/mega-prompt.txt
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, and six core controlled vocabularies. Browse views, pattern family docs, canonical patterns, and grounded instances have not been authored yet.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, and five browse-view artifacts. Pattern family docs, canonical patterns, and grounded instances have not been authored yet.
 immediate_gaps:
-  - Missing all browse views under data/views/.
   - Missing pattern family documentation under docs/patterns/.
   - Missing every canonical pattern YAML entry.
   - Missing every grounded instance Markdown file.
+  - transform-process currently has no direct problem-structure vocabulary mapping, so its browse-view linkage is intentionally left empty until a justified vocabulary refinement is made.
 next_action:
-  id: phase-3-navigation-views
-  summary: Create browse views that reference the established family, domain, architecture, autonomy, and risk ids.
+  id: phase-4-pattern-family-docs
+  summary: Create family overview docs under docs/patterns/ using the committed browse views and controlled vocabulary ids as the naming baseline.

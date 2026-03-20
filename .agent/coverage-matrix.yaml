@@ -68,6 +68,6 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Schema, foundational docs, and core controlled vocabularies now exist, so the matrix dimensions are stable enough to guide early pattern authoring.
+    - Schema, foundational docs, core controlled vocabularies, and browse views now exist, so the matrix dimensions and navigation layer are stable enough to guide early pattern authoring.
     - Coverage cells remain `none` because no canonical pattern or instance artifacts have been added yet.
-    - Use the empty cells to choose the first pattern batches once navigation views and family docs are in place.
+    - Use the empty cells to choose the first pattern batches once pattern family docs are in place.

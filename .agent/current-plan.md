@@ -2,21 +2,22 @@
 
 ## Iteration focus
 
-Complete Phase 3 navigation-view authoring in one scoped batch, then update repository memory to mark browse-view prerequisites as satisfied.
+Begin Phase 4 pattern-family documentation now that Phase 3 browse views are committed and validated.
 
 ## Current phase
 
 - Phase 2: controlled vocabularies are complete
+- Phase 3: navigation views are complete
 - Tooling baseline: uv-managed Python 3.14 helper workflow is in place
-- Phase 3: create pattern-first and alternate browse views
+- Phase 4: create top-level pattern family docs in `docs/patterns/`
 
 ## Ordered tasks
 
-1. Create `data/views/index-tree.yaml` using the established pattern families and link strategy from `docs/index-tree.md`.
-2. Create alternate browse views for domain, architecture, autonomy, and risk using the controlled vocabulary ids from `data/vocabularies/`.
-3. Keep view artifacts reference-oriented so they can be regenerated once pattern files exist.
-4. Validate the new YAML view files with the existing `uv`-managed helper tooling.
-5. After views land, move immediately to top-level `docs/patterns/` family docs before seed pattern authoring.
+1. Create `docs/patterns/` family overview files for the nine top-level pattern families in the established browse order.
+2. Keep the family docs aligned with `docs/index-tree.md`, `data/views/index-tree.yaml`, and the existing controlled vocabularies so later pattern files inherit stable naming.
+3. Note the temporary ontology gap where `transform-process` lacks a direct `problem-structures` mapping, but do not block family-doc authoring on that refinement.
+4. Validate any new YAML changes with the existing `uv`-managed helper tooling.
+5. After family docs land, move to a small batch of seed pattern YAML entries rather than broad generation.
 
 ## Constraints
 
@@ -30,4 +31,4 @@ Complete Phase 3 navigation-view authoring in one scoped batch, then update repo
 
 ## Expected outcome
 
-This iteration should land committed browse views that make the ontology more navigable, validate them with the checked-in Python helper path, and leave the repository ready for Phase 4 pattern-family docs.
+The next iteration should land committed pattern-family docs that make the browse tree explainable to human readers and leave the repository ready for the first seed pattern batch.

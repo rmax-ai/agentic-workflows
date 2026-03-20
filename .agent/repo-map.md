@@ -48,6 +48,14 @@
 - `data/vocabularies/autonomy-levels.yaml` — autonomy ladder for `autonomy_profile.level`.
 - `data/vocabularies/risk-levels.yaml` — governance-sensitive levels for `risk_governance.level`.
 
+### Current navigation views
+
+- `data/views/index-tree.yaml` — canonical family-ordered browse tree scaffold that keeps the default navigation pattern-first.
+- `data/views/by-domain.yaml` — derived domain view that groups future canonical patterns by domain while preserving family order.
+- `data/views/by-architecture.yaml` — derived architecture view that organizes future canonical patterns by execution style.
+- `data/views/by-autonomy.yaml` — derived autonomy view that organizes future canonical patterns by discretion and control boundary.
+- `data/views/by-risk.yaml` — derived risk view that organizes future canonical patterns by governance posture.
+
 ## Not yet present but planned
 
 ### Additional documentation
@@ -58,7 +66,6 @@
 
 ### Structured ontology data
 
-- `data/views/`
 - `data/patterns/`
 
 ### Grounded examples

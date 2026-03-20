@@ -47,3 +47,9 @@
 - **Status:** accepted
 - **Decision:** Use `uv` with Python 3.14 for repository helper scripts, keep shell scripts as thin orchestration wrappers, and move reusable parsing or validation logic into checked-in Python files.
 - **Rationale:** Recent agent runs relied on ad hoc Ruby YAML parsing that was not declared as repository tooling. A uv-managed Python path makes helper logic explicit, reproducible, and easier to extend without turning shell entrypoints into opaque maintenance scripts.
+
+## D-0009 — Keep browse views derived and reference-oriented
+
+- **Status:** accepted
+- **Decision:** Model `data/views/` as derived browse artifacts that reference stable family and vocabulary ids, leaving canonical pattern payloads in `data/patterns/` rather than duplicating them into views.
+- **Rationale:** The repository's organizing spine is pattern-first, so alternate browse paths should help navigation without becoming a second source of truth. Reference-oriented views stay regenerable as patterns accumulate and make it easier to keep domain, architecture, autonomy, and risk indexes consistent with the canonical pattern files.
