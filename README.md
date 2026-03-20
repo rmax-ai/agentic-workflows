@@ -52,12 +52,15 @@ Phase 1 establishes the repository's shared model and canonical schema:
 ## Core concepts
 
 ### Pattern
+
 A reusable workflow structure such as synthesis, reconciliation, monitoring, triage, planning, recommendation, execution, or optimization.
 
 ### Domain
+
 A context where a pattern appears, such as engineering, finance, compliance, operations, research, support, or HR.
 
 ### Instance
+
 A concrete example of a canonical pattern applied to a real workflow, system, or operating environment.
 
 ## Design rules
@@ -80,9 +83,21 @@ Work should proceed in dependency order:
 
 See `docs/contribution-guide.md` for authoring rules and `docs/schema.md` for the canonical pattern contract.
 
+## Development tooling
+
+Repository helper scripts use `uv` with Python 3.14.
+
+Typical setup:
+
+1. `uv python install 3.14`
+2. `uv sync`
+3. `uv run python scripts/python/validate_yaml.py`
+
+Keep shell entrypoints thin and put reusable repository logic in checked-in Python helpers instead of ad hoc interpreter snippets.
+
 ## Status
 
-The repository is in its foundational phase. The current priority is to stabilize ontology docs and the canonical pattern schema so later vocabulary, view, and pattern work can build on consistent structure.
+Foundational docs, schema, and core controlled vocabularies are now in place. The current priority is Phase 3 navigation views, with repository helper tooling standardized on `uv`-managed Python 3.14.
 
 ## License
 

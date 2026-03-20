@@ -29,6 +29,8 @@ Iteration protocol:
    - next planned step
 
 Additional constraints for this iteration:
+- Prefer checked-in Python helpers invoked through `uv` for reusable repository automation and validation tasks.
+- Do not use ad hoc Ruby snippets when the task should live in a committed helper script.
 - If foundational files are missing, create those before any pattern expansion.
 - If vocabularies or schema are incomplete, finish them before adding many new entries.
 - If patterns exist but instances do not, add a few grounded Markdown instances linked to existing YAML patterns.

@@ -5,6 +5,7 @@ set -euo pipefail
 # Config
 # --------------------------------------------------
 COPILOT_BIN="${COPILOT_BIN:-copilot}"
+UV_BIN="${UV_BIN:-uv}"
 REPO_ROOT="${REPO_ROOT:-$(git rev-parse --show-toplevel 2>/dev/null || pwd)}"
 AGENT_DIR="${REPO_ROOT}/.agent"
 PROMPTS_DIR="${AGENT_DIR}/prompts"
@@ -20,6 +21,7 @@ REPO_SNAPSHOT_FILE="${RUN_DIR}/repo-snapshot.txt"
 FULL_PROMPT_FILE="${RUN_DIR}/full-prompt.txt"
 OUTPUT_FILE="${RUN_DIR}/copilot-output.txt"
 PUSH_ON_SUCCESS="${PUSH_ON_SUCCESS:-0}"
+VALIDATE_YAML_SCRIPT="${REPO_ROOT}/scripts/python/validate_yaml.py"
 
 mkdir -p "${PROMPTS_DIR}" "${RUN_DIR}" "${AGENT_DIR}"
 
@@ -32,9 +34,20 @@ if ! command -v "${COPILOT_BIN}" >/dev/null 2>&1; then
   exit 1
 fi
 
+if ! command -v "${UV_BIN}" >/dev/null 2>&1; then
+  echo "Error: '${UV_BIN}' not found in PATH."
+  echo "Install uv and rerun."
+  exit 1
+fi
+
 if [ ! -d "${REPO_ROOT}/.git" ]; then
   echo "Error: must be run inside a git repository."
   exit 1
+fi
+
+if [ -f "${VALIDATE_YAML_SCRIPT}" ]; then
+  echo "Validating YAML files with uv-managed Python helper"
+  "${UV_BIN}" run python "${VALIDATE_YAML_SCRIPT}" "${REPO_ROOT}"
 fi
 
 # --------------------------------------------------

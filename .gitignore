@@ -92,6 +92,7 @@ claude-project.json
 !.agent/decisions.md
 !.agent/glossary.md
 !.agent/coverage-matrix.yaml
+!.python-version
 
 # Optional stop/control files you may not want committed
 .agent/stop.txt
