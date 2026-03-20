@@ -1,0 +1,50 @@
+version: 1
+last_updated: 2026-03-20
+repository_stage: bootstrap
+phase_status:
+  phase_0:
+    name: execution-memory bootstrap
+    status: complete
+  phase_1:
+    name: foundational docs and schema
+    status: pending
+  phase_2:
+    name: controlled vocabularies
+    status: pending
+  phase_3:
+    name: navigation views
+    status: pending
+inventory:
+  foundational_docs: 0
+  schema_files: 0
+  vocabulary_files: 0
+  view_files: 0
+  pattern_files: 0
+  instance_files: 0
+  pattern_family_docs: 0
+  glossary_files: 1
+coverage_totals:
+  pattern_families_defined: 0
+  domains_with_instances: 0
+  architectures_mapped: 0
+  autonomy_levels_mapped: 0
+  risk_levels_mapped: 0
+repo_reality:
+  available_ontology_assets:
+    - README.md
+    - .agent/current-plan.md
+    - .agent/prompts/mega-prompt.txt
+    - .agent/prompts/operator-prompt.txt
+    - scripts/run-agentic-workflows-loop.sh
+    - scripts/run-agentic-workflows-forever.sh
+  note: Repository support files like .gitattributes, .gitignore, and LICENSE exist, but no ontology content directories have been created yet.
+immediate_gaps:
+  - Missing foundational docs under docs/.
+  - Missing canonical schema at schema/pattern.schema.json.
+  - Missing all controlled vocabularies under data/vocabularies/.
+  - Missing all browse views under data/views/.
+  - Missing every canonical pattern YAML entry.
+  - Missing every grounded instance Markdown file.
+next_action:
+  id: phase-1-foundations-and-schema
+  summary: Create the foundational ontology docs and the first canonical pattern schema.

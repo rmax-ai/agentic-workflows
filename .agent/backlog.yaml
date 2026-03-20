@@ -1,0 +1,109 @@
+version: 1
+last_updated: 2026-03-20
+principle: Build the ontology in dependency order and do not skip prerequisites.
+items:
+  - id: phase-0-memory-bootstrap
+    phase: 0
+    priority: P0
+    status: done
+    title: Bootstrap committed execution memory under .agent/
+    depends_on: []
+    deliverables:
+      - .agent/mission.md
+      - .agent/backlog.yaml
+      - .agent/iteration-log.md
+      - .agent/decisions.md
+      - .agent/ontology-status.yaml
+      - .agent/coverage-matrix.yaml
+      - .agent/repo-map.md
+      - .agent/glossary.md
+
+  - id: phase-1-foundations-and-schema
+    phase: 1
+    priority: P0
+    status: pending
+    title: Create foundational docs and canonical schema
+    depends_on:
+      - phase-0-memory-bootstrap
+    deliverables:
+      - docs/ontology.md
+      - docs/schema.md
+      - docs/index-tree.md
+      - docs/contribution-guide.md
+      - schema/pattern.schema.json
+    notes:
+      - Establish field definitions before any vocabulary or pattern authoring.
+      - Keep the schema aligned with the pattern-first mission in README.md.
+
+  - id: phase-2-controlled-vocabularies
+    phase: 2
+    priority: P0
+    status: pending
+    title: Define controlled vocabularies for the ontology core
+    depends_on:
+      - phase-1-foundations-and-schema
+    deliverables:
+      - data/vocabularies/problem-structures.yaml
+      - data/vocabularies/domains.yaml
+      - data/vocabularies/architectures.yaml
+      - data/vocabularies/capabilities.yaml
+      - data/vocabularies/autonomy-levels.yaml
+      - data/vocabularies/risk-levels.yaml
+
+  - id: phase-3-navigation-views
+    phase: 3
+    priority: P1
+    status: pending
+    title: Create pattern-first navigation views
+    depends_on:
+      - phase-2-controlled-vocabularies
+    deliverables:
+      - data/views/index-tree.yaml
+      - data/views/by-domain.yaml
+      - data/views/by-architecture.yaml
+      - data/views/by-autonomy.yaml
+      - data/views/by-risk.yaml
+
+  - id: phase-4-pattern-family-docs
+    phase: 4
+    priority: P1
+    status: pending
+    title: Define top-level pattern family documentation
+    depends_on:
+      - phase-3-navigation-views
+    deliverables:
+      - docs/patterns/
+    notes:
+      - Start with the seed families named in the orchestration prompt.
+
+  - id: phase-5-seed-patterns
+    phase: 5
+    priority: P1
+    status: pending
+    title: Author first canonical YAML pattern entries
+    depends_on:
+      - phase-4-pattern-family-docs
+    deliverables:
+      - data/patterns/
+    notes:
+      - Begin with high-value seed patterns only after schema, vocabularies, and views exist.
+
+  - id: phase-6-grounded-instances
+    phase: 6
+    priority: P2
+    status: pending
+    title: Add Markdown instances linked to mature patterns
+    depends_on:
+      - phase-5-seed-patterns
+    deliverables:
+      - instances/
+
+  - id: phase-7-coverage-refinement
+    phase: 7
+    priority: P2
+    status: pending
+    title: Expand weak combinations in the coverage matrix
+    depends_on:
+      - phase-6-grounded-instances
+    deliverables:
+      - Balanced coverage across families, domains, architectures, and governance profiles
