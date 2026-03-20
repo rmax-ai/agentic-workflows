@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Ground the support domain with a first linked Markdown instance now that `analyst-copilot-loop` gives the repository a direct collaboration-oriented support anchor, while keeping `transform-process` blocked until vocabulary support is justified.
+Ground the support domain with a first linked Markdown instance now that `analyst-copilot-loop` gives the repository a direct collaboration-oriented support anchor. Prefer a concrete escalation workflow where a support lead and copilot iteratively shape a customer-facing response while `transform-process` remains blocked until vocabulary support is justified.
 
 ## Current phase
 
@@ -16,9 +16,9 @@ Ground the support domain with a first linked Markdown instance now that `analys
 
 ## Ordered tasks
 
-1. Add the first support-domain grounded instance in `instances/support/`, preferably tied to `analyst-copilot-loop`, so the support domain is no longer canonical-only.
+1. Add the first support-domain grounded instance in `instances/support/`, tied to `analyst-copilot-loop`, so the support domain is no longer canonical-only.
 2. Re-read the relevant pattern YAML, neighboring support-relevant patterns, coverage matrix, and existing instance conventions before authoring the new Markdown file.
-3. Keep the instance specific to a concrete support workflow or target-system scenario, with explicit links back to one or more canonical pattern entries.
+3. Keep the instance specific to a concrete support escalation or case-workflow scenario, with explicit links back to one or more canonical pattern entries.
 4. Validate repository YAML after memory updates and any new instance-adjacent YAML changes.
 5. Keep `transform-process` blocked unless a justified direct problem-structure mapping and seed candidate emerge.
 
@@ -37,4 +37,4 @@ Ground the support domain with a first linked Markdown instance now that `analys
 
 ## Expected outcome
 
-The next iteration should leave the repository with the first support-domain grounded example, refreshed execution memory, and a clearer decision about whether the following step should be more support grounding or a justified `transform-process` ontology refinement.
+The next iteration should leave the repository with the first support-domain grounded example, refreshed execution memory, and a clearer decision about whether the following step should target additional support grounding or a justified `transform-process` ontology refinement.
