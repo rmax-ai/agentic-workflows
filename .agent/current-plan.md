@@ -1,21 +1,22 @@
 # Current Plan
 
 ## Iteration focus
-Bootstrap repository execution memory and foundational ontology files in dependency order.
+Stabilize repository memory to match the committed foundations, then complete Phase 2 controlled vocabularies in a narrow, dependency-safe batch.
 
 ## Current phase
-- Phase 0: bootstrap `.agent/`
-- Phase 1: create foundational docs and schema
+- Phase 1: foundational docs and schema are complete
+- Phase 2: create controlled vocabularies for core classification fields
 
 ## Ordered tasks
-1. Create the mandatory `.agent/` memory files with initial mission, backlog, status, coverage, repo map, and decisions.
-2. Create foundational docs in `docs/` and the canonical JSON schema in `schema/`.
-3. Review repository state and add a new dated file under `.agent/iterations/`, then update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and this plan with the next iteration targets.
+1. Normalize `.agent/` state so plan and backlog reflect the already-committed foundations and schema.
+2. Author the six core controlled vocabulary files under `data/vocabularies/`.
+3. Review the new vocabularies for consistency with the schema and docs.
+4. Add the iteration summary under `.agent/iterations/`, then update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and this plan with the next dependency-ordered step.
 
 ## Constraints
-- Do not add pattern entries before schema and vocabularies exist.
-- Keep this iteration modest and focused on prerequisites.
+- Do not add navigation views or pattern entries before controlled vocabularies are coherent.
+- Keep vocabulary ids stable, lower-kebab-case, and aligned with the schema field names.
 - Ensure every subagent task ends with exactly one git commit.
 
 ## Expected outcome
-The repository should end this iteration with working execution memory, foundational documentation, and a canonical schema that can support vocabulary work next.
+The repository should end this iteration with committed controlled vocabularies and execution memory that accurately points the next loop toward navigation views.
