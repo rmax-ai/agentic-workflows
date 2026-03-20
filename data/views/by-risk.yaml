@@ -50,7 +50,7 @@ risk_levels:
     plan-coordinate-schedule: []
     recommend-decide-escalate: []
     execute-automate: []
-    optimize-adapt: []
+    optimize-adapt: [queue-prioritization-optimization]
     human-agent-collaborative-work: []
 - risk_level:
     id: high

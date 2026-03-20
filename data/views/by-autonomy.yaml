@@ -93,7 +93,7 @@ autonomy_levels:
     plan-coordinate-schedule: []
     recommend-decide-escalate: []
     execute-automate: []
-    optimize-adapt: []
+    optimize-adapt: [queue-prioritization-optimization]
     human-agent-collaborative-work: []
 - autonomy_level:
     id: autonomous-with-audit

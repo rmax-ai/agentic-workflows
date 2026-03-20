@@ -1,0 +1,251 @@
+id: queue-prioritization-optimization
+slug: queue-prioritization-optimization
+name: Queue prioritization optimization
+summary: Continuously tune queue ordering and prioritization logic using downstream outcomes so work lands in a more effective sequence without violating service, fairness, or policy constraints.
+pattern_family:
+  id: optimize-adapt
+  label: Optimize / Adapt
+problem_structure:
+  id: feedback-driven-optimization
+  label: Feedback-driven optimization
+  source_vocabulary: problem-structures
+domain:
+  - id: support
+    label: Support
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+workflow_goal: Improve how incoming work is ordered and surfaced over time by learning from resolution outcomes, queue aging, and override behavior while keeping hard service and governance priorities explicit.
+inputs:
+  - name: Active queue state
+    description: The current backlog, item attributes, aging signals, SLA timers, and present ordering or priority assignments.
+    kind: queue-state
+    required: true
+    examples:
+      - Support ticket queue with current severity, customer tier, and wait time
+      - Compliance review backlog with due dates and policy tags
+  - name: Outcome and feedback history
+    description: Historical resolution times, reopen rates, manual overrides, customer or reviewer feedback, and missed-priority examples used to judge whether prior ordering worked.
+    kind: outcome-history
+    required: true
+    examples:
+      - Tickets that were reopened after being deprioritized
+      - Cases where reviewers manually pulled work ahead of the scored order
+  - name: Service objectives and policy guardrails
+    description: The targets, fairness rules, escalation thresholds, and non-waivable priorities that bound what the optimization loop is allowed to change.
+    kind: policy
+    required: true
+    examples:
+      - VIP customers must never outrank safety-critical incidents solely because of account value
+      - Regulatory deadlines must stay ahead of routine backlog reduction goals
+  - name: Capacity and context changes
+    description: Staffing levels, handoff availability, seasonal spikes, incident conditions, and other operating context that may justify different prioritization behavior.
+    kind: operating-context
+    required: false
+    examples:
+      - Temporary shortage of specialized reviewers
+      - Surge in backlog after a product outage
+outputs:
+  - name: Updated queue ordering policy
+    description: Recomputed scores, weights, or ranking logic that changes how current and future items are prioritized within approved bounds.
+    kind: prioritization-policy
+    required: true
+    examples:
+      - Increased weight on reopen risk after evidence that fast closes are creating repeat work
+      - Temporary prioritization boost for items nearing regulatory deadlines
+  - name: Optimized work queue
+    description: The resulting ordered backlog or ranked recommendations for what should be handled next.
+    kind: ranked-queue
+    required: true
+    examples:
+      - Ranked support backlog with rationale for promoted and deferred items
+      - Reviewer queue that elevates cases with both deadline pressure and high downstream risk
+  - name: Optimization audit trail
+    description: Record of the feedback signals used, changes applied, guardrails checked, and exceptions escalated or blocked.
+    kind: audit-log
+    required: true
+    examples:
+      - Log showing which objective drift trigger caused a weight rollback
+      - Explanation of why a proposed reprioritization was blocked by fairness rules
+environment:
+  summary: Operates in recurring queue-based workflows where backlog order materially affects service quality, throughput, and risk, and where optimization must remain inspectable instead of turning into opaque score chasing.
+  systems:
+    - Ticketing or case management systems
+    - Workforce or capacity planning tools
+    - SLA and outcome analytics stores
+    - Policy or rules engines
+  actors:
+    - Queue manager or team lead
+    - Frontline analyst or case handler
+    - Operations or support supervisor
+    - Governance or policy owner
+  constraints:
+    - Hard service commitments, regulatory deadlines, and protected-priority rules cannot be optimized away.
+    - Optimization changes must remain explainable enough for supervisors to review and override.
+    - The workflow should prefer bounded tuning of ranking logic over silent changes to business policy.
+    - Feedback signals may be delayed or biased, so adaptation must include drift checks and rollback paths.
+  assumptions:
+    - Outcome history is rich enough to distinguish useful prioritization from noisy short-term fluctuations.
+    - Supervisors can review escalations when the optimization loop encounters policy conflicts or objective drift.
+    - Queue systems can persist rationale, overrides, and change history for later inspection.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The pattern depends on ongoing observation of queue health, aging, outcomes, and changing operating conditions rather than one-off analysis.
+  - capability:
+      id: optimization
+      label: Optimization
+      source_vocabulary: capabilities
+    necessity: The core behavior is adjusting ranking logic and trade-offs so future queue ordering improves against explicit objectives.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Learning from past overrides, reopen events, and outcome trends requires durable cross-queue memory.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: The workflow must enforce non-waivable priorities, fairness rules, and escalation thresholds before applying an optimization change.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Proposed improvements should be checked against trusted outcome data and guardrail tests before they affect live ordering.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The system needs safe fallbacks when feedback is sparse, objectives conflict, or a tuning change destabilizes the queue.
+execution_architecture:
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: Queue state and outcome events naturally trigger reevaluation of ranking logic as work arrives, ages, resolves, or is manually overridden.
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: A single optimization agent can usually ingest queue telemetry, test bounded scoring changes, and publish revised ordering recommendations within one governed loop.
+autonomy_profile:
+  level:
+    id: exception-gated-autonomy
+    label: Exception-gated autonomy
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Define and periodically review the service objectives, fairness rules, and protected-priority guardrails the optimizer is allowed to use.
+    - Review escalated tuning proposals when feedback signals conflict, policy constraints would be crossed, or the optimization effect exceeds delegated bounds.
+    - Audit rollback decisions and persistent manual overrides to confirm the loop is improving the right objective rather than gaming the metric.
+  reversibility: Score weights and ordering policies can usually be rolled back quickly, but delayed handling of urgent work, missed deadlines, or customer frustration may only be partially reversible.
+  escalation: Escalate whenever the optimizer detects conflicting objectives, sparse or contradictory feedback, fairness drift, unusually large ordering changes, or a proposed adjustment that would alter protected-priority handling.
+risk_governance:
+  level:
+    id: moderate
+    label: Moderate
+    source_vocabulary: risk-levels
+  failure_impact: Poor queue optimization can increase SLA misses, reviewer churn, unfair work distribution, and avoidable customer or control issues, but harm is usually containable if drift is caught and rollbacks are available.
+  approval_requirements:
+    - Human approval is required for changes that modify protected-priority rules, fairness constraints, or escalation thresholds rather than only tuning ranking weights within preapproved bounds.
+    - Supervisory review is required before a tuning change that materially shifts queue behavior after a major incident, outage, or policy update remains active.
+  auditability: Preserve the feedback signals consulted, optimization objective version, proposed and applied ranking changes, manual overrides, rollback actions, and escalation decisions for each material update.
+  privacy:
+    - Limit optimization features to the minimum case or customer data needed to support prioritization quality and governance review.
+    - Avoid exposing unnecessary personal or sensitive case detail in optimization dashboards and audit packets.
+  security:
+    - Restrict who can change optimization objectives, guardrails, and deployment thresholds.
+    - Log administrative overrides and policy-linked tuning changes so unauthorized reprioritization is detectable.
+  notes: Moderate-risk posture is appropriate because the pattern changes operational sequencing rather than directly executing irreversible external actions, yet can still create material service or control issues if it optimizes the wrong signals.
+why_agentic:
+  - The workflow must interpret delayed, noisy feedback and choose how to adapt queue ranking instead of relying on one static priority formula.
+  - Useful optimization depends on stateful memory of overrides, outcomes, and context shifts across many queue cycles.
+  - The system must decide when to keep tuning automatically, when to roll back, and when to escalate because the feedback loop is no longer trustworthy.
+failure_modes:
+  - mode: The optimizer chases a proxy metric that harms real outcomes
+    impact: Queue performance appears to improve on paper while urgent, complex, or high-value work is delayed or mishandled.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Evaluate multiple outcome measures such as reopen rate, SLA attainment, and manual override frequency together.
+      - Require supervisors to review objective definitions and protected-priority exceptions on a regular cadence.
+  - mode: Feedback bias amplifies unfair or unstable prioritization
+    impact: Similar items receive inconsistent treatment, certain request classes are systematically deprioritized, or queue order oscillates in ways that confuse operators.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Test for fairness drift and ordering volatility before applying material tuning changes.
+      - Cap how far one update can move scores without human review.
+  - mode: Policy or deadline changes are not reflected in the optimization loop
+    impact: The queue continues optimizing for outdated service goals and misses new compliance, support, or operational priorities.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Version objectives and guardrails with explicit effective dates.
+      - Trigger reevaluation when policy sources or service commitments change.
+  - mode: Sparse or contradictory feedback causes overconfident reprioritization
+    impact: The workflow makes unstable ordering changes based on weak evidence and reduces operator trust in the queue.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Fall back to the last trusted prioritization policy when evidence quality is low.
+      - Escalate unusually large proposed changes for supervisory review.
+evaluation:
+  success_metrics:
+    - Reduction in SLA misses, deadline breaches, or aging-out items after optimization changes are applied.
+    - Lower reopen or rework rate for items that were promoted or deferred by the optimized queue.
+    - Percentage of queue items handled in optimized order without later human override for preventable reasons.
+  quality_criteria:
+    - Queue ranking changes remain explainable in terms of outcomes, constraints, and applied guardrails.
+    - Protected-priority items and fairness rules remain intact even when throughput pressure increases.
+    - The workflow can roll back quickly when optimization degrades service quality or operator trust.
+  robustness_checks:
+    - Replay backlog spikes, staffing shortages, and deadline-heavy periods to verify the optimizer stays within approved bounds.
+    - Test sparse, delayed, and contradictory feedback to confirm the loop degrades into rollback or escalation instead of unstable tuning.
+    - Test new policy or SLA changes and ensure outdated objective weights are not silently reused.
+  benchmark_notes: Evaluate operational improvement and governance stability together; faster average handling is not success if the queue becomes less fair, less controllable, or less reliable for urgent work.
+implementation_notes:
+  orchestration_notes:
+    - Separate telemetry collection, outcome evaluation, bounded score tuning, and publishing of queue changes so each stage can be inspected or rolled back.
+    - Keep human overrides and reviewer comments in the same state history used to judge whether the optimization is actually helping.
+  integration_notes:
+    - Common implementations integrate ticketing or case systems, analytics stores, staffing data, and policy engines.
+    - Keep the pattern neutral about specific queueing vendors, optimization methods, or model types.
+  deployment_notes:
+    - Start with recommendation visibility or bounded score updates before allowing larger autonomous reprioritization moves.
+    - Monitor objective drift and operator disagreement closely after rollout, especially during workload surges.
+  references:
+    - docs/patterns/optimize-adapt.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: risk-alert-triage
+    relationship: can-optimize
+    notes: Outcome feedback from triage queues can feed this pattern to improve future alert ordering and escalation priority.
+example_domains:
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Reweight a support backlog using reopen rates, SLA misses, and supervisor overrides so urgent tickets surface earlier without starving other obligations.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Adapt work-order queue sequencing as staffing, backlog aging, and downstream rework patterns change through the day.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Optimize reviewer queue order using missed-deadline risk and prior escalation outcomes while preserving non-waivable policy priorities.
+maturity: draft
+tags:
+  - optimize-adapt
+  - feedback-driven-optimization
+  - queue-optimization
+  - prioritization
+  - exception-gated-autonomy

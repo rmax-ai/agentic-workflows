@@ -107,7 +107,7 @@ families:
   - id: feedback-driven-optimization
     label: Feedback-driven optimization
     source_vocabulary: problem-structures
-  pattern_ids: []
+  pattern_ids: [queue-prioritization-optimization]
 - family:
     id: human-agent-collaborative-work
   path: patterns/human-agent-collaborative-work
