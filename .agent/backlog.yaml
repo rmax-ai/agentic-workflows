@@ -104,7 +104,8 @@ items:
       - instances/
     notes:
       - The first three grounded examples now exist for research, engineering, and finance, each tied directly to one of the initial canonical patterns.
-      - The next follow-on instance batch should target newly supported domains such as compliance, operations, HR, or support using the new planning, recommendation, and execution patterns.
+      - A follow-on instance batch now grounds the planning, recommendation, and execution patterns in operations, compliance, and HR scenarios.
+      - Support remains the most obvious uncovered domain for another near-term instance if additional grounding is needed before broader expansion.
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement

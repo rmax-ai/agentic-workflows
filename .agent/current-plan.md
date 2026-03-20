@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Use the newly expanded canonical pattern layer to resume Phase 6 with a three-instance batch for compliance, operations, and HR grounded in the planning, recommendation, and execution patterns before returning to the remaining empty families.
+Use the newly expanded grounded-instance layer as the baseline for returning to Phase 5 with a narrow canonical pattern batch in one of the remaining empty families.
 
 ## Current phase
 
@@ -11,15 +11,15 @@ Use the newly expanded canonical pattern layer to resume Phase 6 with a three-in
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
 - Tooling baseline: uv-managed Python 3.14 helper workflow is in place
 - Phase 5: a second canonical pattern batch now covers planning, recommendation, and execution families in addition to the initial gather, investigate, and monitor anchors
-- Phase 6: the repository has first grounded instances plus several newly stable patterns that now justify another targeted instance batch
+- Phase 6: the repository now has six grounded instances spanning research, engineering, finance, operations, compliance, and HR
 
 ## Ordered tasks
 
-1. Add a three-instance follow-on batch tied to `calendar-conflict-coordination`, `deal-desk-recommendation-support`, and `browser-based-form-completion-with-approval-gates`.
-2. Prioritize uncovered instance domains by landing one concrete compliance instance, one operations instance, and one HR instance so grounded coverage catches up with the canonical layer.
-3. Keep each instance tightly linked to one or more canonical YAML patterns and focused on a real operational scenario rather than a generic domain essay.
-4. After the instance batch lands, reassess whether the next highest-leverage step is an `optimize-adapt` or `human-agent-collaborative-work` pattern batch.
-5. Continue to avoid `transform-process` until a concrete pattern is justified despite the current `problem-structures` vocabulary gap, or until that gap is deliberately refined.
+1. Add the first canonical pattern in `optimize-adapt` or `human-agent-collaborative-work`, choosing the family with the clearest vocabulary-supported problem structure and strongest governance framing.
+2. Re-read the relevant family overview doc, schema, vocabularies, neighboring patterns, and coverage matrix before authoring the next seed pattern.
+3. Keep the next pattern batch modest and dependency-aware: prefer one or two strong canonical entries over broad shallow expansion.
+4. Treat `transform-process` as still blocked unless a justified vocabulary refinement or clearly supported pattern candidate emerges.
+5. Use the new grounded instances to inform future example domains and cross-links without duplicating their concrete scenario prose into canonical YAML.
 
 ## Constraints
 
@@ -30,10 +30,10 @@ Use the newly expanded canonical pattern layer to resume Phase 6 with a three-in
 - Use the family overview docs as narrative constraints, not as alternate canonical data.
 - Keep views aligned with the controlled vocabulary ids and treat them as derived browse artifacts.
 - Ensure every subagent task ends with exactly one git commit.
-- Keep instance work tightly tied to existing canonical patterns; do not create standalone domain essays.
-- Prefer tasks that improve domain grounding and governance coverage rather than duplicating already-grounded examples.
-- Favor next steps that make the coverage matrix more balanced across domains, architectures, autonomy levels, and risk levels.
+- Keep canonical pattern work tightly aligned with the existing schema, vocabularies, and family boundaries.
+- Prefer tasks that improve coverage in still-empty families before adding more instances to already-grounded families.
+- Favor next steps that make the coverage matrix more balanced across families, domains, architectures, autonomy levels, and risk levels.
 
 ## Expected outcome
 
-The next iteration should leave the repository with broader grounded coverage for the newly added patterns, explicit compliance/operations/HR scenario support, and a better-informed basis for the next family-expansion decision.
+The next iteration should leave the repository with at least one new canonical pattern in a previously empty family and a clearer path for closing the remaining family-level gaps.

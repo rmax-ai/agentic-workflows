@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: second-seed-pattern-batch-landed
+repository_stage: follow-on-instance-batch-landed
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,14 +29,14 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 6
-  instance_files: 3
+  instance_files: 6
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
   pattern_families_defined: 9
   pattern_families_with_patterns: 6
   domains_with_patterns: 7
-  domains_with_instances: 3
+  domains_with_instances: 6
   architectures_mapped: 5
   autonomy_levels_mapped: 6
   risk_levels_mapped: 4
@@ -55,11 +55,11 @@ pattern_counts_by_family:
 instance_counts_by_domain:
   engineering: 1
   finance: 1
-  compliance: 0
-  operations: 0
+  compliance: 1
+  operations: 1
   research: 1
   support: 0
-  hr: 0
+  hr: 1
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -88,6 +88,9 @@ repo_reality:
     - instances/research/regulatory-obligation-synthesis-for-data-retention-review.md
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
+    - instances/operations/cross-functional-maintenance-review-scheduling.md
+    - instances/compliance/cross-border-deal-exception-review.md
+    - instances/hr/approved-payroll-status-change-submission.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -103,12 +106,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, six canonical patterns across six families, and an initial grounded instance batch across research, engineering, and finance.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, six canonical patterns across six families, and six grounded instances spanning research, engineering, finance, operations, compliance, and HR.
 immediate_gaps:
-  - Canonical patterns are still missing in `transform-process`, `optimize-adapt`, and `human-agent-collaborative-work`.
-  - Grounded instances still exist only for research, engineering, and finance, leaving compliance, operations, support, and HR without direct instance coverage.
-  - The newly added planning, recommendation, and execution patterns have no grounded Markdown instances yet, so their new coverage cells remain canonical-only.
+  - "Canonical patterns are still missing in `transform-process`, `optimize-adapt`, and `human-agent-collaborative-work`."
+  - Support remains the only currently modeled domain without any grounded instance coverage.
   - "`transform-process` still has no direct problem-structure vocabulary mapping, so its browse-view linkage remains intentionally empty until a justified vocabulary refinement is made."
+  - Several canonical domain cells remain partial because only one grounded example exists for the planning, recommendation, and execution families so far.
 next_action:
-  id: phase-6-follow-on-instance-batch
-  summary: Add a small grounded instance batch for compliance, operations, HR, or support using the newly added planning, recommendation, and execution patterns before returning to the remaining empty families.
+  id: phase-5-empty-family-pattern-batch
+  summary: "Add a narrow canonical pattern batch in `optimize-adapt` or `human-agent-collaborative-work`, with `transform-process` still deferred pending a justified vocabulary-supported candidate."
