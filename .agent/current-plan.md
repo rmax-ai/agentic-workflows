@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Use the newly expanded grounded-instance layer as the baseline for returning to Phase 5 with a narrow canonical pattern batch in one of the remaining empty families.
+Use the newly expanded grounded-instance layer as the baseline for returning to Phase 5 with a narrow canonical pattern batch in one of the remaining empty families. For this iteration, fill `optimize-adapt` with a single feedback-driven optimization pattern and refresh the derived browse views around it.
 
 ## Current phase
 
@@ -15,10 +15,10 @@ Use the newly expanded grounded-instance layer as the baseline for returning to 
 
 ## Ordered tasks
 
-1. Add the first canonical pattern in `optimize-adapt` or `human-agent-collaborative-work`, choosing the family with the clearest vocabulary-supported problem structure and strongest governance framing.
-2. Re-read the relevant family overview doc, schema, vocabularies, neighboring patterns, and coverage matrix before authoring the next seed pattern.
-3. Keep the next pattern batch modest and dependency-aware: prefer one or two strong canonical entries over broad shallow expansion.
-4. Treat `transform-process` as still blocked unless a justified vocabulary refinement or clearly supported pattern candidate emerges.
+1. Add the first canonical pattern in `optimize-adapt`, using the existing `feedback-driven-optimization` problem-structure term and choosing a candidate that fits the family's constraint-aware adaptation boundary.
+2. Re-read the relevant family overview doc, schema, vocabularies, neighboring patterns, and coverage matrix before authoring the pattern and derived-view updates.
+3. Keep the batch modest and dependency-aware: one strong canonical entry plus the minimum browse-view edits needed to reference it consistently.
+4. Treat `human-agent-collaborative-work` as the next likely empty-family target after this iteration, and keep `transform-process` blocked unless a justified vocabulary-supported candidate emerges.
 5. Use the new grounded instances to inform future example domains and cross-links without duplicating their concrete scenario prose into canonical YAML.
 
 ## Constraints
@@ -36,4 +36,4 @@ Use the newly expanded grounded-instance layer as the baseline for returning to 
 
 ## Expected outcome
 
-The next iteration should leave the repository with at least one new canonical pattern in a previously empty family and a clearer path for closing the remaining family-level gaps.
+The next iteration should leave the repository with the first canonical pattern in `optimize-adapt`, aligned browse views, and a clearer path for closing the remaining empty-family gaps in `human-agent-collaborative-work` and `transform-process`.
