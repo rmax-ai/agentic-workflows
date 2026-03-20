@@ -1,6 +1,6 @@
 version: 1
-last_updated: 2026-03-20
-repository_stage: navigation-established
+last_updated: 2026-03-21
+repository_stage: family-docs-established
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -16,6 +16,9 @@ phase_status:
     status: complete
   phase_4:
     name: pattern family docs
+    status: complete
+  phase_5:
+    name: seed canonical patterns
     status: pending
 inventory:
   foundational_docs: 4
@@ -24,7 +27,7 @@ inventory:
   view_files: 5
   pattern_files: 0
   instance_files: 0
-  pattern_family_docs: 0
+  pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
   pattern_families_defined: 9
@@ -51,17 +54,26 @@ repo_reality:
     - data/views/by-architecture.yaml
     - data/views/by-autonomy.yaml
     - data/views/by-risk.yaml
+    - docs/patterns/README.md
+    - docs/patterns/gather-retrieve-synthesize.md
+    - docs/patterns/transform-process.md
+    - docs/patterns/investigate-reconcile-verify.md
+    - docs/patterns/monitor-detect-triage.md
+    - docs/patterns/plan-coordinate-schedule.md
+    - docs/patterns/recommend-decide-escalate.md
+    - docs/patterns/execute-automate.md
+    - docs/patterns/optimize-adapt.md
+    - docs/patterns/human-agent-collaborative-work.md
     - .agent/current-plan.md
     - .agent/prompts/mega-prompt.txt
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, and five browse-view artifacts. Pattern family docs, canonical patterns, and grounded instances have not been authored yet.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, and a complete first set of top-level pattern family overview docs. Canonical patterns and grounded instances have not been authored yet.
 immediate_gaps:
-  - Missing pattern family documentation under docs/patterns/.
   - Missing every canonical pattern YAML entry.
   - Missing every grounded instance Markdown file.
   - transform-process currently has no direct problem-structure vocabulary mapping, so its browse-view linkage is intentionally left empty until a justified vocabulary refinement is made.
 next_action:
-  id: phase-4-pattern-family-docs
-  summary: Create family overview docs under docs/patterns/ using the committed browse views and controlled vocabulary ids as the naming baseline.
+  id: phase-5-seed-patterns
+  summary: Author a small first batch of canonical pattern YAML files in representative families using the schema, vocabularies, views, and new family docs as the authoring baseline.

@@ -2,22 +2,23 @@
 
 ## Iteration focus
 
-Complete the first Phase 4 documentation batch by authoring the top-level pattern family docs under `docs/patterns/`.
+Begin Phase 5 by authoring a small, high-value batch of canonical YAML pattern entries now that the family overview docs are in place.
 
 ## Current phase
 
 - Phase 2: controlled vocabularies are complete
 - Phase 3: navigation views are complete
+- Phase 4: top-level family overview docs are complete under `docs/patterns/`
 - Tooling baseline: uv-managed Python 3.14 helper workflow is in place
-- Phase 4: author the first complete set of top-level family overview docs in `docs/patterns/`
+- Phase 5: start the first canonical pattern batch in `data/patterns/`
 
 ## Ordered tasks
 
-1. Author `docs/patterns/README.md` plus family overview files for the nine top-level pattern families in the established browse order.
-2. Keep the family docs aligned with `docs/index-tree.md`, `data/views/index-tree.yaml`, and the existing controlled vocabularies so later pattern files inherit stable naming and neighboring-family boundaries.
-3. Document the temporary ontology gap where `transform-process` lacks a direct `problem-structures` mapping, but do not block family-doc authoring on that refinement.
-4. Review the new Markdown docs for navigability and cross-links, then re-run the existing `uv`-managed YAML validation to ensure repository integrity remains intact.
-5. After family docs land, move to a small batch of seed pattern YAML entries rather than broad generation.
+1. Author a small first batch of canonical pattern YAML files in representative families with strong vocabulary support, starting with investigation, monitoring, and gather/synthesis workflows before broader expansion.
+2. Keep every seed pattern aligned with `schema/pattern.schema.json`, the existing controlled vocabularies, `data/views/index-tree.yaml`, and the new `docs/patterns/` family boundaries.
+3. Prefer patterns with clear governance and evaluation surfaces so the initial batch sets a high-quality template for later authoring.
+4. Avoid `transform-process` until a concrete pattern is justified despite the current `problem-structures` vocabulary gap, or until that gap is deliberately refined.
+5. Validate new YAML files with the existing `uv`-managed helper tooling after each pattern batch.
 
 ## Constraints
 
@@ -25,10 +26,10 @@ Complete the first Phase 4 documentation batch by authoring the top-level patter
 - Prefer standard-library Python first and add third-party packages only when justified.
 - Keep shell entrypoints thin even if helper logic moves into Python.
 - Use checked-in Python helpers instead of ad hoc Ruby for reusable validation or parsing tasks.
-- Do not add canonical pattern entries before the family overview docs exist.
+- Use the family overview docs as narrative constraints, not as alternate canonical data.
 - Keep views aligned with the controlled vocabulary ids and treat them as derived browse artifacts.
 - Ensure every subagent task ends with exactly one git commit.
 
 ## Expected outcome
 
-This iteration should land committed pattern-family docs that make the browse tree explainable to human readers and leave the repository ready for the first seed pattern batch.
+The next iteration should land a modest, schema-valid first batch of canonical pattern YAML files that establish the repository's pattern authoring standard without over-expanding coverage.

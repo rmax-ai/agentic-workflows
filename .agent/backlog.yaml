@@ -67,7 +67,7 @@ items:
   - id: phase-4-pattern-family-docs
     phase: 4
     priority: P1
-    status: in_progress
+    status: done
     title: Define top-level pattern family documentation
     depends_on:
       - phase-3-navigation-views
@@ -80,7 +80,7 @@ items:
   - id: phase-5-seed-patterns
     phase: 5
     priority: P1
-    status: pending
+    status: in_progress
     title: Author first canonical YAML pattern entries
     depends_on:
       - phase-4-pattern-family-docs
@@ -88,6 +88,7 @@ items:
       - data/patterns/
     notes:
       - Begin with high-value seed patterns only after schema, vocabularies, and views exist.
+      - Use the Phase 4 family docs as narrative anchors so seed patterns stay within stable family boundaries.
 
   - id: phase-6-grounded-instances
     phase: 6

@@ -1,5 +1,5 @@
 version: 1
-last_updated: 2026-03-20
+last_updated: 2026-03-21
 legend:
   none: No repository artifact exists for the cell.
   partial: Some artifacts exist, but coverage is incomplete.
@@ -68,6 +68,7 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Schema, foundational docs, core controlled vocabularies, and browse views now exist, so the matrix dimensions and navigation layer are stable enough to guide early pattern authoring.
+    - Schema, foundational docs, core controlled vocabularies, browse views, and family overview docs now exist, so the matrix dimensions and navigation layer are stable enough to guide early pattern authoring.
+    - The Phase 4 family docs provide narrative boundaries for all nine top-level families, but they do not change cell status because coverage requires canonical pattern or instance artifacts.
     - Coverage cells remain `none` because no canonical pattern or instance artifacts have been added yet.
     - Use the empty cells to choose the first pattern batches once pattern family docs are in place.

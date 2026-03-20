@@ -37,6 +37,8 @@
 - `docs/schema.md` — field-by-field guide to the canonical pattern schema.
 - `docs/index-tree.md` — proposed pattern-first browse tree and derived view strategy.
 - `docs/contribution-guide.md` — dependency-aware authoring and placement rules.
+- `docs/patterns/README.md` — directory-level guide for the top-level pattern family overviews.
+- `docs/patterns/*.md` — nine family overview docs that define family boundaries, neighboring links, governance concerns, and seed-pattern guidance before canonical YAML authoring.
 - `schema/pattern.schema.json` — canonical JSON Schema for YAML pattern entries.
 
 ### Current controlled vocabularies
@@ -60,7 +62,6 @@
 
 ### Additional documentation
 
-- `docs/patterns/`
 - `docs/domains/`
 - `docs/architectures/`
 
@@ -82,4 +83,5 @@
 6. `.agent/coverage-matrix.yaml`
 7. `.agent/decisions.md`
 8. `data/vocabularies/`
-9. `schema/pattern.schema.json`
+9. `docs/patterns/`
+10. `schema/pattern.schema.json`
