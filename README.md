@@ -1,47 +1,4 @@
 # Agentic Workflows
-Use these two files.
-
-`.gitattributes`
-
-```gitattributes
-# Normalize text files
-* text=auto eol=lf
-
-# Source and data files
-*.md text
-*.txt text
-*.yaml text
-*.yml text
-*.json text
-*.jsonl text
-*.sh text
-*.py text
-*.js text
-*.ts text
-
-# Keep common binaries as binary
-*.png binary
-*.jpg binary
-*.jpeg binary
-*.gif binary
-*.webp binary
-*.pdf binary
-*.zip binary
-*.gz binary
-*.tar binary
-*.7z binary
-
-# Linguist hints
-data/patterns/** linguist-language=YAML
-data/vocabularies/** linguist-language=YAML
-instances/** linguist-language=Markdown
-docs/** linguist-language=Markdown
-```
-
-Initial `README.md`
-
-````md
-# agentic-workflows
 
 A pattern-first encyclopedia of agentic workflows.
 
@@ -235,4 +192,3 @@ This repository is being built iteratively with an orchestrated agent loop that 
 ## License
 
 See `LICENSE`.
-
