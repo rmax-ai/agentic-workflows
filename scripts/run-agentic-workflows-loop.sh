@@ -17,6 +17,7 @@ OPERATOR_PROMPT_FILE="${PROMPTS_DIR}/operator-prompt.txt"
 REPO_SNAPSHOT_FILE="${RUN_DIR}/repo-snapshot.txt"
 FULL_PROMPT_FILE="${RUN_DIR}/full-prompt.txt"
 OUTPUT_FILE="${RUN_DIR}/copilot-output.txt"
+PUSH_ON_SUCCESS="${PUSH_ON_SUCCESS:-0}"
 
 mkdir -p "${PROMPTS_DIR}" "${RUN_DIR}" "${AGENT_DIR}"
 
@@ -152,9 +153,21 @@ echo "Output log:  ${OUTPUT_FILE}"
 
 cd "${REPO_ROOT}"
 
-"${COPILOT_BIN}" -p "$(cat "${FULL_PROMPT_FILE}")" | tee "${OUTPUT_FILE}"
+"${COPILOT_BIN}" \
+  --model gpt-5.4 \
+  --allow-all \
+  -p "$(cat "${FULL_PROMPT_FILE}")" | tee "${OUTPUT_FILE}"
 
 echo
 echo "Iteration finished."
 echo "Artifacts:"
 echo "  ${RUN_DIR}"
+
+if [ "${PUSH_ON_SUCCESS}" = "1" ]; then
+  if [ -n "$(git status --porcelain)" ]; then
+    echo "Refusing to push: working tree is not clean."
+    exit 1
+  fi
+  BRANCH="$(git branch --show-current)"
+  git push origin "${BRANCH}"
+fi
