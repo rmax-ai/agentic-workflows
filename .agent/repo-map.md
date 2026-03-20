@@ -18,6 +18,7 @@
 - `.agent/prompts/operator-prompt.txt` — per-iteration operator instructions.
 - `.agent/mission.md` — stable mission and curation rules created in this bootstrap.
 - `.agent/backlog.yaml` — dependency-ordered task backlog created in this bootstrap.
+- `.agent/proposals/` — staged ontology proposals for later review, adoption, or conversion into durable decisions.
 - `.agent/iterations/` — one dated Markdown file per iteration, grouped by year.
 - `.agent/decisions.md` — durable architectural and process decisions created in this bootstrap.
 - `.agent/ontology-status.yaml` — status inventory and gap tracking created in this bootstrap.
