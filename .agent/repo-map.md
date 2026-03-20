@@ -16,29 +16,37 @@
 - `.agent/current-plan.md` — current ordered iteration plan.
 - `.agent/prompts/mega-prompt.txt` — master orchestration prompt for the repo-building loop.
 - `.agent/prompts/operator-prompt.txt` — per-iteration operator instructions.
-- `.agent/mission.md` — stable mission and curation rules created in this bootstrap.
-- `.agent/backlog.yaml` — dependency-ordered task backlog created in this bootstrap.
-- `.agent/proposals/` — staged ontology proposals for later review, adoption, or conversion into durable decisions.
+- `.agent/mission.md` — stable mission and curation rules for the repository.
+- `.agent/backlog.yaml` — dependency-ordered task backlog.
 - `.agent/iterations/` — one dated Markdown file per iteration, grouped by year.
-- `.agent/decisions.md` — durable architectural and process decisions created in this bootstrap.
-- `.agent/ontology-status.yaml` — status inventory and gap tracking created in this bootstrap.
-- `.agent/coverage-matrix.yaml` — initial coverage grid created in this bootstrap.
-- `.agent/glossary.md` — repository terminology guide created in this bootstrap.
+- `.agent/decisions.md` — durable architectural and process decisions.
+- `.agent/ontology-status.yaml` — status inventory and gap tracking.
+- `.agent/coverage-matrix.yaml` — coverage grid for planned pattern/domain/architecture/risk combinations.
+- `.agent/glossary.md` — repository terminology guide.
+
+### Current foundational ontology assets
+- `docs/ontology.md` — canonical explanation of ontology layers, relationships, and normalization rules.
+- `docs/schema.md` — field-by-field guide to the canonical pattern schema.
+- `docs/index-tree.md` — proposed pattern-first browse tree and derived view strategy.
+- `docs/contribution-guide.md` — dependency-aware authoring and placement rules.
+- `schema/pattern.schema.json` — canonical JSON Schema for YAML pattern entries.
+
+### Current controlled vocabularies
+- `data/vocabularies/problem-structures.yaml` — reusable workflow problem forms for `problem_structure`.
+- `data/vocabularies/domains.yaml` — approved contextual domain ids for `domain`.
+- `data/vocabularies/architectures.yaml` — execution architecture ids for `execution_architecture`.
+- `data/vocabularies/capabilities.yaml` — reusable capability ids for `capability_requirements`.
+- `data/vocabularies/autonomy-levels.yaml` — autonomy ladder for `autonomy_profile.level`.
+- `data/vocabularies/risk-levels.yaml` — governance-sensitive levels for `risk_governance.level`.
 
 ## Not yet present but planned
 
-### Foundational documentation
-- `docs/ontology.md`
-- `docs/schema.md`
-- `docs/index-tree.md`
-- `docs/contribution-guide.md`
+### Additional documentation
 - `docs/patterns/`
 - `docs/domains/`
 - `docs/architectures/`
 
 ### Structured ontology data
-- `schema/pattern.schema.json`
-- `data/vocabularies/`
 - `data/views/`
 - `data/patterns/`
 
@@ -54,3 +62,5 @@
 5. `.agent/ontology-status.yaml`
 6. `.agent/coverage-matrix.yaml`
 7. `.agent/decisions.md`
+8. `data/vocabularies/`
+9. `schema/pattern.schema.json`

@@ -1,50 +1,59 @@
 version: 1
 last_updated: 2026-03-20
-repository_stage: bootstrap
+repository_stage: vocabulary-established
 phase_status:
   phase_0:
     name: execution-memory bootstrap
     status: complete
   phase_1:
     name: foundational docs and schema
-    status: pending
+    status: complete
   phase_2:
     name: controlled vocabularies
-    status: pending
+    status: complete
   phase_3:
     name: navigation views
     status: pending
 inventory:
-  foundational_docs: 0
-  schema_files: 0
-  vocabulary_files: 0
+  foundational_docs: 4
+  schema_files: 1
+  vocabulary_files: 6
   view_files: 0
   pattern_files: 0
   instance_files: 0
   pattern_family_docs: 0
   glossary_files: 1
 coverage_totals:
-  pattern_families_defined: 0
+  pattern_families_defined: 9
   domains_with_instances: 0
-  architectures_mapped: 0
-  autonomy_levels_mapped: 0
-  risk_levels_mapped: 0
+  architectures_mapped: 5
+  autonomy_levels_mapped: 6
+  risk_levels_mapped: 4
 repo_reality:
   available_ontology_assets:
     - README.md
+    - docs/ontology.md
+    - docs/schema.md
+    - docs/index-tree.md
+    - docs/contribution-guide.md
+    - schema/pattern.schema.json
+    - data/vocabularies/problem-structures.yaml
+    - data/vocabularies/domains.yaml
+    - data/vocabularies/architectures.yaml
+    - data/vocabularies/capabilities.yaml
+    - data/vocabularies/autonomy-levels.yaml
+    - data/vocabularies/risk-levels.yaml
     - .agent/current-plan.md
     - .agent/prompts/mega-prompt.txt
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository support files like .gitattributes, .gitignore, and LICENSE exist, but no ontology content directories have been created yet.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, and six core controlled vocabularies. Browse views, pattern family docs, canonical patterns, and grounded instances have not been authored yet.
 immediate_gaps:
-  - Missing foundational docs under docs/.
-  - Missing canonical schema at schema/pattern.schema.json.
-  - Missing all controlled vocabularies under data/vocabularies/.
   - Missing all browse views under data/views/.
+  - Missing pattern family documentation under docs/patterns/.
   - Missing every canonical pattern YAML entry.
   - Missing every grounded instance Markdown file.
 next_action:
-  id: phase-1-foundations-and-schema
-  summary: Create the foundational ontology docs and the first canonical pattern schema.
+  id: phase-3-navigation-views
+  summary: Create browse views that reference the established family, domain, architecture, autonomy, and risk ids.

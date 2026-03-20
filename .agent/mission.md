@@ -11,16 +11,27 @@ Build `agentic-workflows` into a pattern-first ontology of agentic work that sta
 
 ## Current operating constraints
 
-The repository is still in its bootstrap state. Today the ontology-specific assets are limited to:
+The repository now has execution memory, foundational docs, the canonical pattern schema, and the first six controlled vocabularies. The main ontology-specific assets are:
 
 - `README.md`
+- `docs/ontology.md`
+- `docs/schema.md`
+- `docs/index-tree.md`
+- `docs/contribution-guide.md`
+- `schema/pattern.schema.json`
+- `data/vocabularies/problem-structures.yaml`
+- `data/vocabularies/domains.yaml`
+- `data/vocabularies/architectures.yaml`
+- `data/vocabularies/capabilities.yaml`
+- `data/vocabularies/autonomy-levels.yaml`
+- `data/vocabularies/risk-levels.yaml`
 - `.agent/current-plan.md`
 - `.agent/prompts/mega-prompt.txt`
 - `.agent/prompts/operator-prompt.txt`
 - `scripts/run-agentic-workflows-loop.sh`
 - `scripts/run-agentic-workflows-forever.sh`
 
-No schema, controlled vocabularies, navigation views, canonical patterns, or grounded instances exist yet.
+Navigation views, pattern family docs, canonical patterns, and grounded instances do not exist yet.
 
 ## Curation rules
 

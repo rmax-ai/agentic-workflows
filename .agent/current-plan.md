@@ -1,22 +1,22 @@
 # Current Plan
 
 ## Iteration focus
-Stabilize repository memory to match the committed foundations, then complete Phase 2 controlled vocabularies in a narrow, dependency-safe batch.
+Use the newly committed controlled vocabularies to create Phase 3 navigation views without introducing a second source of truth.
 
 ## Current phase
-- Phase 1: foundational docs and schema are complete
-- Phase 2: create controlled vocabularies for core classification fields
+- Phase 2: controlled vocabularies are complete
+- Phase 3: create pattern-first and alternate browse views
 
 ## Ordered tasks
-1. Normalize `.agent/` state so plan and backlog reflect the already-committed foundations and schema.
-2. Author the six core controlled vocabulary files under `data/vocabularies/`.
-3. Review the new vocabularies for consistency with the schema and docs.
-4. Add the iteration summary under `.agent/iterations/`, then update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and this plan with the next dependency-ordered step.
+1. Create `data/views/index-tree.yaml` using the established pattern families and link strategy from `docs/index-tree.md`.
+2. Create alternate browse views for domain, architecture, autonomy, and risk using the controlled vocabulary ids from `data/vocabularies/`.
+3. Keep view artifacts reference-oriented so they can be regenerated once pattern files exist.
+4. After views land, prepare the top-level `docs/patterns/` family docs before seed pattern authoring.
 
 ## Constraints
-- Do not add navigation views or pattern entries before controlled vocabularies are coherent.
-- Keep vocabulary ids stable, lower-kebab-case, and aligned with the schema field names.
+- Do not add canonical pattern entries before navigation views and family docs exist.
+- Keep views aligned with the controlled vocabulary ids and treat them as derived browse artifacts.
 - Ensure every subagent task ends with exactly one git commit.
 
 ## Expected outcome
-The repository should end this iteration with committed controlled vocabularies and execution memory that accurately points the next loop toward navigation views.
+The next iteration should end with committed browse views that make the ontology more navigable and set up focused pattern family documentation.

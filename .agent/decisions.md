@@ -29,3 +29,8 @@
 - **Status:** accepted
 - **Decision:** Store iteration history in `.agent/iterations/<year>/<timestamp>.md` rather than appending indefinitely to a single `.agent/iteration-log.md` file.
 - **Rationale:** Iteration history grows without bound, while plan, status, and decisions should stay concise. Per-iteration files keep the root `.agent/` directory readable, make history easier to navigate by date, and reduce edit contention on one long-lived file.
+
+## D-0007 — Standardize controlled vocabulary file shape
+- **Status:** accepted
+- **Decision:** Represent each controlled vocabulary as a versioned YAML document with top-level metadata (`version`, `vocabulary`, `title`, `summary`, `source_fields`, `usage_notes`) plus a `terms` list whose entries use stable ids and concise author guidance.
+- **Rationale:** Vocabulary files will be read by both humans and future agents, so a consistent document shape makes them easier to browse, validate, and reference from pattern entries and derived views without inventing a new format for each concept class.

@@ -66,7 +66,8 @@ matrices:
     optimize-adapt: {low: none, moderate: none, high: none, critical: none}
     human-agent-collaborative-work: {low: none, moderate: none, high: none, critical: none}
 summary:
-  overall_status: none
+  overall_status: partial
   notes:
-    - The matrix is intentionally empty because the repository has not reached schema, vocabulary, or pattern authoring yet.
-    - Use this file to prioritize early additions that improve coverage across families, domains, architectures, and governance profiles.
+    - Schema, foundational docs, and core controlled vocabularies now exist, so the matrix dimensions are stable enough to guide early pattern authoring.
+    - Coverage cells remain `none` because no canonical pattern or instance artifacts have been added yet.
+    - Use the empty cells to choose the first pattern batches once navigation views and family docs are in place.

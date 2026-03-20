@@ -31,4 +31,7 @@ A structured record of which combinations of pattern families, domains, architec
 The bootstrap phase that creates the persistent execution-memory files under `.agent/`.
 
 ## Phase 1
-The next phase, focused on foundational docs and the canonical pattern schema.
+The foundations phase, focused on ontology docs and the canonical pattern schema.
+
+## Phase 2
+The controlled-vocabulary phase, focused on stabilizing reusable ids for problem structures, domains, architectures, capabilities, autonomy levels, and risk levels.
