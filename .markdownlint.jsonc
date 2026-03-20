@@ -1,0 +1,6 @@
+{
+  // Allow one extra blank line so trailing editor spacing at EOF does not trip MD012.
+  "MD012": {
+    "maximum": 2
+  }
+}
