@@ -1,0 +1,118 @@
+version: 1
+view: index-tree
+title: Pattern-first browse tree
+summary: Derived primary browse view that anchors navigation on pattern families and reserves canonical
+  pattern links for later phases.
+root:
+  id: patterns
+  label: Patterns
+  summary: The default browse root stays pattern-family-first, while alternate views remain derived aids.
+source_documents:
+- docs/index-tree.md
+source_vocabularies:
+- problem-structures
+source_fields:
+- pattern_family
+usage_notes:
+- This file is a derived browse artifact and should stay regenerable from canonical pattern data plus
+  stable family ids.
+- Use family ids as the primary navigation spine and add canonical pattern ids only after data/patterns/
+  exists.
+- Keep alternate views aligned to this family order so domain and governance navigation still reflects
+  the pattern-first ontology.
+- The transform-process family has no direct problem-structure vocabulary term yet, so its related_problem_structures
+  list remains empty.
+linkage:
+  canonical_pattern_directory: data/patterns
+  canonical_pattern_file_template: data/patterns/<pattern-id>.yaml
+  alternate_views:
+  - data/views/by-domain.yaml
+  - data/views/by-architecture.yaml
+  - data/views/by-autonomy.yaml
+  - data/views/by-risk.yaml
+empty_state:
+  status: awaiting-canonical-patterns
+  note: The repository does not yet contain canonical pattern YAML entries, so every family starts with
+    an empty pattern_ids list by design.
+families:
+- family:
+    id: gather-retrieve-synthesize
+  path: patterns/gather-retrieve-synthesize
+  related_problem_structures:
+  - id: context-gathering-and-synthesis
+    label: Context gathering and synthesis
+    source_vocabulary: problem-structures
+  pattern_ids: []
+- family:
+    id: transform-process
+  path: patterns/transform-process
+  related_problem_structures: []
+  pattern_ids: []
+- family:
+    id: investigate-reconcile-verify
+  path: patterns/investigate-reconcile-verify
+  related_problem_structures:
+  - id: discrepancy-investigation
+    label: Discrepancy investigation
+    source_vocabulary: problem-structures
+  - id: record-reconciliation
+    label: Record reconciliation
+    source_vocabulary: problem-structures
+  - id: evidence-backed-verification
+    label: Evidence-backed verification
+    source_vocabulary: problem-structures
+  pattern_ids: []
+- family:
+    id: monitor-detect-triage
+  path: patterns/monitor-detect-triage
+  related_problem_structures:
+  - id: continuous-monitoring-and-triage
+    label: Continuous monitoring and triage
+    source_vocabulary: problem-structures
+  pattern_ids: []
+- family:
+    id: plan-coordinate-schedule
+  path: patterns/plan-coordinate-schedule
+  related_problem_structures:
+  - id: constraint-aware-planning
+    label: Constraint-aware planning
+    source_vocabulary: problem-structures
+  - id: multi-party-coordination
+    label: Multi-party coordination
+    source_vocabulary: problem-structures
+  pattern_ids: []
+- family:
+    id: recommend-decide-escalate
+  path: patterns/recommend-decide-escalate
+  related_problem_structures:
+  - id: recommendation-and-decision-support
+    label: Recommendation and decision support
+    source_vocabulary: problem-structures
+  pattern_ids: []
+- family:
+    id: execute-automate
+  path: patterns/execute-automate
+  related_problem_structures:
+  - id: approval-gated-execution
+    label: Approval-gated execution
+    source_vocabulary: problem-structures
+  - id: exception-aware-orchestration
+    label: Exception-aware orchestration
+    source_vocabulary: problem-structures
+  pattern_ids: []
+- family:
+    id: optimize-adapt
+  path: patterns/optimize-adapt
+  related_problem_structures:
+  - id: feedback-driven-optimization
+    label: Feedback-driven optimization
+    source_vocabulary: problem-structures
+  pattern_ids: []
+- family:
+    id: human-agent-collaborative-work
+  path: patterns/human-agent-collaborative-work
+  related_problem_structures:
+  - id: human-agent-collaboration
+    label: Human-agent collaboration
+    source_vocabulary: problem-structures
+  pattern_ids: []

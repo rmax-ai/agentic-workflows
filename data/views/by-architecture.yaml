@@ -1,0 +1,97 @@
+version: 1
+view: by-architecture
+title: Browse by architecture
+summary: Derived alternate view that groups future canonical patterns by execution architecture without
+  replacing the primary family tree.
+source_documents:
+- docs/index-tree.md
+source_vocabularies:
+- architectures
+source_fields:
+- execution_architecture
+- execution_architecture[].architecture
+usage_notes:
+- This is a derived browse artifact, not canonical pattern content.
+- Within each bucket, keep patterns grouped by the shared family order from data/views/index-tree.yaml.
+- Empty family buckets are intentional until canonical pattern entries are authored under data/patterns/.
+population_rules:
+  include_when:
+  - canonical pattern execution_architecture includes the referenced architecture id
+  group_by:
+  - pattern_family
+  family_order_source: data/views/index-tree.yaml
+  pattern_link_target: data/patterns/<pattern-id>.yaml
+empty_state:
+  status: awaiting-canonical-patterns
+  note: No canonical patterns exist yet, so this view only seeds vocabulary-linked family scaffolding.
+architectures:
+- architecture:
+    id: tool-using-single-agent
+    label: Tool-using single agent
+    source_vocabulary: architectures
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- architecture:
+    id: orchestrated-multi-agent
+    label: Orchestrated multi-agent
+    source_vocabulary: architectures
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- architecture:
+    id: human-in-the-loop
+    label: Human in the loop
+    source_vocabulary: architectures
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- architecture:
+    id: event-driven-monitoring
+    label: Event-driven monitoring
+    source_vocabulary: architectures
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- architecture:
+    id: approval-gated-execution
+    label: Approval-gated execution
+    source_vocabulary: architectures
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []

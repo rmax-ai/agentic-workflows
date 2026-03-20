@@ -1,0 +1,124 @@
+version: 1
+view: by-domain
+title: Browse by domain
+summary: Derived alternate view that groups future canonical patterns under domain vocabulary terms while
+  preserving family-first navigation.
+source_documents:
+- docs/index-tree.md
+source_vocabularies:
+- domains
+source_fields:
+- domain
+usage_notes:
+- This is a derived browse artifact, not canonical pattern content.
+- Within each bucket, keep patterns grouped by the shared family order from data/views/index-tree.yaml.
+- Empty family buckets are intentional until canonical pattern entries are authored under data/patterns/.
+population_rules:
+  include_when:
+  - canonical pattern domain includes the referenced domain id
+  group_by:
+  - pattern_family
+  family_order_source: data/views/index-tree.yaml
+  pattern_link_target: data/patterns/<pattern-id>.yaml
+empty_state:
+  status: awaiting-canonical-patterns
+  note: No canonical patterns exist yet, so this view only seeds vocabulary-linked family scaffolding.
+domains:
+- domain:
+    id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- domain:
+    id: finance
+    label: Finance
+    source_vocabulary: domains
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- domain:
+    id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- domain:
+    id: operations
+    label: Operations
+    source_vocabulary: domains
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- domain:
+    id: research
+    label: Research
+    source_vocabulary: domains
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- domain:
+    id: support
+    label: Support
+    source_vocabulary: domains
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- domain:
+    id: hr
+    label: HR
+    source_vocabulary: domains
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []

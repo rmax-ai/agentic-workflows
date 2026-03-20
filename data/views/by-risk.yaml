@@ -1,0 +1,81 @@
+version: 1
+view: by-risk
+title: Browse by risk
+summary: Derived alternate view that groups future canonical patterns by risk level and governance posture.
+source_documents:
+- docs/index-tree.md
+source_vocabularies:
+- risk-levels
+source_fields:
+- risk_governance.level
+usage_notes:
+- This is a derived browse artifact, not canonical pattern content.
+- Within each bucket, keep patterns grouped by the shared family order from data/views/index-tree.yaml.
+- Empty family buckets are intentional until canonical pattern entries are authored under data/patterns/.
+population_rules:
+  include_when:
+  - canonical pattern risk_governance.level matches the referenced risk level id
+  group_by:
+  - pattern_family
+  family_order_source: data/views/index-tree.yaml
+  pattern_link_target: data/patterns/<pattern-id>.yaml
+empty_state:
+  status: awaiting-canonical-patterns
+  note: No canonical patterns exist yet, so this view only seeds vocabulary-linked family scaffolding.
+risk_levels:
+- risk_level:
+    id: low
+    label: Low
+    source_vocabulary: risk-levels
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- risk_level:
+    id: moderate
+    label: Moderate
+    source_vocabulary: risk-levels
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- risk_level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- risk_level:
+    id: critical
+    label: Critical
+    source_vocabulary: risk-levels
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []

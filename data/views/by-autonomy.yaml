@@ -1,0 +1,110 @@
+version: 1
+view: by-autonomy
+title: Browse by autonomy
+summary: Derived alternate view that groups future canonical patterns by autonomy level and expected human
+  control boundaries.
+source_documents:
+- docs/index-tree.md
+source_vocabularies:
+- autonomy-levels
+source_fields:
+- autonomy_profile.level
+usage_notes:
+- This is a derived browse artifact, not canonical pattern content.
+- Within each bucket, keep patterns grouped by the shared family order from data/views/index-tree.yaml.
+- Empty family buckets are intentional until canonical pattern entries are authored under data/patterns/.
+population_rules:
+  include_when:
+  - canonical pattern autonomy_profile.level matches the referenced autonomy level id
+  group_by:
+  - pattern_family
+  family_order_source: data/views/index-tree.yaml
+  pattern_link_target: data/patterns/<pattern-id>.yaml
+empty_state:
+  status: awaiting-canonical-patterns
+  note: No canonical patterns exist yet, so this view only seeds vocabulary-linked family scaffolding.
+autonomy_levels:
+- autonomy_level:
+    id: human-directed
+    label: Human directed
+    source_vocabulary: autonomy-levels
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- autonomy_level:
+    id: recommendation-only
+    label: Recommendation only
+    source_vocabulary: autonomy-levels
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- autonomy_level:
+    id: approval-gated
+    label: Approval gated
+    source_vocabulary: autonomy-levels
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- autonomy_level:
+    id: bounded-delegation
+    label: Bounded delegation
+    source_vocabulary: autonomy-levels
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- autonomy_level:
+    id: exception-gated-autonomy
+    label: Exception-gated autonomy
+    source_vocabulary: autonomy-levels
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
+- autonomy_level:
+    id: autonomous-with-audit
+    label: Autonomous with audit
+    source_vocabulary: autonomy-levels
+  pattern_families:
+    gather-retrieve-synthesize: []
+    transform-process: []
+    investigate-reconcile-verify: []
+    monitor-detect-triage: []
+    plan-coordinate-schedule: []
+    recommend-decide-escalate: []
+    execute-automate: []
+    optimize-adapt: []
+    human-agent-collaborative-work: []
