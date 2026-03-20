@@ -51,7 +51,7 @@ risk_levels:
     recommend-decide-escalate: []
     execute-automate: []
     optimize-adapt: [queue-prioritization-optimization]
-    human-agent-collaborative-work: []
+    human-agent-collaborative-work: [analyst-copilot-loop]
 - risk_level:
     id: high
     label: High

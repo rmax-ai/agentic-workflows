@@ -115,4 +115,4 @@ families:
   - id: human-agent-collaboration
     label: Human-agent collaboration
     source_vocabulary: problem-structures
-  pattern_ids: []
+  pattern_ids: [analyst-copilot-loop]

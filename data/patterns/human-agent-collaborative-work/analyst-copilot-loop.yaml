@@ -1,0 +1,253 @@
+id: analyst-copilot-loop
+slug: analyst-copilot-loop
+name: Analyst copilot loop
+summary: Structure repeated human-agent collaboration around a shared working artifact so analysts and agents can iteratively gather context, refine outputs, and hand work back and forth without obscuring responsibility.
+pattern_family:
+  id: human-agent-collaborative-work
+  label: Human-agent collaborative work
+problem_structure:
+  id: human-agent-collaboration
+  label: Human-agent collaboration
+  source_vocabulary: problem-structures
+domain:
+  - id: research
+    label: Research
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+workflow_goal: Keep a human analyst and an agent productively co-working on the same case, brief, or response so the workflow advances through visible turns, explicit handoffs, and shared context rather than fragmented one-off prompts.
+inputs:
+  - name: Work item or case brief
+    description: The initial task framing, question, case summary, or customer issue that defines the shared collaboration objective.
+    kind: request
+    required: true
+    examples:
+      - Investigate whether a new policy exception request is supportable and draft a reviewer-ready summary
+      - Work through a complex customer escalation and prepare the next response with supporting context
+  - name: Working context and evidence
+    description: Documents, notes, system records, prior turns, and retrieved evidence that both parties use to refine the shared artifact.
+    kind: context-bundle
+    required: true
+    examples:
+      - Source documents, prior analyst notes, and cited references
+      - Ticket history, product logs, and previous support correspondence
+  - name: Collaboration instructions and boundaries
+    description: Role expectations, quality bars, escalation rules, and boundaries describing what the agent may draft, suggest, retrieve, or update.
+    kind: policy
+    required: true
+    examples:
+      - The agent may draft comparisons and retrieve evidence but the analyst owns final interpretation
+      - Sensitive customer communications require explicit human approval before sending
+  - name: Human feedback and edits
+    description: Iterative corrections, clarifications, priorities, and accept-reject decisions supplied by the human collaborator during the loop.
+    kind: feedback
+    required: false
+    examples:
+      - Narrow the analysis to export-control exposure and show the supporting sources
+      - Rewrite the customer-facing explanation in a calmer tone and keep the escalation recommendation
+outputs:
+  - name: Shared working artifact
+    description: The jointly refined draft, analysis, response, or structured work product created through repeated collaboration turns.
+    kind: collaborative-draft
+    required: true
+    examples:
+      - Annotated analyst brief with cited findings and open questions
+      - Draft support response with evidence-backed troubleshooting steps
+  - name: Explicit handoff state
+    description: A visible record of current status, unresolved questions, next requested action, and which responsibilities remain with the human versus the agent.
+    kind: handoff-record
+    required: true
+    examples:
+      - Marked handoff showing the analyst must approve the final recommendation before distribution
+      - Open-questions list identifying which evidence gaps still need human judgment
+  - name: Collaboration trace
+    description: Turn history, retrieved evidence references, revisions, and decision checkpoints that explain how the shared output evolved.
+    kind: audit-log
+    required: true
+    examples:
+      - Trace of retrieval steps, edits, and rationale accepted by the analyst
+      - History showing when the workflow paused for human interpretation or escalation
+environment:
+  summary: Operates in shared workbench settings where a human stays continuously engaged with an agent across multiple turns, and the reusable challenge is coordinating co-production rather than merely getting a final approval.
+  systems:
+    - Shared chat or workbench interface
+    - Document, ticket, or case management systems
+    - Knowledge bases and search or retrieval tools
+    - Evidence or note storage systems
+  actors:
+    - Analyst or case owner
+    - Agent copilot
+    - Reviewer or escalation owner
+  constraints:
+    - Keep responsibility boundaries explicit at every stage so the human can see what the agent changed, suggested, or left unresolved.
+    - Preserve source visibility and edit history so the collaboration does not hide how outputs were formed.
+    - Do not let the agent silently finalize external decisions, communications, or submissions outside agreed handoff rules.
+    - Support iterative revision without losing prior context, rejected ideas, or pending human decisions.
+  assumptions:
+    - The collaboration surface can preserve enough state for both parties to resume work without restating the whole case.
+    - Humans are available to steer interpretation, resolve ambiguity, and approve consequential outward-facing steps.
+    - The agent can retrieve or transform relevant context quickly enough to make turn-by-turn collaboration useful.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The loop often requires fetching prior context, evidence, and case details between turns so the shared work stays grounded.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: The agent must fold evidence, human edits, and evolving goals into a coherent shared artifact rather than leaving the analyst to manually recombine fragments.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: The core pattern depends on explicit turn-taking, handoffs, and ownership tracking between human and agent responsibilities.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Multi-turn collaboration degrades quickly if prior edits, decisions, and unresolved questions are not preserved across the loop.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: The workflow needs grounded checks on citations, retrieved facts, and task completion status before the human accepts an agent contribution.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: Useful collaboration usually requires reading case systems, documents, or knowledge bases and writing drafts or notes back into shared tools.
+execution_architecture:
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: The defining feature is continuous human participation in the normal loop, with repeated review, correction, and reprioritization rather than rare exception handling.
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: A single copilot agent can usually manage retrieval, drafting, and state updates inside one shared workspace without requiring multi-agent specialization.
+autonomy_profile:
+  level:
+    id: human-directed
+    label: Human directed
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Frame the task, set collaboration boundaries, and decide what responsibility remains with the human before substantive drafting begins.
+    - Review each major agent contribution, especially when the artifact changes interpretation, recommended action, or external-facing wording.
+    - Approve final handoff, distribution, or escalation decisions before the workflow leaves the shared workbench.
+  reversibility: Most intermediate drafts, notes, and suggested actions are reversible inside the workbench, but poor collaboration can still waste analyst time, distort judgment, or propagate misleading framing into downstream work.
+  escalation: Escalate when the agent cannot ground a claim, responsibility boundaries become unclear, the human-agent loop stalls on ambiguity, or the next step would trigger an external decision or communication outside delegated collaboration scope.
+risk_governance:
+  level:
+    id: moderate
+    label: Moderate
+    source_vocabulary: risk-levels
+  failure_impact: Weak collaboration design can create material rework, inaccurate analysis, confusing customer or reviewer handoffs, and misplaced trust in agent-authored content, though harm is usually containable when humans remain actively engaged.
+  approval_requirements:
+    - Human approval is required before agent-authored content is treated as final analysis, official advice, or an external communication.
+    - Workflow owners must approve any expansion of agent permissions that would let the loop update systems of record or contact outside parties without an explicit handoff checkpoint.
+  auditability: Preserve turn history, retrieved evidence references, accepted and rejected edits, ownership changes, and final handoff status so reviewers can reconstruct how the joint output was produced.
+  privacy:
+    - Limit shared context and traces to the minimum customer, employee, or case data needed for productive collaboration.
+    - Apply workspace retention and access controls so sensitive drafts and evidence do not leak through the collaboration surface.
+  security:
+    - Restrict agent tool permissions to the systems needed for drafting, retrieval, and state capture inside the collaboration loop.
+    - Log human-approved handoffs and permission-boundary changes so covert expansion of agent responsibility is detectable.
+  notes: Moderate risk fits because the pattern influences consequential work quality and accountability, even though humans remain embedded throughout the normal operating loop.
+why_agentic:
+  - The workflow requires adaptive back-and-forth where the next useful agent action depends on human edits, priorities, and evolving context.
+  - Productive collaboration depends on stateful memory of prior turns, rejected drafts, and unresolved questions rather than isolated one-shot assistance.
+  - The system must decide when to retrieve more context, revise the artifact, pause for human judgment, or surface a clearer handoff instead of just generating one response.
+failure_modes:
+  - mode: Responsibility boundaries blur during the collaboration
+    impact: Humans and reviewers cannot tell who approved what, and consequential decisions may be acted on without clear accountability.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Keep explicit handoff markers and ownership labels in the shared workspace.
+      - Require a human checkpoint before finalizing any external-facing output.
+  - mode: The agent carries forward stale or rejected context
+    impact: Later turns build on incorrect assumptions and the shared artifact drifts away from the current case reality.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Version major revisions and preserve accepted versus rejected changes separately.
+      - Reconfirm key case facts after substantial human redirection or new evidence retrieval.
+  - mode: The collaboration trace hides unsupported claims or weak evidence
+    impact: Analysts may overtrust polished drafts whose reasoning or citations are incomplete or misleading.
+    severity: medium
+    detectability: low
+    mitigations:
+      - Keep sources and confidence cues visible alongside generated contributions.
+      - Require verification steps before the human accepts factual or policy-sensitive content.
+  - mode: The loop becomes turn-heavy without improving the artifact
+    impact: Collaboration overhead consumes analyst time and reduces trust in the copilot workflow.
+    severity: low
+    detectability: high
+    mitigations:
+      - Track whether each turn resolves an open question, improves evidence quality, or clarifies the handoff.
+      - Escalate to a different workflow or human-only handling when the loop stalls repeatedly.
+evaluation:
+  success_metrics:
+    - Percentage of collaborative work items that reach a human-accepted handoff without losing source grounding or ownership clarity.
+    - Reduction in analyst rework caused by missing context, unclear status, or repeated restatement across turns.
+    - Rate at which reviewers can reconstruct why the final artifact looks the way it does from the collaboration trace.
+  quality_criteria:
+    - The shared artifact makes human and agent contributions, unresolved questions, and next-step ownership easy to inspect.
+    - Collaboration improves speed or quality without obscuring accountability, provenance, or confidence.
+    - The workbench preserves enough state that humans can redirect the loop without starting over from scratch.
+  robustness_checks:
+    - Test abrupt human redirection and confirm the loop updates goals and retained context instead of clinging to stale framing.
+    - Test low-confidence evidence retrieval and verify the workflow pauses for clarification rather than laundering uncertainty into a polished draft.
+    - Test handoff into an external review or response step and confirm approval boundaries remain explicit.
+  benchmark_notes: Evaluate collaborative throughput together with trust calibration and handoff clarity; faster drafting is not a success if the loop hides uncertainty or increases reviewer confusion.
+implementation_notes:
+  orchestration_notes:
+    - Keep retrieval, drafting, revision, and handoff-state updates as explicit stages even when they occur inside one conversational surface.
+    - Represent unresolved questions and ownership changes as first-class state rather than burying them in freeform chat history.
+  integration_notes:
+    - Common implementations connect shared chat or workbench tooling to case systems, document stores, and knowledge retrieval services.
+    - Keep the pattern neutral about specific copilot products, ticketing suites, or note-taking platforms.
+  deployment_notes:
+    - Start with analyst-visible draft and context support before expanding the loop to update system fields or trigger downstream routing actions.
+    - Monitor whether humans are editing the shared artifact in place or working around the loop in parallel tools, which can signal weak handoff design.
+  references:
+    - docs/patterns/human-agent-collaborative-work.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: research-synthesis-with-citation-verification
+    relationship: can-wrap
+    notes: A copilot loop often surrounds research synthesis work when analysts iteratively refine scope, evidence selection, and final wording.
+  - id: deal-desk-recommendation-support
+    relationship: can-wrap
+    notes: Recommendation workflows often adopt this collaboration pattern when analysts and agents jointly refine options before a governed decision review.
+example_domains:
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: An analyst iteratively shapes a briefing with a copilot that retrieves sources, drafts comparisons, and records which open questions still need human interpretation.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: A compliance reviewer co-produces an exception memo with an agent that gathers policy references, rewrites rationale, and keeps approval responsibility explicit.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: A support lead works through a sensitive escalation with a copilot that summarizes the case, proposes reply drafts, and tracks what still requires human judgment.
+maturity: draft
+tags:
+  - human-agent-collaborative-work
+  - human-agent-collaboration
+  - analyst-copilot
+  - mixed-initiative
+  - shared-workbench

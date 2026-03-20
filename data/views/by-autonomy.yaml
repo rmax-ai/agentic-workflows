@@ -38,7 +38,7 @@ autonomy_levels:
     recommend-decide-escalate: []
     execute-automate: []
     optimize-adapt: []
-    human-agent-collaborative-work: []
+    human-agent-collaborative-work: [analyst-copilot-loop]
 - autonomy_level:
     id: recommendation-only
     label: Recommendation only
