@@ -11,7 +11,7 @@ items:
     deliverables:
       - .agent/mission.md
       - .agent/backlog.yaml
-      - .agent/iteration-log.md
+      - .agent/iterations/
       - .agent/decisions.md
       - .agent/ontology-status.yaml
       - .agent/coverage-matrix.yaml

@@ -10,7 +10,7 @@ Bootstrap repository execution memory and foundational ontology files in depende
 ## Ordered tasks
 1. Create the mandatory `.agent/` memory files with initial mission, backlog, status, coverage, repo map, and decisions.
 2. Create foundational docs in `docs/` and the canonical JSON schema in `schema/`.
-3. Review repository state and update `.agent/iteration-log.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and this plan with the next iteration targets.
+3. Review repository state and add a new dated file under `.agent/iterations/`, then update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and this plan with the next iteration targets.
 
 ## Constraints
 - Do not add pattern entries before schema and vocabularies exist.

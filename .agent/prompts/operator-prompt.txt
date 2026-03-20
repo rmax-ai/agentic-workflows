@@ -15,7 +15,7 @@ Iteration protocol:
    - end with exactly one git commit
 7. After subagents finish, the orchestrator must:
    - review what changed
-   - update `.agent/iteration-log.md`
+   - add the current iteration summary as a new dated file under `.agent/iterations/`
    - update `.agent/ontology-status.yaml`
    - update `.agent/coverage-matrix.yaml`
    - update `.agent/current-plan.md` with next steps

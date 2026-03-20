@@ -105,7 +105,9 @@ Target repository structure:
   - mission.md
   - repo-map.md
   - ontology-status.yaml
-  - iteration-log.md
+  - iterations/
+    - <year>/
+      - <timestamp>.md
   - current-plan.md
   - backlog.yaml
   - decisions.md
@@ -144,7 +146,7 @@ Create first:
 - .agent/mission.md
 - .agent/current-plan.md
 - .agent/backlog.yaml
-- .agent/iteration-log.md
+- .agent/iterations/
 - .agent/decisions.md
 - .agent/ontology-status.yaml
 - .agent/coverage-matrix.yaml
@@ -380,9 +382,10 @@ Definitions:
 - structured pending tasks
 - grouped by phase and priority
 
-`.agent/iteration-log.md`
-- append one concise log entry per iteration
-- include what was done, what was learned, what changed next
+`.agent/iterations/<year>/<timestamp>.md`
+- create one Markdown file per iteration
+- include what was done, what was learned, and what changes next
+- prefer the loop-provided timestamp path when one is supplied
 
 `.agent/decisions.md`
 - architectural decisions and rationale
@@ -423,7 +426,7 @@ At the start of every iteration, the orchestrator must:
 At the end of every iteration, the orchestrator must:
 
 1. Review what subagents produced
-2. Update `.agent/iteration-log.md`
+2. Add a new dated file under `.agent/iterations/`
 3. Update `.agent/ontology-status.yaml`
 4. Update `.agent/coverage-matrix.yaml`
 5. Update `.agent/current-plan.md` with next actions

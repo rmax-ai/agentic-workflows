@@ -10,6 +10,8 @@ AGENT_DIR="${REPO_ROOT}/.agent"
 PROMPTS_DIR="${AGENT_DIR}/prompts"
 LOG_DIR="${AGENT_DIR}/runs"
 TIMESTAMP="$(date +"%Y%m%d-%H%M%S")"
+ITERATION_YEAR="$(date +"%Y")"
+ITERATION_LOG_REL=".agent/iterations/${ITERATION_YEAR}/${TIMESTAMP}.md"
 RUN_DIR="${LOG_DIR}/${TIMESTAMP}"
 
 MEGA_PROMPT_FILE="${PROMPTS_DIR}/mega-prompt.txt"
@@ -65,7 +67,7 @@ Iteration protocol:
    - end with exactly one git commit
 7. After subagents finish, the orchestrator must:
    - review what changed
-   - update `.agent/iteration-log.md`
+  - add the current iteration summary as a new dated file under `.agent/iterations/`
    - update `.agent/ontology-status.yaml`
    - update `.agent/coverage-matrix.yaml`
    - update `.agent/current-plan.md` with next steps
@@ -113,7 +115,7 @@ fi
 
   echo "# Existing .agent files"
   if [ -d "${AGENT_DIR}" ]; then
-    find "${AGENT_DIR}" -maxdepth 2 -type f | sed "s#${REPO_ROOT}/##" | sort
+    find "${AGENT_DIR}" -maxdepth 3 -type f | sed "s#${REPO_ROOT}/##" | sort
   else
     echo "(none)"
   fi
@@ -142,7 +144,10 @@ fi
   echo "Do exactly one iteration."
   echo "Make real file changes and real git commits."
   echo "Do not stop at analysis only."
+  echo "Write the iteration summary to ${ITERATION_LOG_REL}."
 } > "${FULL_PROMPT_FILE}"
+
+mkdir -p "${AGENT_DIR}/iterations/${ITERATION_YEAR}"
 
 # --------------------------------------------------
 # Execute

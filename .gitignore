@@ -82,10 +82,11 @@ claude-project.json
 !.agent/
 !.agent/prompts/
 !.agent/prompts/*.txt
+!.agent/iterations/
+!.agent/iterations/**/*.md
 !.agent/mission.md
 !.agent/repo-map.md
 !.agent/ontology-status.yaml
-!.agent/iteration-log.md
 !.agent/current-plan.md
 !.agent/backlog.yaml
 !.agent/decisions.md

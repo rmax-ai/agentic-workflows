@@ -27,6 +27,8 @@ Before making substantive changes, read these files in order:
 7. `.agent/decisions.md`
 8. `.agent/repo-map.md`
 
+If recent execution history matters, also read the newest relevant files under `.agent/iterations/<year>/`.
+
 If your work touches terminology, also read `.agent/glossary.md`.
 
 ## Repository Rules
@@ -56,7 +58,7 @@ Maintain these files when your work changes repository state:
 
 - `.agent/current-plan.md` for the current next steps
 - `.agent/decisions.md` for durable decisions
-- `.agent/iteration-log.md` for a concise record of what changed
+- `.agent/iterations/` for one dated Markdown file per iteration
 - `.agent/ontology-status.yaml` for current phase and gaps
 - `.agent/coverage-matrix.yaml` for coverage progress
 - `.agent/repo-map.md` when the repository structure changes materially

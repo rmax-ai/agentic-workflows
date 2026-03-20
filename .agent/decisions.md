@@ -12,7 +12,7 @@
 
 ## D-0003 — Commit execution memory as durable repository state
 - **Status:** accepted
-- **Decision:** Treat `.agent/mission.md`, `.agent/backlog.yaml`, `.agent/iteration-log.md`, `.agent/decisions.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and `.agent/glossary.md` as committed working memory rather than temporary notes.
+- **Decision:** Treat `.agent/mission.md`, `.agent/backlog.yaml`, `.agent/iterations/`, `.agent/decisions.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and `.agent/glossary.md` as committed working memory rather than temporary notes.
 - **Rationale:** Future iterations need a stable, machine-readable source of truth for sequencing, status, and terminology.
 
 ## D-0004 — Start coverage tracking before content authoring
@@ -24,3 +24,8 @@
 - **Status:** accepted
 - **Decision:** Create `.agent/glossary.md` in Phase 0 to anchor repository-specific meanings for pattern, domain, instance, vocabulary, and view.
 - **Rationale:** Controlled terminology reduces drift once schema and vocabulary work begins.
+
+## D-0006 — Shard iteration history into dated files
+- **Status:** accepted
+- **Decision:** Store iteration history in `.agent/iterations/<year>/<timestamp>.md` rather than appending indefinitely to a single `.agent/iteration-log.md` file.
+- **Rationale:** Iteration history grows without bound, while plan, status, and decisions should stay concise. Per-iteration files keep the root `.agent/` directory readable, make history easier to navigate by date, and reduce edit contention on one long-lived file.
