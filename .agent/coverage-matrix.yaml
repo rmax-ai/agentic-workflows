@@ -43,7 +43,7 @@ matrices:
     plan-coordinate-schedule: {engineering: none, finance: none, compliance: none, operations: covered, research: none, support: partial, hr: partial}
     recommend-decide-escalate: {engineering: none, finance: partial, compliance: covered, operations: partial, research: none, support: none, hr: none}
     execute-automate: {engineering: none, finance: partial, compliance: partial, operations: none, research: none, support: none, hr: covered}
-    optimize-adapt: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
+    optimize-adapt: {engineering: none, finance: none, compliance: partial, operations: partial, research: none, support: partial, hr: none}
     human-agent-collaborative-work: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
   pattern_family_x_architecture:
     gather-retrieve-synthesize: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
@@ -53,7 +53,7 @@ matrices:
     plan-coordinate-schedule: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
     recommend-decide-escalate: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
     execute-automate: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: covered}
-    optimize-adapt: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
+    optimize-adapt: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: covered, approval-gated-execution: none}
     human-agent-collaborative-work: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
   pattern_family_x_risk:
     gather-retrieve-synthesize: {low: none, moderate: covered, high: none, critical: none}
@@ -63,11 +63,11 @@ matrices:
     plan-coordinate-schedule: {low: covered, moderate: none, high: none, critical: none}
     recommend-decide-escalate: {low: none, moderate: none, high: covered, critical: none}
     execute-automate: {low: none, moderate: none, high: none, critical: covered}
-    optimize-adapt: {low: none, moderate: none, high: none, critical: none}
+    optimize-adapt: {low: none, moderate: covered, high: none, critical: none}
     human-agent-collaborative-work: {low: none, moderate: none, high: none, critical: none}
 summary:
   overall_status: partial
   notes:
-    - Six canonical pattern entries now populate six of the nine top-level families, with grounded examples now extending across six distinct domains.
-    - The planning, recommendation, and execution families now have representative grounded coverage for their primary risk and architecture postures rather than remaining canonical-only.
-    - The highest-leverage next gaps are the still-empty `transform-process`, `optimize-adapt`, and `human-agent-collaborative-work` families plus the lack of any support-domain instance.
+    - Seven canonical pattern entries now populate seven of the nine top-level families, with `optimize-adapt` no longer empty and grounded examples extending across six distinct domains.
+    - The new optimize/adapt anchor adds support-domain canonical coverage and fills the previously empty `exception-gated-autonomy` slice in the browse views.
+    - The highest-leverage next gaps are the still-empty `transform-process` and `human-agent-collaborative-work` families plus the lack of any support-domain instance.

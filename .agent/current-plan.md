@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Use the newly expanded grounded-instance layer as the baseline for returning to Phase 5 with a narrow canonical pattern batch in one of the remaining empty families. For this iteration, fill `optimize-adapt` with a single feedback-driven optimization pattern and refresh the derived browse views around it.
+Build on the new `optimize-adapt` anchor by choosing the next highest-leverage gap between the remaining empty `human-agent-collaborative-work` family and the still-ungrounded support domain.
 
 ## Current phase
 
@@ -10,16 +10,16 @@ Use the newly expanded grounded-instance layer as the baseline for returning to 
 - Phase 3: navigation views are complete
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
 - Tooling baseline: uv-managed Python 3.14 helper workflow is in place
-- Phase 5: a second canonical pattern batch now covers planning, recommendation, and execution families in addition to the initial gather, investigate, and monitor anchors
+- Phase 5: canonical patterns now cover `optimize-adapt` in addition to the initial gather, investigate, monitor, planning, recommendation, and execution anchors
 - Phase 6: the repository now has six grounded instances spanning research, engineering, finance, operations, compliance, and HR
 
 ## Ordered tasks
 
-1. Add the first canonical pattern in `optimize-adapt`, using the existing `feedback-driven-optimization` problem-structure term and choosing a candidate that fits the family's constraint-aware adaptation boundary.
-2. Re-read the relevant family overview doc, schema, vocabularies, neighboring patterns, and coverage matrix before authoring the pattern and derived-view updates.
-3. Keep the batch modest and dependency-aware: one strong canonical entry plus the minimum browse-view edits needed to reference it consistently.
-4. Treat `human-agent-collaborative-work` as the next likely empty-family target after this iteration, and keep `transform-process` blocked unless a justified vocabulary-supported candidate emerges.
-5. Use the new grounded instances to inform future example domains and cross-links without duplicating their concrete scenario prose into canonical YAML.
+1. Add the first canonical pattern in `human-agent-collaborative-work`, using the existing `human-agent-collaboration` problem-structure term and keeping the pattern centered on shared initiative rather than a thin approval wrapper.
+2. Re-read the relevant family overview doc, schema, vocabularies, neighboring patterns, and coverage matrix before authoring the next pattern and any derived-view updates.
+3. After the next empty-family pattern lands, consider a small support-domain instance batch so the support domain is no longer canonical-only.
+4. Keep `transform-process` blocked unless a justified vocabulary-supported candidate or explicit vocabulary refinement emerges.
+5. Continue using grounded instances only as domain evidence and cross-link context rather than as substitutes for canonical YAML pattern structure.
 
 ## Constraints
 
@@ -36,4 +36,4 @@ Use the newly expanded grounded-instance layer as the baseline for returning to 
 
 ## Expected outcome
 
-The next iteration should leave the repository with the first canonical pattern in `optimize-adapt`, aligned browse views, and a clearer path for closing the remaining empty-family gaps in `human-agent-collaborative-work` and `transform-process`.
+The next iteration should leave the repository with the first canonical pattern in `human-agent-collaborative-work` or, if instance leverage is clearly higher, the first support-domain grounded example tied to an existing canonical pattern.

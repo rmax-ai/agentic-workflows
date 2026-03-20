@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: follow-on-instance-batch-landed
+repository_stage: optimize-adapt-anchor-landed
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -28,19 +28,19 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 6
+  pattern_files: 7
   instance_files: 6
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
   pattern_families_defined: 9
-  pattern_families_with_patterns: 6
+  pattern_families_with_patterns: 7
   domains_with_patterns: 7
   domains_with_instances: 6
   architectures_mapped: 5
   autonomy_levels_mapped: 6
   risk_levels_mapped: 4
-  autonomy_levels_with_patterns: 4
+  autonomy_levels_with_patterns: 5
   risk_levels_with_patterns: 4
 pattern_counts_by_family:
   gather-retrieve-synthesize: 1
@@ -50,7 +50,7 @@ pattern_counts_by_family:
   plan-coordinate-schedule: 1
   recommend-decide-escalate: 1
   execute-automate: 1
-  optimize-adapt: 0
+  optimize-adapt: 1
   human-agent-collaborative-work: 0
 instance_counts_by_domain:
   engineering: 1
@@ -85,6 +85,7 @@ repo_reality:
     - data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml
     - data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml
     - data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml
+    - data/patterns/optimize-adapt/queue-prioritization-optimization.yaml
     - instances/research/regulatory-obligation-synthesis-for-data-retention-review.md
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
@@ -106,12 +107,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, six canonical patterns across six families, and six grounded instances spanning research, engineering, finance, operations, compliance, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, seven canonical patterns across seven families, and six grounded instances spanning research, engineering, finance, operations, compliance, and HR.
 immediate_gaps:
-  - "Canonical patterns are still missing in `transform-process`, `optimize-adapt`, and `human-agent-collaborative-work`."
+  - "Canonical patterns are still missing in `transform-process` and `human-agent-collaborative-work`."
   - Support remains the only currently modeled domain without any grounded instance coverage.
   - "`transform-process` still has no direct problem-structure vocabulary mapping, so its browse-view linkage remains intentionally empty until a justified vocabulary refinement is made."
-  - Several canonical domain cells remain partial because only one grounded example exists for the planning, recommendation, and execution families so far.
+  - Several canonical domain cells remain partial because the newer planning, recommendation, execution, and optimize/adapt patterns still have only one or zero grounded examples each.
 next_action:
-  id: phase-5-empty-family-pattern-batch
-  summary: "Add a narrow canonical pattern batch in `optimize-adapt` or `human-agent-collaborative-work`, with `transform-process` still deferred pending a justified vocabulary-supported candidate."
+  id: phase-5-human-agent-collaboration-anchor
+  summary: "Add a narrow canonical pattern in `human-agent-collaborative-work`, then reassess whether support-domain grounding or a justified `transform-process` refinement is the next best coverage move."
