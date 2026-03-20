@@ -1,0 +1,252 @@
+id: incident-root-cause-analysis
+slug: incident-root-cause-analysis
+name: Incident root cause analysis
+summary: Investigate an incident by reconciling telemetry, changes, and human reports into an evidence-backed explanation of what failed and why.
+pattern_family:
+  id: investigate-reconcile-verify
+  label: Investigate / Reconcile / Verify
+  source_vocabulary: pattern-families
+problem_structure:
+  id: discrepancy-investigation
+  label: Discrepancy investigation
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+workflow_goal: Produce a defensible root-cause narrative, reconciled timeline, and prioritized next checks or remediations for an incident.
+inputs:
+  - name: Incident trigger
+    description: A declared incident, anomaly, or escalated case that requires explanation beyond initial triage.
+    kind: case
+    required: true
+    examples:
+      - Sev-2 service degradation
+      - Escalated customer-impacting support case
+  - name: Operational evidence
+    description: Logs, metrics, traces, alerts, and system state snapshots relevant to the incident window.
+    kind: telemetry
+    required: true
+    examples:
+      - Request latency traces
+      - Queue depth metrics
+      - Database failover logs
+  - name: Change and context history
+    description: Deployments, configuration updates, tickets, maintenance actions, and recent environment changes.
+    kind: change-history
+    required: true
+    examples:
+      - Deployment records
+      - Feature flag changes
+      - Runbook interventions
+  - name: Human reports
+    description: Operator notes, support escalations, and stakeholder observations that may explain or constrain hypotheses.
+    kind: narrative
+    required: false
+    examples:
+      - Incident channel notes
+      - Customer symptom reports
+outputs:
+  - name: Root-cause hypothesis set
+    description: Ranked causal explanations with supporting and disconfirming evidence plus confidence notes.
+    kind: analysis
+    required: true
+    examples:
+      - Primary cause with contributing conditions
+      - Competing hypotheses awaiting one confirming check
+  - name: Reconciled incident timeline
+    description: A normalized sequence of relevant events across systems and actors.
+    kind: timeline
+    required: true
+    examples:
+      - Timeline linking deploy, alert, mitigation, and customer reports
+  - name: Recommended follow-up actions
+    description: Proposed investigations, corrective actions, or monitoring changes derived from the analysis.
+    kind: recommendation
+    required: true
+    examples:
+      - Validate rollback path before declaring closure
+      - Add detection around the failing dependency
+environment:
+  summary: Operates in high-pressure technical and service environments where evidence is fragmented, timelines are noisy, and premature conclusions can worsen the incident.
+  systems:
+    - Observability platforms
+    - Incident management systems
+    - Change management records
+    - Support case systems
+  actors:
+    - Incident commander
+    - Responding engineers or operators
+    - Service owners
+    - Support leads
+  constraints:
+    - Preserve evidence integrity and timestamps as collected.
+    - Distinguish observed facts from inferred causes.
+    - Avoid declaring closure while material uncertainty remains.
+    - Keep the narrative inspectable for postmortem and audit review.
+  assumptions:
+    - Relevant systems retain logs and state long enough for investigation.
+    - Time sources can be normalized sufficiently to build a coherent timeline.
+    - Human responders are available to validate or reject recommended conclusions.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: Investigators must gather evidence from multiple systems and records before causes can be narrowed.
+  - capability:
+      id: discrepancy-analysis
+      label: Discrepancy analysis
+      source_vocabulary: capabilities
+    necessity: The workflow centers on explaining mismatches between expected and observed behavior.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Candidate causes need corroboration against independent evidence rather than plausible storytelling alone.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow must preserve evolving hypotheses, evidence links, and timeline state across multiple steps.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Multiple responders and systems contribute evidence, so handoffs and ownership need structured coordination.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Specialized retrieval, timeline-building, and verification roles are common when evidence volume and responder concurrency are high.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human responders routinely validate hypotheses, weigh operational context, and approve incident conclusions.
+autonomy_profile:
+  level:
+    id: recommendation-only
+    label: Recommendation only
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm incident scope and critical systems before narrowing hypotheses.
+    - Review ranked root-cause hypotheses before declaring the primary cause.
+    - Approve remediation or closure actions derived from the analysis.
+  reversibility: Analytical conclusions are editable, but accepting the wrong root cause can drive hard-to-reverse remediation and delay real recovery.
+  escalation: Escalate when evidence is incomplete, multiple plausible causes remain after planned checks, or the proposed remediation could materially increase user or system risk.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Incorrect diagnosis can prolong outages, trigger harmful remediations, misinform postmortems, and create false confidence about system reliability.
+  approval_requirements:
+    - The incident commander must approve the declared root cause before final closure or external reporting.
+    - Service owners must approve corrective actions that materially alter production systems.
+  auditability: Preserve normalized timelines, evidence links, rejected hypotheses, human overrides, and final causal rationale for postmortem review.
+  privacy:
+    - Minimize exposure of personal data in logs, tickets, and customer reports during investigation.
+    - Restrict copied evidence to incident workspaces with appropriate retention controls.
+  security:
+    - Use read-only access where possible when collecting production evidence.
+    - Protect credentials and privileged diagnostics from leaking into analysis artifacts.
+  notes: High-risk governance is justified because the pattern shapes consequential remediation and formal incident narratives.
+why_agentic:
+  - The workflow must iteratively form, test, and narrow causal hypotheses as new evidence arrives.
+  - Evidence comes from heterogeneous systems and people, making stateful reconciliation and coordination essential.
+  - Static dashboards rarely preserve enough structured reasoning to explain why one cause is more credible than another.
+failure_modes:
+  - mode: Premature fixation on a plausible but wrong root cause
+    impact: Teams pursue the wrong remediation and leave the real fault unresolved.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Keep multiple hypotheses visible until disconfirming checks are complete.
+      - Require evidence that explicitly links cause to observed impact.
+      - Review the final narrative with an incident lead before closure.
+  - mode: Incident timeline is incomplete or incorrectly ordered
+    impact: Causal reasoning becomes distorted and contributing factors are missed.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Normalize time sources and highlight gaps in the event sequence.
+      - Reconcile machine telemetry with human reports before finalizing the timeline.
+  - mode: State is lost across responders or investigation sessions
+    impact: Previously rejected hypotheses reappear and evidence handoffs become inconsistent.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Maintain shared case memory for evidence, conclusions, and open checks.
+      - Log analyst decisions and rationale as part of the investigation record.
+  - mode: Support or operator observations are ignored because they are less structured
+    impact: The analysis misses symptoms that would have ruled out or strengthened a hypothesis.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Capture human observations as first-class evidence linked to the timeline.
+      - Require explicit notes when reports are excluded from the final narrative.
+evaluation:
+  success_metrics:
+    - Agreement rate between initial analysis and final adjudicated root cause.
+    - Time to first defensible hypothesis with cited supporting evidence.
+    - Percentage of incidents with a complete reconciled timeline before closure.
+  quality_criteria:
+    - The analysis separates observations, inferences, and recommended actions.
+    - Competing explanations are documented until they are disproved or deprioritized.
+    - Evidence supporting the declared root cause is inspectable and durable.
+  robustness_checks:
+    - Test against incidents with overlapping concurrent failures to ensure hypotheses stay distinguishable.
+    - Test with missing telemetry and verify the workflow degrades into explicit uncertainty rather than false certainty.
+    - Test with conflicting customer reports and system metrics to ensure both remain visible for adjudication.
+  benchmark_notes: Strong evaluation compares both diagnostic accuracy and the discipline of evidence preservation under operational pressure.
+implementation_notes:
+  orchestration_notes:
+    - Keep retrieval, timeline reconciliation, and causal verification as explicit stages with shared case memory.
+    - Preserve rejected hypotheses to reduce repeated investigation loops during handoffs.
+  integration_notes:
+    - Typical integrations include observability stacks, incident systems, change logs, and support tooling.
+    - Architecture should remain vendor-neutral so the pattern does not collapse into a specific monitoring platform.
+  deployment_notes:
+    - Prefer read-only evidence collection paths in production.
+    - Align retention of investigation artifacts with postmortem and compliance obligations.
+  references:
+    - docs/patterns/investigate-reconcile-verify.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: risk-alert-triage
+    relationship: follows-from
+    notes: Alert triage often hands the highest-severity or ambiguous cases into root-cause analysis.
+  - id: research-synthesis-with-citation-verification
+    relationship: complements
+    notes: Evidence-grounded synthesis techniques strengthen the explainability and provenance of the final incident narrative.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Explain a production outage by reconciling deployments, traces, and dependency failures.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Analyze a process breakdown by aligning handoff records, queue metrics, and operator notes.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Investigate an escalated customer issue by combining case history, service signals, and responder observations.
+maturity: draft
+tags:
+  - investigate-reconcile-verify
+  - root-cause-analysis
+  - discrepancy-investigation
+  - incident-analysis
+  - evidence-backed-verification

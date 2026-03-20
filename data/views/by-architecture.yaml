@@ -30,7 +30,7 @@ architectures:
     label: Tool-using single agent
     source_vocabulary: architectures
   pattern_families:
-    gather-retrieve-synthesize: []
+    gather-retrieve-synthesize: [research-synthesis-with-citation-verification]
     transform-process: []
     investigate-reconcile-verify: []
     monitor-detect-triage: []
@@ -46,7 +46,7 @@ architectures:
   pattern_families:
     gather-retrieve-synthesize: []
     transform-process: []
-    investigate-reconcile-verify: []
+    investigate-reconcile-verify: [incident-root-cause-analysis]
     monitor-detect-triage: []
     plan-coordinate-schedule: []
     recommend-decide-escalate: []
@@ -58,10 +58,10 @@ architectures:
     label: Human in the loop
     source_vocabulary: architectures
   pattern_families:
-    gather-retrieve-synthesize: []
+    gather-retrieve-synthesize: [research-synthesis-with-citation-verification]
     transform-process: []
-    investigate-reconcile-verify: []
-    monitor-detect-triage: []
+    investigate-reconcile-verify: [incident-root-cause-analysis]
+    monitor-detect-triage: [risk-alert-triage]
     plan-coordinate-schedule: []
     recommend-decide-escalate: []
     execute-automate: []
@@ -75,7 +75,7 @@ architectures:
     gather-retrieve-synthesize: []
     transform-process: []
     investigate-reconcile-verify: []
-    monitor-detect-triage: []
+    monitor-detect-triage: [risk-alert-triage]
     plan-coordinate-schedule: []
     recommend-decide-escalate: []
     execute-automate: []

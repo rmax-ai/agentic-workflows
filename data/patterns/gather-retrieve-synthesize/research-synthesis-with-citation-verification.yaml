@@ -1,0 +1,236 @@
+id: research-synthesis-with-citation-verification
+slug: research-synthesis-with-citation-verification
+name: Research synthesis with citation verification
+summary: Assemble evidence from distributed sources into a grounded synthesis where every material claim is backed by inspectable citations.
+pattern_family:
+  id: gather-retrieve-synthesize
+  label: Gather / Retrieve / Synthesize
+  source_vocabulary: pattern-families
+problem_structure:
+  id: context-gathering-and-synthesis
+  label: Context gathering and synthesis
+  source_vocabulary: problem-structures
+domain:
+  - id: research
+    label: Research
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+workflow_goal: Produce a scoped synthesis that answers a question, preserves provenance, and makes citation quality inspectable before downstream use.
+inputs:
+  - name: Research question
+    description: A scoped question, decision topic, or investigation prompt that defines what evidence should be gathered.
+    kind: request
+    required: true
+    examples:
+      - What changed in the policy landscape for this control?
+      - What evidence supports this architecture tradeoff?
+  - name: Source corpus
+    description: Searchable documents, records, or knowledge sources that may contain relevant evidence.
+    kind: document-collection
+    required: true
+    examples:
+      - Internal policy library
+      - RFCs, tickets, and postmortems
+      - External publications with stable identifiers
+  - name: Citation policy
+    description: Rules defining acceptable sources, recency, attribution requirements, and how uncertainty must be surfaced.
+    kind: policy
+    required: true
+    examples:
+      - Only cite approved internal repositories and primary-source regulations
+      - Flag unsupported claims instead of inferring citations
+outputs:
+  - name: Verified synthesis brief
+    description: A concise answer or briefing whose material claims carry explicit citations and uncertainty notes.
+    kind: brief
+    required: true
+    examples:
+      - Compliance obligation summary with source annotations
+      - Engineering decision memo with linked evidence
+  - name: Evidence trace
+    description: Claim-to-source mapping that lets reviewers inspect provenance and resolve challenges quickly.
+    kind: trace
+    required: true
+    examples:
+      - Paragraph-to-source reference table
+      - Claim ledger keyed to document excerpts
+  - name: Open questions
+    description: Unresolved gaps, conflicts, or missing evidence that prevented a fully closed synthesis.
+    kind: issue-list
+    required: true
+    examples:
+      - Sources disagree on the effective date
+      - No approved evidence found for one supporting claim
+environment:
+  summary: Operates across document repositories and search systems where evidence coverage, provenance, and reviewer trust matter more than raw summarization speed.
+  systems:
+    - Document repositories
+    - Search and retrieval indexes
+    - Citation or annotation stores
+    - Review workflow systems
+  actors:
+    - Requesting analyst or stakeholder
+    - Reviewing subject-matter owner
+    - Source custodians
+  constraints:
+    - Use only sources within the permitted trust boundary for the task.
+    - Preserve source identifiers and traceability for every consequential claim.
+    - Surface uncertainty and contradictory evidence instead of flattening it away.
+    - Do not invent citations when retrieval fails or evidence is weak.
+  assumptions:
+    - Relevant sources expose stable identifiers or durable references.
+    - Retrieval access is available for approved corpora.
+    - A human reviewer can inspect the synthesis before consequential use.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The pattern depends on finding relevant evidence across scattered repositories before synthesis can begin.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: The workflow must compress overlapping findings into a coherent brief without losing important nuance.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Claims and citations must be checked against trusted evidence so the output remains grounded.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The system needs durable claim-to-source state so review, revision, and audit do not lose provenance.
+execution_architecture:
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: A single agent can often manage retrieval, note-taking, and synthesis when the question scope stays bounded.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human review is a normal part of the loop because citation sufficiency and evidence interpretation often require judgment.
+autonomy_profile:
+  level:
+    id: human-directed
+    label: Human directed
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the research question and source boundary before broad retrieval starts.
+    - Review the final synthesis and evidence trace before external sharing or policy use.
+    - Resolve disputes when sources conflict or citation coverage is incomplete.
+  reversibility: The generated brief is advisory and can be revised, but downstream consumers should not rely on disputed claims until review is complete.
+  escalation: Escalate whenever source trust is ambiguous, contradictory evidence materially changes the answer, or citation completeness falls below policy thresholds.
+risk_governance:
+  level:
+    id: moderate
+    label: Moderate
+    source_vocabulary: risk-levels
+  failure_impact: Unsupported or weakly sourced synthesis can mislead engineering or compliance work, create rework, and weaken audit readiness.
+  approval_requirements:
+    - Human review is required before the synthesis is used in compliance submissions, external communications, or material decision memos.
+    - New source classes outside the approved trust boundary require explicit approval.
+  auditability: Retain the retrieved source list, claim-to-source mappings, reviewer notes, and unresolved evidence gaps with the final brief.
+  privacy:
+    - Redact or avoid unnecessary personal or sensitive data in retrieved excerpts.
+    - Keep access to restricted corpora aligned with source-system permissions.
+  security:
+    - Preserve source access controls when retrieving or caching evidence.
+    - Log retrieval and citation-generation actions for later inspection.
+  notes: Governance centers on provenance discipline, confidence transparency, and explicit reviewer accountability.
+why_agentic:
+  - Retrieval paths must adapt as evidence quality and coverage change during the workflow.
+  - The system has to decide which sources are relevant, duplicative, contradictory, or too weak to cite.
+  - Maintaining a live evidence trace is stateful work that static summarization pipelines usually handle poorly.
+failure_modes:
+  - mode: Fabricated or unverifiable citation
+    impact: Reviewers cannot trust the synthesis, and downstream users may rely on unsupported claims.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Require source identifiers before a citation can be emitted.
+      - Block finalization when citation validation fails.
+      - Preserve reviewer-visible evidence traces for every material claim.
+  - mode: Contradictory evidence is omitted from the summary
+    impact: The brief overstates certainty and can bias policy or engineering decisions.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Compare retrieved sources for disagreement before synthesis is finalized.
+      - Include an explicit open-questions or conflicts section.
+  - mode: Stale evidence dominates the synthesis
+    impact: The output reflects outdated guidance or obsolete system state.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Enforce recency checks from citation policy.
+      - Surface source timestamps in the evidence trace.
+  - mode: Question scope drifts beyond approved source coverage
+    impact: The workflow appears complete while leaving key claims outside the validated trust boundary.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Confirm scope with a human before broadening retrieval.
+      - Record unsupported subquestions as open gaps instead of inferring answers.
+evaluation:
+  success_metrics:
+    - Percentage of material claims with valid traceable citations.
+    - Reviewer acceptance rate without major provenance corrections.
+    - Rate of unresolved evidence gaps surfaced before handoff.
+  quality_criteria:
+    - The synthesis clearly separates verified facts, interpretation, and open questions.
+    - Every consequential claim is inspectable through the evidence trace.
+    - Source trust boundaries and citation policy exceptions are visible to reviewers.
+  robustness_checks:
+    - Test with partially conflicting sources and ensure disagreement is surfaced.
+    - Test with revoked or inaccessible sources and verify the workflow blocks unsupported citations.
+    - Test with sparse evidence to ensure the output degrades into open questions instead of confident hallucination.
+  benchmark_notes: Evaluate both answer usefulness and provenance integrity; fluent prose without traceable evidence is a failure for this pattern.
+implementation_notes:
+  orchestration_notes:
+    - Separate retrieval, claim extraction, and citation verification steps so unsupported claims can be gated.
+    - Keep intermediate notes linked to source identifiers rather than freeform memory only.
+  integration_notes:
+    - Common integrations include search indexes, document repositories, and review systems that preserve annotations.
+    - Avoid implementation assumptions that depend on a specific vendor knowledge base.
+  deployment_notes:
+    - Apply least-privilege access to corpora and reviewer queues.
+    - Prefer immutable audit records for final claim-to-source mappings.
+  references:
+    - docs/patterns/gather-retrieve-synthesize.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: incident-root-cause-analysis
+    relationship: provides-context-for
+    notes: Evidence-grounded synthesis often precedes deeper discrepancy investigation when the initial brief surfaces unresolved technical conflicts.
+example_domains:
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Produce a literature-backed briefing that ties each key finding to inspectable citations.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Summarize a control obligation with direct references to policy text and supporting evidence.
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Draft an architecture rationale linked to RFCs, tickets, and operational history.
+maturity: draft
+tags:
+  - gather-retrieve-synthesize
+  - evidence-synthesis
+  - citation-verification
+  - provenance
+  - grounded-briefing

@@ -42,7 +42,7 @@ families:
   - id: context-gathering-and-synthesis
     label: Context gathering and synthesis
     source_vocabulary: problem-structures
-  pattern_ids: []
+  pattern_ids: [research-synthesis-with-citation-verification]
 - family:
     id: transform-process
   path: patterns/transform-process
@@ -61,7 +61,7 @@ families:
   - id: evidence-backed-verification
     label: Evidence-backed verification
     source_vocabulary: problem-structures
-  pattern_ids: []
+  pattern_ids: [incident-root-cause-analysis]
 - family:
     id: monitor-detect-triage
   path: patterns/monitor-detect-triage
@@ -69,7 +69,7 @@ families:
   - id: continuous-monitoring-and-triage
     label: Continuous monitoring and triage
     source_vocabulary: problem-structures
-  pattern_ids: []
+  pattern_ids: [risk-alert-triage]
 - family:
     id: plan-coordinate-schedule
   path: patterns/plan-coordinate-schedule

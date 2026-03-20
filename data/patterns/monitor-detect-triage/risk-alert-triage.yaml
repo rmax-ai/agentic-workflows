@@ -1,0 +1,246 @@
+id: risk-alert-triage
+slug: risk-alert-triage
+name: Risk alert triage
+summary: Monitor risk signals continuously, validate alert context, and prioritize the cases that require timely human-controlled response.
+pattern_family:
+  id: monitor-detect-triage
+  label: Monitor / Detect / Triage
+  source_vocabulary: pattern-families
+problem_structure:
+  id: continuous-monitoring-and-triage
+  label: Continuous monitoring and triage
+  source_vocabulary: problem-structures
+domain:
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+workflow_goal: Detect materially risky conditions early, suppress low-value noise, and route prioritized cases with enough context for governed escalation.
+inputs:
+  - name: Alert stream
+    description: Ongoing events, anomalies, threshold crossings, or intake items that may represent compliance, financial, or operational risk.
+    kind: event-stream
+    required: true
+    examples:
+      - Transaction monitoring alerts
+      - Control failure notifications
+      - Operational threshold breaches
+  - name: Policy and routing rules
+    description: Thresholds, suppression criteria, escalation policies, and ownership rules that govern triage decisions.
+    kind: policy
+    required: true
+    examples:
+      - Escalate potential sanctions hits above the score threshold
+      - Route unresolved control failures to compliance operations
+  - name: Contextual records
+    description: Supporting records used to enrich the alert before it is prioritized or escalated.
+    kind: record-set
+    required: false
+    examples:
+      - Account activity history
+      - Control ownership metadata
+      - Prior case dispositions
+outputs:
+  - name: Prioritized triage queue
+    description: Ordered cases with severity, rationale, and routing recommendations.
+    kind: queue
+    required: true
+    examples:
+      - High-risk alert backlog for analyst review
+      - Deferred queue for low-confidence low-severity items
+  - name: Alert evidence packet
+    description: Context bundle showing the triggering signals, applied rules, and supporting records for each prioritized alert.
+    kind: case-packet
+    required: true
+    examples:
+      - Alert with fired rules, account context, and prior disposition summary
+  - name: Suppression and escalation log
+    description: Audit trail of alerts that were de-duplicated, suppressed, escalated, or handed off.
+    kind: audit-log
+    required: true
+    examples:
+      - Record of alerts merged into an existing case
+      - Log of analyst-approved escalations
+environment:
+  summary: Runs in continuous operational environments where noisy signals must be turned into explainable priorities without silently dropping high-risk cases.
+  systems:
+    - Event and alert pipelines
+    - Case management systems
+    - Policy or rules engines
+    - Supporting record systems
+  actors:
+    - Compliance analyst
+    - Risk operations lead
+    - Finance controller or reviewer
+  constraints:
+    - Prioritization must remain explainable to reviewers and auditors.
+    - Threshold changes and suppression logic require controlled governance.
+    - High-severity outcomes cannot trigger irreversible action without human approval.
+    - Historical alert handling must remain visible for audit and tuning.
+  assumptions:
+    - Alert streams arrive with enough timeliness for intervention to matter.
+    - Ownership and escalation paths are defined for high-priority cases.
+    - Case systems can store audit-grade evidence and reviewer actions.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The workflow depends on continuous observation of changing signals rather than one-off analysis.
+  - capability:
+      id: triage
+      label: Triage
+      source_vocabulary: capabilities
+    necessity: Alerts must be prioritized and routed so humans focus on the most consequential cases first.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Routing and escalation must reflect policy thresholds, suppression rules, and governance constraints.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Alert context should be checked against supporting records before escalation to reduce avoidable false positives.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The system needs safe fallbacks for low-confidence cases, rule conflicts, and duplicate or incomplete alerts.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Alert de-duplication, suppressions, and prior dispositions require durable state across time.
+execution_architecture:
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: The pattern is naturally driven by incoming signals, threshold breaches, and repeated alert evaluation over time.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human reviewers remain embedded in the operating loop for high-severity decisions, threshold governance, and ambiguous cases.
+autonomy_profile:
+  level:
+    id: approval-gated
+    label: Approval gated
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Review and approve threshold or suppression changes before they affect live triage.
+    - Approve escalations that could trigger customer, regulatory, or financial action.
+    - Review low-confidence or policy-conflicted alerts before final routing.
+  reversibility: Queue ordering and alert scores can be recalculated, but missed escalation windows or delayed intervention may only be partially reversible.
+  escalation: Escalate whenever alert confidence is low, rules conflict, severity exceeds delegated thresholds, or the proposed next step would materially affect customers, funds, or compliance posture.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Missed or misprioritized alerts can create fraud loss, compliance exposure, operational disruption, and reviewer overload from avoidable false positives.
+  approval_requirements:
+    - Human approval is required before triage output triggers external reporting, account restrictions, or other consequential interventions.
+    - Governance review is required for material threshold, suppression, or routing policy changes.
+  auditability: Preserve raw signal references, scoring rationale, applied policies, reviewer actions, and suppression decisions for every handled alert.
+  privacy:
+    - Limit exposure of sensitive financial or personal data in triage artifacts to the minimum needed for review.
+    - Apply retention rules that match the governing compliance obligations for alerts and cases.
+  security:
+    - Protect event pipelines and case stores against tampering that could hide or alter high-risk alerts.
+    - Record privileged rule changes and administrative overrides in immutable logs where possible.
+  notes: Governance focuses on explainable prioritization, controlled escalation, and defensible suppression behavior.
+why_agentic:
+  - The workflow must interpret noisy, changing signals and adapt prioritization as context evolves.
+  - Useful triage depends on stateful comparison to prior alerts, cases, and policy outcomes rather than isolated threshold checks.
+  - Static alerting rules alone cannot reliably balance false-positive suppression against missed high-risk events.
+failure_modes:
+  - mode: Alert fatigue from excessive false positives
+    impact: Reviewers stop trusting the queue and true high-risk cases are delayed or ignored.
+    severity: high
+    detectability: high
+    mitigations:
+      - Track reviewer disagreement and suppression outcomes to identify noisy rules.
+      - Require explainable prioritization features in each triage packet.
+  - mode: High-severity alert is suppressed or under-prioritized
+    impact: Material risk is missed until loss, breach, or control failure has already spread.
+    severity: high
+    detectability: low
+    mitigations:
+      - Gate suppressions with policy review and audit logging.
+      - Re-test threshold logic against known historical high-risk cases.
+      - Escalate low-confidence classifications for human review.
+  - mode: Policy drift causes inconsistent routing
+    impact: Similar alerts receive different treatment, weakening controls and audit defensibility.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Version routing policies and record which version handled each alert.
+      - Review routing changes against current governance expectations before deployment.
+  - mode: Duplicate alert fragmentation obscures case severity
+    impact: Analysts see partial context and underestimate the total risk posture of a case.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Maintain durable case memory for duplicate detection and alert aggregation.
+      - Surface merged-case lineage inside triage packets.
+evaluation:
+  success_metrics:
+    - Recall of historically high-severity alerts that should have been escalated.
+    - Median time from alert arrival to prioritized triage output.
+    - Reduction in analyst-handled false positives without loss of high-risk recall.
+  quality_criteria:
+    - Each triaged alert includes explainable rationale, supporting context, and the policy basis for routing.
+    - Suppressions, merges, and escalations remain reconstructable after the fact.
+    - Low-confidence cases are surfaced for human review instead of silently auto-resolved.
+  robustness_checks:
+    - Replay historical alert bursts to verify deduplication and prioritization under load.
+    - Test conflicting policy rules and confirm the workflow escalates rather than choosing silently.
+    - Test sparse-context alerts and ensure the workflow requests human review instead of overconfident routing.
+  benchmark_notes: Evaluate both operational usefulness and control quality; lower analyst effort is not a success if recall of high-risk cases falls.
+implementation_notes:
+  orchestration_notes:
+    - Separate signal ingestion, enrichment, scoring, and escalation packaging so governance checks can intervene cleanly.
+    - Preserve persistent case state for duplicate handling and longitudinal reviewer feedback.
+  integration_notes:
+    - Common implementations integrate alert streams, rules engines, case systems, and context stores.
+    - Keep the pattern neutral about the specific detection vendor or case platform.
+  deployment_notes:
+    - Apply strong monitoring to the monitoring workflow itself so silent drops are visible.
+    - Treat policy updates as controlled changes with rollback and audit hooks.
+  references:
+    - docs/patterns/monitor-detect-triage.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: incident-root-cause-analysis
+    relationship: feeds-into
+    notes: The highest-severity or most ambiguous triaged cases often move into deeper discrepancy investigation.
+example_domains:
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Prioritize potential control failures for reviewer action with policy-linked rationale.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Rank suspicious transaction alerts and package supporting account context for analyst review.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Triage operational threshold breaches and route severe cases to the owning response team.
+maturity: draft
+tags:
+  - monitor-detect-triage
+  - risk-alerts
+  - event-triage
+  - policy-checking
+  - governed-escalation
