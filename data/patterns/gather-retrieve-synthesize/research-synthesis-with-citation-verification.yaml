@@ -5,7 +5,6 @@ summary: Assemble evidence from distributed sources into a grounded synthesis wh
 pattern_family:
   id: gather-retrieve-synthesize
   label: Gather / Retrieve / Synthesize
-  source_vocabulary: pattern-families
 problem_structure:
   id: context-gathering-and-synthesis
   label: Context gathering and synthesis

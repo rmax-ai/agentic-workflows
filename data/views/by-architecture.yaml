@@ -22,8 +22,9 @@ population_rules:
   family_order_source: data/views/index-tree.yaml
   pattern_link_target: data/patterns/<pattern-id>.yaml
 empty_state:
-  status: awaiting-canonical-patterns
-  note: No canonical patterns exist yet, so this view only seeds vocabulary-linked family scaffolding.
+  status: partial-canonical-pattern-coverage
+  note: Canonical patterns now populate this view. Empty family buckets indicate architecture/family
+    combinations that remain uncovered.
 architectures:
 - architecture:
     id: tool-using-single-agent

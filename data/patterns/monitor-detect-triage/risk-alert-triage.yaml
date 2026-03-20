@@ -5,7 +5,6 @@ summary: Monitor risk signals continuously, validate alert context, and prioriti
 pattern_family:
   id: monitor-detect-triage
   label: Monitor / Detect / Triage
-  source_vocabulary: pattern-families
 problem_structure:
   id: continuous-monitoring-and-triage
   label: Continuous monitoring and triage

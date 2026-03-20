@@ -31,9 +31,9 @@ linkage:
   - data/views/by-autonomy.yaml
   - data/views/by-risk.yaml
 empty_state:
-  status: awaiting-canonical-patterns
-  note: The repository does not yet contain canonical pattern YAML entries, so every family starts with
-    an empty pattern_ids list by design.
+  status: partial-canonical-pattern-coverage
+  note: Canonical pattern YAML entries now exist. Empty pattern_ids lists indicate family areas that
+    remain uncovered rather than a missing pattern layer.
 families:
 - family:
     id: gather-retrieve-synthesize

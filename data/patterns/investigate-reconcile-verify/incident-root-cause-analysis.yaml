@@ -5,7 +5,6 @@ summary: Investigate an incident by reconciling telemetry, changes, and human re
 pattern_family:
   id: investigate-reconcile-verify
   label: Investigate / Reconcile / Verify
-  source_vocabulary: pattern-families
 problem_structure:
   id: discrepancy-investigation
   label: Discrepancy investigation
