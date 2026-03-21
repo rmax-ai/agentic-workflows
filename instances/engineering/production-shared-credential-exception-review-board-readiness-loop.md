@@ -12,6 +12,20 @@ Engineering.
 
 A staff security engineer is coordinating a formal exception package because a revenue-critical integration service still relies on a shared production credential in a legacy broker path that cannot be fully replaced before the next platform hardening milestone. The engineer uses an approval-centered collaboration workspace with agent support to iteratively reconcile security findings, architecture-review objections, SRE rollback expectations, and evidence about the migration plan into a board-ready exception packet. As reviewers push back on residual-risk language, compensating-control sufficiency, expiration dates, and evidence quality, the agents help refresh source material, preserve unresolved objections, rewrite sections with claim-to-source traceability, and maintain an explicit handoff ledger showing who currently owns the next approval checkpoint. The human security engineer and designated approval owner remain responsible for deciding whether the packet is actually ready for review-board handoff, whether any objection is acceptable to carry forward, and whether the request should pause for more evidence instead of moving into formal adjudication.
 
+```mermaid
+flowchart TD
+    A["Staff security engineer opens<br>the exception packet workspace"] --> B["Agents refresh security findings,<br>policy criteria, migration evidence,<br>and handoff-ledger ownership"]
+    B --> C{"Verification check:<br>are packet claims traceable<br>to current evidence?"}
+    C -->|"No"| H["Hold state:<br>pause for more evidence, keep unresolved objections visible,<br>and preserve the current approval owner"]
+    H --> B
+    C -->|"Yes"| D["Security, architecture, and SRE reviewers<br>challenge residual risk, compensating controls,<br>rollback expectations, and expiration terms"]
+    D --> E{"Bounded escalation:<br>does refreshed evidence indicate an immediate<br>production safety or security exposure?"}
+    E -->|"Yes"| I["Route to formal incident or emergency-change handling;<br>pause the routine board-readiness loop"]
+    E -->|"No"| F{"Human readiness checkpoint:<br>do the staff security engineer and named approval owner<br>accept the packet for board handoff?"}
+    F -->|"Revise"| H
+    F -->|"Approve"| G["Submit the board-ready packet,<br>handoff ledger, and required follow-up checkpoints<br>to the review-board intake queue"]
+```
+
 ## Target systems / source systems
 
 - Governed engineering review workspace with the draft exception packet, reviewer comments, approval-readiness status, and handoff ledger
