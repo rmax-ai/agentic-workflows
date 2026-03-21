@@ -62,7 +62,7 @@ autonomy_levels:
     transform-process: [batch-content-transformation]
     investigate-reconcile-verify: [evidence-gated-verification-for-release]
     monitor-detect-triage: [risk-alert-triage]
-    plan-coordinate-schedule: []
+    plan-coordinate-schedule: [contingency-plan-activation-gate]
     recommend-decide-escalate: []
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: []

@@ -75,7 +75,7 @@ risk_levels:
     transform-process: [critical-channel-safe-state-packaging]
     investigate-reconcile-verify: [critical-authoritative-state-restoration]
     monitor-detect-triage: [critical-signal-corroboration-triage]
-    plan-coordinate-schedule: [critical-command-window-resequencing]
+    plan-coordinate-schedule: [contingency-plan-activation-gate, critical-command-window-resequencing]
     recommend-decide-escalate: [critical-escalation-authority-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: [critical-protected-priority-adaptation]

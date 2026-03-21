@@ -1,0 +1,275 @@
+id: contingency-plan-activation-gate
+slug: contingency-plan-activation-gate
+name: Contingency plan activation gate
+summary: Assemble a human-approved contingency-activation readiness packet with explicit holds, prerequisite sequencing, and protected timing so a severe fallback plan can remain activation-ready without selecting the authority lane, re-verifying upstream truth, or executing the contingency itself.
+pattern_family:
+  id: plan-coordinate-schedule
+  label: Plan / Coordinate / Schedule
+problem_structure:
+  id: constraint-aware-planning
+  label: Constraint-aware planning
+  source_vocabulary: problem-structures
+domain:
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+workflow_goal: Convert an already-declared contingency path and current authoritative readiness inputs into one approval-gated activation packet, readiness ledger, and explicit hold set that humans can review before any fallback or continuity action begins.
+inputs:
+  - name: Declared contingency scope and fallback plan
+    description: The bounded contingency class, approved fallback playbook, protected scope, and predeclared activation objective that this workflow is allowed to prepare for possible activation.
+    kind: contingency-plan
+    required: true
+    examples:
+      - Treasury contingency funding plan covering one intraday liquidity facility and protected payment corridors
+      - Cold-chain emergency reroute plan covering at-risk facilities, carrier lanes, and product-temperature safeguards
+      - Sanctions manual-screening continuity plan covering the affected corridors, review cells, and release-hold boundaries
+  - name: Current authoritative readiness references
+    description: The latest trusted status references, dependency updates, and hold conditions produced elsewhere that indicate which prerequisites are satisfied, blocked, or still provisional.
+    kind: readiness-state
+    required: true
+    examples:
+      - Trusted cash-state, collateral availability, lender-window timing, and payment-queue protection status already accepted by treasury leads
+      - Facility availability, trailer readiness, quality-review status, and carrier-acceptance windows already published by operations systems
+      - Confirmed outage scope, reviewer coverage state, queue segmentation, and legal-notice holds already established in compliance workspaces
+  - name: Activation rules and approval thresholds
+    description: Policy constraints, protected holds, role requirements, timing cutoffs, and sign-off rules that define what must be ready before the contingency packet may be presented for activation approval.
+    kind: policy
+    required: true
+    examples:
+      - Do not prepare a facility-draw activation gate unless collateral sign-off, lender notice windows, and dual-control review remain intact
+      - Do not treat an emergency reroute as activation-ready until quality release, carrier acceptance, and cold-chain monitoring coverage are all explicitly mapped
+      - Keep transaction-release holds in force until sanctions legal and compliance checkpoint rules are represented in the manual-screening fallback packet
+  - name: Resource, participant, and communication commitments
+    description: Named owners, delegates, reserved capacity, protected channels, and timing windows required to make the contingency plan ready for human approval.
+    kind: coordination-state
+    required: true
+    examples:
+      - Funding desk coverage, treasury-control reviewers, lender contacts, and market-open communication windows
+      - Regional site leads, carrier coordinators, quality reviewers, and overflow cold-storage capacity commitments
+      - Manual-screening reviewers, queue supervisors, legal responders, and restricted communications channels
+  - name: Prior activation drafts and unresolved holds
+    description: Optional earlier gate packets, superseded reservations, open blockers, or pending acknowledgements that should stay visible across repeated activation-readiness updates.
+    kind: case-state
+    required: false
+    examples:
+      - Earlier funding activation packet held pending one lender callback window
+      - Superseded reroute draft that reserved trailers for a lane now outside the protected contingency scope
+      - Prior manual-screening fallback packet still waiting on named overnight reviewer coverage
+outputs:
+  - name: Contingency readiness ledger
+    description: Ordered readiness record showing prerequisites, owners, timing windows, dependency state, and which items are ready, provisional, or held for the declared contingency path.
+    kind: plan
+    required: true
+    examples:
+      - Ledger showing collateral sign-off, facility-draw notice timing, control review, and payment-queue protection checkpoints for a liquidity fallback
+      - Ledger showing carrier assignment, quality release, dock capacity, and monitoring coverage checkpoints for a cold-chain reroute
+      - Ledger showing reviewer staffing, queue partitioning, legal hold handling, and approval-window checkpoints for manual sanctions screening
+  - name: Approval-gated activation packet
+    description: Human-reviewable packet summarizing the prepared contingency scope, prerequisite status, protected holds, resource reservations, and exact boundary where planning stops before activation.
+    kind: schedule-packet
+    required: true
+    examples:
+      - Facility-draw activation packet for treasury leadership with prerequisite timing, open holds, and the specific approval needed before the fallback can start
+      - Emergency reroute packet for operations leadership with reserved lanes, unresolved cold-chain blockers, and adoption checkpoints
+      - Manual-screening fallback packet for compliance leadership with reviewer coverage, queue holds, and protected-channel constraints
+  - name: Activation hold and exception register
+    description: Structured list of prerequisites, approvals, timing conflicts, or protected boundaries that block the contingency from being presented as fully activation-ready.
+    kind: review-queue
+    required: true
+    examples:
+      - Lender notice window unavailable before market open, so the funding fallback remains held
+      - One receiving facility has not accepted rerouted refrigerated capacity, so the network packet stays provisional
+      - Overnight reviewer coverage gap prevents the manual-screening fallback from being marked activation-ready
+  - name: Activation-packet lineage log
+    description: Durable history of packet versions, upstream readiness references, hold changes, reservations, and human checkpoint actions across contingency-planning updates.
+    kind: audit-log
+    required: true
+    examples:
+      - Versioned trail linking one updated collateral-status reference to a revised liquidity fallback packet
+      - Log showing which carrier and capacity commitments changed between reroute packet revisions
+      - Audit trail connecting changed reviewer coverage and legal-hold status to the latest sanctions fallback packet
+environment:
+  summary: Operates in severe continuity and fallback-planning workflows where a contingency may need to be activated quickly, yet the workflow must stay bounded at assembling one approval-gated readiness packet with explicit holds and sequencing rather than deciding authority, re-establishing truth, or carrying out the contingency.
+  systems:
+    - Contingency playbook and continuity-planning systems
+    - Readiness, dependency, or state-tracking systems that provide authoritative upstream references
+    - Approval-routing, calendar, and delegate-management systems
+    - Coordination workspaces and audit stores preserving packet lineage and hold state
+  actors:
+    - Contingency coordinator or continuity owner
+    - Domain control owners and prerequisite stakeholders
+    - Human approver who decides whether the packet is sufficient for activation
+    - Governance or audit stakeholders reviewing protected holds and packet lineage
+  constraints:
+    - Use only already-authoritative readiness references; do not re-verify the underlying truth claims inside this workflow.
+    - Keep protected holds, prerequisite ordering, and resource reservations explicit so humans can see why activation is or is not ready.
+    - Stop at the readiness ledger, activation packet, hold register, and lineage log; do not recommend which authority should decide, adjudicate the factual truth of upstream state, or execute the contingency.
+    - Preserve a clear boundary between reversible pre-activation preparation and any irreversible downstream activation step.
+  assumptions:
+    - The organization can identify one declared contingency scope and a bounded fallback path before this workflow begins.
+    - Upstream workflows already provide trusted readiness or state references suitable for planning against without repeating their verification logic here.
+    - Human reviewers remain available to approve or reject the activation packet before any contingency execution begins.
+capability_requirements:
+  - capability:
+      id: planning
+      label: Planning
+      source_vocabulary: capabilities
+    necessity: The core task is to assemble one viable activation-ready path under timing, dependency, and hold constraints without crossing into execution.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Multiple teams, delegates, and reserved resources must stay synchronized so the contingency packet reflects one coherent readiness state.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Approval thresholds, protected holds, timing windows, and segregation-of-duties rules determine when the packet may be presented as activation-ready.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Repeated packet revisions, unresolved holds, superseded reservations, and upstream reference changes must remain durable across the planning loop.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow must read continuity plans, calendars, readiness systems, and approval-routing tools while publishing updated readiness packets and lineage records.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Safe operation depends on isolating blocked prerequisites, missing capacity, and protected-boundary conflicts instead of flattening them into an apparently ready packet.
+execution_architecture:
+  - architecture:
+      id: approval-gated-execution
+      label: Approval-gated execution
+      source_vocabulary: architectures
+    fit: The workflow prepares a technically activation-ready packet and explicit hold state, but the contingency remains concretely blocked until a human approval gate authorizes downstream activation.
+autonomy_profile:
+  level:
+    id: approval-gated
+    label: Approval gated
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the declared contingency scope, protected holds, and approval threshold rules before the workflow begins preparing activation-ready packets.
+    - Review the readiness ledger, reserved resources, and explicit hold register before treating the packet as the authoritative basis for contingency activation.
+    - Approve any change to activation criteria, protected timing logic, or delegated participant rules before those changes affect future contingency packets.
+  reversibility: Packet drafts, reservations, and hold states can be revised while the workflow remains in planning, but once humans treat an inaccurate packet as activation-ready the downstream activation path may become operationally costly or difficult to unwind.
+  escalation: Escalate whenever the declared contingency scope is unclear, upstream readiness references are missing or conflict materially, no in-policy activation-ready sequence exists, required approvals or resources remain unresolved, or the next requested step would choose authority, verify truth, or execute the contingency instead of preparing the gate.
+risk_governance:
+  level:
+    id: critical
+    label: Critical
+    source_vocabulary: risk-levels
+  failure_impact: A weak or misleading activation packet can cause leaders to approve an unready contingency, delay a needed fallback, or rely on missing prerequisites during a severe financial, operational, or compliance event with enterprise-wide consequences.
+  approval_requirements:
+    - A named human contingency owner must approve the activation packet before it becomes the authoritative basis for any fallback, continuity, or emergency activation step.
+    - Governance owners must approve changes to protected holds, approval thresholds, or packet-construction rules before those changes affect live contingency preparation.
+  auditability: Preserve the declared contingency scope, upstream readiness references, prerequisite and hold states, reserved resources, packet versions, human approvals, and repeated blocked conditions so reviewers can reconstruct exactly why a contingency was or was not activation-ready at each point in time.
+  privacy:
+    - Limit broad packet distribution to role-relevant readiness, timing, and hold information instead of duplicating full financial exposures, facility details, or sensitive case data.
+    - Keep restricted evidence and sensitive counterparties, shipments, or account details in narrower governed systems when the main packet can rely on aliased references.
+  security:
+    - Restrict write access to readiness ledgers, reserved resources, and hold registers because unauthorized edits can falsely signal that a severe contingency is activation-ready.
+    - Log manual overrides, rule changes, and hold releases so hidden pressure to bypass the approval gate remains detectable.
+  notes: Critical-risk governance fits because the pattern shapes whether humans believe a severe contingency can be activated safely, even though it stops before authority selection, truth adjudication, or operational activation.
+why_agentic:
+  - Useful contingency preparation requires reasoning over dependencies, protected timing, resource reservations, and explicit holds together rather than filling one static emergency checklist.
+  - The workflow must preserve one current readiness packet as upstream state, staffing, and timing windows change without hiding what is still blocked or provisional.
+  - Safe performance depends on recognizing when a contingency packet is only partially ready and keeping that uncertainty visible for human approval instead of normalizing it away.
+failure_modes:
+  - mode: The packet treats stale upstream readiness references as if all activation prerequisites are current
+    impact: Humans approve a contingency path that is no longer aligned with the actual latest trusted readiness state.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Preserve timestamps and source references for every prerequisite carried into the packet.
+      - Hold the packet when required upstream references fall outside approved freshness windows.
+  - mode: Protected holds or approval thresholds are omitted from the readiness ledger
+    impact: The contingency appears activation-ready even though a non-waivable control, legal, or operational boundary still blocks safe activation.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Encode protected holds separately from optional preparation tasks and require them in the main packet summary.
+      - Block ready status when any non-waivable hold remains unresolved.
+  - mode: Resource reservations drift away from the prepared activation sequence
+    impact: A human-approved packet cannot be executed safely downstream because required staff, lanes, facilities, or control coverage are not actually aligned.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Reconcile reserved resources and named owners against the current packet version before publishing.
+      - Invalidate superseded reservations when packet scope or timing changes materially.
+  - mode: The workflow drifts into authority recommendation, truth verification, or execution
+    impact: Family boundaries blur and the planning loop begins doing decision, verification, or operational work that should remain in adjacent workflows.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Limit outputs to readiness ledgers, activation packets, hold registers, and lineage logs.
+      - Route authority selection, factual truth restoration, and live contingency actions into adjacent recommendation, verification, or execution patterns.
+evaluation:
+  success_metrics:
+    - Time from declared contingency-preparation request to a human-reviewable activation packet with complete prerequisite, hold, and reservation state.
+    - Percentage of materially blocked prerequisites that remain visible in the hold register instead of disappearing into optimistic packet language.
+    - Agreement between the workflow's readiness packet and the final human-approved activation gate used for downstream action.
+  quality_criteria:
+    - Every packet clearly distinguishes ready, provisional, and held prerequisites while preserving the exact approval boundary before activation.
+    - Resource commitments, timing windows, and protected holds remain aligned to the declared contingency scope and latest trusted inputs.
+    - The workflow stays bounded at activation-readiness planning rather than selecting authority, re-verifying truth, or starting the contingency itself.
+  robustness_checks:
+    - Test conflicting or aging upstream readiness references and verify the packet remains held rather than pretending the contingency is ready.
+    - Test no-feasible-window cases and ensure the workflow emits an explicit blocked packet with visible holds instead of a cosmetically complete plan.
+    - Test repeated packet revisions with changing staffing or reserved capacity and confirm superseded reservations and packet lineage remain clear.
+  benchmark_notes: Evaluate readiness visibility, hold discipline, and approval integrity together; a faster packet is not useful if it hides the fact that the contingency still cannot be activated safely.
+implementation_notes:
+  orchestration_notes:
+    - Keep packet intake, prerequisite mapping, hold classification, reservation alignment, and approval-packet assembly as explicit stages over one durable readiness record.
+    - Separate this planning workflow from authority-routing, truth-restoration, and execution tooling so the family boundary remains inspectable.
+  integration_notes:
+    - Common implementations integrate continuity playbooks, readiness dashboards, calendars, approval systems, and governed coordination workspaces.
+    - Keep the pattern neutral about specific treasury, logistics, compliance, incident, or continuity-management platforms.
+  deployment_notes:
+    - Start with severe contingency classes that already have documented fallback playbooks, named approval owners, and explicit protected holds.
+    - Monitor blocked-packet frequency, stale-reference rates, and human disagreement with prepared packets to ensure the workflow is surfacing uncertainty rather than compressing it.
+  references:
+    - docs/patterns/plan-coordinate-schedule.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: critical-command-window-resequencing
+    relationship: adjacent-to
+    notes: Command-window resequencing manages the live critical timeline once a severe coordination window is active, while this pattern prepares an approval-gated contingency packet before activation begins.
+  - id: evidence-gated-verification-for-release
+    relationship: contrasts-with
+    notes: Evidence-gated verification determines whether a package is true and sufficient for reliance, while this pattern assumes upstream readiness references are already authoritative and focuses on activation planning and hold management.
+  - id: staged-change-execution-with-rollback-holds
+    relationship: precedes
+    notes: A human-approved contingency packet may hand off to staged execution, but this pattern stops before any live fallback or continuity steps are performed.
+example_domains:
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Prepare a contingency funding facility activation packet with lender windows, collateral checkpoints, payment-queue protections, and explicit holds before treasury leadership approves the fallback.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Prepare an emergency cold-chain reroute packet with carrier commitments, receiving-site capacity, monitoring coverage, and unresolved holds before network operations authorizes the contingency.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Prepare a manual sanctions-screening fallback packet with reviewer coverage, queue partitioning, legal holds, and protected-channel constraints before compliance leadership approves activation.
+maturity: draft
+tags:
+  - plan-coordinate-schedule
+  - contingency-activation
+  - approval-gated
+  - readiness-packet
+  - critical-risk
