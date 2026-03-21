@@ -12,6 +12,21 @@ Engineering.
 
 A senior incident commander is directing live remediation for a checkout-platform outage after a bad cache invalidation sequence and stale feature-flag state start cascading request failures across two regions. The agent is allowed to execute specific remediation steps only when the commander calls them: gather the current service and flag state, disable one canary rule, drain one worker pool, restart one dependency tier, verify error-rate and queue-depth recovery, and update the incident record after each step. Because the bridge is evolving quickly and the next safe action depends on what the previous step actually changed, the workflow must preserve one authoritative step ledger, stop before improvising a new branch, and package an exact takeover state if the commander hands control to the database platform team or rollback authority.
 
+```mermaid
+flowchart TD
+    A["Commander directs current step<br>and confirms authority boundary"] --> B["Agent gathers live service, flag, and queue state<br>then records the directive in the step ledger"]
+    B --> C{"Directed action still explicit<br>and within commander authority?"}
+    C -- "Yes" --> D["Agent executes one commanded remediation step<br>and updates the incident record"]
+    C -- "No" --> H["Hold state<br>stop execution and package takeover for database team or rollback authority"]
+    D --> E{"Verification shows expected recovery<br>with current error rate and queue depth?"}
+    E -- "Yes" --> F{"Commander directs another bounded step?"}
+    E -- "No" --> G{"Observed state conflicts, mixed state remains,<br>or next step crosses authority?"}
+    F -- "Yes" --> B
+    F -- "No" --> I["Hold on commander direction<br>maintain ledger and verified current state"]
+    G -- "Yes" --> H
+    G -- "No" --> B
+```
+
 ## Target systems / source systems
 
 - Incident command record, bridge timeline, and production-severity governance log
