@@ -65,7 +65,7 @@ domains:
     plan-coordinate-schedule: [schedule-adjustment-and-replanning, authoritative-change-coordination-refresh, contingency-plan-activation-gate]
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing, control-requirement-attestation-recommendation, approval-gated-recommendation-release, critical-escalation-authority-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates, human-directed-task-orchestration]
-    optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration]
+    optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration, approval-gated-optimization-state-release]
     human-agent-collaborative-work: [analyst-copilot-loop, approval-gated-collaborative-artifact-release, critical-protected-artifact-collaboration]
 - domain:
     id: operations
@@ -93,7 +93,7 @@ domains:
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: [readiness-gate-disposition-recommendation, approval-gated-recommendation-release]
     execute-automate: [workflow-hand-off-and-completion]
-    optimize-adapt: [adaptive-review-sampling-rate-tuning, governed-optimization-bundle-retuning]
+    optimize-adapt: [adaptive-review-sampling-rate-tuning, governed-optimization-bundle-retuning, approval-gated-optimization-state-release]
     human-agent-collaborative-work: [analyst-copilot-loop, approval-gated-collaborative-artifact-release, shared-workbench-orchestration]
 - domain:
     id: support
@@ -121,5 +121,5 @@ domains:
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [policy-constrained-escalation-routing, approval-gated-recommendation-release]
     execute-automate: [browser-based-form-completion-with-approval-gates]
-    optimize-adapt: [governed-optimization-bundle-retuning]
+    optimize-adapt: [governed-optimization-bundle-retuning, approval-gated-optimization-state-release]
     human-agent-collaborative-work: [approval-centered-collaboration, approval-gated-collaborative-artifact-release]

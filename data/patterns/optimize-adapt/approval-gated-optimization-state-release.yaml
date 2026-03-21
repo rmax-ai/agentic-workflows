@@ -16,8 +16,17 @@ domain:
   - id: finance
     label: Finance
     source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
   - id: operations
     label: Operations
+    source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
+  - id: hr
+    label: HR
     source_vocabulary: domains
 workflow_goal: Make one exact versioned optimization-state revision live in a bounded scope only after a human approves that specific revision, while keeping fallback state, validity timing, rollout constraints, and lineage explicit so the workflow does not collapse into recommendation-only retuning or downstream business execution.
 inputs:
@@ -275,10 +284,25 @@ example_domains:
       source_vocabulary: domains
     example: Activate one approved quarter-close control-bundle revision for the current close cycle, with controller sign-off, explicit expiry at cycle end, and the prior trusted bundle reserved for rollback.
   - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Release one reviewed sanctions alert-review scoring revision into live analyst use for a bounded screening-program scope after a named compliance owner approves the manifest, validity window, and rollback target.
+  - domain:
       id: operations
       label: Operations
       source_vocabulary: domains
     example: Release one reviewed maintenance-assurance sampling-policy revision into live spot-check selection for the next maintenance window while keeping safety-critical floors, expiry timing, and restore controls explicit.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Release one reviewed benchmark replication-review scoring revision into live integrity review for a bounded publication program after a named research owner approves the manifest, validity window, and rollback target.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Release one reviewed protected leave accommodation-review scoring revision into live specialist intake for a bounded leave-and-accommodation scope after a named HR owner approves the manifest, validity window, and restore target.
 maturity: draft
 tags:
   - optimize-adapt
