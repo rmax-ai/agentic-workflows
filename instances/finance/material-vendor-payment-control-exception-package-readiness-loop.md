@@ -12,6 +12,20 @@ Finance.
 
 An assistant controller is preparing a formal exception package because a critical software vendor is demanding a large prepayment before quarter end, but the request cannot satisfy the company's normal payment-control stack without an explicit controller and CFO review. Inside a governed finance collaboration workspace, the assistant controller and agent support iterate on the exception packet as accounts-payable leadership, procurement, treasury, and internal-controls reviewers challenge the business urgency narrative, segregation-of-duties posture, evidence for goods-not-yet-received treatment, and the proposed compensating controls. The agents help reconcile reviewer comments, refresh the source support, rewrite the packet to reflect accepted edits and unresolved objections, and maintain a handoff ledger showing which human owns the next approval-ready checkpoint. The human finance owners remain responsible for deciding whether the evidence is strong enough to move the packet into formal approval, whether any objection should stop progression, and whether the request needs escalation for additional control review rather than downstream payment execution.
 
+```mermaid
+flowchart TD
+    A["Assistant controller opens<br>the payment-control exception workspace"] --> B["Agents refresh ERP, contract,<br>treasury, and control-policy evidence<br>and update the handoff ledger"]
+    B --> C{"Review checkpoint:<br>are claims and control statements<br>traceable to current evidence?"}
+    C -->|"No"| H["Hold state:<br>pause readiness, preserve unresolved objections,<br>and request evidence or packet revisions"]
+    H --> B
+    C -->|"Yes"| D["AP, procurement, treasury, and internal-controls reviewers<br>challenge urgency, goods-not-yet-received treatment,<br>segregation-of-duties posture, and compensating controls"]
+    D --> E{"Bounded escalation:<br>do findings indicate fraud risk, sanctions concern,<br>contract noncompliance, or material control deficiency?"}
+    E -->|"Yes"| I["Escalate to investigation or issue-management review;<br>pause the exception-package loop"]
+    E -->|"No"| F{"Human readiness checkpoint:<br>do the assistant controller and named finance owner<br>accept the packet for controller/CFO approval handoff?"}
+    F -->|"Revise"| H
+    F -->|"Approve"| G["Transfer the package, visible objections,<br>and named approval owner to the formal<br>controller/CFO review queue"]
+```
+
 ## Target systems / source systems
 
 - Controlled finance review workspace with the draft exception package, reviewer comments, readiness status, and approval-handoff ledger
