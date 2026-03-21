@@ -12,6 +12,25 @@ Engineering.
 
 A release engineering team receives a deployment-readiness packet for a customer-facing billing service that is scheduled to enter the organization’s governed production-review queue. The packet combines the release manifest, CI pipeline summary, integration and canary test exports, artifact provenance attestations, SBOM and vulnerability-scan results, rollback runbook excerpts, environment-specific configuration diff summaries, and a sanitized incident-history note covering the service’s last failed rollout. Before any approver opens a release gate, schedules a change window, or authorizes rollout, the workflow must transform that heterogeneous packet into a structured deployment-review staging record with required fields for service and repository identity, release candidate version, build and artifact digests, target environment set, test-result inventory, dependency-change flags, rollback artifact status, security-review markers, exception flags, and source-evidence links while preserving contradictions, missing evidence, and low-confidence mappings.
 
+```mermaid
+flowchart TD
+    A["Receive deployment-readiness packet<br>manifest, pipeline summary, tests, attestations, scans, runbook, config diff, and incident note"]
+    B["Extract and normalize release evidence<br>service identity, candidate version, artifact digests, environments, tests, rollback, and security markers"]
+    C["Assemble staged deployment-review record<br>capture field-level provenance, uncertainty, and lossiness notes"]
+    D{"Any required-field gap, mixed candidate evidence,<br>timestamp policy failure, contradiction, or boundary overexposure?"}
+    E["Route packet to exception hold<br>release manager, service owner, or security reviewer inspection"]
+    F{"Does the staged record satisfy schema version,<br>traceability, and reviewable handoff checks?"}
+    G["Write deployment-review staging record<br>with source-evidence links and transformation trace"]
+    H["Stop at staging handoff<br>no gate opening, change-window scheduling, or rollout authorization"]
+
+    A --> B --> C --> D
+    D --> E
+    E --> B
+    D --> F
+    F --> E
+    F --> G --> H
+```
+
 ## Target systems / source systems
 
 - Release-governance or deployment-review staging system with a versioned intake schema for production-bound release candidates
