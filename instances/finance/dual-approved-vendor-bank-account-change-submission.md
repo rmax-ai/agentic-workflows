@@ -12,6 +12,22 @@ Finance.
 
 An accounts payable controls specialist needs to submit an approved vendor remittance bank account change for a strategic raw-material supplier after the supplier completes an ownership-backed treasury migration. The target supplier-master portal is browser-only, spreads the change across vendor identity, payment method, bank routing, account ownership attestation, and callback-verification tabs, and final submission may proceed only after AP management and treasury controls have both approved the request in the finance case system. Because an incorrect commit could redirect future payments, the workflow must recheck approvals, verify that supporting evidence still matches the requested account, and halt safely if the live portal or callback-verification state becomes ambiguous.
 
+```mermaid
+flowchart TD
+    A["Review approved change packet<br>and verify vendor identity,<br>bank ownership evidence,<br>and callback log"] --> B{"AP management and treasury<br>approvals still current?"}
+    B -- "No" --> C["Place request on hold<br>for renewed dual approval"]
+    B -- "Yes" --> D["Open supplier-master portal<br>and validate live vendor profile<br>against approved remittance change"]
+    D --> E{"Portal state and existing<br>remittance details match<br>the approved packet?"}
+    E -- "No" --> F["Stop at safe hold state<br>and escalate to treasury operations<br>for human takeover"]
+    E -- "Yes" --> G["Enter bank-change fields,<br>upload attestation packet,<br>and capture masked evidence"]
+    G --> H{"Pre-submit recheck passes for<br>dual approvals, callback verification,<br>and bank-country policy?"}
+    H -- "No" --> I["Hold submission pending<br>approval or evidence refresh"]
+    H -- "Yes" --> J["Submit change in portal<br>and capture confirmation number"]
+    J --> K{"Confirmation and callback state<br>unambiguous after submit?"}
+    K -- "No" --> L["Escalate within bounded review path<br>for reconciliation before reuse<br>or resubmission"]
+    K -- "Yes" --> M["Store masked evidence bundle<br>and close the approved request"]
+```
+
 ## Target systems / source systems
 
 - Finance case-management system holding the change request, dual approvals, and segregation-of-duties record
