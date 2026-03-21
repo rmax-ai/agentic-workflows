@@ -12,6 +12,24 @@ Engineering.
 
 After architecture, production-change, and payments-risk owners approve migration of card-token lookups from a legacy vault path to a new tokenization service, a release engineering team must execute the live cutover during a narrow evening window. The workflow should not re-decide whether the change is allowed. It should carry the already approved cutover through sequenced preflight checks on key replication, shadow-read parity, and rollback health; then move traffic in bounded stages, verify authorization and settlement signals at each checkpoint, and hold visibly for human release before widening blast radius or retiring the legacy fallback path.
 
+```mermaid
+flowchart TD
+    A["Approved cutover scope<br>and release authorities in force"] --> B["Run preflight checks<br>key replication, shadow-read parity, rollback health"]
+    B --> C{"Preflight evidence within<br>approved thresholds?"}
+    C -- "No" --> F["Visible hold or rollback packet<br>for release authority and incident lead"]
+    C -- "Yes" --> D["Shift limited merchant cohort<br>to the new tokenization service"]
+    D --> E{"Authorization, settlement, and<br>fallback signals stay healthy?"}
+    E -- "No" --> F
+    E -- "Yes" --> G["Human release hold<br>before widening blast radius"]
+    G -- "Released" --> H["Expand traffic to approved<br>broader production scope"]
+    G -- "Held" --> F
+    H --> I{"Broad-scope verification and<br>legacy fallback readiness still hold?"}
+    I -- "No" --> F
+    I -- "Yes" --> J["Protected human hold<br>before retiring legacy fallback path"]
+    J -- "Release" --> K["Disable legacy fallback path<br>and record final state confirmation"]
+    J -- "Hold" --> F
+```
+
 ## Target systems / source systems
 
 - Engineering change record holding the approved cutover scope, protected traffic cohorts, rollback thresholds, and named release authorities
