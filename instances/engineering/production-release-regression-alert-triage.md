@@ -12,6 +12,18 @@ Engineering.
 
 A platform reliability team continuously watches deployment events, canary analysis results, service-level indicators, feature-flag changes, and customer-impact signals to detect risky production regressions shortly after a release lands. The workflow must collapse duplicate alerts tied to the same release wave, enrich each alert with deploy metadata, blast-radius estimates, rollback readiness, and prior release history, and then prioritize which cases need immediate human review. A case should move to the urgent queue when, for example, a release shows error-budget burn above the defined threshold for two consecutive evaluation windows, p95 latency degradation beyond the allowed canary delta for a tier-one service, or concurrent authentication and checkout failures across more than one region. The goal is to create an evidence-backed triage packet for the on-call engineering owner, release manager, or incident lead, not to decide root cause, execute rollback, or declare an incident automatically.
 
+```mermaid
+flowchart TD
+    A["Monitor release-linked signals<br>deploy events, canary results, SLIs,<br>feature-flag changes, and customer impact"] --> B["Merge duplicate alerts<br>by release wave and detector lineage"]
+    B --> C["Enrich triage case<br>deploy metadata, blast radius,<br>rollback readiness, and release history"]
+    C --> D{"Threshold checks met?<br>two-window error-budget burn,<br>canary delta, or multi-region failures"}
+    D -- "No" --> E["Hold monitored case<br>re-rank when new telemetry arrives"]
+    D -- "Yes" --> F{"Verification passes across<br>telemetry, release scope,<br>and routing policy?"}
+    F -- "No or conflicted" --> G["Bounded human review<br>on-call owner or release manager<br>verifies evidence before escalation"]
+    F -- "Yes" --> H["Publish urgent triage packet<br>threshold hits, ownership, rollback context,<br>and routing rationale"]
+    G --> H
+```
+
 ## Target systems / source systems
 
 - CI/CD and deployment-control systems with release ids, rollout stages, approver records, feature-flag changes, and rollback artifacts
