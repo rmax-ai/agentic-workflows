@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Next iteration focus: resume the tied-domain (`research` and `hr`) grounding refinement track with one equally bounded already-canonical slice, unless later publication, deployment, or Mermaid-illustration prompt work uncovers a bounded documentation-generation gap that needs follow-up.
+Next iteration focus: deepen the tied-domain refinement track with one instance-only `research` slice under the already-mapped `workflow-hand-off-and-completion` pattern so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears.
 
 Iteration `20260321-173800` is now complete: a bounded Mermaid pilot batch added one validated workflow diagram each to five eligible instance files in `compliance`, `engineering`, `hr`, `support`, and `research`, and the derived MkDocs publication build was regenerated successfully afterward.
 
@@ -86,10 +86,10 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Ordered tasks
 
-1. Reassess the tied thinnest domains (`research` and `hr`) for one equally bounded already-canonical grounding slice whose canonical metadata and derived domain view already align.
-2. Prefer an instance-only refinement batch again, and avoid canonical pattern or derived-view edits unless the next grounding uncovers genuine drift from repository truth.
-3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the next bounded content batch, then refresh execution memory on top of the verified canonical baseline.
-4. Re-run `uv run python scripts/python/build_site_docs.py` and `uv run mkdocs build` when publication-facing docs, patterns, views, vocabularies, instances, or schema change.
+1. Add one new `instances/research/*.md` example linked only to `workflow-hand-off-and-completion`, keeping the scenario bounded at authoritative post-decision closure, archive linkage, tracker synchronization, and coordinator notification.
+2. Keep the batch instance-only unless the new grounding exposes real drift in canonical pattern/domain metadata or the derived `data/views/by-domain.yaml` browse artifact.
+3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded content batch, then refresh execution memory on top of the verified canonical baseline.
+4. Re-run `uv run python scripts/python/build_site_docs.py` and `uv run mkdocs build` because the iteration changes a publication-facing instance Markdown file.
 5. Keep `.github/workflows/publish-site.yml` aligned with the local publication pipeline whenever helper tooling, Python version, or build outputs change.
 6. If Mermaid workflow illustrations are added across pattern and instance Markdown files, keep the new orchestrator prompt aligned with repository family boundaries, Mermaid validation practice, and static-site rendering constraints.
 
