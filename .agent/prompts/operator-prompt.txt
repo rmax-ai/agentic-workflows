@@ -4,7 +4,7 @@ Follow the repository mission, ordering constraints, memory model, and commit di
 
 Iteration protocol:
 
-1. First inspect the repository and all `.agent/` files.
+1. First inspect the repository and the compact `.agent/` index files; open `.agent/decisions/` or `.agent/repo-map/` detail files only when they are needed for the current task.
 2. Determine the current phase, missing prerequisites, and highest-leverage next step.
 3. Update `.agent/current-plan.md` before making substantive changes.
 4. Execute a modest, dependency-aware batch of work only.

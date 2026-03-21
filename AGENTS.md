@@ -27,6 +27,12 @@ Before making substantive changes, read these files in order:
 7. `.agent/decisions.md`
 8. `.agent/repo-map.md`
 
+Open `.agent/decisions/D-code-slug.md` only when a decision's
+detailed rationale matters for the current task.
+
+Open `.agent/repo-map/*.md` only when the `.agent/repo-map.md`
+index does not give enough structural detail for the current task.
+
 If recent execution history matters, also read the newest relevant files under `.agent/iterations/<year>/`.
 
 If your work touches terminology, also read `.agent/glossary.md`.
@@ -36,9 +42,14 @@ If your work touches terminology, also read `.agent/glossary.md`.
 1. Keep the ontology pattern-first.
 2. Work in dependency order: execution memory -> foundations/schema -> vocabularies -> views -> patterns -> instances.
 3. Do not add shallow pattern files before schema and controlled vocabularies are stable.
-4. Record durable ontology decisions in `.agent/decisions.md` and store their detail in `.agent/decisions/` before letting them spread across multiple files.
-5. Prefer modest, dependency-aware batches over large uncontrolled generation.
-6. Treat governance, autonomy boundaries, reversibility, failure cost, privacy, and auditability as first-class concerns.
+4. Record durable ontology decisions in `.agent/decisions.md`,
+   keep that index concise, and store detailed rationale in
+   `.agent/decisions/` before letting the change spread across
+   multiple files.
+5. Keep `.agent/repo-map.md` as a concise repository map index and
+   move bulky structural detail into `.agent/repo-map/`.
+6. Prefer modest, dependency-aware batches over large uncontrolled generation.
+7. Treat governance, autonomy boundaries, reversibility, failure cost, privacy, and auditability as first-class concerns.
 
 ## Source Of Truth By File Type
 
@@ -62,7 +73,8 @@ Maintain these files when your work changes repository state:
 - `.agent/iterations/` for one dated Markdown file per iteration
 - `.agent/ontology-status.yaml` for current phase and gaps
 - `.agent/coverage-matrix.yaml` for coverage progress
-- `.agent/repo-map.md` when the repository structure changes materially
+- `.agent/repo-map.md` for the concise repository-structure index
+- `.agent/repo-map/` for on-demand repository-structure detail records
 - `.agent/glossary.md` when repository terminology changes
 
 Keep `.agent/current-plan.md` concise: active batch only, recent checkpoints only, and archive superseded execution detail in `.agent/iterations/<year>/`.
@@ -73,7 +85,8 @@ Do not commit transient runtime output from `.agent/runs/`, `.agent/tmp/`, lock 
 
 For substantive work:
 
-1. Read the required context files.
+1. Read the required context files, starting with compact indexes
+   and opening sharded detail files only when needed.
 2. Identify the current phase and the highest-leverage next dependency-safe step.
 3. Update `.agent/current-plan.md` before major edits if the plan is outdated.
 4. Make a focused batch of changes.

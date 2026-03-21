@@ -104,6 +104,7 @@ Target repository structure:
 - .agent/
   - mission.md
   - repo-map.md
+  - repo-map/
   - ontology-status.yaml
   - proposals/
   - iterations/
@@ -152,6 +153,7 @@ Create first:
 - .agent/ontology-status.yaml
 - .agent/coverage-matrix.yaml
 - .agent/repo-map.md
+- .agent/repo-map/
 
 These files are mandatory and must be updated continuously.
 
@@ -389,8 +391,12 @@ Definitions:
 - prefer the loop-provided timestamp path when one is supplied
 
 `.agent/decisions.md`
-- architectural decisions and rationale
-- record why important choices were made
+- read-first decision index
+- record the decision here and open a detail file only when the rationale matters
+
+`.agent/decisions/`
+- detailed decision records keyed by D-code slug
+- use for full rationale, constraints, and consequences without bloating the index
 
 `.agent/proposals/`
 - bounded improvement proposals for the loop, prompt system, tooling, schema, vocabularies, views, patterns, ontology, governance, or evaluation
@@ -411,7 +417,12 @@ Definitions:
 - mark covered / partial / missing
 
 `.agent/repo-map.md`
-- summary map of important files and their role
+- read-first repository map index
+- keep this concise and open detail files only when structural depth is needed
+
+`.agent/repo-map/`
+- a small set of clearly named repository-structure detail files
+- use for bulky structural inventory that should not stay in the read-first index
 
 `.agent/glossary.md`
 - optional but recommended controlled terminology guide
@@ -516,7 +527,7 @@ If a new concept seems needed:
 - first check vocabulary files
 - then check existing patterns
 - only add it if justified
-- record the decision in `.agent/decisions.md` and put the detailed record in `.agent/decisions/`
+- record the decision in `.agent/decisions.md` and put the detailed record in `.agent/decisions/D-code-slug.md`
 
 ==================================================
 WHEN IN DOUBT

@@ -17,6 +17,7 @@ items:
       - .agent/ontology-status.yaml
       - .agent/coverage-matrix.yaml
       - .agent/repo-map.md
+      - .agent/repo-map/
       - .agent/glossary.md
 
   - id: phase-1-foundations-and-schema

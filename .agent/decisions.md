@@ -1,6 +1,8 @@
 # Decisions
 
-This file is the decision index. Detailed records live under `.agent/decisions/`.
+This file is the read-first decision index.
+Open detailed records under `.agent/decisions/` only when the
+rationale matters for the current task.
 
 - [D-0001 — Keep the ontology pattern-first](decisions/D-0001-keep-the-ontology-pattern-first.md)
 - [D-0002 — Enforce strict phase ordering](decisions/D-0002-enforce-strict-phase-ordering.md)
@@ -16,3 +18,4 @@ This file is the decision index. Detailed records live under `.agent/decisions/`
 - [D-0012 — Deploy the derived site with GitHub Pages actions](decisions/D-0012-deploy-the-derived-site-with-github-pages-actions.md)
 - [D-0013 — Keep current-plan as a rolling control document](decisions/D-0013-keep-current-plan-as-a-rolling-control-document.md)
 - [D-0014 — Shard decisions into an index and detail files](decisions/D-0014-shard-decisions-into-an-index-and-detail-files.md)
+- [D-0015 — Shard repo-map into an index and detail files](decisions/D-0015-shard-repo-map-into-an-index-and-detail-files.md)
