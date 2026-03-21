@@ -12,6 +12,20 @@ Operations.
 
 A logistics control team has already triaged a cold-chain excursion packet that groups the affected facilities, shipment cohorts, sensor corroboration, route metadata, and unresolved uncertainty about product exposure. The next step is not to choose the reroute, quarantine, or product-disposition response; it is to decide whether the exact packet revision may be released into the protected network command-center intake lane that coordinates those downstream actions. The dispatch workflow watches packet freshness, facility-scope holds, command-window metadata, and duty-manager approval state, then releases the packet only when the approved manifest authorizes one bounded command-center lane and shift window.
 
+```mermaid
+flowchart TD
+    A["Triaged cold-chain packet<br>ready for dispatch review"] --> B{"Packet revision current<br>and freshness in bounds?"}
+    B -- "No" --> H["Hold dispatch<br>refresh packet or command metadata"]
+    B -- "Yes" --> C{"Any facility-scope hold<br>or command-window drift?"}
+    C -- "Yes" --> I["Keep packet on hold<br>record scope or window conflict"]
+    C -- "No" --> D{"Duty manager approved<br>this exact packet revision?"}
+    D -- "No" --> J["Await approval<br>dispatch remains blocked"]
+    D -- "Yes" --> E{"Approved manifest limited to<br>one lane and shift window?"}
+    E -- "No" --> K["Block dispatch<br>reject broadened command path"]
+    E -- "Yes" --> F["Release approved packet<br>to protected command-center intake lane"]
+    F --> G["Write dispatch manifest<br>and audit trail"]
+```
+
 ## Target systems / source systems
 
 - Cold-chain monitoring and triage systems holding the already-triaged excursion packet, correlated sensor evidence, and duplicate lineage
