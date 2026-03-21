@@ -1,0 +1,282 @@
+id: approval-gated-collaborative-artifact-release
+slug: approval-gated-collaborative-artifact-release
+name: Approval-gated collaborative artifact release
+summary: Co-produce one governed shared artifact and release that exact artifact into one bounded downstream review lane only after explicit human approval, preserving disagreement, ownership, and release boundaries without drifting into recommendation adjudication, representation transformation, or live execution.
+pattern_family:
+  id: human-agent-collaborative-work
+  label: Human-agent collaborative work
+problem_structure:
+  id: human-agent-collaboration
+  label: Human-agent collaboration
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+workflow_goal: Keep one jointly prepared governed artifact current, preserve visible disagreement and release ownership across human-agent collaboration turns, and block its handoff until a human explicitly approves release of that exact artifact into one bounded downstream review or decision lane.
+inputs:
+  - name: Shared artifact charter and collaboration scope
+    description: The named artifact, intended audience, collaborative ownership model, and explicit statement that the workflow ends at approved artifact release into a bounded downstream lane.
+    kind: case
+    required: true
+    examples:
+      - Joint engineering exception packet created for one release-governance review lane with named artifact ownership and release criteria
+      - Treasury position packet opened for one controller or committee review lane with explicit release ownership and bounded audience
+      - Compliance remediation position artifact chartered for one legal or regulator-preparation lane without granting downstream decision authority
+  - name: Source evidence, comments, and unresolved objections
+    description: Evidence, reviewer annotations, policy excerpts, draft sections, and contested claims that must be reconciled into the shared artifact without hiding disagreement.
+    kind: evidence-set
+    required: true
+    examples:
+      - Rollback evidence, architecture comments, policy excerpts, and unresolved dependency objections for an engineering change exception packet
+      - Cash-state support, controller comments, covenant references, and disputed assumptions for a treasury review artifact
+      - Legal guidance, remediation status, jurisdictional comments, and unresolved compliance objections for a regulator-facing preparation packet
+  - name: Release policy and downstream lane boundary
+    description: The rules defining who may approve release, which downstream lane may receive the artifact, what audience or scope is allowed, and what remains outside this workflow.
+    kind: policy
+    required: true
+    examples:
+      - Review-board intake rule naming the release owner, required signers, and one approved queue boundary for the packet
+      - Treasury committee routing rule limiting release to one protected review lane and forbidding use as an execution trigger
+      - Compliance governance rule allowing release only into one privileged legal-preparation lane while keeping regulator outreach out of scope
+  - name: Current revision, ownership, and release state
+    description: The latest artifact version, current section ownership, accepted edits, unresolved objections, pending approvals, and prior held-release outcomes.
+    kind: case-state
+    required: false
+    examples:
+      - Artifact state showing engineering accepted revised rollback wording while one security objection still blocks release
+      - Revision ledger showing treasury approved one annex summary but held the packet pending a covenant-language dispute
+      - Release state showing a compliance packet was returned because one privileged section exceeded the approved audience boundary
+outputs:
+  - name: Governed shared artifact
+    description: The collaboratively maintained artifact revision with accepted sections, visible unresolved disagreement, and the exact content proposed for downstream release.
+    kind: collaborative-draft
+    required: true
+    examples:
+      - Joint engineering exception packet with accepted mitigation language, preserved dissent, and evidence citations
+      - Treasury review packet with agreed exposure summary, visible objections, and bounded annex references
+      - Compliance position artifact with negotiated chronology, contested legal phrasing, and explicit release notes
+  - name: Artifact release manifest
+    description: Manifest binding one exact artifact revision to one approved downstream lane, the releasing human owner, signer identities, hold state, and the point where collaboration stops.
+    kind: manifest
+    required: true
+    examples:
+      - Manifest showing the engineering packet revision is approved for architecture-review intake but not for change execution
+      - Manifest showing the treasury packet may enter one committee review lane while any funding action remains separate
+      - Manifest proving the compliance artifact was released into one privileged preparation lane without authorizing outreach or remediation commands
+  - name: Disagreement and boundary ledger
+    description: Structured record of unresolved objections, section ownership, annex or audience boundaries, and accepted residual issues carried into the downstream lane.
+    kind: handoff-record
+    required: true
+    examples:
+      - Ledger showing which engineering objections remain open and which sections are safe for the downstream board audience
+      - Register showing one treasury assumption remains contested while the approved release scope stays limited to committee review
+      - Boundary record showing which compliance sections remain privileged and which residual disagreements were accepted explicitly by the release owner
+  - name: Collaboration release trace
+    description: Durable history of artifact edits, evidence refreshes, release-gate decisions, human approvals, held states, and superseded revisions across the collaboration loop.
+    kind: audit-log
+    required: true
+    examples:
+      - Trace of review comments, evidence updates, held releases, and final human approval for one engineering packet revision
+      - Timeline showing when a treasury packet was returned for clarification and later released into the bounded committee lane
+      - Audit trail of compliance section edits, privilege checks, release-owner decisions, and downstream handoff timestamps
+environment:
+  summary: Operates in governance-sensitive workflows where the primary reusable challenge is joint human-agent refinement of one shared artifact and explicit human control over whether that artifact itself may cross into a bounded downstream review or decision lane.
+  systems:
+    - Shared collaboration workspace or governed review workbench
+    - Source evidence stores, policy repositories, and comment systems
+    - Release-manifest, approval, or intake-routing tooling
+    - Audit, version-history, and access-control systems
+  actors:
+    - Human artifact owner or release owner
+    - Reviewers contributing comments, objections, or evidence
+    - Agent roles supporting synthesis, trace maintenance, and policy checks
+    - Downstream review body or decision lane that receives the approved artifact
+  constraints:
+    - Keep the shared artifact itself central; do not reduce the workflow to a readiness recommendation detached from the artifact revision being released.
+    - Bind approval to one exact artifact revision and one bounded downstream lane so later revisions or broader audiences cannot inherit stale permission.
+    - Preserve unresolved disagreement, residual issues, and boundary notes as first-class state rather than polishing them away before release.
+    - Stop at artifact release, manifesting, and collaboration trace; do not choose the downstream authority outcome, transform the artifact into another schema, or execute the underlying action.
+  assumptions:
+    - Humans remain accountable for approving release, accepting residual disagreement, and deciding whether the downstream lane is appropriate.
+    - Collaboration tooling can preserve version history, section ownership, comments, and release-state metadata across multiple revisions.
+    - Adjacent workflows can consume the released artifact for downstream review or decision without this pattern making that decision or carrying out resulting action.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow must pull current evidence, comments, approval state, and policy boundaries before each release decision can be grounded.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Human-agent collaboration depends on recombining evidence, edits, objections, and release notes into one inspectable shared artifact.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Section ownership, reviewer feedback, release approvals, and downstream lane boundaries must stay aligned across collaboration turns.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Safe artifact release requires durable revision history, objection status, ownership changes, and prior held-release outcomes.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Evidence freshness, policy conformance, and artifact-version integrity must be checked before any release approval is attached.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Release owners, audience scope, required signers, annex limits, and downstream stop boundaries determine whether release may proceed.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow reads collaboration systems and evidence stores, then writes manifests, ledger state, and approved handoff records through governed tools.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Ambiguous ownership, unsafe audience expansion, unresolved material disagreement, or stale evidence should hold release rather than force a clean-looking artifact onward.
+execution_architecture:
+  - architecture:
+      id: approval-gated-execution
+      label: Approval-gated execution
+      source_vocabulary: architectures
+    fit: The shared artifact can become release-ready inside the collaboration workspace, but the handoff remains concretely blocked until explicit human approval unlocks release into the bounded downstream lane.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Humans remain embedded in the normal path because only accountable artifact owners may accept residual disagreement, approve lane scope, and release the artifact itself onward.
+autonomy_profile:
+  level:
+    id: approval-gated
+    label: Approval gated
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Approve the shared artifact charter, release owner, required signers, and downstream lane boundary before routine collaboration release begins.
+    - Review the exact artifact revision, disagreement ledger, and release manifest before authorizing handoff into the bounded downstream lane.
+    - Approve changes to release rules, audience boundaries, signer logic, or residual-risk handling before those changes affect future runs.
+  reversibility: Artifact revisions can be updated while still inside the collaboration workspace, but once the wrong revision is released into a downstream review lane it can bias later human judgment, broaden disclosure, or trigger avoidable governance churn that is difficult to unwind cleanly.
+  escalation: Escalate whenever release ownership is ambiguous, disagreement changes the intended downstream lane materially, policy or audience boundaries conflict, evidence is stale, or the next requested step would amount to authority selection, transformation, recommendation adjudication, or operational execution.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Releasing the wrong collaborative artifact revision, hiding disagreement, or widening the approved lane can misframe consequential human review, create governance or privacy breaches, and push high-stakes work forward on a misleading record even though this workflow stops before downstream action.
+  approval_requirements:
+    - A named human release owner must approve every artifact release that moves a shared artifact into a downstream review, committee, board, legal, or equivalent decision lane.
+    - Governance owners must approve changes to artifact templates, release-manifest rules, signer requirements, residual-disagreement handling, and audience-boundary controls used by future runs.
+  auditability: Preserve artifact versions, section ownership, reviewer comments, unresolved objections, manifest state, signer identities, held-release reasons, overrides, and downstream handoff timestamps so investigators can reconstruct exactly what artifact was released and why.
+  privacy:
+    - Limit shared artifact content to the minimum detail the approved downstream lane needs, leaving more sensitive evidence or annex material in narrower governed systems when possible.
+    - Apply retention, access, and audience controls so collaborative drafts, objections, and release records do not leak beyond the intended review boundary.
+  security:
+    - Restrict write and release permissions so agents cannot silently broaden the downstream audience, alter signer requirements, or release the artifact without explicit human acceptance.
+    - Log manual overrides, audience-boundary edits, residual-risk acceptance, and repeated held-release causes so hidden bypass of the release gate remains detectable.
+  notes: High risk fits because the pattern governs release of a collaboratively shaped artifact into a consequential downstream lane, while still staying distinct from severe protected-room collaboration, downstream recommendation or decision adjudication, and live execution.
+why_agentic:
+  - The workflow must adapt to evolving comments, evidence, and disagreement while maintaining one coherent artifact rather than merely routing a finished packet.
+  - Useful support comes from agents that can preserve lineage, surface conflicts, and maintain release-state discipline across many collaborative turns.
+  - Safe behavior requires recognizing when unresolved disagreement or boundary ambiguity should block release instead of being normalized into a superficially ready artifact.
+failure_modes:
+  - mode: Approval is attached to the wrong artifact revision or downstream lane
+    impact: Downstream reviewers receive a stale or mis-scoped artifact and may act on assumptions that were never actually approved.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Bind release approval to explicit revision identifiers, lane identifiers, and audience metadata.
+      - Block release whenever the artifact changes after approval review starts or when boundary metadata is incomplete.
+  - mode: Unresolved disagreement is compressed away before release
+    impact: The released artifact appears more settled than reality, biasing downstream decision makers and hiding material objections.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Preserve unresolved objections and accepted residual issues in a dedicated ledger tied to the released revision.
+      - Require explicit human acknowledgement when residual disagreement is carried into the downstream lane.
+  - mode: Collaboration drifts into recommendation adjudication, representation transformation, or execution
+    impact: Family boundaries blur and the shared-artifact workflow starts doing adjacent work that belongs elsewhere.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Limit outputs to the governed artifact, release manifest, disagreement ledger, and collaboration trace.
+      - Route downstream recommendation choice, schema transformation, and operational action into adjacent patterns.
+  - mode: Audience or annex boundaries broaden silently during release preparation
+    impact: Sensitive content reaches reviewers or systems that were never approved to receive the shared artifact.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Keep audience scope and annex references explicit in the manifest and boundary ledger.
+      - Require human approval for any broadened recipient set or promoted restricted section before release.
+evaluation:
+  success_metrics:
+    - Percentage of released collaborative artifacts accepted by the intended downstream lane without bounce-back for hidden objections, stale evidence, or boundary confusion.
+    - Reduction in time spent reconciling comments, ownership, and release-state drift across collaborative review cycles.
+    - Rate at which downstream reviewers can identify the exact released revision, release owner, residual disagreement, and audience scope without reconstructing the workspace manually.
+  quality_criteria:
+    - The shared artifact makes accepted edits, unresolved objections, and release scope easy to inspect.
+    - Release approval remains tightly bound to one artifact revision and one downstream lane instead of implying broader authority.
+    - The workflow improves collaboration throughput without laundering disagreement or crossing into adjacent family responsibilities.
+  robustness_checks:
+    - Test conflicting reviewer instructions and verify the workflow preserves the disagreement and blocks release until a human accepts the boundary.
+    - Test artifact edits that arrive during approval review and confirm the older revision cannot be released silently.
+    - Test audience-scope changes or sensitive annex promotion requests and ensure the release gate requires explicit human confirmation.
+  benchmark_notes: Evaluate release-bound collaboration using objection visibility, revision-binding integrity, and downstream handoff clarity in addition to drafting speed; a faster release is not a win if it blurs what artifact was actually approved.
+implementation_notes:
+  orchestration_notes:
+    - Keep evidence refresh, comment reconciliation, artifact revision, release-manifest assembly, approval capture, and handoff logging as explicit stages over one shared artifact state.
+    - Separate collaboration state from downstream decision systems so artifact release cannot be mistaken for downstream disposition or execution.
+  integration_notes:
+    - Common implementations connect collaboration workbenches, evidence repositories, approval systems, intake queues, and audit tooling.
+    - Keep the pattern neutral about specific review boards, treasury committees, legal portals, or enterprise document suites.
+  deployment_notes:
+    - Start with one narrowly bounded artifact class and one downstream lane where teams already struggle with version drift, hidden objections, or uncertain release ownership.
+    - Review held-release causes and manual bypasses early because they reveal whether the workflow is drifting toward adjacent recommendation, transform, or execution work.
+  references:
+    - docs/patterns/human-agent-collaborative-work.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: approval-centered-collaboration
+    relationship: more-release-bound-than
+    notes: Both patterns use iterative human-agent collaboration, but this one centers on explicit approval to release the shared artifact itself rather than on a readiness recommendation about whether another approval cycle should begin.
+  - id: critical-protected-artifact-collaboration
+    relationship: less-severe-variant-of
+    notes: Both patterns preserve disagreement and human-owned artifact release, but the critical variant adds severe protected-room controls, restricted annex discipline, and stronger failure posture.
+  - id: approval-gated-transformation-release
+    relationship: adjacent
+    notes: Both patterns end with an approval-bound handoff, but this pattern focuses on collaborative ownership of one shared artifact whereas the transform pattern centers on producing a downstream-ready representation and lineage manifest.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Engineering and security reviewers collaborate with agents on one exception packet, then a named human release owner approves that exact revision for review-board intake without deciding the board outcome.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Treasury and finance controllers co-produce one liquidity or covenant review packet, then release that revision into one committee lane while funding or accounting decisions remain downstream.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Compliance and legal reviewers maintain one remediation or regulator-preparation artifact, then a named human owner approves its handoff into one bounded legal or oversight lane without triggering outreach or execution.
+maturity: draft
+tags:
+  - human-agent-collaborative-work
+  - approval-gated-collaboration
+  - shared-artifact-release
+  - disagreement-preservation
+  - release-ownership

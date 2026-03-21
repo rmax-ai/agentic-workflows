@@ -66,7 +66,7 @@ autonomy_levels:
     recommend-decide-escalate: []
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: []
-    human-agent-collaborative-work: []
+    human-agent-collaborative-work: [approval-gated-collaborative-artifact-release]
 - autonomy_level:
     id: bounded-delegation
     label: Bounded delegation

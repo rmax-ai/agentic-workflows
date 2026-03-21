@@ -18,6 +18,7 @@ The conceptual seed patterns already named in the browse tree are:
 - `analyst-copilot-loop`
 - `approval-centered-collaboration`
 - `shared-workbench-orchestration`
+- `approval-gated-collaborative-artifact-release`
 - `critical-protected-artifact-collaboration`
 
 ## Problem-structure mapping
@@ -33,6 +34,8 @@ This family can wrap many other families, but it remains distinct when the share
 - If collaboration mainly exists to **build a plan**, see [plan-coordinate-schedule](./plan-coordinate-schedule.md).
 - If collaboration mainly exists to **review recommendations or escalate decisions**, see [recommend-decide-escalate](./recommend-decide-escalate.md).
 - If collaboration mainly exists to **supervise execution or adaptation**, see [execute-automate](./execute-automate.md) or [optimize-adapt](./optimize-adapt.md).
+
+This family also includes an approval-gated release variant where the human-agent loop still centers on one shared artifact, but the key boundary is explicit human approval to release that exact collaboratively prepared artifact into one bounded downstream review lane. That remains collaboration-first only when the workflow preserves disagreement, release ownership, and artifact integrity instead of collapsing into recommendation adjudication, representation transformation, or downstream action.
 
 At the critical end of the family, the collaboration artifact itself can become protected and governance-sensitive. Those patterns still belong here only when the main reusable shape is joint refinement of one severe shared artifact with explicit human ownership, visible dissent, restricted annex handling, and bounded handoff readiness. If the work instead centers on choosing the deciding authority, resequencing a command window, assembling a crisis brief, or carrying out the response, it belongs in an adjacent family.
 
@@ -57,7 +60,8 @@ A strong canonical pattern in this family should state:
 
 - which responsibilities stay with the human,
 - which responsibilities the agent may initiate or complete,
-- how turns, edits, and approvals are coordinated,
+- how turns, edits, approvals, and release ownership are coordinated,
+- whether the pattern stops at approval-readiness guidance, approval-bound artifact release, or severe protected collaboration,
 - which adjacent family best describes the substantive work being wrapped.
 
 ## See also

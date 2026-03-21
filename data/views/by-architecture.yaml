@@ -67,7 +67,7 @@ architectures:
     recommend-decide-escalate: [deal-desk-recommendation-support, delegated-authority-option-ranking, policy-constrained-escalation-routing, readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation, critical-escalation-authority-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates, human-directed-task-orchestration, staged-change-execution-with-rollback-holds]
     optimize-adapt: [adaptive-threshold-calibration, governed-optimization-bundle-retuning, critical-protected-priority-adaptation]
-    human-agent-collaborative-work: [analyst-copilot-loop, approval-centered-collaboration, shared-workbench-orchestration, critical-protected-artifact-collaboration]
+    human-agent-collaborative-work: [analyst-copilot-loop, approval-centered-collaboration, shared-workbench-orchestration, approval-gated-collaborative-artifact-release, critical-protected-artifact-collaboration]
 - architecture:
     id: event-driven-monitoring
     label: Event-driven monitoring
@@ -95,4 +95,4 @@ architectures:
     recommend-decide-escalate: []
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: []
-    human-agent-collaborative-work: []
+    human-agent-collaborative-work: [approval-gated-collaborative-artifact-release]
