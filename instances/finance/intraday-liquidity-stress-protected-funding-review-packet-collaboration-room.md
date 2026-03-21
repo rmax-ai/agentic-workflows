@@ -12,6 +12,17 @@ Finance.
 
 During a declared intraday liquidity stress event, treasury opens a restricted collaboration room around one protected funding review packet that will later support human contingency decisions. An assistant treasurer owns the artifact while agents help merge updated cash-position evidence, controller objections, disputed exposure language, and market-sensitive annex schedules into one shared packet. The collaboration loop keeps the main narrative, contested assumptions, and restricted annex boundaries synchronized as treasury, finance, and risk reviewers argue over funding-window wording, covenant implications, and what can safely leave the room. The human artifact owner remains responsible for deciding whether the packet is ready for the next bounded handoff and whether unresolved disagreement is acceptable to carry forward, while actual authority routing, contingency selection, and funding actions stay outside the workflow.
 
+```mermaid
+flowchart TD
+    A["Declared intraday stress<br>protected room opened"] --> B["Assistant treasurer owns packet<br>agents merge cash evidence and annex references"]
+    B --> C{"Protected-room checks<br>main packet and restricted annexes stay aligned"}
+    C -->|"Unsafe scope or annex spill"| H["Hold state<br>distribution stays restricted until scope is corrected"]
+    C -->|"Scope remains protected"| D["Treasury, finance, and risk review<br>disagreement stays visible in packet and ledger"]
+    D --> E{"Human owner judges<br>residual disagreement and handoff readiness"}
+    E -->|"Not ready or objections unresolved"| F["Hold state<br>packet is revised again with blockers carried forward"]
+    E -->|"Ready for bounded handoff"| G["Release record set by human owner<br>packet moves only to the next human workflow"]
+```
+
 ## Target systems / source systems
 
 - Restricted treasury collaboration room with the funding review packet, disagreement ledger, annex references, and human release-state record
