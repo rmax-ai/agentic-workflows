@@ -12,6 +12,19 @@ Compliance.
 
 A regulatory compliance manager is coordinating a formal exception package because a business line cannot meet a near-term regulator reporting timeline after discovering that a required transaction-aggregation control was not fully operational in one jurisdiction. In a governed approval-collaboration workspace, the manager and agent support iterate on the readiness packet as legal, regional compliance, control-testing, and policy-office reviewers challenge whether the factual chronology is complete, whether the proposed temporary reporting approach is defensible, whether compensating controls are evidenced clearly enough, and whether the package properly states what remains unresolved. The agents help preserve reviewer objections, refresh source evidence, rewrite sections to reflect accepted edits and contested issues, and maintain an explicit handoff ledger showing who owns the next approval-readiness checkpoint. The human compliance manager and named approval owner remain responsible for deciding whether the packet is ready for formal approval review, whether any objection should block handoff, and whether the request should pause for more evidence or legal analysis rather than move toward adjudication.
 
+```mermaid
+flowchart TD
+    A["Compliance manager opens<br>timeline-exception readiness packet"] --> B["Agents refresh evidence,<br>preserve objections, and rewrite packet"]
+    B --> C["Verification check:<br>chronology, evidence freshness,<br>and authority mapping complete?"]
+    C -->|"No"| H["Hold for more evidence<br>or legal analysis"]
+    H --> B
+    C -->|"Yes"| D["Legal, regional compliance,<br>control-testing, and policy reviewers<br>challenge or accept revisions"]
+    D --> E["Compliance manager and named approval owner<br>review unresolved objections and handoff ledger"]
+    E -->|"Blocker remains"| F["Bounded escalation:<br>pause handoff and route issue to named<br>legal or policy decision-maker"]
+    F --> B
+    E -->|"Ready for handoff"| G["Transfer packet, unresolved objections,<br>and next approval owner to approval-routing queue<br>for formal human decision review"]
+```
+
 ## Target systems / source systems
 
 - Governed compliance review workspace with the draft timeline-exception packet, comment history, readiness state, and named handoff ownership
