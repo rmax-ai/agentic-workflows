@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 45
-  instance_files: 149
+  pattern_files: 46
+  instance_files: 152
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -54,11 +54,11 @@ pattern_counts_by_family:
   recommend-decide-escalate: 6
   execute-automate: 5
   optimize-adapt: 5
-  human-agent-collaborative-work: 4
+  human-agent-collaborative-work: 5
 instance_counts_by_domain:
-  engineering: 26
-  finance: 27
-  compliance: 18
+  engineering: 27
+  finance: 28
+  compliance: 19
   operations: 26
   research: 18
   support: 20
@@ -125,6 +125,7 @@ repo_reality:
     - data/patterns/optimize-adapt/critical-protected-priority-adaptation.yaml
     - data/patterns/human-agent-collaborative-work/analyst-copilot-loop.yaml
     - data/patterns/human-agent-collaborative-work/approval-centered-collaboration.yaml
+    - data/patterns/human-agent-collaborative-work/approval-gated-collaborative-artifact-release.yaml
     - data/patterns/human-agent-collaborative-work/shared-workbench-orchestration.yaml
     - data/patterns/human-agent-collaborative-work/critical-protected-artifact-collaboration.yaml
     - instances/research/regulatory-obligation-synthesis-for-data-retention-review.md
@@ -163,6 +164,7 @@ repo_reality:
     - instances/engineering/ci-pipeline-failure-review-queue-reprioritization.md
     - instances/engineering/production-shared-credential-exception-review-board-readiness-loop.md
     - instances/engineering/production-signing-key-compromise-protected-review-packet-collaboration-room.md
+    - instances/engineering/payments-tokenization-exception-packet-approved-for-architecture-review-intake.md
     - instances/engineering/approved-release-readiness-review-closure-and-tracker-completion.md
     - instances/engineering/payments-tokenization-cutover-readiness-gate-disposition-recommendation.md
     - instances/engineering/internal-sdk-release-asset-publication-verification.md
@@ -196,6 +198,7 @@ repo_reality:
     - instances/finance/intraday-liquidity-contingency-funding-facility-activation-gate.md
     - instances/finance/intraday-liquidity-protection-priority-adaptation.md
     - instances/finance/intraday-liquidity-stress-protected-funding-review-packet-collaboration-room.md
+    - instances/finance/quarter-close-covenant-position-packet-approved-for-controller-committee-intake.md
      - instances/operations/cold-chain-emergency-supervised-step-through-task-orchestration.md
      - instances/operations/cross-functional-maintenance-review-scheduling.md
      - instances/operations/cold-chain-temperature-excursion-alert-triage.md
@@ -237,6 +240,7 @@ repo_reality:
     - instances/compliance/sanctions-screening-outage-authority-recommendation.md
     - instances/compliance/sanctions-screening-manual-fallback-activation-gate.md
     - instances/compliance/sanctions-screening-outage-protected-regulator-position-packet-collaboration-room.md
+    - instances/compliance/vendor-transfer-remediation-packet-approved-for-privacy-counsel-intake.md
     - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
     - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
     - instances/support/customer-escalation-bridge-scheduling.md
@@ -284,11 +288,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-three canonical patterns across all nine top-level families, and one hundred forty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-six canonical patterns across all nine top-level families, and one hundred fifty-two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`execute-automate` now has a natural `human-directed` slice through `human-directed-task-orchestration`, so the family no longer has an empty execution-side human-directed autonomy bucket in the derived browse views."
-    - "The derived index, domain, architecture, autonomy, and risk browse views are back in sync with canonical execute-family truth after adding the guided-execution pattern and linked engineering, operations, and compliance examples."
-    - "The next refinement step should inspect the remaining architecture or autonomy concentrations rather than reopening execute-family balancing unless another structural gap proves equally clean."
+    - "`human-agent-collaborative-work` now has a natural `approval-gated-execution` slice through `approval-gated-collaborative-artifact-release`, so the family no longer has an empty collaboration-side approval-gated architecture bucket in the derived browse views."
+    - "The derived index, domain, architecture, autonomy, and risk browse views are back in sync with canonical collaboration-family truth after adding the approval-bound artifact-release pattern and linked engineering, finance, and compliance examples."
+    - "The next refinement step should inspect the remaining `approval-gated-execution` concentrations in `gather-retrieve-synthesize`, `recommend-decide-escalate`, and `optimize-adapt` rather than reopening collaboration-family balancing unless another structural gap proves equally clean."
   next_action:
     id: phase-7-next-autonomy-architecture-balance
-    summary: "Use the next iteration to inspect the remaining narrow architecture and autonomy concentrations now that `execute-automate` also spans `human-directed`, and only add another pattern if it is a comparably clean reusable shape."
+    summary: "Use the next iteration to inspect the remaining narrow `approval-gated-execution` concentrations in `gather-retrieve-synthesize`, `recommend-decide-escalate`, and `optimize-adapt`, and only add another pattern if it is a comparably clean reusable shape."
