@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 180
+  instance_files: 181
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -58,7 +58,7 @@ pattern_counts_by_family:
 instance_counts_by_domain:
   engineering: 30
   finance: 31
-  compliance: 22
+  compliance: 23
   operations: 29
   research: 22
   support: 24
@@ -256,6 +256,7 @@ repo_reality:
     - instances/compliance/sanctions-screening-outage-protected-regulator-position-packet-collaboration-room.md
     - instances/compliance/vendor-transfer-remediation-packet-approved-for-privacy-counsel-intake.md
     - instances/compliance/privacy-attestation-disposition-packet-revision-approved-for-council-sign-off-lane.md
+    - instances/compliance/cross-border-transfer-assessment-review-record-refresh-after-annex-update.md
     - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
     - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
     - instances/support/customer-escalation-bridge-scheduling.md
@@ -315,12 +316,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred eighty grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred eighty-one grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`change-triggered-representation-refresh` now spans engineering, finance, support, and HR through explicit grounded examples, so that moderate-risk transform refresh now reaches a previously open people-operations slice while preserving a clean boundary at one already-issued staged record revision, delta lineage, and supersession state."
-    - "The HR by-domain browse view is back in sync with canonical pattern truth after extending `change-triggered-representation-refresh` into HR."
-    - "HR now rises to twenty-two grounded instances, tying compliance and research as the thinnest modeled domains while support remains at twenty-four, so refinement should keep prioritizing narrow family-safe slices instead of broader structural expansion."
-    - "The next refinement step should likely target compliance through one `change-triggered-representation-refresh` example if the transform-family boundary can stay centered on one already-issued staged packet or case-record revision plus delta lineage and supersession state."
+    - "`change-triggered-representation-refresh` now spans engineering, finance, support, HR, and compliance through explicit grounded examples, so that moderate-risk transform refresh now reaches a previously thin governance-heavy slice while preserving a clean boundary at one already-issued staged record revision, delta lineage, and supersession state."
+    - "The compliance by-domain browse view is back in sync with canonical pattern truth after extending `change-triggered-representation-refresh` into compliance."
+    - "Compliance now rises to twenty-three grounded instances, leaving research and HR tied as the thinnest modeled domains while support remains at twenty-four, so refinement should keep prioritizing narrow family-safe slices instead of broader structural expansion."
+    - "The next refinement step should likely target research through one `change-triggered-representation-refresh` example if the transform-family boundary can stay centered on one already-issued staged packet or review-record revision plus delta lineage and supersession state."
   next_action:
-    id: phase-7-next-compliance-transform-refresh-depth
-    summary: "Use the next iteration to deepen compliance with one `change-triggered-representation-refresh` example plus the directly dependent canonical and browse-view updates needed by that slice."
+    id: phase-7-next-research-transform-refresh-depth
+    summary: "Use the next iteration to deepen research with one `change-triggered-representation-refresh` example plus the directly dependent canonical and browse-view updates needed by that slice."
