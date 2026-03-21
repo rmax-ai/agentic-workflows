@@ -33,7 +33,7 @@ autonomy_levels:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation]
     transform-process: []
     investigate-reconcile-verify: []
-    monitor-detect-triage: []
+    monitor-detect-triage: [anomaly-detection-review]
     plan-coordinate-schedule: []
     recommend-decide-escalate: []
     execute-automate: []

@@ -1,0 +1,279 @@
+id: anomaly-detection-review
+slug: anomaly-detection-review
+name: Anomaly detection review
+summary: Monitor explainable mid-severity anomalies, assemble bounded review packets with supporting context, and route them into governed human review queues before they become higher-risk alerts or downstream investigations.
+pattern_family:
+  id: monitor-detect-triage
+  label: Monitor / Detect / Triage
+problem_structure:
+  id: continuous-monitoring-and-triage
+  label: Continuous monitoring and triage
+  source_vocabulary: problem-structures
+domain:
+  - id: support
+    label: Support
+    source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
+workflow_goal: Detect mid-severity anomalous conditions early, explain them enough for bounded review, and route governed anomaly packets to human reviewers before cases are ignored, duplicated, or prematurely escalated into higher-risk workflows.
+inputs:
+  - name: Anomaly signal stream
+    description: Ongoing scored deviations, unusual clusters, or state changes that indicate something is behaving unexpectedly but not yet at a confirmed high-risk or critical threshold.
+    kind: event-stream
+    required: true
+    examples:
+      - Sudden rise in repeated support case reopens for one tenant and product area
+      - Benchmark result drift beyond the expected variance band without matching study-plan changes
+      - Burst of backdated worker-status changes across one HR operating queue
+  - name: Review thresholds and routing policy
+    description: Approved score bands, suppression logic, protected-data handling rules, and queue ownership definitions that determine when an anomaly should be reviewed or escalated.
+    kind: policy
+    required: true
+    examples:
+      - Send sustained medium-confidence tenant anomaly clusters to the support duty manager queue
+      - Route unexplained benchmark variance above the review threshold to research governance
+      - Escalate employee-record anomalies that cross privacy or payroll-sensitivity limits to restricted HR review
+  - name: Contextual telemetry and records
+    description: Bounded supporting data used to explain the anomaly without expanding into full investigation or execution.
+    kind: context-bundle
+    required: true
+    examples:
+      - Recent case history, maintenance windows, and entitlement context
+      - Experiment metadata, dataset-version history, and provenance checks
+      - HRIS event history, pay-group metadata, and approved change windows
+  - name: Prior anomaly state and reviewer feedback
+    description: Optional prior packets, suppressions, dispositions, and reviewer notes used to avoid duplicate review and to preserve context across recurring anomalies.
+    kind: review-state
+    required: false
+    examples:
+      - Earlier anomaly packet for the same tenant cluster with reviewer disposition
+      - Prior benchmark variance review outcome showing an accepted temporary explanation
+      - Previous HR queue note that a scheduled migration caused expected worker-record churn
+outputs:
+  - name: Review-prioritized anomaly queue
+    description: Ordered queue of explainable anomaly cases with severity band, confidence, and intended human review destination.
+    kind: queue
+    required: true
+    examples:
+      - Support anomaly queue sorted by tenant impact and repeat-signal persistence
+      - Research variance review queue ordered by claim sensitivity and unexplained drift size
+      - HR anomaly review queue grouped by privacy sensitivity and downstream payroll exposure
+  - name: Anomaly review packet
+    description: Bounded packet linking the triggering anomaly, supporting context, uncertainty, and recommended review destination without diagnosing root cause or taking action.
+    kind: case-packet
+    required: true
+    examples:
+      - Tenant anomaly packet with repeated reopen pattern, release context, and known-issue references
+      - Benchmark drift packet with metric history, provenance gaps, and study-owner routing
+      - Worker-change anomaly packet with clustered backdated updates, policy window checks, and restricted reviewer path
+  - name: Routing and suppression log
+    description: Audit trail of anomaly score changes, duplicate handling, queue moves, suppressions, and human-review handoffs.
+    kind: audit-log
+    required: true
+    examples:
+      - Record showing why similar tenant cases were merged into one anomaly packet
+      - Log of benchmark anomalies deferred after reviewer-confirmed expected variance
+      - History of HR anomaly cases rerouted to restricted review because sensitive fields were implicated
+environment:
+  summary: Operates in continuous review environments where recurring mid-severity anomalies should become explainable human-review work items, but the workflow must remain bounded at anomaly detection, packet assembly, queueing, and governed routing rather than turning into investigation, adjudication, or execution.
+  systems:
+    - Event and telemetry pipelines
+    - Search, record lookup, or case-history tools
+    - Queueing or case-management systems
+    - Policy, threshold, and routing configuration stores
+  actors:
+    - Queue owner or duty reviewer
+    - Domain specialist such as a support lead, research governance reviewer, or HR operations analyst
+    - Governance owner responsible for threshold and routing policy changes
+  constraints:
+    - Keep anomaly review explainable enough that a human can see why the item was queued and what evidence was used.
+    - Stop at packet assembly and governed routing; do not declare incidents, launch investigations, change records, or contact external parties automatically.
+    - Restrict context gathering to the approved review boundary so mid-severity anomalies do not expand into open-ended evidence collection.
+    - Preserve duplicate handling, suppression rationale, and queue movement history for later audit and threshold tuning.
+  assumptions:
+    - The monitored systems expose enough signal quality and contextual metadata to support explainable review packets.
+    - Human reviewers remain available to decide whether an anomaly should be closed, investigated, escalated, or left under watch.
+    - Routine anomaly-routing destinations and score bands can be approved in advance so case-by-case approval is unnecessary inside delegated scope.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The workflow depends on continuous detection of changing signals and unusual patterns rather than one-off analyst queries.
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: Useful anomaly review requires pulling bounded supporting records and prior state quickly enough to influence routing.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Reviewers need a concise packet that explains the anomaly and its uncertainty instead of raw scores and tool output.
+  - capability:
+      id: triage
+      label: Triage
+      source_vocabulary: capabilities
+    necessity: Mid-severity anomalies must be ordered and routed so review attention goes to the most consequential unexplained cases first.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Candidate anomalies should be checked against recent context, approved exceptions, and obvious benign explanations before they enter the review queue.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow queries telemetry, looks up records, assembles queue items, and writes audit logs through tools rather than text-only reasoning.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Score bands, privacy limits, protected-entity rules, and routing constraints determine which anomalies may be delegated and where they can be sent.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Duplicate suppression, recurring anomaly history, and reviewer feedback all require durable state across monitoring cycles.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The workflow needs safe fallbacks for sparse context, ambiguous anomalies, and cases that begin to exceed moderate-risk delegated scope.
+execution_architecture:
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: The pattern is naturally triggered by incoming scored deviations, repeated anomalous events, and re-evaluation as fresh context arrives.
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: One bounded agent can usually gather contextual evidence, check approved thresholds, assemble the review packet, and route it into the right queue without needing multi-agent specialization.
+autonomy_profile:
+  level:
+    id: bounded-delegation
+    label: Bounded delegation
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Approve anomaly definitions, score bands, queue destinations, and protected-data handling rules before routine delegated review runs begin.
+    - Review anomalies with low confidence, repeated recurrence, cross-entity spread, or potential customer, employee, or publication impact before any downstream investigation or intervention starts.
+    - Approve material changes to suppression logic, packet fields, routing scope, or delegated thresholds before they affect live anomaly review.
+  reversibility: Queue positions, anomaly packets, and suppression decisions can usually be recomputed or regenerated as new context arrives, but a missed review window may be only partially reversible once the anomaly hardens into a higher-risk case.
+  escalation: Escalate whenever anomaly confidence is weak, context suggests protected or high-consequence impact, repeated signals exceed delegated score bands, or the next requested step would move beyond packet assembly and routing into investigation, adjudication, or execution.
+risk_governance:
+  level:
+    id: moderate
+    label: Moderate
+    source_vocabulary: risk-levels
+  failure_impact: Poor anomaly review can create meaningful reviewer overload, missed early-warning signals, privacy leakage in review packets, or delayed escalation into higher-risk workflows, but harm is usually containable when the workflow stays bounded at explainable queueing and human review routing.
+  approval_requirements:
+    - Case-by-case approval is not required for in-policy anomaly packet assembly and queue routing within approved score bands, destinations, and data-handling limits.
+    - Human approval is required before anomaly output triggers record changes, employee or customer communication, formal investigation launch, external disclosure, or material threshold-policy changes.
+  auditability: Preserve triggering signals, derived anomaly features, supporting context references, score-band rationale, suppression and merge decisions, queue movements, reviewer handoffs, and policy versions for every anomaly packet.
+  privacy:
+    - Limit sensitive personal, customer, or unpublished research data in broad queue views to the minimum needed for review while keeping traceable references in restricted systems.
+    - Apply role-based access and retention rules to anomaly packets because repeated mid-severity anomalies can still reveal sensitive behavioral or personnel patterns.
+  security:
+    - Protect scoring inputs, packet-assembly tools, and queue-routing systems against tampering that could hide recurring anomalies or fabricate reviewer workload.
+    - Log privileged threshold overrides, suppression changes, and manual rerouting actions so control drift remains visible.
+  notes: Moderate-risk governance fits because the workflow shapes what humans review next and what context they see, yet it stays bounded at explainable anomaly packaging and delegated routing rather than consequential operational action.
+why_agentic:
+  - Useful anomaly review depends on adapting to noisy, changing context and deciding which deviations deserve human attention instead of forwarding every threshold crossing unchanged.
+  - The workflow must query multiple tools, compare current signals to prior state, and synthesize an explainable packet while preserving uncertainty and duplicate lineage.
+  - Safe operation requires recognizing when a mid-severity anomaly can remain inside delegated routing and when it should escalate into higher-risk triage or deeper investigation.
+failure_modes:
+  - mode: Benign variance is repeatedly promoted into the anomaly review queue
+    impact: Reviewers lose trust in the queue and spend attention on noise while more meaningful anomalies wait.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Track reviewer dismissal and deferral rates to identify over-sensitive scoring or poor benign-context checks.
+      - Require each packet to show the specific persistence, clustering, or context features that justified routing.
+  - mode: A meaningful anomaly is normalized away as expected churn
+    impact: The organization misses an early warning signal until the issue becomes a higher-risk alert, investigation, or operational disruption.
+    severity: high
+    detectability: low
+    mitigations:
+      - Re-test thresholds against historical anomaly cases that later escalated.
+      - Bias low-confidence but persistent anomalies toward human review when potential impact is non-trivial.
+  - mode: The packet overstates confidence or omits decisive context
+    impact: Reviewers make routing or follow-up decisions on an incomplete understanding of what the anomaly means and what remains uncertain.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Preserve direct references to the source signals and explicitly separate observations from unresolved questions.
+      - Sample packets for completeness, provenance quality, and reviewer usability.
+  - mode: The workflow drifts into investigation or execution behavior
+    impact: Family boundaries blur, latency rises, and delegated routing starts taking actions that belong in governed downstream workflows.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Limit outputs to queues, review packets, and audit logs.
+      - Route root-cause, adjudication, and action requests into adjacent investigation or execution patterns instead of handling them inline.
+evaluation:
+  success_metrics:
+    - Percentage of historically meaningful anomalies that reached human review before they escalated into a higher-risk case.
+    - Median time from anomaly emergence to a review packet containing supporting context and routing rationale.
+    - Reviewer agreement rate that queued anomalies were explainable and worth bounded review attention.
+  quality_criteria:
+    - Each anomaly packet includes the triggering signal pattern, bounded supporting context, unresolved uncertainty, and explicit review destination.
+    - Duplicate suppression, queue movement, and threshold rationale remain reconstructable after the fact.
+    - The workflow stays bounded at monitoring, anomaly review, queueing, and routing rather than diagnosing or acting on the anomaly.
+  robustness_checks:
+    - Replay recurring anomaly clusters with known benign explanations and verify the workflow suppresses or defers them without hiding meaningful outliers.
+    - Test sparse-context anomalies and ensure the workflow marks uncertainty clearly or escalates instead of fabricating confidence.
+    - Test anomalies that cross protected-data or higher-risk thresholds and confirm they move into restricted review or adjacent patterns rather than staying in delegated scope.
+  benchmark_notes: Evaluate queue usefulness together with provenance quality and scope discipline; reducing reviewer load is not a success if early-warning anomalies become easier to miss.
+implementation_notes:
+  orchestration_notes:
+    - Keep signal watching, context retrieval, score interpretation, packet assembly, and queue routing as explicit stages over shared anomaly state.
+    - Preserve persistent identifiers for recurring anomaly clusters so reviewer feedback and duplicate handling remain visible across runs.
+  integration_notes:
+    - Common implementations integrate telemetry or event streams, search or case-history tools, queueing systems, and governed routing configuration.
+    - Keep the pattern neutral about specific support, research, or HR platforms so the reusable structure remains stable.
+  deployment_notes:
+    - Start with anomaly classes where explainability and bounded review matter more than immediate automated response.
+    - Monitor reviewer override rates, duplicate merges, and missed-escalation cases continuously because moderate-risk anomaly routing can drift as operating conditions change.
+  references:
+    - docs/patterns/monitor-detect-triage.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: risk-alert-triage
+    relationship: can-escalate-to
+    notes: When a routed anomaly accumulates enough evidence or policy significance, the case may graduate into broader governed risk-alert triage.
+  - id: critical-signal-corroboration-triage
+    relationship: can-escalate-to
+    notes: Severe or fast-spreading anomalies that demand corroboration across multiple evidence sources should move into the critical-signal pattern rather than stay in delegated review.
+  - id: incident-root-cause-analysis
+    relationship: feeds-into
+    notes: Human reviewers may send unexplained or persistent anomalies into deeper investigation after the bounded review packet is accepted.
+example_domains:
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Review repeated tenant-specific case reopen and severity-drift clusters with release and entitlement context before deciding whether a duty manager should escalate them further.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Route unexplained benchmark metric drift and provenance anomalies into a research-governance review queue without deciding publication posture or root cause.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Assemble a bounded review packet for clustered backdated worker-status changes and route it to restricted HR operations review before payroll or compliance action is considered.
+maturity: draft
+tags:
+  - monitor-detect-triage
+  - anomaly-detection-review
+  - explainable-anomaly-review
+  - tool-using-single-agent
+  - bounded-delegation
+  - moderate-risk
