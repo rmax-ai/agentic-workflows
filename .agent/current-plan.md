@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-031019` is complete: it added a single operations-domain collaboration instance for `analyst-copilot-loop` via `supplier-labeling-deviation-remediation-brief-copilot-loop`. The next modest batch should stay inside Phase 6 and rebalance another thin family/domain slice without widening into schema, vocabulary, or pattern-authoring work. Finance collaboration coverage is now the strongest adjacent target because finance already has broad grounding in neighboring families but still lacks an explicit `human-agent-collaborative-work` example.
+Iteration `20260321-031019` is complete: it added a single operations-domain collaboration instance for `analyst-copilot-loop` via `supplier-labeling-deviation-remediation-brief-copilot-loop`. Iteration `20260321-031454` should stay inside Phase 6 and rebalance the next thin family/domain slice without widening into schema, vocabulary, or pattern-authoring work. Finance collaboration coverage remains the strongest adjacent target because finance already has broad grounding in neighboring families but still lacks an explicit `human-agent-collaborative-work` example.
 
 ## Current phase
 
@@ -18,15 +18,15 @@ Iteration `20260321-031019` is complete: it added a single operations-domain col
 1. Re-read `analyst-copilot-loop`, the existing collaboration-oriented instances, and adjacent finance-domain artifacts so the next grounding example stays inside the mixed-initiative collaboration family boundary.
 2. Author exactly one finance-domain instance linked to `analyst-copilot-loop`, framed as shared human-agent artifact production or review with explicit ownership boundaries rather than recommendation, investigation, execution, scheduling, monitoring, or optimization.
 3. Prefer a scenario where finance staff and an agent iteratively build or refine a governed artifact such as an exception memo, lender-response package, audit-ready close brief, or treasury remediation narrative before a human makes the binding conclusion.
-4. Keep the next content batch limited to this single collaboration example so coverage improves without widening scope.
-5. After that instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next dated iteration log so execution memory matches repository reality.
-6. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
+4. Keep the content batch limited to this single collaboration example so coverage improves without widening scope.
+5. After the instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and `.agent/iterations/2026/20260321-031454.md` so execution memory matches repository reality.
+6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-031019`
-- Completed subagent scope: authored `instances/operations/supplier-labeling-deviation-remediation-brief-copilot-loop.md` as one operations-domain `analyst-copilot-loop` grounding change and committed it separately.
-- Pending orchestrator follow-up for the next iteration: scope the finance collaboration batch before new substantive edits.
+- Timestamp: `20260321-031454`
+- Planned subagent scope: author one finance-domain `analyst-copilot-loop` grounding instance and commit it separately.
+- Planned orchestrator follow-up: reconcile `.agent/` memory, record the iteration, and validate YAML after the instance lands.
 
 ## Constraints
 
@@ -39,4 +39,4 @@ Iteration `20260321-031019` is complete: it added a single operations-domain col
 
 ## Expected outcome
 
-The next iteration should add one finance-domain collaboration example, deepen `human-agent-collaborative-work`, and leave the repository ready for another small grounding batch after the `.agent/` memory refresh.
+This iteration should add one finance-domain collaboration example, deepen `human-agent-collaborative-work`, and leave the repository ready for another small grounding batch after the `.agent/` memory refresh.
