@@ -154,5 +154,5 @@ items:
     notes:
       - The last empty family gap is closed at the canonical pattern layer and `transform-process` now has its first grounded example.
       - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.
-      - "`optimize-adapt` now covers support, operations, compliance, research, and HR, but remains the thinnest family-level grounding area because engineering and finance are still open."
-      - "The next small grounding batch should likely keep expanding `optimize-adapt` by adding one example in another uncovered domain such as finance or engineering."
+      - "`optimize-adapt` now covers support, operations, compliance, research, HR, and finance, but remains the thinnest family-level grounding area because engineering is still open."
+      - "The next small grounding batch should likely keep expanding `optimize-adapt` by adding one engineering example to close the family's last open domain slice before moving on to research or HR gaps in investigation or monitoring."

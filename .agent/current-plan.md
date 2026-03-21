@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-042809` is now focused on one more Phase 7 grounding batch for `optimize-adapt`: add a finance-domain instance linked to `queue-prioritization-optimization` so the thinnest family closes another uncovered domain slice without widening scope into new schema, vocabulary, view, or pattern work.
+Iteration `20260321-042809` is complete: it added one finance-domain `optimize-adapt` instance linked to `queue-prioritization-optimization`, closing the finance slice in the thinnest family without widening scope into new schema, vocabulary, view, or pattern work.
 
 ## Current phase
 
@@ -11,23 +11,23 @@ Iteration `20260321-042809` is now focused on one more Phase 7 grounding batch f
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
 - Phase 5: canonical seed coverage spans all nine top-level pattern families
 - Phase 6: grounded instances now cover fifty-seven scenarios, and every top-level family now has at least one grounded instance while `recommend-decide-escalate`, `transform-process`, `execute-automate`, `human-agent-collaborative-work`, `plan-coordinate-schedule`, and `gather-retrieve-synthesize` are grounded across all seven currently modeled domains
-- Phase 7: coverage refinement is now the active phase, with `optimize-adapt`, `investigate-reconcile-verify`, and `monitor-detect-triage` remaining the most visibly uneven families by domain and architecture coverage; within that set, `optimize-adapt` is still the most direct next improvement because only finance and engineering remain open; this iteration should take the finance slice with a queue-reprioritization scenario that stays centered on bounded backlog tuning rather than investigation, recommendation, scheduling, or execution
+- Phase 7: coverage refinement is now the active phase, with `optimize-adapt`, `investigate-reconcile-verify`, and `monitor-detect-triage` remaining the most visibly uneven families by domain and architecture coverage; within that set, `optimize-adapt` is still the most direct next improvement because engineering is now the only open domain slice, while `investigate-reconcile-verify` and `monitor-detect-triage` still leave research and HR open if deeper cross-domain balancing becomes worthwhile
 - Tooling baseline: uv-managed Python 3.14 helper workflow remains the validation path
 
 ## Ordered tasks
 
-1. Re-read `queue-prioritization-optimization`, all five existing `optimize-adapt` instances, and adjacent finance examples before authoring the next refinement batch.
-2. Author one narrowly scoped finance-domain `optimize-adapt` instance so the family closes the finance slice without widening into new canonical patterns.
-3. Keep the scenario squarely in optimize/adapt territory by focusing on bounded reprioritization of an existing finance queue, not investigation, recommendation memo writing, scheduling, or direct execution.
+1. Re-read `queue-prioritization-optimization`, the six existing `optimize-adapt` instances, and adjacent engineering examples before authoring the next refinement batch.
+2. Author one narrowly scoped engineering-domain `optimize-adapt` instance so the family closes its last uncovered domain slice without widening into new canonical patterns.
+3. Keep the scenario squarely in optimize/adapt territory by focusing on bounded reprioritization of an existing engineering queue, not investigation, recommendation memo writing, scheduling, or direct execution.
 4. Preserve the pattern-first rule by grounding only against `queue-prioritization-optimization` unless a genuine dependency issue appears.
-5. After the instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log so execution memory continues to match repository reality.
-6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
+5. After the next instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log so execution memory continues to match repository reality.
+6. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
 
 ## Iteration checkpoint
 
 - Timestamp: `20260321-042809`
-- Planned subagent scope: author one finance-domain `optimize-adapt` instance linked to `queue-prioritization-optimization` and commit it separately.
-- Planned orchestrator follow-up: refresh execution memory so the new optimization coverage is reflected in status, coverage tracking, the repository map, the dated iteration log, and the next-step plan.
+- Completed subagent scope: authored `instances/finance/quarter-close-exception-review-queue-reprioritization.md` as one finance-domain `optimize-adapt` grounding change and committed it separately.
+- Completed orchestrator follow-up: refresh execution memory so the new optimization coverage is reflected in status, coverage tracking, the repository map, the dated iteration log, and the next-step plan.
 
 ## Constraints
 
@@ -40,4 +40,4 @@ Iteration `20260321-042809` is now focused on one more Phase 7 grounding batch f
 
 ## Expected outcome
 
-This iteration should add one finance-domain `optimize-adapt` grounding, continue balancing the thinnest family without widening scope, and leave the repository more even after another modest `.agent/` memory refresh.
+The next iteration should add one engineering-domain `optimize-adapt` grounding, finish domain coverage for the thinnest family without widening scope, and then reassess whether the next highest-leverage gap is the research or HR slice in `investigate-reconcile-verify` or `monitor-detect-triage`.
