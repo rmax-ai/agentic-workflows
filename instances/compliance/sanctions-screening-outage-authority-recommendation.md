@@ -12,6 +12,37 @@ Compliance.
 
 A severe sanctions-screening outage has already been declared after screening coverage degrades for several cross-border payment corridors during a regulator-sensitive period. Regional compliance teams have partial backlog views, legal is assessing notification implications, and operations wants guidance on whether any narrowly scoped release path can stay local. The workflow must recommend whether the decision belongs with regional compliance leadership, enterprise sanctions and legal command, or a regulator-response authority, while narrowing the allowed hold-versus-release options and packaging the supporting rationale without releasing payments, contacting regulators, or directing the wider response.
 
+```mermaid
+flowchart TD
+    A["Declared sanctions-screening outage<br>across named payment corridors"]
+    B["Collect outage scope, backlog exposure,<br>override history, authority rules,<br>and legal-trigger evidence"]
+    C{"Any non-waivable sanctions, legal,<br>or jurisdiction trigger beyond<br>regional delegated review limits?"}
+    D{"Do regulator-notification posture<br>or protected review rules require<br>regulator-response ownership?"}
+    E{"Can a narrowly scoped release class<br>stay inside regional authority bounds<br>with explicit hold protections?"}
+    F["Recommend regional compliance leadership<br>Keep all other payments on hold and limit<br>options to hold or named narrow release review"]
+    G["Recommend enterprise sanctions and legal command<br>Maintain payment holds and narrow options<br>to hold or enterprise-reviewed exceptions"]
+    H["Recommend regulator-response authority<br>Maintain payment holds and block any local<br>release path pending protected review"]
+    I["Assemble authority packet with evidence,<br>blocked lower-authority paths, bounded options,<br>and restricted annex references"]
+    J{"Named human authority accepts<br>the recommended lane and option menu?"}
+    K["Workflow stops at reviewed recommendation packet<br>No payments are released, no regulator contact occurs,<br>and no wider response is directed"]
+    L["Hold state remains active, log the redirect,<br>and reroute only within the bounded<br>review path to the required higher authority"]
+
+    A -->|"Outage already declared"| B
+    B -->|"Authority and evidence check"| C
+    C -->|"Yes"| D
+    C -->|"No"| E
+    D -->|"Yes"| H
+    D -->|"No"| G
+    E -->|"Yes"| F
+    E -->|"No"| G
+    F -->|"Prepare packet"| I
+    G -->|"Prepare packet"| I
+    H -->|"Prepare packet"| I
+    I -->|"Protected handoff"| J
+    J -->|"Yes"| K
+    J -->|"No"| L
+```
+
 ## Target systems / source systems
 
 - Critical compliance workspace with the declared outage scope, prior packets, and active holds
