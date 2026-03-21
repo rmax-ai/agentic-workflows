@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 202
+  instance_files: 204
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -59,9 +59,9 @@ instance_counts_by_domain:
   engineering: 30
   finance: 31
   compliance: 28
-  operations: 29
+  operations: 30
   research: 28
-  support: 28
+  support: 29
   hr: 28
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
@@ -290,6 +290,7 @@ repo_reality:
     - instances/support/premium-support-escalation-runbook-change-digest-for-duty-manager-briefing.md
     - instances/support/enterprise-outage-disclosure-packet-approved-for-executive-customer-review-intake.md
     - instances/support/premium-support-workaround-article-staging-board-shared-workbench-upkeep.md
+    - instances/support/premium-support-diagnostic-runbook-caveat-board-shared-workbench-upkeep.md
     - instances/support/enterprise-outage-evidence-packet-to-support-escalation-record-handoff.md
     - instances/support/enterprise-security-incident-remediation-credit-package-readiness-loop.md
     - instances/support/enterprise-support-severity-drift-anomaly-review.md
@@ -351,14 +352,15 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and two hundred two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and two hundred four grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "`evidence-gated-verification-for-release` now also has explicit research grounding through an approved benchmark-study publication-integrity packet verification example, so the investigate-family approval-bound slice now spans engineering, finance, operations, research, and HR while preserving a clean boundary at evidence sufficiency, release-hold state, and human-approved downstream reliance rather than publication recommendation, packet refresh, or execution."
     - "`shared-workbench-orchestration` now also has explicit compliance grounding through an internal control-library caveat-board upkeep example, extending the low-risk collaboration-upkeep slice beyond research, operations, support, and HR while preserving a clean boundary at internal artifact refresh, source revalidation, ownership preservation, and explicit hold-state management rather than legal advice, adjudication, regulator communication, or execution."
     - "`shared-workbench-orchestration` now also has additional research grounding through an internal study-dataset data-use restriction board upkeep example, deepening the same low-risk collaboration-upkeep slice within research governance while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than consent interpretation, reuse approval, data release, or execution."
     - "`shared-workbench-orchestration` now also has additional HR grounding through an internal hiring-panel interview-guide caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within HR beyond benefits FAQ maintenance while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than interviewer-guidance approval, policy adjudication, candidate communication, or hiring execution."
-    - "HR, research, compliance, and support are now tied as the thinnest modeled domain counts at twenty-eight grounded instances each, so refinement should keep prioritizing narrow family-safe depth work inside that tied set before broader structural expansion."
-    - "The next refinement step should reassess the now-tied thin domains for one already-canonical slice where grounded depth still trails engineering, finance, and operations, but the family boundary can stay explicit and bounded."
+    - "`shared-workbench-orchestration` now also has additional support grounding through an internal premium-support diagnostic-runbook caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within support beyond workaround-article staging while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than runbook approval, customer communication, or live incident execution."
+    - "HR, research, and compliance are now tied as the thinnest modeled domain counts at twenty-eight grounded instances each, so refinement should keep prioritizing narrow family-safe depth work inside that tied set before broader structural expansion."
+    - "The next refinement step should reassess the now-tied thin domains for one already-canonical slice where grounded depth still trails engineering, finance, operations, and now support, but the family boundary can stay explicit and bounded."
   next_action:
     id: phase-7-next-tied-domain-depth-balance
-    summary: "Use the next iteration to rebalance one of the tied thinnest domains with one already-canonical, family-safe grounding slice, while keeping canonical pattern metadata and browse views unchanged unless that pairing exposes real drift."
+    summary: "Use the next iteration to rebalance one of the tied thinnest domains (`compliance`, `research`, or `hr`) with one already-canonical, family-safe grounding slice, while keeping canonical pattern metadata and browse views unchanged unless that pairing exposes real drift."
