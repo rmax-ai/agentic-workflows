@@ -12,6 +12,20 @@ Engineering.
 
 A principal engineer is preparing a time-bounded exception packet for an architecture review board because a high-throughput order-routing service cannot yet migrate off a deprecated message-broker client before the platform team's retirement deadline. The engineer uses a copilot inside a shared engineering workspace to iteratively pull compatibility-test evidence, compare dependency constraints across services, rewrite the exception memo for reliability and security reviewers, and maintain an open-questions and owners list as reviewers tighten the ask. The human engineer remains responsible for deciding whether the incompatibilities actually justify the exception, choosing which mitigation and rollback commitments are credible, and approving the final packet before anything is submitted to the review board or recorded in the engineering system of record.
 
+```mermaid
+flowchart TD
+    A["Principal engineer opens<br>exception packet and review workspace"] --> B["Copilot gathers compatibility tests,<br>dependency constraints, incident history,<br>and platform-standard evidence"]
+    B --> C{"Verification check:<br>are claims traceable to current<br>test, dependency, and policy evidence?"}
+    C -->|"No"| H["Hold state:<br>refresh evidence, trim unsupported claims,<br>and update open questions and owners"]
+    H --> B
+    C -->|"Yes"| D["Reliability and security reviewers<br>challenge the draft and tighten asks"]
+    D --> E{"Bounded escalation:<br>does evidence indicate an active production<br>safety issue needing incident or change control?"}
+    E -->|"Yes"| I["Route to formal incident or change-control handling;<br>pause routine exception-packet finalization"]
+    E -->|"No"| F{"Human approval gate:<br>does the principal engineer accept the exception rationale,<br>mitigations, rollback, and expiration terms?"}
+    F -->|"Revise"| H
+    F -->|"Approve"| G["Submit the final packet,<br>expiration date, and follow-up owners<br>to the review board queue and system of record"]
+```
+
 ## Target systems / source systems
 
 - Shared engineering workbench with the draft exception memo, reviewer comments, and explicit section ownership
