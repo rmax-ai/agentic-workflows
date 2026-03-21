@@ -4,6 +4,15 @@
 
 This family covers workflows that evaluate alternatives, justify a proposed course of action, and determine when a decision should be escalated rather than taken automatically. It sits between analysis and action, with governance-sensitive choice at the center.
 
+```mermaid
+flowchart TD
+    A["Evaluate options<br>against policy, evidence, or objectives"] --> B["Assemble rationale<br>for one exact recommendation packet revision"]
+    B --> C["Check local authority<br>and confidence bounds"]
+    C -->|"Authority absent<br>or confidence insufficient"| D["Escalate recommendation packet<br>with rationale and triggers"]
+    C -->|"Authority present<br>and confidence in bounds"| E["Release one exact recommendation packet revision<br>into one bounded decision lane"]
+    E -->|"Decision remains downstream"| F["Actual downstream decision<br>stays outside this family"]
+```
+
 ## What belongs in this family
 
 Use this family for patterns that:
