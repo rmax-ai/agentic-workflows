@@ -12,6 +12,20 @@ Engineering.
 
 After incident command has already declared a severity-zero outage for a multi-region payments platform disruption, an executive bridge needs one source-backed situation brief every thirty minutes. Before anyone recommends rollback paths, attributes root cause, approves customer communications, or executes mitigation steps, the workflow assembles a grounded crisis brief showing verified customer impact, failing dependencies, current mitigation checkpoints, recent production changes, external-status posture, and open unknowns. The useful output is a provenance-preserving synthesis that separates confirmed service state from operator hypotheses and stale bridge commentary so human responders start from one inspectable picture instead of fragmented war-room updates.
 
+```mermaid
+flowchart TD
+    A["Severity-zero outage declared<br>executive bridge briefing requested"] --> B["Retrieve current evidence<br>telemetry, dependency state, change logs, impact tracker, prior brief"]
+    B --> C{"Material claims have<br>fresh, source-ranked backing?"}
+    C -->|"No"| D["Hold release<br>log stale inputs, contradictions, and open unknowns"]
+    D --> E["Bounded escalation<br>request source-owner or governance confirmation"]
+    E --> B
+    C -->|"Yes"| F["Assemble crisis brief<br>separate verified state, mitigation checkpoints, and hypotheses"]
+    F --> G{"Incident commander approves<br>brief for executive bridge?"}
+    G -->|"No"| D
+    G -->|"Yes"| H["Publish reviewed brief<br>record provenance, approval, and supersession deadline"]
+    H --> I["Workflow stops at briefing handoff<br>rollback, root cause, and customer communications stay outside scope"]
+```
+
 ## Target systems / source systems
 
 - Incident command workspace where reviewed crisis briefs and superseded versions are stored
