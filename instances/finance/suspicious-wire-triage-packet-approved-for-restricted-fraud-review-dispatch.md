@@ -12,6 +12,18 @@ Finance.
 
 A treasury fraud-operations team already has an evidence-backed suspicious wire packet assembled from earlier alert triage, with the payment cluster, beneficiary context, duplicate lineage, and unresolved uncertainty documented. The next step is not to decide whether to freeze funds, contact the customer, or file anything externally; it is to decide whether the exact packet revision may cross into the restricted fraud-review lane that can trigger those downstream human workflows. The dispatch workflow watches packet freshness, dual-control signer state, queue-boundary rules, and held beneficiary-screening updates, then releases the triaged packet only when the approved fraud and treasury reviewers sign the bounded dispatch manifest for that lane.
 
+```mermaid
+flowchart TD
+    A["Suspicious-wire triage packet revision ready<br>with evidence, lineage, and unresolved uncertainty"] --> B{"Packet revision current<br>and beneficiary-screening context fresh?"}
+    B -->|"No"| C["Place dispatch hold<br>for stale or changed packet context"]
+    B -->|"Yes"| D{"Requested destination stays within<br>approved restricted fraud-review boundary?"}
+    D -->|"No"| E["Block dispatch attempt<br>and log queue-boundary violation"]
+    D -->|"Yes"| F{"Approved fraud reviewer and treasury reviewer<br>both sign exact dispatch manifest?"}
+    F -->|"No"| G["Keep packet on approval hold<br>pending dual-control sign-off"]
+    F -->|"Yes"| H["Release exact packet revision<br>to restricted fraud-review queue"]
+```
+
+
 ## Target systems / source systems
 
 - Transaction-monitoring and case-management systems holding the already-triaged suspicious-wire packet, alert lineage, and prior duplicate merges
