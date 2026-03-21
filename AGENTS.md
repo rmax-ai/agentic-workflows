@@ -64,6 +64,8 @@ Maintain these files when your work changes repository state:
 - `.agent/repo-map.md` when the repository structure changes materially
 - `.agent/glossary.md` when repository terminology changes
 
+Keep `.agent/current-plan.md` concise: active batch only, recent checkpoints only, and archive superseded execution detail in `.agent/iterations/<year>/`.
+
 Do not commit transient runtime output from `.agent/runs/`, `.agent/tmp/`, lock files, sockets, or `.agent/stop.txt`.
 
 ## Expected Change Workflow
