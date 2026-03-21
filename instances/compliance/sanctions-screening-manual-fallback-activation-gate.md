@@ -12,6 +12,20 @@ Compliance.
 
 After a material sanctions-screening outage is declared, compliance leadership has already identified the bounded fallback path and the accountable approval owner: a manual screening contingency for a defined set of payment corridors and protected release holds. Upstream truth-restoration and authority-routing work has already established the trusted outage scope, active payment holds, and decision lane. The planning workflow now has to prepare one activation-ready packet showing reviewer coverage by shift, queue partitioning, legal-notice constraints, protected-channel rules, and the prerequisite controls needed before the manual fallback can be approved. It should preserve explicit holds for any uncovered review cell, unresolved legal hold, or missing queue-control segregation, and stop at the approval gate rather than releasing payments, determining regulator posture, or launching manual screening operations.
 
+```mermaid
+flowchart TD
+    A["Declared outage scope,<br>active payment holds,<br>and fallback lane received"] --> B{"Trusted outage references,<br>hold state, and approval lane<br>still match accepted sources?"}
+    B -->|"No"| H["Escalate bounded mismatch for<br>authority-routing conflict or<br>missing authoritative input"]
+    B -->|"Yes"| C{"Reviewer shift coverage,<br>queue partitioning, and protected-channel<br>rules complete for scoped corridors?"}
+    C -->|"No"| G["Keep the packet on hold with<br>explicit uncovered review cells<br>or queue-control gaps"]
+    C -->|"Yes"| D{"Legal-notice constraints,<br>release holds, and prerequisite controls<br>fully represented?"}
+    D -->|"No"| G
+    D -->|"Yes"| E["Assemble the activation-ready packet,<br>readiness ledger, and hold register"]
+    E --> F{"Named compliance approval owner<br>approves the manual fallback packet?"}
+    F -->|"No"| G
+    F -->|"Yes"| I["Record the approved packet and stop<br>at the activation gate without releasing<br>payments or launching manual screening"]
+```
+
 ## Target systems / source systems
 
 - Compliance continuity playbooks and outage workspace with the declared fallback scope, protected release boundaries, and prior gate packets
