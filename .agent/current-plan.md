@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-093716` is complete: it closed the remaining `critical` risk gap in `human-agent-collaborative-work` with `critical-protected-artifact-collaboration`, three linked protected-room collaboration instances, and synchronized family and browse-view artifacts. The next highest-leverage refinement is no longer risk-ladder completion, but a narrow autonomy or architecture balancing pass that preserves the same family-boundary discipline.
+Iteration `20260321-093716` is complete: it closed the remaining `critical` risk gap in `human-agent-collaborative-work` with `critical-protected-artifact-collaboration`, three linked protected-room collaboration instances, and synchronized family and browse-view artifacts. The next highest-leverage refinement is a narrow architecture-balancing pass that adds one approval-gated verification pattern in `investigate-reconcile-verify` without collapsing into execution.
 
 ## Current phase
 
@@ -16,18 +16,18 @@ Iteration `20260321-093716` is complete: it closed the remaining `critical` risk
 
 ## Ordered tasks
 
-1. Re-evaluate the remaining narrow gaps after full risk-ladder completion and identify the next modest Phase 7 batch through autonomy or architecture balance rather than another risk-level fill.
-2. Favor a family-clean refinement where the missing autonomy or architecture slice reflects a real reusable workflow shape rather than a forced matrix exercise.
-3. Keep future batches modest and synchronized across canonical patterns, grounded instances, browse views, and `.agent/` execution memory.
+1. Add one approval-gated evidence-backed verification pattern in `investigate-reconcile-verify` so `approval-gated-execution` is no longer isolated to `execute-automate`.
+2. Ground that verification pattern with three linked instances in engineering, finance, and operations where approval confirms evidence sufficiency before downstream release or posting.
+3. Synchronize the directly affected family doc, derived autonomy and architecture views, and `.agent/` execution memory without broadening into another multi-family batch.
 4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each content batch before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-093716`
-- Completed scope: added `critical-protected-artifact-collaboration`, three linked grounded protected-room collaboration instances in engineering, finance, and compliance, and synchronized the collaboration family doc plus the directly affected browse views in one feature commit.
-- Updated coverage context: `human-agent-collaborative-work` now spans `low`, `moderate`, `high`, and `critical` risk slices, which means every top-level family now spans the full tracked risk ladder.
-- Reflection outcome: no new `.agent/proposals/` entry is needed because the iteration reinforced existing guidance about family boundaries, derived views, and modest dependency-aware batching without surfacing a new durable process or tooling gap.
-- Planned orchestrator follow-up: validate the refreshed repository state, keep execution memory synchronized, and shift the next candidate search from risk completion toward a narrow autonomy or architecture refinement.
+- Timestamp: `20260321-094718`
+- Selected scope: add one approval-gated evidence-backed verification pattern in `investigate-reconcile-verify`, with three grounded instances and only the directly affected derived-view and memory updates.
+- Coverage rationale: `approval-gated-execution` remains the narrowest architecture imbalance because it is currently represented only in `execute-automate`, while `investigate-reconcile-verify` has a natural trust-gate variant that remains family-safe.
+- Boundary guardrail: keep the new pattern focused on evidence sufficiency and release gating for trusted verification results, not on deciding next actions or carrying approved work through operational completion.
+- Planned orchestrator follow-up: commit this scoped plan update, delegate the feature batch to one subagent, validate YAML, and then refresh `.agent/` memory around the resulting coverage changes.
 
 ## Constraints
 
@@ -37,8 +37,8 @@ Iteration `20260321-093716` is complete: it closed the remaining `critical` risk
 - Keep governance, reversibility, privacy, and auditability explicit in every new pattern and instance.
 - Keep future critical-risk refinements centered on each target family's own primary artifact boundary rather than letting severe workflows collapse into adjacent families.
 - Treat collaboration-family work as in-family only if the primary output remains a critical shared artifact, explicit approval-readiness collaboration loop, or human-owned joint work surface rather than authority choice, command sequencing, or executed action.
-- Prefer one modest batch with one new canonical pattern and a few instances over broad family expansion.
+- Treat the new verification-family batch as in-family only if the main output is an inspectable evidence verdict plus approval-gated release boundary, not a recommendation, correction package, or executed downstream change.
 
 ## Expected outcome
 
-This repository state now leaves all nine top-level families with representative coverage across the full tracked risk ladder while preserving clean family boundaries. The next iteration should target a similarly bounded autonomy or architecture refinement rather than broad expansion.
+This repository state now leaves all nine top-level families with representative coverage across the full tracked risk ladder while preserving clean family boundaries. The current iteration should narrow the architecture imbalance around `approval-gated-execution` with one family-safe verification pattern rather than broad expansion.
