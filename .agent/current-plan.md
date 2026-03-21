@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Next iteration focus: continue the tied-domain refinement track with one instance-only slice in one of the now-thinnest domains under an already-mapped pattern/domain pair so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears. Iteration `20260321-190416` is now complete: `workflow-hand-off-and-completion` gained a second `compliance` grounding through one finalized trade-surveillance no-action disposition closure and case-register synchronization scenario, so the next batch should favor one of the remaining tied thinnest domains (`research` or `hr`).
+Next iteration focus: continue the tied-domain refinement track with one instance-only slice in one of the now-thinnest domains under an already-mapped pattern/domain pair so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears. Iteration `20260321-190416` is now complete: `workflow-hand-off-and-completion` gained a second `compliance` grounding through one finalized trade-surveillance no-action disposition closure and case-register synchronization scenario. This iteration will target `research` with one additional `shared-workbench-orchestration` grounding so the thinnest-domain balancing work advances without expanding structural inventory.
 
 Iteration `20260321-190416` is now complete: `workflow-hand-off-and-completion` gained a second `compliance` grounding example through one finalized trade-surveillance no-action disposition closure and case-register synchronization scenario, and the bounded instance-only batch validated cleanly through YAML validation plus the derived MkDocs publication build.
 
