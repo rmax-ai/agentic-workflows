@@ -1,0 +1,281 @@
+id: critical-channel-safe-state-packaging
+slug: critical-channel-safe-state-packaging
+name: Critical channel-safe state packaging
+summary: Transform authoritative critical-case state into audience-safe structured packages with explicit lineage, release holds, and channel-specific minimization so human leaders can share one governed representation without exposing raw restricted systems or drifting into briefing, recommendation, or execution.
+pattern_family:
+  id: transform-process
+  label: Transform / Process
+problem_structure:
+  id: structured-representation-transformation
+  label: Structured representation transformation
+  source_vocabulary: problem-structures
+domain:
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+workflow_goal: Transform authoritative state from a declared critical case into channel-safe, audience-specific structured packages that preserve lineage, apply explicit hold states to unsafe fields, and hand off a governed representation for bounded coordination without turning the workflow into narrative synthesis, decision support, or operational execution.
+inputs:
+  - name: Declared critical-case authoritative state bundle
+    description: The current bounded set of authoritative records, metrics, manifests, case fields, or system-of-record extracts that define the critical situation and must be packaged without exposing raw restricted detail to every downstream audience.
+    kind: source-bundle
+    required: true
+    examples:
+      - Intraday cash, settlement, collateral, and counterparty exposure records assembled for a liquidity-stress bridge
+      - Lot genealogy, quarantine state, facility evidence, and shipment hold records for a suspected contamination event
+      - Incident, entitlement, service-impact, and workaround-status records for a severity-one customer bridge
+  - name: Audience-specific channel policy and restriction profile
+    description: The approved audience boundary, minimization rules, field suppression requirements, masking logic, and routing constraints that determine which form of the package may appear in each crisis, executive, partner, or customer-facing channel.
+    kind: policy
+    required: true
+    examples:
+      - Executive bridge profile that allows liquidity buckets and runway indicators but holds named counterparties and account identifiers
+      - Partner coordination profile that shows exposed product families and shipment holds while suppressing facility identifiers pending legal review
+      - Customer bridge profile that permits service-state codes and workaround readiness while withholding exploit detail and internal dependency names
+  - name: Target package schema and hold-state contract
+    description: The schema, required fields, release statuses, annex structure, and explicit hold-state semantics that define how authoritative state must be transformed for safe channel use.
+    kind: schema
+    required: true
+    examples:
+      - Liquidity event package contract with exposure buckets, funding-window fields, and held-detail placeholders
+      - Recall-readiness package schema with lot-family, exposure-region, and quarantine-state fields plus restricted annex pointers
+      - Customer crisis package template with service-component, region-impact, communication-safe issue code, and hold-state fields
+  - name: Prior package versions and lineage state
+    description: Earlier released or held package versions, supersession metadata, and field-level lineage records used to keep transformations consistent and to explain what changed or remains withheld.
+    kind: case-state
+    required: false
+    examples:
+      - Previous executive bridge package with held counterparty details awaiting treasury verification
+      - Earlier partner lot-status package version that omitted one facility because legal review was incomplete
+      - Prior customer bridge package showing that workaround availability was still unresolved
+  - name: Approved reference data and rendering tables
+    description: Controlled mappings, taxonomy tables, channel labels, and annex rules used to generalize or normalize authoritative detail without inventing unsupported facts.
+    kind: reference-data
+    required: false
+    examples:
+      - Approved liquidity bucket definitions, jurisdiction codes, and entity hierarchies
+      - Product-family taxonomy, distribution-region map, and partner-safe facility alias table
+      - Customer-safe service taxonomy and approved status-code renderings for support bridges
+outputs:
+  - name: Channel-safe structured package
+    description: The audience-bounded structured representation that preserves the materially relevant state of the critical case while masking, generalizing, or holding unsafe details according to policy.
+    kind: record-bundle
+    required: true
+    examples:
+      - Executive bridge package with liquidity runway buckets, collateral stress indicators, and restricted annex references
+      - Partner-safe lot-status package with exposed product families, shipment-hold counts, and facility-region groupings
+      - Customer bridge service-state package with affected capabilities, region-impact buckets, and approved workaround-status fields
+  - name: Lineage, minimization, and transformation trace
+    description: Structured trace showing which authoritative fields populated each package element, which values were generalized or held, which profile rules applied, and when the package superseded prior versions.
+    kind: trace
+    required: true
+    examples:
+      - Ledger showing which settlement and collateral records produced each liquidity bucket and which counterparty fields remained held
+      - Trace linking lot-family counts to source genealogy records while recording the suppressed facility identifiers behind partner-safe aliases
+      - Package history showing which internal incident fields were mapped into customer-safe service-state codes and which exploit details stayed restricted
+  - name: Hold-state and exception register
+    description: The explicit list of fields, records, annexes, or package versions that cannot be released safely because verification, legal, privacy, security, or policy conditions are still unresolved.
+    kind: review-queue
+    required: true
+    examples:
+      - Named exposure lines held because manual treasury adjustments are not yet source-verified
+      - Facility-specific contamination indicators held pending legal review of partner-disclosure scope
+      - Internal dependency failure notes held because they would reveal exploitability beyond the approved customer profile
+  - name: Release manifest
+    description: The handoff manifest recording intended audience, package version, hold state, reviewer approvals, supersession status, and where the transformation workflow stopped short of recommendation, notification, or execution.
+    kind: manifest
+    required: true
+    examples:
+      - Manifest showing an executive bridge package was approved for internal use only and supersedes the prior held version
+      - Command-center manifest proving the partner-safe package stopped before recall, shipment reroute, or regulator notification decisions
+      - Customer-bridge manifest confirming which restricted annexes remained internal and when the package must be refreshed
+environment:
+  summary: Operates in declared critical situations where multiple audiences need one current structured package derived from authoritative state, but the workflow must enforce channel safety, explicit holds, and source lineage instead of sharing raw systems or improvising narrative summaries.
+  systems:
+    - Authoritative system-of-record stores, telemetry-backed status systems, or governed case databases
+    - Policy, restriction-profile, and schema registries for critical communication channels
+    - Staging stores or package workspaces for audience-bounded structured artifacts
+    - Lineage, manifest, and review systems for hold-state tracking and supersession
+  actors:
+    - Crisis lead, bridge owner, or package requester
+    - Domain operator or analyst responsible for authoritative source interpretation
+    - Privacy, legal, security, or governance reviewer
+    - Executive, partner, or customer-channel consumer of the package
+  constraints:
+    - Start only after a critical case is declared or an equivalent governed packaging request establishes the audience and source boundary.
+    - Derive every released field from authoritative state or approved rendering tables; never fill gaps with unsupported inference or narrative guesswork.
+    - Preserve explicit hold states for material details that cannot yet be released safely instead of flattening them into silence or over-broad generalization.
+    - Stop at the reviewed structured package, hold register, and manifest; do not compose a response strategy, approve downstream communication, or execute operational changes.
+  assumptions:
+    - Authoritative source systems expose stable references, timestamps, and version state that support field-level lineage into the package.
+    - Intended audiences can consume a structured package or annex model without direct access to the raw restricted systems.
+    - Human owners remain available to approve package release and to adjudicate whether held details can be generalized, narrowed, or kept internal.
+capability_requirements:
+  - capability:
+      id: transformation
+      label: Transformation
+      source_vocabulary: capabilities
+    necessity: The core task is reshaping authoritative critical-case state into an audience-safe structured representation with explicit holds and lineage.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow must read multiple authoritative systems, consult policy and schema registries, and write governed packages, manifests, and traces.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Safe packaging depends on checking source authority, field freshness, and whether held or generalized values still satisfy the channel contract.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Audience restrictions, minimization rules, annex policies, and release prerequisites determine what may appear in each package version.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Package versions, held details, supersession lineage, and annex restrictions must persist across fast-changing critical-case updates.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The workflow must halt or route fields whenever policy conflicts, stale authoritative state, or unresolved disclosure risk makes release unsafe.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Critical channel-safe packaging often benefits from explicit separation between authoritative-state retrieval, policy-constrained rendering, hold validation, and manifest assembly so each stage remains inspectable under pressure.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human reviewers stay embedded because audience boundaries, held details, and critical-channel release decisions cannot be delegated away safely.
+autonomy_profile:
+  level:
+    id: human-directed
+    label: Human directed
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the declared critical-case scope, intended audience, and approved source boundary before package assembly begins.
+    - Review each package version before it is released into executive, partner, customer, regulator-facing, or equivalent high-consequence channels.
+    - Decide whether held details should remain suppressed, move into a narrower annex, or trigger escalation into legal, privacy, security, or deeper investigation workflows.
+  reversibility: Packages and manifests can be superseded or narrowed quickly, but a wrongly released critical-channel package may already have shaped stakeholder coordination or exposed restricted detail before correction catches up.
+  escalation: Escalate whenever authoritative fields conflict materially, the audience profile changes, held details become essential to interpretation, lineage is incomplete, or the workflow would otherwise need to recommend actions, justify decisions, or trigger operational communication.
+risk_governance:
+  level:
+    id: critical
+    label: Critical
+    source_vocabulary: risk-levels
+  failure_impact: An inaccurate or unsafe package can misstate critical operational or financial reality, expose restricted details to the wrong audience, delay protective action, or create contractual, privacy, or trust harm precisely when stakeholders are relying on a constrained shared representation.
+  approval_requirements:
+    - A human owner must approve each package release into executive, partner, customer-facing, or other high-consequence channels after reviewing held details and manifest state.
+    - Governance approval is required before changing audience profiles, minimization rules, annex structure, or hold-release logic used by future package versions.
+  auditability: Preserve authoritative source references, transformation rules, held-field decisions, package versions, supersession history, reviewer approvals, and release-manifest state so every distributed representation can be reconstructed and challenged.
+  privacy:
+    - Include only the sensitive financial, customer, operational, or shipment detail needed for the intended channel rather than copying full raw records into bridge workspaces.
+    - Keep restricted annexes, held identifiers, and source traces inside narrower trust boundaries than the main released package whenever possible.
+  security:
+    - Restrict access to package workspaces, source systems, held-detail annexes, and manifest approvals because tampering or oversharing during a critical event can amplify harm.
+    - Log manual overrides, hold releases, and package-distribution events so reviewers can detect provenance breaks or unauthorized dissemination.
+  notes: Critical-risk posture fits because the workflow governs how severe situations are represented to consequential audiences, even though it remains bounded at structured packaging rather than response recommendation, adjudication, or execution.
+why_agentic:
+  - Authoritative state, audience boundaries, and safe rendering rules can shift rapidly during a critical event, so the transformation path must adapt instead of applying one fixed export template.
+  - The workflow must decide when to generalize, hold, split into annexes, or preserve exact structure so the package remains both safe and materially useful.
+  - Maintaining field-level lineage, supersession state, and held-detail continuity across successive package versions is difficult to do reliably with static one-pass exports alone.
+failure_modes:
+  - mode: Restricted identifiers, exploit detail, or partner-confidential state leaks into a broader channel-safe package
+    impact: Executives, customers, partners, or other recipients receive information outside the approved disclosure boundary during a critical case.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Apply explicit audience profiles and require reviewer-visible evidence for any retained borderline field.
+      - Keep held-field and annex decisions traceable to approved policy rules and manifest approval.
+  - mode: Over-suppression removes materially necessary context from the package
+    impact: Consumers coordinate around a package that is technically safe but operationally misleading because key qualifiers or hold rationale disappeared.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Represent held or suppressed material explicitly with reason codes instead of silently omitting it.
+      - Route cases where safe packaging would destroy necessary meaning into exception review rather than forcing a release.
+  - mode: Stale or conflicting authoritative state is rendered as if it were current
+    impact: The structured package misstates exposure, impact, workaround readiness, or containment status during a high-consequence event.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Revalidate source freshness and authority before each package release and preserve supersession lineage between versions.
+      - Hold conflicting fields instead of flattening disagreement into one apparently settled value.
+  - mode: A package is released under the wrong audience profile or hold-state manifest
+    impact: Content is shared to the wrong channel or without the intended restrictions, creating avoidable disclosure or coordination harm.
+    severity: critical
+    detectability: high
+    mitigations:
+      - Bind release approval to explicit audience, schema, and hold-state versions in the manifest.
+      - Block dissemination when manifest provenance is incomplete or the requested channel differs from the approved profile.
+evaluation:
+  success_metrics:
+    - Percentage of critical-case package versions accepted by intended channel owners without reopening raw restricted systems to reconstruct missing context.
+    - Rate of held-detail, disclosure-boundary, or stale-state findings discovered after package release.
+    - Percentage of material fields with inspectable authoritative lineage and explicit hold or generalization status.
+  quality_criteria:
+    - Released packages preserve the materially relevant structure of the critical state while making held and generalized details visible.
+    - Reviewers can explain why each field appears, why each held value stays restricted, and how the package differs from the prior version.
+    - The workflow remains bounded at channel-safe representation packaging and does not collapse into freeform briefing, decision recommendation, or execution.
+  robustness_checks:
+    - Test conflicting authoritative feeds and confirm the package holds disagreement explicitly instead of presenting one unsupported answer.
+    - Test audience-profile swaps and annex rule changes to ensure stale approvals cannot release a package into the wrong channel.
+    - Test rapid successive updates and verify held-field continuity and supersession lineage remain understandable across versions.
+  benchmark_notes: Evaluate disclosure safety, semantic usefulness, and lineage integrity together; a polished package is not successful if it hides material holds or cannot prove how critical fields were rendered.
+implementation_notes:
+  orchestration_notes:
+    - Keep authoritative-state retrieval, audience-profile application, field rendering, hold validation, and manifest publication as explicit stages over shared package state.
+    - Preserve append-only supersession and hold-decision history so later reviewers can see how each released package evolved.
+  integration_notes:
+    - Common implementations integrate source-of-truth systems, policy registries, secure staging stores, lineage services, and bridge or package workspaces.
+    - Keep the pattern neutral about specific incident-management, treasury, customer-communication, or supply-chain platforms.
+  deployment_notes:
+    - Start with one high-consequence channel and one narrowly defined package schema before broadening into more audiences or annex variants.
+    - Monitor hold-release frequency, reviewer disagreement, and post-release disclosure or stale-state findings before increasing packaging speed or scope.
+  references:
+    - docs/patterns/transform-process.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: crisis-briefing-evidence-synthesis
+    relationship: contrasts-with
+    notes: Both support critical coordination, but this pattern emits a structured audience-safe package with explicit holds and manifests rather than a narrative evidence brief.
+  - id: batch-content-transformation
+    relationship: adjacent
+    notes: Batch-content-transformation governs de-identification of sensitive source batches, while this pattern centers live authoritative-state rendering into channel-safe packages for critical audiences.
+  - id: change-triggered-representation-refresh
+    relationship: can-follow
+    notes: Refresh logic may keep a package current between releases, but the defining behavior here is governed channel-safe rendering with hold-state control for critical contexts.
+example_domains:
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Transform live liquidity, collateral, and settlement state into an executive bridge exposure package with masked counterparties, held account identifiers, and explicit supersession when the event evolves.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Render contamination-response lot and shipment state into a partner-safe command package with facility aliases, quarantine-state fields, and held detail for unresolved legal review.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Package severity-one service state into a customer-bridge record with customer-safe impact codes, workaround status, and restricted annexes for internal-only dependency detail.
+maturity: draft
+tags:
+  - transform-process
+  - structured-representation-transformation
+  - critical-channel-safe-packaging
+  - authoritative-state
+  - release-holds
+  - critical-risk

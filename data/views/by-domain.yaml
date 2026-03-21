@@ -45,7 +45,7 @@ domains:
     source_vocabulary: domains
   pattern_families:
     gather-retrieve-synthesize: [approval-packet-generation]
-    transform-process: [document-to-structured-data-handoff, change-triggered-representation-refresh]
+    transform-process: [document-to-structured-data-handoff, change-triggered-representation-refresh, critical-channel-safe-state-packaging]
     investigate-reconcile-verify: [authoritative-record-reconciliation]
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [authoritative-change-coordination-refresh]
@@ -73,7 +73,7 @@ domains:
     source_vocabulary: domains
   pattern_families:
     gather-retrieve-synthesize: [change-triggered-context-briefing, crisis-briefing-evidence-synthesis]
-    transform-process: [document-to-structured-data-handoff, normalization-and-enrichment]
+    transform-process: [document-to-structured-data-handoff, normalization-and-enrichment, critical-channel-safe-state-packaging]
     investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification]
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [calendar-conflict-coordination]
@@ -101,7 +101,7 @@ domains:
     source_vocabulary: domains
   pattern_families:
     gather-retrieve-synthesize: [change-triggered-context-briefing, crisis-briefing-evidence-synthesis]
-    transform-process: [change-triggered-representation-refresh]
+    transform-process: [change-triggered-representation-refresh, critical-channel-safe-state-packaging]
     investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification]
     monitor-detect-triage: [explainable-watchlist-maintenance, anomaly-detection-review]
     plan-coordinate-schedule: [calendar-conflict-coordination]

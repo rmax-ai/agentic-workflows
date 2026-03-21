@@ -72,7 +72,7 @@ risk_levels:
     source_vocabulary: risk-levels
   pattern_families:
     gather-retrieve-synthesize: [crisis-briefing-evidence-synthesis]
-    transform-process: []
+    transform-process: [critical-channel-safe-state-packaging]
     investigate-reconcile-verify: []
     monitor-detect-triage: [critical-signal-corroboration-triage]
     plan-coordinate-schedule: []
