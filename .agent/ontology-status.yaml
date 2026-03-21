@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 161
+  instance_files: 164
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -60,9 +60,9 @@ instance_counts_by_domain:
   finance: 31
   compliance: 20
   operations: 28
-  research: 18
-  support: 20
-  hr: 14
+  research: 19
+  support: 21
+  hr: 15
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -147,6 +147,7 @@ repo_reality:
     - instances/research/de-identified-participant-interview-batch-to-release-safe-study-dataset.md
     - instances/research/embargoed-benchmark-artifact-spot-check-sampling-rate-tuning.md
     - instances/research/benchmark-portfolio-bundle-retuning.md
+    - instances/research/benchmark-study-publication-recommendation-packet-revision-approved-for-publication-council-decision-lane.md
     - instances/engineering/release-candidate-review-staging-record-refresh-after-evidence-change.md
     - instances/engineering/release-candidate-cutover-bundle-approved-for-change-window-handoff.md
     - instances/engineering/payments-api-latency-incident-investigation.md
@@ -266,6 +267,7 @@ repo_reality:
     - instances/support/privacy-screened-support-transcript-batch-to-quality-review-dataset.md
     - instances/support/premium-support-escalation-record-refresh-after-diagnostic-bundle-change.md
     - instances/support/severity-one-customer-bridge-channel-safe-service-state-package.md
+    - instances/support/enterprise-recovery-package-recommendation-packet-revision-approved-for-executive-customer-review-decision-lane.md
     - instances/compliance/vendor-data-transfer-safeguard-obligation-synthesis-for-cross-border-review.md
     - instances/compliance/vendor-telemetry-safeguard-requirement-attestation-recommendation.md
     - instances/hr/approved-payroll-status-change-submission.md
@@ -282,6 +284,7 @@ repo_reality:
     - instances/hr/worker-lifecycle-change-anomaly-review.md
     - instances/hr/redacted-accommodation-case-batch-to-workforce-review-dataset.md
     - instances/hr/protected-leave-review-bundle-retuning.md
+    - instances/hr/executive-offer-exception-recommendation-packet-revision-approved-for-compensation-committee-decision-lane.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -297,11 +300,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-seven canonical patterns across all nine top-level families, and one hundred fifty-five grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred sixty-four grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`optimize-adapt` now has a natural `approval-gated-execution` slice through `approval-gated-optimization-state-release`, so the family no longer has an empty optimize-side approval-gated architecture bucket in the derived browse views."
-    - "The derived index, domain, architecture, autonomy, and risk browse views are back in sync with canonical optimize-family truth after adding the approval-bound optimization-state-release pattern and linked engineering, finance, and operations examples."
-    - "The next refinement step should inspect the remaining `approval-gated-execution` concentrations in `gather-retrieve-synthesize` and `recommend-decide-escalate` rather than reopening optimize-family balancing unless another structural gap proves equally clean."
+    - "`approval-gated-recommendation-release` now spans engineering, finance, compliance, research, support, and HR through explicit grounded examples, leaving operations as the remaining obvious domain gap if the next iteration stays in this exact slice."
+    - "The recommend-family by-domain browse view is back in sync with canonical pattern truth after extending the approval-gated recommendation-release pattern into research, support, and HR."
+    - "The next refinement step should compare the remaining operations gap in `approval-gated-recommendation-release` against other thin approval-bound slices rather than opening new structural work prematurely."
   next_action:
-    id: phase-7-next-autonomy-architecture-balance
-    summary: "Use the next iteration to inspect the remaining narrow `approval-gated-execution` concentrations in `gather-retrieve-synthesize` and `recommend-decide-escalate`, and only add another pattern if it is a comparably clean reusable shape."
+    id: phase-7-next-approval-depth-balance
+    summary: "Use the next iteration to compare the remaining operations gap in `approval-gated-recommendation-release` against other thin approval-bound slices in adjacent families, and then run another modest grounding batch rather than adding a new canonical pattern."
