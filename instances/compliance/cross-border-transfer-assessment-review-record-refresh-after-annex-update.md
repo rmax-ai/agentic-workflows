@@ -12,6 +12,17 @@ Compliance.
 
 A privacy compliance program already maintains a restricted staged transfer-assessment review record for an in-flight vendor telemetry review so privacy reviewers can inspect one current package instead of reopening the subprocess inventory, transfer-impact questionnaire, annex repository, jurisdiction mapping tables, and prior exception log every time source state changes. After that review record is issued, authoritative updates still arrive: a signed annex supersedes a draft transfer mechanism attachment, the vendor subprocess inventory narrows the employee telemetry fields in scope, a jurisdiction mapping is corrected for a new support-access region, or exception lineage is updated to show that one prior annex reference was withdrawn. Each approved source change should trigger refresh of the staged transfer-assessment review record, preserving field-level delta lineage, explicit current-versus-superseded values, and exception routing whenever conflicting annex provenance, unresolved jurisdiction scope drift, or policy-disallowed overwrite logic would make the refreshed packet unsafe for downstream restricted privacy review.
 
+```mermaid
+flowchart TD
+    A["Approved authoritative update<br>arrives for annex, subprocess scope,<br>jurisdiction mapping, or exception lineage"] --> B["Load current source bundle,<br>prior staged review record,<br>and refresh policy tables"]
+    B --> C{"Approved source,<br>lineage, and restricted-audience<br>checks pass?"}
+    C -->|"No"| D["Route to exception queue and hold<br>for privacy compliance, counsel intake prep,<br>or vendor-governance follow-up"]
+    C -->|"Yes"| E["Rebuild the staged transfer-assessment<br>review record with field-level deltas<br>and superseded values"]
+    E --> F{"Conflicting annex provenance,<br>jurisdiction scope drift, or<br>policy-disallowed overwrite found?"}
+    F -->|"Yes"| D
+    F -->|"No"| G["Write refreshed current review record,<br>delta lineage trace, and refresh decision<br>for restricted downstream review"]
+```
+
 ## Target systems / source systems
 
 - Restricted transfer-assessment staging store holding the already-issued structured review record used by privacy compliance reviewers
