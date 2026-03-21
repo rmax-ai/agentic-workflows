@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 19
-  instance_files: 71
+  pattern_files: 20
+  instance_files: 74
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -51,16 +51,16 @@ pattern_counts_by_family:
   investigate-reconcile-verify: 2
   monitor-detect-triage: 2
   plan-coordinate-schedule: 2
-  recommend-decide-escalate: 2
+  recommend-decide-escalate: 3
   execute-automate: 3
   optimize-adapt: 2
   human-agent-collaborative-work: 2
 instance_counts_by_domain:
-  engineering: 11
-  finance: 10
+  engineering: 12
+  finance: 11
   compliance: 10
   operations: 10
-  research: 10
+  research: 11
   support: 10
   hr: 10
 repo_reality:
@@ -94,6 +94,7 @@ repo_reality:
     - data/patterns/plan-coordinate-schedule/schedule-adjustment-and-replanning.yaml
     - data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml
     - data/patterns/recommend-decide-escalate/policy-constrained-escalation-routing.yaml
+    - data/patterns/recommend-decide-escalate/readiness-gate-disposition-recommendation.yaml
     - data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml
     - data/patterns/execute-automate/exception-aware-task-execution.yaml
     - data/patterns/execute-automate/workflow-hand-off-and-completion.yaml
@@ -109,6 +110,7 @@ repo_reality:
     - instances/research/benchmark-study-disclosure-risk-alert-triage.md
     - instances/research/cross-lab-benchmark-replication-discrepancy-investigation.md
     - instances/research/approved-benchmark-study-review-disposition-closure.md
+    - instances/research/benchmark-study-artifact-freeze-readiness-gate-disposition-recommendation.md
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md
     - instances/engineering/deprecated-message-broker-client-migration-exception-copilot-loop.md
@@ -120,6 +122,7 @@ repo_reality:
     - instances/engineering/ci-pipeline-failure-review-queue-reprioritization.md
     - instances/engineering/production-shared-credential-exception-review-board-readiness-loop.md
     - instances/engineering/approved-release-readiness-review-closure-and-tracker-completion.md
+    - instances/engineering/payments-tokenization-cutover-readiness-gate-disposition-recommendation.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
     - instances/finance/invoice-packet-to-payables-record-handoff.md
     - instances/finance/dual-approved-vendor-bank-account-change-submission.md
@@ -130,6 +133,7 @@ repo_reality:
     - instances/finance/quarter-close-control-review-scheduling.md
     - instances/finance/quarter-close-exception-review-queue-reprioritization.md
     - instances/finance/material-vendor-payment-control-exception-package-readiness-loop.md
+    - instances/finance/cash-forecast-primary-cutover-readiness-gate-disposition-recommendation.md
     - instances/operations/cross-functional-maintenance-review-scheduling.md
     - instances/operations/cold-chain-temperature-excursion-alert-triage.md
     - instances/operations/multi-site-service-package-feasibility-recommendation.md
@@ -180,10 +184,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nineteen canonical patterns across all nine top-level families, and seventy-one grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty canonical patterns across all nine top-level families, and seventy-four grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "All nine top-level families are now grounded across engineering, finance, compliance, operations, research, support, and HR after adding research-domain monitoring coverage."
     - "`policy-constrained-escalation-routing` now gives `recommend-decide-escalate` a second canonical pattern and representative `orchestrated-multi-agent` coverage while staying bounded at governed routing rather than downstream execution."
+    - "`readiness-gate-disposition-recommendation` now gives `recommend-decide-escalate` a third canonical pattern plus representative `moderate` risk and `event-driven-monitoring` coverage while staying bounded at governed proceed/hold/narrow/escalate guidance rather than alert triage, collaborative approval drafting, or downstream execution."
     - "`normalization-and-enrichment` now gives `transform-process` a second canonical pattern and representative `low` risk coverage while staying bounded at reversible canonicalization and approved enrichment rather than downstream judgment or action."
     - "`adaptive-threshold-calibration` now gives `optimize-adapt` a second canonical pattern plus representative `low` risk and `human-in-the-loop` architecture coverage while keeping the family bounded at reversible parameter tuning rather than downstream triage or execution."
     - "`schedule-adjustment-and-replanning` now gives `plan-coordinate-schedule` a second canonical pattern plus representative `moderate` risk, `recommendation-only` autonomy, `human-in-the-loop`, and `orchestrated-multi-agent` architecture coverage while keeping the family bounded at revised plan handoff rather than recommendation or execution."
@@ -193,5 +198,5 @@ repo_reality:
     - "`approval-centered-collaboration` now also has grounded compliance, operations, and support instances through regulator reporting-timeline exception, network fuel-system test deferral exception, and enterprise security incident remediation-credit readiness loops, extending the pattern's approval-readiness collaboration coverage across six governance-heavy domains without drifting into adjudication."
     - "Every top-level family still has at least two canonical patterns and full family/domain grounding, and all six autonomy levels now have at least one canonical pattern, so the next highest-leverage gaps are narrower family-specific architecture and risk slices rather than missing global scaffolding."
 next_action:
-  id: phase-7-balance-recommendation-slices
-  summary: "Use the next bounded batch to add one non-high-risk `recommend-decide-escalate` pattern, ideally covering a low- or moderate-risk slice without duplicating monitoring triage or downstream execution."
+  id: phase-7-consider-low-risk-recommendation-slice
+  summary: "Use the next bounded batch to close the remaining low-risk `recommend-decide-escalate` gap if a clean pattern can be added without duplicating planning, monitoring triage, or downstream execution."
