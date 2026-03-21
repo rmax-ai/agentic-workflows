@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 221
+  instance_files: 222
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -56,7 +56,7 @@ pattern_counts_by_family:
   optimize-adapt: 6
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
-  engineering: 31
+  engineering: 32
   finance: 31
   compliance: 31
   operations: 32
@@ -66,6 +66,7 @@ instance_counts_by_domain:
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
+  - "`control-requirement-attestation-recommendation` now has additional `engineering` grounding through a production artifact-signing key custody attestation recommendation example, deepening that low-risk recommend-family slice within engineering beyond privileged service-account review while preserving a clean boundary at requirement-fit recommendation, evidence-gap visibility, and rationale packet assembly rather than attestation sign-off, key rotation, quorum-policy changes, or live signing-path updates."
   - "`control-requirement-attestation-recommendation` now has explicit `operations` grounding through a refrigerated distribution hub temperature-safeguard attestation recommendation example, and the canonical pattern domain/example metadata plus `data/views/by-domain.yaml` were updated together because the new grounding exposed a real browse-alignment gap while preserving a clean boundary at requirement-fit recommendation, gap visibility, rationale packet assembly, and audit logging rather than attestation sign-off, corrective work, or live cold-chain changes."
   - "`anomaly-detection-review` now has additional `support` grounding through an enterprise support response-obligation drift anomaly-review example, deepening that moderate-risk monitor-family slice within support beyond severity-drift review while preserving a clean boundary at explainable anomaly packet assembly, duplicate suppression, prioritization, and governed routing rather than contract interpretation, customer communication, service-credit decisions, incident declaration, live case reassignment, or root-cause investigation."
   - "`anomaly-detection-review` now has additional `hr` grounding through a benefits eligibility and deduction drift anomaly-review example, deepening that moderate-risk monitor-family slice within HR beyond worker-lifecycle churn while preserving a clean boundary at explainable anomaly packet assembly, duplicate suppression, queueing, and governed routing rather than eligibility adjudication, payroll correction, carrier outreach, employee communication, or formal investigation."
