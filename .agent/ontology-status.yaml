@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 210
+  instance_files: 211
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ instance_counts_by_domain:
   operations: 30
   research: 30
   support: 30
-  hr: 29
+  hr: 30
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
@@ -76,6 +76,7 @@ consistency_notes:
   - "`claimed-state-verification` now has additional `hr` grounding through an internal job-architecture handbook publication verification example, deepening that same low-risk investigate-family slice within HR beyond parental-leave guidance while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative evidence traceability rather than handbook rewriting, leveling adjudication, manager communication, or downstream system change."
   - "`claimed-state-verification` now has additional `research` grounding through an internal benchmark registry snapshot publication verification example, deepening that same low-risk investigate-family slice within research beyond benchmark artifact-freeze confirmation while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative evidence traceability rather than snapshot republication, benchmark adjudication, release approval, or broader remediation."
   - "`approval-gated-triage-dispatch` now has additional `compliance` grounding through a trade-surveillance manipulation alert triage packet approved for restricted market-conduct review dispatch, deepening that monitor-family approval-bound slice within compliance beyond pharmacovigilance while preserving a clean boundary at exact packet release, signer-controlled recipient scope, legal-hold visibility, and audit-ready lineage rather than misconduct adjudication, desk outreach, trading restriction, or regulator-facing action."
+  - "`approval-centered-collaboration` now has additional `hr` grounding through a cross-border remote-work exception packet readiness loop, deepening that high-governance collaboration slice within HR beyond headcount-freeze backfill while preserving a clean boundary at governed packet revision, reviewer-objection visibility, evidence refresh, and explicit approval ownership rather than remote-work authorization, downstream filing, payroll action, or execution."
   - "`approval-gated-triage-dispatch` now has additional `research` grounding through an approved secondary-dataset access request triage packet for restricted governance review dispatch, deepening that monitor-family approval-bound slice within research beyond benchmark disclosure-risk review while preserving a clean boundary at one exact triaged packet release, bounded recipient scope, hold visibility, and audit-ready lineage rather than access adjudication, disclosure choice, or downstream execution."
   - "`approval-gated-triage-dispatch` now has explicit `research` grounding through a benchmark-study disclosure-risk packet approved for restricted disclosure-governance review dispatch, extending that monitor-family approval-bound slice beyond finance, compliance, operations, and HR while preserving a clean boundary at governed packet release rather than disclosure adjudication or publication action."
   - "`approval-centered-collaboration` canonical domain/example metadata plus `data/views/by-domain.yaml` are now realigned with the already-committed `support` and `compliance` readiness-loop instances, restoring browse consistency before further refinement work."
