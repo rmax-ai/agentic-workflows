@@ -12,6 +12,22 @@ Compliance.
 
 A sanctions remediation lead is directing urgent procedural execution after investigators confirm that a newly designated entity may have received outbound payments through a stale screening alias in a regional payouts stack. The agent may execute only the significant steps the lead calls: place named counterparty and account blocks, pause queued payouts in specific corridors, preserve evidence from the screening and payment systems, update the case ledger with verified control state, and prepare a bounded takeover packet for legal counsel before any regulator-facing action occurs. Because each next step depends on what the previous controls actually changed and because the workflow must not expand into legal interpretation or regulator communication, it needs durable state, post-step verification, and strict safe-handoff discipline whenever the remediation lead redirects or narrows the branch.
 
+```mermaid
+flowchart TD
+    start["Confirmed sanctions basis<br>and current authority boundary"] --> direct{"Remediation lead directs<br>next permitted control step?"}
+    direct -->|"Yes"| act["Apply named account blocks,<br>corridor payout holds, or evidence capture"]
+    direct -->|"Pause or narrow"| hold["Hold current control state,<br>preserve evidence, and await direction"]
+    act --> verify{"Authoritative systems verify<br>control and ledger state?"}
+    verify -->|"Yes"| ledger["Update case ledger with verified state<br>and evidence references"]
+    verify -->|"No"| hold
+    ledger --> boundary{"Approval or escalation needed<br>before any further action?"}
+    boundary -->|"No"| direct
+    boundary -->|"Yes"| packet["Prepare bounded takeover packet<br>for legal counsel or senior compliance"]
+    hold --> redirect{"Lead provides clarified<br>in-scope direction?"}
+    redirect -->|"Yes"| direct
+    redirect -->|"No"| packet
+```
+
 ## Target systems / source systems
 
 - Sanctions case-management system, remediation ledger, and investigation notes with explicit authority boundaries
