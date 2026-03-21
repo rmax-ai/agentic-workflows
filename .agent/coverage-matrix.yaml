@@ -44,7 +44,7 @@ matrices:
     recommend-decide-escalate: {engineering: none, finance: covered, compliance: covered, operations: partial, research: none, support: none, hr: none}
     execute-automate: {engineering: none, finance: partial, compliance: covered, operations: none, research: none, support: none, hr: covered}
     optimize-adapt: {engineering: none, finance: none, compliance: partial, operations: partial, research: none, support: covered, hr: none}
-    human-agent-collaborative-work: {engineering: none, finance: none, compliance: partial, operations: none, research: partial, support: covered, hr: none}
+    human-agent-collaborative-work: {engineering: none, finance: none, compliance: partial, operations: none, research: covered, support: covered, hr: none}
   pattern_family_x_architecture:
     gather-retrieve-synthesize: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
     transform-process: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
@@ -68,7 +68,8 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Nine canonical pattern entries now populate all nine top-level families, and eleven grounded examples extend across all seven currently modeled domains with deeper finance, compliance, and support coverage.
+    - Nine canonical pattern entries now populate all nine top-level families, and twelve grounded examples extend across all seven currently modeled domains with deeper finance, compliance, support, and research coverage.
     - "`recommend-decide-escalate` now has covered finance and compliance cells after adding a second governed recommendation instance for renewal pricing and payment-structure review."
     - "`execute-automate` now has covered compliance and HR cells after adding a regulated beneficial-ownership filing example alongside the existing HR payroll submission case."
-    - The highest-leverage next gaps are now the still-thin `human-agent-collaborative-work` family plus remaining partial recommendation, execution, transform, and optimize domain slices.
+    - "`human-agent-collaborative-work` now has covered support and research cells after adding a benchmark-briefing copilot loop, leaving compliance as the clearest next collaboration grounding gap."
+    - The highest-leverage next gaps are now the remaining collaboration/compliance gap plus partial transform, execution, and optimize domain slices.

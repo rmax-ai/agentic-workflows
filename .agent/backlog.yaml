@@ -112,7 +112,7 @@ items:
       - "`transform-process` is now grounded through a finance AP handoff example linked to `document-to-structured-data-handoff`."
       - "`optimize-adapt` is now grounded through a support queue reprioritization example linked to `queue-prioritization-optimization`."
       - "`recommend-decide-escalate` now has a second grounded finance example and `execute-automate` now has a second grounded compliance example, but both families still have many partial domain slices."
-      - "`human-agent-collaborative-work` still has only one grounded example, so the next Phase 6 batch should prioritize another collaboration case without turning instances into generic domain overviews."
+      - "`human-agent-collaborative-work` now has grounded support and research examples, so the next small batch should close the remaining compliance collaboration gap or rebalance another thin partial family/domain slice."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement
