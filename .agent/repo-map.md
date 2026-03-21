@@ -68,6 +68,7 @@
 - `data/patterns/monitor-detect-triage/risk-alert-triage.yaml` — canonical monitoring pattern for governed alert prioritization and escalation packaging.
 - `data/patterns/monitor-detect-triage/critical-signal-corroboration-triage.yaml` — canonical monitoring pattern for corroborating severe signals across evidence sources and packaging governed critical escalations without drifting into response execution.
 - `data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml` — canonical planning and coordination pattern for low-risk multi-party scheduling under bounded delegation.
+- `data/patterns/plan-coordinate-schedule/schedule-adjustment-and-replanning.yaml` — canonical planning pattern for dependency-aware schedule revision after material changes invalidate a baseline plan, with explicit human adoption checkpoints and multi-agent feasibility analysis.
 - `data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml` — canonical recommendation pattern for governed commercial option ranking, approval guidance, and escalation packaging.
 - `data/patterns/recommend-decide-escalate/policy-constrained-escalation-routing.yaml` — canonical recommendation pattern for routing sensitive cases to the right authority through policy-bounded escalation recommendations and audit-ready handoff packaging.
 - `data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml` — canonical execution pattern for sensitive browser-based submissions under explicit approval gates and exception handling.

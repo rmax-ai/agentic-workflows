@@ -31,7 +31,7 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 14
+  pattern_files: 15
   instance_files: 63
   pattern_family_docs: 9
   glossary_files: 1
@@ -50,7 +50,7 @@ pattern_counts_by_family:
   transform-process: 2
   investigate-reconcile-verify: 1
   monitor-detect-triage: 2
-  plan-coordinate-schedule: 1
+  plan-coordinate-schedule: 2
   recommend-decide-escalate: 2
   execute-automate: 1
   optimize-adapt: 2
@@ -90,6 +90,7 @@ repo_reality:
     - data/patterns/monitor-detect-triage/risk-alert-triage.yaml
     - data/patterns/monitor-detect-triage/critical-signal-corroboration-triage.yaml
     - data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml
+    - data/patterns/plan-coordinate-schedule/schedule-adjustment-and-replanning.yaml
     - data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml
     - data/patterns/recommend-decide-escalate/policy-constrained-escalation-routing.yaml
     - data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml
@@ -167,13 +168,14 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, fourteen canonical patterns across all nine top-level families, and sixty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, fifteen canonical patterns across all nine top-level families, and sixty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "All nine top-level families are now grounded across engineering, finance, compliance, operations, research, support, and HR after adding research-domain monitoring coverage."
     - "`policy-constrained-escalation-routing` now gives `recommend-decide-escalate` a second canonical pattern and representative `orchestrated-multi-agent` coverage while staying bounded at governed routing rather than downstream execution."
     - "`normalization-and-enrichment` now gives `transform-process` a second canonical pattern and representative `low` risk coverage while staying bounded at reversible canonicalization and approved enrichment rather than downstream judgment or action."
     - "`adaptive-threshold-calibration` now gives `optimize-adapt` a second canonical pattern plus representative `low` risk and `human-in-the-loop` architecture coverage while keeping the family bounded at reversible parameter tuning rather than downstream triage or execution."
-    - "`orchestrated-multi-agent` now spans `gather-retrieve-synthesize`, `investigate-reconcile-verify`, `monitor-detect-triage`, and `recommend-decide-escalate`, while critical-risk anchors remain sparse outside `monitor-detect-triage` and `execute-automate`."
+    - "`schedule-adjustment-and-replanning` now gives `plan-coordinate-schedule` a second canonical pattern plus representative `moderate` risk, `recommendation-only` autonomy, `human-in-the-loop`, and `orchestrated-multi-agent` architecture coverage while keeping the family bounded at revised plan handoff rather than recommendation or execution."
+    - "The remaining one-entry families are now `investigate-reconcile-verify`, `execute-automate`, and `human-agent-collaborative-work`, with `execute-automate` still especially sparse outside `critical` risk and `approval-gated-execution`."
 next_action:
-  id: phase-7-balance-architecture-and-risk-cells
-  summary: "Use the next bounded batch to add one second canonical pattern in another still-thin family, preferably filling a sparse low-risk or otherwise underrepresented autonomy or architecture cell without weakening family boundaries."
+  id: phase-7-expand-execute-automate
+  summary: "Use the next bounded batch to add a second `execute-automate` pattern, ideally covering `exception-aware-orchestration` with a non-critical risk or non-approval-gated architecture slice while preserving a crisp execution boundary."
