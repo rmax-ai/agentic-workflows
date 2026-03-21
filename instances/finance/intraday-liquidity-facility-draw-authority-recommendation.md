@@ -12,6 +12,33 @@ Finance.
 
 During a severe payment-rail disruption, treasury has already opened a critical bridge after incoming settlement delays, collateral timing drift, and one counterparty funding shortfall compress the firm's liquidity runway before market close. The workflow must recommend whether the next decision belongs with the treasury funding desk under existing contingency limits, the CFO-led liquidity committee, or an executive risk and legal authority because a central-bank facility draw, selective payment restriction, or lender communication posture may be required. It must narrow the governed option set and assemble a decision packet without drawing facilities, restricting payments, or issuing any market-facing statement.
 
+```mermaid
+flowchart TD
+    A["Critical treasury bridge<br>already opened before market close"]
+    B["Collect intraday cash-state evidence,<br>collateral timing, payment deadlines,<br>authority matrix, and active hold state"]
+    C{"Does the case remain inside treasury funding desk<br>contingency limits for recommendation review?"}
+    D{"Do facility-draw, selective payment restriction,<br>or lender communication triggers require<br>executive risk and legal ownership?"}
+    E["Recommend treasury funding desk<br>Narrow options to in-limit contingency paths<br>with external actions still held"]
+    F["Recommend CFO-led liquidity committee<br>Bound review to committee-owned contingency options<br>with desk-only paths blocked"]
+    G["Recommend executive risk and legal authority<br>Keep facility draw, payment restriction,<br>and lender communication on hold"]
+    H["Assemble authority packet with evidence,<br>blocked lower-authority lanes,<br>bounded options, and timing constraints"]
+    I{"Named human authority accepts<br>the recommended lane and option set?"}
+    J["Workflow stops at reviewed recommendation packet<br>No facility is drawn, no payments are restricted,<br>and no market-facing statement is issued"]
+    K["Maintain hold state, log the redirect,<br>and reroute only within the bounded<br>review path to the required authority"]
+
+    A --> B --> C
+    C -- "Yes" --> E
+    C -- "No" --> D
+    D -- "No" --> F
+    D -- "Yes" --> G
+    E --> H
+    F --> H
+    G --> H
+    H --> I
+    I -- "Yes" --> J
+    I -- "No" --> K
+```
+
 ## Target systems / source systems
 
 - Treasury bridge workspace with declared severity, prior decision packets, and active hold state
