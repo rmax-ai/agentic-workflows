@@ -12,6 +12,18 @@ Engineering.
 
 After a severe signing-key compromise is declared, platform security opens a protected collaboration room for one shared review packet that will later feed executive, legal, and release-governance handling. A staff security engineer owns the packet while agents help reconcile forensic updates, SRE objections, customer-impact wording disputes, and executive-only annex material about key-custody gaps and revocation blast radius. The room stays focused on keeping one protected artifact current: accepted text, contested sections, restricted annexes, and explicit release conditions all remain visible as reviewers challenge whether the packet is complete enough for the next human handoff. The human artifact owner remains responsible for deciding whether disagreement is tolerable, whether the packet is ready to leave the room, and whether downstream authority selection, command planning, or revocation action should begin elsewhere.
 
+```mermaid
+flowchart TD
+    A["Severe signing-key compromise<br>declared"] --> B["Protected collaboration room<br>opens one shared review packet"]
+    B --> C["Agents refresh forensics,<br>reviewer objections, and annex references"]
+    C --> D["Packet stays current with<br>visible disagreement ledger,<br>restricted annex controls,<br>and release-state tracking"]
+    D --> E{"Human artifact owner<br>judges handoff readiness"}
+    E -->|"Not ready, disputed, or<br>access scope unclear"| F["Hold packet in room<br>until evidence, wording,<br>or annex boundaries are corrected"]
+    F --> C
+    E -->|"Ready for bounded<br>human handoff"| G["Release packet to executive,<br>legal, and release-governance<br>review outside the room"]
+    D -.-> H["Room must not choose authority,<br>plan revocation sequencing,<br>or execute response actions"]
+```
+
 ## Target systems / source systems
 
 - Restricted severe-case collaboration workspace with the main review packet, disagreement ledger, annex map, and release-state controls
