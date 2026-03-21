@@ -12,6 +12,20 @@ Operations.
 
 An operations coordinator at a regional facilities command center needs to submit an already approved emergency dispatch request for a high-voltage switchgear failure that is threatening chilled-water service to a hospital-adjacent campus. The target contractor mobilization portal is browser-only, spreads the action across incident classification, site-access instructions, safety permits, not-to-exceed spend, crew callout details, and after-hours contact tabs, and final submission may proceed only after the incident commander, site safety lead, and facilities spend approver have all signed off in the operations work-management system. Because the portal action can mobilize external crews, trigger premium billing, and create site-entry authority that is difficult to unwind once accepted, the workflow must recheck approvals, confirm the approved dispatch packet still matches current site conditions, and halt safely if the live portal, permit state, or confirmation path becomes ambiguous.
 
+```mermaid
+flowchart TD
+    A["Receive approved emergency dispatch packet"] --> B{"Incident commander,<br>site safety lead, and spend approver<br>all currently signed off?"}
+    B -->|"No"| H["Hold submission and escalate<br>for approval refresh"]
+    B -->|"Yes"| C{"Dispatch packet, permits, and<br>current site conditions still match?"}
+    C -->|"No"| I["Hold submission and route to<br>operations leadership review"]
+    C -->|"Yes"| D["Enter incident, access, permit,<br>spend, and crew details in vendor portal"]
+    D --> E{"Portal state is expected,<br>complete, and within approved scope?"}
+    E -->|"No"| J["Save draft or abandon session;<br>preserve evidence for human takeover"]
+    E -->|"Yes"| F{"Positive submission confirmation<br>and portal reference received?"}
+    F -->|"No"| K["Bounded reconciliation hold;<br>human verifies status before retry"]
+    F -->|"Yes"| G["Record confirmation and masked evidence;<br>dispatch submission complete"]
+```
+
 ## Target systems / source systems
 
 - Operations work-management or incident case system holding the dispatch request, safety review, spend approval, and segregation-of-duties record
