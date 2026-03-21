@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-finance-collaboration-covered
+repository_stage: phase-6-grounding-collaboration-family-complete
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 42
+  instance_files: 43
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -59,7 +59,7 @@ instance_counts_by_domain:
   operations: 9
   research: 2
   support: 8
-  hr: 4
+  hr: 5
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -124,6 +124,8 @@ repo_reality:
     - instances/hr/approved-payroll-status-change-submission.md
     - instances/hr/interview-panel-availability-coordination.md
     - instances/hr/pay-transparency-posting-obligation-synthesis-for-requisition-launch-review.md
+    - instances/hr/international-relocation-and-sign-on-package-recommendation.md
+    - instances/hr/workplace-accommodation-exception-memo-copilot-loop.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -139,14 +141,14 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and forty-two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and forty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
   - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open domain slices only if further cross-domain investigation coverage becomes worthwhile."
   - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open monitoring slices only if deeper cross-domain triage coverage becomes worthwhile."
   - "`recommend-decide-escalate` is now grounded across finance, compliance, operations, support, and HR, leaving engineering and research as the remaining open slices only if broader cross-domain recommendation depth becomes more valuable than shoring up collaboration coverage."
-  - "`human-agent-collaborative-work` is now grounded across support, research, compliance, engineering, operations, and finance, leaving HR as the only remaining open collaboration slice if closing out the family becomes more valuable than pivoting to other thin families."
+  - "`transform-process` is still grounded only across finance, compliance, and operations, leaving engineering, research, support, and HR as the remaining open domain slices in one of the thinnest grounded families."
   - "`plan-coordinate-schedule` is grounded across operations, support, and HR, leaving engineering and finance open only if broader coordination coverage becomes more valuable than deepening governance-sensitive collaboration or investigation families."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-expand-hr-collaboration-grounding
-  summary: "Use the next small grounding batch to add one HR-domain collaboration example for `analyst-copilot-loop`, closing the last uncovered domain slice in `human-agent-collaborative-work` while staying within the existing pattern-first grounding strategy."
+  id: phase-6-expand-transform-process-grounding
+  summary: "Use the next small grounding batch to add one grounded `document-to-structured-data-handoff` example in an uncovered domain such as HR or support, strengthening one of the thinnest grounded families without widening the ontology surface."

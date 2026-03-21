@@ -128,7 +128,7 @@ items:
       - "`monitor-detect-triage` is now also grounded in engineering through a production release regression alert triage scenario, extending the family into a domain that already had adjacent investigation, synthesis, and collaboration coverage."
       - "`investigate-reconcile-verify` is now grounded in operations through a distribution-sorter misroute root-cause investigation scenario, so the family now spans engineering, finance, compliance, and operations."
       - "`investigate-reconcile-verify` is now also grounded in support through an enterprise admin entitlement drift root-cause investigation scenario, so the family now spans engineering, finance, compliance, operations, and support."
-      - "The next small grounding batch should likely stay with `human-agent-collaborative-work` and target HR, which is now the last uncovered domain slice in that family."
+      - "`human-agent-collaborative-work` is now grounded across support, research, compliance, engineering, operations, finance, and HR after adding a workplace accommodation exception memo copilot loop."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement
@@ -143,3 +143,4 @@ items:
     notes:
       - The last empty family gap is closed at the canonical pattern layer and `transform-process` now has its first grounded example.
       - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.
+      - The next small grounding batch should likely target `transform-process`, which still has grounded examples only in finance, compliance, and operations.
