@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Active target: deepen the thin `plan-coordinate-schedule` approval-bound slice by adding one more `contingency-plan-activation-gate` grounding in `compliance`, staying instance-only because canonical metadata and browse exposure already align.
-- Selection rule: use the already-canonical contingency-activation pattern and add a compliance scenario that is materially different from sanctions-screening fallback while preserving the same governed readiness-packet boundary.
-- Read-first set: this plan, `data/patterns/plan-coordinate-schedule/contingency-plan-activation-gate.yaml`, `instances/compliance/sanctions-screening-manual-fallback-activation-gate.md`, one cross-domain same-pattern neighbor in finance or operations, the relevant coverage notes in `.agent/coverage-matrix.yaml`, and the newest relevant files in `.agent/iterations/2026/`.
-- Boundary rule: keep the new example centered on an approval-gated contingency readiness packet, explicit holds, and activation-lineage logging; stop before fallback approval execution, regulator or customer communication, or live continuity operations.
+- Active target: continue Phase 7 structural refinement by shifting from the now-deepened plan-family contingency slice to one thinner approval-bound monitor or investigate slice, preferably `approval-gated-triage-dispatch` or `evidence-gated-verification-for-release` in a domain already exposed by canonical metadata and browse views.
+- Selection rule: choose a pattern/domain pair that already has one grounding so the next batch can remain instance-only while materially varying the governed packet, hold model, or release boundary rather than repeating the same scenario with new nouns.
+- Read-first set: this plan, the selected canonical pattern, one same-domain same-pattern neighbor, one cross-domain same-pattern neighbor, the relevant coverage notes in `.agent/coverage-matrix.yaml`, and the newest relevant files in `.agent/iterations/2026/`, starting with `20260322-004621.md`.
+- Boundary rule: keep the next example centered on one exact approval, dispatch, or verification boundary with explicit holds and lineage, and stop before adjudication, downstream execution, external communication, or policy reinterpretation.
 
 ## Current phase
 
@@ -18,25 +18,25 @@ This file is the rolling control document for the next bounded batch. Detailed e
   the highest-leverage refinement pressure inside the current
   matrix.
 - Canonical pattern coverage spans all nine pattern families, all tracked architecture types, and the full `low` / `moderate` / `high` / `critical` risk ladder.
-- Grounded coverage spans all seven modeled domains at parity, so current balancing pressure has shifted away from trailing-domain counts and back toward thinner structural refinement targets.
+- Grounded coverage now spans two hundred forty-six examples across all seven modeled domains; compliance is temporarily at thirty-six while engineering, finance, hr, operations, research, and support remain at thirty-five, confirming that Phase 7 can tolerate light asymmetry when it deepens structurally thinner slices.
 - Browse artifacts remain derived from canonical pattern truth and should only change when a new grounding exposes genuine drift.
 - The validation and publication baseline remains `uv run python scripts/python/validate_yaml.py`, `uv run python scripts/python/build_site_docs.py`, and `uv run mkdocs build`.
 
 ## Ordered tasks
 
-1. Author one new compliance-grounded instance for `contingency-plan-activation-gate` that stays structurally distinct from the existing sanctions-screening fallback while remaining bounded at activation-readiness planning only.
-2. Keep the batch instance-only unless the new compliance grounding exposes real drift between canonical domain metadata, browse exposure, and the authored scenario.
+1. Reassess thin approval-bound candidates in `monitor-detect-triage` and `investigate-reconcile-verify`, preferring a domain already exposed in canonical metadata so the next batch can remain instance-only.
+2. Author one materially distinct grounded example for the selected pattern/domain pair, with explicit hold-state and boundary language that stays cleanly inside the chosen pattern.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
-4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and `.agent/iterations/2026/20260322-004621.md` after verification.
-5. Carry the next-step target forward toward Phase 7 closure by continuing to deepen thin approval-bound or governance-heavy slices in underused families rather than by chasing domain-count parity.
+4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
+5. Carry the next-step target forward toward Phase 7 closure by continuing to deepen thin approval-bound or governance-heavy slices in underused families rather than by restoring domain-count parity.
 
 ## Recent checkpoints
 
+- `20260322-004621`: `contingency-plan-activation-gate` gained additional `compliance` grounding through `instances/compliance/serious-adverse-event-manual-intake-continuity-activation-gate.md`, raising the repository to two hundred forty-six grounded examples through a structurally neutral, instance-only plan-family refinement bounded at approval-gated continuity-readiness planning rather than live fallback activation or safety-case intake execution.
 - `20260322-004005`: `workflow-hand-off-and-completion` gained additional `hr` grounding through `instances/hr/accepted-dependent-benefits-verification-review-closure-and-exception-tracker-synchronization.md`, restoring HR to thirty-five grounded examples through a structurally neutral, instance-only execute-family refinement bounded at authoritative post-decision closure and internal bookkeeping only.
 - `20260322-003245`: `approval-gated-transformation-release` gained additional `engineering` grounding through `instances/engineering/build-artifact-catalog-schema-transformation-approved-for-system-inventory-intake.md`, restoring engineering to thirty-five grounded examples through a structurally neutral, instance-only transform-family refinement.
 - `20260322-002355`: `policy-constrained-escalation-routing` gained additional `compliance` grounding through `instances/compliance/regulatory-incident-breach-notification-escalation-routing.md`, restoring compliance to thirty-five grounded examples through a structurally neutral, instance-only recommend-family escalation-routing refinement.
 - `20260322-001611`: `approval-gated-briefing-release` gained additional `operations` grounding through `instances/operations/gateway-port-berth-closure-impact-briefing-revision-approved-for-marine-continuity-cell-circulation.md`, restoring operations to thirty-five grounded examples through a structurally neutral, instance-only gather-family release-control refinement.
-- `20260322-001125`: `approval-gated-collaborative-artifact-release` gained additional `research` grounding through `instances/research/participant-consent-language-variance-clarification-packet-approved-for-human-subjects-ethics-pre-review-intake.md`, staying bounded at governed release of one exact collaborative artifact revision into one named ethics pre-review lane.
 
 ## History location
 
