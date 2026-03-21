@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Iteration `20260321-125434` is in progress: scope one compliance-grounded `approval-gated-transformation-release` refinement that stays bounded to one exact transformed package revision, one explicit hold-and-manifest state, and one restricted downstream compliance intake lane.
+
 Iteration `20260321-124822` is now complete: `evidence-gated-verification-for-release` gained new `hr` grounding, and the canonical pattern metadata plus derived domain view now expose that investigate-family approval-bound slice across four modeled domains without drifting past one exact evidence packet revision, one explicit sufficiency verdict, or one restricted HR release lane.
 
 Iteration `20260321-124248` is now complete: `approval-gated-triage-dispatch` gained new `hr` grounding, and the canonical pattern metadata plus derived domain view now expose that monitor-family approval-bound slice across four modeled domains without drifting past one exact already-triaged packet revision, one explicit hold-and-release state, or one bounded HR dispatch lane.
@@ -43,12 +45,11 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-124822`
-- Previous completed scope: added one HR-grounded `approval-gated-triage-dispatch` example, expanded the canonical pattern's domain and example metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Completed scope: added one HR-grounded `evidence-gated-verification-for-release` example, expanded the canonical pattern's domain and example metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Current working hypothesis: approval-gated investigate refinement remains family-safe only when the governed object is one exact evidence packet revision with explicit sufficiency verdict, one restricted HR release lane, and one visible hold state, while recommendation, adjudication, scheduling, payroll repair, and downstream separation execution stay explicitly outside the workflow.
-- Current scoped follow-on: identify the next clean compliance-heavy approval-bound transform slice, likely `approval-gated-transformation-release`, so the next batch improves another still-thin domain without reopening broad structural expansion.
-- Boundary reminder: future investigate-family approval-gated work should remain tied to one exact evidence packet revision, one explicit sufficiency or hold state, and one bounded downstream reliance lane rather than vague permission to recommend, repair, or execute the underlying case.
+- Timestamp: `20260321-125434`
+- Previous completed scope: added one HR-grounded `evidence-gated-verification-for-release` example, expanded the canonical pattern's domain and example metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Current scoped work: add one compliance-grounded `approval-gated-transformation-release` example plus the directly dependent canonical metadata and derived domain-view updates needed for that slice.
+- Current working hypothesis: transform-family approval-gated refinement remains family-safe only when the governed object is one exact transformed compliance package revision with explicit hold state, lineage trace, and one bounded downstream intake or handoff lane, while evidence verdicts, recommendation, adjudication, and live compliance action stay explicitly outside the workflow.
+- Boundary reminder: future transform-family approval-gated work should remain tied to one exact transformed package revision, one explicit hold or release manifest state, and one bounded downstream reliance lane rather than vague permission to decide, verify, or execute the underlying compliance action.
 
 ## Constraints
 
