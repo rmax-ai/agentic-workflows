@@ -51,7 +51,7 @@ domains:
     plan-coordinate-schedule: [authoritative-change-coordination-refresh]
     recommend-decide-escalate: [deal-desk-recommendation-support, readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates]
-    optimize-adapt: []
+    optimize-adapt: [governed-optimization-bundle-retuning]
     human-agent-collaborative-work: [approval-centered-collaboration]
 - domain:
     id: compliance
@@ -93,7 +93,7 @@ domains:
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: [readiness-gate-disposition-recommendation]
     execute-automate: [workflow-hand-off-and-completion]
-    optimize-adapt: []
+    optimize-adapt: [governed-optimization-bundle-retuning]
     human-agent-collaborative-work: [analyst-copilot-loop, shared-workbench-orchestration]
 - domain:
     id: support
@@ -121,5 +121,5 @@ domains:
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [policy-constrained-escalation-routing]
     execute-automate: [browser-based-form-completion-with-approval-gates]
-    optimize-adapt: []
+    optimize-adapt: [governed-optimization-bundle-retuning]
     human-agent-collaborative-work: [approval-centered-collaboration]

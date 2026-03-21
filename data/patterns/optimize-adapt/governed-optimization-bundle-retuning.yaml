@@ -1,0 +1,278 @@
+id: governed-optimization-bundle-retuning
+slug: governed-optimization-bundle-retuning
+name: Governed optimization bundle retuning
+summary: Recompute and propose governed updates to shared optimization weights, buffers, thresholds, and policy-linked parameters across coupled review surfaces so future behavior improves without silently rewriting local decision logic.
+pattern_family:
+  id: optimize-adapt
+  label: Optimize / Adapt
+problem_structure:
+  id: feedback-driven-optimization
+  label: Feedback-driven optimization
+  source_vocabulary: problem-structures
+domain:
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
+workflow_goal: Retune a shared bundle of optimization parameters that influences multiple coupled review or prioritization surfaces, using cross-surface outcomes, override behavior, and policy changes to keep future optimization aligned while preserving explicit human authority over consequential tuning moves.
+inputs:
+  - name: Current optimization bundle
+    description: The active shared set of weights, thresholds, decay factors, routing buffers, fairness caps, and protected-priority parameters currently reused across multiple optimization surfaces.
+    kind: configuration-bundle
+    required: true
+    examples:
+      - Shared close-review tuning bundle covering materiality weights, aging decay, reviewer-load balancing, and evidence-sufficiency buffers
+      - Portfolio review parameter set used by intake scoring, replication-risk weighting, and disclosure-readiness sensitivity checks
+  - name: Cross-surface outcome and override history
+    description: Historical performance signals showing how the current bundle behaved across the coupled surfaces, including manual overrides, reopen patterns, fairness drift, missed-priority cases, and rollback events.
+    kind: outcome-history
+    required: true
+    examples:
+      - Controller overrides clustered around covenant-sensitive entities while evidence-sufficiency flags remained too permissive
+      - Reviewer resets showing that novelty-weighted research scoring improved cycle time but increased replication-review churn
+  - name: Coupling map and guardrail policy
+    description: Structured definition of which surfaces share parameters, what constraints limit retuning, which parameters are protected, and what kinds of bundle changes require explicit human adoption.
+    kind: policy
+    required: true
+    examples:
+      - Policy map showing that documentation-sufficiency thresholds and materiality weighting must move together and stay within audit-approved ranges
+      - Governance bundle defining protected fairness caps, protected-signal floors, and maximum step size for any one retuning cycle
+  - name: Current operating and policy context
+    description: Material context changes that may justify retuning or invalidate recent outcome history, including seasonal volume shifts, new policy requirements, staffing changes, or external scrutiny.
+    kind: operating-context
+    required: false
+    examples:
+      - New lender-covenant disclosure review requirements introduced mid-close
+      - Updated publication-integrity policy that increases scrutiny on replication evidence quality
+outputs:
+  - name: Governed retuning recommendation package
+    description: An operator-ready package describing the proposed bundle adjustments, the cross-surface trade-offs they address, the scenarios simulated, and the constraints that limit adoption.
+    kind: recommendation-package
+    required: true
+    examples:
+      - Package proposing tighter evidence-sufficiency weights plus a lower reviewer-load balancing coefficient after showing fewer close-critical deferrals in simulation
+      - Research-portfolio retuning brief recommending lower novelty amplification and stronger reproducibility weighting across intake and review surfaces
+  - name: Candidate shared optimization bundle
+    description: The versioned parameter bundle that would become the next shared optimization state if a human steward adopts the recommendation.
+    kind: configuration-bundle
+    required: true
+    examples:
+      - Draft parameter bundle with revised materiality weighting, deadline buffers, and fairness caps for the next quarter-close cycle
+      - Proposed benchmark-review bundle with updated replication sensitivity, evidence-quality floor, and protected-escalation weight
+  - name: Retuning governance trace
+    description: Durable record of the signals examined, competing bundle options compared, guardrails checked, uncertainties found, and human adoption or rejection decisions.
+    kind: audit-log
+    required: true
+    examples:
+      - Trace showing which cross-surface regressions blocked one candidate bundle and why the accepted recommendation stayed inside fairness limits
+      - Log linking a rejected retuning package to low evidence quality after a policy change invalidated older outcome data
+  - name: Deferred-change queue
+    description: Optional list of parameter moves that appeared useful but were held because they crossed protected bounds, relied on insufficient evidence, or would have changed local policy rather than shared optimization state.
+    kind: review-queue
+    required: false
+    examples:
+      - Proposed reduction in vulnerable-worker escalation weight held for legal review
+      - Cross-surface change to disclosure-priority handling deferred because it would alter policy, not just tuning
+environment:
+  summary: Operates in governance-sensitive workflows where one optimization bundle influences several linked review, scoring, or routing surfaces, making isolated local tuning unsafe because changes in one surface can distort another.
+  systems:
+    - Shared optimization state store or parameter registry
+    - Analytics and simulation workspace for replaying coupled-surface outcomes
+    - Domain workflow tools such as close-review, portfolio-review, or people-operations systems
+    - Policy, guardrail, and change-control repositories
+    - Governance dashboard for adoption, rollback, and audit review
+  actors:
+    - Optimization steward or operations lead
+    - Domain-specific reviewer or analyst
+    - Policy or governance owner
+    - Agent orchestration layer coordinating retuning stages
+  constraints:
+    - The workflow must stop at recommended or human-adopted optimization-state updates and must not adjudicate underlying business cases or execute downstream actions.
+    - Shared parameters that affect protected classes, fairness limits, or mandatory review floors cannot be changed silently or justified only by local efficiency gains.
+    - Cross-surface trade-offs must remain inspectable so humans can see which objectives improved, which worsened, and what uncertainty remains before adoption.
+    - Retuning must preserve rollback paths to the prior trusted bundle and must flag when uneven rollout across surfaces would create inconsistent governance.
+  assumptions:
+    - The coupled surfaces share enough structured state that their parameters can be versioned and compared as one governed bundle.
+    - Historical outcomes, overrides, and rollback events are preserved with enough fidelity to evaluate cross-surface effects rather than only local metrics.
+    - Human stewards remain accountable for adopting or rejecting materially consequential retuning packages.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The pattern depends on ongoing observation of cross-surface outcomes, override clusters, fairness drift, and context changes rather than one-off analysis.
+  - capability:
+      id: optimization
+      label: Optimization
+      source_vocabulary: capabilities
+    necessity: The workflow's core job is to search for bundle adjustments that improve future behavior across coupled surfaces under explicit trade-offs.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Specialized roles for telemetry analysis, guardrail checking, simulation, and package assembly need shared state so the retuning story remains coherent.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Every proposed bundle shift must be checked against protected parameters, fairness limits, policy-linked floors, and step-size limits before it can be recommended.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Candidate bundles should be replayed or simulated against trusted outcome history so apparent local gains do not hide harm on adjacent surfaces.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow must remember prior bundle versions, human adoptions, rollback triggers, and unresolved deferred changes across retuning cycles.
+  - capability:
+      id: recommendation
+      label: Recommendation
+      source_vocabulary: capabilities
+    necessity: The output is a governed retuning package for human adoption, not an autonomous change to live optimization policy.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Sparse evidence, conflicting signals, or changes that would cross protected bounds must produce explicit deferral or escalation rather than forced tuning.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Distinct telemetry-analysis, constraint-checking, simulation, and retuning-packaging roles are often worth orchestrating separately because coupled-surface tuning requires shared state and explicit trade-off handling.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human stewards stay in the normal loop because materially consequential bundle updates, deferred-change review, and rollback activation require explicit governed adoption.
+autonomy_profile:
+  level:
+    id: recommendation-only
+    label: Recommendation only
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the current coupling map, protected parameters, and adoption thresholds before a new retuning cycle may compare candidate bundles.
+    - Review whether the proposed bundle improves the right cross-surface objectives and whether any worsened metric is acceptable before adoption.
+    - Accept, narrow, defer, or reject the retuning package and decide whether any deferred parameter moves should be escalated to policy owners.
+  reversibility: Candidate bundles and recommendations are easy to recompute, and adopted bundles can usually be rolled back to the prior version. Harm from a poorly adopted bundle may persist through delayed reviews, fairness regressions, or missed protected-priority handling until the rollback takes effect and downstream queues stabilize.
+  escalation: Escalate whenever a proposed bundle would alter protected parameters, change fairness posture, rely on stale or contradictory evidence, imply local policy rewrites instead of bounded tuning, or create uneven rollout risk across coupled surfaces.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Misguided retuning of a shared optimization bundle can propagate poor weighting, hidden fairness drift, or weakened protected-priority handling across multiple review surfaces at once, creating meaningful financial, research-integrity, or people-risk consequences even though humans still control adoption.
+  approval_requirements:
+    - A human steward must explicitly adopt any retuning package before the candidate bundle becomes active shared state for the coupled surfaces.
+    - Policy owners must approve changes that would effectively revise protected floors, fairness caps, or other governance-linked bundle components rather than merely retuning within established limits.
+  auditability: Preserve the current and proposed bundle versions, outcome windows analyzed, simulation results, guardrail checks, deferred changes, human adoption decisions, and rollback events for every retuning cycle.
+  privacy:
+    - Retuning packages should use aggregated or minimally necessary case detail so the optimization rationale can be reviewed without broadly exposing sensitive financial, research, or personnel records.
+    - Access to cross-surface outcome data should respect domain-specific retention and visibility rules, especially when bundle tuning spans protected-worker, confidential-study, or material-financial contexts.
+  security:
+    - Restrict who can edit coupling maps, protected parameters, and bundle adoption thresholds; these governance inputs should be versioned and separately auditable from ordinary operational settings.
+    - Log all adopted bundles, rejected proposals, and manual overrides so covert tuning changes across shared optimization state are detectable.
+  notes: High-risk governance fits because one governed retuning package can reshape several coupled optimization surfaces simultaneously, so even recommendation-only output materially influences how sensitive work is surfaced and reviewed.
+why_agentic:
+  - Useful retuning requires interpreting delayed, noisy feedback across multiple coupled surfaces rather than optimizing one queue, threshold, or score in isolation.
+  - Specialized agent roles can analyze telemetry, simulate bundle candidates, and compare guardrail trade-offs while maintaining one auditable shared optimization state.
+  - The workflow must decide when uncertainty or policy coupling is itself a reason to defer tuning instead of producing an overconfident bundle recommendation.
+failure_modes:
+  - mode: Local improvements on one surface hide regressions on another coupled surface
+    impact: The proposed bundle appears to improve cycle time or reviewer load in one workflow while worsening protected-priority aging, fairness, or evidence quality elsewhere.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Require every candidate bundle to report cross-surface winners and losers explicitly rather than only one aggregate score.
+      - Block adoption when protected metrics degrade beyond preapproved tolerance even if local efficiency improves.
+  - mode: Retuning drifts into implicit policy change
+    impact: A parameter move framed as optimization silently changes materiality posture, worker-protection handling, or publication-integrity expectations that should remain policy-owned.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Maintain an explicit list of policy-linked parameters that may only move through a separate approved policy change.
+      - Queue policy-adjacent bundle moves into the deferred-change list for human review instead of including them in ordinary retuning adoption.
+  - mode: Stale or regime-shifted evidence drives the proposed bundle
+    impact: The workflow recommends a shared-state update based on conditions that no longer apply, spreading outdated optimization logic across several surfaces.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Check for recent policy, staffing, seasonality, or external-context changes before reusing older outcome windows.
+      - Down-rank or reject simulations whose evidence spans an invalidated regime.
+  - mode: Uneven rollout leaves coupled surfaces on inconsistent bundle versions
+    impact: Some teams optimize against old state while others adopt the new bundle, weakening auditability and producing contradictory handling expectations.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Treat bundle version adoption as one governed state transition with explicit propagation checks.
+      - Alert stewards when any coupled surface fails to acknowledge the adopted bundle version within the required window.
+evaluation:
+  success_metrics:
+    - Reduction in cross-surface override frequency, rollback events, and protected-priority misses after humans adopt a retuned bundle.
+    - Percentage of adopted retuning packages that improve at least the targeted objectives without breaching fairness, protected-floor, or evidence-quality guardrails.
+    - Time required for human stewards to inspect and accept or reject a retuning package with clear visibility into trade-offs and deferred changes.
+  quality_criteria:
+    - The recommendation package makes cross-surface trade-offs, uncertainty, and protected-parameter limits explicit rather than hiding them in one blended score.
+    - Candidate bundle changes stay bounded to shared optimization state and never masquerade as direct case disposition, scheduling, or execution logic.
+    - Bundle version lineage, human adoption, and rollback history remain reconstructable across retuning cycles.
+  robustness_checks:
+    - Replay a scenario where one surface improves while another degrades and verify the workflow flags the trade-off instead of declaring success unconditionally.
+    - Test protected-parameter changes disguised as ordinary tuning and confirm they are deferred for policy review.
+    - Simulate partial bundle rollout and ensure the governance trace detects inconsistent version adoption across coupled surfaces.
+  benchmark_notes: Judge retuning quality on cross-surface stability and governance clarity, not just local efficiency gains; a faster or quieter workflow is not better if shared optimization state becomes harder to inspect or easier to misuse.
+implementation_notes:
+  orchestration_notes:
+    - Keep telemetry analysis, bundle candidate generation, guardrail evaluation, simulation, and recommendation packaging as explicit coordinated stages over shared optimization state.
+    - Preserve a clean handoff boundary so human stewards adopt, defer, or reject retuning packages before any live bundle update occurs.
+  integration_notes:
+    - Common implementations connect parameter registries, analytics stores, domain workflow tools, simulation environments, and governance dashboards.
+    - Keep the pattern neutral about whether the bundle controls ranking weights, evidence thresholds, fairness caps, or workload-balancing coefficients; the shared-state retuning loop applies across all of them.
+  deployment_notes:
+    - Start where several review surfaces already share fragile tuning logic and human stewards can compare bundle trade-offs against trusted override history.
+    - Tune adoption criteria conservatively until stewards trust that cross-surface regressions and policy-adjacent changes are surfaced early.
+  references:
+    - docs/patterns/optimize-adapt.md
+    - data/vocabularies/problem-structures.yaml
+    - data/vocabularies/autonomy-levels.yaml
+    - data/vocabularies/risk-levels.yaml
+related_patterns:
+  - id: queue-prioritization-optimization
+    relationship: adjacent
+    notes: Queue reprioritization may consume a shared bundle produced by this pattern, but that pattern focuses on live queue order rather than governed retuning of cross-surface state.
+  - id: adaptive-threshold-calibration
+    relationship: broader-than
+    notes: Threshold calibration tunes one class of parameter; this pattern coordinates several coupled thresholds, weights, and guardrails as one governed bundle.
+  - id: approval-centered-collaboration
+    relationship: can-hand-off-to
+    notes: When stewards want iterative discussion before adoption, the retuning package can feed a collaboration pattern without turning the optimization workflow into the approval process itself.
+example_domains:
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Retune a shared quarter-close optimization bundle that jointly affects exception scoring, evidence-sufficiency weighting, and reviewer-load balancing across close-control surfaces before the controller adopts the next bundle version.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Propose a new benchmark-portfolio bundle that adjusts novelty, reproducibility, and disclosure-risk weights across intake, replication review, and publication-readiness surfaces while preserving integrity guardrails.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Recommend changes to a leave-and-accommodation review bundle that coordinates urgency weighting, document-sufficiency thresholds, and protected-worker fairness caps across intake and review surfaces without altering underlying policy ownership.
+maturity: draft
+tags:
+  - optimize-adapt
+  - feedback-driven-optimization
+  - governed-retuning
+  - orchestrated-multi-agent
+  - recommendation-only
+  - high-risk

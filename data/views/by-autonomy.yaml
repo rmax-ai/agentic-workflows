@@ -51,7 +51,7 @@ autonomy_levels:
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing, readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation]
     execute-automate: []
-    optimize-adapt: []
+    optimize-adapt: [governed-optimization-bundle-retuning]
     human-agent-collaborative-work: [approval-centered-collaboration]
 - autonomy_level:
     id: approval-gated

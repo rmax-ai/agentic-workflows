@@ -52,7 +52,7 @@ architectures:
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: [policy-constrained-escalation-routing]
     execute-automate: [exception-aware-task-execution]
-    optimize-adapt: []
+    optimize-adapt: [governed-optimization-bundle-retuning]
     human-agent-collaborative-work: [approval-centered-collaboration]
 - architecture:
     id: human-in-the-loop
@@ -66,7 +66,7 @@ architectures:
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing, readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates]
-    optimize-adapt: [adaptive-threshold-calibration]
+    optimize-adapt: [adaptive-threshold-calibration, governed-optimization-bundle-retuning]
     human-agent-collaborative-work: [analyst-copilot-loop, approval-centered-collaboration, shared-workbench-orchestration]
 - architecture:
     id: event-driven-monitoring
