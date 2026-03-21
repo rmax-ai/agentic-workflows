@@ -66,7 +66,7 @@ domains:
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing, control-requirement-attestation-recommendation, approval-gated-recommendation-release, critical-escalation-authority-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates, human-directed-task-orchestration, workflow-hand-off-and-completion]
     optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration, approval-gated-optimization-state-release]
-    human-agent-collaborative-work: [analyst-copilot-loop, approval-gated-collaborative-artifact-release, critical-protected-artifact-collaboration]
+    human-agent-collaborative-work: [analyst-copilot-loop, shared-workbench-orchestration, approval-gated-collaborative-artifact-release, critical-protected-artifact-collaboration]
 - domain:
     id: operations
     label: Operations

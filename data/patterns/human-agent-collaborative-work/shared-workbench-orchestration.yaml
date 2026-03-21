@@ -16,6 +16,9 @@ domain:
   - id: operations
     label: Operations
     source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
   - id: support
     label: Support
     source_vocabulary: domains
@@ -257,6 +260,11 @@ example_domains:
       label: Operations
       source_vocabulary: domains
     example: Maintain a shared rollout caveat board for a warehouse rules change so site leads, operations owners, and the agent can keep waivers, blocked sections, and source references synchronized without assigning work.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Maintain an internal control-library caveat board so policy owners, testing coordinators, and the agent can keep source references, caveat notes, ownership, and explicit holds synchronized without turning the workbench into advice or attestation.
   - domain:
       id: support
       label: Support
