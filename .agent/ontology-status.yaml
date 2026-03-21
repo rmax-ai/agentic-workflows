@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-execute-automate-research-complete
+repository_stage: phase-6-grounding-execute-automate-engineering-complete
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 52
+  instance_files: 53
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -53,7 +53,7 @@ pattern_counts_by_family:
   optimize-adapt: 1
   human-agent-collaborative-work: 1
 instance_counts_by_domain:
-  engineering: 6
+  engineering: 7
   finance: 8
   compliance: 9
   operations: 9
@@ -99,6 +99,7 @@ repo_reality:
     - instances/engineering/production-release-regression-alert-triage.md
     - instances/engineering/release-candidate-evidence-packet-to-deployment-review-staging-record-handoff.md
     - instances/engineering/cross-team-release-readiness-review-scheduling.md
+    - instances/engineering/approved-production-change-freeze-exception-portal-submission.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
     - instances/finance/invoice-packet-to-payables-record-handoff.md
     - instances/finance/dual-approved-vendor-bank-account-change-submission.md
@@ -150,13 +151,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and fifty-two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and fifty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
   - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open domain slices only if further cross-domain investigation coverage becomes worthwhile."
   - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open monitoring slices only if deeper cross-domain triage coverage becomes worthwhile."
-  - "`recommend-decide-escalate` is now grounded across finance, compliance, operations, support, and HR, leaving engineering and research as the remaining open slices only if broader cross-domain recommendation depth becomes more valuable than shoring up coordination coverage."
-  - "`execute-automate` is now grounded across finance, compliance, HR, operations, research, and support, leaving engineering as the only open domain slice if another approval-gated browser or portal execution case is worth prioritizing next."
+  - "`recommend-decide-escalate` is now grounded across finance, compliance, operations, support, and HR, leaving engineering and research as the remaining open slices and making it the clearest next family for cross-domain grounding."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-expand-execute-automate-engineering-grounding
-  summary: "Use the next small grounding batch to add one grounded `browser-based-form-completion-with-approval-gates` example in engineering so `execute-automate` closes its last open domain slice without widening scope."
+  id: phase-6-expand-recommend-decide-escalate-engineering-grounding
+  summary: "Use the next small grounding batch to add one grounded `deal-desk-recommendation-support` example in engineering so `recommend-decide-escalate` starts closing its remaining engineering and research domain gaps without widening scope."
