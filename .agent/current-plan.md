@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Iteration `20260321-133622` is now in progress: scope one `compliance`-grounded `workflow-hand-off-and-completion` slice so the execute family gains another low-risk post-decision closure example without drifting past authoritative closure, archive linkage, queue cleanup, and tracker propagation.
+
 Iteration `20260321-133112` is now complete: `workflow-hand-off-and-completion` gained new `hr` grounding through one accepted protected-leave review closure and case-tracker synchronization example, and the directly dependent canonical pattern metadata plus derived domain view now expose that low-risk execute-closure slice without drifting past authoritative post-decision closure, archive linkage, queue cleanup, and tracker propagation.
 
 Iteration `20260321-132512` is now complete: `change-triggered-representation-refresh` gained new `research` grounding through one already-issued benchmark-study research-review intake-record refresh example, and the directly dependent canonical pattern metadata plus derived domain view now expose that moderate-risk transform-refresh slice without drifting past one staged structured representation refreshed after authoritative source updates with explicit delta lineage, supersession state, and reviewable exceptions.
@@ -44,7 +46,7 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: shift to the tied-thinnest `compliance` domain through one still-family-safe `workflow-hand-off-and-completion` example, if the slice can stay bounded to one already-decided compliance case moving through authoritative post-decision closure, archive linkage, and tracker-propagation updates rather than recommendation, adjudication, or live external action.
+- Current refinement target: add one tied-thinnest `compliance` domain example under `workflow-hand-off-and-completion`, provided the slice stays bounded to one already-decided compliance case moving through authoritative post-decision closure, archive linkage, queue cleanup, and tracker-propagation updates rather than recommendation, adjudication, or live external action.
 
 ## Ordered tasks
 
@@ -55,10 +57,11 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-133112`
+- Timestamp: `20260321-133622`
 - Previous completed scope: added one compliance-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Previous completed scope: added one research-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern metadata to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Completed scope: added one HR-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Previous completed scope: added one HR-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Current scoped work: add one compliance-grounded `workflow-hand-off-and-completion` example, expand the canonical pattern metadata to include `compliance`, and refresh the derived domain view if the family boundary continues to hold.
 - Current working hypothesis: execute-family completion refinement remains family-safe only when the primary output is one authoritative post-decision closure state carried through bounded queue cleanup, archive linkage, tracker synchronization, and internal notification, while recommendation, adjudication, verification gating, and live people-action execution stay explicitly outside the workflow.
 - Current scoped follow-on: move next to one similarly narrow compliance-grounded `workflow-hand-off-and-completion` slice so depth-balancing continues across the tied-thinnest domains without reopening broader structural expansion.
 - Boundary reminder: future execute-family completion work should remain tied to one already-decided case moving through explicit closure, archive linkage, tracker propagation, idempotent completion state, and bounded notification rather than a recommendation packet, evidence verdict, approval artifact, or live external action.
