@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-transform-expanded
+repository_stage: phase-6-grounding-scheduling-expanded
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 15
+  instance_files: 17
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -58,8 +58,8 @@ instance_counts_by_domain:
   compliance: 4
   operations: 2
   research: 2
-  support: 2
-  hr: 1
+  support: 3
+  hr: 2
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -96,8 +96,10 @@ repo_reality:
     - instances/compliance/cross-border-deal-exception-review.md
     - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
     - instances/hr/approved-payroll-status-change-submission.md
+    - instances/hr/interview-panel-availability-coordination.md
     - instances/finance/invoice-packet-to-payables-record-handoff.md
     - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
+    - instances/support/customer-escalation-bridge-scheduling.md
     - instances/finance/multi-year-renewal-pricing-and-payment-structure-recommendation.md
     - instances/compliance/beneficial-ownership-registry-update-submission.md
     - instances/compliance/sanctions-alert-closure-regulator-response-copilot-loop.md
@@ -118,12 +120,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and fifteen grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and seventeen grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
-  - "`plan-coordinate-schedule` still has just one grounded operations example, while support and HR remain only partial cells for that family."
-  - "`execute-automate` still concentrates its grounded coverage in compliance and HR, leaving other practical domain slices thin despite representative seed coverage."
+  - "`execute-automate` still concentrates its grounded coverage in compliance and HR, leaving finance, operations, support, engineering, and research slices thin despite representative seed coverage."
   - "`optimize-adapt` still has only one covered support cell, with compliance and operations remaining partial opportunities for grounding."
-  - "Most families still have only one or two domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
+  - "`plan-coordinate-schedule` is now stronger across operations, support, and HR, but the family still lacks grounded finance, compliance, engineering, and research examples if broader scheduling coverage becomes important later."
+  - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-rebalance-schedule-execute-optimize-slices
-  summary: "Use the next small grounding batch to deepen a thin partial slice in `plan-coordinate-schedule`, `execute-automate`, or `optimize-adapt`, with preference for a concrete support, HR, compliance, or operations workflow that materially differs from the current transform and collaboration examples."
+  id: phase-6-rebalance-execute-or-optimize-slices
+  summary: "Use the next small grounding batch to deepen a thin partial slice in `execute-automate` or `optimize-adapt`, with preference for a concrete finance, operations, support, or compliance workflow that materially differs from the current scheduling, transform, and collaboration examples."
