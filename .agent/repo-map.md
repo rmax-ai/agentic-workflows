@@ -61,6 +61,7 @@
 ### Current canonical pattern data
 
 - `data/patterns/gather-retrieve-synthesize/research-synthesis-with-citation-verification.yaml` — canonical gather/synthesize pattern for evidence-grounded synthesis with citation verification.
+- `data/patterns/gather-retrieve-synthesize/approval-packet-generation.yaml` — canonical gather/synthesize pattern for governed approval-packet assembly that ends at human-reviewed handoff, with explicit provenance, exception visibility, and multi-agent evidence assembly.
 - `data/patterns/transform-process/document-to-structured-data-handoff.yaml` — canonical transform/process pattern for turning heterogeneous documents into schema-aligned structured records with provenance, lossiness, and exception-aware handoff.
 - `data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml` — canonical investigation pattern for evidence-backed incident diagnosis and reconciled timelines.
 - `data/patterns/monitor-detect-triage/risk-alert-triage.yaml` — canonical monitoring pattern for governed alert prioritization and escalation packaging.

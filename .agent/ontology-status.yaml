@@ -31,7 +31,7 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 9
+  pattern_files: 10
   instance_files: 63
   pattern_family_docs: 9
   glossary_files: 1
@@ -46,7 +46,7 @@ coverage_totals:
   autonomy_levels_with_patterns: 5
   risk_levels_with_patterns: 4
 pattern_counts_by_family:
-  gather-retrieve-synthesize: 1
+  gather-retrieve-synthesize: 2
   transform-process: 1
   investigate-reconcile-verify: 1
   monitor-detect-triage: 1
@@ -83,6 +83,7 @@ repo_reality:
     - data/views/by-autonomy.yaml
     - data/views/by-risk.yaml
     - data/patterns/gather-retrieve-synthesize/research-synthesis-with-citation-verification.yaml
+    - data/patterns/gather-retrieve-synthesize/approval-packet-generation.yaml
     - data/patterns/transform-process/document-to-structured-data-handoff.yaml
     - data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml
     - data/patterns/monitor-detect-triage/risk-alert-triage.yaml
@@ -162,11 +163,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and sixty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, ten canonical patterns across all nine top-level families, and sixty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "All nine top-level families are now grounded across engineering, finance, compliance, operations, research, support, and HR after adding research-domain monitoring coverage."
-    - "Most families still have only one canonical pattern, leaving many architecture and risk cells partial even though the family/domain matrix is now fully grounded."
-    - "`orchestrated-multi-agent` remains concentrated in `investigate-reconcile-verify`, while sparse `low` and `critical` risk anchors remain concentrated in `plan-coordinate-schedule` and `execute-automate`."
+    - "`gather-retrieve-synthesize` now has a second canonical pattern covering governed approval-packet assembly, but most other families still have only one canonical pattern, leaving many architecture and risk cells partial even though the family/domain matrix is fully grounded."
+    - "`orchestrated-multi-agent` now spans `gather-retrieve-synthesize` and `investigate-reconcile-verify`, while sparse `low` and `critical` risk anchors remain concentrated in `plan-coordinate-schedule` and `execute-automate`."
 next_action:
   id: phase-7-balance-architecture-and-risk-cells
-  summary: "Use the next bounded batch to add one second canonical pattern that fills a thin architecture or risk cell, prioritizing uncovered `orchestrated-multi-agent` or sparse `low` / `critical` combinations."
+  summary: "Use the next bounded batch to add one second canonical pattern that fills a thin `low` or `critical` risk cell, or further broadens `orchestrated-multi-agent` beyond the current gather and investigation anchors."

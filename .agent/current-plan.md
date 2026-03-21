@@ -2,40 +2,42 @@
 
 ## Iteration focus
 
-Iteration `20260321-045924` will add one second canonical pattern in `gather-retrieve-synthesize` so the repository improves thin structural coverage instead of widening domain-first grounding. The targeted gap is the currently empty `orchestrated-multi-agent` architecture cell outside `investigate-reconcile-verify`, with a secondary goal of improving sparse `high` risk coverage outside the current investigation, monitoring, and recommendation anchors.
+Iteration `20260321-045924` is complete: it added `approval-packet-generation` as a second canonical `gather-retrieve-synthesize` pattern, expanding that family into governed approval-packet assembly while covering the previously empty `orchestrated-multi-agent` architecture cell and a new `high` risk anchor for the family. The repository can now keep Phase 7 focused on structural balancing rather than family/domain breadth.
 
 ## Current phase
 
 - Phase 2: controlled vocabularies are complete, including the `transform-process` mapping term `structured-representation-transformation`
 - Phase 3: navigation views are complete and reference canonical patterns in all nine top-level families
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
-- Phase 5: canonical seed coverage spans all nine top-level pattern families, but most families still have only one canonical pattern
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains
-- Phase 7: coverage refinement remains active, with the highest-leverage gaps now centered on thin architecture and risk cells rather than family/domain presence
+- Phase 5: canonical coverage now spans ten patterns across all nine top-level pattern families
+- Phase 6: grounded instances still cover all nine families across all seven currently modeled domains
+- Phase 7: coverage refinement remains active, with the highest-leverage gaps now centered on sparse `low` and `critical` risk cells plus additional multi-agent breadth beyond the current gather/investigation anchors
 - Tooling baseline: uv-managed Python 3.14 helper workflow remains the validation path
 
 ## Ordered tasks
 
-1. Add one reusable `gather-retrieve-synthesize` pattern that stays inside the family boundary by ending in a governed packet or brief rather than a recommendation or execution step.
-2. Prefer `approval-packet-generation` as the bounded canonical addition because it can legitimately use `orchestrated-multi-agent` specialization for retrieval, evidence assembly, and verification while keeping the output inspectable and human-reviewed.
-3. Update the derived browse views so the new pattern appears in the pattern-first tree and in the relevant architecture, autonomy, risk, and domain views.
-4. Re-run `uv run python scripts/python/validate_yaml.py` before closing the iteration.
-5. After the content commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log so execution memory matches repository reality.
+1. Re-read `.agent/coverage-matrix.yaml`, the family overview docs, and the canonical pattern set before selecting the next refinement batch.
+2. Prefer the next bounded batch to add one second canonical pattern in a family that still has only one entry and can legitimately expand `low` or `critical` risk coverage, or broaden `orchestrated-multi-agent` into another family.
+3. Prioritize patterns that stay cleanly within their family boundary while improving one thin structural cell rather than reopening already-balanced family/domain coverage.
+4. Keep terminology aligned with the existing vocabularies, and record any genuinely new concept in `.agent/decisions.md` before it spreads across schema-adjacent files.
+5. After the next content commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log so execution memory continues to match repository reality.
+6. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
 
 ## Iteration checkpoint
 
 - Timestamp: `20260321-045924`
-- Planned subagent scope: author one new canonical `gather-retrieve-synthesize` pattern and the linked browse-view updates in a single focused commit.
-- Planned orchestrator follow-up: refresh execution memory to reflect the expanded canonical pattern inventory and the newly covered architecture/risk cells.
+- Completed subagent scope: authored `data/patterns/gather-retrieve-synthesize/approval-packet-generation.yaml` and updated the linked browse views in one focused content commit.
+- Completed orchestrator follow-up: refreshed execution memory so the new canonical pattern inventory and structural coverage changes are reflected in status, coverage tracking, the repository map, the backlog, and the dated iteration log.
 
 ## Constraints
 
-- Keep the ontology pattern-first: do not widen this batch into new grounded instances, vocabulary edits, or schema changes unless a hard dependency issue appears.
-- Preserve the `gather-retrieve-synthesize` family boundary by ending the pattern at packet generation and human review rather than downstream approval decisions or operational execution.
-- Treat `data/views/` as derived browse artifacts and keep them aligned with stable pattern ids and existing family order.
-- Ensure the subagent task ends with exactly one git commit.
-- Keep governance, provenance, privacy, and auditability explicit because this pattern intentionally raises the family's risk posture.
+- Keep the ontology pattern-first: choose the next canonical expansion based on coverage gaps rather than domain-first duplication.
+- Treat `data/views/` as derived browse artifacts and keep any future updates aligned with stable vocabulary and pattern ids.
+- Ensure every subagent task ends with exactly one git commit.
+- Prefer modest, dependency-aware batches that improve one thin architecture or risk slice rather than forcing a broad cross-family sweep.
+- Keep governance, reversibility, privacy, and auditability explicit in both canonical patterns and grounded examples.
+- Do not widen the next iteration into vocabulary or schema changes unless a dependency issue makes that unavoidable.
 
 ## Expected outcome
 
-At the end of this iteration, the repository should have a second `gather-retrieve-synthesize` canonical pattern, improved `orchestrated-multi-agent` and `high` risk coverage in that family, updated browse views, validated YAML, and refreshed execution memory describing the new structural coverage.
+The next iteration should likely add one carefully chosen second canonical pattern that improves sparse `low` or `critical` risk coverage, or extends `orchestrated-multi-agent` into another family without diluting the current ontology boundaries.

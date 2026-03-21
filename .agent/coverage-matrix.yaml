@@ -46,7 +46,7 @@ matrices:
     optimize-adapt: {engineering: covered, finance: covered, compliance: covered, operations: covered, research: covered, support: covered, hr: covered}
     human-agent-collaborative-work: {engineering: covered, finance: covered, compliance: covered, operations: covered, research: covered, support: covered, hr: covered}
   pattern_family_x_architecture:
-    gather-retrieve-synthesize: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
+    gather-retrieve-synthesize: {tool-using-single-agent: covered, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
     transform-process: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
     investigate-reconcile-verify: {tool-using-single-agent: none, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
     monitor-detect-triage: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: covered, approval-gated-execution: none}
@@ -56,7 +56,7 @@ matrices:
     optimize-adapt: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: covered, approval-gated-execution: none}
     human-agent-collaborative-work: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
   pattern_family_x_risk:
-    gather-retrieve-synthesize: {low: none, moderate: covered, high: none, critical: none}
+    gather-retrieve-synthesize: {low: none, moderate: covered, high: covered, critical: none}
     transform-process: {low: none, moderate: covered, high: none, critical: none}
     investigate-reconcile-verify: {low: none, moderate: none, high: covered, critical: none}
     monitor-detect-triage: {low: none, moderate: none, high: covered, critical: none}
@@ -68,7 +68,7 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Nine canonical pattern entries now populate all nine top-level families, and sixty-three grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, recommendation, collaboration, compliance, operations, support, HR, research, and synthesis coverage.
+    - Ten canonical pattern entries now populate all nine top-level families, and sixty-three grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, recommendation, collaboration, compliance, operations, support, HR, research, and synthesis coverage.
     - "`recommend-decide-escalate` now has covered engineering, finance, compliance, operations, research, support, and HR cells after adding a benchmark-study publication go/no-go recommendation example alongside the earlier finance, compliance, operations, support, HR, and engineering cases."
     - "`execute-automate` now has covered engineering, finance, compliance, HR, operations, research, and support cells after adding an approved production change-freeze exception portal submission alongside the earlier finance, compliance, payroll, operations, support, and research examples."
     - "`human-agent-collaborative-work` now has covered support, research, compliance, engineering, operations, finance, and HR cells after adding regulator-response, benchmark-briefing, support-escalation, deprecated-message-broker migration exception, supplier-labeling remediation-brief, quarter-close covenant clarification, and workplace accommodation exception memo copilot loops."
@@ -79,4 +79,5 @@ summary:
     - "`monitor-detect-triage` now also has representative `tool-using-single-agent` architecture coverage because the support alert-correlation workflow explicitly combines event scoring with evidence assembly before human-controlled routing."
     - "`investigate-reconcile-verify` now has covered engineering, finance, compliance, operations, support, research, and HR cells after adding a protected-leave return-to-work status drift root-cause investigation example alongside the earlier engineering, treasury, sanctions-screening, operations, support, and research anchors."
     - "`gather-retrieve-synthesize` now has covered research, engineering, finance, compliance, operations, support, and HR cells after adding debt-covenant quarter-close, cross-border safeguard, conveyor-safety readiness, enterprise-support obligations, pay-transparency posting-obligation, and service-mesh migration-readiness synthesis examples."
-    - The family/domain matrix is now fully covered across all nine top-level families and all seven currently modeled domains, so the highest-leverage next gaps are thin architecture and risk cells such as `orchestrated-multi-agent` outside investigation coverage and sparse `low` / `critical` anchors outside planning and execution.
+    - "`gather-retrieve-synthesize` now also has representative `orchestrated-multi-agent` architecture coverage and `high` risk coverage through `approval-packet-generation`, which keeps the family bounded at governed packet handoff while broadening structural coverage beyond the original research synthesis anchor."
+    - The family/domain matrix is now fully covered across all nine top-level families and all seven currently modeled domains, so the highest-leverage next gaps are sparse `low` / `critical` anchors outside planning and execution plus additional `orchestrated-multi-agent` coverage beyond the current gather and investigation anchors.
