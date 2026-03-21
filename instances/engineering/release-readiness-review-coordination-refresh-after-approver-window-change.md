@@ -12,6 +12,28 @@ Engineering.
 
 A release-readiness review for a customer-facing identity service already has a coordination packet, tentative hold, required-attendee list, and evidence-ready checkpoint linked to the governing change record. After that package is issued, authoritative schedule conditions shift: the security reviewer’s approved delegate mapping changes, the database migration owner loses the original review window because of an incident bridge, and updated test-evidence timing pushes the earliest valid review start later in the same day. The workflow should refresh the existing coordination package, issue participant-specific delta notices, and hold the changed schedule state at an explicit release-owner adoption checkpoint rather than rebuilding the whole cutover plan, deciding go/no-go, or touching the deployment itself.
 
+```mermaid
+flowchart TD
+    A["Authoritative delegate, availability,<br>or evidence-ready change arrives"]
+    B["Verify the updated delegate mapping,<br>migration-owner window loss, and latest<br>evidence-ready timestamp against the<br>governing change record"]
+    C{"A viable refreshed review slot and<br>required-role coverage still stay inside the<br>approved cutover window?"}
+    D["Refresh the existing coordination packet,<br>tentative hold, attendee state, and lineage"]
+    E["Send participant-specific delta notices to<br>affected reviewers, delegates, and release<br>coordination owners"]
+    F{"Release owner adopts the materially<br>changed review timing or attendee state?"}
+    G["Publish the refreshed packet as the<br>current authoritative review coordination state"]
+    H["Keep the refreshed packet tentative at<br>the release-owner adoption checkpoint"]
+    I["Route a bounded exception for freeze-window<br>risk, missing approved delegate coverage,<br>or other out-of-policy refresh conditions"]
+
+    A -->|"Detect authoritative change"| B
+    B -->|"Check schedule and role constraints"| C
+    C -->|"Yes"| D
+    C -->|"No"| I
+    D -->|"Reissue current package"| E
+    E -->|"Present changed state for adoption"| F
+    F -->|"Yes"| G
+    F -->|"No"| H
+```
+
 ## Target systems / source systems
 
 - Change-management record with the approved cutover window, required review roles, and current owner confirmation state
