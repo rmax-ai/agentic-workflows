@@ -30,7 +30,7 @@ domains:
     label: Engineering
     source_vocabulary: domains
   pattern_families:
-    gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation]
+    gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation, crisis-briefing-evidence-synthesis]
     transform-process: [normalization-and-enrichment, change-triggered-representation-refresh]
     investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification]
     monitor-detect-triage: [explainable-watchlist-maintenance, critical-signal-corroboration-triage]
@@ -72,7 +72,7 @@ domains:
     label: Operations
     source_vocabulary: domains
   pattern_families:
-    gather-retrieve-synthesize: [change-triggered-context-briefing]
+    gather-retrieve-synthesize: [change-triggered-context-briefing, crisis-briefing-evidence-synthesis]
     transform-process: [document-to-structured-data-handoff, normalization-and-enrichment]
     investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification]
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
@@ -100,7 +100,7 @@ domains:
     label: Support
     source_vocabulary: domains
   pattern_families:
-    gather-retrieve-synthesize: [change-triggered-context-briefing]
+    gather-retrieve-synthesize: [change-triggered-context-briefing, crisis-briefing-evidence-synthesis]
     transform-process: [change-triggered-representation-refresh]
     investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification]
     monitor-detect-triage: [explainable-watchlist-maintenance, anomaly-detection-review]

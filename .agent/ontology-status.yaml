@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 31
-  instance_files: 108
+  pattern_files: 32
+  instance_files: 111
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -46,7 +46,7 @@ coverage_totals:
   autonomy_levels_with_patterns: 6
   risk_levels_with_patterns: 4
 pattern_counts_by_family:
-  gather-retrieve-synthesize: 3
+  gather-retrieve-synthesize: 4
   transform-process: 4
   investigate-reconcile-verify: 3
   monitor-detect-triage: 4
@@ -56,12 +56,12 @@ pattern_counts_by_family:
   optimize-adapt: 3
   human-agent-collaborative-work: 3
 instance_counts_by_domain:
-  engineering: 18
+  engineering: 19
   finance: 16
   compliance: 12
-  operations: 14
+  operations: 15
   research: 17
-  support: 17
+  support: 18
   hr: 14
 repo_reality:
   available_ontology_assets:
@@ -85,6 +85,7 @@ repo_reality:
     - data/patterns/gather-retrieve-synthesize/research-synthesis-with-citation-verification.yaml
     - data/patterns/gather-retrieve-synthesize/approval-packet-generation.yaml
     - data/patterns/gather-retrieve-synthesize/change-triggered-context-briefing.yaml
+    - data/patterns/gather-retrieve-synthesize/crisis-briefing-evidence-synthesis.yaml
     - data/patterns/transform-process/document-to-structured-data-handoff.yaml
     - data/patterns/transform-process/normalization-and-enrichment.yaml
     - data/patterns/transform-process/batch-content-transformation.yaml
@@ -131,6 +132,7 @@ repo_reality:
     - instances/engineering/release-candidate-review-staging-record-refresh-after-evidence-change.md
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md
+    - instances/engineering/multi-region-payments-outage-crisis-briefing-evidence-synthesis.md
     - instances/engineering/deprecated-message-broker-client-migration-exception-copilot-loop.md
     - instances/engineering/production-release-regression-alert-triage.md
     - instances/engineering/recurring-ci-warning-watchlist-upkeep.md
@@ -168,6 +170,7 @@ repo_reality:
     - instances/operations/site-inspection-packet-to-corrective-maintenance-work-order-handoff.md
     - instances/operations/field-service-dispatch-queue-reprioritization.md
     - instances/operations/conveyor-safety-bulletin-synthesis-for-network-readiness-review.md
+    - instances/operations/network-cold-chain-excursion-command-crisis-briefing-evidence-synthesis.md
     - instances/operations/warehouse-slotting-rule-change-digest-for-shift-supervisor-briefing.md
     - instances/operations/warehouse-slotting-rollout-caveat-board-shared-workbench-upkeep.md
     - instances/operations/distribution-sorter-misroute-root-cause-investigation.md
@@ -189,6 +192,7 @@ repo_reality:
     - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
     - instances/support/customer-escalation-bridge-scheduling.md
     - instances/support/enterprise-support-obligation-synthesis-for-severity-one-review.md
+    - instances/support/enterprise-admin-lockout-executive-bridge-crisis-briefing-evidence-synthesis.md
     - instances/support/premium-support-escalation-runbook-change-digest-for-duty-manager-briefing.md
     - instances/support/premium-support-workaround-article-staging-board-shared-workbench-upkeep.md
     - instances/support/enterprise-outage-evidence-packet-to-support-escalation-record-handoff.md
@@ -229,12 +233,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, thirty-one canonical patterns across all nine top-level families, and one hundred eight grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, thirty-two canonical patterns across all nine top-level families, and one hundred eleven grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`explainable-watchlist-maintenance` now gives `monitor-detect-triage` a fourth canonical pattern plus representative `low` risk and `exception-gated-autonomy` coverage while staying bounded at explainable watchlisting, bounded noise suppression, and routine attention routing rather than anomaly review, recommendation, investigation, or execution."
-    - "`monitor-detect-triage` now spans `low`, `moderate`, `high`, and `critical` risk slices, making it the second family after `execute-automate` to fill the full tracked risk ladder."
-    - "The derived index tree and alternate browse views are now realigned to canonical pattern inventory, including the new explainable watchlist anchor and its `exception-gated-autonomy` placement, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
-    - "All nine top-level families still have at least three canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps now move toward narrower family-specific critical-risk slices such as `gather-retrieve-synthesize`'s missing `critical` risk coverage rather than missing global scaffolding."
+    - "`crisis-briefing-evidence-synthesis` now gives `gather-retrieve-synthesize` a fourth canonical pattern plus representative `critical` risk coverage while staying bounded at time-sensitive evidence assembly, provenance-preserving synthesis, and crisis-briefing handoff rather than triage, recommendation, investigation, or execution."
+    - "`gather-retrieve-synthesize` now spans `low`, `moderate`, `high`, and `critical` risk slices, making it the third family after `monitor-detect-triage` and `execute-automate` to fill the full tracked risk ladder."
+    - "The derived family doc, index tree, and alternate browse views are now realigned to canonical pattern inventory, including the new crisis-briefing synthesis anchor and its critical-risk placements, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
+    - "All nine top-level families still have at least three canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps now move toward another narrow family-specific `critical` risk slice such as `transform-process` rather than missing global scaffolding."
   next_action:
-    id: phase-7-critical-synthesis-refinement
-    summary: "Use the next iteration to evaluate whether `gather-retrieve-synthesize` should gain one critical-risk synthesis pattern that stays bounded at time-sensitive evidence assembly and crisis-briefing handoff without drifting into alert triage, recommendation, investigation, or execution."
+    id: phase-7-critical-transform-refinement
+    summary: "Use the next iteration to evaluate whether `transform-process` should gain one critical-risk pattern that stays bounded at high-consequence representation handling and governed handoff without drifting into recommendation or execution."

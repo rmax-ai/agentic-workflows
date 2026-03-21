@@ -71,7 +71,7 @@ risk_levels:
     label: Critical
     source_vocabulary: risk-levels
   pattern_families:
-    gather-retrieve-synthesize: []
+    gather-retrieve-synthesize: [crisis-briefing-evidence-synthesis]
     transform-process: []
     investigate-reconcile-verify: []
     monitor-detect-triage: [critical-signal-corroboration-triage]

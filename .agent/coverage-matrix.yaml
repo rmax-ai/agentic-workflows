@@ -56,7 +56,7 @@ matrices:
     optimize-adapt: {tool-using-single-agent: covered, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: covered, approval-gated-execution: none}
     human-agent-collaborative-work: {tool-using-single-agent: covered, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: covered, approval-gated-execution: none}
   pattern_family_x_risk:
-    gather-retrieve-synthesize: {low: covered, moderate: covered, high: covered, critical: none}
+    gather-retrieve-synthesize: {low: covered, moderate: covered, high: covered, critical: covered}
     transform-process: {low: covered, moderate: covered, high: covered, critical: none}
     investigate-reconcile-verify: {low: covered, moderate: covered, high: covered, critical: none}
     monitor-detect-triage: {low: covered, moderate: covered, high: covered, critical: covered}
@@ -68,7 +68,7 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Thirty-one canonical pattern entries now populate all nine top-level families, and one hundred eight grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, recommendation, collaboration, compliance, operations, support, HR, research, and synthesis coverage.
+    - Thirty-two canonical pattern entries now populate all nine top-level families, and one hundred eleven grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, recommendation, collaboration, compliance, operations, support, HR, research, and synthesis coverage.
     - "`recommend-decide-escalate` now has covered engineering, finance, compliance, operations, research, support, and HR cells after adding a benchmark-study publication go/no-go recommendation example alongside the earlier finance, compliance, operations, support, HR, and engineering cases."
     - "`execute-automate` now has covered engineering, finance, compliance, HR, operations, research, and support cells after adding an approved production change-freeze exception portal submission alongside the earlier finance, compliance, payroll, operations, support, and research examples."
     - "`human-agent-collaborative-work` now has covered support, research, compliance, engineering, operations, finance, and HR cells after adding regulator-response, benchmark-briefing, support-escalation, deprecated-message-broker migration exception, supplier-labeling remediation-brief, quarter-close covenant clarification, workplace accommodation exception memo, and the newer engineering, finance, HR, compliance, operations, and support approval-readiness collaboration loops."
@@ -100,6 +100,8 @@ summary:
     - "`shared-workbench-orchestration` now gives `human-agent-collaborative-work` representative `low` risk, `bounded-delegation`, and `event-driven-monitoring` coverage while preserving a clean family boundary at bounded internal artifact upkeep rather than synthesis-only drafting, approval readiness, or downstream execution."
     - "`gather-retrieve-synthesize` now has covered research, engineering, finance, compliance, operations, support, and HR cells at both the grounded-example layer and the canonical-pattern layer after adding `change-triggered-context-briefing` for operations, support, and HR alongside the earlier research, engineering, finance, and compliance anchors."
     - "`change-triggered-context-briefing` now gives `gather-retrieve-synthesize` representative `low` risk, `event-driven-monitoring`, and `bounded-delegation` coverage while preserving a clean family boundary at contextual revision digests rather than alert triage, recommendation, or execution."
+    - "`crisis-briefing-evidence-synthesis` now gives `gather-retrieve-synthesize` representative `critical` risk coverage while preserving a clean family boundary at time-sensitive evidence assembly, cross-source compression, provenance-preserving synthesis, and crisis-briefing handoff rather than triage, recommendation, investigation, or execution."
+    - "`gather-retrieve-synthesize` now spans low-, moderate-, high-, and critical-risk slices after adding `crisis-briefing-evidence-synthesis` plus engineering, operations, and support crisis-briefing examples alongside the earlier research, finance, compliance, HR, and change-briefing anchors."
     - "`change-triggered-representation-refresh` now gives `transform-process` representative `event-driven-monitoring` and `exception-gated-autonomy` coverage while preserving a clean family boundary at refreshed staged representations rather than informational briefings, operational closure, or downstream execution."
-    - "The derived browse views are now back in sync with canonical inventory, including the new staged execution anchor and its corrected `exception-gated-autonomy` placement."
-    - "With `monitor-detect-triage` now spanning all four risk levels, the next highest-leverage gap likely shifts toward another narrow family-specific critical-risk refinement such as `gather-retrieve-synthesize`'s missing `critical` slice."
+    - "The derived browse views are now back in sync with canonical inventory, including the new crisis-briefing synthesis anchor and its critical-risk placements."
+    - "With `gather-retrieve-synthesize` now spanning all four risk levels alongside `monitor-detect-triage` and `execute-automate`, the next highest-leverage gap likely shifts toward another narrow family-specific critical-risk refinement such as `transform-process`."

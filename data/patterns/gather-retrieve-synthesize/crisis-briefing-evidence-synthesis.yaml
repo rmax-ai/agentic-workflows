@@ -1,0 +1,269 @@
+id: crisis-briefing-evidence-synthesis
+slug: crisis-briefing-evidence-synthesis
+name: Crisis briefing evidence synthesis
+summary: Assemble time-sensitive evidence from distributed sources into a provenance-preserving crisis brief so human response leaders can start from one grounded cross-source picture after a critical case is already declared, without triaging alerts, recommending actions, investigating root cause, or executing the response itself.
+pattern_family:
+  id: gather-retrieve-synthesize
+  label: Gather / Retrieve / Synthesize
+problem_structure:
+  id: context-gathering-and-synthesis
+  label: Context gathering and synthesis
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+workflow_goal: Produce a time-sensitive crisis briefing package that compresses current critical-case context, preserves provenance and uncertainty, and hands a grounded situation brief to human response leaders before downstream recommendation, investigation, external communication, or execution begins.
+inputs:
+  - name: Declared critical case or briefing request
+    description: A human-declared incident, command-bridge activation, or governed upstream escalation that establishes the crisis context and triggers rapid evidence assembly.
+    kind: request
+    required: true
+    examples:
+      - Incident commander requests an executive bridge briefing for a multi-region payments outage
+      - Operations command center activates a cold-chain crisis briefing after a network-wide excursion is declared
+      - Support leadership opens a customer crisis bridge and requests one source-backed situation brief for all responders
+  - name: Approved source boundary and briefing template
+    description: The evidence repositories, source precedence rules, audience-specific briefing sections, and sensitivity constraints that define what may be retrieved and how it must be presented.
+    kind: policy
+    required: true
+    examples:
+      - Executive incident template limited to verified customer impact, current mitigation state, and open risks
+      - Command-bridge brief format that separates authoritative telemetry from operator commentary
+      - Restricted support crisis template with customer-safe and internal-only sections
+  - name: Live evidence and status context
+    description: Current snapshots, timelines, tickets, telemetry, communications drafts, and system-of-record data needed to reconstruct the present crisis state quickly.
+    kind: evidence-set
+    required: true
+    examples:
+      - Service-health telemetry, dependency maps, change logs, and rollback checkpoints
+      - Shipment telemetry, inventory holds, route manifests, and facility status updates
+      - Case severity data, entitlement records, known-workaround notes, and incident bridge summaries
+  - name: Prior briefing state and unresolved questions
+    description: Optional prior brief versions, acknowledged corrections, and open evidence gaps used to preserve continuity across rapid successive updates.
+    kind: case-state
+    required: false
+    examples:
+      - Last executive bridge briefing with pending verification items
+      - Previous command-center summary awaiting one facility confirmation
+      - Earlier customer crisis brief with unresolved entitlement or blast-radius questions
+outputs:
+  - name: Crisis briefing packet
+    description: A concise but evidence-backed brief describing verified current state, source-ranked context, and open questions for the designated crisis audience.
+    kind: brief
+    required: true
+    examples:
+      - Executive outage briefing with affected regions, validated customer impact, dependency status, and unresolved unknowns
+      - Cold-chain command summary with confirmed affected lots, facility conditions, and evidence gaps requiring manual verification
+  - name: Provenance and freshness trace
+    description: Structured mapping from material briefing statements to source identifiers, timestamps, source-authority tiers, and any superseded inputs.
+    kind: trace
+    required: true
+    examples:
+      - Claim ledger showing which outage statements came from telemetry, which from ticket state, and which remain lower-authority bridge notes
+      - Timeline linking each cold-chain impact statement to sensor snapshots, manifests, and quality-hold records
+  - name: Open-questions and evidence-gap register
+    description: Explicit list of unresolved contradictions, missing high-authority sources, stale inputs, and items that require downstream investigation or decision-making.
+    kind: issue-list
+    required: true
+    examples:
+      - Register noting that rollback status is still unconfirmed for one dependency and should not be presented as fact
+      - List of affected shipments lacking authoritative temperature recovery verification
+  - name: Crisis-briefing handoff record
+    description: Structured handoff showing who reviewed the briefing, which audience received it, when it was superseded, and where the workflow stopped short of decision or execution.
+    kind: handoff
+    required: true
+    examples:
+      - Executive bridge publication record showing incident-commander review and next-refresh deadline
+      - Command-center handoff entry proving the synthesis ended before recall, routing, or customer-notification decisions
+environment:
+  summary: Operates in declared critical situations where leaders need one rapidly assembled, provenance-preserving situation brief from many changing sources, and the main challenge is compressing trustworthy context fast enough to support human-led crisis coordination without collapsing into triage, diagnosis, or action selection.
+  systems:
+    - Telemetry, ticketing, or system-of-record stores relevant to the crisis
+    - Incident, command-bridge, or briefing workspaces
+    - Change logs, communication trackers, and evidence repositories
+    - Policy, entitlement, or operational constraint libraries
+  actors:
+    - Incident commander, duty manager, or crisis lead
+    - Executive, operations, or account-bridge consumers of the brief
+    - Domain subject-matter owners contributing authoritative evidence
+    - Governance, privacy, or security reviewers for sensitive crisis contexts
+  constraints:
+    - Start only after a human or governed upstream workflow has already declared the critical case or explicitly requested crisis briefing assembly.
+    - Distinguish verified facts, lower-authority working context, and unresolved questions rather than compressing them into a falsely certain narrative.
+    - Stop at crisis-briefing handoff; do not rank response options, assert root cause, approve external communication, or execute remediation.
+    - Preserve timestamps, source identifiers, freshness checks, and sensitivity labels so later reviewers can reconstruct what was known at handoff time.
+  assumptions:
+    - Human crisis leads retain authority for response decisions, public or customer communication, and downstream investigation launches.
+    - Relevant source systems expose stable references, timestamps, or revision metadata that support fast provenance checks.
+    - Consumers need rapid updates but still value inspectable evidence quality over polished prose alone.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow must pull evidence from multiple live systems quickly enough that the crisis brief reflects the current state instead of stale fragments.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Leaders need a compressed cross-source picture rather than raw telemetry, ticket dumps, or chat excerpts.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Source authority, freshness, and statement grounding must be checked before crisis-context claims are handed to human decision-makers.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Multiple specialists often supply different evidence streams that need to land in one coherent brief and revision history.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Rapid successive brief updates require durable state for prior versions, superseded claims, and unresolved questions.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Audience rules, source boundaries, and privacy or disclosure constraints determine what can appear in the crisis brief and how it must be labeled.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Distinct retrieval, freshness-checking, provenance-curation, and briefing-assembly roles are often worth orchestrating separately because critical situations demand both speed and traceability across heterogeneous evidence.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Humans remain embedded in the normal loop to confirm the declared case scope, resolve ambiguous evidence, and approve briefing release into high-consequence crisis channels.
+autonomy_profile:
+  level:
+    id: human-directed
+    label: Human directed
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the declared critical-case scope, approved source boundary, and briefing audience before broad evidence assembly begins.
+    - Review each crisis brief before it is distributed to executive, command-bridge, regulator-facing, or customer-facing coordination channels.
+    - Decide when missing, contradictory, or sensitive evidence requires escalation into deeper investigation, legal review, or narrower distribution.
+  reversibility: Briefs can be corrected, superseded, or narrowed quickly, but an inaccurate crisis brief can still anchor human response around the wrong shared understanding while the event is unfolding.
+  escalation: Escalate whenever source freshness cannot be established, contradictory evidence changes the apparent blast radius, privacy or security constraints block needed context, or the workflow would otherwise need to recommend actions, explain causes, or suppress uncertainty.
+risk_governance:
+  level:
+    id: critical
+    label: Critical
+    source_vocabulary: risk-levels
+  failure_impact: An inaccurate or weakly grounded crisis brief can misdirect incident command, delay safety or customer protection steps, hide regulatory or contractual exposure, and create systemic harm precisely when leaders are relying on compressed context to coordinate under time pressure.
+  approval_requirements:
+    - A human owner must approve release of each crisis brief to executive, command, regulator-facing, or equivalent high-consequence audiences.
+    - Governance review is required for material changes to source-authority rules, crisis-brief templates, dissemination boundaries, or redaction policy.
+  auditability: Preserve source snapshots or references, timestamps, claim-to-source mappings, source-authority tiers, redaction decisions, brief revisions, human approvals, and supersession history so reviewers can reconstruct what the crisis brief contained at each handoff.
+  privacy:
+    - Include only the customer, employee, patient, shipment, or operational details needed for the intended crisis audience rather than copying sensitive records wholesale into shared bridges.
+    - Apply audience-specific masking or split internal-only annexes from broader summaries when the crisis context includes personal, regulated, or security-sensitive data.
+  security:
+    - Restrict access to live evidence stores, crisis workspaces, and briefing channels because tampering or oversharing during a critical event can amplify harm.
+    - Log manual edits, privileged overrides, and distribution events so later review can detect provenance breaks or unauthorized dissemination.
+  notes: Critical-risk posture is warranted because this pattern shapes the shared understanding that human leaders use in severe situations, even though it remains bounded at evidence assembly and briefing handoff rather than decision, diagnosis, or execution.
+why_agentic:
+  - Relevant evidence, freshness, and source authority can shift minute by minute during a crisis, so retrieval and compression paths must adapt continuously rather than follow one static checklist.
+  - The workflow must merge telemetry, records, communications state, and specialist updates into one coherent brief without losing provenance or flattening uncertainty.
+  - Safe operation depends on recognizing when contradictions, missing evidence, or sensitivity constraints should block or narrow the brief instead of being papered over for speed.
+failure_modes:
+  - mode: Stale or superseded evidence anchors the crisis brief
+    impact: Human leaders coordinate around an outdated picture of impact, mitigation status, or obligations while the situation continues to evolve.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Enforce freshness checks and visibly label timestamps for every material claim.
+      - Preserve superseded-brief lineage so reviewers can see what changed and why.
+      - Block unsupported carry-forward of stale statements when a higher-authority update exists.
+  - mode: Lower-authority commentary is blended with authoritative evidence
+    impact: Rumor, guesswork, or partial bridge notes are mistaken for confirmed crisis facts.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Tier sources explicitly by authority and label working assumptions as unverified.
+      - Require reviewer-visible provenance for every consequential statement in the brief.
+  - mode: The workflow drifts into recommendation or root-cause language
+    impact: The family boundary blurs and consumers may treat the synthesis as an action plan or diagnosis instead of a context brief.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Keep templates focused on current state, verified evidence, and open questions.
+      - Route action-selection and deep-diagnosis prompts to adjacent patterns instead of answering them inside the brief.
+  - mode: Sensitive crisis details are shared too broadly
+    impact: A fast briefing cycle creates avoidable privacy, security, or contractual exposure during an already severe event.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Apply audience-specific redaction and separate restricted annexes from broader summaries.
+      - Log recipients and briefing-channel scope for each distribution event.
+evaluation:
+  success_metrics:
+    - Median time from critical-case declaration to reviewer-accepted crisis brief.
+    - Percentage of material statements in the brief with inspectable source and timestamp mappings.
+    - Rate at which major evidence gaps or contradictions are surfaced before downstream crisis decisions are made.
+  quality_criteria:
+    - The brief clearly separates verified current state, source-ranked surrounding context, and unresolved questions.
+    - Every consequential statement is traceable to an authoritative source, a freshness marker, or an explicit lower-authority assumption label.
+    - The workflow remains bounded at crisis-briefing handoff and does not collapse into triage, recommendation, investigation, or execution.
+  robustness_checks:
+    - Test with conflicting telemetry and bridge commentary to ensure uncertainty is surfaced rather than flattened into one false narrative.
+    - Test with a missing high-authority source and verify the brief records the gap instead of inferring a substitute answer from weaker evidence.
+    - Test with rapid successive updates and confirm newer briefs supersede older ones with clear provenance lineage.
+  benchmark_notes: Evaluate timeliness and provenance integrity together; a fast crisis brief is not successful if it obscures freshness, authority, or uncertainty.
+implementation_notes:
+  orchestration_notes:
+    - Keep retrieval, freshness and authority checks, evidence compression, briefing composition, and handoff recording as explicit stages over shared crisis state.
+    - Preserve supersession lineage so brief consumers can see what changed between updates instead of comparing freeform narratives manually.
+  integration_notes:
+    - Common implementations integrate telemetry and case systems, change records, briefing workspaces, and policy or entitlement repositories.
+    - Keep the pattern neutral about specific incident-management, customer-bridge, command-center, or collaboration platforms.
+  deployment_notes:
+    - Start in declared high-blast-radius cases where leaders already need structured crisis brief updates and existing ad hoc summaries create avoidable confusion.
+    - Tune source-authority tiers, redaction rules, and update cadence conservatively before broadening into more varied crisis workflows.
+  references:
+    - docs/patterns/gather-retrieve-synthesize.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: critical-signal-corroboration-triage
+    relationship: follows
+    notes: Upstream critical corroboration or human declaration can trigger this pattern once the task shifts from deciding whether a case is critical to assembling one grounded crisis brief.
+  - id: incident-root-cause-analysis
+    relationship: precedes
+    notes: Crisis briefing captures the current situation quickly, while deeper causal explanation belongs in a later investigation workflow.
+  - id: approval-packet-generation
+    relationship: contrasts-with
+    notes: Both patterns assemble governed evidence bundles, but crisis briefing prioritizes time-sensitive shared situational understanding instead of approval-readiness completeness.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Assemble an executive outage brief that ties verified customer impact, dependency status, and mitigation checkpoints to current evidence after a severe platform incident is already declared.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Build a command-center brief for a network-wide cold-chain excursion that links affected inventory, facility status, and hold-policy context without deciding recall or routing actions.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Produce a customer-crisis bridge brief that merges entitlement facts, active incident state, and known workaround status for leadership review without promising concessions or response strategy.
+maturity: draft
+tags:
+  - gather-retrieve-synthesize
+  - crisis-briefing
+  - time-sensitive-synthesis
+  - provenance
+  - critical-risk
