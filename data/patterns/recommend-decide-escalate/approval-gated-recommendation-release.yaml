@@ -19,6 +19,9 @@ domain:
   - id: compliance
     label: Compliance
     source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
   - id: research
     label: Research
     source_vocabulary: domains
@@ -297,6 +300,11 @@ example_domains:
       label: Compliance
       source_vocabulary: domains
     example: Release one privacy attestation disposition packet revision into a compliance council sign-off lane without approving the attestation itself or launching remediation.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Release one fuel-system test-deferral recommendation packet revision into a named continuity risk board lane after a human confirms depot scope, blocked options, and expiry without approving the deferral itself.
   - domain:
       id: research
       label: Research

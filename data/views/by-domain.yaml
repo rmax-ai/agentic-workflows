@@ -77,7 +77,7 @@ domains:
     investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification, evidence-gated-verification-for-release, critical-authoritative-state-restoration]
     monitor-detect-triage: [risk-alert-triage, approval-gated-triage-dispatch, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [calendar-conflict-coordination, contingency-plan-activation-gate]
-    recommend-decide-escalate: [deal-desk-recommendation-support, delegated-authority-option-ranking, policy-constrained-escalation-routing]
+    recommend-decide-escalate: [deal-desk-recommendation-support, delegated-authority-option-ranking, policy-constrained-escalation-routing, approval-gated-recommendation-release]
     execute-automate: [human-directed-task-orchestration, staged-change-execution-with-rollback-holds, exception-aware-task-execution]
     optimize-adapt: [adaptive-threshold-calibration, adaptive-review-sampling-rate-tuning, queue-prioritization-optimization, approval-gated-optimization-state-release, critical-protected-priority-adaptation]
     human-agent-collaborative-work: [approval-centered-collaboration, shared-workbench-orchestration]
