@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-transform-engineering-complete
+repository_stage: phase-6-grounding-plan-coordinate-schedule-engineering-complete
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 47
+  instance_files: 48
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -53,7 +53,7 @@ pattern_counts_by_family:
   optimize-adapt: 1
   human-agent-collaborative-work: 1
 instance_counts_by_domain:
-  engineering: 5
+  engineering: 6
   finance: 7
   compliance: 8
   operations: 9
@@ -94,7 +94,8 @@ repo_reality:
     - instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md
     - instances/engineering/deprecated-message-broker-client-migration-exception-copilot-loop.md
     - instances/engineering/production-release-regression-alert-triage.md
-    - instances/engineering/release-candidate-evidence-packet-to-deployment-review-staging-record-handoff.md
+      - instances/engineering/release-candidate-evidence-packet-to-deployment-review-staging-record-handoff.md
+      - instances/engineering/cross-team-release-readiness-review-scheduling.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
     - instances/finance/invoice-packet-to-payables-record-handoff.md
     - instances/finance/dual-approved-vendor-bank-account-change-submission.md
@@ -144,14 +145,14 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and forty-seven grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and forty-eight grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
   - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open domain slices only if further cross-domain investigation coverage becomes worthwhile."
   - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open monitoring slices only if deeper cross-domain triage coverage becomes worthwhile."
-  - "`recommend-decide-escalate` is now grounded across finance, compliance, operations, support, and HR, leaving engineering and research as the remaining open slices only if broader cross-domain recommendation depth becomes more valuable than shoring up collaboration coverage."
-  - "`plan-coordinate-schedule` is grounded across operations, support, and HR, leaving engineering, finance, compliance, and research open if broader coordination coverage becomes the next rebalance priority."
+  - "`recommend-decide-escalate` is now grounded across finance, compliance, operations, support, and HR, leaving engineering and research as the remaining open slices only if broader cross-domain recommendation depth becomes more valuable than shoring up coordination coverage."
+  - "`plan-coordinate-schedule` is now grounded across engineering, operations, support, and HR, leaving finance, compliance, and research open if broader coordination coverage remains the next rebalance priority."
   - "`execute-automate` is grounded across finance, compliance, HR, operations, and support, leaving engineering and research open if new approval-gated browser or portal execution cases become more valuable than coordination coverage."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-expand-plan-coordinate-schedule-engineering-grounding
-  summary: "Use the next small grounding batch to add one grounded `calendar-conflict-coordination` example in engineering, broadening the sparsely grounded `plan-coordinate-schedule` family without widening the ontology surface."
+  id: phase-6-expand-plan-coordinate-schedule-finance-grounding
+  summary: "Use the next small grounding batch to add one grounded `calendar-conflict-coordination` example in finance, continuing to rebalance the still-sparse `plan-coordinate-schedule` family without widening the ontology surface."
