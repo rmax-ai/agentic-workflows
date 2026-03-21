@@ -12,6 +12,18 @@ Engineering.
 
 A release engineering analyst has already synthesized one revision of a release-candidate risk briefing covering recent benchmark regressions, unresolved dependency caveats, rollback evidence, protected-service exceptions, and open reviewer questions for a major platform launch. Before that exact revision is circulated into the restricted architecture board lane, a named release owner must approve the audience scope, freshness window, and supersession boundary so the board sees the approved context package rather than a stale or partially redacted copy. The workflow stops at governed release of that exact briefing revision; it does not rescore the release, decide launch go/no-go, schedule the change window, or execute deployment steps.
 
+```mermaid
+flowchart TD
+    A["Release-candidate risk<br>briefing revision ready"] --> B{"Revision id, provenance ledger,<br>and freshness window still match?"}
+    B -->|"No"| G["Hold revision for refresh<br>or supersession review"]
+    B -->|"Yes"| C{"Architecture board lane scope<br>and protected-service redactions approved?"}
+    C -->|"No"| G
+    C -->|"Yes"| D{"Named release owner approves<br>governed board circulation?"}
+    D -->|"No"| G
+    D -->|"Yes"| E["Release exact briefing revision<br>to restricted architecture board lane"]
+    E --> F["Record manifest, expiry,<br>and stale-copy blocks"]
+```
+
 ## Target systems / source systems
 
 - Governed release-briefing workspace holding the current approved draft, prior superseded revisions, and attached provenance ledger
