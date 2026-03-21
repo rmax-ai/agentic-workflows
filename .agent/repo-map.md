@@ -31,6 +31,7 @@
 - `.agent/current-plan.md` — current ordered iteration plan.
 - `.agent/prompts/mega-prompt.txt` — master orchestration prompt for the repo-building loop.
 - `.agent/prompts/operator-prompt.txt` — per-iteration operator instructions.
+- `.agent/prompts/mermaid-illustration-orchestrator-prompt.txt` — specialized orchestrator prompt for adding validated Mermaid workflow diagrams to eligible pattern and instance Markdown files.
 - `.agent/mission.md` — stable mission and curation rules for the repository.
 - `.agent/backlog.yaml` — dependency-ordered task backlog.
 - `.agent/iterations/` — one dated Markdown file per iteration, grouped by year.

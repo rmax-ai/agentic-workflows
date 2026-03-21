@@ -2,7 +2,9 @@
 
 ## Iteration focus
 
-Next iteration focus: resume the tied-domain (`research` and `hr`) grounding refinement track with one equally bounded already-canonical slice, unless later publication or deployment work uncovers a bounded documentation-generation gap that needs follow-up.
+Next iteration focus: resume the tied-domain (`research` and `hr`) grounding refinement track with one equally bounded already-canonical slice, unless later publication, deployment, or Mermaid-illustration prompt work uncovers a bounded documentation-generation gap that needs follow-up.
+
+Iteration `20260321-170522` is now complete: the repository gained `.agent/prompts/mermaid-illustration-orchestrator-prompt.txt`, a dedicated orchestrator prompt for adding one validated Mermaid workflow diagram to eligible `docs/patterns/*.md` and `instances/**/*.md` files while skipping files that already contain Mermaid and enforcing label-formatting and boundary rules.
 
 Iteration `20260321-164514` is now complete: the repository gained a GitHub Pages deployment workflow at `.github/workflows/publish-site.yml`, plus README and `.agent/` updates that keep deployment tied to the existing derived MkDocs build path rather than a separate publishing flow.
 
@@ -87,9 +89,14 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the next bounded content batch, then refresh execution memory on top of the verified canonical baseline.
 4. Re-run `uv run python scripts/python/build_site_docs.py` and `uv run mkdocs build` when publication-facing docs, patterns, views, vocabularies, instances, or schema change.
 5. Keep `.github/workflows/publish-site.yml` aligned with the local publication pipeline whenever helper tooling, Python version, or build outputs change.
+6. If Mermaid workflow illustrations are added across pattern and instance Markdown files, keep the new orchestrator prompt aligned with repository family boundaries, Mermaid validation practice, and static-site rendering constraints.
 
 ## Iteration checkpoint
 
+- Timestamp: `20260321-170522`
+- Completed scope: added `.agent/prompts/mermaid-illustration-orchestrator-prompt.txt` so future runs can orchestrate one-subagent-per-file Mermaid diagram authoring across eligible pattern and instance Markdown files, with explicit skip rules for files that already contain Mermaid plus validation and formatting guidance.
+- Current working hypothesis: Mermaid diagrams remain useful only if they stay explanatory, validated, and bounded to the workflow semantics already present in each file rather than becoming a second source of invented process detail.
+- Current scoped follow-on: use the new prompt in a bounded batch only after choosing a safe slice of pattern and instance Markdown files, then verify generated diagrams render cleanly in the MkDocs publication layer.
 - Timestamp: `20260321-164514`
 - Completed scope: added `.github/workflows/publish-site.yml` to validate YAML, regenerate the derived documentation tree, build the MkDocs site, and deploy `build/site` through GitHub Pages on `main` or manual dispatch; also updated `README.md`, `.agent/decisions.md`, `.agent/ontology-status.yaml`, and `.agent/repo-map.md` so deployment automation is treated as part of the same derived publication layer.
 - Current working hypothesis: deployment remains safe only if the workflow continues to publish exactly the same generated outputs produced by the local `uv`-based pipeline and does not grow separate build-only content or hosting-specific source files.
