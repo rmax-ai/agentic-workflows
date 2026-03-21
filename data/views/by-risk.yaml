@@ -48,7 +48,7 @@ risk_levels:
     investigate-reconcile-verify: [authoritative-record-reconciliation]
     monitor-detect-triage: [anomaly-detection-review]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
-    recommend-decide-escalate: [readiness-gate-disposition-recommendation]
+    recommend-decide-escalate: [delegated-authority-option-ranking, readiness-gate-disposition-recommendation]
     execute-automate: [exception-aware-task-execution]
     optimize-adapt: [queue-prioritization-optimization]
     human-agent-collaborative-work: [analyst-copilot-loop]

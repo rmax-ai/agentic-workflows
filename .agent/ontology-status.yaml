@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 40
-  instance_files: 135
+  pattern_files: 41
+  instance_files: 137
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -51,15 +51,15 @@ pattern_counts_by_family:
   investigate-reconcile-verify: 5
   monitor-detect-triage: 4
   plan-coordinate-schedule: 4
-  recommend-decide-escalate: 5
+  recommend-decide-escalate: 6
   execute-automate: 4
   optimize-adapt: 5
   human-agent-collaborative-work: 4
 instance_counts_by_domain:
   engineering: 24
-  finance: 23
+  finance: 24
   compliance: 15
-  operations: 21
+  operations: 22
   research: 18
   support: 20
   hr: 14
@@ -105,6 +105,7 @@ repo_reality:
     - data/patterns/plan-coordinate-schedule/authoritative-change-coordination-refresh.yaml
     - data/patterns/plan-coordinate-schedule/critical-command-window-resequencing.yaml
     - data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml
+    - data/patterns/recommend-decide-escalate/delegated-authority-option-ranking.yaml
     - data/patterns/recommend-decide-escalate/policy-constrained-escalation-routing.yaml
     - data/patterns/recommend-decide-escalate/readiness-gate-disposition-recommendation.yaml
     - data/patterns/recommend-decide-escalate/control-requirement-attestation-recommendation.yaml
@@ -163,6 +164,7 @@ repo_reality:
     - instances/engineering/production-signing-key-compromise-authority-recommendation.md
     - instances/engineering/production-signing-key-integrity-review-priority-adaptation.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
+    - instances/finance/enterprise-arrears-settlement-band-option-recommendation.md
     - instances/finance/invoice-packet-to-payables-record-handoff.md
     - instances/finance/dual-approved-vendor-bank-account-change-submission.md
     - instances/finance/multi-year-renewal-pricing-and-payment-structure-recommendation.md
@@ -187,6 +189,7 @@ repo_reality:
     - instances/finance/intraday-liquidity-stress-protected-funding-review-packet-collaboration-room.md
     - instances/operations/cross-functional-maintenance-review-scheduling.md
     - instances/operations/cold-chain-temperature-excursion-alert-triage.md
+    - instances/operations/distribution-sorter-throughput-fallback-option-recommendation.md
     - instances/operations/multi-site-service-package-feasibility-recommendation.md
     - instances/operations/site-inspection-packet-to-corrective-maintenance-work-order-handoff.md
     - instances/operations/field-service-dispatch-queue-reprioritization.md
@@ -265,11 +268,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty canonical patterns across all nine top-level families, and one hundred thirty-five grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-one canonical patterns across all nine top-level families, and one hundred thirty-seven grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "The derived autonomy browse view has now been realigned with canonical pattern truth, so `adaptive-review-sampling-rate-tuning` correctly appears under `autonomous-with-audit` instead of the stale `approval-gated` bucket."
-    - "Autonomous-with-audit now spans both `execute-automate` and `optimize-adapt` across canonical patterns, derived views, and `.agent/` memory, which clears this iteration's normalization target."
-    - "The next refinement step should likely inspect the remaining architecture or autonomy concentrations rather than returning to risk-ladder completion or additional drift cleanup unless another inconsistency appears."
+    - "`recommend-decide-escalate` now has a natural `bounded-delegation` slice through `delegated-authority-option-ranking`, so the family no longer has an empty delegated-autonomy bucket in the derived browse view."
+    - "The derived index, domain, architecture, autonomy, and risk browse views are back in sync with canonical recommendation-family truth after adding the delegated-authority pattern and linked finance and operations examples."
+    - "The next refinement step should inspect the remaining architecture or autonomy concentrations rather than reopening recommendation-family balancing unless another structural gap proves cleaner."
   next_action:
-    id: phase-7-autonomy-architecture-balance
-    summary: "Use the next iteration to inspect the remaining narrow architecture and autonomy concentrations now that `autonomous-with-audit` is correctly represented beyond `execute-automate`, and only add a new family-clean pattern if it represents a real reusable workflow shape."
+    id: phase-7-next-autonomy-architecture-balance
+    summary: "Use the next iteration to inspect the remaining narrow architecture and autonomy concentrations now that `recommend-decide-escalate` also spans `bounded-delegation`, and only add another pattern if it is a comparably clean reusable shape."

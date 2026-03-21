@@ -1,0 +1,266 @@
+id: delegated-authority-option-ranking
+slug: delegated-authority-option-ranking
+name: Delegated authority option ranking
+summary: Evaluate a request against preapproved authority bands and guardrails to recommend a bounded in-band option set, or explicit escalation, without adjudicating approval, scheduling work, or executing the downstream change.
+pattern_family:
+  id: recommend-decide-escalate
+  label: Recommend / Decide / Escalate
+problem_structure:
+  id: recommendation-and-decision-support
+  label: Recommendation and decision support
+  source_vocabulary: problem-structures
+domain:
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+workflow_goal: Narrow a case to the safest viable options that remain inside a documented delegated authority envelope, surface why blocked options are out of bounds, and package escalation only when no in-band recommendation remains defensible.
+inputs:
+  - name: Candidate request or variance
+    description: The bounded case, request, or off-nominal condition that needs a governed next-best option inside local delegated authority.
+    kind: case
+    required: true
+    examples:
+      - Customer payment-settlement request asking for limited fee relief and revised payment timing
+      - Regional operations variance requiring one of several preapproved local recovery options
+  - name: Delegated authority bands and option guardrails
+    description: The approved authority matrix, option menu, spend or concession caps, non-waivable constraints, and escalation thresholds that define what the workflow may recommend locally.
+    kind: policy
+    required: true
+    examples:
+      - Collector authority bands allowing installment-plan, fee-waiver, or standard collections options below a capped exposure threshold
+      - Regional operations fallback menu with capped overtime, overflow-transfer, and vendor-callout limits
+  - name: Case evidence and local context
+    description: Facts, service or financial impact, prior outcomes, timing constraints, and operational conditions needed to compare in-band options responsibly.
+    kind: evidence-set
+    required: true
+    examples:
+      - Payment history, contractual terms, credit notes, and prior settlement exceptions
+      - Throughput backlog, service-level exposure, equipment health notes, and local staffing state
+  - name: Prior recommendation history and overrides
+    description: Optional earlier recommendations, accepted overrides, or unresolved concerns that help determine whether the current case still fits delegated scope.
+    kind: review-history
+    required: false
+    examples:
+      - Earlier settlement recommendation rejected because the customer requested principal reduction outside band
+      - Prior local recovery recommendation superseded after queue volume increased beyond the approved threshold
+outputs:
+  - name: Ranked in-band option set
+    description: Ordered locally permissible options with rationale, trade-offs, and an explicit preferred recommendation that stays inside delegated authority.
+    kind: recommendation
+    required: true
+    examples:
+      - Recommend a short installment plan plus late-fee waiver because it fits collector limits and avoids an out-of-band discount request
+      - Recommend capped overflow transfer instead of premium vendor callout because the backlog is material but still within local spend authority
+  - name: Guardrail and boundary register
+    description: Structured register showing which options are allowed, conditionally allowed, blocked, or escalation-only under the current authority envelope.
+    kind: boundary-register
+    required: true
+    examples:
+      - Register showing that principal forgiveness is blocked and only fee relief remains locally permissible
+      - Matrix showing that overtime is allowed, overflow transfer is conditionally allowed, and same-shift vendor expansion requires escalation
+  - name: Escalation-ready exception packet
+    description: Escalation bundle that captures the out-of-band request, violated guardrails, evidence, and unresolved trade-offs when delegated options are insufficient.
+    kind: case-packet
+    required: true
+    examples:
+      - Packet explaining why the requested settlement terms exceed local authority and need treasury or controller review
+      - Packet showing why local recovery options are exhausted and higher-cost service mitigation needs regional approval
+  - name: Recommendation audit log
+    description: Durable log of option comparisons, guardrail checks, recommendation revisions, and any human overrides within the delegated review boundary.
+    kind: audit-log
+    required: true
+    examples:
+      - Log of why one settlement path was preferred after account-risk notes and prior waivers were rechecked
+      - History showing how the preferred local recovery option changed after updated backlog and staffing data arrived
+environment:
+  summary: Operates in governed local-decision workflows where humans preapprove a bounded option menu and authority envelope, and the workflow's job is to rank only those permissible options while keeping blocked paths and escalation triggers explicit.
+  systems:
+    - Case, ticket, or request-management systems
+    - Policy and delegated-authority repositories
+    - Financial, operational, or service context data sources
+    - Recommendation logs and exception-tracking tools
+  actors:
+    - Delegated local operator, analyst, or supervisor
+    - Governance owner who defines authority bands
+    - Higher-level approver or escalation authority for out-of-band cases
+  constraints:
+    - The workflow must rank only preapproved local options and must not invent a novel path that bypasses the delegated authority matrix.
+    - Outputs must stop at recommendation, boundary visibility, and escalation packaging rather than approval adjudication, plan ownership, or execution.
+    - Blocked options and threshold breaches must remain visible so a concise recommendation cannot hide why escalation is required.
+    - Local context may refine ranking inside the approved envelope, but non-waivable caps and prohibited actions must remain hard boundaries.
+  assumptions:
+    - The delegated authority envelope and allowed option set are documented well enough to check automatically.
+    - Human operators or downstream governed systems remain responsible for accepting and carrying out the chosen option.
+    - Source evidence is available quickly enough to support local recommendation without reopening broad investigation or planning work.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow needs the current authority bands, case facts, and prior exceptions before it can compare local options safely.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Useful delegated recommendations require combining policy limits, case evidence, and trade-offs into one bounded option set rather than exposing raw source records.
+  - capability:
+      id: recommendation
+      label: Recommendation
+      source_vocabulary: capabilities
+    necessity: The central deliverable is a ranked, in-band option set plus explicit escalation when no safe delegated option remains.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Delegated authority limits, option allowlists, spend or concession caps, and non-waivable prohibitions determine what may be recommended locally.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Exposure amounts, operational conditions, precedent fit, and threshold calculations must be checked before a local option is surfaced as allowable.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow typically queries policy stores, case systems, and context sources and writes recommendation logs through tools rather than text-only reasoning.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Recommendation revisions, prior overrides, and unresolved threshold questions must remain durable across repeated reviews of the same case.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: When no in-band option survives the guardrails, the workflow must package explicit escalation instead of forcing a misleading local answer.
+execution_architecture:
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: One bounded agent can usually retrieve the authority matrix, compare allowed options, verify thresholds, and produce a coherent in-band recommendation packet inside a single control loop.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Delegated operators still routinely inspect the narrowed option set and decide whether to accept it locally or send an out-of-band case upward.
+autonomy_profile:
+  level:
+    id: bounded-delegation
+    label: Bounded delegation
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Approve the delegated authority bands, allowed option templates, blocked-option rules, and escalation thresholds before routine recommendation runs begin.
+    - Review cases when no in-band option remains viable, when source evidence is incomplete, or when a requester asks to override the bounded option set.
+    - Audit sampled recommendations and approve changes to authority bands, option menus, or guardrail logic before those changes affect live local decisions.
+  reversibility: Recommendation packets can usually be recomputed or superseded quickly, and the delegated options are intentionally bounded, but a poor recommendation can still steer a local operator toward an avoidable concession, cost, or service trade-off before the mistake is noticed.
+  escalation: Escalate whenever the requested outcome exceeds delegated caps, no allowed option survives the hard guardrails, threshold calculations are uncertain, precedent is materially mismatched, or the next step would require approval adjudication, scheduling, or direct execution.
+risk_governance:
+  level:
+    id: moderate
+    label: Moderate
+    source_vocabulary: risk-levels
+  failure_impact: Poor option ranking can create material rework, avoidable customer or service impact, and localized financial or operating loss, but harm is usually containable because the workflow stays inside a preapproved option envelope and keeps out-of-band paths explicit.
+  approval_requirements:
+    - Case-by-case approval is not required for recommendation packet generation that stays within approved option menus, authority caps, and logging rules.
+    - Human review is required before any out-of-band request, blocked option, or authority override is accepted or acted on.
+  auditability: Preserve the candidate options considered, guardrail checks, threshold inputs, supporting evidence references, recommendation revisions, human overrides, and escalation packets for every delegated case.
+  privacy:
+    - Limit copied customer, employee, or operational details to the minimum needed to explain the bounded recommendation and boundary conditions.
+    - Keep recommendation logs and exception packets aligned to role-based access and retention rules for the governed domain.
+  security:
+    - Restrict tooling so it can read policy and case context and write recommendation logs without silently performing the underlying concession, dispatch, or record change.
+    - Log threshold overrides, blocked-option exposure, and manual recommendation changes so drift from the delegated envelope remains visible.
+  notes: Moderate-risk governance fits because the pattern shapes meaningful local decisions inside preapproved limits, yet it remains bounded to option ranking and escalation packaging rather than approval adjudication or operational execution.
+why_agentic:
+  - Good local recommendations depend on comparing several allowable options against live context and hard guardrails instead of replaying one static rule.
+  - The workflow must preserve why some options are still in band while others are blocked, which requires stateful synthesis across policy, evidence, and prior overrides.
+  - Safe performance depends on knowing when delegated scope is exhausted and escalation is the only honest output.
+failure_modes:
+  - mode: The workflow ranks an option as in band even though it breaches a hard authority limit
+    impact: Local staff act on a path they were never authorized to take, creating avoidable governance rework or downstream harm.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Treat hard caps and prohibited-option rules as blocking checks rather than weighted preferences.
+      - Recompute threshold inputs immediately before surfacing the final recommendation.
+  - mode: The recommendation hides a safer in-band alternative because contextual evidence was incomplete or stale
+    impact: Reviewers accept a weaker local option or escalate unnecessarily, increasing cost, delay, or service friction.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Preserve evidence freshness and comparison notes for each candidate option.
+      - Re-run option ranking when material case context changes.
+  - mode: The workflow drifts into approving the chosen option or orchestrating the next steps
+    impact: Family boundaries blur and a recommendation artifact is mistaken for an adjudicated decision or operational plan.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Keep outputs limited to ranked options, boundary registers, escalation packets, and audit logs.
+      - Route approval, scheduling, and execution requests into adjacent patterns rather than handling them inline.
+  - mode: Repeated overrides gradually normalize out-of-band behavior inside delegated scope
+    impact: The nominally bounded workflow becomes an informal loophole for expanding authority without explicit governance review.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Track override frequency and blocked-option requests by case class.
+      - Require governance-owner review when override patterns cluster around the same boundary.
+evaluation:
+  success_metrics:
+    - Rate at which accepted local recommendations stay inside delegated authority without later governance correction.
+    - Time to produce a complete in-band option packet or explicit escalation for delegated cases.
+    - Frequency with which blocked or out-of-band requests are surfaced before local teams act on them.
+  quality_criteria:
+    - The ranked option set clearly distinguishes allowed, conditional, blocked, and escalation-only paths.
+    - Recommendation packets explain why the preferred option fits the delegated envelope and why rejected options do not.
+    - The workflow stays bounded at option ranking and escalation packaging rather than implying approval ownership or operational follow-through.
+  robustness_checks:
+    - Test threshold-edge cases and confirm the workflow blocks or escalates instead of rounding into a misleading in-band answer.
+    - Test stale context and verify the recommendation degrades into uncertainty or refresh requirements instead of false precision.
+    - Test repeated override scenarios and confirm they remain visible in the audit trail rather than becoming silent local defaults.
+  benchmark_notes: Evaluation should reward conservative boundary handling and transparent trade-off reasoning; faster local recommendation is not success if it quietly expands delegated authority.
+implementation_notes:
+  orchestration_notes:
+    - Keep authority lookup, option comparison, guardrail validation, and escalation packaging as explicit stages so operators can inspect how the bounded recommendation was assembled.
+    - Preserve stable identifiers for candidate options, threshold inputs, and overrides so repeated case reviews show what changed across revisions.
+  integration_notes:
+    - Common implementations integrate case systems, authority matrices, policy repositories, and domain-specific evidence stores.
+    - Keep the pattern neutral about specific ERP, CRM, ticketing, collections, or operations platforms.
+  deployment_notes:
+    - Start where option menus and authority bands are already explicit enough that delegated recommendation can be audited cleanly.
+    - Monitor override clusters, repeated threshold-edge escalations, and disagreement with accepted local outcomes before broadening delegated scope.
+  references:
+    - docs/patterns/recommend-decide-escalate.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: deal-desk-recommendation-support
+    relationship: broader-variant-of
+    notes: Deal-desk recommendation support handles wider, higher-risk commercial structuring, while this pattern focuses on narrower in-band option ranking inside preapproved local authority.
+  - id: policy-constrained-escalation-routing
+    relationship: can-escalate-to
+    notes: When no delegated option remains viable, the case may hand off to escalation-routing workflows that determine the right higher authority.
+  - id: exception-aware-task-execution
+    relationship: hands-off-to
+    notes: After a human or governed downstream system adopts one of the bounded options, routine operational follow-through may move into delegated execution patterns.
+example_domains:
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Recommend whether an accounts-receivable case should use a late-fee waiver, short installment plan, or standard collections path inside collector authority bands before escalating a larger concession request.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Rank local recovery options for a regional throughput variance, such as capped overtime or overflow transfer, while escalating any path that would exceed spend, safety, or service guardrails.
+maturity: draft
+tags:
+  - recommend-decide-escalate
+  - recommendation-and-decision-support
+  - delegated-authority
+  - bounded-option-ranking
+  - bounded-delegation
+  - moderate-risk
