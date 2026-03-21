@@ -12,6 +12,20 @@ Engineering.
 
 A release-engineering team monitors recurring non-blocking CI warning signatures across internal services, SDKs, and build pipelines: deprecated compiler flags, flaky-but-retryable integration checks, stale dependency notices, and repeated packaging warnings that do not yet block releases or warrant incident review. The workflow must collapse duplicate warning signatures by repository and release train, enrich each watchlist item with owner, recurrence age, recent healthy runs, known exception windows, and prior suppression history, and then publish a routine release-hygiene queue for weekly owner attention. The goal is to keep persistent weak signals visible long enough for engineering teams to clean them up before they harden into outages, broken releases, or review debt, not to declare incidents, change build policy, or trigger remediation automatically.
 
+```mermaid
+flowchart TD
+    A["New CI warning signatures<br>or healthy-run updates arrive"] --> B["Merge recurring warnings by<br>signature, repository, and release train"]
+    B --> C{"Verification check:<br>owner, recurrence age, healthy runs,<br>exception window, and suppression history<br>are available and consistent?"}
+    C -->|"No"| H["Hold watchlist update<br>and request bounded context repair"]
+    C -->|"Yes"| D{"Signal still fits approved<br>low-risk watchlist scope?"}
+    D -->|"No"| I["Bounded escalation to release engineering<br>because spread, release impact, or policy risk<br>exceeds delegated watchlist upkeep"]
+    D -->|"Yes"| E{"Recent healthy runs or approved<br>exception windows justify suppression<br>or aging out?"}
+    E -->|"Yes"| F["Record suppression or removal rationale<br>in watchlist audit history"]
+    E -->|"No"| G["Publish the weekly hygiene queue<br>with owner, recurrence age,<br>and merged watchlist context"]
+    G --> J["Log queue publication, merges,<br>and retained weak-signal visibility state"]
+    F --> J
+```
+
 ## Target systems / source systems
 
 - CI and build-observability systems with warning signatures, retry history, run outcomes, and release-train labels
