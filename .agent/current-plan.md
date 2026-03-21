@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-The last iteration batch rebalanced `gather-retrieve-synthesize` by adding finance and operations grounding, so the family is no longer concentrated almost entirely in research. The next modest batch should continue broadening that family without over-expanding it, with compliance or support as the preferred next domains if suitable scenarios can stay clearly inside retrieval and synthesis boundaries.
+This iteration is scoped to one modest `gather-retrieve-synthesize` grounding batch in support. The goal is to fill the family's empty support cell with a clearly evidence-retrieval-and-synthesis scenario that stays upstream of recommendation, investigation, or execution work.
 
 ## Current phase
 
@@ -15,9 +15,9 @@ The last iteration batch rebalanced `gather-retrieve-synthesize` by adding finan
 
 ## Ordered tasks
 
-1. Re-read `research-synthesis-with-citation-verification` plus the current research, finance, and operations gather/synthesis instances so the next examples stay inside evidence retrieval and synthesis boundaries rather than drifting into recommendation, investigation, or collaboration.
-2. Keep the next grounding batch modest: prefer one or two `gather-retrieve-synthesize` instances in underrepresented domains, with compliance or support as the leading candidates for the next iteration.
-3. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the required iteration log after the next grounding batch so repository memory reflects broader gather/synthesis coverage.
+1. Re-read `research-synthesis-with-citation-verification` plus the current research, finance, and operations gather/synthesis instances so the next example stays inside evidence retrieval and synthesis boundaries rather than drifting into recommendation, investigation, or collaboration.
+2. Author exactly one support-domain instance linked to `research-synthesis-with-citation-verification`, preferably around a governed support knowledge or obligations briefing where citation traceability matters.
+3. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the required iteration log after the grounding batch so repository memory reflects broader gather/synthesis coverage.
 4. Continue validating repository YAML with the existing uv-managed helper before closing each iteration.
 
 ## Constraints
@@ -26,9 +26,9 @@ The last iteration batch rebalanced `gather-retrieve-synthesize` by adding finan
 - Treat `data/views/` as derived browse artifacts and keep any future updates aligned with stable vocabulary and pattern ids.
 - Ensure every subagent task ends with exactly one git commit.
 - Prefer modest grounding batches that improve coverage balance inside one thin family/domain slice rather than forcing a broad cross-family sweep.
-- Keep the next iteration scoped to one modest gather/synthesis grounding batch plus required `.agent/` memory updates; do not expand the canonical pattern set unless dependency order changes.
+- Keep this iteration scoped to one support-centered gather/synthesis grounding batch plus required `.agent/` memory updates; do not expand the canonical pattern set unless dependency order changes.
 - Keep governance, reversibility, privacy, and auditability explicit in grounded examples.
 
 ## Expected outcome
 
-The next iteration should deepen `gather-retrieve-synthesize` with one or two grounded, governance-aware compliance or support instances while preserving the repository's pattern-first structure and modest-batch discipline.
+The iteration should leave `gather-retrieve-synthesize` with a first support grounding example while preserving the repository's pattern-first structure and modest-batch discipline.
