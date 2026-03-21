@@ -16,6 +16,9 @@ domain:
   - id: finance
     label: Finance
     source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
   - id: operations
     label: Operations
     source_vocabulary: domains
@@ -270,6 +273,11 @@ example_domains:
       label: Finance
       source_vocabulary: domains
     example: Reshape approved treasury balances and adjustments into a posting-ready package whose manifest authorizes controlled ledger handoff without posting the entries.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Transform transfer-assessment source records and annex references into a restricted privacy-counsel intake packet whose manifest authorizes one bounded compliance handoff lane without deciding legal permissibility or triggering downstream action.
   - domain:
       id: operations
       label: Operations
