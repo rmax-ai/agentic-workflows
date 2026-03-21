@@ -1,0 +1,278 @@
+id: approval-centered-collaboration
+slug: approval-centered-collaboration
+name: Approval-centered collaboration
+summary: Structure human-agent review cycles around explicit approval ownership, negotiated evidence, and controlled handoffs so draft requests become decision-ready without obscuring who may approve, request changes, or stop progression.
+pattern_family:
+  id: human-agent-collaborative-work
+  label: Human-agent collaborative work
+problem_structure:
+  id: human-agent-collaboration
+  label: Human-agent collaboration
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
+workflow_goal: Keep a governed draft, request, or review package moving through repeated human-agent approval cycles so evidence, objections, revisions, and ownership stay visible until a human approval owner explicitly accepts the next handoff.
+inputs:
+  - name: Draft artifact or approval-bound request
+    description: The proposal, memo, exception request, change package, or other reviewable artifact that needs iterative revision before formal approval.
+    kind: draft
+    required: true
+    examples:
+      - Architecture exception draft awaiting review-board readiness confirmation
+      - Compensation exception memo that must pass finance and HR review before sign-off
+      - Operations change packet that still needs reviewer comment resolution before approval routing
+  - name: Approval criteria and reviewer authority map
+    description: The approval thresholds, required reviewers, sign-off order, and non-waivable rules that define who may request changes, approve progression, or stop the handoff.
+    kind: policy
+    required: true
+    examples:
+      - Change-review policy defining required approvers and rollback evidence
+      - Delegation-of-authority rules for finance exceptions and compensation approvals
+      - HR review matrix showing when legal or specialist approval is mandatory
+  - name: Evidence set and review feedback
+    description: Supporting evidence, reviewer comments, prior approvals, objections, and clarification requests that must be negotiated into the evolving artifact.
+    kind: evidence-set
+    required: true
+    examples:
+      - Reviewer annotations, risk findings, and linked source documents
+      - Budget analyses, compensation benchmarks, and approval comments
+      - Operational risk notes, readiness checks, and unresolved dependency comments
+  - name: Current handoff and decision state
+    description: The latest artifact version, open issues, accepted edits, pending approvers, and prior review outcomes that constrain the next collaboration turn.
+    kind: case-state
+    required: false
+    examples:
+      - Version history showing one approver accepted while another requested changes
+      - Queue state indicating a required reviewer has not yet responded
+      - Open issue list showing evidence disputes that block approval readiness
+outputs:
+  - name: Negotiated review artifact
+    description: The collaboratively revised artifact that incorporates accepted edits, visible objections, and evidence responses without hiding unresolved disagreement.
+    kind: collaborative-draft
+    required: true
+    examples:
+      - Approval memo with reviewer-requested revisions and linked evidence updates
+      - Change packet revised to address engineering and operations reviewer concerns
+  - name: Approval-readiness recommendation
+    description: A bounded recommendation describing whether the artifact appears ready for the next approval checkpoint, what remains unresolved, and which human still owns the decision.
+    kind: recommendation
+    required: true
+    examples:
+      - Recommendation to return the packet for one more evidence update before board review
+      - Recommendation that the draft is ready for controller sign-off with one explicitly accepted residual risk
+  - name: Approval ownership and handoff ledger
+    description: Structured record of required reviewers, accepted or rejected changes, current approval owner, and the exact boundary where human-controlled approval must occur.
+    kind: handoff-record
+    required: true
+    examples:
+      - Ledger showing finance approved, HR requested changes, and the VP remains the final approval owner
+      - Handoff record showing the packet may enter the review queue but no approval decision has been made
+  - name: Review-cycle trace
+    description: Durable history of comments, evidence negotiations, revision proposals, and handoff checkpoints across the approval loop.
+    kind: audit-log
+    required: true
+    examples:
+      - Trace of reviewer objections, evidence refreshes, and accepted edits across three approval rounds
+      - Timeline showing when the workflow paused because authority or approval order became unclear
+environment:
+  summary: Operates in governance-sensitive review processes where a human and one or more agent roles repeatedly refine a draft, negotiate evidence, and control handoffs before a consequential approval decision is allowed to occur.
+  systems:
+    - Shared review workbench or comment surface
+    - Document, request, or case management systems
+    - Policy and approval-matrix repositories
+    - Evidence stores and source systems
+  actors:
+    - Request owner or drafter
+    - Reviewing approver or review committee member
+    - Final approval owner
+    - Agent orchestration layer coordinating review support
+  constraints:
+    - Keep approval authority explicit at every cycle so the workflow never implies that agent output equals approval.
+    - Preserve reviewer objections, dissenting evidence, and requested changes as first-class state rather than compressing them into a falsely clean revision.
+    - Stop at readiness recommendation and governed handoff; the pattern must not adjudicate approval or execute downstream action.
+    - Prevent silent handoff progression when required reviewers, approval order, or authority mappings are incomplete or disputed.
+  assumptions:
+    - Review tooling can preserve version history, comments, and approval-state metadata across cycles.
+    - Humans remain accountable for accepting recommendations, granting approval, and deciding whether unresolved issues are tolerable.
+    - Evidence can be refreshed or challenged during the loop without losing traceability to earlier review comments.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow must pull current evidence, prior comments, and approval-state details from multiple systems before each review cycle can be grounded.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Review feedback, evidence updates, and draft revisions need to be recombined into one inspectable artifact instead of staying fragmented across comments and attachments.
+  - capability:
+      id: recommendation
+      label: Recommendation
+      source_vocabulary: capabilities
+    necessity: The pattern depends on bounded guidance about approval readiness, unresolved blockers, and next review posture without letting the workflow make the approval decision.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Multi-party review cycles require explicit ownership, sequencing, and handoff control so commenters, approvers, and drafters do not work at cross-purposes.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow must preserve version lineage, accepted versus rejected edits, reviewer status, and current approval owner across multiple cycles.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Evidence links, claimed issue resolution, and reviewer-state updates must be checked before the workflow recommends progression to another approval checkpoint.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Approval order, required reviewers, segregation-of-duties rules, and non-waivable review conditions define whether the handoff can move forward at all.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Distinct review-support roles for evidence refresh, comment normalization, policy checking, and handoff-state management are often worth orchestrating separately because approval loops mix negotiation, provenance, and governance-sensitive ownership tracking.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Humans remain embedded in every normal cycle because reviewers and approval owners must decide whether proposed revisions are sufficient and whether the next handoff may proceed.
+autonomy_profile:
+  level:
+    id: recommendation-only
+    label: Recommendation only
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the current approval owner, mandatory reviewers, and acceptance criteria before the workflow consolidates comments or proposes a readiness state.
+    - Decide whether proposed revisions and evidence responses sufficiently address reviewer feedback before another approval round begins.
+    - Accept or reject the governed handoff into the next approval checkpoint and record who now owns the decision.
+  reversibility: Draft revisions and readiness assessments can be revised, but a premature or misleading readiness signal can bias reviewers, trigger avoidable escalation, or move a sensitive request into the wrong approval path before the mistake is caught.
+  escalation: Escalate whenever approval authority is ambiguous, reviewer disagreement remains unresolved on a material issue, required evidence cannot be validated, or the workflow would otherwise imply handoff permission without a clear human owner.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Misstating approval readiness, losing reviewer objections, or obscuring who owns the sign-off can create significant financial, operational, or people-risk exposure and can push sensitive requests through governance checkpoints on a misleading record.
+  approval_requirements:
+    - A human approval owner must explicitly accept any readiness recommendation before the artifact advances to the next approval stage or formal review queue.
+    - Required reviewer objections, unresolved evidence disputes, and authority ambiguities must remain visible unless a human reviewer explicitly accepts the residual risk.
+  auditability: Preserve artifact versions, reviewer comments, evidence references, readiness recommendations, ownership changes, human overrides, and handoff timestamps so investigators can reconstruct how the approval state evolved.
+  privacy:
+    - Limit sensitive personnel, financial, operational, or security details in shared review surfaces to what the relevant reviewers need.
+    - Apply retention and access controls so draft artifacts and approval discussions do not leak beyond the governed review group.
+  security:
+    - Restrict agent permissions so the workflow can read review context and update bounded collaboration state without silently changing approval authorities or committing downstream actions.
+    - Log authority-map changes, manual overrides, and handoff acceptances so covert expansion of workflow power is detectable.
+  notes: High risk is appropriate because the pattern shapes how high-stakes approval decisions are framed and handed off, even though humans retain the actual approval authority.
+why_agentic:
+  - The next useful action depends on evolving reviewer comments, contested evidence, and changing handoff state rather than a fixed linear review script.
+  - Safe performance benefits from specialized agent roles that can refresh evidence, compare revisions, and track approval ownership while sharing one auditable collaboration state.
+  - The workflow must decide when to propose another revision, surface unresolved disagreement, or pause for human authority clarification instead of just producing a polished draft.
+failure_modes:
+  - mode: Approval ownership becomes unclear or stale during the review cycle
+    impact: Reviewers act on a packet without knowing who may approve progression, and sensitive requests may move forward without accountable human control.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Keep the current approval owner and required next checkpoint as explicit fields in the handoff ledger.
+      - Revalidate authority mappings whenever review participants or request scope change materially.
+  - mode: Reviewer objections or dissenting evidence are compressed away during revision
+    impact: The updated artifact appears more settled than reality, leading downstream approvers to miss material disagreement or unresolved risk.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Preserve unresolved objections and challenged evidence in dedicated trace and handoff sections.
+      - Block readiness recommendations that claim issues are closed without linked evidence or explicit human acceptance.
+  - mode: The workflow recommends approval readiness before mandatory review conditions are satisfied
+    impact: Requests enter formal approval queues too early, creating rework, governance breaches, or misplaced trust in the review record.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Check required reviewer completion, approval order, and non-waivable control gates before surfacing readiness.
+      - Require explicit human confirmation when residual issues are tolerated for the next stage.
+  - mode: Parallel edits or stale state reintroduce superseded comments and evidence
+    impact: Review cycles churn, approvers see inconsistent records, and humans lose trust in the collaboration surface.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Version the artifact and handoff ledger together so comments and evidence stay tied to the correct revision.
+      - Highlight stale comments, superseded evidence, and concurrent edits before generating the next recommendation.
+evaluation:
+  success_metrics:
+    - Percentage of approval-bound artifacts that reach the next human checkpoint without bouncing due to missing ownership, missing review state, or hidden objections.
+    - Reduction in time spent reconciling reviewer comments, evidence disputes, and version confusion across approval rounds.
+    - Rate at which downstream approvers can identify the current owner, unresolved issues, and provenance of major revisions from the handoff ledger.
+  quality_criteria:
+    - The review artifact makes accepted edits, open objections, and current approval ownership easy to inspect.
+    - Readiness recommendations stay bounded to collaboration support and never masquerade as the approval decision itself.
+    - Handoff state remains synchronized with draft content so reviewers do not see a cleaner or more final status than the evidence supports.
+  robustness_checks:
+    - Test conflicting reviewer instructions and verify the workflow preserves the disagreement rather than inventing consensus.
+    - Test authority changes mid-cycle and confirm the handoff ledger updates before another readiness recommendation is issued.
+    - Test stale evidence or superseded comments and ensure the next cycle highlights the mismatch instead of silently carrying it forward.
+  benchmark_notes: Evaluate approval-loop quality using ownership clarity, objection visibility, and handoff reliability in addition to drafting speed; a faster cycle is not a win if it launders disagreement or blurs authority.
+implementation_notes:
+  orchestration_notes:
+    - Keep comment intake, evidence refresh, revision proposal, readiness assessment, and handoff-state update as explicit stages over shared review state.
+    - Separate the collaboration surface from any downstream approval system so a recommendation cannot be mistaken for an approval event.
+  integration_notes:
+    - Common implementations connect shared review workbenches, document systems, approval queues, and policy repositories.
+    - Keep the pattern neutral about specific document suites, review tools, or enterprise approval platforms.
+  deployment_notes:
+    - Start where email- or comment-driven approval loops currently create version drift, hidden objections, or uncertain ownership.
+    - Tune readiness and issue-resolution rules conservatively with real approvers before expanding the workflow into more sensitive approval paths.
+  references:
+    - docs/patterns/human-agent-collaborative-work.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: analyst-copilot-loop
+    relationship: more-governed-variant-of
+    notes: Both patterns structure mixed-initiative collaboration, but this one centers on explicit approval cycles, negotiated evidence, and named approval ownership rather than open-ended shared drafting.
+  - id: approval-packet-generation
+    relationship: can-consume-output-from
+    notes: Approval packet generation can supply the initial governed artifact and evidence bundle that this pattern iteratively revises through review cycles.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: A review board and engineering lead iterate with agents on an architecture exception package, keeping rollback evidence, reviewer objections, and final sign-off ownership explicit.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Finance reviewers and a compensation analyst use agents to reconcile benchmark data, controller comments, and delegation rules before a compensation exception moves to the approving VP.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Operations leaders and agents repeatedly revise a maintenance-change approval packet, preserving unresolved dependencies and the human owner of the next approval checkpoint.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: HR reviewers collaborate with agents on an accommodation or exception memo, negotiating evidence and reviewer comments without obscuring who retains final approval authority.
+maturity: draft
+tags:
+  - human-agent-collaborative-work
+  - approval-centered-collaboration
+  - review-cycle
+  - evidence-negotiation
+  - handoff-control

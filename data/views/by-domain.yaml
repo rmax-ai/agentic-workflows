@@ -38,7 +38,7 @@ domains:
     recommend-decide-escalate: []
     execute-automate: [exception-aware-task-execution]
     optimize-adapt: [adaptive-threshold-calibration]
-    human-agent-collaborative-work: []
+    human-agent-collaborative-work: [approval-centered-collaboration]
 - domain:
     id: finance
     label: Finance
@@ -52,7 +52,7 @@ domains:
     recommend-decide-escalate: [deal-desk-recommendation-support]
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: []
-    human-agent-collaborative-work: []
+    human-agent-collaborative-work: [approval-centered-collaboration]
 - domain:
     id: compliance
     label: Compliance
@@ -80,7 +80,7 @@ domains:
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
     execute-automate: [exception-aware-task-execution]
     optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration]
-    human-agent-collaborative-work: []
+    human-agent-collaborative-work: [approval-centered-collaboration]
 - domain:
     id: research
     label: Research
@@ -122,4 +122,4 @@ domains:
     recommend-decide-escalate: [policy-constrained-escalation-routing]
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: []
-    human-agent-collaborative-work: []
+    human-agent-collaborative-work: [approval-centered-collaboration]
