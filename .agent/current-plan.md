@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Active target: continue Phase 7 structural refinement by shifting from the now-deepened plan-family contingency slice to one thinner approval-bound monitor or investigate slice, preferably `approval-gated-triage-dispatch` or `evidence-gated-verification-for-release` in a domain already exposed by canonical metadata and browse views.
-- Selection rule: choose a pattern/domain pair that already has one grounding so the next batch can remain instance-only while materially varying the governed packet, hold model, or release boundary rather than repeating the same scenario with new nouns.
-- Read-first set: this plan, the selected canonical pattern, one same-domain same-pattern neighbor, one cross-domain same-pattern neighbor, the relevant coverage notes in `.agent/coverage-matrix.yaml`, and the newest relevant files in `.agent/iterations/2026/`, starting with `20260322-004621.md`.
-- Boundary rule: keep the next example centered on one exact approval, dispatch, or verification boundary with explicit holds and lineage, and stop before adjudication, downstream execution, external communication, or policy reinterpretation.
+- Active target: continue Phase 7 structural refinement with an instance-only `approval-gated-triage-dispatch` batch in `hr`, adding a second HR grounding that materially changes the protected dispatch packet, hold model, and downstream review lane without reopening canonical pattern or browse assets.
+- Selection rule: stay inside a pattern/domain pair that already has one grounding and vary the governed packet, reviewer boundary, and hold-state logic rather than renaming the same scenario with new nouns.
+- Read-first set: this plan; `data/patterns/monitor-detect-triage/approval-gated-triage-dispatch.yaml`; the existing HR dispatch instance; one cross-domain dispatch neighbor such as the compliance or research example; the relevant coverage notes in `.agent/coverage-matrix.yaml`; and the newest relevant files in `.agent/iterations/2026/`, starting with `20260322-004621.md`.
+- Boundary rule: keep the new HR example centered on one exact approval-gated dispatch boundary with explicit signer scope, hold visibility, and lineage, and stop before eligibility adjudication, worker or manager outreach, legal interpretation, or downstream review execution.
 
 ## Current phase
 
@@ -24,11 +24,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Reassess thin approval-bound candidates in `monitor-detect-triage` and `investigate-reconcile-verify`, preferring a domain already exposed in canonical metadata so the next batch can remain instance-only.
-2. Author one materially distinct grounded example for the selected pattern/domain pair, with explicit hold-state and boundary language that stays cleanly inside the chosen pattern.
-3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
-4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
-5. Carry the next-step target forward toward Phase 7 closure by continuing to deepen thin approval-bound or governance-heavy slices in underused families rather than by restoring domain-count parity.
+1. Author one materially distinct `approval-gated-triage-dispatch` instance in `instances/hr/` that keeps the workflow bounded at governed packet release into one restricted downstream review lane.
+2. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
+3. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and `.agent/iterations/2026/20260322-005359.md` after verification.
+4. Carry the next-step target forward toward Phase 7 closure by continuing to deepen thin approval-bound or governance-heavy slices in underused families rather than by restoring domain-count parity.
 
 ## Recent checkpoints
 
