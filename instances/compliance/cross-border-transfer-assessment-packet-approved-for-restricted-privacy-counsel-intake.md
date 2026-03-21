@@ -12,6 +12,22 @@ Compliance.
 
 A privacy compliance team is preparing a transfer-assessment packet for a new analytics subprocess that would route employee telemetry into a vendor environment with cross-border access. The authoritative source state spans the vendor data-flow inventory, subprocess register, transfer-impact questionnaire responses, approved contract annexes, regional data-category mappings, and prior exception history. The downstream restricted intake lane expects one transformed packet with normalized transfer identifiers, jurisdiction scope, annex inventory, privacy tags, held-field markers, and an approval manifest authorizing handoff into that single privacy-counsel intake queue. The workflow must stop once that exact packet revision is approved for intake, without deciding whether the transfer is permissible, issuing legal advice, contacting the vendor, or launching any regulator notification or remediation action.
 
+```mermaid
+flowchart TD
+    start["Select authoritative cross-border transfer<br>sources and current packet state"] --> stage["Assemble staged intake packet with<br>normalized transfer identifiers, jurisdiction scope,<br>annex inventory, privacy tags, and held fields"]
+    stage --> checks{"Do lineage, scope, jurisdiction,<br>and audience checks all pass?"}
+    checks -->|"No"| hold["Place packet in hold and exception queue for<br>missing annex lineage, stale subprocess scope,<br>tag conflicts, or audience mismatch"]
+    hold --> rule{"Does clearing the hold require a<br>schema or audience-rule change?"}
+    rule -->|"Yes"| escalate["Escalate to privacy governance owners for<br>bounded rule or hold-release review"]
+    rule -->|"No"| restage["Refresh authoritative inputs and<br>rebuild the exact packet revision"]
+    escalate --> restage
+    restage --> stage
+    checks -->|"Yes"| review["Privacy compliance reviewer checks the exact<br>packet revision, held-field markers, and manifest"]
+    review --> approve{"Approve release into one restricted<br>privacy-counsel intake lane?"}
+    approve -->|"No"| hold
+    approve -->|"Yes"| release["Release the approved packet and manifest to<br>the restricted privacy-counsel intake queue"]
+```
+
 ## Target systems / source systems
 
 - Vendor-risk register, subprocess inventory, and data-flow mapping systems holding the authoritative transfer scope and system lineage
