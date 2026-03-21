@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 211
+  instance_files: 212
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -56,7 +56,7 @@ pattern_counts_by_family:
   optimize-adapt: 6
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
-  engineering: 30
+  engineering: 31
   finance: 31
   compliance: 30
   operations: 30
@@ -66,6 +66,7 @@ instance_counts_by_domain:
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
+  - "`claimed-state-verification` now has additional `engineering` grounding through an internal container base image publication verification example, deepening that low-risk investigate-family slice within engineering beyond internal SDK asset publication while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative digest, signature, and propagation traceability rather than image republish, rollout approval, vulnerability adjudication, or downstream rebuild execution."
   - "`approval-packet-generation` now has explicit `compliance` grounding through a vendor biometric retention control deviation approval-packet assembly example, deepening that high-risk gather-family slice while preserving a clean boundary at packet assembly, evidence indexing, exception visibility, and human handoff rather than recommendation, adjudication, vendor instruction, or regulator communication."
   - "`claimed-state-verification` now has additional `support` grounding through an internal premium-support advisory-macro publication verification example, deepening that low-risk investigate-family slice while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative evidence traceability rather than macro editing, republishing, customer communication, or downstream execution."
   - "`schedule-adjustment-and-replanning` now has explicit `compliance` grounding through a control-remediation sign-off timeline replanning example after evidence-collection delay or reviewer-window compression threatened a fixed regulator-facing checkpoint, extending that moderate-risk plan-family replanning slice beyond engineering and research while preserving a clean boundary at revised schedule production, impact ledgering, and coordination-ready handoff rather than remediation sufficiency adjudication, control waiver, regulator filing, or execution."
@@ -206,6 +207,7 @@ repo_reality:
     - instances/engineering/approved-release-readiness-review-closure-and-tracker-completion.md
     - instances/engineering/payments-tokenization-cutover-readiness-gate-disposition-recommendation.md
     - instances/engineering/internal-sdk-release-asset-publication-verification.md
+    - instances/engineering/internal-container-base-image-publication-verification.md
     - instances/engineering/approved-release-candidate-evidence-gate-verification.md
     - instances/engineering/production-signing-key-compromise-authority-recommendation.md
     - instances/engineering/database-upgrade-exception-recommendation-packet-revision-approved-for-architecture-board-decision-lane.md
