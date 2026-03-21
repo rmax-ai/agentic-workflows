@@ -12,6 +12,19 @@ Engineering.
 
 An internal developer-platform pipeline marks version `4.12.0` of a shared SDK as published after package build, checksum generation, and release-note steps report success. Release coordinators still need to know whether the claimed state is actually true across the approved package registry, checksum manifest store, and internal release-notes surface before other teams depend on the version for routine integration work. The workflow verifies the publication claim against those authoritative sources and emits a bounded verdict; it must not republish assets, reopen the build, or infer a broader release-readiness decision.
 
+```mermaid
+flowchart TD
+    A["Pipeline claim received<br>SDK 4.12.0 marked published"] --> B["Open or reuse durable<br>verification record"]
+    B --> C{"Approved sources and<br>version-match rules in scope?"}
+    C -- "No" --> H["Bounded escalation<br>human follow-up record"]
+    C -- "Yes" --> D["Check package registry,<br>checksum manifest, and<br>release-notes surface"]
+    D --> E{"All authoritative checks<br>match claimed version?"}
+    E -- "Yes" --> F["Emit confirmed verdict<br>with evidence trace"]
+    E -- "No" --> G{"Lagging surface still within<br>approved wait window?"}
+    G -- "Yes" --> I["Hold as partial verification<br>and await allowed lag"]
+    G -- "No" --> H
+```
+
 ## Target systems / source systems
 
 - Internal package registry that records the published package version, platform targets, and immutable artifact identifiers
