@@ -2,7 +2,9 @@
 
 ## Iteration focus
 
-Next iteration focus: rebalance the now sole-thinnest `compliance` domain with one already-canonical, family-safe grounded instance, again preferring a slice whose canonical metadata and derived domain view already align so the batch can stay narrow and instance-first.
+Next iteration focus: rebalance one of the now tied thinnest domains (`compliance`, `research`, `support`, or `hr`) with one already-canonical, family-safe grounded instance, again preferring a slice whose canonical metadata and derived domain view already align so the next batch can stay narrow and instance-first.
+
+Iteration `20260321-144739` is now complete: `schedule-adjustment-and-replanning` gained new `compliance` grounding through one control-remediation sign-off timeline replanning example after evidence-collection delay or reviewer-window compression threatened a fixed regulator-facing checkpoint, while the canonical pattern metadata and derived `data/views/by-domain.yaml` already correctly exposed the slice.
 
 Iteration `20260321-143747` is now complete: `schedule-adjustment-and-replanning` gained new `research` grounding through one benchmark-study publication timeline replanning example after evidence-analysis or data-governance clearance delay compressed the original publication-review window, while the canonical pattern metadata and derived `data/views/by-domain.yaml` already correctly exposed the slice.
 
@@ -64,21 +66,21 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
 - Phase 5: canonical coverage now spans forty-nine patterns across all nine top-level pattern families. `recommend-decide-escalate` now sits at seven canonical patterns; `transform-process` and `optimize-adapt` each sit at six; `gather-retrieve-synthesize` now sits at five; and `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` each remain at five. Future additions should remain narrow and land only where a genuinely reusable workflow shape deepens uneven grounded coverage rather than duplicating already-covered matrix cells.
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred ninety-three instance files now committed.
+- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred ninety-four instance files now committed.
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: `compliance` is now the sole thinnest modeled domain at twenty-five grounded examples; the just-completed research replanning batch broke the prior tie by adding the first grounded `schedule-adjustment-and-replanning` example while leaving canonical metadata and the derived domain view unchanged because they were already aligned.
+- Current refinement target: `compliance`, `research`, `support`, and `hr` are now tied as the thinnest modeled domains at twenty-six grounded examples each. The next refinement pass should reassess those tied domains for one already-canonical, family-safe slice whose canonical metadata and derived browse view ideally already align.
 
 ## Ordered tasks
 
-1. Reassess the now sole-thinnest `compliance` domain and choose one already-canonical, family-safe slice for one new grounded instance that deepens coverage without expanding structural inventory.
-2. Confirm whether the chosen canonical pattern metadata and derived `data/views/by-domain.yaml` bucket already expose the targeted `compliance` slice correctly; avoid editing either file unless the new instance reveals real drift from canonical truth.
+1. Reassess the tied thinnest domains (`compliance`, `research`, `support`, and `hr`) and choose one already-canonical, family-safe slice for one new grounded instance that deepens coverage without expanding structural inventory.
+2. Confirm whether the chosen canonical pattern metadata and the relevant bucket in `data/views/by-domain.yaml` already expose the targeted slice correctly; avoid editing either file unless the new instance reveals real drift from canonical truth.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded content batch, then refresh execution memory on top of the verified canonical baseline.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-144337`
+- Timestamp: `20260321-144739`
 - Previous completed scope: added one research-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern metadata to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Previous completed scope: added one HR-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added one compliance-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
@@ -93,7 +95,9 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Completed scope: added one support-grounded `enterprise-admin-entitlement-resynchronization-runbook-execution` example under `exception-aware-task-execution`, confirmed the canonical pattern metadata and derived domain view already exposed the support slice correctly, and confirmed YAML validation still passes.
 - Completed scope: added one research-grounded `benchmark-study-publication-timeline-replanning-after-evidence-analysis-or-clearance-delay` instance under `schedule-adjustment-and-replanning`, confirmed the canonical pattern metadata and derived domain view already exposed the research slice correctly, and confirmed YAML validation still passes.
 - Current working hypothesis: the completed research planning refinement remains valid only because the primary output stayed one revised publication timeline plus one replanning rationale-and-impact ledger and one coordination-ready handoff packet, while governance recommendation, publication-integrity adjudication, reviewer-authority choice, and external submission remained explicitly outside the workflow.
-- Current scoped follow-on: reassess the now sole-thinnest `compliance` domain for one equally bounded already-canonical grounding slice whose canonical metadata and derived domain view ideally already align.
+- Completed scope: added one compliance-grounded `control-remediation-sign-off-timeline-replanning-after-evidence-collection-slip` instance under `schedule-adjustment-and-replanning`, confirmed the canonical pattern metadata and derived domain view already exposed the compliance slice correctly, and confirmed YAML validation still passes.
+- Current working hypothesis: the completed compliance planning refinement remains valid only because the primary output stayed one revised sign-off timeline plus one replanning rationale-and-impact ledger and one coordination-ready handoff packet, while remediation sufficiency adjudication, control waiver, regulator filing, and remediation execution remained explicitly outside the workflow.
+- Current scoped follow-on: reassess the now tied thinnest domains (`compliance`, `research`, `support`, and `hr`) for one equally bounded already-canonical grounding slice whose canonical metadata and derived domain view ideally already align.
 - Boundary reminder: future planning-family depth work remains valid only if the primary outputs stay a revised schedule, explicit impact ledger, and coordination-ready handoff; any branch that would choose policy outcomes, waive required checkpoints, adjudicate authority, or execute downstream action must halt for human escalation instead of improvising.
 
 ## Constraints
@@ -123,4 +127,4 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Expected outcome
 
-The next iteration should stay in depth-balancing mode: pick the now sole-thinnest `compliance` domain for one family-safe example in an already-canonical pattern area, and keep the work bounded to that one slice rather than opening a broader structural batch.
+The next iteration should stay in depth-balancing mode: pick one of the now tied thinnest domains for one family-safe example in an already-canonical pattern area, and keep the work bounded to that one slice rather than opening a broader structural batch.
