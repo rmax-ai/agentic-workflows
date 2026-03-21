@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-032912` is complete: it added one HR-domain `transform-process` instance for `document-to-structured-data-handoff` via `medical-leave-certification-packet-to-leave-case-record-handoff`. The next modest batch should stay inside Phase 6 and continue deepening `transform-process`, which now spans finance, compliance, operations, support, and HR but still lacks engineering and research grounding.
+Iteration `20260321-033321` is complete: it added one research-domain `transform-process` instance for `document-to-structured-data-handoff` via `benchmark-study-artifact-packet-to-research-review-intake-record-handoff`. The next modest batch should stay inside Phase 6 and likely finish the remaining engineering grounding gap in `transform-process`, which now spans finance, compliance, operations, support, HR, and research.
 
 ## Current phase
 
@@ -15,19 +15,19 @@ Iteration `20260321-032912` is complete: it added one HR-domain `transform-proce
 
 ## Ordered tasks
 
-1. Re-read `document-to-structured-data-handoff`, the existing transform-process instances, and adjacent research-domain artifacts before adding another grounded handoff scenario.
-2. Author exactly one new research-domain instance linked to `document-to-structured-data-handoff` so the next batch deepens a thin family while also strengthening the sparsest overall domain.
+1. Re-read `document-to-structured-data-handoff`, the new research transform instance, and neighboring engineering-domain artifacts before authoring the next grounding.
+2. Author exactly one new engineering-domain instance linked to `document-to-structured-data-handoff` so the next batch can complete `transform-process` coverage across all currently modeled domains.
 3. Keep the scenario anchored on governed document-to-record or packet-to-staging transformation with provenance, exception routing, and explicit human review boundaries rather than drifting into recommendation, execution, or investigation.
-4. Prefer a research workflow where heterogeneous evidence or submission materials must be normalized into a structured study, review, or intake record without making downstream approval or publication decisions.
+4. Prefer an engineering workflow where logs, deployment manifests, test evidence, migration materials, or incident-adjacent artifacts must be normalized into a structured review or staging record without triggering rollout, remediation, or approval decisions.
 5. Keep the content batch limited to this single transform-process example so coverage improves without widening scope.
 6. After the next instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next dated iteration log so execution memory matches repository reality.
 7. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-032912`
-- Completed subagent scope: authored `instances/hr/medical-leave-certification-packet-to-leave-case-record-handoff.md` as one HR-domain `document-to-structured-data-handoff` grounding change and committed it separately.
-- Completed orchestrator follow-up: refresh execution memory so transform-family HR coverage is reflected in status and coverage tracking.
+- Timestamp: `20260321-033321`
+- Completed subagent scope: authored `instances/research/benchmark-study-artifact-packet-to-research-review-intake-record-handoff.md` as one research-domain `document-to-structured-data-handoff` grounding change and committed it separately.
+- Completed orchestrator follow-up: refresh execution memory so transform-family research coverage is reflected in status and coverage tracking.
 
 ## Constraints
 
@@ -40,4 +40,4 @@ Iteration `20260321-032912` is complete: it added one HR-domain `transform-proce
 
 ## Expected outcome
 
-The next iteration should add one research-domain `transform-process` example, deepen one of the thinnest grounded families again, and leave the repository ready for another small Phase 6 grounding batch after the `.agent/` memory refresh.
+The next iteration should add one engineering-domain `transform-process` example, close the remaining domain gap for that thin family, and leave the repository ready to rebalance other partial family/domain combinations after the `.agent/` memory refresh.
