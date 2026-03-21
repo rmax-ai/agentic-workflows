@@ -1,0 +1,285 @@
+id: readiness-gate-disposition-recommendation
+slug: readiness-gate-disposition-recommendation
+name: Readiness gate disposition recommendation
+summary: Evaluate updated evidence, unresolved blockers, deadline pressure, and policy thresholds at a governed milestone so the workflow can recommend a proceed, hold, narrow, or escalate disposition without drafting approvals or executing the next stage.
+pattern_family:
+  id: recommend-decide-escalate
+  label: Recommend / Decide / Escalate
+problem_structure:
+  id: recommendation-and-decision-support
+  label: Recommendation and decision support
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+workflow_goal: Determine whether a governed milestone or gate should proceed as planned, hold for missing readiness evidence, narrow to a lower-scope path, or escalate to a higher authority, while keeping the workflow bounded at disposition guidance and human decision handoff.
+inputs:
+  - name: Governed gate definition and current state
+    description: The named readiness gate, current milestone status, decision rights, and disposition options that define what the workflow is evaluating.
+    kind: gate-state
+    required: true
+    examples:
+      - Release gate awaiting confirmation that rollback, dependency, and test evidence remain current
+      - Research artifact-freeze gate awaiting final reproducibility, licensing, and disclosure checks
+      - Finance cutover gate awaiting controller review of reconciliation and control-completeness evidence
+  - name: Updated evidence and freshness signals
+    description: Current evidence bundles, verification results, freshness timestamps, and event signals showing which supporting materials were added, changed, expired, or invalidated since the last readiness review.
+    kind: evidence-set
+    required: true
+    examples:
+      - New regression-test pass results paired with expired rollback validation evidence
+      - Reproducibility rerun results plus a stale dataset-rights confirmation
+      - Fresh reconciliation outputs with one control-attestation document older than policy allows
+  - name: Open blockers and dependency status
+    description: Unresolved issues, prerequisite completion signals, exception requests, and dependency owners that affect whether the gate can be passed safely.
+    kind: blocker-register
+    required: true
+    examples:
+      - Open schema-drift issue and pending rollback runbook sign-off
+      - Unresolved benchmark anomaly on one workload and pending privacy review note
+      - Remaining cash-forecast variance investigation and missing reviewer attestation
+  - name: Deadline and policy threshold context
+    description: Timing pressures, review cadences, authority bounds, and non-waivable thresholds that shape whether delay, scope reduction, or escalation is preferable.
+    kind: policy
+    required: true
+    examples:
+      - Freeze window start, delegated launch authority, and rollback-readiness minimums
+      - Submission deadline, publication-governance thresholds, and disclosure review rules
+      - Quarter-close calendar, controller escalation limits, and control-completeness thresholds
+  - name: Prior disposition history and reviewer feedback
+    description: Optional record of earlier gate recommendations, accepted mitigations, and reviewer objections that should inform the current disposition.
+    kind: review-history
+    required: false
+    examples:
+      - Earlier recommendation to narrow scope until rollback evidence is refreshed
+      - Review note that a prior proceed recommendation was accepted only for a reduced workload set
+outputs:
+  - name: Recommended gate disposition
+    description: Ranked disposition options showing whether the milestone should proceed, hold, narrow to a safer scope, or escalate, with confidence, rationale, and explicit blocking conditions.
+    kind: recommendation
+    required: true
+    examples:
+      - Recommend proceed for a phased cutover because all critical blockers are closed and residual risk remains within delegated authority
+      - Recommend hold because evidence freshness has expired for a required rollback control
+      - Recommend narrowing the research package to approved workloads while escalating unresolved licensing ambiguity
+  - name: Readiness rationale packet
+    description: Decision-ready packet linking evidence freshness, unresolved blockers, threshold checks, and proposed mitigations to the preferred disposition.
+    kind: gate-packet
+    required: true
+    examples:
+      - Gate packet summarizing blocker closure, stale evidence exceptions, and what would be needed to move from hold to proceed
+      - Packet showing why a narrow-scope path is safer than either full proceed or full stop
+  - name: Blocker and freshness exception register
+    description: Structured register of blockers, stale evidence, unresolved dependencies, and deadline pressure items that remain visible to the human gate owner.
+    kind: exception-register
+    required: true
+    examples:
+      - Register showing one waived noncritical blocker, two closed dependencies, and one freshness breach that still forces hold
+      - List of artifacts whose expiration timestamps triggered a new gate review
+  - name: Disposition audit log
+    description: Durable log of trigger events, evidence versions, disposition comparisons, human checkpoints, and recommendation revisions for the governed gate.
+    kind: audit-log
+    required: true
+    examples:
+      - Log showing that a fresh blocker update moved the recommendation from proceed to narrow two days before the gate meeting
+      - Record of human overrides and the evidence delta that justified each recommendation refresh
+environment:
+  summary: Operates in governance-sensitive milestone workflows where the main task is deciding whether a known gate is sufficiently ready to advance, pause, narrow, or escalate after evidence, blocker state, or deadline pressure changes.
+  systems:
+    - Milestone, release, or review tracking systems
+    - Evidence repositories and verification dashboards
+    - Issue, dependency, or exception tracking tools
+    - Policy, threshold, and authority-matrix repositories
+  actors:
+    - Gate owner or review chair
+    - Domain lead responsible for readiness evidence
+    - Risk, policy, or control reviewer
+    - Human decision-maker who accepts or rejects the disposition recommendation
+  constraints:
+    - The workflow must begin from a known governed gate or milestone rather than a generic incoming alert stream.
+    - Outputs must stop at disposition guidance, readiness packaging, and explicit human handoff rather than approval drafting, collaboration loops, or downstream execution.
+    - Evidence freshness, blocker severity, and non-waivable thresholds must remain explicit so schedule pressure cannot silently override governance constraints.
+    - Recommendation revisions must preserve lineage so reviewers can inspect what changed between gate checks and why.
+  assumptions:
+    - Authoritative gate definitions, threshold rules, and disposition options are available in a form the workflow can evaluate.
+    - Evidence sources expose timestamps or state changes strongly enough to detect when a new readiness review should be triggered.
+    - Human gate owners remain accountable for accepting the disposition and initiating any later schedule, approval, or execution step.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The workflow needs to watch milestone-state changes, blocker updates, deadline proximity, and evidence freshness drift so readiness recommendations refresh when the gate context materially changes.
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: Gate disposition quality depends on pulling the latest evidence, blocker records, policy thresholds, and prior review history into one current assessment.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Readiness judgments require combining technical, procedural, and governance signals into one disposition packet rather than leaving them as disconnected facts.
+  - capability:
+      id: recommendation
+      label: Recommendation
+      source_vocabulary: capabilities
+    necessity: The core deliverable is a justified proceed, hold, narrow, or escalate recommendation rather than a completed action.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Readiness gates depend on explicit blocker thresholds, freshness rules, authority limits, and non-waivable review conditions that must shape every disposition.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: The workflow must confirm that blocker status, evidence versions, and threshold calculations are current before surfacing a disposition recommendation.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow has to preserve prior dispositions, trigger history, evidence lineage, and accepted mitigations across repeated gate checks.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Missing evidence, contradictory readiness signals, and deadline-driven pressure should produce explicit hold or escalation behavior instead of speculative proceed recommendations.
+execution_architecture:
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: Gate reevaluation is often triggered by blocker-state changes, evidence freshness expiry, milestone transitions, or approaching deadlines, making event-driven refresh a natural fit without turning the workflow into generic alert triage.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human gate owners remain embedded in the normal loop because accepting a proceed, hold, narrow, or escalate disposition is itself the governed decision the workflow is supporting.
+autonomy_profile:
+  level:
+    id: recommendation-only
+    label: Recommendation only
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the gate definition, protected thresholds, and acceptable narrowing options before the workflow publishes live disposition recommendations.
+    - Review the recommended disposition, blocker register, and evidence-freshness rationale before any gate state is marked accepted, deferred, narrowed, or escalated.
+    - Approve changes to freshness policies, blocker severity rules, or delegated authority thresholds before they affect future readiness recommendations.
+  reversibility: Recommendations can be recomputed as evidence changes, but weak readiness advice can still create avoidable launch churn, review delay, or localized control slippage before the human gate owner corrects it.
+  escalation: Escalate whenever critical evidence is stale or contradictory, blocker severity crosses a non-waivable threshold, no safe narrow-scope path exists, or schedule pressure would force a gate decision beyond delegated authority.
+risk_governance:
+  level:
+    id: moderate
+    label: Moderate
+    source_vocabulary: risk-levels
+  failure_impact: Poor readiness recommendations can cause localized rework, missed milestones, premature gate advancement, or avoidable review churn, but harm is usually containable because humans still control the consequential gate decision and downstream execution remains out of scope.
+  approval_requirements:
+    - A human gate owner must accept the recommended proceed, hold, narrow, or escalate disposition before any authoritative gate state changes.
+    - Policy or program owners must approve changes to blocker thresholds, evidence-freshness rules, narrowing criteria, or delegated escalation boundaries.
+  auditability: Preserve trigger events, evidence versions and timestamps, blocker-status snapshots, compared disposition options, human overrides, and final handoff records so each gate recommendation can be reconstructed later.
+  privacy:
+    - Share only the readiness evidence, blocker details, and reviewer commentary needed for the governed gate decision rather than broad copies of sensitive project, research, or finance material.
+    - Keep logs and packets aligned to need-to-know access because gate reviews may contain embargoed findings, customer-impact estimates, or internal control notes.
+  security:
+    - Use least-privilege access when reading milestone systems, evidence stores, and policy repositories so recommendation tooling cannot silently alter source readiness records.
+    - Log threshold overrides, manual blocker reclassification, and human disposition changes in durable reviewable records.
+  notes: Moderate-risk governance fits because the pattern influences consequential milestone decisions and control timing, yet it remains bounded at recommendation and explicit human handoff rather than direct execution or approval submission.
+why_agentic:
+  - Readiness gates require weighing changing evidence, blocker status, deadline pressure, and policy thresholds rather than applying one static checklist outcome.
+  - Event-driven refresh matters because a gate that looked ready yesterday may need a different disposition after one blocker reopens or supporting evidence goes stale.
+  - Safe behavior depends on recognizing when narrowing scope or escalating is better than forcing a binary proceed-versus-hold answer.
+failure_modes:
+  - mode: The workflow recommends proceed using stale or superseded readiness evidence
+    impact: A gate advances on outdated assumptions, creating avoidable rollback, rework, or control follow-up when reviewers discover the evidence drift.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Attach freshness timestamps and source versions to every critical evidence item before ranking dispositions.
+      - Revalidate blocking evidence immediately before the recommendation is surfaced to the human gate owner.
+  - mode: Narrow-scope recommendations understate blocker coupling
+    impact: Reviewers accept a partial proceed path that still depends on unresolved blockers, causing downstream churn and loss of trust in the gate logic.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Require each narrow option to show which blockers remain out of scope and which dependencies must still be isolated.
+      - Compare proposed narrowed paths against the same non-waivable thresholds used for full-scope proceed decisions.
+  - mode: Deadline pressure silently overrides policy thresholds
+    impact: The workflow biases toward progression because a milestone is near, even though the gate should hold or escalate under current rules.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Encode hard blocker and freshness thresholds as explicit blockers rather than soft scoring factors.
+      - Surface deadline pressure as context in the packet without allowing it to erase mandatory escalation or hold conditions.
+  - mode: The workflow drifts into triage, approval drafting, or downstream execution beyond the family boundary
+    impact: Family boundaries blur and reviewers may treat a recommendation packet as if it were an approved gate decision or execution order.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Keep outputs limited to disposition recommendations, readiness packets, blocker registers, and audit logs.
+      - Separate alert intake, collaborative approval preparation, and post-decision execution tooling from the readiness-gate workflow.
+evaluation:
+  success_metrics:
+    - Reviewer acceptance rate of recommended dispositions without major blocker or threshold corrections.
+    - Time from material gate-state change to delivery of an updated readiness packet for human review.
+    - Frequency with which stale evidence, unresolved blockers, or threshold breaches are surfaced before a gate meeting or milestone deadline.
+  quality_criteria:
+    - Recommendations clearly distinguish proceed, hold, narrow, and escalate options and explain why the preferred path fits current evidence and authority bounds.
+    - Readiness packets keep unresolved blockers, freshness gaps, and policy thresholds visible enough for humans to make a governed gate decision.
+    - The workflow stays bounded at recommendation and handoff rather than implying approval, scheduling, or execution authority.
+  robustness_checks:
+    - Test blocker reopen events and confirm the workflow refreshes a prior proceed recommendation into hold, narrow, or escalate when evidence changes materially.
+    - Test stale-evidence conditions near a deadline and verify the workflow still respects mandatory thresholds instead of favoring schedule pressure.
+    - Test conflicting reviewer feedback and partial mitigations to ensure the workflow preserves uncertainty rather than overstating readiness.
+  benchmark_notes: Evaluate freshness sensitivity, blocker visibility, and recommendation discipline together; a faster gate packet is not useful if it normalizes premature progression or hides unresolved risk.
+implementation_notes:
+  orchestration_notes:
+    - Keep trigger intake, evidence refresh, threshold evaluation, disposition comparison, and packet assembly as explicit stages over shared gate state so recommendation changes remain inspectable.
+    - Preserve a clean handoff boundary so later approval, replanning, or execution workflows start only after a human accepts the disposition.
+  integration_notes:
+    - Common implementations integrate milestone trackers, issue systems, evidence repositories, policy sources, and event subscriptions for freshness or state-change signals.
+    - Keep the pattern neutral about specific release-management, study-governance, or finance-close tooling.
+  deployment_notes:
+    - Start with gates where evidence-freshness drift and blocker churn already create expensive manual re-review work.
+    - Monitor override rates, stale-evidence catches, and narrowing-path acceptance to confirm the workflow improves readiness judgment rather than merely speeding up packet preparation.
+  references:
+    - docs/patterns/recommend-decide-escalate.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: policy-constrained-escalation-routing
+    relationship: adjacent-to
+    notes: Both patterns may recommend escalation, but this one centers on a governed readiness gate with proceed, hold, and narrow options rather than choosing the authority route for an already-qualified case.
+  - id: workflow-hand-off-and-completion
+    relationship: hands-off-to
+    notes: Once a human accepts a gate disposition and the source-of-truth state changes, downstream low-risk closure or handoff may proceed through the completion pattern.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Re-evaluate a production cutover gate whenever blocker status, rollback evidence freshness, or freeze-window timing changes and recommend whether to proceed, narrow the rollout, hold, or escalate.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Refresh an artifact-freeze gate recommendation when reproducibility evidence or disclosure approvals change and advise whether the study package can advance as scoped.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Reassess a close-readiness cutover gate when reconciliation evidence, control attestations, or filing deadlines shift and recommend the safest governed disposition.
+maturity: draft
+tags:
+  - recommend-decide-escalate
+  - recommendation-and-decision-support
+  - readiness-gate
+  - governed-disposition
+  - event-driven-monitoring
+  - recommendation-only
+  - moderate-risk
