@@ -1,0 +1,792 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>research - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#research" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              research
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="research">research<a class="headerlink" href="#research" title="Permanent link">&para;</a></h1>
+<p>Grounded examples for the <code>research</code> domain.</p>
+<h2 id="instances">Instances<a class="headerlink" href="#instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="approved-benchmark-study-publication-integrity-packet-evidence-gate-verification/">Approved benchmark study publication-integrity packet evidence gate verification</a></li>
+<li>A research publication-operations team already has one approved publication-integrity packet revision for a benchmark study, but that exact packet cannot be released into the restricted integrity-review lane until current evidence still supports human reliance on it. The workflow rechecks rerun-manifest lineage, dataset-rights clearance freshness, disclosure-review state, embargo controls, annex hashes, and named reviewer scope against the approved packet, then emits a verified, held, or insufficient verdict with explicit evidence lineage and release-hold state for research governance approvers. It must not refresh the packet, recommend whether the study should be published, submit a manuscript, repair missing evidence, or start downstream review execution.</li>
+<li><a href="approved-benchmark-study-review-disposition-closure/">Approved benchmark study review disposition closure</a></li>
+<li>An internal research-governance council records that a multimodal benchmark study is approved for internal catalog inclusion after reviewers finish reproducibility, licensing, and disclosure checks. The decision itself is already final in the review system. The remaining workflow is low-risk downstream completion: detect the authoritative approval event, recheck that the study identifier and approved disposition are still current, update the internal study registry, attach the final review packet hash to the catalog record, archive the approved evidence bundle, close the intake checklist, and notify the study owners that the review is complete. The workflow must not publish the work externally, change the approved disposition, or infer any new release decision beyond the recorded council outcome.</li>
+<li><a href="approved-human-subjects-continuing-review-closure-and-protocol-registry-synchronization/">Approved human-subjects continuing-review closure and protocol-registry synchronization</a></li>
+<li>A university-affiliated research compliance office has already recorded an approved continuing-review disposition for a longitudinal human-subjects study in the authoritative ethics workflow after the board completed its decision-making work. That approval is final for this workflow and must not be reopened, reinterpreted, or extended into participant-facing study execution. The remaining execute step is limited to low-risk closure bookkeeping: detect the approved continuing-review event, recheck that the protocol identifier, approval term, and approved packet references still match the source record, close the annual review queue item, sync the internal protocol registry and study-operations tracker to the recorded review-complete state, attach archive references for the final approval letter and continuing-review packet, record completion state in the audit store, and notify the study operations coordinator that review closure propagation is complete. If the protocol was reopened, the approval term changed, or the target registry points to a different study record, the workflow should stop and route manual follow-up instead of guessing.</li>
+<li><a href="approved-human-subjects-ethics-amendment-portal-submission/">Approved human-subjects ethics amendment portal submission</a></li>
+<li>An academic-industry research operations lead needs to submit an already approved ethics amendment for a longitudinal human-subjects study after the team adds a new wearable-derived biomarker, revises participant recontact language, and expands a data-sharing pathway to an external statistical lab. The target institutional review board portal is browser-only, spreads the amendment across protocol summary, risk-change justification, consent-document uploads, external-collaborator disclosures, and investigator-attestation tabs, and final submission may proceed only after the principal investigator, privacy reviewer, and institutional research compliance office have all signed off in the study-governance system. Because a mistaken commit could authorize the wrong protocol version or expose sensitive participant-handling details, the workflow must recheck approvals, confirm the amendment packet still matches the approved protocol materials, and halt safely if the live portal, attachment state, or confirmation path becomes ambiguous.</li>
+<li><a href="benchmark-claim-clarification-packet-approved-for-publication-integrity-review-intake/">Benchmark claim-clarification packet approved for publication integrity review intake</a></li>
+<li>An applied research lead, a reproducibility reviewer, and publication-operations partners are co-producing one governed claim-clarification packet because a benchmark paper draft now contains performance wording that must be reconciled with late reruns, hardware annotations, and external disclosure limits before integrity review. Agents help merge rerun tables, methodology caveats, reviewer objections, and approved claim wording into the shared packet while preserving which concerns remain contested and which edits the human artifact owner accepted. The workflow ends only when the named research release owner approves that exact packet revision for one bounded publication integrity review intake lane, where downstream reviewers may decide whether the claims are supportable or need further narrowing. It does not decide publication, submit the paper, or release benchmark artifacts externally.</li>
+<li><a href="benchmark-metadata-hygiene-watchlist-upkeep/">Benchmark metadata hygiene watchlist upkeep</a></li>
+<li>A research methods stewardship team monitors recurring low-severity benchmark metadata hygiene signals across internal study catalogs, experiment registries, and result dashboards: missing annotation fields, stale dataset-card references, repeated absent reviewer tags, inconsistent benchmark-suite labels, and minor documentation gaps that do not yet call benchmark validity into question. The workflow must merge duplicate signals by study portfolio, benchmark suite, and review window, enrich each watchlist item with study owner, upcoming review cadence, prior deferments, and recent healthy metadata checks, and then publish a routine upkeep queue for methods stewards and study coordinators. The goal is to keep small but persistent metadata gaps visible before they mature into publication-readiness, disclosure, or integrity-review concerns, not to challenge study claims, block sharing, or launch a root-cause investigation automatically.</li>
+<li><a href="benchmark-portfolio-bundle-retuning/">Benchmark portfolio bundle retuning</a></li>
+<li>A research operations lead oversees a shared benchmark-program tuning bundle that influences multiple coupled surfaces: study intake scoring, replication-review sensitivity, documentation-sufficiency weighting, and publication-readiness prioritization for a portfolio of model benchmark studies. Recent outcome history shows that the current bundle favors novelty and short review-cycle completion, but replication-review overrides, disclosure-risk rechecks, and late-stage documentation repairs are rising for studies with weaker reproducibility evidence or more complex data-use constraints. The workflow must produce a governed retuning package that adjusts the shared bundle so reproducibility quality, disclosure integrity, and review stability improve together, without letting the system decide whether a study may publish, rewrite research policy, or trigger downstream release actions on its own.</li>
+<li><a href="benchmark-replication-review-scoring-revision-approved-for-live-use/">Benchmark replication-review scoring revision approved for live use</a></li>
+<li>A research integrity lead has prepared one exact replication-review scoring revision for a benchmark publication program after replay shows that the current live profile underweights cross-lab divergence, dataset-governance caveats, and disclosure-sensitive benchmark claims during final review. The candidate revision increases sensitivity to rerun instability, tightens protected integrity floors for governance-heavy datasets, and defines a restore target if false-positive burden or missed replication risk rises. The workflow must release that exact scoring revision into bounded live use only after a human approver confirms the manifest, validity window, and rollback packet, while staying bounded at optimization-state release rather than deciding publication readiness, revising benchmark claims, or releasing study artifacts externally.</li>
+<li><a href="benchmark-study-artifact-freeze-completion-verification/">Benchmark study artifact freeze completion verification</a></li>
+<li>A benchmark-study owner records that the study's artifact freeze is complete after uploading the final evaluation outputs, manifests, and supporting notebooks for an internal governance review. Governance coordinators still need to confirm whether that claimed freeze state is actually supported by the approved artifact registry, immutable object-store manifest, and review-packet references before they rely on the study as fixed-input evidence. The workflow verifies the claim against those authoritative sources and emits a bounded verdict; it must not approve the study, reopen the evidence packet, or decide any publication or review outcome.</li>
+<li><a href="benchmark-study-artifact-freeze-readiness-gate-disposition-recommendation/">Benchmark study artifact-freeze readiness gate disposition recommendation</a></li>
+<li>A research governance panel is reassessing whether a benchmark study can pass its artifact-freeze gate before an external workshop submission deadline. Since the previous check, one reproducibility rerun succeeded, a license clarification for a third-party evaluation corpus remains unresolved, and a late privacy review note requires narrowing one prompt subset unless additional redaction evidence arrives. The workflow must recommend whether research should proceed with the package as scoped, hold the gate, narrow the submission to the fully cleared workload set, or escalate because reproducibility, disclosure, or dataset-rights thresholds now sit outside delegated publication-gate authority before any external artifact is finalized.</li>
+<li><a href="benchmark-study-artifact-packet-to-research-review-intake-record-handoff/">Benchmark study artifact packet to research review intake record handoff</a></li>
+<li>An applied research enablement team receives a submission packet from an internal multimodal-model benchmarking squad that wants a new study entered into the organization's pre-publication review pipeline. The packet combines a draft extended abstract, experiment tracker exports, evaluation notebook snapshots, dataset licensing notes, annotator-guideline excerpts, a model card draft, red-team observation summaries, and a spreadsheet of headline benchmark numbers prepared for a possible workshop submission. Before any publication decision, external abstract submission, leaderboard update, or executive circulation occurs, the workflow must transform that heterogeneous packet into a structured research-review intake record with required fields for study owner, benchmark question, candidate title, model variants, dataset and prompt-set versions, evaluation window, metric definitions, compute environment, artifact inventory, privacy and licensing flags, uncertainty notes, and source-evidence links while preserving contradictions and missing details.</li>
+<li><a href="benchmark-study-disclosure-risk-alert-triage/">Benchmark study disclosure risk alert triage</a></li>
+<li>A research governance team monitors a continuous stream of disclosure-risk signals around active benchmark studies, including draft-paper sharing events, slide-deck exports, embargo milestones, reproducibility regression alerts, dataset-rights changes, external-review requests, and publication-policy exceptions. The workflow must collapse duplicate signals tied to the same study, claim set, or disclosure window; enrich each alert with benchmark scope, artifact sensitivity, prior reviewer concerns, partner or vendor restrictions, and current embargo posture; and then prioritize which cases need immediate human review. A case should rise to the urgent queue when, for example, an externally shareable draft still depends on a newly failed replication, a dataset license changes after benchmark figures were circulated for review, or multiple external-access requests arrive near an embargo boundary for a study with unresolved disclosure caveats. The goal is to create an evidence-backed triage packet for research governance, publication-review, or legal-and-communications reviewers, not to decide publication posture, rewrite the benchmark claims, grant artifact access, or run a retrospective investigation.</li>
+<li><a href="benchmark-study-disclosure-risk-triage-packet-approved-for-restricted-disclosure-governance-review-dispatch/">Benchmark-study disclosure-risk triage packet approved for restricted disclosure-governance review dispatch</a></li>
+<li>A research governance team already has an evidence-backed disclosure-risk triage packet assembled for one benchmark study after earlier monitoring merged draft-sharing telemetry, a late rerun regression, a dataset-rights change, and an outside-review request against the same embargo window. The next step is not to decide whether external reviewers may see the draft, narrow the benchmark claims, notify partners, or approve publication; it is to decide whether the exact packet revision may cross into the restricted disclosure-governance review lane that can trigger those downstream human workflows. The dispatch workflow watches packet freshness, annex redaction state, signer approval, and bounded reviewer-audience rules, then releases the triaged packet only when the approved research-governance reviewer signs the dispatch manifest for that lane.</li>
+<li><a href="benchmark-study-metric-drift-anomaly-review/">Benchmark study metric drift anomaly review</a></li>
+<li>A research governance team monitors benchmark reruns, experiment metadata, artifact provenance checks, dataset-version changes, and reviewer comments to detect mid-severity metric-drift anomalies before they become publication, disclosure, or integrity incidents. The workflow must collapse duplicate anomalies tied to the same study, benchmark slice, and release window; enrich each case with expected variance bands, planned methodological changes, artifact lineage, prior reviewer notes, and claim sensitivity; and then prioritize which unexplained drifts deserve human review. A case should enter the review queue when, for example, a headline benchmark score jumps beyond the approved variance band without a matching study-plan update, repeated reruns disagree because one artifact lineage is incomplete, or a dataset-version change coincides with unexplained subgroup drift in a study slated for near-term sharing. The goal is an explainable anomaly review packet for benchmark governance, study owners, or research-integrity reviewers, not to decide publication posture, retract claims, run a root-cause analysis, or notify outside parties automatically.</li>
+<li><a href="benchmark-study-publication-go-no-go-recommendation/">Benchmark study publication go/no-go recommendation</a></li>
+<li>A research governance review group is evaluating whether to support external publication of an internal benchmark study comparing model-serving platforms for enterprise generative-AI workloads. The study team wants to submit a workshop paper, brief product leadership, and publish a blog-ready summary before a major industry event, but the evidence packet still includes unresolved reproducibility gaps for one workload, a dataset-license ambiguity around a third-party corpus, and vendor-sensitivity concerns because one platform required nonstandard tuning to reach the reported result. The workflow must recommend whether research should support publication as scoped, narrow the publication package to safer claims and approved artifacts, or escalate because reproducibility, licensing, privacy, or reputational-risk thresholds move outside delegated approval limits before any abstract, briefing, or public claim is committed.</li>
+<li><a href="benchmark-study-publication-integrity-intake-packet-approved-for-restricted-review-lane/">Benchmark study publication-integrity intake packet approved for restricted review lane</a></li>
+<li>A research publication-operations team is preparing one bounded publication-integrity intake packet for a benchmark study that may eventually support a workshop paper and controlled public artifact release. The authoritative source state spans the benchmark claim register, experiment rerun manifests, dataset-rights clearances, disclosure-review notes, approved abstract metadata, redaction and embargo flags, and prior packet hold history. The downstream restricted lane expects one transformed packet with normalized study and claim identifiers, evidence-lineage references, rights and disclosure tags, held-field markers, and an approval manifest authorizing handoff into that single publication-integrity review intake queue. The workflow must stop once that exact packet revision is approved for intake, without collaboratively redrafting the manuscript, recommending whether the study should be published, adjudicating claim support, submitting the paper, or disclosing benchmark artifacts externally.</li>
+<li><a href="benchmark-study-publication-readiness-review-scheduling/">Benchmark study publication-readiness review scheduling</a></li>
+<li>An applied research program manager needs to schedule a publication-readiness review for an internal benchmark study before the team can submit a workshop abstract and circulate the headline results to product leadership. The meeting must include the study lead, the reproducibility reviewer, the privacy reviewer, the dataset licensing owner, and the research communications partner because the review sits inside a five-business-day embargo window between final result freeze and external abstract submission. The workflow is about constructing a viable slot across San Francisco, New York, and London calendars, placing reversible holds, and escalating quickly when no in-policy overlap exists rather than guessing at attendee substitutions, relaxing the embargo window, or making the final meeting commitment without human confirmation.</li>
+<li><a href="benchmark-study-publication-recommendation-packet-revision-approved-for-publication-council-decision-lane/">Benchmark study publication recommendation packet revision approved for publication council decision lane</a></li>
+<li>A research publication workflow has already prepared one exact recommendation packet revision for an external benchmark-study release. The packet narrows the bounded options to publish the workshop paper and approved abstract as scoped, narrow the release to the cleared workload set and claim bundle, or escalate to chief research and legal review, and it keeps blocked paths such as a broader vendor-comparison blog post or public artifact release before rights clearance explicit. Before that exact packet revision can enter the restricted publication council decision lane, a named research release owner must approve the council scope, embargo window, and manifest binding so reviewers receive the governed recommendation artifact rather than a stale or broadened copy. The workflow stops at governed release of that packet revision; it does not decide whether publication proceeds, submit the paper, or disclose the benchmark externally.</li>
+<li><a href="benchmark-study-publication-timeline-replanning-after-evidence-analysis-or-clearance-delay/">Benchmark study publication timeline replanning after evidence-analysis or clearance delay</a></li>
+<li>An applied research program already has an internal benchmark-study publication timeline that sequences final evidence analysis, reproducibility review, data-governance clearance, publication-readiness review, abstract lock, and the external submission deadline. Then the baseline plan stops being feasible: a late evidence-analysis rerun delays one benchmark claim package, or data-governance clearance for a training-data subset takes longer than expected, compressing the original publication-review window and threatening the abstract submission path. The workflow should recompute a revised timeline, document which milestones can move or must stay fixed, and prepare a coordination-ready replanning packet for the study lead, governance coordinator, reproducibility reviewer, and communications partner rather than deciding whether review steps may be skipped, adjudicating publication integrity, or submitting anything externally. <code>mermaid flowchart TD A["Delay detected&lt;br&gt;in evidence analysis&lt;br&gt;or clearance"] B["Collect updated milestone,&lt;br&gt;reviewer, and clearance status"] C["Recompute feasible&lt;br&gt;publication timeline options"] D{"Any in-policy timeline preserves&lt;br&gt;required review steps and&lt;br&gt;the fixed deadline?"} E["Build revised&lt;br&gt;publication timeline"] F["Record moved milestones,&lt;br&gt;fixed checkpoints, and&lt;br&gt;residual risks"] G["Assemble coordination-ready&lt;br&gt;replanning packet"] H["Study lead, governance coordinator,&lt;br&gt;and reviewers review&lt;br&gt;the revised plan"] I["Prepare exception-focused&lt;br&gt;replanning packet with blockers&lt;br&gt;and unmet constraints"] A --&gt;|"Refresh dependency state"| B B --&gt;|"Test hard constraints"| C C --&gt;|"Check policy-safe path"| D D --&gt;|"Yes"| E E --&gt;|"Document impacts"| F F --&gt;|"Prepare handoff"| G G --&gt;|"Route for adoption"| H D --&gt;|"No"| I I --&gt;|"Escalate for human decision"| H</code></li>
+<li><a href="benchmark-study-research-review-intake-record-refresh-after-rerun-manifest-update/">Benchmark study research review intake record refresh after rerun manifest update</a></li>
+<li>An applied research governance program already maintains a staged research-review intake record for an in-flight benchmark study so reproducibility, privacy, and publication-operations reviewers can inspect one current structured packet instead of reopening the experiment tracker, artifact registry, dataset notes, methods annexes, and prior intake exceptions every time source state changes. After that intake record is issued, authoritative updates still arrive: a signed rerun manifest supersedes a draft benchmark results bundle, a methods annex corrects hardware configuration notes, a dataset-version registry entry narrows which prompt-set release is in scope, or exception lineage is updated to show that one previously cited score table was withdrawn. Each approved source change should trigger refresh of the staged research-review intake record, preserving field-level delta lineage, explicit current-versus-superseded values, and exception routing whenever conflicting rerun provenance, unresolved dataset-version drift, or policy-disallowed overwrite logic would make the refreshed packet unsafe for downstream restricted review.</li>
+<li><a href="cross-lab-benchmark-replication-discrepancy-investigation/">Cross-lab benchmark replication discrepancy investigation</a></li>
+<li>Ahead of an internal model-governance review, a second evaluation team cannot reproduce a headline benchmark gain from a multimodal retrieval study comparing two model-serving configurations. The discrepancy could stem from dataset snapshot drift after a late redaction refresh, an evaluation-harness tokenizer change, a retrieval index built from a newer document corpus than the study packet recorded, or a silent serving fallback that routed the original run to a larger checkpoint than the one documented in the benchmark summary. The workflow reconciles experiment metadata, dataset lineage, artifact hashes, serving telemetry, and reviewer notes into a defensible explanation of why the results diverged, what remains uncertain, and which verification checks still require accountable human follow-through before anyone reuses, narrows, or withdraws the benchmark claim.</li>
+<li><a href="de-identified-participant-interview-batch-to-release-safe-study-dataset/">De-identified participant interview batch to release-safe study dataset</a></li>
+<li>An applied research team is preparing a cross-site methods review for a study on how enterprise developers evaluate model-generated code suggestions during secure software delivery. The raw batch includes interview transcripts, moderator notes, consent-status exports, annotation worksheets, screen-capture excerpts, and follow-up participant emails that mention employer names, team structures, incident examples, internal tool names, and a few accidental disclosures about production environments. Before any methods board review, cross-lab sharing, or publication-readiness discussion can occur, the workflow must transform that sensitive batch into a release-safe structured study dataset with pseudonymous participant ids, coded topic spans, normalized study-phase labels, allowed demographic buckets, issue taxonomy tags, disclosure-risk flags, and evidence links that stay inside the restricted boundary while making remaining ambiguity and suppressed content visible to reviewers.</li>
+<li><a href="embargoed-benchmark-artifact-spot-check-sampling-rate-tuning/">Embargoed benchmark artifact spot-check sampling-rate tuning</a></li>
+<li>A research integrity team performs spot checks on benchmark-study artifacts, reproducibility packets, disclosure annexes, and claims tables before embargoed benchmark results are briefed to partners, leadership, or publication stakeholders. The fixed sampling policy has been efficient for routine internal studies, but recent findings show that lower-volume embargoed artifacts with rerun instability, disclosure-sensitive annexes, or negative-result replication disputes generate more meaningful review defects than the baseline sample captures. The workflow must autonomously retune bounded spot-check sampling rates so higher-risk artifact cohorts receive more oversight, while preserving protected floors for sensitive disclosure classes, keeping blinded or conflict-managed information contained, respecting reviewer-capacity limits, and rolling back quickly if the loop starts overreacting to a small number of atypical defects.</li>
+<li><a href="embargoed-benchmark-replication-review-queue-reprioritization/">Embargoed benchmark replication review queue reprioritization</a></li>
+<li>A central research-quality team manages a backlog of benchmark-study replication and validation packages before any externally visible paper, workshop submission, or leadership briefing can move forward. The queue mixes internal model-serving benchmarks, partner-funded evaluation studies, negative-result replications, and follow-up reviews triggered by earlier reproducibility defects. Recent outcome data shows that reviewers have been pulling forward polished submissions from well-resourced teams while packages with partial rerun failures, embargo-sensitive partner data, or statistically ambiguous negative findings sit longer and later require disruptive last-minute escalations. The optimization workflow must continuously retune queue order so studies with the highest external-claim risk, imminent embargo decisions, or reproducibility instability rise appropriately, while preserving fairness across teams, protecting blinded review norms where applicable, respecting finite reviewer capacity, and maintaining a fast rollback path if the feedback loop starts rewarding presentation quality over scientific risk.</li>
+<li><a href="model-serving-benchmark-evidence-matrix-shared-workbench-upkeep/">Model-serving benchmark evidence matrix shared workbench upkeep</a></li>
+<li>A small applied-research team keeps an internal benchmark evidence matrix in a shared workbench while comparing model-serving platforms for future infrastructure planning. Analysts, reproducibility reviewers, and experiment owners continuously add run ids, caveat notes, hardware annotations, reviewer comments, and section ownership changes as new benchmark reruns land. The agent's role is to keep that bounded internal matrix synchronized: refresh linked experiment metadata, normalize duplicated reviewer notes, update section status markers, and carry unresolved methodology questions forward without collapsing them into a final recommendation memo. Humans remain responsible for interpreting contested results, deciding which evidence is persuasive, and choosing when any part of the matrix is mature enough to feed a separate board-facing briefing workflow.</li>
+<li><a href="model-serving-platform-benchmark-briefing-copilot-loop/">Model-serving platform benchmark briefing copilot loop</a></li>
+<li>An applied-research analyst is preparing a recommendation-ready benchmark briefing for an architecture review board that must choose between three model-serving platforms for internal generative-AI workloads. The analyst uses a copilot inside a shared research workspace to iteratively tighten benchmark scope, pull source-grounded latency and cost results from the experiment tracker, compare vendor claims against internal test runs, rewrite the board memo for different stakeholder questions, and maintain an open-issues list for security and infrastructure follow-up, while the human analyst remains responsible for deciding which evidence is in scope, interpreting tradeoffs in disputed results, and approving the final briefing before it reaches engineering leadership.</li>
+<li><a href="regulatory-obligation-synthesis-for-data-retention-review/">Regulatory obligation synthesis for data retention review</a></li>
+<li>A privacy and records-governance team is preparing an annual review of customer-data retention obligations across support transcripts, billing records, fraud-monitoring evidence, and security logs. The workflow needs a grounded synthesis of which retention periods are mandatory, which are policy choices, and where the source material is contradictory across jurisdictions or internal standards.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

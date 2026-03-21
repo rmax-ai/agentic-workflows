@@ -1,0 +1,1508 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Incident root cause analysis - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#incident-root-cause-analysis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Incident root cause analysis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incident-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incident trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operational-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operational evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-and-context-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change and context history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#human-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human reports
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#root-cause-hypothesis-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Root-cause hypothesis set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reconciled-incident-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reconciled incident timeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-follow-up-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended follow-up actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#premature-fixation-on-a-plausible-but-wrong-root-cause" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Premature fixation on a plausible but wrong root cause
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incident-timeline-is-incomplete-or-incorrectly-ordered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incident timeline is incomplete or incorrectly ordered
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-is-lost-across-responders-or-investigation-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State is lost across responders or investigation sessions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-or-operator-observations-are-ignored-because-they-are-less-structured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support or operator observations are ignored because they are less structured
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="incident-root-cause-analysis">Incident root cause analysis<a class="headerlink" href="#incident-root-cause-analysis" title="Permanent link">&para;</a></h1>
+<p>Investigate an incident by reconciling telemetry, changes, and human reports into an evidence-backed explanation of what failed and why.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>incident-root-cause-analysis</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/investigate-reconcile-verify/">Investigate / Reconcile / Verify</a></li>
+<li><strong>Problem structure:</strong> Discrepancy investigation (<code>discrepancy-investigation</code>)</li>
+<li><strong>Domains:</strong> Engineering (<code>engineering</code>), Operations (<code>operations</code>), Support (<code>support</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Produce a defensible root-cause narrative, reconciled timeline, and prioritized next checks or remediations for an incident.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="incident-trigger">Incident trigger<a class="headerlink" href="#incident-trigger" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> A declared incident, anomaly, or escalated case that requires explanation beyond initial triage.</li>
+<li><strong>Kind:</strong> case</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Sev-2 service degradation</li>
+<li>Escalated customer-impacting support case</li>
+</ul>
+<h3 id="operational-evidence">Operational evidence<a class="headerlink" href="#operational-evidence" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Logs, metrics, traces, alerts, and system state snapshots relevant to the incident window.</li>
+<li><strong>Kind:</strong> telemetry</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Request latency traces</li>
+<li>Queue depth metrics</li>
+<li>Database failover logs</li>
+</ul>
+<h3 id="change-and-context-history">Change and context history<a class="headerlink" href="#change-and-context-history" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Deployments, configuration updates, tickets, maintenance actions, and recent environment changes.</li>
+<li><strong>Kind:</strong> change-history</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Deployment records</li>
+<li>Feature flag changes</li>
+<li>Runbook interventions</li>
+</ul>
+<h3 id="human-reports">Human reports<a class="headerlink" href="#human-reports" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Operator notes, support escalations, and stakeholder observations that may explain or constrain hypotheses.</li>
+<li><strong>Kind:</strong> narrative</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Incident channel notes</li>
+<li>Customer symptom reports</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="root-cause-hypothesis-set">Root-cause hypothesis set<a class="headerlink" href="#root-cause-hypothesis-set" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Ranked causal explanations with supporting and disconfirming evidence plus confidence notes.</li>
+<li><strong>Kind:</strong> analysis</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Primary cause with contributing conditions</li>
+<li>Competing hypotheses awaiting one confirming check</li>
+</ul>
+<h3 id="reconciled-incident-timeline">Reconciled incident timeline<a class="headerlink" href="#reconciled-incident-timeline" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> A normalized sequence of relevant events across systems and actors.</li>
+<li><strong>Kind:</strong> timeline</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Timeline linking deploy, alert, mitigation, and customer reports</li>
+</ul>
+<h3 id="recommended-follow-up-actions">Recommended follow-up actions<a class="headerlink" href="#recommended-follow-up-actions" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Proposed investigations, corrective actions, or monitoring changes derived from the analysis.</li>
+<li><strong>Kind:</strong> recommendation</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Validate rollback path before declaring closure</li>
+<li>Add detection around the failing dependency</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in high-pressure technical and service environments where evidence is fragmented, timelines are noisy, and premature conclusions can worsen the incident.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Observability platforms</li>
+<li>Incident management systems</li>
+<li>Change management records</li>
+<li>Support case systems</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Incident commander</li>
+<li>Responding engineers or operators</li>
+<li>Service owners</li>
+<li>Support leads</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Preserve evidence integrity and timestamps as collected.</li>
+<li>Distinguish observed facts from inferred causes.</li>
+<li>Avoid declaring closure while material uncertainty remains.</li>
+<li>Keep the narrative inspectable for postmortem and audit review.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Relevant systems retain logs and state long enough for investigation.</li>
+<li>Time sources can be normalized sufficiently to build a coherent timeline.</li>
+<li>Human responders are available to validate or reject recommended conclusions.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Retrieval (<code>retrieval</code>):</strong> Investigators must gather evidence from multiple systems and records before causes can be narrowed.</li>
+<li><strong>Discrepancy analysis (<code>discrepancy-analysis</code>):</strong> The workflow centers on explaining mismatches between expected and observed behavior.</li>
+<li><strong>Verification (<code>verification</code>):</strong> Candidate causes need corroboration against independent evidence rather than plausible storytelling alone.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> The workflow must preserve evolving hypotheses, evidence links, and timeline state across multiple steps.</li>
+<li><strong>Coordination (<code>coordination</code>):</strong> Multiple responders and systems contribute evidence, so handoffs and ownership need structured coordination.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Orchestrated multi-agent (<code>orchestrated-multi-agent</code>):</strong> Specialized retrieval, timeline-building, and verification roles are common when evidence volume and responder concurrency are high.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> Human responders routinely validate hypotheses, weigh operational context, and approve incident conclusions.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Recommendation only (<code>recommendation-only</code>)</li>
+<li><strong>Reversibility:</strong> Analytical conclusions are editable, but accepting the wrong root cause can drive hard-to-reverse remediation and delay real recovery.</li>
+<li><strong>Escalation:</strong> Escalate when evidence is incomplete, multiple plausible causes remain after planned checks, or the proposed remediation could materially increase user or system risk.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Confirm incident scope and critical systems before narrowing hypotheses.</li>
+<li>Review ranked root-cause hypotheses before declaring the primary cause.</li>
+<li>Approve remediation or closure actions derived from the analysis.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> High (<code>high</code>)</li>
+<li><strong>Failure impact:</strong> Incorrect diagnosis can prolong outages, trigger harmful remediations, misinform postmortems, and create false confidence about system reliability.</li>
+<li><strong>Auditability:</strong> Preserve normalized timelines, evidence links, rejected hypotheses, human overrides, and final causal rationale for postmortem review.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The incident commander must approve the declared root cause before final closure or external reporting.</li>
+<li>Service owners must approve corrective actions that materially alter production systems.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Minimize exposure of personal data in logs, tickets, and customer reports during investigation.</li>
+<li>Restrict copied evidence to incident workspaces with appropriate retention controls.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use read-only access where possible when collecting production evidence.</li>
+<li>Protect credentials and privileged diagnostics from leaking into analysis artifacts.</li>
+</ul>
+<p><strong>Notes:</strong> High-risk governance is justified because the pattern shapes consequential remediation and formal incident narratives.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The workflow must iteratively form, test, and narrow causal hypotheses as new evidence arrives.</li>
+<li>Evidence comes from heterogeneous systems and people, making stateful reconciliation and coordination essential.</li>
+<li>Static dashboards rarely preserve enough structured reasoning to explain why one cause is more credible than another.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="premature-fixation-on-a-plausible-but-wrong-root-cause">Premature fixation on a plausible but wrong root cause<a class="headerlink" href="#premature-fixation-on-a-plausible-but-wrong-root-cause" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Teams pursue the wrong remediation and leave the real fault unresolved.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Keep multiple hypotheses visible until disconfirming checks are complete.</li>
+<li>Require evidence that explicitly links cause to observed impact.</li>
+<li>Review the final narrative with an incident lead before closure.</li>
+</ul>
+<h3 id="incident-timeline-is-incomplete-or-incorrectly-ordered">Incident timeline is incomplete or incorrectly ordered<a class="headerlink" href="#incident-timeline-is-incomplete-or-incorrectly-ordered" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Causal reasoning becomes distorted and contributing factors are missed.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Normalize time sources and highlight gaps in the event sequence.</li>
+<li>Reconcile machine telemetry with human reports before finalizing the timeline.</li>
+</ul>
+<h3 id="state-is-lost-across-responders-or-investigation-sessions">State is lost across responders or investigation sessions<a class="headerlink" href="#state-is-lost-across-responders-or-investigation-sessions" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Previously rejected hypotheses reappear and evidence handoffs become inconsistent.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Maintain shared case memory for evidence, conclusions, and open checks.</li>
+<li>Log analyst decisions and rationale as part of the investigation record.</li>
+</ul>
+<h3 id="support-or-operator-observations-are-ignored-because-they-are-less-structured">Support or operator observations are ignored because they are less structured<a class="headerlink" href="#support-or-operator-observations-are-ignored-because-they-are-less-structured" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The analysis misses symptoms that would have ruled out or strengthened a hypothesis.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Capture human observations as first-class evidence linked to the timeline.</li>
+<li>Require explicit notes when reports are excluded from the final narrative.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Agreement rate between initial analysis and final adjudicated root cause.</li>
+<li>Time to first defensible hypothesis with cited supporting evidence.</li>
+<li>Percentage of incidents with a complete reconciled timeline before closure.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The analysis separates observations, inferences, and recommended actions.</li>
+<li>Competing explanations are documented until they are disproved or deprioritized.</li>
+<li>Evidence supporting the declared root cause is inspectable and durable.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test against incidents with overlapping concurrent failures to ensure hypotheses stay distinguishable.</li>
+<li>Test with missing telemetry and verify the workflow degrades into explicit uncertainty rather than false certainty.</li>
+<li>Test with conflicting customer reports and system metrics to ensure both remain visible for adjudication.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Strong evaluation compares both diagnostic accuracy and the discipline of evidence preservation under operational pressure.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep retrieval, timeline reconciliation, and causal verification as explicit stages with shared case memory.</li>
+<li>Preserve rejected hypotheses to reduce repeated investigation loops during handoffs.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Typical integrations include observability stacks, incident systems, change logs, and support tooling.</li>
+<li>Architecture should remain vendor-neutral so the pattern does not collapse into a specific monitoring platform.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Prefer read-only evidence collection paths in production.</li>
+<li>Align retention of investigation artifacts with postmortem and compliance obligations.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/investigate-reconcile-verify/">docs/patterns/investigate-reconcile-verify.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Engineering (<code>engineering</code>):</strong> Explain a production outage by reconciling deployments, traces, and dependency failures.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Analyze a process breakdown by aligning handoff records, queue metrics, and operator notes.</li>
+<li><strong>Support (<code>support</code>):</strong> Investigate an escalated customer issue by combining case history, service signals, and responder observations.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../monitor-detect-triage/risk-alert-triage/">Risk alert triage</a> (follows-from)</li>
+<li>Alert triage often hands the highest-severity or ambiguous cases into root-cause analysis.</li>
+<li><a href="../../gather-retrieve-synthesize/research-synthesis-with-citation-verification/">Research synthesis with citation verification</a> (complements)</li>
+<li>Evidence-grounded synthesis techniques strengthen the explainability and provenance of the final incident narrative.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/compliance/sanctions-screening-gap-root-cause-investigation/">Sanctions screening gap root-cause investigation</a></li>
+<li><a href="../../../instances/engineering/payments-api-latency-incident-investigation/">Payments API latency incident investigation</a></li>
+<li><a href="../../../instances/finance/treasury-cash-position-discrepancy-investigation/">Treasury cash position discrepancy investigation</a></li>
+<li><a href="../../../instances/hr/protected-leave-return-to-work-status-drift-root-cause-investigation/">Protected leave return-to-work status drift root-cause investigation</a></li>
+<li><a href="../../../instances/operations/distribution-sorter-misroute-root-cause-investigation/">Distribution sorter misroute root-cause investigation</a></li>
+<li><a href="../../../instances/research/cross-lab-benchmark-replication-discrepancy-investigation/">Cross-lab benchmark replication discrepancy investigation</a></li>
+<li><a href="../../../instances/support/enterprise-admin-entitlement-drift-root-cause-investigation/">Enterprise admin entitlement drift root-cause investigation</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

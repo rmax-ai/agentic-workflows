@@ -1,0 +1,1506 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Analyst copilot loop - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#analyst-copilot-loop" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Analyst copilot loop
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#work-item-or-case-brief" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Work item or case brief
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-context-and-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working context and evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collaboration-instructions-and-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collaboration instructions and boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#human-feedback-and-edits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human feedback and edits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shared-working-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared working artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicit-handoff-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explicit handoff state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collaboration-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collaboration trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#responsibility-boundaries-blur-during-the-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsibility boundaries blur during the collaboration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-agent-carries-forward-stale-or-rejected-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The agent carries forward stale or rejected context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-collaboration-trace-hides-unsupported-claims-or-weak-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The collaboration trace hides unsupported claims or weak evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-loop-becomes-turn-heavy-without-improving-the-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The loop becomes turn-heavy without improving the artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="analyst-copilot-loop">Analyst copilot loop<a class="headerlink" href="#analyst-copilot-loop" title="Permanent link">&para;</a></h1>
+<p>Structure repeated human-agent collaboration around a shared working artifact so analysts and agents can iteratively gather context, refine outputs, and hand work back and forth without obscuring responsibility.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>analyst-copilot-loop</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/human-agent-collaborative-work/">Human-agent collaborative work</a></li>
+<li><strong>Problem structure:</strong> Human-agent collaboration (<code>human-agent-collaboration</code>)</li>
+<li><strong>Domains:</strong> Research (<code>research</code>), Compliance (<code>compliance</code>), Support (<code>support</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Keep a human analyst and an agent productively co-working on the same case, brief, or response so the workflow advances through visible turns, explicit handoffs, and shared context rather than fragmented one-off prompts.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="work-item-or-case-brief">Work item or case brief<a class="headerlink" href="#work-item-or-case-brief" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The initial task framing, question, case summary, or customer issue that defines the shared collaboration objective.</li>
+<li><strong>Kind:</strong> request</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Investigate whether a new policy exception request is supportable and draft a reviewer-ready summary</li>
+<li>Work through a complex customer escalation and prepare the next response with supporting context</li>
+</ul>
+<h3 id="working-context-and-evidence">Working context and evidence<a class="headerlink" href="#working-context-and-evidence" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Documents, notes, system records, prior turns, and retrieved evidence that both parties use to refine the shared artifact.</li>
+<li><strong>Kind:</strong> context-bundle</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Source documents, prior analyst notes, and cited references</li>
+<li>Ticket history, product logs, and previous support correspondence</li>
+</ul>
+<h3 id="collaboration-instructions-and-boundaries">Collaboration instructions and boundaries<a class="headerlink" href="#collaboration-instructions-and-boundaries" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Role expectations, quality bars, escalation rules, and boundaries describing what the agent may draft, suggest, retrieve, or update.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>The agent may draft comparisons and retrieve evidence but the analyst owns final interpretation</li>
+<li>Sensitive customer communications require explicit human approval before sending</li>
+</ul>
+<h3 id="human-feedback-and-edits">Human feedback and edits<a class="headerlink" href="#human-feedback-and-edits" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Iterative corrections, clarifications, priorities, and accept-reject decisions supplied by the human collaborator during the loop.</li>
+<li><strong>Kind:</strong> feedback</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Narrow the analysis to export-control exposure and show the supporting sources</li>
+<li>Rewrite the customer-facing explanation in a calmer tone and keep the escalation recommendation</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="shared-working-artifact">Shared working artifact<a class="headerlink" href="#shared-working-artifact" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The jointly refined draft, analysis, response, or structured work product created through repeated collaboration turns.</li>
+<li><strong>Kind:</strong> collaborative-draft</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Annotated analyst brief with cited findings and open questions</li>
+<li>Draft support response with evidence-backed troubleshooting steps</li>
+</ul>
+<h3 id="explicit-handoff-state">Explicit handoff state<a class="headerlink" href="#explicit-handoff-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> A visible record of current status, unresolved questions, next requested action, and which responsibilities remain with the human versus the agent.</li>
+<li><strong>Kind:</strong> handoff-record</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Marked handoff showing the analyst must approve the final recommendation before distribution</li>
+<li>Open-questions list identifying which evidence gaps still need human judgment</li>
+</ul>
+<h3 id="collaboration-trace">Collaboration trace<a class="headerlink" href="#collaboration-trace" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Turn history, retrieved evidence references, revisions, and decision checkpoints that explain how the shared output evolved.</li>
+<li><strong>Kind:</strong> audit-log</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Trace of retrieval steps, edits, and rationale accepted by the analyst</li>
+<li>History showing when the workflow paused for human interpretation or escalation</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in shared workbench settings where a human stays continuously engaged with an agent across multiple turns, and the reusable challenge is coordinating co-production rather than merely getting a final approval.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Shared chat or workbench interface</li>
+<li>Document, ticket, or case management systems</li>
+<li>Knowledge bases and search or retrieval tools</li>
+<li>Evidence or note storage systems</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Analyst or case owner</li>
+<li>Agent copilot</li>
+<li>Reviewer or escalation owner</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep responsibility boundaries explicit at every stage so the human can see what the agent changed, suggested, or left unresolved.</li>
+<li>Preserve source visibility and edit history so the collaboration does not hide how outputs were formed.</li>
+<li>Do not let the agent silently finalize external decisions, communications, or submissions outside agreed handoff rules.</li>
+<li>Support iterative revision without losing prior context, rejected ideas, or pending human decisions.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The collaboration surface can preserve enough state for both parties to resume work without restating the whole case.</li>
+<li>Humans are available to steer interpretation, resolve ambiguity, and approve consequential outward-facing steps.</li>
+<li>The agent can retrieve or transform relevant context quickly enough to make turn-by-turn collaboration useful.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Retrieval (<code>retrieval</code>):</strong> The loop often requires fetching prior context, evidence, and case details between turns so the shared work stays grounded.</li>
+<li><strong>Synthesis (<code>synthesis</code>):</strong> The agent must fold evidence, human edits, and evolving goals into a coherent shared artifact rather than leaving the analyst to manually recombine fragments.</li>
+<li><strong>Coordination (<code>coordination</code>):</strong> The core pattern depends on explicit turn-taking, handoffs, and ownership tracking between human and agent responsibilities.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Multi-turn collaboration degrades quickly if prior edits, decisions, and unresolved questions are not preserved across the loop.</li>
+<li><strong>Verification (<code>verification</code>):</strong> The workflow needs grounded checks on citations, retrieved facts, and task completion status before the human accepts an agent contribution.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> Useful collaboration usually requires reading case systems, documents, or knowledge bases and writing drafts or notes back into shared tools.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> The defining feature is continuous human participation in the normal loop, with repeated review, correction, and reprioritization rather than rare exception handling.</li>
+<li><strong>Tool-using single agent (<code>tool-using-single-agent</code>):</strong> A single copilot agent can usually manage retrieval, drafting, and state updates inside one shared workspace without requiring multi-agent specialization.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Human directed (<code>human-directed</code>)</li>
+<li><strong>Reversibility:</strong> Most intermediate drafts, notes, and suggested actions are reversible inside the workbench, but poor collaboration can still waste analyst time, distort judgment, or propagate misleading framing into downstream work.</li>
+<li><strong>Escalation:</strong> Escalate when the agent cannot ground a claim, responsibility boundaries become unclear, the human-agent loop stalls on ambiguity, or the next step would trigger an external decision or communication outside delegated collaboration scope.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Frame the task, set collaboration boundaries, and decide what responsibility remains with the human before substantive drafting begins.</li>
+<li>Review each major agent contribution, especially when the artifact changes interpretation, recommended action, or external-facing wording.</li>
+<li>Approve final handoff, distribution, or escalation decisions before the workflow leaves the shared workbench.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> Moderate (<code>moderate</code>)</li>
+<li><strong>Failure impact:</strong> Weak collaboration design can create material rework, inaccurate analysis, confusing customer or reviewer handoffs, and misplaced trust in agent-authored content, though harm is usually containable when humans remain actively engaged.</li>
+<li><strong>Auditability:</strong> Preserve turn history, retrieved evidence references, accepted and rejected edits, ownership changes, and final handoff status so reviewers can reconstruct how the joint output was produced.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Human approval is required before agent-authored content is treated as final analysis, official advice, or an external communication.</li>
+<li>Workflow owners must approve any expansion of agent permissions that would let the loop update systems of record or contact outside parties without an explicit handoff checkpoint.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Limit shared context and traces to the minimum customer, employee, or case data needed for productive collaboration.</li>
+<li>Apply workspace retention and access controls so sensitive drafts and evidence do not leak through the collaboration surface.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restrict agent tool permissions to the systems needed for drafting, retrieval, and state capture inside the collaboration loop.</li>
+<li>Log human-approved handoffs and permission-boundary changes so covert expansion of agent responsibility is detectable.</li>
+</ul>
+<p><strong>Notes:</strong> Moderate risk fits because the pattern influences consequential work quality and accountability, even though humans remain embedded throughout the normal operating loop.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The workflow requires adaptive back-and-forth where the next useful agent action depends on human edits, priorities, and evolving context.</li>
+<li>Productive collaboration depends on stateful memory of prior turns, rejected drafts, and unresolved questions rather than isolated one-shot assistance.</li>
+<li>The system must decide when to retrieve more context, revise the artifact, pause for human judgment, or surface a clearer handoff instead of just generating one response.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="responsibility-boundaries-blur-during-the-collaboration">Responsibility boundaries blur during the collaboration<a class="headerlink" href="#responsibility-boundaries-blur-during-the-collaboration" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Humans and reviewers cannot tell who approved what, and consequential decisions may be acted on without clear accountability.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Keep explicit handoff markers and ownership labels in the shared workspace.</li>
+<li>Require a human checkpoint before finalizing any external-facing output.</li>
+</ul>
+<h3 id="the-agent-carries-forward-stale-or-rejected-context">The agent carries forward stale or rejected context<a class="headerlink" href="#the-agent-carries-forward-stale-or-rejected-context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Later turns build on incorrect assumptions and the shared artifact drifts away from the current case reality.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Version major revisions and preserve accepted versus rejected changes separately.</li>
+<li>Reconfirm key case facts after substantial human redirection or new evidence retrieval.</li>
+</ul>
+<h3 id="the-collaboration-trace-hides-unsupported-claims-or-weak-evidence">The collaboration trace hides unsupported claims or weak evidence<a class="headerlink" href="#the-collaboration-trace-hides-unsupported-claims-or-weak-evidence" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Analysts may overtrust polished drafts whose reasoning or citations are incomplete or misleading.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> low</li>
+<li><strong>Mitigations:</strong></li>
+<li>Keep sources and confidence cues visible alongside generated contributions.</li>
+<li>Require verification steps before the human accepts factual or policy-sensitive content.</li>
+</ul>
+<h3 id="the-loop-becomes-turn-heavy-without-improving-the-artifact">The loop becomes turn-heavy without improving the artifact<a class="headerlink" href="#the-loop-becomes-turn-heavy-without-improving-the-artifact" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Collaboration overhead consumes analyst time and reduces trust in the copilot workflow.</li>
+<li><strong>Severity:</strong> low</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Track whether each turn resolves an open question, improves evidence quality, or clarifies the handoff.</li>
+<li>Escalate to a different workflow or human-only handling when the loop stalls repeatedly.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of collaborative work items that reach a human-accepted handoff without losing source grounding or ownership clarity.</li>
+<li>Reduction in analyst rework caused by missing context, unclear status, or repeated restatement across turns.</li>
+<li>Rate at which reviewers can reconstruct why the final artifact looks the way it does from the collaboration trace.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The shared artifact makes human and agent contributions, unresolved questions, and next-step ownership easy to inspect.</li>
+<li>Collaboration improves speed or quality without obscuring accountability, provenance, or confidence.</li>
+<li>The workbench preserves enough state that humans can redirect the loop without starting over from scratch.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test abrupt human redirection and confirm the loop updates goals and retained context instead of clinging to stale framing.</li>
+<li>Test low-confidence evidence retrieval and verify the workflow pauses for clarification rather than laundering uncertainty into a polished draft.</li>
+<li>Test handoff into an external review or response step and confirm approval boundaries remain explicit.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate collaborative throughput together with trust calibration and handoff clarity; faster drafting is not a success if the loop hides uncertainty or increases reviewer confusion.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep retrieval, drafting, revision, and handoff-state updates as explicit stages even when they occur inside one conversational surface.</li>
+<li>Represent unresolved questions and ownership changes as first-class state rather than burying them in freeform chat history.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations connect shared chat or workbench tooling to case systems, document stores, and knowledge retrieval services.</li>
+<li>Keep the pattern neutral about specific copilot products, ticketing suites, or note-taking platforms.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with analyst-visible draft and context support before expanding the loop to update system fields or trigger downstream routing actions.</li>
+<li>Monitor whether humans are editing the shared artifact in place or working around the loop in parallel tools, which can signal weak handoff design.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/human-agent-collaborative-work/">docs/patterns/human-agent-collaborative-work.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Research (<code>research</code>):</strong> An analyst iteratively shapes a briefing with a copilot that retrieves sources, drafts comparisons, and records which open questions still need human interpretation.</li>
+<li><strong>Compliance (<code>compliance</code>):</strong> A compliance reviewer co-produces an exception memo with an agent that gathers policy references, rewrites rationale, and keeps approval responsibility explicit.</li>
+<li><strong>Support (<code>support</code>):</strong> A support lead works through a sensitive escalation with a copilot that summarizes the case, proposes reply drafts, and tracks what still requires human judgment.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../gather-retrieve-synthesize/research-synthesis-with-citation-verification/">Research synthesis with citation verification</a> (can-wrap)</li>
+<li>A copilot loop often surrounds research synthesis work when analysts iteratively refine scope, evidence selection, and final wording.</li>
+<li><a href="../../recommend-decide-escalate/deal-desk-recommendation-support/">Deal desk recommendation support</a> (can-wrap)</li>
+<li>Recommendation workflows often adopt this collaboration pattern when analysts and agents jointly refine options before a governed decision review.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/compliance/sanctions-alert-closure-regulator-response-copilot-loop/">Sanctions-alert closure regulator response copilot loop</a></li>
+<li><a href="../../../instances/engineering/deprecated-message-broker-client-migration-exception-copilot-loop/">Deprecated message broker client migration exception copilot loop</a></li>
+<li><a href="../../../instances/finance/quarter-close-covenant-clarification-package-copilot-loop/">Quarter-close covenant clarification package copilot loop</a></li>
+<li><a href="../../../instances/hr/workplace-accommodation-exception-memo-copilot-loop/">Workplace accommodation exception memo copilot loop</a></li>
+<li><a href="../../../instances/operations/supplier-labeling-deviation-remediation-brief-copilot-loop/">Supplier labeling deviation remediation brief copilot loop</a></li>
+<li><a href="../../../instances/research/model-serving-platform-benchmark-briefing-copilot-loop/">Model-serving platform benchmark briefing copilot loop</a></li>
+<li><a href="../../../instances/support/deprovisioned-contractor-access-escalation-copilot-loop/">Deprovisioned contractor access escalation copilot loop</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/human-agent-collaborative-work/analyst-copilot-loop.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

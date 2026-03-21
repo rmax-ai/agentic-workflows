@@ -1,0 +1,1502 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Document to structured data handoff - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#document-to-structured-data-handoff" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Document to structured data handoff
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-document-packet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source document packet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-schema-and-field-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target schema and field contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformation-policy-and-lossiness-thresholds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transformation policy and lossiness thresholds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-data-for-normalization-and-enrichment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference data for normalization and enrichment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structured-record-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured record package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformation-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transformation trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception-review-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exception review queue
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-field-is-mapped-to-the-wrong-semantic-meaning-while-still-passing-schema-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A field is mapped to the wrong semantic meaning while still passing schema validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lossy-normalization-hides-qualifiers-units-or-uncertainty-from-the-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lossy normalization hides qualifiers, units, or uncertainty from the source
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enrichment-fills-a-missing-field-using-unsupported-inference-or-stale-reference-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enrichment fills a missing field using unsupported inference or stale reference data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema-drift-causes-required-outputs-to-be-dropped-or-misrouted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema drift causes required outputs to be dropped or misrouted
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="document-to-structured-data-handoff">Document to structured data handoff<a class="headerlink" href="#document-to-structured-data-handoff" title="Permanent link">&para;</a></h1>
+<p>Transform heterogeneous documents into schema-aligned structured records, preserving provenance, uncertainty, and lossiness signals so downstream systems can consume the output safely.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>document-to-structured-data-handoff</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/transform-process/">Transform / Process</a></li>
+<li><strong>Problem structure:</strong> Structured representation transformation (<code>structured-representation-transformation</code>)</li>
+<li><strong>Domains:</strong> Finance (<code>finance</code>), Compliance (<code>compliance</code>), Operations (<code>operations</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Convert source documents into structured records that satisfy a target schema while preserving semantic meaning, uncertainty cues, and field-level traceability for downstream handoff.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="source-document-packet">Source document packet<a class="headerlink" href="#source-document-packet" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> One or more documents, scans, forms, or semi-structured files that contain the facts to be transformed.</li>
+<li><strong>Kind:</strong> document-collection</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Invoices, remittance notices, and supporting PDFs</li>
+<li>Intake forms and scanned compliance submissions</li>
+</ul>
+<h3 id="target-schema-and-field-contract">Target schema and field contract<a class="headerlink" href="#target-schema-and-field-contract" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The destination schema, required fields, validation rules, and datatype expectations that define acceptable transformed output.</li>
+<li><strong>Kind:</strong> schema</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Structured case intake schema with required control fields</li>
+<li>ERP import contract for invoice and payment metadata</li>
+</ul>
+<h3 id="transformation-policy-and-lossiness-thresholds">Transformation policy and lossiness thresholds<a class="headerlink" href="#transformation-policy-and-lossiness-thresholds" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Rules describing allowed normalization, enrichment sources, confidence thresholds, and when ambiguous or lossy conversions must be escalated.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Do not infer missing counterparty identifiers without approved reference data</li>
+<li>Route low-confidence date extraction to review instead of defaulting</li>
+</ul>
+<h3 id="reference-data-for-normalization-and-enrichment">Reference data for normalization and enrichment<a class="headerlink" href="#reference-data-for-normalization-and-enrichment" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Optional lookup tables, master data, or controlled vocabularies used to standardize extracted values without changing the source meaning.</li>
+<li><strong>Kind:</strong> reference-data</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Approved vendor master and currency code table</li>
+<li>Controlled obligation taxonomy for compliance intake</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="structured-record-package">Structured record package<a class="headerlink" href="#structured-record-package" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Target-schema records populated from the source material, with field values ready for downstream ingestion or review.</li>
+<li><strong>Kind:</strong> record-bundle</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Normalized invoice header and line-item records</li>
+<li>Structured compliance intake record with linked source fields</li>
+</ul>
+<h3 id="transformation-trace">Transformation trace<a class="headerlink" href="#transformation-trace" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Field-level provenance, confidence, normalization actions, and lossiness notes explaining how each output value was produced.</li>
+<li><strong>Kind:</strong> trace</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Mapping ledger from source spans to destination schema fields</li>
+<li>Audit record showing unit normalization and enrichment lookups</li>
+</ul>
+<h3 id="exception-review-queue">Exception review queue<a class="headerlink" href="#exception-review-queue" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured cases that could not be transformed within policy because required fields, confidence, or schema fidelity thresholds were not met.</li>
+<li><strong>Kind:</strong> review-queue</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Low-confidence OCR packet awaiting analyst correction</li>
+<li>Schema-mismatch case created after a destination field definition changed</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in document-heavy intake and back-office environments where the hard part is producing reliable structured data from variable source material without obscuring uncertainty, provenance, or downstream contract boundaries.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Document repositories and intake channels</li>
+<li>OCR or parsing services</li>
+<li>Schema registry or data contract definitions</li>
+<li>Downstream case, ERP, or workflow systems</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Operations analyst</li>
+<li>Compliance reviewer</li>
+<li>Data or workflow owner</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Preserve source references for every consequential output field.</li>
+<li>Do not silently coerce ambiguous values beyond the approved transformation policy.</li>
+<li>Keep lossy conversions and defaulted values explicit in the handoff package.</li>
+<li>Block or escalate outputs that fail required schema, confidence, or provenance thresholds.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Target schemas and transformation policies are stable enough to version and enforce.</li>
+<li>Source documents are accessible within the approved trust boundary for the workflow.</li>
+<li>Downstream systems can ingest structured outputs separately from the raw source documents.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Transformation (<code>transformation</code>):</strong> The core task is converting variable source material into normalized, schema-aligned structured output.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> The workflow depends on reading documents, applying parsers or OCR, consulting reference data, and writing structured payloads to downstream systems or staging areas.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Schema rules, confidence thresholds, and enrichment boundaries determine whether transformed output may be handed off or must be escalated.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Field mappings, provenance links, and unresolved ambiguities must persist across multi-step conversion and review.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> The workflow needs safe fallbacks when source quality is poor, schema versions drift, or required values cannot be established within policy.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Tool-using single agent (<code>tool-using-single-agent</code>):</strong> A single transformation agent can usually manage document parsing, normalization, trace capture, and exception routing within one bounded control loop.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Bounded delegation (<code>bounded-delegation</code>)</li>
+<li><strong>Reversibility:</strong> Structured outputs can usually be regenerated or corrected while they remain in staging, but once downstream systems consume them the cleanup may require coordinated record repair.</li>
+<li><strong>Escalation:</strong> Escalate whenever required fields cannot be populated within policy, enrichment would rely on unsupported inference, lossiness exceeds tolerance, or a schema change invalidates the current mapping.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Define the target schema, approved enrichment sources, and acceptable lossiness thresholds before delegated transformation begins.</li>
+<li>Review exceptions where required fields are unresolved, confidence is below threshold, or the handoff would hide material source ambiguity.</li>
+<li>Approve changes to mapping rules, schema versions, or normalization policies that could alter downstream interpretation.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> Moderate (<code>moderate</code>)</li>
+<li><strong>Failure impact:</strong> Incorrect or overconfident transformation can propagate malformed records, missed obligations, or costly downstream rework, but harm is usually containable when staged handoff and exception routing remain intact.</li>
+<li><strong>Auditability:</strong> Preserve source references, extracted spans, normalization actions, enrichment lookups, schema versions, exception routing decisions, and final handoff status so downstream consumers can reconstruct how the structured output was formed.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Case-by-case approval is not required for in-policy transformations that stay within the approved schema and confidence thresholds.</li>
+<li>Human review is required before publishing materially lossy, low-confidence, or schema-exception outputs to downstream consumers.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Minimize retention of sensitive document content outside approved staging and trace systems.</li>
+<li>Limit copied excerpts to the fragments needed for provenance, review, and correction.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restrict document access, parser services, and downstream write permissions to the minimum scope needed for the transformation loop.</li>
+<li>Log schema changes, enrichment-source usage, and downstream handoff events so unauthorized reshaping is detectable.</li>
+</ul>
+<p><strong>Notes:</strong> Moderate-risk posture fits because the pattern reshapes records that may affect regulated or operational workflows, yet it normally stops before irreversible external action.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The workflow must adapt extraction and normalization strategy to varying layouts, missing fields, and semi-structured evidence instead of following one brittle parser path.</li>
+<li>Safe transformation depends on deciding when to enrich, when to preserve raw ambiguity, and when lossiness requires escalation rather than silent completion.</li>
+<li>Maintaining field-level provenance, confidence, and schema-fit state across many source elements is hard to do reliably with static one-shot conversion scripts alone.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="a-field-is-mapped-to-the-wrong-semantic-meaning-while-still-passing-schema-validation">A field is mapped to the wrong semantic meaning while still passing schema validation<a class="headerlink" href="#a-field-is-mapped-to-the-wrong-semantic-meaning-while-still-passing-schema-validation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Downstream systems accept a structurally valid record whose content misrepresents the source document.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Preserve source-span links and reviewer-visible field rationale for consequential values.</li>
+<li>Validate extracted values against schema semantics, not only datatype conformance.</li>
+</ul>
+<h3 id="lossy-normalization-hides-qualifiers-units-or-uncertainty-from-the-source">Lossy normalization hides qualifiers, units, or uncertainty from the source<a class="headerlink" href="#lossy-normalization-hides-qualifiers-units-or-uncertainty-from-the-source" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Downstream consumers overtrust the transformed record and make decisions on incomplete meaning.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Record normalization and unit-conversion actions explicitly in the transformation trace.</li>
+<li>Escalate cases where required qualifiers cannot be represented cleanly in the target schema.</li>
+</ul>
+<h3 id="enrichment-fills-a-missing-field-using-unsupported-inference-or-stale-reference-data">Enrichment fills a missing field using unsupported inference or stale reference data<a class="headerlink" href="#enrichment-fills-a-missing-field-using-unsupported-inference-or-stale-reference-data" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The output appears complete but introduces inaccurate or unauthorized values into the downstream record.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Allow enrichment only from approved reference sources with visible timestamps or versions.</li>
+<li>Mark enriched fields distinctly from directly extracted fields in the handoff package.</li>
+</ul>
+<h3 id="schema-drift-causes-required-outputs-to-be-dropped-or-misrouted">Schema drift causes required outputs to be dropped or misrouted<a class="headerlink" href="#schema-drift-causes-required-outputs-to-be-dropped-or-misrouted" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Structured data arrives incomplete or incompatible, creating ingestion failures or hidden downstream gaps.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Version schemas and block handoff when the active mapping no longer satisfies required fields.</li>
+<li>Route schema-exception cases into review instead of emitting partial silent failures.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of transformed record packages accepted downstream without manual remapping.</li>
+<li>Percentage of required output fields that carry provenance and uncertainty status.</li>
+<li>Rate of ambiguous or lossy cases routed to review before downstream publication.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Structured outputs preserve source meaning, units, and key qualifiers needed by the target schema.</li>
+<li>Lossiness, defaulted fields, and confidence are explicit in the handoff package rather than hidden behind schema validity alone.</li>
+<li>Downstream consumers can trace each consequential field back to source evidence or approved enrichment.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test with low-quality scans, inconsistent layouts, and partially missing pages to verify the workflow escalates instead of fabricating structure.</li>
+<li>Test schema version changes and new required fields to ensure stale mappings are blocked before handoff.</li>
+<li>Test conflicting or missing reference data and confirm enrichment degrades into explicit exceptions rather than unsupported guesses.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate downstream usability, semantic fidelity, and exception discipline together; high field-fill rate is not success if provenance or lossiness signals disappear.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep extraction, normalization, enrichment, schema validation, and exception routing as explicit stages with shared transformation state.</li>
+<li>Persist field-level trace data alongside the structured payload so review and downstream correction do not require re-parsing from scratch.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations integrate document intake systems, OCR or parser services, schema registries, and downstream workflow or record systems.</li>
+<li>Keep the pattern neutral about specific parser vendors, document AI products, or storage platforms.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with staging-only handoff and measured exception thresholds before publishing directly into higher-consequence downstream workflows.</li>
+<li>Monitor schema drift, enrichment freshness, and exception backlog growth closely after rollout.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/transform-process/">docs/patterns/transform-process.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Finance (<code>finance</code>):</strong> Convert incoming invoice packets into normalized payable records with field-level provenance and a review queue for ambiguous totals or vendor identifiers.</li>
+<li><strong>Compliance (<code>compliance</code>):</strong> Transform scanned obligation intake forms into structured control records while preserving source excerpts and surfacing uncertain classifications.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Reshape operational intake documents into standardized case records that downstream teams can route, measure, and correct without re-reading the full packet.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../execute-automate/browser-based-form-completion-with-approval-gates/">Browser-based form completion with approval gates</a> (provides-input-to)</li>
+<li>Transformation-first workflows often prepare the structured packet later consumed by an approval-gated execution pattern, but they should stop before any consequential submission or system action.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/compliance/pharmacovigilance-follow-up-packet-to-safety-case-record-handoff/">Pharmacovigilance follow-up packet to safety case record handoff</a></li>
+<li><a href="../../../instances/engineering/release-candidate-evidence-packet-to-deployment-review-staging-record-handoff/">Release candidate evidence packet to deployment review staging record handoff</a></li>
+<li><a href="../../../instances/finance/invoice-packet-to-payables-record-handoff/">Invoice packet to payables record handoff</a></li>
+<li><a href="../../../instances/hr/medical-leave-certification-packet-to-leave-case-record-handoff/">Medical leave certification packet to leave case record handoff</a></li>
+<li><a href="../../../instances/operations/site-inspection-packet-to-corrective-maintenance-work-order-handoff/">Site inspection packet to corrective maintenance work-order handoff</a></li>
+<li><a href="../../../instances/research/benchmark-study-artifact-packet-to-research-review-intake-record-handoff/">Benchmark study artifact packet to research review intake record handoff</a></li>
+<li><a href="../../../instances/support/enterprise-outage-evidence-packet-to-support-escalation-record-handoff/">Enterprise outage evidence packet to support escalation record handoff</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/transform-process/document-to-structured-data-handoff.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1569 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Approval-gated recommendation release - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#approval-gated-recommendation-release" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Approval-gated recommendation release
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommendation-packet-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommendation packet revision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decision-lane-charter-and-release-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision-lane charter and release policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommendation-evidence-and-unresolved-assumption-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommendation evidence and unresolved-assumption bundle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-lineage-and-hold-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release lineage and hold state
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#released-recommendation-packet-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Released recommendation packet revision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#released-bounded-option-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Released bounded option set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommendation-release-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommendation release manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decision-lane-handoff-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision-lane handoff record
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommendation-release-audit-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommendation release audit log
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-wrong-recommendation-packet-revision-is-released-under-a-valid-approval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The wrong recommendation packet revision is released under a valid approval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-approval-is-mistaken-for-approval-of-the-underlying-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release approval is mistaken for approval of the underlying decision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-packet-is-circulated-beyond-the-approved-decision-lane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The packet is circulated beyond the approved decision lane
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-stale-recommendation-packet-is-released-after-evidence-or-option-boundaries-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A stale recommendation packet is released after evidence or option boundaries changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="approval-gated-recommendation-release">Approval-gated recommendation release<a class="headerlink" href="#approval-gated-recommendation-release" title="Permanent link">&para;</a></h1>
+<p>Release one exact recommendation packet revision and its bounded option set into one named human decision lane only after explicit human approval confirms revision identity, lane scope, expiry, and manifest linkage, without approving the decision itself, coordinating follow-through, or executing the chosen option.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>approval-gated-recommendation-release</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/recommend-decide-escalate/">Recommend / Decide / Escalate</a></li>
+<li><strong>Problem structure:</strong> Recommendation and decision support (<code>recommendation-and-decision-support</code>)</li>
+<li><strong>Domains:</strong> Engineering (<code>engineering</code>), Finance (<code>finance</code>), Compliance (<code>compliance</code>), Operations (<code>operations</code>), Research (<code>research</code>), Support (<code>support</code>), HR (<code>hr</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Hold one already-prepared recommendation packet revision at a governed release boundary and release that exact packet plus its bounded option set into one named human decision lane only after a human approves the release terms, while keeping the workflow bounded at recommendation handoff rather than decision adjudication, planning, or execution.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="recommendation-packet-revision">Recommendation packet revision<a class="headerlink" href="#recommendation-packet-revision" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The already-prepared recommendation packet revision, including its bounded option set, rationale, blocked paths, and revision identifier, that is complete enough for human release review and must remain unchanged during approval.</li>
+<li><strong>Kind:</strong> recommendation-package</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Architecture-exception recommendation packet revision for one database upgrade waiver decision lane</li>
+<li>Treasury concession packet revision summarizing bounded settlement options for one controller committee decision lane</li>
+<li>Privacy safeguard attestation disposition packet revision for one compliance council review lane</li>
+</ul>
+<h3 id="decision-lane-charter-and-release-policy">Decision-lane charter and release policy<a class="headerlink" href="#decision-lane-charter-and-release-policy" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The human-owned rule set naming the single downstream decision lane, permitted audience, expiry window, approver identity, and explicit statement that release authority does not adjudicate the underlying recommendation.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Release-governance rule allowing one architecture board lane to receive a named exception packet revision for one review meeting</li>
+<li>Treasury policy limiting a concession recommendation packet to one controller committee lane and one funding-day validity window</li>
+<li>Compliance governance rule restricting an attestation recommendation packet to one privacy council lane with no onward reuse</li>
+</ul>
+<h3 id="recommendation-evidence-and-unresolved-assumption-bundle">Recommendation evidence and unresolved-assumption bundle<a class="headerlink" href="#recommendation-evidence-and-unresolved-assumption-bundle" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The supporting evidence, policy citations, blocked-option rationale, freshness markers, and unresolved assumptions attached to the recommendation packet so the approver can judge whether that exact revision is still safe to release.</li>
+<li><strong>Kind:</strong> evidence-set</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Benchmark evidence, rollback caveats, and blocked waiver conditions cited by a release-exception recommendation</li>
+<li>Exposure calculations, prior concession history, and blocked principal-reduction rationale for a collections recommendation</li>
+<li>Requirement mappings, stale-evidence flags, and exception-history notes for a privacy attestation recommendation</li>
+</ul>
+<h3 id="release-lineage-and-hold-state">Release lineage and hold state<a class="headerlink" href="#release-lineage-and-hold-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Prior release attempts, superseded recommendation revisions, pending holds, and any broader distribution requests that could invalidate the packet under review.</li>
+<li><strong>Kind:</strong> case-state</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Older exception recommendation packet held after a new dependency risk changed the bounded option set</li>
+<li>Earlier settlement recommendation revision superseded because a refreshed exposure figure changed one option ranking</li>
+<li>Pending request to share a compliance packet outside the named council lane while release remains blocked</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="released-recommendation-packet-revision">Released recommendation packet revision<a class="headerlink" href="#released-recommendation-packet-revision" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The exact recommendation packet revision delivered into the approved human decision lane with rationale, uncertainty, and blocked-option notes preserved.</li>
+<li><strong>Kind:</strong> recommendation-package</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Architecture board packet revision released with upgrade-waiver rationale, blocked rollout paths, and residual caveats intact</li>
+<li>Controller committee concession packet released with bounded settlement options and blocked terms preserved for human review</li>
+<li>Privacy council attestation packet released with approve-remediate-escalate guidance and explicit evidence gaps</li>
+</ul>
+<h3 id="released-bounded-option-set">Released bounded option set<a class="headerlink" href="#released-bounded-option-set" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The immutable option menu bound to the released packet revision, including viable, blocked, and escalation-only paths that the downstream decision lane may inspect but that this workflow does not choose among.</li>
+<li><strong>Kind:</strong> option-set</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Option set limited to defer the upgrade, approve one guarded waiver, or escalate to executive review while blocking direct production rollout</li>
+<li>Option set limited to capped fee relief, short installment terms, or full escalation while blocking principal reduction</li>
+<li>Option set limited to approve with one current exception, remediate before sign-off, or escalate to counsel while blocking informal acceptance</li>
+</ul>
+<h3 id="recommendation-release-manifest">Recommendation release manifest<a class="headerlink" href="#recommendation-release-manifest" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured approval record binding one exact recommendation packet revision, one named decision lane, one expiry window, approver identity, and the point where the workflow stopped before any decision or execution occurred.</li>
+<li><strong>Kind:</strong> manifest</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Manifest authorizing one database-upgrade waiver packet revision for one architecture board decision lane and one review window</li>
+<li>Manifest recording controller approval to release one settlement recommendation revision to one concessions committee lane before market close</li>
+<li>Manifest proving one privacy attestation packet revision was released only to one council lane and not to vendor-management execution channels</li>
+</ul>
+<h3 id="decision-lane-handoff-record">Decision-lane handoff record<a class="headerlink" href="#decision-lane-handoff-record" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured record of which downstream human decision lane received the packet, who acknowledged receipt, and where the workflow stopped short of decision adjudication and downstream execution.</li>
+<li><strong>Kind:</strong> handoff-record</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Handoff record showing the architecture board received the packet for decision review only, not change approval or deployment</li>
+<li>Committee receipt record proving the finance recommendation ended at controller review and did not authorize billing changes</li>
+<li>Council handoff showing the compliance packet entered one sign-off lane without filing the attestation or launching remediation</li>
+</ul>
+<h3 id="recommendation-release-audit-log">Recommendation release audit log<a class="headerlink" href="#recommendation-release-audit-log" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Durable history of revision checks, approval or hold events, blocked distribution attempts, supersession changes, and downstream receipt for the governed release loop.</li>
+<li><strong>Kind:</strong> audit-log</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Log linking one engineering recommendation packet hash to approver identity, held revisions, and board receipt timestamp</li>
+<li>Audit trail showing one finance packet was superseded before release when exposure data changed materially</li>
+<li>Record of blocked attempt to forward a compliance recommendation packet outside the named council lane</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in governance-sensitive workflows where the reusable challenge is not generating a new recommendation, but releasing one exact recommendation artifact into one human decision lane with explicit approval, revision binding, expiry, and handoff controls before any downstream authority choice or action occurs.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Recommendation workspaces or case-review systems holding packet revisions and bounded option sets</li>
+<li>Policy, authority, and release-rule repositories defining decision-lane scope and approver rights</li>
+<li>Approval, manifest, and restricted-routing tooling that records release state and recipients</li>
+<li>Evidence, rationale, and freshness ledgers linked to the recommendation packet</li>
+<li>Audit and supersession systems that block stale or broadened recommendation reuse</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Analyst, reviewer, or workflow owner responsible for the recommendation packet</li>
+<li>Human approver who controls release of one exact packet revision into one decision lane</li>
+<li>Human decision-maker or committee receiving the released recommendation packet</li>
+<li>Governance, risk, privacy, or security reviewer for sensitive release contexts</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start from an already-prepared recommendation packet revision rather than regenerating the recommendation or widening the option set during release review.</li>
+<li>Bind approval to one exact packet revision, one bounded human decision lane, and one expiry window so later revisions or broader audiences cannot inherit release authority.</li>
+<li>Keep blocked options, unresolved assumptions, freshness limits, and residual uncertainty visible rather than smoothing them away to make the packet look decision-ready.</li>
+<li>Stop at approved recommendation release, manifesting, and handoff; do not adjudicate the downstream choice, schedule follow-through, or execute any selected option.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The underlying recommendation packet carries stable revision identifiers, rationale, and option-boundary metadata strong enough for governed release review.</li>
+<li>Human approvers remain accountable for whether the packet may enter the bounded downstream decision lane.</li>
+<li>Downstream decision lanes can consume the released packet without this workflow making or recording the final decision.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Retrieval (<code>retrieval</code>):</strong> The workflow must retrieve the exact recommendation packet revision, release policy, prior supersession state, and evidence bundle before a safe release decision can be staged.</li>
+<li><strong>Synthesis (<code>synthesis</code>):</strong> Release readiness depends on compressing revision identity, lane scope, expiry, blocked-option state, and unresolved assumptions into one manifest and handoff package rather than forcing humans to reconstruct them from scattered metadata.</li>
+<li><strong>Recommendation (<code>recommendation</code>):</strong> Even though the packet already exists, the workflow must preserve the intended recommendation semantics and bounded option set so release control does not distort or broaden what humans are being asked to decide.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Decision-lane scope, audience limits, expiry rules, reuse prohibitions, and the boundary between packet release and decision approval determine whether release may proceed at all.</li>
+<li><strong>Verification (<code>verification</code>):</strong> The workflow must confirm packet revision identity, option-set integrity, freshness markers, and manifest completeness so the wrong recommendation version is not released.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Prior releases, blocked attempts, superseded revisions, and expiry state must persist so old recommendation packets cannot silently recirculate as if still approved.</li>
+<li><strong>Coordination (<code>coordination</code>):</strong> Recommendation owners, approvers, and downstream decision lanes often need explicit release-state handoffs when a packet is held, superseded, or narrowed further before release.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> Unsafe audience expansion, stale evidence, or requests to treat release approval as decision approval must halt the workflow instead of being normalized into routine packet circulation.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Approval-gated execution (<code>approval-gated-execution</code>):</strong> The recommendation packet can be technically ready for downstream review, but its release remains concretely blocked until a human approves distribution of that exact revision into one bounded decision lane.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> Human review is intrinsic because only accountable owners should confirm that release of a recommendation packet revision is safe without collapsing the boundary into approval of the decision itself.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Approval gated (<code>approval-gated</code>)</li>
+<li><strong>Reversibility:</strong> A released recommendation packet can be withdrawn, superseded, or expired, but once decision-makers read the wrong revision it can bias judgment, widen disclosure, or create governance churn that is only partially reversible.</li>
+<li><strong>Escalation:</strong> Escalate whenever the packet revision changes after review begins, the downstream lane broadens beyond the approved boundary, freshness or rationale is incomplete, or release approval would be mistaken for decision authorization or downstream execution permission.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Confirm the exact recommendation packet revision, named decision lane, expiry window, and bounded audience before release review proceeds.</li>
+<li>Approve, hold, or supersede the packet release after reviewing blocked options, residual uncertainty, freshness markers, and any broadened distribution request.</li>
+<li>Decide whether changed evidence, a revised option set, or a request for decision adjudication requires fresh recommendation work or handoff to another pattern instead of releasing the current packet.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> High (<code>high</code>)</li>
+<li><strong>Failure impact:</strong> Releasing the wrong or stale recommendation packet revision can bias consequential human decisions, expose sensitive commercial or governance detail to the wrong audience, and create false belief that a decision has already been approved even though this workflow stops before any decision or action occurs.</li>
+<li><strong>Auditability:</strong> Preserve packet revision ids, option-set hashes, approver identity, lane scope, expiry timing, blocked or held release attempts, supersession lineage, recipient acknowledgements, and any broadened-lane requests so later review can reconstruct exactly what recommendation was released and why.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A named human approver must authorize release of the exact recommendation packet revision, bounded decision lane, expiry window, and any attached restrictions on reuse or redistribution.</li>
+<li>Any attempt to reuse the packet outside the approved lane, after expiry, or after a material recommendation or option-set change requires fresh human approval rather than inherited permission.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Limit recommendation-packet circulation to the approved decision lane and minimize customer, employee, vendor, security, or financial detail to what that lane actually needs to decide.</li>
+<li>Keep sensitive annexes, blocked-option evidence, and redistribution prohibitions explicit when the packet references protected source material.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Enforce least-privilege access to recommendation workspaces, manifest tooling, and downstream decision lanes because release state itself can be sensitive and influential.</li>
+<li>Log release attempts, manifest edits, lane changes, expiry overrides, and supersession events so unauthorized recommendation circulation or stale-packet reuse is detectable.</li>
+</ul>
+<p><strong>Notes:</strong> High-risk governance fits because the workflow governs release of consequential recommendation artifacts into human decision lanes where the wrong packet or wrong audience can materially bias outcomes, even though the workflow remains bounded at packet release rather than decision adjudication or execution.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Safe release requires adapting to revision changes, blocked lanes, expiry boundaries, and broadened reuse requests instead of treating recommendation circulation as a static handoff.</li>
+<li>The workflow must coordinate state across packet versions, bounded option sets, manifests, superseded revisions, and downstream acknowledgements so one exact recommendation revision is released and nearby revisions remain held.</li>
+<li>It must recognize when a release request crosses the family boundary into collaborative drafting, transformed-package release, decision adjudication, planning, or execution and stop rather than improvise.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="the-wrong-recommendation-packet-revision-is-released-under-a-valid-approval">The wrong recommendation packet revision is released under a valid approval<a class="headerlink" href="#the-wrong-recommendation-packet-revision-is-released-under-a-valid-approval" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Decision-makers receive rationale or bounded options that the approver did not actually review, increasing the chance of a misinformed human decision.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Bind approval to immutable packet revision identifiers and option-set hashes and reject release when the manifest and packet do not match.</li>
+<li>Show supersession lineage and blocked older revisions prominently in the release tooling.</li>
+</ul>
+<h3 id="release-approval-is-mistaken-for-approval-of-the-underlying-decision">Release approval is mistaken for approval of the underlying decision<a class="headerlink" href="#release-approval-is-mistaken-for-approval-of-the-underlying-decision" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Humans or downstream systems treat packet circulation as if the recommended option were already chosen, blurring accountability and weakening the required decision checkpoint.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Label the manifest and handoff record as recommendation release only and record explicitly that the downstream choice remains human-owned.</li>
+<li>Block downstream integrations from writing final decision state or execution triggers from the release workflow.</li>
+</ul>
+<h3 id="the-packet-is-circulated-beyond-the-approved-decision-lane">The packet is circulated beyond the approved decision lane<a class="headerlink" href="#the-packet-is-circulated-beyond-the-approved-decision-lane" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Sensitive recommendation content reaches unintended reviewers or is treated as broadly approved guidance outside the bounded authority channel.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Encode lane restrictions and redistribution limits in the manifest and routing tooling.</li>
+<li>Log and block forwarding attempts outside the approved audience boundary.</li>
+</ul>
+<h3 id="a-stale-recommendation-packet-is-released-after-evidence-or-option-boundaries-changed">A stale recommendation packet is released after evidence or option boundaries changed<a class="headerlink" href="#a-stale-recommendation-packet-is-released-after-evidence-or-option-boundaries-changed" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Decision-makers rely on expired or invalidated advice even though a newer packet or narrower option set should have superseded it.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Enforce expiry checks and freshness markers before every release or reuse attempt.</li>
+<li>Require fresh approval whenever evidence changes materially or the bounded option set is revised.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of recommendation releases where the approved packet revision id, option-set hash, decision lane, and manifest metadata match exactly without later correction.</li>
+<li>Rate at which stale, superseded, or out-of-scope recommendation packets are blocked before human decision-makers receive them.</li>
+<li>Time from packet-ready status to human-approved bounded release when rationale, evidence, and expiry metadata are complete.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The release manifest clearly binds one exact recommendation packet revision, one bounded option set, one decision lane, and one expiry window.</li>
+<li>Superseded, broadened-scope, or post-expiry release attempts are visible and blocked rather than implicitly reusing prior approval.</li>
+<li>The workflow remains bounded at recommendation release and does not reopen drafting, adjudicate the human decision, schedule downstream work, or trigger execution.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test with a newer recommendation packet revision arriving during approval review and ensure the older revision is held or superseded instead of being released accidentally.</li>
+<li>Test with an attempted lane expansion or reuse request and confirm the workflow blocks release until fresh approval or a different pattern handles the request.</li>
+<li>Test with incomplete rationale, stale evidence, or changed option boundaries and verify the workflow escalates instead of pushing the packet across the boundary.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate manifest binding, decision-lane discipline, and stale-packet prevention together; fast circulation is not success if the wrong recommendation revision or wrong audience receives the packet.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep packet retrieval, manifest assembly, approval gating, release-state tracking, and supersession handling as explicit stages over shared recommendation state.</li>
+<li>Preserve immutable revision identifiers, option-set hashes, and lane metadata so downstream tooling can enforce the release boundary instead of relying on titles or filenames alone.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations integrate recommendation workspaces, evidence ledgers, approval systems, and restricted committee or reviewer channels.</li>
+<li>Keep the pattern neutral about specific architecture boards, finance committees, privacy councils, or enterprise decision portals.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start in workflows where recommendation packets already exist but stale reuse, audience drift, or confusion between packet release and decision approval creates risk.</li>
+<li>Tune expiry windows, lane scopes, and blocked-forwarding controls conservatively before broadening approval-gated release to more sensitive recommendation contexts.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/recommend-decide-escalate/">docs/patterns/recommend-decide-escalate.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Engineering (<code>engineering</code>):</strong> Release one exact architecture-exception recommendation packet revision into a named review-board decision lane after a human confirms the bounded option set, residual caveats, and expiry window.</li>
+<li><strong>Finance (<code>finance</code>):</strong> Approve one concessions recommendation packet revision for a controller committee lane while keeping settlement adjudication and billing changes outside the release workflow.</li>
+<li><strong>Compliance (<code>compliance</code>):</strong> Release one privacy attestation disposition packet revision into a compliance council sign-off lane without approving the attestation itself or launching remediation.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Release one fuel-system test-deferral recommendation packet revision into a named continuity risk board lane after a human confirms depot scope, blocked options, and expiry without approving the deferral itself.</li>
+<li><strong>Research (<code>research</code>):</strong> Release one benchmark-publication recommendation packet revision into a named publication council lane after a human confirms embargo scope, bounded claims, and expiry without approving publication itself.</li>
+<li><strong>Support (<code>support</code>):</strong> Approve one enterprise recovery-package recommendation packet revision for an executive customer-review lane while leaving customer remedy choice, billing changes, and communications outside the release workflow.</li>
+<li><strong>HR (<code>hr</code>):</strong> Release one executive offer-exception recommendation packet revision into a compensation committee lane after a human confirms audience scope, blocked terms, and validity without approving the offer itself.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../deal-desk-recommendation-support/">Deal desk recommendation support</a> (follows)</li>
+<li>Deal-desk recommendation support can create a governed packet that this pattern later releases into one bounded human decision lane.</li>
+<li><a href="../control-requirement-attestation-recommendation/">Control requirement attestation recommendation</a> (follows)</li>
+<li>Requirement-fit recommendation workflows can produce the exact packet revision that this pattern later governs at the release boundary.</li>
+<li><a href="../../gather-retrieve-synthesize/approval-gated-briefing-release/">Approval-gated briefing release</a> (contrasts-with)</li>
+<li>If the primary artifact is context or briefing release rather than recommendation release into a decision lane, the gather-family pattern fits better.</li>
+<li><a href="../../human-agent-collaborative-work/approval-gated-collaborative-artifact-release/">Approval-gated collaborative artifact release</a> (contrasts-with)</li>
+<li>If the artifact is still being jointly authored with live disagreement management, the collaborative-work family fits better; this pattern assumes the recommendation packet is already prepared.</li>
+<li><a href="../../transform-process/approval-gated-transformation-release/">Approval-gated transformation release</a> (contrasts-with)</li>
+<li>If the workflow centers on shaping a downstream-ready package rather than releasing a bounded recommendation artifact, the transform-family pattern is the cleaner fit.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/compliance/privacy-attestation-disposition-packet-revision-approved-for-council-sign-off-lane/">Privacy-attestation disposition packet revision approved for council sign-off lane</a></li>
+<li><a href="../../../instances/engineering/database-upgrade-exception-recommendation-packet-revision-approved-for-architecture-board-decision-lane/">Database-upgrade exception recommendation packet revision approved for architecture board decision lane</a></li>
+<li><a href="../../../instances/finance/arrears-concession-recommendation-packet-revision-approved-for-controller-committee-decision-lane/">Arrears concession recommendation packet revision approved for controller committee decision lane</a></li>
+<li><a href="../../../instances/hr/executive-offer-exception-recommendation-packet-revision-approved-for-compensation-committee-decision-lane/">Executive offer-exception recommendation packet revision approved for compensation committee decision lane</a></li>
+<li><a href="../../../instances/operations/network-fuel-system-test-deferral-recommendation-packet-revision-approved-for-continuity-risk-board-decision-lane/">Network fuel-system test deferral recommendation packet revision approved for continuity risk board decision lane</a></li>
+<li><a href="../../../instances/research/benchmark-study-publication-recommendation-packet-revision-approved-for-publication-council-decision-lane/">Benchmark study publication recommendation packet revision approved for publication council decision lane</a></li>
+<li><a href="../../../instances/support/enterprise-recovery-package-recommendation-packet-revision-approved-for-executive-customer-review-decision-lane/">Enterprise recovery-package recommendation packet revision approved for executive customer-review decision lane</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/recommend-decide-escalate/approval-gated-recommendation-release.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

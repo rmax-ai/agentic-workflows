@@ -1,0 +1,1541 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Approval-gated collaborative artifact release - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#approval-gated-collaborative-artifact-release" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Approval-gated collaborative artifact release
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shared-artifact-charter-and-collaboration-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared artifact charter and collaboration scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-evidence-comments-and-unresolved-objections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source evidence, comments, and unresolved objections
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-policy-and-downstream-lane-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release policy and downstream lane boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-revision-ownership-and-release-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current revision, ownership, and release state
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#governed-shared-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Governed shared artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artifact-release-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artifact release manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disagreement-and-boundary-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disagreement and boundary ledger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collaboration-release-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collaboration release trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-is-attached-to-the-wrong-artifact-revision-or-downstream-lane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval is attached to the wrong artifact revision or downstream lane
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unresolved-disagreement-is-compressed-away-before-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unresolved disagreement is compressed away before release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collaboration-drifts-into-recommendation-adjudication-representation-transformation-or-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collaboration drifts into recommendation adjudication, representation transformation, or execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audience-or-annex-boundaries-broaden-silently-during-release-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audience or annex boundaries broaden silently during release preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="approval-gated-collaborative-artifact-release">Approval-gated collaborative artifact release<a class="headerlink" href="#approval-gated-collaborative-artifact-release" title="Permanent link">&para;</a></h1>
+<p>Co-produce one governed shared artifact and release that exact artifact into one bounded downstream review lane only after explicit human approval, preserving disagreement, ownership, and release boundaries without drifting into recommendation adjudication, representation transformation, or live execution.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>approval-gated-collaborative-artifact-release</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/human-agent-collaborative-work/">Human-agent collaborative work</a></li>
+<li><strong>Problem structure:</strong> Human-agent collaboration (<code>human-agent-collaboration</code>)</li>
+<li><strong>Domains:</strong> Engineering (<code>engineering</code>), Finance (<code>finance</code>), Compliance (<code>compliance</code>), Research (<code>research</code>), Support (<code>support</code>), HR (<code>hr</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Keep one jointly prepared governed artifact current, preserve visible disagreement and release ownership across human-agent collaboration turns, and block its handoff until a human explicitly approves release of that exact artifact into one bounded downstream review or decision lane.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="shared-artifact-charter-and-collaboration-scope">Shared artifact charter and collaboration scope<a class="headerlink" href="#shared-artifact-charter-and-collaboration-scope" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The named artifact, intended audience, collaborative ownership model, and explicit statement that the workflow ends at approved artifact release into a bounded downstream lane.</li>
+<li><strong>Kind:</strong> case</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Joint engineering exception packet created for one release-governance review lane with named artifact ownership and release criteria</li>
+<li>Treasury position packet opened for one controller or committee review lane with explicit release ownership and bounded audience</li>
+<li>Compliance remediation position artifact chartered for one legal or regulator-preparation lane without granting downstream decision authority</li>
+</ul>
+<h3 id="source-evidence-comments-and-unresolved-objections">Source evidence, comments, and unresolved objections<a class="headerlink" href="#source-evidence-comments-and-unresolved-objections" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Evidence, reviewer annotations, policy excerpts, draft sections, and contested claims that must be reconciled into the shared artifact without hiding disagreement.</li>
+<li><strong>Kind:</strong> evidence-set</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Rollback evidence, architecture comments, policy excerpts, and unresolved dependency objections for an engineering change exception packet</li>
+<li>Cash-state support, controller comments, covenant references, and disputed assumptions for a treasury review artifact</li>
+<li>Legal guidance, remediation status, jurisdictional comments, and unresolved compliance objections for a regulator-facing preparation packet</li>
+</ul>
+<h3 id="release-policy-and-downstream-lane-boundary">Release policy and downstream lane boundary<a class="headerlink" href="#release-policy-and-downstream-lane-boundary" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The rules defining who may approve release, which downstream lane may receive the artifact, what audience or scope is allowed, and what remains outside this workflow.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Review-board intake rule naming the release owner, required signers, and one approved queue boundary for the packet</li>
+<li>Treasury committee routing rule limiting release to one protected review lane and forbidding use as an execution trigger</li>
+<li>Compliance governance rule allowing release only into one privileged legal-preparation lane while keeping regulator outreach out of scope</li>
+</ul>
+<h3 id="current-revision-ownership-and-release-state">Current revision, ownership, and release state<a class="headerlink" href="#current-revision-ownership-and-release-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The latest artifact version, current section ownership, accepted edits, unresolved objections, pending approvals, and prior held-release outcomes.</li>
+<li><strong>Kind:</strong> case-state</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Artifact state showing engineering accepted revised rollback wording while one security objection still blocks release</li>
+<li>Revision ledger showing treasury approved one annex summary but held the packet pending a covenant-language dispute</li>
+<li>Release state showing a compliance packet was returned because one privileged section exceeded the approved audience boundary</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="governed-shared-artifact">Governed shared artifact<a class="headerlink" href="#governed-shared-artifact" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The collaboratively maintained artifact revision with accepted sections, visible unresolved disagreement, and the exact content proposed for downstream release.</li>
+<li><strong>Kind:</strong> collaborative-draft</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Joint engineering exception packet with accepted mitigation language, preserved dissent, and evidence citations</li>
+<li>Treasury review packet with agreed exposure summary, visible objections, and bounded annex references</li>
+<li>Compliance position artifact with negotiated chronology, contested legal phrasing, and explicit release notes</li>
+</ul>
+<h3 id="artifact-release-manifest">Artifact release manifest<a class="headerlink" href="#artifact-release-manifest" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Manifest binding one exact artifact revision to one approved downstream lane, the releasing human owner, signer identities, hold state, and the point where collaboration stops.</li>
+<li><strong>Kind:</strong> manifest</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Manifest showing the engineering packet revision is approved for architecture-review intake but not for change execution</li>
+<li>Manifest showing the treasury packet may enter one committee review lane while any funding action remains separate</li>
+<li>Manifest proving the compliance artifact was released into one privileged preparation lane without authorizing outreach or remediation commands</li>
+</ul>
+<h3 id="disagreement-and-boundary-ledger">Disagreement and boundary ledger<a class="headerlink" href="#disagreement-and-boundary-ledger" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured record of unresolved objections, section ownership, annex or audience boundaries, and accepted residual issues carried into the downstream lane.</li>
+<li><strong>Kind:</strong> handoff-record</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Ledger showing which engineering objections remain open and which sections are safe for the downstream board audience</li>
+<li>Register showing one treasury assumption remains contested while the approved release scope stays limited to committee review</li>
+<li>Boundary record showing which compliance sections remain privileged and which residual disagreements were accepted explicitly by the release owner</li>
+</ul>
+<h3 id="collaboration-release-trace">Collaboration release trace<a class="headerlink" href="#collaboration-release-trace" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Durable history of artifact edits, evidence refreshes, release-gate decisions, human approvals, held states, and superseded revisions across the collaboration loop.</li>
+<li><strong>Kind:</strong> audit-log</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Trace of review comments, evidence updates, held releases, and final human approval for one engineering packet revision</li>
+<li>Timeline showing when a treasury packet was returned for clarification and later released into the bounded committee lane</li>
+<li>Audit trail of compliance section edits, privilege checks, release-owner decisions, and downstream handoff timestamps</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in governance-sensitive workflows where the primary reusable challenge is joint human-agent refinement of one shared artifact and explicit human control over whether that artifact itself may cross into a bounded downstream review or decision lane.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Shared collaboration workspace or governed review workbench</li>
+<li>Source evidence stores, policy repositories, and comment systems</li>
+<li>Release-manifest, approval, or intake-routing tooling</li>
+<li>Audit, version-history, and access-control systems</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Human artifact owner or release owner</li>
+<li>Reviewers contributing comments, objections, or evidence</li>
+<li>Agent roles supporting synthesis, trace maintenance, and policy checks</li>
+<li>Downstream review body or decision lane that receives the approved artifact</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep the shared artifact itself central; do not reduce the workflow to a readiness recommendation detached from the artifact revision being released.</li>
+<li>Bind approval to one exact artifact revision and one bounded downstream lane so later revisions or broader audiences cannot inherit stale permission.</li>
+<li>Preserve unresolved disagreement, residual issues, and boundary notes as first-class state rather than polishing them away before release.</li>
+<li>Stop at artifact release, manifesting, and collaboration trace; do not choose the downstream authority outcome, transform the artifact into another schema, or execute the underlying action.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Humans remain accountable for approving release, accepting residual disagreement, and deciding whether the downstream lane is appropriate.</li>
+<li>Collaboration tooling can preserve version history, section ownership, comments, and release-state metadata across multiple revisions.</li>
+<li>Adjacent workflows can consume the released artifact for downstream review or decision without this pattern making that decision or carrying out resulting action.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Retrieval (<code>retrieval</code>):</strong> The workflow must pull current evidence, comments, approval state, and policy boundaries before each release decision can be grounded.</li>
+<li><strong>Synthesis (<code>synthesis</code>):</strong> Human-agent collaboration depends on recombining evidence, edits, objections, and release notes into one inspectable shared artifact.</li>
+<li><strong>Coordination (<code>coordination</code>):</strong> Section ownership, reviewer feedback, release approvals, and downstream lane boundaries must stay aligned across collaboration turns.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Safe artifact release requires durable revision history, objection status, ownership changes, and prior held-release outcomes.</li>
+<li><strong>Verification (<code>verification</code>):</strong> Evidence freshness, policy conformance, and artifact-version integrity must be checked before any release approval is attached.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Release owners, audience scope, required signers, annex limits, and downstream stop boundaries determine whether release may proceed.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> The workflow reads collaboration systems and evidence stores, then writes manifests, ledger state, and approved handoff records through governed tools.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> Ambiguous ownership, unsafe audience expansion, unresolved material disagreement, or stale evidence should hold release rather than force a clean-looking artifact onward.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Approval-gated execution (<code>approval-gated-execution</code>):</strong> The shared artifact can become release-ready inside the collaboration workspace, but the handoff remains concretely blocked until explicit human approval unlocks release into the bounded downstream lane.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> Humans remain embedded in the normal path because only accountable artifact owners may accept residual disagreement, approve lane scope, and release the artifact itself onward.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Approval gated (<code>approval-gated</code>)</li>
+<li><strong>Reversibility:</strong> Artifact revisions can be updated while still inside the collaboration workspace, but once the wrong revision is released into a downstream review lane it can bias later human judgment, broaden disclosure, or trigger avoidable governance churn that is difficult to unwind cleanly.</li>
+<li><strong>Escalation:</strong> Escalate whenever release ownership is ambiguous, disagreement changes the intended downstream lane materially, policy or audience boundaries conflict, evidence is stale, or the next requested step would amount to authority selection, transformation, recommendation adjudication, or operational execution.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Approve the shared artifact charter, release owner, required signers, and downstream lane boundary before routine collaboration release begins.</li>
+<li>Review the exact artifact revision, disagreement ledger, and release manifest before authorizing handoff into the bounded downstream lane.</li>
+<li>Approve changes to release rules, audience boundaries, signer logic, or residual-risk handling before those changes affect future runs.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> High (<code>high</code>)</li>
+<li><strong>Failure impact:</strong> Releasing the wrong collaborative artifact revision, hiding disagreement, or widening the approved lane can misframe consequential human review, create governance or privacy breaches, and push high-stakes work forward on a misleading record even though this workflow stops before downstream action.</li>
+<li><strong>Auditability:</strong> Preserve artifact versions, section ownership, reviewer comments, unresolved objections, manifest state, signer identities, held-release reasons, overrides, and downstream handoff timestamps so investigators can reconstruct exactly what artifact was released and why.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A named human release owner must approve every artifact release that moves a shared artifact into a downstream review, committee, board, legal, or equivalent decision lane.</li>
+<li>Governance owners must approve changes to artifact templates, release-manifest rules, signer requirements, residual-disagreement handling, and audience-boundary controls used by future runs.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Limit shared artifact content to the minimum detail the approved downstream lane needs, leaving more sensitive evidence or annex material in narrower governed systems when possible.</li>
+<li>Apply retention, access, and audience controls so collaborative drafts, objections, and release records do not leak beyond the intended review boundary.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restrict write and release permissions so agents cannot silently broaden the downstream audience, alter signer requirements, or release the artifact without explicit human acceptance.</li>
+<li>Log manual overrides, audience-boundary edits, residual-risk acceptance, and repeated held-release causes so hidden bypass of the release gate remains detectable.</li>
+</ul>
+<p><strong>Notes:</strong> High risk fits because the pattern governs release of a collaboratively shaped artifact into a consequential downstream lane, while still staying distinct from severe protected-room collaboration, downstream recommendation or decision adjudication, and live execution.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The workflow must adapt to evolving comments, evidence, and disagreement while maintaining one coherent artifact rather than merely routing a finished packet.</li>
+<li>Useful support comes from agents that can preserve lineage, surface conflicts, and maintain release-state discipline across many collaborative turns.</li>
+<li>Safe behavior requires recognizing when unresolved disagreement or boundary ambiguity should block release instead of being normalized into a superficially ready artifact.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="approval-is-attached-to-the-wrong-artifact-revision-or-downstream-lane">Approval is attached to the wrong artifact revision or downstream lane<a class="headerlink" href="#approval-is-attached-to-the-wrong-artifact-revision-or-downstream-lane" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Downstream reviewers receive a stale or mis-scoped artifact and may act on assumptions that were never actually approved.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Bind release approval to explicit revision identifiers, lane identifiers, and audience metadata.</li>
+<li>Block release whenever the artifact changes after approval review starts or when boundary metadata is incomplete.</li>
+</ul>
+<h3 id="unresolved-disagreement-is-compressed-away-before-release">Unresolved disagreement is compressed away before release<a class="headerlink" href="#unresolved-disagreement-is-compressed-away-before-release" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The released artifact appears more settled than reality, biasing downstream decision makers and hiding material objections.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Preserve unresolved objections and accepted residual issues in a dedicated ledger tied to the released revision.</li>
+<li>Require explicit human acknowledgement when residual disagreement is carried into the downstream lane.</li>
+</ul>
+<h3 id="collaboration-drifts-into-recommendation-adjudication-representation-transformation-or-execution">Collaboration drifts into recommendation adjudication, representation transformation, or execution<a class="headerlink" href="#collaboration-drifts-into-recommendation-adjudication-representation-transformation-or-execution" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Family boundaries blur and the shared-artifact workflow starts doing adjacent work that belongs elsewhere.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Limit outputs to the governed artifact, release manifest, disagreement ledger, and collaboration trace.</li>
+<li>Route downstream recommendation choice, schema transformation, and operational action into adjacent patterns.</li>
+</ul>
+<h3 id="audience-or-annex-boundaries-broaden-silently-during-release-preparation">Audience or annex boundaries broaden silently during release preparation<a class="headerlink" href="#audience-or-annex-boundaries-broaden-silently-during-release-preparation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Sensitive content reaches reviewers or systems that were never approved to receive the shared artifact.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Keep audience scope and annex references explicit in the manifest and boundary ledger.</li>
+<li>Require human approval for any broadened recipient set or promoted restricted section before release.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of released collaborative artifacts accepted by the intended downstream lane without bounce-back for hidden objections, stale evidence, or boundary confusion.</li>
+<li>Reduction in time spent reconciling comments, ownership, and release-state drift across collaborative review cycles.</li>
+<li>Rate at which downstream reviewers can identify the exact released revision, release owner, residual disagreement, and audience scope without reconstructing the workspace manually.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The shared artifact makes accepted edits, unresolved objections, and release scope easy to inspect.</li>
+<li>Release approval remains tightly bound to one artifact revision and one downstream lane instead of implying broader authority.</li>
+<li>The workflow improves collaboration throughput without laundering disagreement or crossing into adjacent family responsibilities.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test conflicting reviewer instructions and verify the workflow preserves the disagreement and blocks release until a human accepts the boundary.</li>
+<li>Test artifact edits that arrive during approval review and confirm the older revision cannot be released silently.</li>
+<li>Test audience-scope changes or sensitive annex promotion requests and ensure the release gate requires explicit human confirmation.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate release-bound collaboration using objection visibility, revision-binding integrity, and downstream handoff clarity in addition to drafting speed; a faster release is not a win if it blurs what artifact was actually approved.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep evidence refresh, comment reconciliation, artifact revision, release-manifest assembly, approval capture, and handoff logging as explicit stages over one shared artifact state.</li>
+<li>Separate collaboration state from downstream decision systems so artifact release cannot be mistaken for downstream disposition or execution.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations connect collaboration workbenches, evidence repositories, approval systems, intake queues, and audit tooling.</li>
+<li>Keep the pattern neutral about specific review boards, treasury committees, legal portals, or enterprise document suites.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with one narrowly bounded artifact class and one downstream lane where teams already struggle with version drift, hidden objections, or uncertain release ownership.</li>
+<li>Review held-release causes and manual bypasses early because they reveal whether the workflow is drifting toward adjacent recommendation, transform, or execution work.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/human-agent-collaborative-work/">docs/patterns/human-agent-collaborative-work.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Engineering (<code>engineering</code>):</strong> Engineering and security reviewers collaborate with agents on one exception packet, then a named human release owner approves that exact revision for review-board intake without deciding the board outcome.</li>
+<li><strong>Finance (<code>finance</code>):</strong> Treasury and finance controllers co-produce one liquidity or covenant review packet, then release that revision into one committee lane while funding or accounting decisions remain downstream.</li>
+<li><strong>Compliance (<code>compliance</code>):</strong> Compliance and legal reviewers maintain one remediation or regulator-preparation artifact, then a named human owner approves its handoff into one bounded legal or oversight lane without triggering outreach or execution.</li>
+<li><strong>Research (<code>research</code>):</strong> Research, reproducibility, and publication reviewers co-produce one benchmark claim-clarification packet, then a named human owner approves that exact revision for one publication-integrity intake lane without deciding publication or releasing the study externally.</li>
+<li><strong>Support (<code>support</code>):</strong> Support, incident, and customer-review stakeholders collaborate on one outage disclosure packet, then release that exact revision into one executive customer-review lane while customer communication and remediation remain downstream.</li>
+<li><strong>HR (<code>hr</code>):</strong> Leave, employee-relations, and occupational-health reviewers maintain one protected leave return-to-work exception packet, then a named human owner approves its handoff into one bounded review lane without deciding the leave outcome or updating payroll.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../approval-centered-collaboration/">Approval-centered collaboration</a> (more-release-bound-than)</li>
+<li>Both patterns use iterative human-agent collaboration, but this one centers on explicit approval to release the shared artifact itself rather than on a readiness recommendation about whether another approval cycle should begin.</li>
+<li><a href="../critical-protected-artifact-collaboration/">Critical protected artifact collaboration</a> (less-severe-variant-of)</li>
+<li>Both patterns preserve disagreement and human-owned artifact release, but the critical variant adds severe protected-room controls, restricted annex discipline, and stronger failure posture.</li>
+<li><a href="../../transform-process/approval-gated-transformation-release/">Approval-gated transformation release</a> (adjacent)</li>
+<li>Both patterns end with an approval-bound handoff, but this pattern focuses on collaborative ownership of one shared artifact whereas the transform pattern centers on producing a downstream-ready representation and lineage manifest.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/compliance/vendor-transfer-remediation-packet-approved-for-privacy-counsel-intake/">Vendor transfer remediation packet approved for privacy counsel intake</a></li>
+<li><a href="../../../instances/engineering/payments-tokenization-exception-packet-approved-for-architecture-review-intake/">Payments tokenization exception packet approved for architecture review intake</a></li>
+<li><a href="../../../instances/finance/quarter-close-covenant-position-packet-approved-for-controller-committee-intake/">Quarter-close covenant position packet approved for controller committee intake</a></li>
+<li><a href="../../../instances/hr/protected-leave-return-to-work-exception-packet-approved-for-occupational-health-review-intake/">Protected leave return-to-work exception packet approved for occupational health review intake</a></li>
+<li><a href="../../../instances/research/benchmark-claim-clarification-packet-approved-for-publication-integrity-review-intake/">Benchmark claim-clarification packet approved for publication integrity review intake</a></li>
+<li><a href="../../../instances/support/enterprise-outage-disclosure-packet-approved-for-executive-customer-review-intake/">Enterprise outage disclosure packet approved for executive customer review intake</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/human-agent-collaborative-work/approval-gated-collaborative-artifact-release.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

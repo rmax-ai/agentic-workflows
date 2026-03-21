@@ -1,0 +1,355 @@
+version: 1
+last_updated: 2026-03-21
+repository_stage: phase-7-coverage-refinement-ready
+phase_status:
+  phase_0:
+    name: execution-memory bootstrap
+    status: complete
+  phase_1:
+    name: foundational docs and schema
+    status: complete
+  phase_2:
+    name: controlled vocabularies
+    status: complete
+  phase_3:
+    name: navigation views
+    status: complete
+  phase_4:
+    name: pattern family docs
+    status: complete
+  phase_5:
+    name: seed canonical patterns
+    status: complete
+  phase_6:
+    name: grounded instances
+    status: complete
+  phase_7:
+    name: coverage refinement
+    status: in_progress
+inventory:
+  foundational_docs: 4
+  schema_files: 1
+  vocabulary_files: 6
+  view_files: 5
+  pattern_files: 49
+  instance_files: 197
+  pattern_family_docs: 9
+  glossary_files: 1
+coverage_totals:
+  pattern_families_defined: 9
+  pattern_families_with_patterns: 9
+  domains_with_patterns: 7
+  domains_with_instances: 7
+  architectures_mapped: 5
+  autonomy_levels_mapped: 6
+  risk_levels_mapped: 4
+  autonomy_levels_with_patterns: 6
+  risk_levels_with_patterns: 4
+pattern_counts_by_family:
+  gather-retrieve-synthesize: 5
+  transform-process: 6
+  investigate-reconcile-verify: 5
+  monitor-detect-triage: 5
+  plan-coordinate-schedule: 5
+  recommend-decide-escalate: 7
+  execute-automate: 5
+  optimize-adapt: 6
+  human-agent-collaborative-work: 5
+instance_counts_by_domain:
+  engineering: 30
+  finance: 31
+  compliance: 27
+  operations: 29
+  research: 27
+  support: 27
+  hr: 26
+consistency_notes:
+  - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
+  - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
+  - "`approval-packet-generation` now has explicit `compliance` grounding through a vendor biometric retention control deviation approval-packet assembly example, deepening that high-risk gather-family slice while preserving a clean boundary at packet assembly, evidence indexing, exception visibility, and human handoff rather than recommendation, adjudication, vendor instruction, or regulator communication."
+  - "`claimed-state-verification` now has additional `support` grounding through an internal premium-support advisory-macro publication verification example, deepening that low-risk investigate-family slice while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative evidence traceability rather than macro editing, republishing, customer communication, or downstream execution."
+  - "`schedule-adjustment-and-replanning` now has explicit `compliance` grounding through a control-remediation sign-off timeline replanning example after evidence-collection delay or reviewer-window compression threatened a fixed regulator-facing checkpoint, extending that moderate-risk plan-family replanning slice beyond engineering and research while preserving a clean boundary at revised schedule production, impact ledgering, and coordination-ready handoff rather than remediation sufficiency adjudication, control waiver, regulator filing, or execution."
+  - "`schedule-adjustment-and-replanning` now has explicit `research` grounding through a benchmark-study publication timeline replanning example after evidence-analysis or data-governance clearance delay compressed the original publication-review window, extending that moderate-risk plan-family replanning slice beyond engineering and compliance while preserving a clean boundary at revised schedule production, impact ledgering, and coordination-ready handoff rather than governance recommendation, publication adjudication, or submission execution."
+  - "`critical-authoritative-state-restoration` now has explicit `hr` grounding through a protected-leave occupational-health and benefits state-truth restoration example, extending that critical investigate-family slice beyond finance, compliance, and operations while preserving a clean boundary at authoritative current-state restoration, unresolved holds, and human-reviewed handoff rather than accommodation adjudication, payroll action, or employee communication."
+  - "`claimed-state-verification` now has explicit `hr` grounding through an internal parental-leave guidance publication-state verification example, extending that low-risk investigate-family slice beyond engineering, operations, research, and support while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting rather than policy interpretation, communication, or record mutation."
+  - "`approval-gated-triage-dispatch` now has explicit `research` grounding through a benchmark-study disclosure-risk packet approved for restricted disclosure-governance review dispatch, extending that monitor-family approval-bound slice beyond finance, compliance, operations, and HR while preserving a clean boundary at governed packet release rather than disclosure adjudication or publication action."
+  - "`approval-centered-collaboration` canonical domain/example metadata plus `data/views/by-domain.yaml` are now realigned with the already-committed `support` and `compliance` readiness-loop instances, restoring browse consistency before further refinement work."
+  - "`exception-aware-task-execution` now has explicit `support` grounding through an enterprise admin entitlement resynchronization runbook execution example, extending that bounded-delegation execute-family slice beyond engineering and operations while preserving a clean boundary at delegated routine completion, durable checkpointing, explicit verification, and exception-only escalation rather than customer communication, contract interpretation, or discretionary entitlement redesign."
+  - "`workflow-hand-off-and-completion` now has additional `research` grounding through an approved human-subjects continuing-review closure and protocol-registry synchronization example, deepening that low-risk execute-family closure slice beyond benchmark-governance-only context while preserving a clean boundary at authoritative post-decision closure, queue cleanup, registry synchronization, archive linkage, and internal coordinator notification rather than protocol amendment, participant communication, or study execution."
+repo_reality:
+  available_ontology_assets:
+    - .github/workflows/publish-site.yml
+    - mkdocs.yml
+    - README.md
+    - docs/ontology.md
+    - docs/schema.md
+    - docs/index-tree.md
+    - docs/contribution-guide.md
+    - schema/pattern.schema.json
+    - scripts/python/build_site_docs.py
+    - data/vocabularies/problem-structures.yaml
+    - data/vocabularies/domains.yaml
+    - data/vocabularies/architectures.yaml
+    - data/vocabularies/capabilities.yaml
+    - data/vocabularies/autonomy-levels.yaml
+    - data/vocabularies/risk-levels.yaml
+    - data/views/index-tree.yaml
+    - data/views/by-domain.yaml
+    - data/views/by-architecture.yaml
+    - data/views/by-autonomy.yaml
+    - data/views/by-risk.yaml
+    - data/patterns/gather-retrieve-synthesize/research-synthesis-with-citation-verification.yaml
+    - data/patterns/gather-retrieve-synthesize/approval-packet-generation.yaml
+    - data/patterns/gather-retrieve-synthesize/change-triggered-context-briefing.yaml
+    - data/patterns/gather-retrieve-synthesize/crisis-briefing-evidence-synthesis.yaml
+    - data/patterns/gather-retrieve-synthesize/approval-gated-briefing-release.yaml
+    - data/patterns/transform-process/document-to-structured-data-handoff.yaml
+    - data/patterns/transform-process/normalization-and-enrichment.yaml
+    - data/patterns/transform-process/batch-content-transformation.yaml
+    - data/patterns/transform-process/change-triggered-representation-refresh.yaml
+    - data/patterns/transform-process/critical-channel-safe-state-packaging.yaml
+    - data/patterns/transform-process/approval-gated-transformation-release.yaml
+    - data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml
+    - data/patterns/investigate-reconcile-verify/authoritative-record-reconciliation.yaml
+    - data/patterns/investigate-reconcile-verify/claimed-state-verification.yaml
+    - data/patterns/investigate-reconcile-verify/evidence-gated-verification-for-release.yaml
+    - data/patterns/investigate-reconcile-verify/critical-authoritative-state-restoration.yaml
+     - data/patterns/monitor-detect-triage/risk-alert-triage.yaml
+     - data/patterns/monitor-detect-triage/anomaly-detection-review.yaml
+     - data/patterns/monitor-detect-triage/approval-gated-triage-dispatch.yaml
+     - data/patterns/monitor-detect-triage/critical-signal-corroboration-triage.yaml
+     - data/patterns/monitor-detect-triage/explainable-watchlist-maintenance.yaml
+    - data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml
+    - data/patterns/plan-coordinate-schedule/schedule-adjustment-and-replanning.yaml
+    - data/patterns/plan-coordinate-schedule/authoritative-change-coordination-refresh.yaml
+    - data/patterns/plan-coordinate-schedule/contingency-plan-activation-gate.yaml
+    - data/patterns/plan-coordinate-schedule/critical-command-window-resequencing.yaml
+    - data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml
+    - data/patterns/recommend-decide-escalate/delegated-authority-option-ranking.yaml
+    - data/patterns/recommend-decide-escalate/policy-constrained-escalation-routing.yaml
+    - data/patterns/recommend-decide-escalate/readiness-gate-disposition-recommendation.yaml
+    - data/patterns/recommend-decide-escalate/control-requirement-attestation-recommendation.yaml
+    - data/patterns/recommend-decide-escalate/critical-escalation-authority-recommendation.yaml
+    - data/patterns/recommend-decide-escalate/approval-gated-recommendation-release.yaml
+     - data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml
+     - data/patterns/execute-automate/human-directed-task-orchestration.yaml
+     - data/patterns/execute-automate/staged-change-execution-with-rollback-holds.yaml
+     - data/patterns/execute-automate/exception-aware-task-execution.yaml
+     - data/patterns/execute-automate/workflow-hand-off-and-completion.yaml
+    - data/patterns/optimize-adapt/queue-prioritization-optimization.yaml
+    - data/patterns/optimize-adapt/adaptive-threshold-calibration.yaml
+    - data/patterns/optimize-adapt/adaptive-review-sampling-rate-tuning.yaml
+    - data/patterns/optimize-adapt/governed-optimization-bundle-retuning.yaml
+    - data/patterns/optimize-adapt/approval-gated-optimization-state-release.yaml
+    - data/patterns/optimize-adapt/critical-protected-priority-adaptation.yaml
+    - data/patterns/human-agent-collaborative-work/analyst-copilot-loop.yaml
+    - data/patterns/human-agent-collaborative-work/approval-centered-collaboration.yaml
+    - data/patterns/human-agent-collaborative-work/approval-gated-collaborative-artifact-release.yaml
+    - data/patterns/human-agent-collaborative-work/shared-workbench-orchestration.yaml
+    - data/patterns/human-agent-collaborative-work/critical-protected-artifact-collaboration.yaml
+    - instances/research/regulatory-obligation-synthesis-for-data-retention-review.md
+    - instances/research/model-serving-platform-benchmark-briefing-copilot-loop.md
+    - instances/research/model-serving-benchmark-evidence-matrix-shared-workbench-upkeep.md
+    - instances/research/benchmark-study-artifact-packet-to-research-review-intake-record-handoff.md
+    - instances/research/benchmark-study-publication-readiness-review-scheduling.md
+    - instances/research/approved-human-subjects-ethics-amendment-portal-submission.md
+    - instances/research/benchmark-study-disclosure-risk-alert-triage.md
+    - instances/research/benchmark-study-metric-drift-anomaly-review.md
+    - instances/research/benchmark-metadata-hygiene-watchlist-upkeep.md
+    - instances/research/cross-lab-benchmark-replication-discrepancy-investigation.md
+    - instances/research/approved-benchmark-study-review-disposition-closure.md
+    - instances/research/benchmark-study-artifact-freeze-readiness-gate-disposition-recommendation.md
+    - instances/research/benchmark-study-artifact-freeze-completion-verification.md
+    - instances/research/de-identified-participant-interview-batch-to-release-safe-study-dataset.md
+    - instances/research/embargoed-benchmark-artifact-spot-check-sampling-rate-tuning.md
+    - instances/research/benchmark-portfolio-bundle-retuning.md
+    - instances/research/benchmark-replication-review-scoring-revision-approved-for-live-use.md
+    - instances/research/benchmark-study-publication-recommendation-packet-revision-approved-for-publication-council-decision-lane.md
+    - instances/research/benchmark-claim-clarification-packet-approved-for-publication-integrity-review-intake.md
+    - instances/research/benchmark-study-publication-integrity-intake-packet-approved-for-restricted-review-lane.md
+    - instances/research/approved-benchmark-study-publication-integrity-packet-evidence-gate-verification.md
+    - instances/research/benchmark-study-research-review-intake-record-refresh-after-rerun-manifest-update.md
+    - instances/engineering/release-candidate-review-staging-record-refresh-after-evidence-change.md
+    - instances/engineering/release-candidate-cutover-bundle-approved-for-change-window-handoff.md
+    - instances/engineering/payments-api-latency-incident-investigation.md
+    - instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md
+    - instances/engineering/multi-region-payments-outage-crisis-briefing-evidence-synthesis.md
+    - instances/engineering/release-candidate-risk-briefing-revision-approved-for-architecture-board-circulation.md
+    - instances/engineering/deprecated-message-broker-client-migration-exception-copilot-loop.md
+     - instances/engineering/production-release-regression-alert-triage.md
+     - instances/engineering/production-incident-guided-remediation-task-orchestration.md
+     - instances/engineering/recurring-ci-warning-watchlist-upkeep.md
+    - instances/engineering/release-candidate-evidence-packet-to-deployment-review-staging-record-handoff.md
+    - instances/engineering/cross-team-release-readiness-review-scheduling.md
+    - instances/engineering/release-readiness-review-coordination-refresh-after-approver-window-change.md
+    - instances/engineering/payments-cutover-command-window-checkpoint-resequencing.md
+    - instances/engineering/approved-production-change-freeze-exception-portal-submission.md
+    - instances/engineering/approved-payments-tokenization-cutover-staged-execution.md
+    - instances/engineering/managed-database-major-version-upgrade-exception-recommendation.md
+    - instances/engineering/privileged-service-account-quarterly-control-attestation-recommendation.md
+    - instances/engineering/ci-pipeline-failure-review-queue-reprioritization.md
+    - instances/engineering/production-shared-credential-exception-review-board-readiness-loop.md
+    - instances/engineering/production-signing-key-compromise-protected-review-packet-collaboration-room.md
+    - instances/engineering/payments-tokenization-exception-packet-approved-for-architecture-review-intake.md
+    - instances/engineering/approved-release-readiness-review-closure-and-tracker-completion.md
+    - instances/engineering/payments-tokenization-cutover-readiness-gate-disposition-recommendation.md
+    - instances/engineering/internal-sdk-release-asset-publication-verification.md
+    - instances/engineering/approved-release-candidate-evidence-gate-verification.md
+    - instances/engineering/production-signing-key-compromise-authority-recommendation.md
+    - instances/engineering/database-upgrade-exception-recommendation-packet-revision-approved-for-architecture-board-decision-lane.md
+    - instances/engineering/production-signing-key-integrity-review-priority-adaptation.md
+     - instances/finance/suspicious-wire-transfer-alert-triage.md
+     - instances/finance/suspicious-wire-triage-packet-approved-for-restricted-fraud-review-dispatch.md
+     - instances/finance/enterprise-arrears-settlement-band-option-recommendation.md
+    - instances/finance/invoice-packet-to-payables-record-handoff.md
+    - instances/finance/dual-approved-vendor-bank-account-change-submission.md
+    - instances/finance/multi-year-renewal-pricing-and-payment-structure-recommendation.md
+    - instances/finance/treasury-cash-position-discrepancy-investigation.md
+    - instances/finance/debt-covenant-obligation-synthesis-for-quarter-close-review.md
+    - instances/finance/quarter-close-covenant-clarification-package-copilot-loop.md
+    - instances/finance/quarter-close-control-review-scheduling.md
+    - instances/finance/quarter-close-control-review-coordination-refresh-after-consolidation-shift.md
+    - instances/finance/quarter-close-exception-review-queue-reprioritization.md
+    - instances/finance/quarter-close-control-bundle-retuning.md
+    - instances/finance/approved-cash-forecast-primary-cutover-staged-execution.md
+    - instances/finance/approved-morning-liquidity-posting-evidence-gate-verification.md
+    - instances/finance/material-vendor-payment-control-exception-package-readiness-loop.md
+    - instances/finance/procurement-card-segregation-of-duties-attestation-recommendation.md
+    - instances/finance/cash-forecast-primary-cutover-readiness-gate-disposition-recommendation.md
+    - instances/finance/quarter-close-covenant-review-package-refresh-after-ledger-adjustment.md
+    - instances/finance/morning-liquidity-posting-bundle-approved-for-ledger-handoff.md
+    - instances/finance/liquidity-stress-bridge-channel-safe-exposure-package.md
+    - instances/finance/intraday-liquidity-state-truth-restoration.md
+    - instances/finance/intraday-liquidity-command-window-checkpoint-resequencing.md
+    - instances/finance/intraday-liquidity-facility-draw-authority-recommendation.md
+    - instances/finance/intraday-liquidity-contingency-funding-facility-activation-gate.md
+    - instances/finance/intraday-liquidity-protection-priority-adaptation.md
+    - instances/finance/intraday-liquidity-stress-protected-funding-review-packet-collaboration-room.md
+    - instances/finance/intraday-liquidity-stress-briefing-revision-approved-for-treasury-committee-circulation.md
+    - instances/finance/quarter-close-covenant-position-packet-approved-for-controller-committee-intake.md
+    - instances/finance/arrears-concession-recommendation-packet-revision-approved-for-controller-committee-decision-lane.md
+     - instances/operations/cold-chain-emergency-supervised-step-through-task-orchestration.md
+     - instances/operations/cross-functional-maintenance-review-scheduling.md
+     - instances/operations/cold-chain-temperature-excursion-alert-triage.md
+     - instances/operations/cold-chain-excursion-triage-packet-approved-for-network-command-center-dispatch.md
+     - instances/operations/distribution-sorter-throughput-fallback-option-recommendation.md
+    - instances/operations/multi-site-service-package-feasibility-recommendation.md
+    - instances/operations/site-inspection-packet-to-corrective-maintenance-work-order-handoff.md
+    - instances/operations/sorter-routing-package-approved-for-shift-cutover-handoff.md
+    - instances/operations/field-service-dispatch-queue-reprioritization.md
+    - instances/operations/conveyor-safety-bulletin-synthesis-for-network-readiness-review.md
+    - instances/operations/network-cold-chain-excursion-command-crisis-briefing-evidence-synthesis.md
+    - instances/operations/network-cold-chain-command-briefing-revision-approved-for-regional-command-circulation.md
+    - instances/operations/network-cold-chain-emergency-reroute-activation-gate.md
+    - instances/operations/warehouse-slotting-rule-change-digest-for-shift-supervisor-briefing.md
+    - instances/operations/warehouse-slotting-rollout-caveat-board-shared-workbench-upkeep.md
+    - instances/operations/distribution-sorter-misroute-root-cause-investigation.md
+    - instances/operations/approved-distribution-sorter-routing-profile-cutover-staged-execution.md
+    - instances/operations/approved-sorter-routing-cutover-evidence-gate-verification.md
+    - instances/operations/maintenance-documentation-spot-check-sampling-rate-tuning.md
+    - instances/operations/supplier-labeling-deviation-remediation-brief-copilot-loop.md
+    - instances/operations/network-fuel-system-test-deferral-exception-package-readiness-loop.md
+    - instances/operations/network-fuel-system-test-deferral-recommendation-packet-revision-approved-for-continuity-risk-board-decision-lane.md
+    - instances/operations/warehouse-slotting-reference-rollout-verification.md
+    - instances/operations/suspected-contamination-command-center-channel-safe-lot-package.md
+    - instances/operations/suspected-contamination-lot-hold-state-truth-restoration.md
+    - instances/operations/contamination-command-window-checkpoint-resequencing.md
+    - instances/operations/suspected-contamination-review-priority-adaptation.md
+     - instances/compliance/cross-border-deal-exception-review.md
+     - instances/compliance/pharmacovigilance-safety-signal-alert-triage.md
+     - instances/compliance/serious-safety-signal-triage-packet-approved-for-expedited-medical-review-dispatch.md
+     - instances/compliance/beneficial-ownership-registry-update-submission.md
+     - instances/compliance/sanctions-remediation-human-directed-procedural-execution.md
+     - instances/compliance/sanctions-alert-closure-regulator-response-copilot-loop.md
+    - instances/compliance/pharmacovigilance-follow-up-packet-to-safety-case-record-handoff.md
+    - instances/compliance/regulatory-consumer-complaint-response-queue-reprioritization.md
+    - instances/compliance/sanctions-screening-gap-root-cause-investigation.md
+    - instances/compliance/control-remediation-sign-off-review-scheduling.md
+    - instances/compliance/control-remediation-sign-off-review-coordination-refresh-after-validation-slip.md
+    - instances/compliance/regulator-reporting-timeline-exception-package-readiness-loop.md
+    - instances/compliance/sanctions-hold-state-truth-restoration.md
+    - instances/compliance/sanctions-screening-outage-authority-recommendation.md
+    - instances/compliance/sanctions-screening-manual-fallback-activation-gate.md
+    - instances/compliance/sanctions-alert-review-scoring-revision-approved-for-live-use.md
+    - instances/compliance/sanctions-screening-outage-protected-regulator-position-packet-collaboration-room.md
+    - instances/compliance/vendor-transfer-remediation-packet-approved-for-privacy-counsel-intake.md
+    - instances/compliance/privacy-attestation-disposition-packet-revision-approved-for-council-sign-off-lane.md
+    - instances/compliance/cross-border-transfer-assessment-review-record-refresh-after-annex-update.md
+    - instances/compliance/finalized-sanctions-alert-false-positive-disposition-closure-and-case-ledger-synchronization.md
+    - instances/compliance/control-library-caveat-board-shared-workbench-upkeep.md
+    - instances/compliance/control-remediation-sign-off-timeline-replanning-after-evidence-collection-slip.md
+    - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
+    - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
+    - instances/support/customer-escalation-bridge-scheduling.md
+    - instances/support/enterprise-support-obligation-synthesis-for-severity-one-review.md
+    - instances/support/enterprise-admin-lockout-executive-bridge-crisis-briefing-evidence-synthesis.md
+    - instances/support/premium-support-escalation-runbook-change-digest-for-duty-manager-briefing.md
+    - instances/support/enterprise-outage-disclosure-packet-approved-for-executive-customer-review-intake.md
+    - instances/support/premium-support-workaround-article-staging-board-shared-workbench-upkeep.md
+    - instances/support/enterprise-outage-evidence-packet-to-support-escalation-record-handoff.md
+    - instances/support/enterprise-security-incident-remediation-credit-package-readiness-loop.md
+    - instances/support/enterprise-support-severity-drift-anomaly-review.md
+    - instances/support/enterprise-support-quality-review-sampling-rate-tuning.md
+    - instances/support/enterprise-support-case-quality-review-scoring-revision-approved-for-live-use.md
+    - instances/support/self-serve-article-confusion-watchlist-upkeep.md
+    - instances/support/premium-support-workaround-article-publication-verification.md
+    - instances/support/premium-support-advisory-macro-publication-verification.md
+    - instances/support/finalized-enterprise-support-case-review-closure-and-escalation-tracker-synchronization.md
+    - instances/support/enterprise-admin-entitlement-resynchronization-runbook-execution.md
+    - instances/support/privacy-screened-support-transcript-batch-to-quality-review-dataset.md
+    - instances/support/premium-support-escalation-record-refresh-after-diagnostic-bundle-change.md
+    - instances/support/severity-one-customer-bridge-channel-safe-service-state-package.md
+    - instances/support/enterprise-recovery-package-recommendation-packet-revision-approved-for-executive-customer-review-decision-lane.md
+    - instances/support/enterprise-identity-outage-vendor-escalation-packet-approved-for-restricted-vendor-intake.md
+    - instances/compliance/cross-border-transfer-assessment-packet-approved-for-restricted-privacy-counsel-intake.md
+    - instances/compliance/vendor-data-transfer-safeguard-obligation-synthesis-for-cross-border-review.md
+    - instances/compliance/vendor-biometric-retention-control-deviation-approval-packet-for-privacy-council-review.md
+    - instances/compliance/vendor-telemetry-safeguard-requirement-attestation-recommendation.md
+    - instances/hr/approved-payroll-status-change-submission.md
+    - instances/hr/interview-panel-availability-coordination.md
+    - instances/hr/pay-transparency-posting-obligation-synthesis-for-requisition-launch-review.md
+    - instances/hr/leave-intake-policy-change-digest-for-people-operations-briefing.md
+    - instances/hr/international-relocation-and-sign-on-package-recommendation.md
+    - instances/hr/workplace-accommodation-exception-memo-copilot-loop.md
+    - instances/hr/protected-leave-return-to-work-exception-packet-approved-for-occupational-health-review-intake.md
+    - instances/hr/medical-leave-certification-packet-to-leave-case-record-handoff.md
+    - instances/hr/protected-leave-review-record-refresh-after-recertification-update.md
+    - instances/hr/protected-leave-recertification-packet-approved-for-restricted-leave-review-intake.md
+    - instances/hr/protected-leave-case-review-queue-reprioritization.md
+    - instances/hr/protected-leave-return-to-work-status-drift-root-cause-investigation.md
+    - instances/hr/work-authorization-expiry-risk-alert-triage.md
+    - instances/hr/critical-backfill-headcount-freeze-exception-package-readiness-loop.md
+    - instances/hr/worker-lifecycle-change-anomaly-review.md
+    - instances/hr/redacted-accommodation-case-batch-to-workforce-review-dataset.md
+    - instances/hr/protected-leave-review-bundle-retuning.md
+    - instances/hr/protected-leave-accommodation-review-scoring-revision-approved-for-live-use.md
+    - instances/hr/executive-offer-exception-recommendation-packet-revision-approved-for-compensation-committee-decision-lane.md
+    - instances/hr/bereavement-leave-compliance-briefing-revision-approved-for-people-policy-council-circulation.md
+    - instances/hr/work-authorization-lapse-triage-packet-approved-for-restricted-immigration-compliance-review-dispatch.md
+    - instances/hr/accepted-protected-leave-review-closure-and-case-tracker-synchronization.md
+    - instances/hr/open-enrollment-faq-caveat-board-shared-workbench-upkeep.md
+    - instances/hr/internal-parental-leave-guidance-publication-verification.md
+    - docs/patterns/README.md
+    - docs/patterns/gather-retrieve-synthesize.md
+    - docs/patterns/transform-process.md
+    - docs/patterns/investigate-reconcile-verify.md
+    - docs/patterns/monitor-detect-triage.md
+    - docs/patterns/plan-coordinate-schedule.md
+    - docs/patterns/recommend-decide-escalate.md
+    - docs/patterns/execute-automate.md
+    - docs/patterns/optimize-adapt.md
+    - docs/patterns/human-agent-collaborative-work.md
+    - .agent/current-plan.md
+    - .agent/prompts/mega-prompt.txt
+    - .agent/prompts/operator-prompt.txt
+    - scripts/run-agentic-workflows-loop.sh
+    - scripts/run-agentic-workflows-forever.sh
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred eighty-eight grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  immediate_gaps:
+    - "`evidence-gated-verification-for-release` now also has explicit research grounding through an approved benchmark-study publication-integrity packet verification example, so the investigate-family approval-bound slice now spans engineering, finance, operations, research, and HR while preserving a clean boundary at evidence sufficiency, release-hold state, and human-approved downstream reliance rather than publication recommendation, packet refresh, or execution."
+    - "`shared-workbench-orchestration` now also has explicit compliance grounding through an internal control-library caveat-board upkeep example, extending the low-risk collaboration-upkeep slice beyond research, operations, support, and HR while preserving a clean boundary at internal artifact refresh, source revalidation, ownership preservation, and explicit hold-state management rather than legal advice, adjudication, regulator communication, or execution."
+    - "Research and HR now tie for the thinnest modeled domain count at twenty-four grounded instances each, so refinement should keep prioritizing narrow family-safe depth work in that tied tier instead of broader structural expansion."
+    - "The next refinement step should reassess the tied-thinnest research and HR domains for one already-canonical slice where grounded depth still trails engineering, finance, operations, compliance, and support but the family boundary can stay explicit and bounded."
+  next_action:
+    id: phase-7-next-tied-domain-depth-balance
+    summary: "Use the next iteration to rebalance either research or HR with one already-canonical, family-safe grounding slice plus the directly dependent canonical and browse-view updates needed by that pairing."

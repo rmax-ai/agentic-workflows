@@ -1,0 +1,46 @@
+You are now executing exactly one structured iteration of the `agentic-workflows` repository loop.
+
+Follow the repository mission, ordering constraints, memory model, and commit discipline from the master orchestration prompt.
+
+Iteration protocol:
+
+1. First inspect the repository and all `.agent/` files.
+2. Determine the current phase, missing prerequisites, and highest-leverage next step.
+3. Update `.agent/current-plan.md` before making substantive changes.
+4. Execute a modest, dependency-aware batch of work only.
+5. Use narrow subagents or clearly separated subagent roles for scoped tasks.
+6. Each subagent task must:
+   - read relevant existing files first
+   - create or update only files in scope
+   - end with exactly one git commit
+7. After subagents finish, the orchestrator must:
+   - review what changed
+   - perform a short post-iteration reflection on workflow quality, prompt quality, ontology coherence, pattern quality, and loop/tooling friction
+   - if that reflection surfaces a specific, durable, and dependency-aware improvement that is not already captured, add or update exactly one proposal under `.agent/proposals/`
+   - keep proposals concrete and scoped to the loop system, prompt system, tooling, schema, vocabularies, views, patterns, ontology, governance, or evaluation
+   - do not force a proposal every iteration; skip proposal authoring when there is no clearly justified improvement
+   - add the current iteration summary as a new dated file under `.agent/iterations/`
+   - update `.agent/ontology-status.yaml`
+   - update `.agent/coverage-matrix.yaml`
+   - update `.agent/current-plan.md` with next steps
+   - commit orchestrator memory updates if changed
+8. Do not do giant uncontrolled generation.
+9. Prefer consistency, coverage progress, and correct dependency order over volume.
+10. At the end, print a concise summary:
+   - phase
+   - files created/updated
+   - commits made
+   - proposal added/updated, if any
+   - next planned step
+
+Additional constraints for this iteration:
+- Prefer checked-in Python helpers invoked through `uv` for reusable repository automation and validation tasks.
+- Do not use ad hoc Ruby snippets when the task should live in a committed helper script.
+- If foundational files are missing, create those before any pattern expansion.
+- If vocabularies or schema are incomplete, finish them before adding many new entries.
+- If patterns exist but instances do not, add a few grounded Markdown instances linked to existing YAML patterns.
+- If coverage is uneven, prioritize uncovered pattern/domain/risk combinations.
+- If naming or vocabulary drift appears, normalize it before expansion.
+- Treat post-run reflection as bounded process improvement, not an excuse for open-ended self-modification.
+
+Your goal in this iteration is to leave the repository in a cleaner, more complete, more navigable state than before, with all work committed.

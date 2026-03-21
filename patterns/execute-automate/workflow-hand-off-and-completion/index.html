@@ -1,0 +1,1507 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Workflow hand-off and completion - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#workflow-hand-off-and-completion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Workflow hand-off and completion
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authoritative-upstream-state-change-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authoritative upstream state-change record
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#downstream-completion-policy-and-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Downstream completion policy and mapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linked-workflow-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linked workflow context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prior-downstream-completion-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prior downstream completion state
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#completed-downstream-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Completed downstream records
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completion-audit-trail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Completion audit trail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-follow-up-packet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual follow-up packet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#duplicate-trigger-events-replay-the-same-completion-path-twice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duplicate trigger events replay the same completion path twice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-stale-or-superseded-approval-event-is-propagated-after-the-source-disposition-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A stale or superseded approval event is propagated after the source disposition changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-system-mapping-drift-routes-the-approved-state-to-the-wrong-record-or-milestone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target-system mapping drift routes the approved state to the wrong record or milestone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completion-is-marked-done-before-archive-or-notification-side-effects-are-confirmed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Completion is marked done before archive or notification side effects are confirmed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="workflow-hand-off-and-completion">Workflow hand-off and completion<a class="headerlink" href="#workflow-hand-off-and-completion" title="Permanent link">&para;</a></h1>
+<p>Detect an authoritative approval or state-change event and carry low-risk downstream closure work through to completion with idempotent updates, verification, and audit-ready traces.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>workflow-hand-off-and-completion</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/execute-automate/">Execute / Automate</a></li>
+<li><strong>Problem structure:</strong> Approval-gated execution (<code>approval-gated-execution</code>)</li>
+<li><strong>Domains:</strong> Research (<code>research</code>), Engineering (<code>engineering</code>), HR (<code>hr</code>), Compliance (<code>compliance</code>), Support (<code>support</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Observe a trusted upstream approval, disposition, or completion-state transition and finish the allowed downstream closure steps across operational systems without reopening the decision itself or crossing into higher-risk execution.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="authoritative-upstream-state-change-record">Authoritative upstream state-change record<a class="headerlink" href="#authoritative-upstream-state-change-record" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> A trusted event or record showing that an approval, accepted disposition, or completion decision has already been made in the source-of-truth system.</li>
+<li><strong>Kind:</strong> decision-record</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Publication-review board marks a benchmark study approved for internal catalog closure</li>
+<li>Release-readiness review marks a version accepted and ready for scheduler handoff</li>
+</ul>
+<h3 id="downstream-completion-policy-and-mapping">Downstream completion policy and mapping<a class="headerlink" href="#downstream-completion-policy-and-mapping" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Rules that define which low-risk completion actions are allowed, which systems should be updated, and which conditions require manual follow-up instead of automatic propagation.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Rule mapping an approved review disposition to tracker closure, evidence archiving, and notification steps</li>
+<li>Idempotent completion policy that forbids any action beyond status sync, archive linkage, and queue cleanup</li>
+</ul>
+<h3 id="linked-workflow-context">Linked workflow context<a class="headerlink" href="#linked-workflow-context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Case identifiers, record links, evidence references, ownership metadata, and target-system pointers needed to propagate the approved state correctly.</li>
+<li><strong>Kind:</strong> workflow-context</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Study identifier, review packet hash, catalog record id, and owner list</li>
+<li>Release checklist id, change record link, milestone id, and evidence bundle location</li>
+</ul>
+<h3 id="prior-downstream-completion-state">Prior downstream completion state<a class="headerlink" href="#prior-downstream-completion-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Existing target-state markers that show whether some or all completion steps already ran and therefore must be resumed idempotently or skipped.</li>
+<li><strong>Kind:</strong> completion-state</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Existing archive link already written to the review record</li>
+<li>Tracker task previously closed while notification delivery remained pending</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="completed-downstream-records">Completed downstream records<a class="headerlink" href="#completed-downstream-records" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Updated low-risk system records showing that the approved workflow moved into its intended closed, archived, or handed-off state.</li>
+<li><strong>Kind:</strong> completion-record</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Research review item marked closed with approved-catalog status and archived evidence references</li>
+<li>Release-readiness checklist closed with scheduler-handoff link and final evidence location</li>
+</ul>
+<h3 id="completion-audit-trail">Completion audit trail<a class="headerlink" href="#completion-audit-trail" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Ordered trace of the triggering event, policy version, verification checks, downstream updates, skipped idempotent actions, and final state confirmations.</li>
+<li><strong>Kind:</strong> audit-log</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Log showing approval event receipt, state recheck, registry update, archive write, and notification dispatch</li>
+<li>Replay-safe trace proving that duplicate events did not create duplicate closure actions</li>
+</ul>
+<h3 id="manual-follow-up-packet">Manual follow-up packet<a class="headerlink" href="#manual-follow-up-packet" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured handoff when the trigger is stale, the target state is ambiguous, or the requested completion path would exceed low-risk bookkeeping scope.</li>
+<li><strong>Kind:</strong> follow-up-record</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Packet noting that the study disposition changed after the event fired and needs human reconciliation</li>
+<li>Follow-up record for a missing release milestone mapping that prevented safe completion</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in governed workflows where consequential approval or decision making already happened upstream, and the remaining work is low-risk downstream closure, state synchronization, evidence archiving, or notification across a small set of operational systems.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Workflow, review, or case-management system that emits authoritative state changes</li>
+<li>Tracker, registry, or system-of-record updated during downstream closure</li>
+<li>Document archive or evidence store</li>
+<li>Notification or queueing system for completion follow-through</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Workflow owner</li>
+<li>Reviewing or approving body that created the upstream state change</li>
+<li>Operations or program coordinator who maintains closure rules</li>
+<li>Auditor or process steward</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Perform only low-risk, reversible downstream updates that do not reopen or reinterpret the upstream decision.</li>
+<li>Recheck the authoritative source state before writing to target systems so stale or revoked approvals are not propagated.</li>
+<li>Keep completion idempotent across duplicate events, retries, or partial reruns.</li>
+<li>Stop when required target mappings, archive references, or closure conditions are ambiguous enough to need human interpretation.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>An authoritative source system publishes or exposes the approval or completion state that should trigger downstream work.</li>
+<li>Downstream actions are limited to bookkeeping, handoff, closure, archival, or notification steps that are inexpensive to correct.</li>
+<li>Humans remain available to resolve stale state, mapping drift, or any request to extend the workflow into new consequential actions.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Monitoring (<code>monitoring</code>):</strong> The workflow must watch for authoritative approval or completion-state changes and react quickly when the relevant event arrives.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> Completing the handoff requires writing to trackers, archives, registries, and notification systems rather than merely reporting that an event occurred.</li>
+<li><strong>Action execution (<code>action-execution</code>):</strong> The pattern creates real downstream state changes by closing records, attaching approved evidence, or advancing the work into its final low-risk completion state.</li>
+<li><strong>Verification (<code>verification</code>):</strong> The workflow must confirm that the trigger is still authoritative and that each target system reflects the intended end state before marking completion done.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Durable state is required to handle duplicate events, partial completion, replay-safe recovery, and audit-ready reconstruction of what happened.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Guardrails determine which downstream actions are allowed to run automatically and which mismatches must be routed to manual follow-up.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Event-driven monitoring (<code>event-driven-monitoring</code>):</strong> The workflow is naturally triggered by an approval, accepted disposition, or state-change event and then performs a bounded closure sequence only when that signal is detected and revalidated.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Autonomous with audit (<code>autonomous-with-audit</code>)</li>
+<li><strong>Reversibility:</strong> Most actions in this pattern are lightweight status syncs, archive links, queue cleanups, and notifications that can be corrected or replayed without material external consequence.</li>
+<li><strong>Escalation:</strong> Escalate when the authoritative source state is stale or conflicting, a duplicate event creates ambiguous target status, required target mappings are missing, or any requested action would cross from low-risk completion into a new operational commitment.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Humans define which upstream states authorize automatic completion and which downstream targets stay in scope for low-risk propagation.</li>
+<li>Process owners review sampled completion runs, rule changes, and drift between source and target systems to confirm the workflow remains bounded and trustworthy.</li>
+<li>Humans take over when approvals are revoked, mappings are missing, or the requested next step would extend beyond bookkeeping and handoff into new consequential execution.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> Low (<code>low</code>)</li>
+<li><strong>Failure impact:</strong> Failures usually create localized record drift, delayed notifications, or incomplete closure bookkeeping that is visible and straightforward to correct before broader harm accumulates.</li>
+<li><strong>Auditability:</strong> Preserve the triggering event id and timestamp, source-state snapshot, policy version, target records touched, idempotency decisions, archive references, notifications sent, and any manual overrides so each completion run can be reconstructed.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Automatic completion may run only after an authoritative upstream approval, accepted disposition, or completion-state transition is recorded and revalidated from the source-of-truth system.</li>
+<li>Expanding the workflow to new target systems or less reversible actions requires human owner approval even if individual in-scope completion runs do not need case-by-case review.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Propagate only the identifiers, status fields, and evidence references needed for downstream completion rather than copying whole review packets or sensitive narrative notes.</li>
+<li>Keep notifications and logs focused on closure metadata so downstream bookkeeping does not leak unnecessary draft, participant, customer, or employee detail.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use least-privilege service accounts limited to approved closure targets and append-only audit stores where possible.</li>
+<li>Require idempotent writes or conflict checks so duplicate events cannot silently create inconsistent completion state across systems.</li>
+</ul>
+<p><strong>Notes:</strong> Low-risk posture fits because the workflow acts only after an upstream decision already exists and is constrained to reversible downstream completion rather than new external commitments or sensitive submissions.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The workflow must detect and interpret live state transitions instead of running only on manual demand.</li>
+<li>Safe completion depends on verifying authoritative state, applying bounded mappings, and choosing whether to continue or stop when targets do not align.</li>
+<li>Durable memory and idempotent reasoning matter because duplicate events, partial completion, and replay are normal operational conditions.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="duplicate-trigger-events-replay-the-same-completion-path-twice">Duplicate trigger events replay the same completion path twice<a class="headerlink" href="#duplicate-trigger-events-replay-the-same-completion-path-twice" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Downstream systems receive conflicting closure timestamps, repeated notifications, or duplicate archive links that need cleanup.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Use idempotency keys tied to the authoritative source event and target record.</li>
+<li>Re-read downstream state before each write and skip already completed steps explicitly.</li>
+</ul>
+<h3 id="a-stale-or-superseded-approval-event-is-propagated-after-the-source-disposition-changed">A stale or superseded approval event is propagated after the source disposition changed<a class="headerlink" href="#a-stale-or-superseded-approval-event-is-propagated-after-the-source-disposition-changed" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Records are closed or handed off using an outdated decision state and must be reopened manually.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Revalidate the source-of-truth disposition immediately before downstream updates.</li>
+<li>Stop and emit a manual follow-up packet when the current source state differs from the triggering event.</li>
+</ul>
+<h3 id="target-system-mapping-drift-routes-the-approved-state-to-the-wrong-record-or-milestone">Target-system mapping drift routes the approved state to the wrong record or milestone<a class="headerlink" href="#target-system-mapping-drift-routes-the-approved-state-to-the-wrong-record-or-milestone" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Closure bookkeeping lands in the wrong place, creating localized confusion and manual rework.</li>
+<li><strong>Severity:</strong> low</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Validate target identifiers against current workflow context before writing.</li>
+<li>Route unmapped or conflicting identifiers to manual follow-up rather than guessing.</li>
+</ul>
+<h3 id="completion-is-marked-done-before-archive-or-notification-side-effects-are-confirmed">Completion is marked done before archive or notification side effects are confirmed<a class="headerlink" href="#completion-is-marked-done-before-archive-or-notification-side-effects-are-confirmed" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The workflow appears closed even though downstream stakeholders or evidence stores never received the expected handoff artifacts.</li>
+<li><strong>Severity:</strong> low</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Require explicit confirmation for each downstream target before final completion status is emitted.</li>
+<li>Store partial-completion state and resume only the unfinished steps on replay.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of approved workflow state changes propagated to all in-scope downstream systems without manual cleanup.</li>
+<li>Rate of duplicate, stale, or unmapped trigger events safely suppressed or routed to follow-up before incorrect closure occurs.</li>
+<li>Percentage of completion runs with full audit traces linking the source event to every downstream update.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The workflow never reinterprets the upstream decision and stays bounded to low-risk closure, archival, and handoff actions.</li>
+<li>Completion records distinguish clearly between fully completed, partially completed, skipped-as-idempotent, and manual-follow-up outcomes.</li>
+<li>Replay or duplicate delivery does not create conflicting downstream closure state.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test duplicate event delivery and verify the workflow produces one coherent completion result without duplicate writes.</li>
+<li>Test revoked or superseded approval states and ensure downstream updates stop after source revalidation fails.</li>
+<li>Test missing archive links, stale milestone mappings, and partial target outages to confirm the workflow records partial state and escalates cleanly.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate correctness of source-to-target state propagation and replay safety together; fast closure is not valuable if the workflow hides stale approvals or creates drift across bookkeeping systems.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Separate event intake, source revalidation, target update planning, execution, and completion confirmation into explicit stages over shared durable state.</li>
+<li>Make idempotency decisions and partial-completion markers inspectable workflow data rather than implicit side effects in tool logs.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations integrate workflow systems, registries, archives, and notification channels through event subscriptions or queue consumers.</li>
+<li>Keep the pattern neutral about specific workflow engines, ticketing tools, registries, or message buses.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with narrow post-approval closure flows where the allowed target updates are already standardized and inexpensive to correct.</li>
+<li>Review mapping drift, duplicate-trigger behavior, and audit completeness early before widening the catalog of completion rules.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/execute-automate/">docs/patterns/execute-automate.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Research (<code>research</code>):</strong> After a benchmark-study review board records an approved disposition, update the internal study registry, archive the final review packet, and close the intake record automatically.</li>
+<li><strong>Engineering (<code>engineering</code>):</strong> After a release-readiness decision is marked accepted, close the checklist, sync the release tracker, attach evidence links, and hand the package to the scheduler queue without deploying anything.</li>
+<li><strong>HR (<code>hr</code>):</strong> After an occupational-health or leave-program review records an accepted disposition, close the restricted review queue, sync the leave case tracker, attach archive references, and notify the internal HR coordinator that review closure is complete without taking any employee-facing action.</li>
+<li><strong>Compliance (<code>compliance</code>):</strong> After a sanctions review system records a final false-positive disposition, close the restricted closure queue, sync the case ledger, attach archive references, and notify the internal sanctions operations coordinator without changing any live controls or taking external action.</li>
+<li><strong>Support (<code>support</code>):</strong> After an internal enterprise support case-review system records a final closure-approved disposition, close the restricted review queue, sync the escalation tracker, attach archive references, and notify the internal support operations coordinator without contacting the customer or executing any remediation.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../browser-based-form-completion-with-approval-gates/">Browser-based form completion with approval gates</a> (contrasts-with)</li>
+<li>Both patterns follow an approved workflow state, but this one is limited to low-risk downstream closure and bookkeeping rather than high-control browser submission.</li>
+<li><a href="../exception-aware-task-execution/">Exception-aware task execution</a> (adjacent-to)</li>
+<li>This pattern handles event-triggered completion and idempotent handoff, while exception-aware task execution centers on resilient delegated operations with retries and escalations.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/compliance/finalized-sanctions-alert-false-positive-disposition-closure-and-case-ledger-synchronization/">Finalized sanctions alert false-positive disposition closure and case-ledger synchronization</a></li>
+<li><a href="../../../instances/engineering/approved-release-readiness-review-closure-and-tracker-completion/">Approved release-readiness review closure and tracker completion</a></li>
+<li><a href="../../../instances/hr/accepted-protected-leave-review-closure-and-case-tracker-synchronization/">Accepted protected-leave review closure and case-tracker synchronization</a></li>
+<li><a href="../../../instances/research/approved-benchmark-study-review-disposition-closure/">Approved benchmark study review disposition closure</a></li>
+<li><a href="../../../instances/research/approved-human-subjects-continuing-review-closure-and-protocol-registry-synchronization/">Approved human-subjects continuing-review closure and protocol-registry synchronization</a></li>
+<li><a href="../../../instances/support/finalized-enterprise-support-case-review-closure-and-escalation-tracker-synchronization/">Finalized enterprise support case-review closure and escalation-tracker synchronization</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/execute-automate/workflow-hand-off-and-completion.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

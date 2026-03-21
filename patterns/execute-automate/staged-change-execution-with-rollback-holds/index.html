@@ -1,0 +1,1511 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Staged change execution with rollback holds - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#staged-change-execution-with-rollback-holds" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Staged change execution with rollback holds
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approved-change-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approved change package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-execution-and-rollback-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage execution and rollback plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#live-system-and-dependency-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Live system and dependency state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prior-checkpoint-and-intervention-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prior checkpoint and intervention history
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checkpointed-execution-state-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpointed execution state record
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-and-rollback-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification and rollback ledger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hold-or-rollback-intervention-packet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hold or rollback intervention packet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-workflow-advances-using-stale-preflight-or-dependency-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The workflow advances using stale preflight or dependency state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checkpoint-verification-is-treated-as-good-enough-despite-conflicting-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint verification is treated as good enough despite conflicting evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback-viability-degrades-before-the-workflow-notices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback viability degrades before the workflow notices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeated-resumptions-or-partial-rollbacks-create-unclear-authoritative-stage-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repeated resumptions or partial rollbacks create unclear authoritative stage state
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="staged-change-execution-with-rollback-holds">Staged change execution with rollback holds<a class="headerlink" href="#staged-change-execution-with-rollback-holds" title="Permanent link">&para;</a></h1>
+<p>Carry an already approved high-stakes change through sequenced preflight, bounded stage transitions, checkpoint verification, and rollback-aware hold points so humans can inspect live state before blast radius expands or ambiguous outcomes compound.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>staged-change-execution-with-rollback-holds</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/execute-automate/">Execute / Automate</a></li>
+<li><strong>Problem structure:</strong> Exception-aware orchestration (<code>exception-aware-orchestration</code>)</li>
+<li><strong>Domains:</strong> Engineering (<code>engineering</code>), Finance (<code>finance</code>), Operations (<code>operations</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Execute an already approved high-stakes operational change through explicit preflight, staged transition, verification, and rollback-ready hold points while preserving checkpoint lineage and stopping before ambiguous or unsafe state spreads into wider impact.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="approved-change-package">Approved change package<a class="headerlink" href="#approved-change-package" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The authoritative package that grants permission to execute the change, defines scope, names protected boundaries, and records the human authorities who approved entry into execution.</li>
+<li><strong>Kind:</strong> change-request</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Approved production cutover packet for moving payment traffic to a new tokenization service</li>
+<li>Signed treasury change record authorizing promotion of a new cash forecast engine to primary status</li>
+</ul>
+<h3 id="stage-execution-and-rollback-plan">Stage execution and rollback plan<a class="headerlink" href="#stage-execution-and-rollback-plan" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The versioned execution runbook describing stage order, preflight conditions, hold-release criteria, rollback triggers, and the specific evidence required before each progression step.</li>
+<li><strong>Kind:</strong> execution-plan</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Runbook requiring data-parity checks, a limited traffic canary, settlement verification, and rollback-to-legacy within five minutes if error thresholds rise</li>
+<li>Warehouse control cutover plan defining one-zone activation, throughput thresholds, jam-rate limits, and profile-restore steps</li>
+</ul>
+<h3 id="live-system-and-dependency-state">Live system and dependency state<a class="headerlink" href="#live-system-and-dependency-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Current operational signals, dependency health, control-plane state, and environment conditions that determine whether the next stage remains safe to execute.</li>
+<li><strong>Kind:</strong> execution-state</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Service health, queue depth, feature-flag state, and payment-settlement parity readings during a cutover window</li>
+<li>Forecast feed completeness, bank-statement latency, and current operator overrides before promoting a treasury workflow</li>
+</ul>
+<h3 id="prior-checkpoint-and-intervention-history">Prior checkpoint and intervention history<a class="headerlink" href="#prior-checkpoint-and-intervention-history" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Durable record of completed stages, human hold releases, verification outcomes, and any prior rollback or exception actions already taken in the same execution window.</li>
+<li><strong>Kind:</strong> stage-history</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Record showing that preflight passed, the first cohort traffic shift completed, and the change authority released the next stage</li>
+<li>History indicating that a prior sorter-profile activation was rolled back after misroute thresholds were exceeded</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="checkpointed-execution-state-record">Checkpointed execution state record<a class="headerlink" href="#checkpointed-execution-state-record" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Durable record showing which stages completed, which remain on hold, whether rollback occurred, and what live state was confirmed at each checkpoint.</li>
+<li><strong>Kind:</strong> execution-result</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Cutover record showing preflight pass, limited traffic activation, full promotion, and legacy-path retirement confirmation</li>
+<li>Treasury execution state showing shadow period completion, primary flip approval hold, authoritative promotion, and fallback path preserved</li>
+</ul>
+<h3 id="verification-and-rollback-ledger">Verification and rollback ledger<a class="headerlink" href="#verification-and-rollback-ledger" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Ordered trace of preflight checks, stage transitions, verification evidence, human-visible hold releases, rollback readiness checks, and any rollback actions taken.</li>
+<li><strong>Kind:</strong> audit-log</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Ledger linking each traffic-shift increment to latency, error-rate, and settlement-parity checks plus the operator release decision</li>
+<li>Trace showing which sorter-zone activation triggered a hold, what telemetry failed, and how the previous routing profile was restored</li>
+</ul>
+<h3 id="hold-or-rollback-intervention-packet">Hold or rollback intervention packet<a class="headerlink" href="#hold-or-rollback-intervention-packet" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured handoff describing why progression stopped, what state is currently live, what rollback path remains available, and what a human responder must confirm next.</li>
+<li><strong>Kind:</strong> escalation-packet</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Packet showing that payment authorization errors rose during the canary and the workflow paused before widening traffic</li>
+<li>Intervention record explaining that forecast variance exceeded tolerance after primary promotion and the legacy source was restored pending treasury review</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in governed high-stakes execution windows where approval to proceed already exists, but safe completion depends on moving live state through explicit stages, proving checkpoint conditions, and preserving viable rollback options until the change is truly stable.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Change-management, ticketing, or control-room systems</li>
+<li>Control planes, orchestration engines, or domain-specific execution tooling</li>
+<li>Monitoring, verification, and observability systems</li>
+<li>Rollback state stores, backup paths, or prior-version registries</li>
+<li>Audit and evidence stores</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Workflow or change owner</li>
+<li>Domain operator or automation controller</li>
+<li>Human authority who can release protected hold points</li>
+<li>Verification or risk reviewer</li>
+<li>Rollback responder or incident lead</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Begin only from an authoritative approved change package and stay inside its stated scope, blast-radius limits, and protected boundaries.</li>
+<li>Recheck preflight conditions and rollback readiness before every consequential stage transition rather than trusting earlier snapshots.</li>
+<li>Preserve one authoritative stage history so resumed or partially rolled-back execution cannot skip checkpoints silently.</li>
+<li>Stop at explicit human-visible holds whenever verification is incomplete, rollback viability degrades, or the next stage would materially expand live impact.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The target environment exposes trustworthy enough signals to verify stage completion, degraded behavior, and rollback readiness during execution.</li>
+<li>A bounded rollback or fallback path exists for at least the early and middle stages of the change window.</li>
+<li>Human owners remain available to release protected hold points, authorize rollback, or take over if checkpoint evidence becomes ambiguous.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Action execution (<code>action-execution</code>):</strong> The workflow must carry out real stage transitions that change live operational state rather than only recommend or document them.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> High-stakes staged execution requires interacting with control planes, APIs, workflow systems, observability tools, and rollback mechanisms.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Durable checkpoint state is required so progression, hold releases, partial rollbacks, and resumed execution remain inspectable across a multi-stage window.</li>
+<li><strong>Verification (<code>verification</code>):</strong> Every stage must prove its intended effect and the health of rollback options before the workflow may advance.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> The workflow must enforce approved scope, protected blast-radius limits, hold-release criteria, and escalation thresholds during execution.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> The pattern is defined by deciding when to continue, hold, narrow, or roll back as live execution diverges from the approved path.</li>
+<li><strong>Coordination (<code>coordination</code>):</strong> Execution, verification, and rollback roles need a shared view of stage state so protected hold points and intervention decisions stay aligned.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Orchestrated multi-agent (<code>orchestrated-multi-agent</code>):</strong> Separate preflight, stage-execution, verification, and rollback-readiness roles often need coordinated shared state because no single step is safe without awareness of the others.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> Human-visible hold points remain part of the normal operating model because blast-radius expansion, rollback release, and ambiguous checkpoint interpretation should not be hidden inside automation.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Exception-gated autonomy (<code>exception-gated-autonomy</code>)</li>
+<li><strong>Reversibility:</strong> Early and intermediate stages are designed to remain reversible through bounded rollback or fallback, but later stages may become slower or more expensive to unwind once external traffic, downstream decisions, or physical operations depend on the new state.</li>
+<li><strong>Escalation:</strong> Escalate whenever preflight checks fail, verification signals disagree, rollback prerequisites are no longer healthy, or a human-visible hold cannot be released confidently from current evidence.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Define the protected stages, preflight rules, rollback triggers, and hold-release conditions before automation enters a live execution window.</li>
+<li>Review and release the human-visible hold points that precede blast-radius expansion, authoritative promotion, or retirement of the prior fallback path.</li>
+<li>Take over or authorize rollback when checkpoint evidence conflicts, rollback readiness degrades, or the next stage would exceed the approved scope.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> High (<code>high</code>)</li>
+<li><strong>Failure impact:</strong> Incorrect staged execution can move production, financial, or operational workflows into a harmful live state, causing customer-facing disruption, financial loss, or unsafe field conditions even when a rollback path still exists.</li>
+<li><strong>Auditability:</strong> Preserve the approved package version, stage definitions, preflight results, commands or actions taken, checkpoint evidence, human hold releases, rollback triggers, intervention packets, and final live-state confirmations so each execution window can be reconstructed.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A human authority must approve the execution package, stage sequence, rollback plan, and protected hold points before any live stage transitions begin.</li>
+<li>Human release is required for stage transitions that materially expand blast radius, retire the trusted fallback path, or proceed after degraded-but-tolerable checkpoint evidence.</li>
+<li>Changes to rollback thresholds, protected stages, or allowed automation scope require formal owner approval before future runs may use them.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Limit copied production, transaction, logistics, or operator data to the evidence needed to verify checkpoint health and human intervention decisions.</li>
+<li>Mask or restrict logs that would expose secrets, financial identifiers, customer details, or facility-sensitive information outside approved audit stores.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use least-privilege credentials for each execution and verification role, and separate rollback authority from ordinary stage progression where possible.</li>
+<li>Record who or what released each hold, advanced each stage, and triggered any rollback so silent scope expansion or covert execution is detectable.</li>
+</ul>
+<p><strong>Notes:</strong> High-risk governance fits because the workflow acts on already approved but still consequential live changes whose harm can often be contained through staged progression and rollback, yet cannot be treated as routine delegated execution or low-risk bookkeeping.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The workflow must decide from live evidence whether to continue, hold, narrow scope, or roll back rather than merely replaying one static cutover script.</li>
+<li>Safe execution depends on carrying forward durable knowledge of completed stages, released holds, and current rollback viability across a changing operating window.</li>
+<li>{'The agentic value lies in checkpoint reasoning and intervention discipline': 'the workflow is useful only if it knows when not to advance.'}</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="the-workflow-advances-using-stale-preflight-or-dependency-state">The workflow advances using stale preflight or dependency state<a class="headerlink" href="#the-workflow-advances-using-stale-preflight-or-dependency-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> A later stage runs even though prerequisite conditions no longer hold, increasing blast radius before humans notice.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Refresh authoritative dependency and rollback-readiness signals immediately before each consequential transition.</li>
+<li>Expire cached preflight evidence aggressively and force a visible hold when required signals are missing or stale.</li>
+</ul>
+<h3 id="checkpoint-verification-is-treated-as-good-enough-despite-conflicting-evidence">Checkpoint verification is treated as good enough despite conflicting evidence<a class="headerlink" href="#checkpoint-verification-is-treated-as-good-enough-despite-conflicting-evidence" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The workflow widens live impact while hidden errors, drift, or unsafe conditions are already emerging.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Define hard verification gates and tolerated ambiguity bands explicitly for every protected stage.</li>
+<li>Route conflicting telemetry into a hold or rollback packet instead of allowing silent operator override.</li>
+</ul>
+<h3 id="rollback-viability-degrades-before-the-workflow-notices">Rollback viability degrades before the workflow notices<a class="headerlink" href="#rollback-viability-degrades-before-the-workflow-notices" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The change appears reversible on paper but the system has already lost the ability to restore the prior trusted state quickly.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> low</li>
+<li><strong>Mitigations:</strong></li>
+<li>Re-verify backup integrity, fallback-path health, and restore permissions before every stage that would make rollback slower or narrower.</li>
+<li>Treat rollback-readiness loss itself as a stop condition even if the forward path looks healthy.</li>
+</ul>
+<h3 id="repeated-resumptions-or-partial-rollbacks-create-unclear-authoritative-stage-state">Repeated resumptions or partial rollbacks create unclear authoritative stage state<a class="headerlink" href="#repeated-resumptions-or-partial-rollbacks-create-unclear-authoritative-stage-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Humans and automation disagree about which live state is current, making duplicate actions or unsafe continuation more likely.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Keep one append-only stage ledger with explicit authoritative status for each stage, hold, and rollback transition.</li>
+<li>Require state reconciliation before resuming after interruption or partial rollback.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of approved high-stakes changes completed or safely rolled back without unauthorized blast-radius expansion.</li>
+<li>Rate of ambiguous or degrading stage transitions caught at a visible hold before broader customer, financial, or operational harm accumulates.</li>
+<li>Completeness of checkpoint lineage linking approvals, stage evidence, hold releases, and rollback actions for audited runs.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Every stage transition has explicit preflight, verification, and rollback-readiness evidence rather than implicit trust in earlier state.</li>
+<li>Human-visible holds remain inspectable and meaningful instead of becoming automatic rubber stamps.</li>
+<li>Final records distinguish clearly among successful completion, held progression, narrowed execution, and rollback outcomes.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test degraded dependencies between stages and confirm the workflow pauses before entering the next blast-radius tier.</li>
+<li>Test stale or missing rollback artifacts and ensure execution stops even when forward metrics remain nominal.</li>
+<li>Test interruption, replay, and partial rollback scenarios to verify the stage ledger prevents duplicate or skipped transitions.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate checkpoint discipline, rollback readiness, and harm containment together; rapid completion is not success if the workflow cannot prove why each stage advanced or why it stopped.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Separate approval-state intake, preflight validation, stage execution, checkpoint verification, hold publication, and rollback handling into explicit coordinated stages over shared durable state.</li>
+<li>Make hold-release decisions and rollback-readiness checks first-class workflow data rather than buried in console logs or operator chat.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations connect change systems, execution control planes, observability tools, backup or restore systems, and audit stores.</li>
+<li>Keep the pattern neutral about whether the staged change is a traffic shift, authoritative-system promotion, or physical operations control update; the checkpointed execution loop applies across all of them.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with one high-stakes change class that already has a trusted rollback path, measurable checkpoints, and disciplined change authority ownership.</li>
+<li>Review hold frequency, rollback quality, and evidence completeness early so protected checkpoints stay informative rather than ceremonial.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/execute-automate/">docs/patterns/execute-automate.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+<li><a href="../../../vocabularies/autonomy-levels/">data/vocabularies/autonomy-levels.yaml</a></li>
+<li><a href="../../../vocabularies/risk-levels/">data/vocabularies/risk-levels.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Engineering (<code>engineering</code>):</strong> Execute an approved payments-service cutover through preflight, limited traffic activation, checkpoint verification, and rollback-aware holds before full production promotion.</li>
+<li><strong>Finance (<code>finance</code>):</strong> Promote an approved treasury forecasting workflow to authoritative primary status through a shadow period, controlled activation, variance checks, and rollback holds before the legacy path is retired.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Apply an approved sorter-routing profile through one-zone activation, throughput and misroute checks, human-visible hold release, and rapid rollback if site conditions degrade.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../recommend-decide-escalate/readiness-gate-disposition-recommendation/">Readiness gate disposition recommendation</a> (follows-from)</li>
+<li>A readiness-gate workflow can decide whether a high-stakes change should proceed, but this pattern starts only after that decision and carries the approved change through staged execution.</li>
+<li><a href="../exception-aware-task-execution/">Exception-aware task execution</a> (contrasts-with)</li>
+<li>Both patterns preserve state and handle off-nominal conditions, but this one is centered on high-stakes staged progression with rollback holds rather than routine bounded delegation and retries.</li>
+<li><a href="../workflow-hand-off-and-completion/">Workflow hand-off and completion</a> (can-hand-off-to)</li>
+<li>Once staged execution is complete and authoritative state is stable, low-risk downstream closure and bookkeeping can move into the completion pattern.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/engineering/approved-payments-tokenization-cutover-staged-execution/">Approved payments tokenization cutover staged execution</a></li>
+<li><a href="../../../instances/finance/approved-cash-forecast-primary-cutover-staged-execution/">Approved cash forecast primary cutover staged execution</a></li>
+<li><a href="../../../instances/operations/approved-distribution-sorter-routing-profile-cutover-staged-execution/">Approved distribution sorter routing profile cutover staged execution</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/execute-automate/staged-change-execution-with-rollback-holds.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

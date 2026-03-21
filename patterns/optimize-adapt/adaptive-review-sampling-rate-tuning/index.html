@@ -1,0 +1,1508 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Adaptive review sampling-rate tuning - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#adaptive-review-sampling-rate-tuning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Adaptive review sampling-rate tuning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-review-sampling-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current review sampling policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-outcome-and-escape-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review outcome and escape history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling-guardrails-and-delegated-bounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampling guardrails and delegated bounds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-operating-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review operating context
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated-review-sampling-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updated review sampling policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling-change-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampling change record
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling-freeze-or-escalation-packet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampling freeze or escalation packet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-workflow-lowers-coverage-after-a-short-quiet-period-and-misses-a-latent-quality-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The workflow lowers coverage after a short quiet period and misses a latent quality drift
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reviewer-load-optimization-crowds-out-protected-cohorts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewer-load optimization crowds out protected cohorts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling-rates-oscillate-because-the-workflow-chases-noisy-short-term-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampling rates oscillate because the workflow chases noisy short-term findings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-or-privacy-changes-invalidate-the-current-strata-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy or privacy changes invalidate the current strata definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="adaptive-review-sampling-rate-tuning">Adaptive review sampling-rate tuning<a class="headerlink" href="#adaptive-review-sampling-rate-tuning" title="Permanent link">&para;</a></h1>
+<p>Autonomously retune bounded QA, audit, or spot-check sampling rates using review yield and miss signals so oversight coverage stays efficient without changing case disposition, queue order, or live operational execution.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>adaptive-review-sampling-rate-tuning</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/optimize-adapt/">Optimize / Adapt</a></li>
+<li><strong>Problem structure:</strong> Feedback-driven optimization (<code>feedback-driven-optimization</code>)</li>
+<li><strong>Domains:</strong> Support (<code>support</code>), Research (<code>research</code>), Operations (<code>operations</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Continuously adjust internal quality-review, audit, or spot-check sampling rates within preapproved bounds so oversight effort tracks observed defect yield, escaped-issue risk, and reviewer capacity while keeping protected cohorts, rollback, privacy, and auditability explicit.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="current-review-sampling-policy">Current review sampling policy<a class="headerlink" href="#current-review-sampling-policy" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The active sampling configuration covering baseline rates, stratified review quotas, protected-cohort floors, cooldown windows, and any currently frozen review classes.</li>
+<li><strong>Kind:</strong> sampling-policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Support QA policy with distinct sample rates for severity-one escalations, routine closures, and outage follow-ups</li>
+<li>Research artifact spot-check policy with separate rates for embargoed studies, rerun-failure cohorts, and routine replication packets</li>
+</ul>
+<h3 id="review-outcome-and-escape-history">Review outcome and escape history<a class="headerlink" href="#review-outcome-and-escape-history" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Historical findings, miss signals, reviewer overrides, reopened quality concerns, and backfilled audit discoveries showing where the current sampling policy is over- or under-covering risk.</li>
+<li><strong>Kind:</strong> outcome-history</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Quality-review findings showing that identity-recovery tickets reopened after low-sample weeks</li>
+<li>Spot-check results showing that low-volume benchmark artifacts with disclosure-sensitive annexes produced defects at a higher rate than the default sample assumed</li>
+</ul>
+<h3 id="sampling-guardrails-and-delegated-bounds">Sampling guardrails and delegated bounds<a class="headerlink" href="#sampling-guardrails-and-delegated-bounds" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The approved minimum and maximum sampling rates, protected strata, maximum step size, reviewer-load ceilings, and freeze conditions that constrain autonomous tuning.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Policy requiring a nonzero sample floor for executive escalations and security-adjacent support cases</li>
+<li>Governance rule limiting any one tuning cycle to a five-point sampling-rate shift unless a human owner approves more</li>
+</ul>
+<h3 id="review-operating-context">Review operating context<a class="headerlink" href="#review-operating-context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Current reviewer capacity, workflow mix, recent process changes, and policy updates that may justify a temporary sampling adjustment or invalidate older outcome windows.</li>
+<li><strong>Kind:</strong> operating-context</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Temporary loss of senior QA reviewers after a major support migration</li>
+<li>New artifact-packaging rules that make prior benchmark-review yield no longer comparable</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="updated-review-sampling-policy">Updated review sampling policy<a class="headerlink" href="#updated-review-sampling-policy" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The applied configuration artifact with revised rates, protected-cohort floors, and any temporary hold or cooldown metadata, kept inside approved bounds.</li>
+<li><strong>Kind:</strong> sampling-policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Increased sample rate for outage-related identity recoveries while holding routine low-risk closure reviews at baseline</li>
+<li>Raised spot-check coverage for embargoed benchmark studies with rerun instability while leaving standard internal baselines unchanged</li>
+</ul>
+<h3 id="sampling-change-record">Sampling change record<a class="headerlink" href="#sampling-change-record" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured audit record of the signals examined, bounds checked, prior and new rates, reviewer-load impact estimate, and rollback trigger status for each tuning cycle.</li>
+<li><strong>Kind:</strong> audit-log</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Log showing that a support QA sample increase was driven by reopen clusters and remained below the delegated reviewer-capacity ceiling</li>
+<li>Record explaining why one proposed decrease in benchmark spot checks was blocked because a protected annex cohort floor would have been crossed</li>
+</ul>
+<h3 id="sampling-freeze-or-escalation-packet">Sampling freeze or escalation packet<a class="headerlink" href="#sampling-freeze-or-escalation-packet" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Optional packet emitted when evidence is sparse, the proposed change would cross a protected bound, or recent misses suggest the workflow should stop autonomous tuning until human review occurs.</li>
+<li><strong>Kind:</strong> review-packet</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Freeze notice generated after maintenance-documentation defects rise despite several downward sample-rate moves</li>
+<li>Escalation packet requesting governance review because new privacy rules changed which transcript features may be used for sampling strata</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in governed internal oversight workflows where the main artifact being changed is a review-sampling policy rather than the underlying operational queue, case disposition, or remedial action.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>QA, audit, or spot-check configuration store</li>
+<li>Case, artifact, or work-record system that supplies sample candidates</li>
+<li>Review findings and escaped-issue history store</li>
+<li>Governance dashboard for freeze, rollback, and sampled audit review</li>
+<li>Audit log or policy versioning system</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Quality or audit owner</li>
+<li>Reviewer or assurance analyst</li>
+<li>Operations or program lead responsible for oversight coverage</li>
+<li>Auditor or governance steward</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Autonomous tuning may change only bounded sampling rates, stratified quotas, or protected-cohort floors that were preapproved for delegated adjustment.</li>
+<li>The workflow must stop at updating the sampling policy and its audit trace; it must not adjudicate reviewed items, reprioritize live work, assign specific reviewers, or trigger remediation.</li>
+<li>Sampling changes must remain quickly reversible, and any evidence of hidden miss growth or protected-cohort undercoverage must force rollback or freeze.</li>
+<li>Audit packets and configuration history must remain explainable enough for ex post oversight without exposing unnecessary sensitive case detail.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Review findings and escaped-issue signals are available with enough fidelity to distinguish persistent drift from short-term noise.</li>
+<li>Protected strata, reviewer-load ceilings, and maximum autonomous step sizes are versioned in a policy source the tuning loop can read and enforce.</li>
+<li>The surrounding review program can backfill or temporarily increase sample coverage if a later audit shows that a recent autonomous decrease was too aggressive.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Monitoring (<code>monitoring</code>):</strong> The workflow depends on continuous observation of review yield, escape signals, override rates, and reviewer capacity rather than one-off calibration.</li>
+<li><strong>Optimization (<code>optimization</code>):</strong> The core task is retuning future oversight coverage so review effort follows the highest-yield or highest-risk strata within explicit limits.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Every proposed rate change must be checked against protected-cohort floors, step-size limits, reviewer-load caps, and freeze conditions before it is applied.</li>
+<li><strong>Verification (<code>verification</code>):</strong> The loop must validate that apparent changes in review yield are supported by trusted findings and not explained only by stale policy, tiny samples, or data quality defects.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Durable state is needed to compare current and prior sampling policies, track cumulative drift, and preserve rollback lineage across tuning cycles.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> The workflow must update configuration stores and append audit records rather than merely suggest a rate change in prose.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> Sparse evidence, protected-floor conflicts, unexpected reviewer saturation, or repeated escaped defects must trigger freeze or escalation instead of forced tuning.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Event-driven monitoring (<code>event-driven-monitoring</code>):</strong> New review findings, escaped defects, override clusters, or reviewer-capacity shifts naturally trigger bounded reevaluation of the active sampling policy.</li>
+<li><strong>Tool-using single agent (<code>tool-using-single-agent</code>):</strong> One governed agent can usually inspect review telemetry, compare candidate sampling moves against bounds, update the approved policy artifact, and write the audit record in one loop.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Autonomous with audit (<code>autonomous-with-audit</code>)</li>
+<li><strong>Reversibility:</strong> Sampling-rate changes are usually easy to roll back by restoring the previous configuration version. Harm from a temporary undersampling period may be only partially reversible because some quality issues can escape review until the next audit or backfill sweep detects them.</li>
+<li><strong>Escalation:</strong> Escalate when a proposed move would cross a protected floor or reviewer-load ceiling, when evidence quality is too sparse or contradictory to justify a change, when cumulative drift approaches a delegated bound, or when escaped-issue patterns rise after a recent decrease in coverage.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Humans define the protected strata, minimum and maximum rates, reviewer-load ceilings, and freeze conditions that bound autonomous tuning.</li>
+<li>Governance owners review sampled tuning runs and periodic drift summaries to confirm that escaped defects, fairness posture, privacy handling, and reviewer burden remain acceptable.</li>
+<li>Humans take over when policy changes, repeated misses, or protected-cohort concerns make the delegated bounds no longer trustworthy.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> Low (<code>low</code>)</li>
+<li><strong>Failure impact:</strong> Mis-tuned sampling changes oversight efficiency and may delay detection of quality issues, but it does not alter underlying case outcomes or execute external actions, and it can usually be corrected by restoring prior rates and backfilling spot checks.</li>
+<li><strong>Auditability:</strong> Preserve the current and updated sampling-policy versions, findings windows analyzed, reviewer-capacity assumptions, blocked proposals, freeze events, rollback actions, and sampled human-audit results for each tuning cycle.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Autonomous tuning may apply only within preapproved rate bands, protected-stratum floors, and maximum step sizes defined by the oversight owner.</li>
+<li>Human approval is required for any change that would alter protected cohort definitions, materially increase reviewer-load ceilings, or reduce coverage below the delegated minimum for a monitored class.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use aggregated findings and minimally necessary review metadata when computing sampling changes so audit packets do not expose unnecessary customer, participant, or worker detail.</li>
+<li>Keep any sensitive case excerpts or artifact references in restricted annexes instead of general tuning logs when authorized reviewers need supporting detail.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restrict who can edit protected-stratum rules, rate limits, and service accounts that apply sampling updates.</li>
+<li>Log every autonomous configuration change, rollback, and manual freeze so unauthorized manipulation of oversight coverage is detectable.</li>
+</ul>
+<p><strong>Notes:</strong> Low-risk posture is appropriate because the workflow changes only bounded internal oversight coverage and remains reversible, audit-ready, and separate from the primary operational or adjudicative workflow being sampled.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Useful tuning requires interpreting delayed review yield and escape signals across multiple strata rather than relying on one static sample rate.</li>
+<li>The workflow must decide whether observed defect changes reflect true drift, temporary regime change, or noisy sample windows and then adapt or freeze accordingly.</li>
+<li>Durable memory, constraint checking, and rollback awareness matter because repeated small sampling moves can create hidden undercoverage even when each individual change seems harmless.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="the-workflow-lowers-coverage-after-a-short-quiet-period-and-misses-a-latent-quality-drift">The workflow lowers coverage after a short quiet period and misses a latent quality drift<a class="headerlink" href="#the-workflow-lowers-coverage-after-a-short-quiet-period-and-misses-a-latent-quality-drift" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Escaped defects or audit failures rise because the loop treated temporary calm as evidence that a risky cohort needed less review.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Require minimum evidence windows and backstop protected-floor rates for cohorts with historically severe misses.</li>
+<li>Trigger rollback or freeze when escaped-issue indicators rise after a downward tuning move.</li>
+</ul>
+<h3 id="reviewer-load-optimization-crowds-out-protected-cohorts">Reviewer-load optimization crowds out protected cohorts<a class="headerlink" href="#reviewer-load-optimization-crowds-out-protected-cohorts" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The system preserves reviewer capacity by reducing sampling in lower-volume or less visible strata that still need consistent oversight.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Encode protected-cohort floors as hard constraints rather than soft preferences.</li>
+<li>Report separate fairness or coverage checks for protected cohorts before each autonomous update is applied.</li>
+</ul>
+<h3 id="sampling-rates-oscillate-because-the-workflow-chases-noisy-short-term-findings">Sampling rates oscillate because the workflow chases noisy short-term findings<a class="headerlink" href="#sampling-rates-oscillate-because-the-workflow-chases-noisy-short-term-findings" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Reviewers experience unstable workload and the audit trail becomes hard to interpret because rates move up and down without converging.</li>
+<li><strong>Severity:</strong> low</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Limit step size and require cooldown periods before revisiting the same stratum.</li>
+<li>Compare candidate moves against longer baseline windows and cumulative drift, not only the latest batch.</li>
+</ul>
+<h3 id="policy-or-privacy-changes-invalidate-the-current-strata-definition">Policy or privacy changes invalidate the current strata definition<a class="headerlink" href="#policy-or-privacy-changes-invalidate-the-current-strata-definition" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The workflow continues tuning on outdated cohort definitions or features that should no longer influence sampling.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Version strata definitions and freeze autonomous tuning when the governing policy source changes materially.</li>
+<li>Route policy-adjacent changes to human review instead of silently reusing stale grouping logic.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Increased defect yield or meaningful finding rate per review hour without a corresponding rise in escaped issues for protected cohorts.</li>
+<li>Percentage of autonomous tuning cycles applied within delegated bounds without later rollback for preventable reasons.</li>
+<li>Reduction in reviewer overload or idle review effort caused by static sampling that no longer matches current risk.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Sampling-policy changes remain explainable in terms of findings, protected floors, workload limits, and recent drift rather than opaque score shifts.</li>
+<li>The workflow never expands into case adjudication, reviewer assignment, queue management, or remedial execution.</li>
+<li>Prior policy versions, freeze events, and rollback lineage remain reconstructable for every autonomous change.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test a quiet-period scenario followed by a hidden quality regression and confirm protected-floor coverage prevents dangerous undersampling.</li>
+<li>Simulate reviewer-capacity loss and verify the workflow reduces discretionary sampling before touching protected cohorts.</li>
+<li>Introduce a policy change that invalidates the existing strata map and ensure autonomous tuning freezes pending human review.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate review-sampling quality on oversight effectiveness, boundary discipline, and rollback readiness together; lower review volume is not success if meaningful misses or protected-cohort blind spots rise.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Separate telemetry intake, candidate-rate generation, guardrail checking, configuration update, and audit-log writing so each stage is inspectable and replayable.</li>
+<li>Preserve cumulative drift and post-change outcome markers in the same state history used for later sampled human audits.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations integrate QA or audit tools, case or artifact repositories, findings stores, policy registries, and versioned configuration services.</li>
+<li>Keep the pattern neutral about whether the sampled items are tickets, benchmark artifacts, maintenance records, or another governed review substrate.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with narrow strata and conservative delegated ranges until oversight owners trust the loop's freeze and rollback behavior.</li>
+<li>Review early autonomous decreases especially closely because hidden undercoverage often appears later than reviewer-load savings.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/optimize-adapt/">docs/patterns/optimize-adapt.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+<li><a href="../../../vocabularies/autonomy-levels/">data/vocabularies/autonomy-levels.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Support (<code>support</code>):</strong> Raise the spot-check rate for outage-related enterprise support closures after reopened identity incidents spike, while preserving fixed minimum coverage for security-sensitive escalations.</li>
+<li><strong>Research (<code>research</code>):</strong> Increase artifact spot-check coverage for embargoed benchmark studies with rerun instability and disclosure-sensitive annexes while leaving routine internal baselines at the default rate.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Retune maintenance-documentation review sampling toward assets, sites, or vendors with rising documentation escapes without changing dispatch schedules or maintenance execution itself.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../adaptive-threshold-calibration/">Adaptive threshold calibration</a> (adjacent)</li>
+<li>Both patterns make bounded feedback-driven adjustments autonomously, but this one tunes oversight sampling coverage rather than detection sensitivity thresholds.</li>
+<li><a href="../queue-prioritization-optimization/">Queue prioritization optimization</a> (contrasts-with)</li>
+<li>Queue optimization changes the order of live work, while this pattern changes only how much review coverage future work receives.</li>
+<li><a href="../../monitor-detect-triage/anomaly-detection-review/">Anomaly detection review</a> (can-monitor)</li>
+<li>Drift or miss signals surfaced by anomaly review can become feedback inputs for future review-sampling adjustments.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/operations/maintenance-documentation-spot-check-sampling-rate-tuning/">Maintenance documentation spot-check sampling-rate tuning</a></li>
+<li><a href="../../../instances/research/embargoed-benchmark-artifact-spot-check-sampling-rate-tuning/">Embargoed benchmark artifact spot-check sampling-rate tuning</a></li>
+<li><a href="../../../instances/support/enterprise-support-quality-review-sampling-rate-tuning/">Enterprise support quality-review sampling-rate tuning</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/optimize-adapt/adaptive-review-sampling-rate-tuning.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1522 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Authoritative record reconciliation - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#authoritative-record-reconciliation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Authoritative record reconciliation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#record-extracts-from-participating-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Record extracts from participating systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reconciliation-rules-and-source-of-truth-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reconciliation rules and source-of-truth hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-keys-and-reference-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Match keys and reference data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prior-adjudications-and-exception-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prior adjudications and exception history
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reconciled-authoritative-record-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reconciled authoritative record set
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discrepancy-and-resolution-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discrepancy and resolution ledger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception-review-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exception review queue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correction-ready-reconciliation-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correction-ready reconciliation package
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-distinct-entities-are-incorrectly-merged-into-one-reconciled-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two distinct entities are incorrectly merged into one reconciled record
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stale-or-misconfigured-precedence-rules-overwrite-the-correct-current-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stale or misconfigured precedence rules overwrite the correct current value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unresolved-discrepancies-are-silently-marked-as-reconciled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unresolved discrepancies are silently marked as reconciled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correction-publication-reaches-systems-or-fields-outside-delegated-reversible-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correction publication reaches systems or fields outside delegated reversible scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="authoritative-record-reconciliation">Authoritative record reconciliation<a class="headerlink" href="#authoritative-record-reconciliation" title="Permanent link">&para;</a></h1>
+<p>Reconcile conflicting structured records across systems of record, determine the authoritative state under governed precedence rules, and stage auditable corrections that restore trust without turning the workflow into causal diagnosis or downstream business execution.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>authoritative-record-reconciliation</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/investigate-reconcile-verify/">Investigate / Reconcile / Verify</a></li>
+<li><strong>Problem structure:</strong> Record reconciliation (<code>record-reconciliation</code>)</li>
+<li><strong>Domains:</strong> Finance (<code>finance</code>), Compliance (<code>compliance</code>), HR (<code>hr</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Restore a trusted authoritative record state by matching corresponding records, resolving field-level conflicts under source-of-truth rules, and producing a correction-ready reconciliation package with explicit exceptions and audit evidence.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="record-extracts-from-participating-systems">Record extracts from participating systems<a class="headerlink" href="#record-extracts-from-participating-systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured snapshots or query results representing the same entities, cases, or events across the systems that need to be reconciled.</li>
+<li><strong>Kind:</strong> record-set</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>ERP vendor master rows compared against treasury settlement instructions</li>
+<li>Compliance case records compared against a beneficial ownership registry export</li>
+<li>HRIS employment status records compared against payroll eligibility data</li>
+</ul>
+<h3 id="reconciliation-rules-and-source-of-truth-hierarchy">Reconciliation rules and source-of-truth hierarchy<a class="headerlink" href="#reconciliation-rules-and-source-of-truth-hierarchy" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Matching logic, field-level precedence rules, tolerance thresholds, and publication limits that define how authoritative state is chosen.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Use treasury-approved bank instructions over stale vendor portal values when approval timestamps are current</li>
+<li>Treat payroll eligibility as authoritative only after the HRIS leave-status effective date is confirmed</li>
+<li>Require human review when identity attributes disagree across regulated records</li>
+</ul>
+<h3 id="match-keys-and-reference-data">Match keys and reference data<a class="headerlink" href="#match-keys-and-reference-data" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Approved identifiers, mapping tables, and reference sets used to link records and validate whether a proposed resolution stays within policy.</li>
+<li><strong>Kind:</strong> reference-data</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Vendor identifiers, legal-entity mappings, and approved bank-account hashes</li>
+<li>Employee identifiers, leave-case numbers, and payroll-cycle calendars</li>
+<li>Registry identifiers and sanctioned-party screening aliases</li>
+</ul>
+<h3 id="prior-adjudications-and-exception-history">Prior adjudications and exception history<a class="headerlink" href="#prior-adjudications-and-exception-history" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Optional prior reviewer decisions, override notes, or earlier exception cases that should influence how repeated discrepancies are handled.</li>
+<li><strong>Kind:</strong> case-history</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Previously approved vendor master overrides</li>
+<li>Historical leave-status exception decisions</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="reconciled-authoritative-record-set">Reconciled authoritative record set<a class="headerlink" href="#reconciled-authoritative-record-set" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The field-level authoritative state for each matched entity or case, annotated so downstream stewards know which values are now trusted.</li>
+<li><strong>Kind:</strong> record-bundle</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Authoritative vendor payment profile with confirmed routing details and effective timestamp</li>
+<li>Reconciled employee status record with aligned leave and payroll eligibility fields</li>
+</ul>
+<h3 id="discrepancy-and-resolution-ledger">Discrepancy and resolution ledger<a class="headerlink" href="#discrepancy-and-resolution-ledger" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Durable before-and-after ledger showing mismatched fields, applied precedence rules, confidence, and any human adjudication used to resolve them.</li>
+<li><strong>Kind:</strong> ledger</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Field comparison ledger explaining why one bank account value superseded another</li>
+<li>Resolution log linking a leave-status override to the steward who approved it</li>
+</ul>
+<h3 id="exception-review-queue">Exception review queue<a class="headerlink" href="#exception-review-queue" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Unresolved, low-confidence, or policy-sensitive discrepancies that must remain visible for human adjudication instead of being auto-resolved.</li>
+<li><strong>Kind:</strong> review-queue</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Suspected duplicate vendor identities requiring steward review</li>
+<li>Payroll and leave records with conflicting effective dates that exceed delegated tolerance</li>
+</ul>
+<h3 id="correction-ready-reconciliation-package">Correction-ready reconciliation package<a class="headerlink" href="#correction-ready-reconciliation-package" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Staged update instructions, rollback references, and publication metadata for approved systems that can accept the reconciled state through controlled write paths.</li>
+<li><strong>Kind:</strong> change-set</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Batch of reversible vendor-master corrections awaiting steward publication</li>
+<li>Reconciliation payload for a payroll staging table with rollback snapshot identifiers</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in records-heavy administrative and regulated environments where multiple structured systems drift out of sync over time, and restoring trust depends on a defensible authoritative state plus audit-ready correction lineage.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>ERP, HRIS, registry, or case-management systems</li>
+<li>Master data or reference-data services</li>
+<li>Reconciliation workbenches or staging tables</li>
+<li>Audit logging and exception tracking systems</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Records operations analyst or reconciliation steward</li>
+<li>System owner or data steward</li>
+<li>Compliance, finance, or HR reviewer</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Define source-of-truth precedence and field eligibility before delegated correction begins.</li>
+<li>Keep entity matching, suppressed discrepancies, and field-level overrides inspectable after publication.</li>
+<li>Restrict autonomous updates to reversible, in-policy corrections; unresolved or sensitive conflicts must remain in the exception queue.</li>
+<li>Stop at restoring authoritative record state and packaging corrections, not at explaining root cause or making downstream business decisions.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Participating systems expose enough identifiers, timestamps, or reference keys to support defensible matching.</li>
+<li>Approved staging or rollback paths exist for any delegated correction publication.</li>
+<li>Human stewards are available for low-confidence, identity-merging, or policy-conflicted cases.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Retrieval (<code>retrieval</code>):</strong> The workflow must gather structured state from multiple systems of record before any reconciliation can begin.</li>
+<li><strong>Discrepancy analysis (<code>discrepancy-analysis</code>):</strong> Reconciliation depends on detecting and interpreting field-level conflicts, missing records, and entity-linkage mismatches.</li>
+<li><strong>Verification (<code>verification</code>):</strong> Candidate resolutions must be checked against timestamps, approved reference data, and independent record evidence before publication.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Source precedence, field eligibility, tolerance limits, and human-review thresholds determine what may be reconciled automatically.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> The workflow reads system extracts, queries reference services, writes staged correction packages, and logs reconciliation outcomes through tools rather than text alone.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Durable case memory is needed to preserve match decisions, unresolved discrepancies, prior adjudications, and rollback references across runs.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> Safe reconciliation requires explicit routing for low-confidence matches, policy conflicts, and non-reversible correction paths.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Tool-using single agent (<code>tool-using-single-agent</code>):</strong> One agent can usually fetch record extracts, apply precedence rules, build the discrepancy ledger, and stage reconciliation packages inside a single bounded control loop.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> Human stewards remain part of the normal loop for ambiguous matches, identity merges, and policy-sensitive publication decisions.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Bounded delegation (<code>bounded-delegation</code>)</li>
+<li><strong>Reversibility:</strong> In-policy corrections can usually be replayed or rolled back from staged ledgers, but publishing the wrong authoritative state can still trigger downstream notices, payroll changes, or control follow-up that take longer to unwind.</li>
+<li><strong>Escalation:</strong> Escalate whenever no authoritative source can be established, match confidence falls below threshold, conflicts imply possible fraud or control breach, or the proposed corrections exceed preapproved reversible scope.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Approve the source hierarchy, match tolerances, delegated field scope, and rollback path before routine reconciliation runs begin.</li>
+<li>Review low-confidence matches, many-to-one merges, and policy-sensitive field resolutions before publishing reconciled state.</li>
+<li>Approve rule changes, bulk correction batches, or scope expansion that would affect regulated, payroll, or customer-impacting records.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> Moderate (<code>moderate</code>)</li>
+<li><strong>Failure impact:</strong> Poor reconciliation can propagate incorrect master data, payroll status, or regulated record fields and create material rework or localized control issues, but harm is usually containable when publication stays reversible and exceptions remain visible.</li>
+<li><strong>Auditability:</strong> Preserve source extract versions, match keys, applied precedence rules, field-level before-and-after values, exception routing, human adjudications, publication events, and rollback references for every reconciled record set.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Case-by-case approval is not required for reversible in-policy reconciliations limited to preapproved fields, systems, and publication paths.</li>
+<li>Human steward review is required before publishing ambiguous, identity-merging, bulk, or policy-sensitive corrections to authoritative systems.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Minimize copied personal, payroll, or financial identifiers in working ledgers and retain only the fragments needed for reconciliation and review.</li>
+<li>Restrict access to record snapshots, discrepancy ledgers, and exception queues according to role and data sensitivity.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use least-privilege read and staged-write access to systems of record and reconciliation workbenches.</li>
+<li>Log reconciliation package creation, publication, override, and rollback events so unauthorized data repair is detectable.</li>
+</ul>
+<p><strong>Notes:</strong> Moderate-risk governance fits because the pattern repairs trusted state inside structured systems of record, yet it remains bounded by reversible correction scope, explicit exception handling, and routine human oversight.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The workflow must adapt matching and field-resolution strategy to heterogeneous schemas, stale timestamps, and partial identifiers instead of relying on one brittle deterministic join.</li>
+<li>Effective reconciliation depends on iteratively consulting tools, reference data, and prior adjudications while keeping a durable discrepancy ledger.</li>
+<li>Safe operation requires recognizing when a conflict is routine enough for delegated repair and when uncertainty should remain visible for human adjudication.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="two-distinct-entities-are-incorrectly-merged-into-one-reconciled-record">Two distinct entities are incorrectly merged into one reconciled record<a class="headerlink" href="#two-distinct-entities-are-incorrectly-merged-into-one-reconciled-record" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The workflow corrupts authoritative state by applying one entity's values or history to another.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Require stricter thresholds and human review for many-to-one or identity-sensitive matches.</li>
+<li>Preserve before-and-after lineage so incorrect merges can be traced and reversed quickly.</li>
+</ul>
+<h3 id="stale-or-misconfigured-precedence-rules-overwrite-the-correct-current-value">Stale or misconfigured precedence rules overwrite the correct current value<a class="headerlink" href="#stale-or-misconfigured-precedence-rules-overwrite-the-correct-current-value" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The reconciled record appears clean but republishes outdated or unauthorized data into the trusted system.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Version precedence rules and record the rule version applied to each published field.</li>
+<li>Compare source freshness and require review when authoritative ordering and timestamps disagree.</li>
+</ul>
+<h3 id="unresolved-discrepancies-are-silently-marked-as-reconciled">Unresolved discrepancies are silently marked as reconciled<a class="headerlink" href="#unresolved-discrepancies-are-silently-marked-as-reconciled" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Teams trust a record that still contains hidden conflicts, causing downstream errors and control gaps.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Block publication when mandatory fields remain unresolved or match confidence is below threshold.</li>
+<li>Keep exception counts and unresolved fields visible in every reconciliation package.</li>
+</ul>
+<h3 id="correction-publication-reaches-systems-or-fields-outside-delegated-reversible-scope">Correction publication reaches systems or fields outside delegated reversible scope<a class="headerlink" href="#correction-publication-reaches-systems-or-fields-outside-delegated-reversible-scope" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Record repair spreads beyond approved boundaries and becomes harder to undo or audit.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Enforce allowlists for writable systems, field classes, and batch sizes.</li>
+<li>Require human approval whenever a reconciliation package would cross a protected scope boundary.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of reconciliation cases published from the staged package without full manual rebuild.</li>
+<li>Reduction in aged open record-drift exceptions for the covered systems of record.</li>
+<li>Percentage of published reconciliations that retain complete field-level lineage and rollback references.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The authoritative source and resolution rationale for each consequential field remain explicit and inspectable.</li>
+<li>Unresolved ambiguity, identity risk, and policy conflicts stay visible in the exception queue rather than being hidden behind a superficially clean record.</li>
+<li>The workflow remains bounded at state restoration and controlled correction packaging rather than drifting into root-cause diagnosis or downstream business execution.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test with partial identifier overlap and alias collisions to verify the workflow escalates questionable merges instead of forcing a match.</li>
+<li>Test with stale extracts or out-of-order timestamps and confirm precedence logic degrades into explicit review when freshness cannot be established.</li>
+<li>Test repeated discrepancies with conflicting prior adjudications to ensure the latest approved decision is applied or re-opened transparently.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate reconciliation quality together with rollback readiness and exception discipline; a lower discrepancy count is not a success if mismatches are only being hidden faster.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep record intake, entity matching, field comparison, exception routing, and publication-status tracking as explicit stages over shared reconciliation state.</li>
+<li>Separate staged reconciliation packages from live publication so humans can intervene cleanly when scope, confidence, or policy boundaries are crossed.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations integrate master-data platforms, structured record systems, staging tables, and audit or case-management tooling.</li>
+<li>Keep the pattern neutral about specific ERP, HRIS, registry, MDM, or reconciliation vendors.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start in record domains with clear source precedence, reversible publication paths, and measurable drift pain before expanding to higher-sensitivity fields.</li>
+<li>Monitor rollback frequency, exception backlog, and human override rates to ensure delegated reconciliation stays within the intended control envelope.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/investigate-reconcile-verify/">docs/patterns/investigate-reconcile-verify.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Finance (<code>finance</code>):</strong> Reconcile vendor payment details across ERP, treasury, and approval records so the next payment cycle uses one trusted bank profile.</li>
+<li><strong>Compliance (<code>compliance</code>):</strong> Align registry, screening, and case-management records for a beneficial ownership review while routing unresolved identity conflicts to a steward.</li>
+<li><strong>HR (<code>hr</code>):</strong> Reconcile leave, employment status, and payroll eligibility records after asynchronous updates drift out of sync across HR systems.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../incident-root-cause-analysis/">Incident root cause analysis</a> (contrasts-with)</li>
+<li>Root-cause analysis explains why a discrepancy emerged, while this pattern focuses on restoring authoritative state and tracking any unresolved exceptions.</li>
+<li><a href="../../transform-process/document-to-structured-data-handoff/">Document to structured data handoff</a> (complements)</li>
+<li>Structured handoff patterns often prepare one side of the record set that later enters governed reconciliation, but they should stop before authoritative conflict resolution.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<p>None yet.</p>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/investigate-reconcile-verify/authoritative-record-reconciliation.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

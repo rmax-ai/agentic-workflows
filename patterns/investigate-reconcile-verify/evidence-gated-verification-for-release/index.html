@@ -1,0 +1,1533 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Evidence-gated verification for release - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#evidence-gated-verification-for-release" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Evidence-gated verification for release
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#candidate-release-or-posting-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Candidate release or posting package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authoritative-evidence-sources-and-verification-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authoritative evidence sources and verification boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approval-and-publication-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval and publication policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prior-verification-state-and-open-holds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prior verification state and open holds
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#release-verification-verdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release verification verdict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evidence-sufficiency-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidence sufficiency trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approval-ready-verification-packet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval-ready verification packet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-exception-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification exception record
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stale-or-superseded-evidence-is-treated-as-current-proof-that-the-package-is-verified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stale or superseded evidence is treated as current proof that the package is verified
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope-drift-between-the-package-and-current-evidence-is-missed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scope drift between the package and current evidence is missed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hold-worthy-gaps-are-flattened-into-an-optimistic-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hold-worthy gaps are flattened into an optimistic pass
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-workflow-drifts-into-recommendation-repair-or-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The workflow drifts into recommendation, repair, or execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="evidence-gated-verification-for-release">Evidence-gated verification for release<a class="headerlink" href="#evidence-gated-verification-for-release" title="Permanent link">&para;</a></h1>
+<p>Verify that a proposed release, posting, or controlled-use package is still supported by sufficient current evidence and intact scope before humans approve downstream reliance or controlled publication, while stopping short of recommendation, repair, or execution.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>evidence-gated-verification-for-release</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/investigate-reconcile-verify/">Investigate / Reconcile / Verify</a></li>
+<li><strong>Problem structure:</strong> Evidence-backed verification (<code>evidence-backed-verification</code>)</li>
+<li><strong>Domains:</strong> Engineering (<code>engineering</code>), Finance (<code>finance</code>), Operations (<code>operations</code>), Research (<code>research</code>), HR (<code>hr</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Determine whether an in-scope release, posting, or controlled-use package remains sufficiently supported by current authoritative evidence and policy checks, then produce an inspectable verified, held, or insufficient verdict plus approval-gated handoff before any downstream publication, cutover, or reliance occurs.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="candidate-release-or-posting-package">Candidate release or posting package<a class="headerlink" href="#candidate-release-or-posting-package" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> A bounded package describing the proposed release, posting, cutover, or controlled-use step, including scope, dependent surfaces, and the exact downstream reliance boundary that would follow approval.</li>
+<li><strong>Kind:</strong> release-packet</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Release-candidate packet with approved component versions, rollback plan, and protected production cohort scope</li>
+<li>Morning liquidity posting bundle with entity coverage, manual adjustments, and downstream treasury consumers</li>
+<li>Sorter routing cutover packet with approved zone sequence, fallback profile, and safety interlock scope</li>
+</ul>
+<h3 id="authoritative-evidence-sources-and-verification-boundary">Authoritative evidence sources and verification boundary<a class="headerlink" href="#authoritative-evidence-sources-and-verification-boundary" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The approved source systems, corroborating checks, freshness windows, and scope rules that define which evidence may confirm the package and which downstream effects remain out of scope.</li>
+<li><strong>Kind:</strong> verification-boundary</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Deployment evidence store, artifact manifest, dependency-health checks, and rollback credential validation for one production release</li>
+<li>Bank statement feeds, reconciliation snapshots, manual adjustment approvals, and posting controls for one morning liquidity publication</li>
+<li>Sensor health, jam telemetry, fallback-profile state, and site safety records for one facility routing cutover</li>
+</ul>
+<h3 id="approval-and-publication-policy">Approval and publication policy<a class="headerlink" href="#approval-and-publication-policy" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Formal approval requirements, pass-or-hold thresholds, protected-scope limits, and controlled-publication rules that determine when the package may be treated as verified for downstream reliance.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Require current rollback proof and dependency health within the release window before a production cutover packet can be cleared for execution</li>
+<li>Require statement freshness, entity-scope completeness, and reviewed manual adjustments before a treasury posting packet can be treated as authoritative</li>
+<li>Require site safety sign-off, fallback restore viability, and bounded telemetry health before a routing profile can be released for activation</li>
+</ul>
+<h3 id="prior-verification-state-and-open-holds">Prior verification state and open holds<a class="headerlink" href="#prior-verification-state-and-open-holds" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Optional earlier verification runs, unresolved exceptions, duplicate approval requests, or superseded evidence references used to preserve continuity across repeated gate checks.</li>
+<li><strong>Kind:</strong> verification-state</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Earlier release verification that passed artifact checks but held on expired rollback credentials</li>
+<li>Prior posting-verification run waiting on one late bank statement and controller review of a manual adjustment</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="release-verification-verdict">Release verification verdict<a class="headerlink" href="#release-verification-verdict" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Explicit verified, held, or insufficient result for the package, with the precise evidence and policy basis for whether downstream reliance or publication may be approved.</li>
+<li><strong>Kind:</strong> verdict</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Verified that the approved release candidate still matches signed artifacts, dependency-health thresholds, and rollback prerequisites</li>
+<li>Held a treasury posting packet because one legal entity remains outside the approved statement freshness window</li>
+<li>Marked a sorter cutover packet insufficient because fallback-profile evidence and one safety interlock check disagree</li>
+</ul>
+<h3 id="evidence-sufficiency-trace">Evidence sufficiency trace<a class="headerlink" href="#evidence-sufficiency-trace" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Ordered trace showing which authoritative checks ran, what source versions and timestamps were observed, how scope drift was evaluated, and which holds or exceptions remain open.</li>
+<li><strong>Kind:</strong> trace</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Trace linking release artifact hashes, rollback credential validation time, and dependency-health snapshots</li>
+<li>Evidence ledger showing statement timestamps, adjustment approvals, and posting-scope comparison for each treasury entity</li>
+</ul>
+<h3 id="approval-ready-verification-packet">Approval-ready verification packet<a class="headerlink" href="#approval-ready-verification-packet" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured handoff packet summarizing the verdict, evidence lineage, remaining holds, and exact downstream reliance boundary for human approval before publication, cutover, or controlled use.</li>
+<li><strong>Kind:</strong> case-packet</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Packet for a release manager showing verified preconditions, one residual watch item, and the protected traffic cohort that may proceed if approved</li>
+<li>Packet for treasury controllers showing which entities are verified for authoritative posting and which remain held pending refreshed evidence</li>
+</ul>
+<h3 id="verification-exception-record">Verification exception record<a class="headerlink" href="#verification-exception-record" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured follow-up record for stale evidence, scope drift, approval-boundary conflicts, or repeated hold conditions that require human interpretation before another verification pass.</li>
+<li><strong>Kind:</strong> follow-up-record</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Exception noting that the approved release scope changed after a dependency rollback and must be revalidated before reuse</li>
+<li>Review record showing that a facility safety hold was cleared in one system but not in the protected console</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in high-consequence release and controlled-publication workflows where a package may be assembled and technically ready, yet downstream reliance must remain blocked until current evidence proves the package still fits approved scope and policy.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Change, release, posting, or publication systems that hold the candidate package and downstream boundary</li>
+<li>Authoritative evidence sources such as artifact registries, ledgers, telemetry, statement feeds, or safety consoles</li>
+<li>Approval and governance systems that record who may authorize downstream reliance or controlled publication</li>
+<li>Audit and verification stores that preserve verdicts, evidence lineage, and repeated hold history</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Release manager, controller, or operations lead requesting verification before downstream use</li>
+<li>Domain analyst or steward who interprets package-specific evidence and scope constraints</li>
+<li>Approving reviewer who decides whether the verified packet may be relied on downstream</li>
+<li>Governance owner who maintains evidence sufficiency and hold criteria</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Stop at an inspectable verification verdict, evidence trace, and approval-ready packet; do not publish, post, cut over, or execute the downstream step.</li>
+<li>Preserve evidence freshness, package scope drift, and unresolved gaps explicitly instead of flattening them into a binary pass.</li>
+<li>Require explicit human approval before a verified packet is used for downstream reliance, controlled publication, or execution handoff.</li>
+<li>Keep approval lineage, policy version, and held conditions visible so later reviewers can reconstruct why a package was or was not trusted.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The organization can define which evidence sources and freshness windows are sufficient for each covered release or posting class.</li>
+<li>Candidate packages expose stable identifiers, versions, or scope markers that can be compared against current evidence without performing the downstream action.</li>
+<li>Humans remain available to approve verified packets, interpret held cases, and route unresolved issues into recommendation, repair, or execution workflows as needed.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Retrieval (<code>retrieval</code>):</strong> The workflow must gather current authoritative evidence from the approved source systems before it can verify that the package is still trustworthy.</li>
+<li><strong>Verification (<code>verification</code>):</strong> The core task is checking whether the package's claimed readiness, scope, and supporting evidence actually meet current policy and corroboration requirements.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Approval thresholds, protected-scope boundaries, freshness tolerances, and hold rules determine when a package may be considered verified.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> The workflow queries registries, ledgers, telemetry consoles, approval systems, and audit stores through tools rather than relying on narrative summaries alone.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Repeated gate checks, superseded evidence, and open holds require durable verification history so reviewers can see what changed between runs.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> Safe operation depends on surfacing stale evidence, scope drift, and approval-boundary conflicts as visible holds rather than guessing that the package is still safe.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Approval-gated execution (<code>approval-gated-execution</code>):</strong> The workflow produces a technically ready verification packet whose downstream use remains concretely blocked until explicit approval unlocks publication, cutover, or other controlled reliance.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> Human reviewers remain embedded in the normal loop because each verified packet still requires explicit approval before consequential downstream reliance can proceed.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Approval gated (<code>approval-gated</code>)</li>
+<li><strong>Reversibility:</strong> Verification verdicts can be recomputed as fresher evidence arrives, but once people publish, rely on, or execute from an incorrectly verified package the downstream unwind may be costly, operationally disruptive, or slow.</li>
+<li><strong>Escalation:</strong> Escalate whenever authoritative evidence conflicts materially, scope or approval lineage drifts since the package was prepared, freshness falls outside the approved window, or the next requested step would require recommendation, repair, or execution instead of verification.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Approve which package classes, evidence sources, and downstream reliance boundaries are in scope before routine verification begins.</li>
+<li>Review the verification packet and explicit holds before allowing production cutover, authoritative posting, controlled publication, or other consequential downstream use.</li>
+<li>Approve changes to evidence sufficiency thresholds, protected scope, or freshness rules before those changes affect live verification runs.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> High (<code>high</code>)</li>
+<li><strong>Failure impact:</strong> Incorrect verification can let teams rely on an unready release or posting package, publish incorrect authoritative outputs, or hand unsafe cutover scope into execution, causing significant operational, financial, or customer harm even though this workflow stops before the downstream action itself.</li>
+<li><strong>Auditability:</strong> Preserve package version and scope, evidence source versions and timestamps, policy version, scope-drift comparisons, unresolved holds, superseded verdicts, human approval events, and any overrides so reviewers can reconstruct exactly why a package was or was not trusted.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Human approval is required before a verified packet is used for production cutover, authoritative posting, controlled publication, or other consequential downstream reliance.</li>
+<li>Governance-owner approval is required before changing required evidence sets, protected-scope boundaries, freshness tolerances, or pass-or-hold criteria for future verification runs.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Limit copied content to the identifiers, metrics, versions, and excerpts needed to justify the verdict rather than duplicating full release, ledger, or facility records broadly.</li>
+<li>Keep sensitive financial, operational, and production details inside approved verification stores when the approval-ready packet can rely on generalized or aliased references.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use least-privilege read access to evidence sources and append-only logging for verdict and approval history so verification cannot silently reshape the package it is checking.</li>
+<li>Log rule changes, manual overrides, and repeated hold conditions so unauthorized pressure to clear an unverified package remains detectable.</li>
+</ul>
+<p><strong>Notes:</strong> High risk fits because the workflow governs whether humans may trust a consequential package for downstream use, yet it remains bounded at evidence-backed verification and approval gating rather than execution or publication itself.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Useful release verification requires choosing the right corroborating checks for the current package, freshness window, and protected scope rather than reading one status field.</li>
+<li>The workflow must preserve repeated verdicts, scope drift, and unresolved holds across runs so humans can see whether a package is becoming safer, staler, or more ambiguous over time.</li>
+<li>Safe operation depends on recognizing when evidence is sufficient for trusted handoff and when uncertainty should remain visible for human judgment instead of being normalized away.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="stale-or-superseded-evidence-is-treated-as-current-proof-that-the-package-is-verified">Stale or superseded evidence is treated as current proof that the package is verified<a class="headerlink" href="#stale-or-superseded-evidence-is-treated-as-current-proof-that-the-package-is-verified" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Reviewers approve downstream reliance on a release or posting packet whose critical prerequisites have already drifted or expired.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Recheck source freshness and package version lineage immediately before issuing a verified verdict.</li>
+<li>Mark the packet held when required evidence falls outside the approved freshness window.</li>
+</ul>
+<h3 id="scope-drift-between-the-package-and-current-evidence-is-missed">Scope drift between the package and current evidence is missed<a class="headerlink" href="#scope-drift-between-the-package-and-current-evidence-is-missed" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> A packet is treated as verified even though approved entities, cohorts, zones, or posting boundaries no longer match the live state.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Compare current scope markers against the approved package and surface any drift in the main verdict.</li>
+<li>Block verified status when protected scope changes without renewed human review.</li>
+</ul>
+<h3 id="hold-worthy-gaps-are-flattened-into-an-optimistic-pass">Hold-worthy gaps are flattened into an optimistic pass<a class="headerlink" href="#hold-worthy-gaps-are-flattened-into-an-optimistic-pass" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Material uncertainty disappears from the approval packet and humans act as if the package is fully trustworthy when it is not.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Require explicit held or insufficient states whenever one required corroborating check is missing, stale, or policy-conflicted.</li>
+<li>Preserve unresolved gaps and follow-up obligations in the approval-ready packet rather than only in side logs.</li>
+</ul>
+<h3 id="the-workflow-drifts-into-recommendation-repair-or-execution">The workflow drifts into recommendation, repair, or execution<a class="headerlink" href="#the-workflow-drifts-into-recommendation-repair-or-execution" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Family boundaries blur and the verification gate starts choosing rollout scope, fixing records, or performing the downstream action itself.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Limit outputs to verdicts, evidence traces, approval-ready packets, and exception records.</li>
+<li>Route alternate rollout proposals, corrective actions, or cutover execution into adjacent recommendation or execution patterns.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of in-scope packages that receive a verdict with complete evidence lineage, scope comparison, and approval-ready documentation.</li>
+<li>Rate at which stale evidence, scope drift, or missing corroboration are detected before downstream publication, cutover, or reliance occurs.</li>
+<li>Reviewer agreement that the verification verdict used the correct evidence sources, freshness windows, and protected-scope checks.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Every verified verdict cites current authoritative evidence and shows why the package still fits approved scope.</li>
+<li>Held and insufficient states remain explicit and inspectable rather than being compressed into pass language.</li>
+<li>The workflow stays bounded at verification and approval gating instead of selecting alternate plans, repairing data, or performing the downstream action.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test package updates that change protected scope after the original packet is prepared and verify the workflow blocks reuse without renewed review.</li>
+<li>Test stale, missing, or conflicting evidence and ensure the verdict becomes held or insufficient rather than optimistic.</li>
+<li>Test repeated verification passes near the release window and confirm superseded verdicts remain visible with clear lineage.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate truth quality, scope-drift discipline, and approval integrity together; a fast verified result is not a success if the workflow simply trusts a stale packet.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep package intake, evidence collection, scope comparison, verdict generation, and approval-packet assembly as explicit stages over one durable verification record.</li>
+<li>Separate verification tooling from downstream publication or execution tooling so the family boundary stays intact.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations integrate release or posting trackers, evidence systems, approval services, and audit logs through read-only or append-only paths.</li>
+<li>Keep the pattern neutral about specific release managers, treasury platforms, warehouse control systems, or approval products.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with consequential package classes that already have explicit approval gates, evidence standards, and clear downstream reliance boundaries.</li>
+<li>Monitor repeated hold rates, scope-drift frequency, and reviewer disagreement so evidence sufficiency rules can be tightened without turning the workflow into execution control.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/investigate-reconcile-verify/">docs/patterns/investigate-reconcile-verify.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Engineering (<code>engineering</code>):</strong> Verify that a production release candidate still matches signed artifacts, dependency-health checks, and rollback prerequisites before a human release manager lets the approved packet enter the cutover workflow.</li>
+<li><strong>Finance (<code>finance</code>):</strong> Reverify that current statements, manual adjustments, and protected entity scope still support a morning liquidity posting packet before controllers treat it as the authoritative view.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Confirm that safety interlocks, fallback profile evidence, and current telemetry still support a routing-profile cutover packet before site leaders authorize live activation.</li>
+<li><strong>Research (<code>research</code>):</strong> Reverify that rerun-manifest lineage, dataset-rights clearance, disclosure review state, and restricted reviewer scope still support one exact approved publication-integrity packet revision before research governance releases it into the protected integrity-review lane.</li>
+<li><strong>HR (<code>hr</code>):</strong> Reverify that the signed separation agreement, final-pay approvals, revocation-window status, and protected intake boundary still support one exact separation packet revision before HR leaders release it into the restricted separation-administration lane.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../claimed-state-verification/">Claimed state verification</a> (variant-of)</li>
+<li>This pattern is a higher-risk, approval-gated evidence-verification variant focused on consequential release and posting packets rather than low-stakes claimed-state confirmation.</li>
+<li><a href="../../recommend-decide-escalate/readiness-gate-disposition-recommendation/">Readiness gate disposition recommendation</a> (contrasts-with)</li>
+<li>Readiness-gate disposition recommendation advises whether a gate should proceed, hold, narrow, or escalate, while this pattern verifies that a specific package is currently evidence-sufficient before downstream reliance.</li>
+<li><a href="../../execute-automate/staged-change-execution-with-rollback-holds/">Staged change execution with rollback holds</a> (precedes)</li>
+<li>A verified and approved packet may hand off to staged execution, but this pattern stops before any live state changes occur.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/engineering/approved-release-candidate-evidence-gate-verification/">Approved release candidate evidence gate verification</a></li>
+<li><a href="../../../instances/finance/approved-morning-liquidity-posting-evidence-gate-verification/">Approved morning liquidity posting evidence gate verification</a></li>
+<li><a href="../../../instances/hr/approved-separation-packet-evidence-gate-verification/">Approved separation packet evidence gate verification</a></li>
+<li><a href="../../../instances/operations/approved-sorter-routing-cutover-evidence-gate-verification/">Approved sorter routing cutover evidence gate verification</a></li>
+<li><a href="../../../instances/research/approved-benchmark-study-publication-integrity-packet-evidence-gate-verification/">Approved benchmark study publication-integrity packet evidence gate verification</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/investigate-reconcile-verify/evidence-gated-verification-for-release.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

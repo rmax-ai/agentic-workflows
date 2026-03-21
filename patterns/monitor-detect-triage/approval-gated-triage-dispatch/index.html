@@ -1,0 +1,1547 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Approval-gated triage dispatch - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#approval-gated-triage-dispatch" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Approval-gated triage dispatch
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#already-triaged-escalation-packet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Already-triaged escalation packet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatch-approval-policy-and-lane-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dispatch approval policy and lane boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-approval-hold-and-deduplication-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current approval, hold, and deduplication state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#downstream-lane-availability-and-protected-routing-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Downstream lane availability and protected routing metadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approved-downstream-dispatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approved downstream dispatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatch-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dispatch manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatch-hold-register" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dispatch hold register
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatch-audit-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dispatch audit log
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-is-attached-to-the-wrong-triage-packet-revision-or-downstream-lane-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval is attached to the wrong triage packet revision or downstream lane boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hidden-holds-or-stale-context-are-normalized-away-before-dispatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hidden holds or stale context are normalized away before dispatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-workflow-drifts-into-authority-selection-recommendation-or-response-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The workflow drifts into authority selection, recommendation, or response execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duplicate-severe-packets-are-dispatched-separately-into-the-same-restricted-lane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duplicate severe packets are dispatched separately into the same restricted lane
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="approval-gated-triage-dispatch">Approval-gated triage dispatch<a class="headerlink" href="#approval-gated-triage-dispatch" title="Permanent link">&para;</a></h1>
+<p>Release an already-triaged packet into one governed downstream escalation queue, command channel, or restricted review lane only after explicit approval confirms scope, hold state, and dispatch boundary, without choosing the response, re-verifying truth, or executing follow-on action.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>approval-gated-triage-dispatch</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/monitor-detect-triage/">Monitor / Detect / Triage</a></li>
+<li><strong>Problem structure:</strong> Continuous monitoring and triage (<code>continuous-monitoring-and-triage</code>)</li>
+<li><strong>Domains:</strong> Finance (<code>finance</code>), Compliance (<code>compliance</code>), Operations (<code>operations</code>), Research (<code>research</code>), HR (<code>hr</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Watch already-triaged high-consequence packets that are waiting at a protected dispatch boundary, keep version and hold state explicit, and release the exact approved packet into the intended downstream escalation lane without deciding the response, authority, or operational action that follows.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="already-triaged-escalation-packet">Already-triaged escalation packet<a class="headerlink" href="#already-triaged-escalation-packet" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The bounded triage packet produced upstream with severity, supporting context, unresolved uncertainty, and the predeclared downstream lane this workflow is allowed to prepare for dispatch.</li>
+<li><strong>Kind:</strong> case-packet</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Suspicious wire packet prepared for restricted fraud-review dispatch with duplicate lineage and beneficiary context already attached</li>
+<li>Serious safety-signal packet prepared for expedited medical review with seriousness tags, expectedness context, and open uncertainty noted</li>
+<li>Cold-chain excursion packet prepared for network command-center dispatch with facility scope, shipment impact, and sensor-corroboration references</li>
+<li>Benchmark-study disclosure-risk packet prepared for restricted disclosure-governance review dispatch with embargo scope, external-review request lineage, and rerun caveats already attached</li>
+</ul>
+<h3 id="dispatch-approval-policy-and-lane-boundary">Dispatch approval policy and lane boundary<a class="headerlink" href="#dispatch-approval-policy-and-lane-boundary" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The approved rules defining which triage packet classes require approval, who may sign, which downstream queues or channels are allowed, and what dispatch remains blocked even after approval.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Dual-control rule requiring treasury fraud and risk-operations approval before a suspicious-payment packet may enter the restricted fraud lane</li>
+<li>Safety-governance rule specifying which severe pharmacovigilance packets may be released into the expedited medical-review queue</li>
+<li>Operations command rule limiting cold-chain escalation dispatch to one command-center bridge and one protected shift window</li>
+<li>Research governance rule limiting benchmark disclosure-risk dispatch to one restricted disclosure-review lane and one approved reviewer audience</li>
+</ul>
+<h3 id="current-approval-hold-and-deduplication-state">Current approval, hold, and deduplication state<a class="headerlink" href="#current-approval-hold-and-deduplication-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The latest packet version, signer status, duplicate suppression history, freshness checks, and unresolved holds that determine whether dispatch may proceed or must remain blocked.</li>
+<li><strong>Kind:</strong> case-state</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Packet revision history showing one suspicious-wire packet superseded after beneficiary enrichment changed</li>
+<li>Safety-signal dispatch draft held because one linked case follow-up remains within the freshness window but not yet attached</li>
+<li>Command-center packet awaiting duty-manager approval after two cold-chain alerts were merged into one excursion case</li>
+<li>Disclosure-risk packet awaiting research-governance approval after a late rerun regression and outside-review request were merged into one benchmark case</li>
+</ul>
+<h3 id="downstream-lane-availability-and-protected-routing-metadata">Downstream lane availability and protected routing metadata<a class="headerlink" href="#downstream-lane-availability-and-protected-routing-metadata" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Queue ownership, command-channel identifiers, restricted reviewer rosters, timing windows, and routing references needed to release the packet into the correct downstream lane without broadening scope.</li>
+<li><strong>Kind:</strong> routing-state</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Restricted fraud-review queue identifier, escalation SLA, and approved payment-hold liaison references</li>
+<li>Expedited medical-review lane id, on-call safety-physician roster, and reporting-clock metadata</li>
+<li>Command-center bridge identifier, facility response roster, and protected communications-window record</li>
+<li>Restricted disclosure-governance queue identifier, approved reviewer roster, and embargo-window metadata for one benchmark study</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="approved-downstream-dispatch">Approved downstream dispatch<a class="headerlink" href="#approved-downstream-dispatch" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The released triage packet in the exact downstream escalation queue, command channel, or restricted review lane that approval authorized.</li>
+<li><strong>Kind:</strong> queue</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Suspicious-wire case released into the restricted fraud-review queue with the approved packet revision and lane scope bound explicitly</li>
+<li>Serious safety-signal packet released into expedited medical review with approval timestamps and protected routing metadata attached</li>
+<li>Cold-chain excursion packet released into the network command-center intake lane for one bounded facility set and shift window</li>
+<li>Benchmark-study disclosure-risk packet released into restricted disclosure-governance review with the approved packet revision and reviewer-audience scope bound explicitly</li>
+</ul>
+<h3 id="dispatch-manifest">Dispatch manifest<a class="headerlink" href="#dispatch-manifest" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Manifest binding the approved packet version, downstream lane boundary, signer identities, approval status, and the precise point where triage dispatch stopped before downstream response began.</li>
+<li><strong>Kind:</strong> manifest</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Manifest showing the suspicious-wire packet was approved for fraud-review dispatch but no payment restriction or filing action has started</li>
+<li>Manifest proving the safety-signal packet entered expedited review while causality assessment and reporting decisions remain downstream</li>
+<li>Manifest showing the cold-chain packet was dispatched to command intake without activating reroutes or product disposition actions</li>
+<li>Manifest showing the benchmark disclosure-risk packet was dispatched for restricted governance review without approving external sharing or publication steps</li>
+</ul>
+<h3 id="dispatch-hold-register">Dispatch hold register<a class="headerlink" href="#dispatch-hold-register" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Explicit list of unresolved freshness, duplicate, scope, signer, or routing issues that prevented a packet from being released or that remained visible at dispatch time.</li>
+<li><strong>Kind:</strong> review-queue</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Hold showing beneficiary-screening refresh expired before suspicious-wire dispatch approval completed</li>
+<li>Hold showing one medically significant follow-up narrative still missing before expedited safety dispatch could proceed</li>
+<li>Hold showing one facility remained outside approved cold-chain command scope so the packet stayed partially blocked</li>
+<li>Hold showing one draft annex remained outside the approved reviewer audience so the benchmark packet stayed blocked at dispatch</li>
+</ul>
+<h3 id="dispatch-audit-log">Dispatch audit log<a class="headerlink" href="#dispatch-audit-log" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Durable record of packet versions, approval requests, hold changes, duplicate merges, dispatch releases, and manual overrides across the approval-gated dispatch loop.</li>
+<li><strong>Kind:</strong> audit-log</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Log of who approved the suspicious-wire packet, which queue boundary was authorized, and why an earlier packet revision was superseded</li>
+<li>Audit trail showing when the safety packet entered expedited review and which protected-routing policy version applied</li>
+<li>Command-center dispatch log showing hold removals, queue release time, and any blocked attempts to broaden facility scope</li>
+<li>Disclosure-governance dispatch log showing reviewer-boundary checks, packet release time, and blocked attempts to broaden benchmark draft access</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in high-consequence monitoring environments where triage packets are already assembled and prioritized, but crossing into protected downstream escalation lanes still requires explicit human approval and visible hold discipline.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Event and case-management systems that store triaged packets and duplicate lineage</li>
+<li>Approval-routing, signer, and policy-governance tooling</li>
+<li>Restricted queue, command-channel, or review-lane systems</li>
+<li>Audit, hold-tracking, and packet-version stores</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Human approver such as a fraud lead, safety reviewer, or operations duty manager</li>
+<li>Queue owner or command-channel steward who receives approved packets downstream</li>
+<li>Governance owner responsible for dispatch rules, signer roles, and protected routing boundaries</li>
+<li>Domain specialist who may request clarification on held packet state without changing the downstream response itself</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Treat the triage packet as an upstream input; do not re-score severity, settle factual truth, or expand into root-cause investigation inside this workflow.</li>
+<li>Bind approval to one exact packet version and one downstream queue, channel, or review-lane boundary so broader response scope cannot inherit stale approval implicitly.</li>
+<li>Keep blocked, stale, duplicate, or scope-conflicted conditions explicit in the dispatch manifest and hold register rather than normalizing them away.</li>
+<li>Stop at governed packet release, manifesting, and audit state; do not choose the response authority, recommend the operational action, collaborate on one shared response artifact, or execute the response itself.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Upstream monitoring and triage workflows already produced a bounded packet with sufficient context for controlled dispatch review.</li>
+<li>The organization can define stable signer roles, queue boundaries, and protected downstream lanes for the triage classes covered by this pattern.</li>
+<li>Downstream responders or reviewers can consume the released packet without requiring this workflow to re-open full source-signal analysis.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Monitoring (<code>monitoring</code>):</strong> The workflow watches triaged packets, approval windows, lane state, and hold freshness continuously so dispatch does not stall or proceed on stale packet conditions.</li>
+<li><strong>Retrieval (<code>retrieval</code>):</strong> Safe dispatch depends on pulling the latest packet version, signer state, duplicate lineage, and protected-routing metadata before release decisions are surfaced.</li>
+<li><strong>Triage (<code>triage</code>):</strong> Even after packet assembly, the workflow still prioritizes which dispatch-ready packets should move first into scarce restricted lanes and which must remain held.</li>
+<li><strong>Coordination (<code>coordination</code>):</strong> Approvers, queue stewards, and downstream lane boundaries must stay aligned so the released packet reaches the correct controlled destination with visible ownership.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> The workflow reads packet stores, approval systems, routing registries, and audit services, then writes manifests, holds, and dispatch events through tools.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Dispatch class, signer requirements, freshness windows, protected lane boundaries, and escalation restrictions determine whether release may occur.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Packet supersession, duplicate merges, approval lineage, blocked dispatch attempts, and hold changes must remain durable across repeated dispatch cycles.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> The workflow needs safe fallbacks when signer state is incomplete, packet freshness lapses, routing metadata conflicts, or dispatch would exceed the bounded downstream lane.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Approval-gated execution (<code>approval-gated-execution</code>):</strong> The packet is technically ready for downstream release but remains concretely blocked until explicit approval unlocks dispatch into the protected queue or command lane.</li>
+<li><strong>Event-driven monitoring (<code>event-driven-monitoring</code>):</strong> Dispatch eligibility changes as new triaged packets arrive, holds clear, approvals expire, or protected lane state updates, so the pattern naturally runs as an event-driven gate.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> Human approvers remain in the normal path because releasing a triaged packet into a restricted escalation lane is consequential even though the downstream response is still out of scope.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Approval gated (<code>approval-gated</code>)</li>
+<li><strong>Reversibility:</strong> Dispatch approval can be withdrawn or superseded while the packet remains at the gate, but once an incorrect packet enters a protected downstream lane it may trigger irreversible human mobilization, customer concern, or regulatory timing pressure even though this workflow itself does not execute the response.</li>
+<li><strong>Escalation:</strong> Escalate whenever packet freshness is uncertain, signer authority conflicts, the requested lane exceeds the approved boundary, duplicate lineage is unresolved, or the next requested step would choose response authority, recommend action, verify underlying truth, or perform downstream execution.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Approve the packet classes, signer roles, protected downstream lanes, and freshness rules before routine triage dispatch begins.</li>
+<li>Review the exact packet version, hold register, and dispatch manifest before releasing any packet into a restricted queue, command channel, or expedited review lane.</li>
+<li>Approve changes to signer logic, queue boundaries, duplicate-handling rules, or dispatch hold criteria before those changes affect future dispatches.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> High (<code>high</code>)</li>
+<li><strong>Failure impact:</strong> Misrouting, delaying, or over-broadly releasing a high-consequence triage packet can trigger unnecessary escalations, hide urgent cases behind stale holds, or send sensitive cases into the wrong restricted lane, creating significant operational, financial, compliance, or trust harm even before any downstream response is chosen.</li>
+<li><strong>Auditability:</strong> Preserve packet identifiers and versions, triage lineage references, hold reasons, signer identities, approval timestamps, downstream lane boundaries, blocked dispatch attempts, manual overrides, and supersession history so reviewers can reconstruct exactly what was released and why.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Human approval is required before any triaged packet is released into a protected escalation queue, command channel, expedited review lane, or equivalent downstream handoff boundary.</li>
+<li>Governance-owner approval is required before changing signer roles, protected lane definitions, freshness windows, duplicate-merging rules, or dispatch-hold criteria for future runs.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Limit broad dispatch artifacts to the minimum case context needed for downstream intake, leaving sensitive personal, financial, patient, or shipment details in narrower governed systems when possible.</li>
+<li>Keep signer evidence, held annexes, and protected identifiers inside restricted stores rather than copying them into every downstream queue view.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restrict write access to packet versions, dispatch manifests, queue-boundary mappings, and approval records because tampering could suppress urgent escalation or release the wrong case into a sensitive lane.</li>
+<li>Log manual dispatch overrides, signer substitutions, lane-boundary edits, and hold removals so hidden bypass of the approval gate remains detectable.</li>
+</ul>
+<p><strong>Notes:</strong> High risk fits because the workflow determines whether a severe triage packet may cross a protected operational boundary, while still remaining distinct from the recommendation, verification, collaboration, and execution work that follows.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Useful dispatch gating depends on interpreting evolving packet state, approval readiness, duplicate lineage, and protected-lane scope rather than blindly forwarding every triaged case.</li>
+<li>The workflow must keep one exact packet version, one downstream boundary, and one visible hold state aligned across multiple systems and human checkpoints.</li>
+<li>Safe behavior requires recognizing when uncertainty about packet freshness, scope, or authority should block dispatch instead of being compressed into a superficially ready handoff.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="approval-is-attached-to-the-wrong-triage-packet-revision-or-downstream-lane-boundary">Approval is attached to the wrong triage packet revision or downstream lane boundary<a class="headerlink" href="#approval-is-attached-to-the-wrong-triage-packet-revision-or-downstream-lane-boundary" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> A stale or mis-scoped packet is released into a protected queue or command lane, creating confusion, duplicated mobilization, or reliance on the wrong case context.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Bind approval to explicit packet ids, revision hashes, and downstream boundary identifiers.</li>
+<li>Block dispatch whenever the packet changes after approval review starts or when lane metadata is incomplete.</li>
+</ul>
+<h3 id="hidden-holds-or-stale-context-are-normalized-away-before-dispatch">Hidden holds or stale context are normalized away before dispatch<a class="headerlink" href="#hidden-holds-or-stale-context-are-normalized-away-before-dispatch" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Downstream responders believe the packet is cleared for intake even though freshness windows, duplicate state, or protected-context constraints should still be visible.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Represent holds explicitly in the manifest and queue release record instead of collapsing them into generic ready status.</li>
+<li>Recheck freshness, duplicate lineage, and protected-lane constraints immediately before dispatch release.</li>
+</ul>
+<h3 id="the-workflow-drifts-into-authority-selection-recommendation-or-response-execution">The workflow drifts into authority selection, recommendation, or response execution<a class="headerlink" href="#the-workflow-drifts-into-authority-selection-recommendation-or-response-execution" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Family boundaries blur and the dispatch gate begins deciding who should act or what should be done rather than only governing the handoff boundary.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Limit outputs to approved dispatch records, manifests, hold registers, and audit logs.</li>
+<li>Route authority choice, response design, shared response drafting, truth verification, and live action into adjacent patterns instead of handling them inline.</li>
+</ul>
+<h3 id="duplicate-severe-packets-are-dispatched-separately-into-the-same-restricted-lane">Duplicate severe packets are dispatched separately into the same restricted lane<a class="headerlink" href="#duplicate-severe-packets-are-dispatched-separately-into-the-same-restricted-lane" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Reviewers or responders receive fragmented context and may treat one underlying case as multiple unrelated emergencies.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Preserve duplicate lineage and blocked-split rules across packet revisions.</li>
+<li>Require reviewer-visible merge rationale before multiple packets for the same underlying case may be dispatched concurrently.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Median time from a packet becoming dispatch-eligible to an approval-bound release or explicit hold decision.</li>
+<li>Rate of approved packets that enter the intended downstream lane without later scope correction, duplicate collapse, or approval-boundary dispute.</li>
+<li>Percentage of materially stale, mis-scoped, or signer-incomplete packets correctly held before dispatch.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Every released packet shows the exact packet revision, downstream lane boundary, signer set, unresolved holds, and the point where triage dispatch stopped.</li>
+<li>Dispatch logs preserve enough lineage to reconstruct why one packet moved downstream while another remained held.</li>
+<li>The workflow stays bounded at governed dispatch release rather than deciding response authority, validating deeper truth claims, or executing follow-on work.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test packet supersession during approval review and confirm the older revision cannot be dispatched silently.</li>
+<li>Test expired freshness windows, missing signer state, or protected-lane changes and verify the workflow emits explicit holds instead of releasing optimistically.</li>
+<li>Test duplicate severe packets with overlapping evidence and ensure the workflow preserves one coherent dispatch boundary or escalates the split for human review.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate dispatch-timeliness, boundary discipline, and lineage integrity together; a faster handoff is not success if it releases stale packets or hides the exact approval scope.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep packet-watch, freshness and hold checks, manifest assembly, approval capture, and downstream release as explicit stages over one durable dispatch state.</li>
+<li>Prefer append-only approval and dispatch records so reviewers can inspect repeated attempts, blocked releases, and packet supersession without diffing opaque state.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations integrate triage packet stores, approval systems, restricted queue or command tooling, and audit services.</li>
+<li>Keep the pattern neutral about specific fraud, safety, logistics, or case-management vendors so the reusable dispatch shape remains stable.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with one tightly bounded triage class and one protected downstream lane before expanding approval-gated dispatch across broader severe-case programs.</li>
+<li>Monitor blocked-dispatch frequency, stale-packet rates, and wrong-lane corrections continuously because approval gating can silently drift into either bottlenecking urgent cases or normalizing unsafe releases.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/monitor-detect-triage/">docs/patterns/monitor-detect-triage.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Finance (<code>finance</code>):</strong> Release a suspicious-payment packet into a restricted fraud-review lane only after dual-control approval confirms the exact case revision and queue boundary.</li>
+<li><strong>Compliance (<code>compliance</code>):</strong> Dispatch an already-triaged safety-signal packet into expedited medical review only after a qualified reviewer approves the packet version and protected routing scope.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Send a cold-chain excursion packet into a network command-center intake lane only after duty-manager approval confirms the facility scope and command boundary.</li>
+<li><strong>HR (<code>hr</code>):</strong> Release a work-authorization lapse triage packet into a restricted immigration-compliance review lane only after HR compliance approval confirms the exact packet revision, privacy scope, and reviewer boundary.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../risk-alert-triage/">Risk alert triage</a> (often-precedes)</li>
+<li>Broader governed alert triage often assembles and prioritizes the packet that this pattern later holds at an explicit approval gate before downstream release.</li>
+<li><a href="../critical-signal-corroboration-triage/">Critical signal corroboration triage</a> (often-precedes)</li>
+<li>Severe corroborated cases may enter this pattern once the critical packet exists and the remaining question is whether it may cross into a protected command or review lane.</li>
+<li><a href="../../recommend-decide-escalate/critical-escalation-authority-recommendation/">Critical escalation authority recommendation</a> (contrasts-with)</li>
+<li>That recommendation pattern helps choose which authority or response lane should own a severe case, while this pattern assumes the downstream lane is already bounded and governs only approved packet release.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/compliance/serious-safety-signal-triage-packet-approved-for-expedited-medical-review-dispatch/">Serious safety signal triage packet approved for expedited medical-review dispatch</a></li>
+<li><a href="../../../instances/finance/suspicious-wire-triage-packet-approved-for-restricted-fraud-review-dispatch/">Suspicious wire triage packet approved for restricted fraud-review dispatch</a></li>
+<li><a href="../../../instances/hr/work-authorization-lapse-triage-packet-approved-for-restricted-immigration-compliance-review-dispatch/">Work authorization lapse triage packet approved for restricted immigration-compliance review dispatch</a></li>
+<li><a href="../../../instances/operations/cold-chain-excursion-triage-packet-approved-for-network-command-center-dispatch/">Cold-chain excursion triage packet approved for network command-center dispatch</a></li>
+<li><a href="../../../instances/research/benchmark-study-disclosure-risk-triage-packet-approved-for-restricted-disclosure-governance-review-dispatch/">Benchmark-study disclosure-risk triage packet approved for restricted disclosure-governance review dispatch</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/monitor-detect-triage/approval-gated-triage-dispatch.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

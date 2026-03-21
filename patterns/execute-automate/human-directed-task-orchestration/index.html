@@ -1,0 +1,1527 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Human-directed task orchestration - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#human-directed-task-orchestration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Human-directed task orchestration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directed-execution-charter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directed execution charter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-procedure-and-control-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current procedure and control rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#live-system-and-case-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Live system and case state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prior-step-ledger-and-takeover-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prior step ledger and takeover context
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directed-execution-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directed execution ledger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verified-operational-state-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verified operational state record
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#takeover-or-resumption-packet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Takeover or resumption packet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-evidence-and-control-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution evidence and control trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-workflow-infers-an-unapproved-next-step-from-earlier-context-instead-of-waiting-for-explicit-human-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The workflow infers an unapproved next step from earlier context instead of waiting for explicit human direction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-state-is-stale-or-contradictory-when-the-next-directed-action-executes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification state is stale or contradictory when the next directed action executes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#takeover-or-resumption-state-omits-partial-changes-or-pending-holds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Takeover or resumption state omits partial changes or pending holds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directed-execution-drifts-into-planning-or-collaborative-drafting-instead-of-live-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directed execution drifts into planning or collaborative drafting instead of live action
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="human-directed-task-orchestration">Human-directed task orchestration<a class="headerlink" href="#human-directed-task-orchestration" title="Permanent link">&para;</a></h1>
+<p>Execute consequential multi-step work under explicit human step direction, with the agent carrying out instructed actions, preserving authoritative execution state, verifying each step, and packaging safe takeover or resumption when humans pause, redirect, or assume control.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>human-directed-task-orchestration</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/execute-automate/">Execute / Automate</a></li>
+<li><strong>Problem structure:</strong> Exception-aware orchestration (<code>exception-aware-orchestration</code>)</li>
+<li><strong>Domains:</strong> Engineering (<code>engineering</code>), Operations (<code>operations</code>), Compliance (<code>compliance</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Complete a consequential operator-directed procedure across tools and systems while keeping each significant step tied to explicit human instruction, verified current state, and takeover-safe execution records.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="directed-execution-charter">Directed execution charter<a class="headerlink" href="#directed-execution-charter" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The named human lead, current objective, allowed procedure scope, protected boundaries, and explicit statement that the workflow is for directed execution rather than planning or open-ended collaboration.</li>
+<li><strong>Kind:</strong> execution-order</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Incident commander directs a live remediation sequence for a production outage while keeping database failover authority reserved for a named responder</li>
+<li>Sanctions remediation lead authorizes immediate blocking, evidence preservation, and queue updates but forbids any regulator filing without separate approval</li>
+</ul>
+<h3 id="current-procedure-and-control-rules">Current procedure and control rules<a class="headerlink" href="#current-procedure-and-control-rules" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The approved runbook fragments, step prerequisites, no-go conditions, verification requirements, and takeover rules that constrain which directed actions may be executed.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Emergency service-recovery procedure requiring metric verification before each rollback or traffic move</li>
+<li>Cold-chain containment procedure defining hold-code entry, reroute preconditions, and chain-of-custody evidence requirements</li>
+</ul>
+<h3 id="live-system-and-case-state">Live system and case state<a class="headerlink" href="#live-system-and-case-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Current telemetry, records, task context, approvals already in force, and environmental conditions needed to decide whether the next human-directed step is still safe to run.</li>
+<li><strong>Kind:</strong> execution-state</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Current incident metrics, feature-flag state, node health, and open mitigation notes during a payments outage bridge</li>
+<li>Shipment temperature readings, trailer locations, lot holds, and vendor-response status during a cold-chain excursion</li>
+</ul>
+<h3 id="prior-step-ledger-and-takeover-context">Prior step ledger and takeover context<a class="headerlink" href="#prior-step-ledger-and-takeover-context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Durable history of completed steps, partial actions, human instructions, verification results, and any earlier handoff or pause state already accumulated in the same execution window.</li>
+<li><strong>Kind:</strong> stage-history</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Ledger showing that traffic was narrowed, one cache flush completed, and the bridge lead requested human review before a database restart</li>
+<li>Resume packet showing that account blocks were applied but one sanctions-screening queue remains on hold pending legal review</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="directed-execution-ledger">Directed execution ledger<a class="headerlink" href="#directed-execution-ledger" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Authoritative record of human instructions received, actions executed, verification outcomes, skipped or blocked steps, and the current procedure status.</li>
+<li><strong>Kind:</strong> execution-result</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Timeline linking each incident-command instruction to the corresponding remediation action, health check, and remaining held steps</li>
+<li>Step ledger showing which cold-chain lots were isolated, which reroutes were completed, and which supervisory approvals still gate field pickup</li>
+</ul>
+<h3 id="verified-operational-state-record">Verified operational state record<a class="headerlink" href="#verified-operational-state-record" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Current state snapshot showing what is now true in the target systems after the directed steps completed, partially completed, or halted.</li>
+<li><strong>Kind:</strong> state-record</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Verified production state showing the rolled-back service version, current error rate, and remaining degraded dependencies after guided remediation</li>
+<li>Compliance control state showing which accounts are blocked, which transactions are held, and which remediation tasks remain open after directed sanctions action</li>
+</ul>
+<h3 id="takeover-or-resumption-packet">Takeover or resumption packet<a class="headerlink" href="#takeover-or-resumption-packet" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured handoff that preserves pending steps, current evidence, partial changes, and boundary notes so a human or successor workflow can continue safely without rediscovery.</li>
+<li><strong>Kind:</strong> escalation-packet</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Packet for the database platform team showing completed bridge actions, current lock contention, and the exact step where the incident commander requested takeover</li>
+<li>Resumption packet for a sanctions counsel review showing completed account holds, unresolved entity matches, and blocked next actions</li>
+</ul>
+<h3 id="execution-evidence-and-control-trace">Execution evidence and control trace<a class="headerlink" href="#execution-evidence-and-control-trace" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Durable audit trail of tool actions, state checks, human directives, boundary confirmations, and any manual overrides or pauses taken during the run.</li>
+<li><strong>Kind:</strong> audit-log</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Trace linking shell commands, feature-flag updates, incident-channel instructions, and post-step telemetry checks during a live outage response</li>
+<li>Audit record tying cold-chain system updates, supervisor directions, and chain-of-custody confirmations to each completed emergency step</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in consequential live procedures where humans retain control of the significant steps, but agents add value by executing directed actions quickly across tools, carrying forward durable state, verifying the effect of each step, and making pauses or takeovers safe when conditions change.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Incident, case, or command-management systems</li>
+<li>Operational control planes, APIs, or workflow consoles</li>
+<li>Monitoring, verification, and evidence systems</li>
+<li>Audit stores and handoff ledgers</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Human incident, operations, or compliance lead directing the work</li>
+<li>Agent executor carrying out instructed steps and recording state</li>
+<li>Domain specialist who may take over a blocked or escalated branch</li>
+<li>Risk, security, or audit reviewer</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Do not infer or expand significant next steps beyond explicit human direction and declared procedure scope.</li>
+<li>Re-verify current state after each consequential action before the workflow accepts another directed step as safe to run.</li>
+<li>Preserve one authoritative step ledger so pauses, redirects, and takeovers do not create conflicting accounts of current state.</li>
+<li>Stop and package handoff context when a requested action would cross policy, authority, or reversibility boundaries that the directing human has not explicitly cleared.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A named human lead remains available to direct significant steps, confirm branch changes, and own irreversible or high-blast-radius decisions.</li>
+<li>Target systems expose enough confirmation signals for the workflow to verify each directed step before continuing.</li>
+<li>Adjacent recommendation, planning, and collaborative workflows may feed context into this pattern, but they do not replace the explicit action-first execution loop.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Action execution (<code>action-execution</code>):</strong> The workflow must carry out real operational steps that change live system or case state rather than only drafting guidance.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> Directed execution requires using operational consoles, APIs, tickets, and evidence systems while humans stay focused on control decisions.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> The workflow needs durable step memory so humans can redirect or resume the procedure without losing authoritative state.</li>
+<li><strong>Verification (<code>verification</code>):</strong> Each significant step must be checked against live signals before the next directed action proceeds.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> The system must enforce declared boundaries, reversible-versus-irreversible distinctions, and takeover conditions during execution.</li>
+<li><strong>Coordination (<code>coordination</code>):</strong> Human leads, agent executors, and specialist responders need one shared procedure state so directed steps and takeovers remain aligned.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> The workflow must recognize when verification failure, state drift, or unclear instructions require a pause, redirect, or human takeover instead of forced continuation.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Tool-using single agent (<code>tool-using-single-agent</code>):</strong> One execution agent can often carry out the instructed tool actions, maintain the step ledger, and verify state between directives while leaving consequential branching decisions to humans.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> The pattern is defined by explicit human direction of significant steps, so normal operation always includes human review of procedure progress and next-action authority.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Human directed (<code>human-directed</code>)</li>
+<li><strong>Reversibility:</strong> Some directed steps can be retried or rolled back, but the broader procedure often mixes reversible and partially irreversible actions, so harm can compound quickly if the workflow executes an instruction against stale or misunderstood state.</li>
+<li><strong>Escalation:</strong> Escalate whenever the next requested step is ambiguous, current verification signals disagree, authority boundaries are unclear, or safe continuation would require the agent to choose the procedure rather than execute it.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Confirm the directed execution scope, named human lead, protected boundaries, and initial step sequence before any live action begins.</li>
+<li>Review verified state after each significant step or branch point before authorizing the next consequential action.</li>
+<li>Approve any takeover, boundary change, or irreversible step before the workflow resumes or hands control to another responder.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> Critical (<code>critical</code>)</li>
+<li><strong>Failure impact:</strong> Mis-executed human-directed procedures can prolong outages, move unsafe physical inventory, freeze or release the wrong regulated activity, or otherwise create severe operational, safety, legal, or customer harm because the workflow is already acting on live systems under pressure.</li>
+<li><strong>Auditability:</strong> Preserve each human instruction, state snapshot, tool action, verification result, pause, takeover packet, and manual override so reviewers can reconstruct exactly how the directed execution progressed.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A named human lead must authorize entry into the directed execution loop and remain accountable for significant branch choices, takeover decisions, and irreversible actions.</li>
+<li>Material changes to procedure templates, takeover rules, or authority boundaries require governance approval before future directed runs may rely on them.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Limit copied incident, shipment, customer, counterparty, or case detail to the minimum needed for directed execution and governed handoff.</li>
+<li>Keep sensitive evidence in approved audit stores or restricted annexes when broad procedural visibility does not require full raw detail.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use least-privilege credentials for the execution agent and separate privileged takeover authority from ordinary directed steps where possible.</li>
+<li>Log every state-changing action and human directive so silent scope expansion or off-record execution remains detectable.</li>
+</ul>
+<p><strong>Notes:</strong> Critical-risk governance fits because the workflow performs live consequential work under time pressure, yet remains family-clean by requiring explicit human direction of significant steps rather than autonomous branching or broad collaborative authorship.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Directed live procedures benefit from an agent that can translate human instructions into tool actions, verification checks, and durable state updates faster than manual swivel-chair execution.</li>
+<li>Safe performance depends on preserving context across pauses, redirects, and partial completion so humans can continue the procedure without reconstructing what already happened.</li>
+<li>The workflow must decide when not to act because ambiguous instructions, stale state, or verification conflicts are themselves critical signals during guided execution.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="the-workflow-infers-an-unapproved-next-step-from-earlier-context-instead-of-waiting-for-explicit-human-direction">The workflow infers an unapproved next step from earlier context instead of waiting for explicit human direction<a class="headerlink" href="#the-workflow-infers-an-unapproved-next-step-from-earlier-context-instead-of-waiting-for-explicit-human-direction" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> A consequential action occurs outside the human's intended branch, widening impact or violating governance boundaries.</li>
+<li><strong>Severity:</strong> critical</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Require explicit human confirmation for each significant next step and record that instruction in the authoritative ledger.</li>
+<li>Block continuation when the requested action cannot be tied to the current directed scope and boundary rules.</li>
+</ul>
+<h3 id="verification-state-is-stale-or-contradictory-when-the-next-directed-action-executes">Verification state is stale or contradictory when the next directed action executes<a class="headerlink" href="#verification-state-is-stale-or-contradictory-when-the-next-directed-action-executes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The workflow continues the procedure against an outdated reality, increasing the chance of unsafe or ineffective action.</li>
+<li><strong>Severity:</strong> critical</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Re-read authoritative system state before and after each consequential action.</li>
+<li>Treat conflicting confirmation signals as a pause-and-escalate condition rather than a warning to ignore.</li>
+</ul>
+<h3 id="takeover-or-resumption-state-omits-partial-changes-or-pending-holds">Takeover or resumption state omits partial changes or pending holds<a class="headerlink" href="#takeover-or-resumption-state-omits-partial-changes-or-pending-holds" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The human or successor workflow repeats, skips, or misunderstands steps, creating duplicate action or control gaps during a high-pressure handoff.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Keep one append-only step ledger with explicit completed, pending, blocked, and reversed statuses.</li>
+<li>Package current system state, partial actions, and blocked next steps together whenever execution pauses or transfers.</li>
+</ul>
+<h3 id="directed-execution-drifts-into-planning-or-collaborative-drafting-instead-of-live-action">Directed execution drifts into planning or collaborative drafting instead of live action<a class="headerlink" href="#directed-execution-drifts-into-planning-or-collaborative-drafting-instead-of-live-action" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The workflow loses its execution-first boundary and operators cannot tell whether work has actually been carried through to operational state.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Limit outputs to execution ledgers, verified state records, takeover packets, and audit traces.</li>
+<li>Hand off planning, recommendation, or shared-artifact revision work to adjacent patterns rather than absorbing it into the step loop.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of directed execution runs completed or safely handed off without unauthorized branch expansion or lost step state.</li>
+<li>Rate of ambiguous, stale, or unsafe conditions caught before the next consequential directed action executes.</li>
+<li>Completeness of takeover packets and audit traces for paused, redirected, or escalated runs.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Every significant action is traceable to an explicit human directive and a verified current-state check.</li>
+<li>The workflow preserves one authoritative procedure ledger across pauses, redirects, and takeovers.</li>
+<li>{'Outputs remain execution-first': 'they show what operational work was completed, what remains blocked, and who must direct the next step.'}</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test contradictory live signals between directed steps and confirm the workflow pauses instead of guessing the safest branch.</li>
+<li>Test interrupted runs and verify a human can resume from the takeover packet without repeating or skipping prior actions.</li>
+<li>Test instructions that would cross scope or authority boundaries and ensure the workflow blocks them until a named human clears the change explicitly.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate step fidelity, verified state quality, and handoff safety together; rapid execution is not success if the workflow cannot prove which human-directed actions actually ran and what state they left behind.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Separate human instruction intake, state hydration, step execution, verification, and takeover packaging into explicit stages over shared durable procedure state.</li>
+<li>Keep the current directed step, verification result, and blocked-next-step reason visible as first-class data rather than only in operator chat or tool logs.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations integrate incident or case systems, operational control surfaces, observability tooling, and governed audit stores.</li>
+<li>Keep the pattern neutral about whether the directed execution uses shell commands, workflow consoles, operational APIs, or regulated case-management tools.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with critical guided procedures that already have named human leads, explicit branch boundaries, and strong verification signals.</li>
+<li>Review takeover quality, blocked-step frequency, and disagreement between human intent and executed steps early so the pattern stays sharply bounded at directed execution.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/execute-automate/">docs/patterns/execute-automate.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+<li><a href="../../../vocabularies/autonomy-levels/">data/vocabularies/autonomy-levels.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Engineering (<code>engineering</code>):</strong> Under an incident commander's live direction, execute a production remediation sequence across feature flags, service restarts, and verification checks while preserving exact step state for safe handoff to a specialist team.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Under a cold-chain supervisor's direction, isolate at-risk inventory, issue hold codes, reroute protected shipments, and verify chain-of-custody state after each emergency step.</li>
+<li><strong>Compliance (<code>compliance</code>):</strong> Under a sanctions remediation lead's direction, apply account blocks, transaction holds, and evidence-preservation steps while packaging unresolved branches for counsel takeover.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../exception-aware-task-execution/">Exception-aware task execution</a> (contrasts-with)</li>
+<li>Both patterns preserve state and safe escalation, but this one requires explicit human direction of significant steps instead of delegated routine execution inside a preapproved runbook.</li>
+<li><a href="../staged-change-execution-with-rollback-holds/">Staged change execution with rollback holds</a> (adjacent-to)</li>
+<li>Both patterns execute consequential operational work, but this one centers on stepwise human direction and takeover safety rather than predeclared stage progression with hold-release checkpoints.</li>
+<li><a href="../../plan-coordinate-schedule/critical-command-window-resequencing/">Critical command-window resequencing</a> (can-follow-from)</li>
+<li>A critical planning workflow may establish the current command sequence, after which this pattern carries the human-directed operational steps through live execution.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/compliance/sanctions-remediation-human-directed-procedural-execution/">Sanctions remediation human-directed procedural execution</a></li>
+<li><a href="../../../instances/engineering/production-incident-guided-remediation-task-orchestration/">Production incident guided remediation task orchestration</a></li>
+<li><a href="../../../instances/operations/cold-chain-emergency-supervised-step-through-task-orchestration/">Cold-chain emergency supervised step-through task orchestration</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/execute-automate/human-directed-task-orchestration.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

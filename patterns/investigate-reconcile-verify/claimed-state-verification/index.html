@@ -1,0 +1,1512 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Claimed state verification - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#claimed-state-verification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Claimed state verification
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#claimed-state-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claimed-state trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authoritative-evidence-sources-and-verification-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authoritative evidence sources and verification scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-policy-and-tolerance-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification policy and tolerance rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prior-verification-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prior verification state
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verification-verdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification verdict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evidence-and-provenance-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidence and provenance trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-follow-up-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification follow-up record
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-stale-or-lagging-evidence-source-is-treated-as-authoritative-proof-that-the-claim-is-confirmed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A stale or lagging evidence source is treated as authoritative proof that the claim is confirmed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-workflow-rejects-a-claim-that-is-still-inside-an-approved-propagation-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The workflow rejects a claim that is still inside an approved propagation delay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duplicate-triggers-create-conflicting-or-noisy-verdict-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duplicate triggers create conflicting or noisy verdict history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-workflow-drifts-into-repair-closure-propagation-or-root-cause-diagnosis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The workflow drifts into repair, closure propagation, or root-cause diagnosis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="claimed-state-verification">Claimed state verification<a class="headerlink" href="#claimed-state-verification" title="Permanent link">&para;</a></h1>
+<p>Detect or receive a low-risk claimed completion, publication, or propagation state and verify whether the claim is actually supported by authoritative evidence before humans rely on it, while stopping short of repair, reconciliation, or downstream execution.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>claimed-state-verification</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/investigate-reconcile-verify/">Investigate / Reconcile / Verify</a></li>
+<li><strong>Problem structure:</strong> Evidence-backed verification (<code>evidence-backed-verification</code>)</li>
+<li><strong>Domains:</strong> Engineering (<code>engineering</code>), HR (<code>hr</code>), Operations (<code>operations</code>), Research (<code>research</code>), Support (<code>support</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Confirm or disprove a bounded low-stakes claim about completion, publication, or state propagation by checking authoritative evidence, preserving an inspectable verification trail, and routing ambiguous cases to human follow-up without turning the workflow into repair, closure propagation, or broader diagnosis.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="claimed-state-trigger">Claimed-state trigger<a class="headerlink" href="#claimed-state-trigger" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> A trusted request, event, or declared status indicating that a bounded low-risk state should now hold and needs verification before others rely on it.</li>
+<li><strong>Kind:</strong> claim-event</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Internal package pipeline marks a release artifact bundle as published</li>
+<li>Knowledge operations marks a workaround article as live on the customer help surface</li>
+<li>Study owner records that a benchmark artifact freeze completed successfully</li>
+</ul>
+<h3 id="authoritative-evidence-sources-and-verification-scope">Authoritative evidence sources and verification scope<a class="headerlink" href="#authoritative-evidence-sources-and-verification-scope" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The approved systems, source-of-truth checks, and boundary rules that define which evidence may confirm or disprove the claim and which dependent surfaces remain out of scope.</li>
+<li><strong>Kind:</strong> verification-boundary</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Package registry, checksum manifest, and release-note publication records for one internal SDK version</li>
+<li>Approved knowledge-base, portal publication state, and mirror cache status for one article identifier</li>
+<li>Artifact registry, immutable object-store manifest, and governance packet references for one study freeze event</li>
+</ul>
+<h3 id="verification-policy-and-tolerance-rules">Verification policy and tolerance rules<a class="headerlink" href="#verification-policy-and-tolerance-rules" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Freshness windows, allowed lag, required corroborating fields, exception thresholds, and publication constraints that determine when the claim is confirmed, disproved, or held for human review.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Treat a package as verified only when registry version, checksum manifest, and release-note link agree within the allowed publication window</li>
+<li>Mark a help-center article claim inconclusive if portal publication succeeded but search indexing remains inside the approved delay tolerance</li>
+<li>Require human review when a study freeze claim lacks one immutable artifact hash even if the tracker shows completion</li>
+</ul>
+<h3 id="prior-verification-state">Prior verification state<a class="headerlink" href="#prior-verification-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Optional earlier verification runs, duplicate trigger history, or unresolved follow-up items used to avoid contradictory verdicts and to preserve continuity across retries.</li>
+<li><strong>Kind:</strong> verification-state</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Previous partial verification showing package assets published while docs publication lagged</li>
+<li>Earlier article-verification run waiting on cache refresh</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="verification-verdict">Verification verdict<a class="headerlink" href="#verification-verdict" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Explicit confirmed, disproved, or inconclusive result for the claimed state, with the specific evidence and policy basis for that outcome.</li>
+<li><strong>Kind:</strong> verdict</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Confirmed that all in-scope package publication artifacts match the claimed version</li>
+<li>Disproved a workaround-publication claim because the customer portal still serves the prior article revision</li>
+<li>Inconclusive freeze verification because one immutable manifest reference is missing</li>
+</ul>
+<h3 id="evidence-and-provenance-trace">Evidence and provenance trace<a class="headerlink" href="#evidence-and-provenance-trace" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Ordered trace showing which authoritative checks ran, what source versions were observed, what tolerances were applied, and which items remained unresolved.</li>
+<li><strong>Kind:</strong> trace</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Trace linking registry query results, checksum manifest version, and release-note publication timestamp</li>
+<li>Evidence ledger showing portal state, help-center API response, and search-index freshness window</li>
+</ul>
+<h3 id="verification-follow-up-record">Verification follow-up record<a class="headerlink" href="#verification-follow-up-record" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured handoff for stale evidence, ambiguous results, or out-of-scope discrepancies that need human interpretation or a downstream repair workflow.</li>
+<li><strong>Kind:</strong> follow-up-record</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Follow-up noting that one mirrored documentation surface remains stale beyond the allowed lag threshold</li>
+<li>Review record showing that an artifact-freeze claim cannot be confirmed because the immutable manifest is absent</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in low-risk operational workflows where people receive claimed completion or publication states from bounded systems and need independent evidence-backed confirmation before trusting those states for routine coordination, reporting, or handoff.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Event feeds, trackers, or status records that carry the claimed state</li>
+<li>Authoritative source systems or registries used to confirm the claim</li>
+<li>Audit or verification log stores</li>
+<li>Optional queue or case system for inconclusive follow-up</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Workflow or content owner who defines the allowed claimed-state triggers</li>
+<li>Analyst, coordinator, or service owner who consumes the verification result</li>
+<li>Governance steward who approves evidence scope and tolerance rules</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Stop at confirming or disproving the claim; do not repair records, propagate completion state, or launch unrelated downstream execution automatically.</li>
+<li>Recheck authoritative evidence before issuing a positive verdict so stale events or lagging mirrors are not mistaken for confirmed state.</li>
+<li>Keep inconclusive or out-of-scope cases visible instead of forcing a binary answer when evidence quality is insufficient.</li>
+<li>Preserve source versions, timestamps, and policy checks so later reviewers can reconstruct why the claim was accepted or rejected.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The claimed states are low stakes enough that a delayed or incorrect verification usually causes localized confusion or rework rather than material regulatory, financial, or safety harm.</li>
+<li>Authoritative evidence sources expose enough identifiers and freshness metadata to support a defensible verification verdict.</li>
+<li>Humans remain available to decide whether an unverified or disproved claim should trigger repair, escalation, or broader investigation.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Monitoring (<code>monitoring</code>):</strong> Many verification requests begin when a claimed state-change event or status update arrives and must be checked promptly rather than only through ad hoc manual review.</li>
+<li><strong>Retrieval (<code>retrieval</code>):</strong> The workflow must gather authoritative evidence from the approved source systems before it can confirm or disprove the claim.</li>
+<li><strong>Verification (<code>verification</code>):</strong> The core task is checking whether the claimed state actually holds against independent evidence, freshness rules, and required corroboration.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> The workflow queries registries, publication systems, manifests, or status APIs and records its verdict through tools rather than text-only reasoning.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Duplicate triggers, lagging evidence, and unresolved verification runs require durable state so later checks do not contradict earlier results silently.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Scope rules, allowed lag, required corroboration, and escalation thresholds determine when a claim may be confirmed versus held for human follow-up.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> Safe operation depends on routing stale evidence, missing corroboration, and out-of-scope discrepancies into explicit follow-up instead of fabricating certainty.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Event-driven monitoring (<code>event-driven-monitoring</code>):</strong> The workflow commonly starts from a claimed completion or publication event and reacts by running bounded verification checks against authoritative evidence, rather than by continuously triaging alerts.</li>
+<li><strong>Tool-using single agent (<code>tool-using-single-agent</code>):</strong> One bounded agent can usually fetch the relevant evidence, apply freshness and corroboration rules, and emit an inspectable verdict without multi-agent specialization.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Bounded delegation (<code>bounded-delegation</code>)</li>
+<li><strong>Reversibility:</strong> Verification verdicts and traces can usually be recomputed or superseded as evidence catches up because the workflow records a conclusion about state rather than making consequential downstream changes itself.</li>
+<li><strong>Escalation:</strong> Escalate whenever authoritative evidence conflicts materially, freshness falls outside approved tolerances, the claim touches a higher-risk or regulated state, or the next requested step would require repair, publication, or closure propagation instead of verification.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Approve which claimed-state triggers are in scope, which systems count as authoritative evidence, and which lag or mismatch conditions remain acceptable before delegated verification begins.</li>
+<li>Review inconclusive, repeatedly failing, or scope-expanding cases before any downstream repair, communication, or workflow transition occurs.</li>
+<li>Approve changes to evidence requirements, tolerated lag, or covered state types before those rules affect live verification runs.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> Low (<code>low</code>)</li>
+<li><strong>Failure impact:</strong> Incorrect verification usually causes localized confusion, duplicate follow-up, or temporary reliance on an unconfirmed low-stakes state, but harm is generally inexpensive to detect and correct when the workflow stays bounded at evidence-backed confirmation.</li>
+<li><strong>Auditability:</strong> Preserve the trigger id and timestamp, evidence sources checked, observed source versions, policy version, verdict outcome, unresolved gaps, and any human overrides so reviewers can reconstruct exactly why the claim was confirmed, disproved, or left inconclusive.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Case-by-case approval is not required for in-scope verification runs that use preapproved evidence sources, verdict templates, and escalation rules.</li>
+<li>Human approval is required before expanding the workflow into record repair, customer or employee communication, external publication, or other downstream actions beyond verification.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Limit copied content to the identifiers, version markers, and excerpts needed to prove or disprove the claim rather than replicating entire source artifacts in the verification record.</li>
+<li>Keep logs and follow-up records scoped to the minimum necessary detail when support content, unpublished research assets, or internal engineering artifacts contain protected information.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use least-privilege read access to source systems and append-only audit logging where possible so verification cannot silently alter the state it is checking.</li>
+<li>Log rule changes, manual overrides, and repeated verification failures so unexpected drift in claimed-state quality remains visible.</li>
+</ul>
+<p><strong>Notes:</strong> Low-risk governance fits because the pattern remains bounded at confirmation or disproval of low-stakes states, keeps downstream action out of scope, and preserves a reversible verification trail.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Useful verification requires choosing the right authoritative checks, handling expected lag or partial propagation, and deciding when the evidence is sufficient rather than merely reading one status field.</li>
+<li>The workflow must preserve prior verdicts, duplicate events, and unresolved exceptions across runs so humans can see whether a claim is consistently failing or simply waiting on an allowed delay.</li>
+<li>Safe operation depends on recognizing when a claim can be answered inside delegated low-risk verification and when it should stop and hand off to reconciliation, investigation, or execution patterns.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="a-stale-or-lagging-evidence-source-is-treated-as-authoritative-proof-that-the-claim-is-confirmed">A stale or lagging evidence source is treated as authoritative proof that the claim is confirmed<a class="headerlink" href="#a-stale-or-lagging-evidence-source-is-treated-as-authoritative-proof-that-the-claim-is-confirmed" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Teams trust a claimed state that has not actually propagated or completed yet and may coordinate around incorrect information.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Recheck freshness metadata and require corroboration from more than one in-scope source when policy says propagation should be complete.</li>
+<li>Mark the result inconclusive when authoritative sources disagree inside the allowed lag window.</li>
+</ul>
+<h3 id="the-workflow-rejects-a-claim-that-is-still-inside-an-approved-propagation-delay">The workflow rejects a claim that is still inside an approved propagation delay<a class="headerlink" href="#the-workflow-rejects-a-claim-that-is-still-inside-an-approved-propagation-delay" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Humans receive avoidable exception work and lose trust in the verification process because expected timing behavior is treated as failure.</li>
+<li><strong>Severity:</strong> low</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Encode explicit tolerance windows and expected lag states in the verification policy.</li>
+<li>Preserve prior partial-verification history so repeat checks can distinguish waiting from genuine mismatch.</li>
+</ul>
+<h3 id="duplicate-triggers-create-conflicting-or-noisy-verdict-history">Duplicate triggers create conflicting or noisy verdict history<a class="headerlink" href="#duplicate-triggers-create-conflicting-or-noisy-verdict-history" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Reviewers struggle to tell whether the claim actually changed or whether the system reprocessed the same state repeatedly.</li>
+<li><strong>Severity:</strong> low</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Use stable identifiers for claims and verification runs so repeated events update one durable record.</li>
+<li>Make superseded or replayed verdicts explicit in the audit trail instead of appending ambiguous duplicates.</li>
+</ul>
+<h3 id="the-workflow-drifts-into-repair-closure-propagation-or-root-cause-diagnosis">The workflow drifts into repair, closure propagation, or root-cause diagnosis<a class="headerlink" href="#the-workflow-drifts-into-repair-closure-propagation-or-root-cause-diagnosis" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Family boundaries blur and a low-risk verification loop starts making decisions or changes that belong to adjacent patterns.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Limit outputs to verdicts, evidence traces, and follow-up records.</li>
+<li>Route unverified claims to downstream repair, reconciliation, or investigation workflows rather than handling them inline.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of in-scope claimed-state events that receive a verdict with complete evidence trace and correct scope classification.</li>
+<li>Rate of disproved or inconclusive claims detected before humans rely on the incorrect state for downstream coordination.</li>
+<li>Reviewer agreement that verification verdicts applied the right freshness rules and authoritative evidence sources.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Every positive verdict cites authoritative evidence rather than relying only on the triggering claim or tracker status.</li>
+<li>Inconclusive and disproved states remain explicit and inspectable rather than being flattened into optimistic completion language.</li>
+<li>The workflow stays bounded at verification and does not mutate authoritative records or perform closure propagation.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test duplicate claim events and verify the workflow preserves one coherent verification history rather than emitting contradictory verdicts.</li>
+<li>Test expected propagation lag and confirm the workflow distinguishes tolerated delay from true mismatch.</li>
+<li>Test missing or conflicting evidence and ensure the workflow emits an inconclusive result or follow-up record instead of guessing.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate verification quality together with evidence freshness discipline and boundary control; fast confirmation is not success if the workflow simply trusts the original claim.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep claim intake, authoritative evidence collection, policy evaluation, verdict emission, and follow-up routing as explicit stages over one durable verification record.</li>
+<li>Preserve prior partial results and duplicate-event handling so verification history stays inspectable across repeated checks.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations integrate trackers, publication systems, registries, artifact stores, and audit logs through status events or bounded polling.</li>
+<li>Keep the pattern neutral about specific package registries, knowledge bases, workflow engines, or artifact stores.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with narrow low-stakes state claims where authoritative evidence is already accessible and mismatches are visible enough to benchmark.</li>
+<li>Review repeated inconclusive verdicts and scope-expansion requests early so the workflow stays a verification pattern rather than growing into repair automation.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/investigate-reconcile-verify/">docs/patterns/investigate-reconcile-verify.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Engineering (<code>engineering</code>):</strong> Verify that an internal SDK publication claim is actually reflected in the approved package registry, checksum manifest, and release-note record before release coordinators rely on it.</li>
+<li><strong>HR (<code>hr</code>):</strong> Confirm that a claimed internal parental-leave guidance publication is actually live across the approved handbook repository, intranet surface, and mirror status endpoints before HR partners rely on the updated guidance link.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Confirm that a claimed rollout of updated warehouse quick-reference materials reached the approved kiosk and signage surfaces before supervisors treat the update as complete.</li>
+<li><strong>Research (<code>research</code>):</strong> Check that a benchmark-study artifact freeze claim is supported by immutable manifest hashes and registry state before governance reviewers assume the evidence bundle is fixed.</li>
+<li><strong>Support (<code>support</code>):</strong> Verify that a claimed workaround-article publication is live on the authorized support surfaces before case teams cite it to customers.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../authoritative-record-reconciliation/">Authoritative record reconciliation</a> (contrasts-with)</li>
+<li>This pattern confirms or disproves a bounded state claim, while authoritative record reconciliation restores trusted state across conflicting records and stages corrections.</li>
+<li><a href="../../execute-automate/workflow-hand-off-and-completion/">Workflow hand-off and completion</a> (contrasts-with)</li>
+<li>Both may react to state-change events, but this pattern stops at verifying that a claimed state is true instead of propagating downstream completion or closure updates.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/engineering/internal-sdk-release-asset-publication-verification/">Internal SDK release asset publication verification</a></li>
+<li><a href="../../../instances/hr/internal-parental-leave-guidance-publication-verification/">Internal parental leave guidance publication verification</a></li>
+<li><a href="../../../instances/operations/warehouse-slotting-reference-rollout-verification/">Warehouse slotting reference rollout verification</a></li>
+<li><a href="../../../instances/research/benchmark-study-artifact-freeze-completion-verification/">Benchmark study artifact freeze completion verification</a></li>
+<li><a href="../../../instances/support/premium-support-advisory-macro-publication-verification/">Premium support advisory macro publication verification</a></li>
+<li><a href="../../../instances/support/premium-support-workaround-article-publication-verification/">Premium support workaround article publication verification</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/investigate-reconcile-verify/claimed-state-verification.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

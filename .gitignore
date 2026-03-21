@@ -1,0 +1,104 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.python-version
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+.cache/
+
+# Generated artifacts
+site/
+public/
+out/
+generated/
+exports/
+
+# Local env / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets/
+credentials/
+*.token
+
+# Tooling state
+claude-project.json
+.cursor/
+.copilot/
+.codex/
+
+# Agent runtime artifacts
+.agent/runs/
+.agent/tmp/
+.agent/*.pid
+.agent/*.lock
+.agent/*.sock
+
+# Keep prompt sources and memory, ignore transient execution output
+!.agent/
+!.agent/prompts/
+!.agent/prompts/*.txt
+!.agent/iterations/
+!.agent/iterations/**/*.md
+!.agent/mission.md
+!.agent/repo-map.md
+!.agent/ontology-status.yaml
+!.agent/current-plan.md
+!.agent/backlog.yaml
+!.agent/decisions.md
+!.agent/glossary.md
+!.agent/coverage-matrix.yaml
+!.python-version
+!uv.lock
+
+# Optional stop/control files you may not want committed
+.agent/stop.txt
+
+# macOS archive junk
+*.tar.gz
+*.zip
+*.7z

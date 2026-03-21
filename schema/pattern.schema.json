@@ -1,0 +1,599 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/agentic-workflows/schema/pattern.schema.json",
+  "title": "Agentic workflow pattern",
+  "description": "Canonical schema for YAML pattern entries in the agentic-workflows ontology. Many classification fields intentionally remain open to later controlled vocabularies rather than hardcoded Phase 1 enums.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "slug",
+    "name",
+    "summary",
+    "pattern_family",
+    "problem_structure",
+    "domain",
+    "workflow_goal",
+    "inputs",
+    "outputs",
+    "environment",
+    "capability_requirements",
+    "execution_architecture",
+    "autonomy_profile",
+    "risk_governance",
+    "why_agentic",
+    "failure_modes",
+    "evaluation",
+    "maturity",
+    "tags"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Stable canonical identifier in lower-kebab-case."
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Path-safe human-readable identifier, typically aligned with id."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3,
+      "description": "Display name for the pattern."
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Compact explanation of the reusable workflow pattern."
+    },
+    "pattern_family": {
+      "$ref": "#/$defs/vocabularyTerm",
+      "description": "Primary pattern family. Keep values compatible with a future controlled vocabulary rather than relying on Phase 1 enums."
+    },
+    "problem_structure": {
+      "$ref": "#/$defs/vocabularyTerm",
+      "description": "Primary reusable problem structure, designed to map to a later controlled vocabulary."
+    },
+    "domain": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/vocabularyTerm"
+      },
+      "description": "One or more domains where the pattern commonly appears. Values should stay vocabulary-friendly."
+    },
+    "workflow_goal": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Statement of what successful execution achieves."
+    },
+    "inputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/ioItem"
+      },
+      "description": "Structured description of workflow inputs."
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/ioItem"
+      },
+      "description": "Structured description of workflow outputs."
+    },
+    "environment": {
+      "$ref": "#/$defs/environment",
+      "description": "Operating context, systems, actors, and important constraints."
+    },
+    "capability_requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/capabilityRequirement"
+      },
+      "description": "Capabilities required by the pattern. Capability names should later align with a controlled vocabulary."
+    },
+    "execution_architecture": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/architectureOption"
+      },
+      "description": "Architectural styles commonly used to realize the pattern. These entries should remain compatible with future architecture vocabularies."
+    },
+    "autonomy_profile": {
+      "$ref": "#/$defs/autonomyProfile",
+      "description": "Autonomy level, checkpoints, escalation rules, and reversibility expectations."
+    },
+    "risk_governance": {
+      "$ref": "#/$defs/riskGovernance",
+      "description": "Risk posture and governance controls for the pattern. Level values are expected to align with later vocabulary files."
+    },
+    "why_agentic": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 8
+      },
+      "description": "Reasons the workflow benefits from agentic behavior rather than static automation."
+    },
+    "failure_modes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/failureMode"
+      },
+      "description": "Known failure modes and mitigation expectations."
+    },
+    "evaluation": {
+      "$ref": "#/$defs/evaluation",
+      "description": "How the pattern should be evaluated for quality, robustness, and control effectiveness."
+    },
+    "implementation_notes": {
+      "$ref": "#/$defs/implementationNotes",
+      "description": "Optional implementation-oriented notes. Keep concrete examples here only when they clarify realization rather than redefining the pattern."
+    },
+    "related_patterns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relatedPattern"
+      },
+      "default": [],
+      "description": "Optional references to adjacent, prerequisite, or contrastive patterns."
+    },
+    "example_domains": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/exampleDomain"
+      },
+      "default": [],
+      "description": "Optional short examples showing how the pattern appears in different domains."
+    },
+    "maturity": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 2
+        },
+        {
+          "$ref": "#/$defs/referenceObject"
+        }
+      ],
+      "description": "Pattern maturity indicator. Leave open for a future controlled vocabulary rather than hardcoding many statuses now."
+    },
+    "tags": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "uniqueItems": true,
+      "description": "Freeform discovery tags in lower-kebab-case."
+    }
+  },
+  "$defs": {
+    "vocabularyTerm": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 2
+        },
+        {
+          "$ref": "#/$defs/referenceObject"
+        }
+      ]
+    },
+    "referenceObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "description": "Stable identifier intended to align with a controlled vocabulary entry."
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional human-readable display label."
+        },
+        "source_vocabulary": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional vocabulary source name or file reference."
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional clarification notes."
+        }
+      }
+    },
+    "ioItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "description"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 2
+        },
+        "description": {
+          "type": "string",
+          "minLength": 5
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Optional coarse-grained type such as document, event, record, request, or action."
+        },
+        "required": {
+          "type": "boolean",
+          "default": true
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": []
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary"
+      ],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 10
+        },
+        "systems": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": []
+        },
+        "actors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": []
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": []
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": []
+        }
+      }
+    },
+    "capabilityRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "capability",
+        "necessity"
+      ],
+      "properties": {
+        "capability": {
+          "$ref": "#/$defs/vocabularyTerm"
+        },
+        "necessity": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Why this capability is required or important."
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "architectureOption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "architecture",
+        "fit"
+      ],
+      "properties": {
+        "architecture": {
+          "$ref": "#/$defs/vocabularyTerm"
+        },
+        "fit": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Why this architecture fits the pattern."
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "autonomyProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level",
+        "human_checkpoints",
+        "reversibility",
+        "escalation"
+      ],
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/vocabularyTerm",
+          "description": "Autonomy level, intentionally open for later vocabulary control."
+        },
+        "human_checkpoints": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 3
+          }
+        },
+        "reversibility": {
+          "type": "string",
+          "minLength": 3,
+          "description": "Whether actions are reversible, partially reversible, or effectively irreversible."
+        },
+        "escalation": {
+          "type": "string",
+          "minLength": 5,
+          "description": "Conditions requiring human review, override, or escalation."
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "riskGovernance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level",
+        "failure_impact",
+        "approval_requirements",
+        "auditability"
+      ],
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/vocabularyTerm",
+          "description": "Risk level intended to align with a later governance vocabulary."
+        },
+        "failure_impact": {
+          "type": "string",
+          "minLength": 5
+        },
+        "approval_requirements": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 3
+          }
+        },
+        "auditability": {
+          "type": "string",
+          "minLength": 3
+        },
+        "privacy": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3
+          },
+          "default": []
+        },
+        "security": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3
+          },
+          "default": []
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "failureMode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "impact"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "minLength": 5
+        },
+        "impact": {
+          "type": "string",
+          "minLength": 5
+        },
+        "severity": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Severity label left open for future governance vocabulary alignment."
+        },
+        "detectability": {
+          "type": "string",
+          "minLength": 2
+        },
+        "mitigations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3
+          },
+          "default": []
+        }
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "success_metrics",
+        "quality_criteria"
+      ],
+      "properties": {
+        "success_metrics": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 3
+          }
+        },
+        "quality_criteria": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 3
+          }
+        },
+        "robustness_checks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3
+          },
+          "default": []
+        },
+        "benchmark_notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "implementationNotes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "orchestration_notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3
+          },
+          "default": []
+        },
+        "integration_notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3
+          },
+          "default": []
+        },
+        "deployment_notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3
+          },
+          "default": []
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": []
+        }
+      }
+    },
+    "relatedPattern": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "relationship"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            },
+            "relationship": {
+              "type": "string",
+              "minLength": 3,
+              "description": "Relationship such as adjacent, prerequisite, variant, complement, or contrast."
+            },
+            "notes": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "exampleDomain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "domain",
+        "example"
+      ],
+      "properties": {
+        "domain": {
+          "$ref": "#/$defs/vocabularyTerm"
+        },
+        "example": {
+          "type": "string",
+          "minLength": 5
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

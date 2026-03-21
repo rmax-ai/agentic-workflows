@@ -1,0 +1,1566 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Approval-gated optimization-state release - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#approval-gated-optimization-state-release" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Approval-gated optimization-state release
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-live-optimization-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current live optimization state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#candidate-optimization-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Candidate optimization revision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-evidence-and-guardrail-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release evidence and guardrail checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approval-validity-and-rollback-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval, validity, and rollback policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prior-release-lineage-and-held-state-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prior release lineage and held-state history
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#released-optimization-state-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Released optimization-state revision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimization-release-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimization release manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expiry-and-rollback-control-packet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expiry and rollback control packet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimization-release-audit-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimization release audit trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-is-attached-to-the-wrong-optimization-revision-or-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval is attached to the wrong optimization revision or scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-released-revision-outlives-its-approved-validity-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The released revision outlives its approved validity window
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback-readiness-is-nominal-but-not-actually-restorable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback readiness is nominal but not actually restorable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimization-state-release-drifts-into-downstream-execution-or-case-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimization-state release drifts into downstream execution or case handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="approval-gated-optimization-state-release">Approval-gated optimization-state release<a class="headerlink" href="#approval-gated-optimization-state-release" title="Permanent link">&para;</a></h1>
+<p>Release one exact optimization-state or tuning revision into bounded live use only after explicit human approval, with revision binding, expiry discipline, rollback readiness, and audit lineage preserved so the workflow stays centered on governed adaptive state rather than recommendation adjudication or downstream operational execution.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>approval-gated-optimization-state-release</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/optimize-adapt/">Optimize / Adapt</a></li>
+<li><strong>Problem structure:</strong> Feedback-driven optimization (<code>feedback-driven-optimization</code>)</li>
+<li><strong>Domains:</strong> Engineering (<code>engineering</code>), Finance (<code>finance</code>), Compliance (<code>compliance</code>), Operations (<code>operations</code>), Research (<code>research</code>), Support (<code>support</code>), HR (<code>hr</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Make one exact versioned optimization-state revision live in a bounded scope only after a human approves that specific revision, while keeping fallback state, validity timing, rollout constraints, and lineage explicit so the workflow does not collapse into recommendation-only retuning or downstream business execution.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="current-live-optimization-state">Current live optimization state<a class="headerlink" href="#current-live-optimization-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The currently active tuning, weighting, threshold, sampling, or prioritization state that governs future system behavior and that can be restored if the new revision is rolled back.</li>
+<li><strong>Kind:</strong> optimization-state</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Active release-risk scoring profile used by an engineering release-review service</li>
+<li>Current quarter-close control bundle governing evidence-weighting and queue-balance parameters</li>
+<li>Live maintenance-assurance sampling policy used to select documentation spot checks</li>
+</ul>
+<h3 id="candidate-optimization-revision">Candidate optimization revision<a class="headerlink" href="#candidate-optimization-revision" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The exact proposed optimization-state revision prepared for release, including version identifier, bounded deployment scope, supported activation mechanism, and the fields that differ from the live state.</li>
+<li><strong>Kind:</strong> optimization-state</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Candidate alert-threshold revision with new blast-radius weighting and service-tier sensitivity values for one release-review cohort</li>
+<li>Revised close-control bundle with updated materiality weighting, entity-aging buffers, and fairness-cap values for the current quarter</li>
+<li>New assurance sampling-policy revision with adjusted rates, protected-cohort floors, and cooldown metadata</li>
+</ul>
+<h3 id="release-evidence-and-guardrail-checks">Release evidence and guardrail checks<a class="headerlink" href="#release-evidence-and-guardrail-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Validation evidence showing how the candidate revision behaved in simulation, shadow mode, replay, or bounded staging, plus the guardrail checks that must remain true for live release to stay within approved limits.</li>
+<li><strong>Kind:</strong> validation-evidence</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Replay showing lower false-positive escalation noise without rising missed-release regressions during the past two sprints</li>
+<li>Quarter-close simulation showing fewer controller overrides while covenant-sensitive entities remain protected</li>
+<li>Spot-check backtest showing higher documentation-defect yield without dropping below safety-critical sampling floors</li>
+</ul>
+<h3 id="approval-validity-and-rollback-policy">Approval, validity, and rollback policy<a class="headerlink" href="#approval-validity-and-rollback-policy" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The policy that names who may approve release, what live scope is allowed, how long the revision remains valid before expiry review, what metrics force rollback, and which prior trusted state must remain recoverable.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Engineering governance rule limiting release of a new review-scoring revision to one product cohort for forty-eight hours with mandatory rollback if protected-signoff misses rise</li>
+<li>Controllership policy requiring controller approval for any close-control bundle revision and automatic expiry at quarter-close if not renewed</li>
+<li>Operations assurance rule allowing one sampling-policy revision to run for one maintenance cycle while preserving backfill and restore triggers</li>
+</ul>
+<h3 id="prior-release-lineage-and-held-state-history">Prior release lineage and held-state history<a class="headerlink" href="#prior-release-lineage-and-held-state-history" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Previous approved revisions, superseded manifests, earlier rollback events, and any currently held release attempts used to prove the candidate revision is the exact one under review.</li>
+<li><strong>Kind:</strong> release-history</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Prior approved scoring revision that was restored after a false-negative spike in release reviews</li>
+<li>Earlier close-control bundle held because one fairness-cap change required separate governance approval</li>
+<li>Superseded maintenance-assurance sampling revision replaced after outage-season reviewer capacity changed</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="released-optimization-state-revision">Released optimization-state revision<a class="headerlink" href="#released-optimization-state-revision" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The exact approved optimization-state version that becomes live for the bounded scope, annotated with version identity, validity window, prior-state reference, and release boundary.</li>
+<li><strong>Kind:</strong> optimization-state</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Activated release-review scoring revision approved for one service family and one review window</li>
+<li>Live quarter-close control bundle revision bound to the current close cycle and controller sign-off</li>
+<li>Active maintenance-assurance sampling-policy version approved for one review program and one governance period</li>
+</ul>
+<h3 id="optimization-release-manifest">Optimization release manifest<a class="headerlink" href="#optimization-release-manifest" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Manifest binding human approval to one exact revision, one allowed live scope, one validity period, required signer identities, and the point where the workflow stops before any downstream operational acts occur.</li>
+<li><strong>Kind:</strong> manifest</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Manifest proving that scoring revision hash 7f3a is approved only for release-review intake and not for deployment execution</li>
+<li>Close-control bundle manifest showing controller approval, quarter-end expiry, and the prior trusted bundle id for rollback</li>
+<li>Sampling-policy release manifest showing approved program scope, start and end times, and the safety-review signer</li>
+</ul>
+<h3 id="expiry-and-rollback-control-packet">Expiry and rollback control packet<a class="headerlink" href="#expiry-and-rollback-control-packet" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured release-control record describing when the live revision must be revalidated, which metrics force immediate rollback, what previous state should be restored, and whether the revision should expire automatically if no human extension occurs.</li>
+<li><strong>Kind:</strong> rollback-plan</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Packet requiring rollback if protected-signoff aging worsens or if service-tier misses exceed the approved threshold during the first day</li>
+<li>Expiry plan restoring the previous close-control bundle when quarter-close completes unless controller leadership renews the revision explicitly</li>
+<li>Control packet triggering backfill review and restoration of the prior sampling policy if safety-critical defect escapes rise</li>
+</ul>
+<h3 id="optimization-release-audit-trace">Optimization release audit trace<a class="headerlink" href="#optimization-release-audit-trace" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Durable history of evidence reviewed, version hashes compared, approval and hold decisions, validity-window changes, rollback events, and superseded revisions across the release loop.</li>
+<li><strong>Kind:</strong> audit-log</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Trace linking the approved engineering scoring revision to replay data, signer approvals, and later rollback-or-extend decisions</li>
+<li>Audit record showing which fairness checks blocked one finance bundle revision while another was released</li>
+<li>History showing when an operations sampling revision expired, who approved the release, and which prior version was restored</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in governed adaptive systems where the reusable problem is not inventing a new optimization recommendation but releasing one exact versioned tuning artifact into bounded live use with explicit approval, expiry, rollback, and lineage controls.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Versioned optimization-state registry or parameter store</li>
+<li>Replay, simulation, or shadow-evaluation workspace</li>
+<li>Approval, signer-capture, and manifest tooling</li>
+<li>Audit, rollback, and configuration-history systems</li>
+<li>Domain workflow surfaces that consume the live optimization state</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Optimization steward or release owner</li>
+<li>Human approver accountable for live release of the revision</li>
+<li>Governance or policy owner maintaining release and rollback rules</li>
+<li>Domain analyst or operator reviewing validation evidence</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Bind approval to one exact optimization-state revision, one bounded live scope, and one validity window so later revisions cannot inherit stale permission.</li>
+<li>Keep fallback state, expiry timing, and rollback triggers explicit and machine-readable before any revision becomes live.</li>
+<li>Stop at releasing the optimization-state artifact itself; do not use this workflow to decide case outcomes, schedule human work, execute business actions, or adjudicate downstream recommendations.</li>
+<li>Preserve lineage between the live revision, its supporting evidence, prior trusted state, and any superseded or rolled-back revisions so release history remains reconstructable.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Candidate revisions can be versioned, compared against the live state, and activated or restored without rebuilding the surrounding operational system manually.</li>
+<li>Human approvers remain accountable for accepting the specific live-scope trade-off of the release and for authorizing expiry extension when needed.</li>
+<li>Adjacent monitoring or execution workflows can observe or consume the released state without this pattern taking over those responsibilities.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Monitoring (<code>monitoring</code>):</strong> Release gating depends on current replay, shadow, or early-live guardrail signals and on explicit rollback triggers rather than a one-time file handoff.</li>
+<li><strong>Optimization (<code>optimization</code>):</strong> The workflow must reason about bounded changes to weights, thresholds, quotas, or other adaptive controls and preserve the intended optimization-state semantics during release.</li>
+<li><strong>Verification (<code>verification</code>):</strong> The exact revision under approval, its evidence, and its rollback target must be verified before live activation so stale or mismatched tuning does not slip through.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Approver identity, scope limits, validity windows, protected metrics, rollback requirements, and extension rules determine whether the release may proceed.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Safe release requires durable tracking of active and prior revisions, supersession state, expiry timing, approval lineage, and rollback history.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> The workflow must read evidence and state stores, write manifests and audit records, and activate or restore optimization revisions through governed tools rather than prose alone.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> Missing rollback targets, expired evidence, scope drift, or post-release guardrail breaches must hold or reverse release instead of forcing the candidate revision live.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Approval-gated execution (<code>approval-gated-execution</code>):</strong> The candidate optimization revision can be technically ready for activation, but the exact live-state transition remains blocked until explicit human approval unlocks release of that specific version.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> Humans remain in the normal path because approving live use of one exact tuning revision, accepting its trade-offs, and extending or rejecting its validity window cannot be delegated away safely.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Approval gated (<code>approval-gated</code>)</li>
+<li><strong>Reversibility:</strong> The live revision can usually be reversed by restoring the prior trusted state referenced in the release packet, but temporary harm caused by a bad tuning release can persist until downstream queues, alerts, or reviews restabilize after rollback.</li>
+<li><strong>Escalation:</strong> Escalate whenever the revision under approval does not match the evidence package, the requested live scope broadens beyond policy, rollback readiness is missing, validity timing becomes ambiguous, or the requested next step would amount to downstream execution rather than bounded optimization-state release.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Approve the release class, bounded live scope, validity-window rules, and rollback expectations before routine optimization-state release begins.</li>
+<li>Review the exact candidate revision, release manifest, and expiry-and-rollback packet before authorizing that revision to become the live state.</li>
+<li>Approve changes to signer rules, protected metrics, extension logic, or activation tooling before those changes affect future releases.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> High (<code>high</code>)</li>
+<li><strong>Failure impact:</strong> Releasing the wrong optimization revision or allowing it to persist beyond its approved validity window can distort live prioritization, review coverage, or scoring behavior across consequential workflows, creating meaningful operational, financial, or quality harm even though the workflow remains bounded to adaptive-state release.</li>
+<li><strong>Auditability:</strong> Preserve the current and released revision identifiers, evidence windows reviewed, approval lineage, live scope, validity metadata, rollback packet, hold reasons, superseded revisions, and rollback-or-expiry outcomes for every release cycle.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A named human approver must explicitly authorize every live release of an optimization-state revision that changes bounded production, review, or control behavior.</li>
+<li>Governance owners must approve changes to release-policy rules, validity windows, rollback criteria, protected metrics, and signer requirements used by future optimization-state releases.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Release packets should use aggregated or minimally necessary supporting evidence so the optimization rationale can be reviewed without broadly exposing sensitive engineering, financial, or worker detail.</li>
+<li>Restricted annexes should carry any sensitive cohort, customer, or facility detail that is not required in the general release manifest or audit log.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restrict who can activate optimization revisions, edit rollback criteria, or change validity-window rules because silent tuning changes can reshape live behavior across sensitive workflows.</li>
+<li>Log manual overrides, expired-but-extended revisions, rollback suppressions, and signer changes so hidden bypass of the approval gate remains detectable.</li>
+</ul>
+<p><strong>Notes:</strong> High risk fits because the pattern releases one live optimization-state revision that can immediately influence future handling of consequential work, while still staying distinct from direct task execution because the primary released artifact remains the governed adaptive policy state itself.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Safe release requires continuous comparison of exact revision identity, approval state, guardrail evidence, expiry timing, and rollback readiness rather than a one-time manual toggle.</li>
+<li>The workflow must detect when a technically ready tuning revision is no longer the one actually reviewed or when surrounding context makes live release unsafe, and that stateful judgment is more than static configuration publishing.</li>
+<li>Durable memory across releases matters because superseded revisions, past rollback triggers, and current validity windows all shape whether the next candidate should go live or stay held.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="approval-is-attached-to-the-wrong-optimization-revision-or-scope">Approval is attached to the wrong optimization revision or scope<a class="headerlink" href="#approval-is-attached-to-the-wrong-optimization-revision-or-scope" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> A stale or broader tuning revision becomes live even though the reviewed evidence and human approval applied to a different version or cohort.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Bind the release manifest to explicit revision identifiers, hashes, live-scope metadata, and evidence-package references.</li>
+<li>Block activation whenever the candidate revision changes after approval review starts or when scope metadata is incomplete.</li>
+</ul>
+<h3 id="the-released-revision-outlives-its-approved-validity-window">The released revision outlives its approved validity window<a class="headerlink" href="#the-released-revision-outlives-its-approved-validity-window" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Temporary or cycle-specific tuning silently becomes a de facto baseline and continues shaping live behavior after the justification for it has expired.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Attach explicit expiry metadata and mandatory review times to every live revision.</li>
+<li>Restore the prior trusted state automatically unless a human approver explicitly extends the revision within policy.</li>
+</ul>
+<h3 id="rollback-readiness-is-nominal-but-not-actually-restorable">Rollback readiness is nominal but not actually restorable<a class="headerlink" href="#rollback-readiness-is-nominal-but-not-actually-restorable" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The workflow appears governed, but a harmful release cannot be reversed quickly because the prior state, migration assumptions, or activation path were not validated.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Require the rollback target, activation path, and restoration procedure to be checked before release approval is finalized.</li>
+<li>Run bounded rollback drills or replay validations for release classes whose state transitions are known to be fragile.</li>
+</ul>
+<h3 id="optimization-state-release-drifts-into-downstream-execution-or-case-handling">Optimization-state release drifts into downstream execution or case handling<a class="headerlink" href="#optimization-state-release-drifts-into-downstream-execution-or-case-handling" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The workflow begins triggering business actions, reviewer assignments, or operational moves directly, blurring family boundaries and weakening governance.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Limit outputs to the released revision, manifest, rollback packet, and audit trace.</li>
+<li>Hand off operational decisions, scheduling, and direct execution to adjacent recommendation, planning, monitoring, or execution patterns.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of released optimization revisions whose manifest, validity window, and rollback target match the exact approved version without later lineage correction.</li>
+<li>Time required for authorized humans to review, approve, and, when needed, extend or roll back a bounded optimization-state release with clear evidence and control metadata.</li>
+<li>Rate at which released revisions expire or roll back on schedule when guardrails are breached or the approved validity window ends.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Every live release is traceable to one exact revision, one approval action, one bounded scope, and one fallback state.</li>
+<li>Expiry, rollback, and supersession logic remain explicit and inspectable rather than being hidden inside general configuration-management activity.</li>
+<li>The workflow remains centered on governed adaptive-state release and does not absorb downstream execution, recommendation adjudication, or schedule control.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test a candidate revision change after approval review begins and confirm the old approval cannot be reused silently.</li>
+<li>Test expiry without extension and confirm the prior trusted state is restored automatically or the release is held as policy requires.</li>
+<li>Test a guardrail breach immediately after activation and verify rollback logic restores the exact prior revision with a durable audit entry.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate this pattern on revision-binding integrity, expiry discipline, and rollback readiness together; faster activation is not success if reviewers cannot prove which tuning revision was approved or reverse it safely.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep candidate-state preparation, evidence verification, approval capture, live activation, and expiry-or-rollback handling as explicit stages over one shared revision identity.</li>
+<li>Prefer append-only manifest and audit records so reviewers can reconstruct superseded and restored optimization states without diffing opaque configuration blobs.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations connect parameter registries, replay or shadow-analysis systems, approval tooling, and audit services that can reference exact version ids.</li>
+<li>Keep the pattern neutral about whether the live revision changes thresholds, weights, quotas, buffers, or sampling rates; the core reusable shape is governed release of one exact optimization-state artifact.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with one narrowly bounded release class and a short validity window so approvers can gain confidence in manifest binding, expiry, and rollback behavior.</li>
+<li>Review early held-release and rollback cases closely because they reveal whether the workflow is drifting into recommendation-only retuning on one side or downstream execution on the other.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/optimize-adapt/">docs/patterns/optimize-adapt.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+<li><a href="../../../vocabularies/autonomy-levels/">data/vocabularies/autonomy-levels.yaml</a></li>
+<li><a href="../../../vocabularies/risk-levels/">data/vocabularies/risk-levels.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Engineering (<code>engineering</code>):</strong> Release one exact production release-review scoring revision into live use for a bounded product cohort after a release manager approves the manifest, validity window, and rollback target tied to replayed regression evidence.</li>
+<li><strong>Finance (<code>finance</code>):</strong> Activate one approved quarter-close control-bundle revision for the current close cycle, with controller sign-off, explicit expiry at cycle end, and the prior trusted bundle reserved for rollback.</li>
+<li><strong>Compliance (<code>compliance</code>):</strong> Release one reviewed sanctions alert-review scoring revision into live analyst use for a bounded screening-program scope after a named compliance owner approves the manifest, validity window, and rollback target.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Release one reviewed maintenance-assurance sampling-policy revision into live spot-check selection for the next maintenance window while keeping safety-critical floors, expiry timing, and restore controls explicit.</li>
+<li><strong>Research (<code>research</code>):</strong> Release one reviewed benchmark replication-review scoring revision into live integrity review for a bounded publication program after a named research owner approves the manifest, validity window, and rollback target.</li>
+<li><strong>Support (<code>support</code>):</strong> Release one reviewed enterprise support case-quality review scoring revision into live oversight use for a bounded quality program after a named support owner approves the manifest, validity window, and rollback target.</li>
+<li><strong>HR (<code>hr</code>):</strong> Release one reviewed protected leave accommodation-review scoring revision into live specialist intake for a bounded leave-and-accommodation scope after a named HR owner approves the manifest, validity window, and restore target.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../governed-optimization-bundle-retuning/">Governed optimization bundle retuning</a> (often-precedes)</li>
+<li>Governed retuning may produce the candidate shared-state bundle that this pattern later binds to one exact approved live release.</li>
+<li><a href="../critical-protected-priority-adaptation/">Critical protected-priority adaptation</a> (can-feed)</li>
+<li>Critical adaptation can generate a temporary emergency optimization state, but this pattern is the narrower slice that governs release of one exact approved revision into bounded live use.</li>
+<li><a href="../../execute-automate/staged-change-execution-with-rollback-holds/">Staged change execution with rollback holds</a> (adjacent)</li>
+<li>Both patterns use approval, staged safety, and rollback discipline, but this pattern releases optimization state rather than executing downstream operational steps.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/compliance/sanctions-alert-review-scoring-revision-approved-for-live-use/">Sanctions alert-review scoring revision approved for live use</a></li>
+<li><a href="../../../instances/engineering/release-review-scoring-revision-approved-for-live-use/">Release-review scoring revision approved for live use</a></li>
+<li><a href="../../../instances/finance/quarter-close-control-bundle-revision-approved-for-live-use/">Quarter-close control-bundle revision approved for live use</a></li>
+<li><a href="../../../instances/hr/protected-leave-accommodation-review-scoring-revision-approved-for-live-use/">Protected leave accommodation-review scoring revision approved for live use</a></li>
+<li><a href="../../../instances/operations/maintenance-assurance-sampling-policy-revision-approved-for-live-use/">Maintenance-assurance sampling-policy revision approved for live use</a></li>
+<li><a href="../../../instances/research/benchmark-replication-review-scoring-revision-approved-for-live-use/">Benchmark replication-review scoring revision approved for live use</a></li>
+<li><a href="../../../instances/support/enterprise-support-case-quality-review-scoring-revision-approved-for-live-use/">Enterprise support case-quality review scoring revision approved for live use</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/optimize-adapt/approval-gated-optimization-state-release.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

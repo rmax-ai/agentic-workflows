@@ -1,0 +1,1534 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Approval-centered collaboration - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#approval-centered-collaboration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Approval-centered collaboration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#draft-artifact-or-approval-bound-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Draft artifact or approval-bound request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approval-criteria-and-reviewer-authority-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval criteria and reviewer authority map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evidence-set-and-review-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidence set and review feedback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-handoff-and-decision-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current handoff and decision state
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#negotiated-review-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Negotiated review artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approval-readiness-recommendation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval-readiness recommendation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approval-ownership-and-handoff-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval ownership and handoff ledger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review-cycle-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review-cycle trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-ownership-becomes-unclear-or-stale-during-the-review-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval ownership becomes unclear or stale during the review cycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reviewer-objections-or-dissenting-evidence-are-compressed-away-during-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewer objections or dissenting evidence are compressed away during revision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-workflow-recommends-approval-readiness-before-mandatory-review-conditions-are-satisfied" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The workflow recommends approval readiness before mandatory review conditions are satisfied
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-edits-or-stale-state-reintroduce-superseded-comments-and-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parallel edits or stale state reintroduce superseded comments and evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="approval-centered-collaboration">Approval-centered collaboration<a class="headerlink" href="#approval-centered-collaboration" title="Permanent link">&para;</a></h1>
+<p>Structure human-agent review cycles around explicit approval ownership, negotiated evidence, and controlled handoffs so draft requests become decision-ready without obscuring who may approve, request changes, or stop progression.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>approval-centered-collaboration</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/human-agent-collaborative-work/">Human-agent collaborative work</a></li>
+<li><strong>Problem structure:</strong> Human-agent collaboration (<code>human-agent-collaboration</code>)</li>
+<li><strong>Domains:</strong> Engineering (<code>engineering</code>), Finance (<code>finance</code>), Compliance (<code>compliance</code>), Operations (<code>operations</code>), Support (<code>support</code>), HR (<code>hr</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Keep a governed draft, request, or review package moving through repeated human-agent approval cycles so evidence, objections, revisions, and ownership stay visible until a human approval owner explicitly accepts the next handoff.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="draft-artifact-or-approval-bound-request">Draft artifact or approval-bound request<a class="headerlink" href="#draft-artifact-or-approval-bound-request" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The proposal, memo, exception request, change package, or other reviewable artifact that needs iterative revision before formal approval.</li>
+<li><strong>Kind:</strong> draft</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Architecture exception draft awaiting review-board readiness confirmation</li>
+<li>Compensation exception memo that must pass finance and HR review before sign-off</li>
+<li>Operations change packet that still needs reviewer comment resolution before approval routing</li>
+</ul>
+<h3 id="approval-criteria-and-reviewer-authority-map">Approval criteria and reviewer authority map<a class="headerlink" href="#approval-criteria-and-reviewer-authority-map" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The approval thresholds, required reviewers, sign-off order, and non-waivable rules that define who may request changes, approve progression, or stop the handoff.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Change-review policy defining required approvers and rollback evidence</li>
+<li>Delegation-of-authority rules for finance exceptions and compensation approvals</li>
+<li>HR review matrix showing when legal or specialist approval is mandatory</li>
+</ul>
+<h3 id="evidence-set-and-review-feedback">Evidence set and review feedback<a class="headerlink" href="#evidence-set-and-review-feedback" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Supporting evidence, reviewer comments, prior approvals, objections, and clarification requests that must be negotiated into the evolving artifact.</li>
+<li><strong>Kind:</strong> evidence-set</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Reviewer annotations, risk findings, and linked source documents</li>
+<li>Budget analyses, compensation benchmarks, and approval comments</li>
+<li>Operational risk notes, readiness checks, and unresolved dependency comments</li>
+</ul>
+<h3 id="current-handoff-and-decision-state">Current handoff and decision state<a class="headerlink" href="#current-handoff-and-decision-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The latest artifact version, open issues, accepted edits, pending approvers, and prior review outcomes that constrain the next collaboration turn.</li>
+<li><strong>Kind:</strong> case-state</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Version history showing one approver accepted while another requested changes</li>
+<li>Queue state indicating a required reviewer has not yet responded</li>
+<li>Open issue list showing evidence disputes that block approval readiness</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="negotiated-review-artifact">Negotiated review artifact<a class="headerlink" href="#negotiated-review-artifact" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The collaboratively revised artifact that incorporates accepted edits, visible objections, and evidence responses without hiding unresolved disagreement.</li>
+<li><strong>Kind:</strong> collaborative-draft</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Approval memo with reviewer-requested revisions and linked evidence updates</li>
+<li>Change packet revised to address engineering and operations reviewer concerns</li>
+</ul>
+<h3 id="approval-readiness-recommendation">Approval-readiness recommendation<a class="headerlink" href="#approval-readiness-recommendation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> A bounded recommendation describing whether the artifact appears ready for the next approval checkpoint, what remains unresolved, and which human still owns the decision.</li>
+<li><strong>Kind:</strong> recommendation</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Recommendation to return the packet for one more evidence update before board review</li>
+<li>Recommendation that the draft is ready for controller sign-off with one explicitly accepted residual risk</li>
+</ul>
+<h3 id="approval-ownership-and-handoff-ledger">Approval ownership and handoff ledger<a class="headerlink" href="#approval-ownership-and-handoff-ledger" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured record of required reviewers, accepted or rejected changes, current approval owner, and the exact boundary where human-controlled approval must occur.</li>
+<li><strong>Kind:</strong> handoff-record</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Ledger showing finance approved, HR requested changes, and the VP remains the final approval owner</li>
+<li>Handoff record showing the packet may enter the review queue but no approval decision has been made</li>
+</ul>
+<h3 id="review-cycle-trace">Review-cycle trace<a class="headerlink" href="#review-cycle-trace" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Durable history of comments, evidence negotiations, revision proposals, and handoff checkpoints across the approval loop.</li>
+<li><strong>Kind:</strong> audit-log</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Trace of reviewer objections, evidence refreshes, and accepted edits across three approval rounds</li>
+<li>Timeline showing when the workflow paused because authority or approval order became unclear</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in governance-sensitive review processes where a human and one or more agent roles repeatedly refine a draft, negotiate evidence, and control handoffs before a consequential approval decision is allowed to occur.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Shared review workbench or comment surface</li>
+<li>Document, request, or case management systems</li>
+<li>Policy and approval-matrix repositories</li>
+<li>Evidence stores and source systems</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Request owner or drafter</li>
+<li>Reviewing approver or review committee member</li>
+<li>Final approval owner</li>
+<li>Agent orchestration layer coordinating review support</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep approval authority explicit at every cycle so the workflow never implies that agent output equals approval.</li>
+<li>Preserve reviewer objections, dissenting evidence, and requested changes as first-class state rather than compressing them into a falsely clean revision.</li>
+<li>Stop at readiness recommendation and governed handoff; the pattern must not adjudicate approval or execute downstream action.</li>
+<li>Prevent silent handoff progression when required reviewers, approval order, or authority mappings are incomplete or disputed.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Review tooling can preserve version history, comments, and approval-state metadata across cycles.</li>
+<li>Humans remain accountable for accepting recommendations, granting approval, and deciding whether unresolved issues are tolerable.</li>
+<li>Evidence can be refreshed or challenged during the loop without losing traceability to earlier review comments.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Retrieval (<code>retrieval</code>):</strong> The workflow must pull current evidence, prior comments, and approval-state details from multiple systems before each review cycle can be grounded.</li>
+<li><strong>Synthesis (<code>synthesis</code>):</strong> Review feedback, evidence updates, and draft revisions need to be recombined into one inspectable artifact instead of staying fragmented across comments and attachments.</li>
+<li><strong>Recommendation (<code>recommendation</code>):</strong> The pattern depends on bounded guidance about approval readiness, unresolved blockers, and next review posture without letting the workflow make the approval decision.</li>
+<li><strong>Coordination (<code>coordination</code>):</strong> Multi-party review cycles require explicit ownership, sequencing, and handoff control so commenters, approvers, and drafters do not work at cross-purposes.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> The workflow must preserve version lineage, accepted versus rejected edits, reviewer status, and current approval owner across multiple cycles.</li>
+<li><strong>Verification (<code>verification</code>):</strong> Evidence links, claimed issue resolution, and reviewer-state updates must be checked before the workflow recommends progression to another approval checkpoint.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Approval order, required reviewers, segregation-of-duties rules, and non-waivable review conditions define whether the handoff can move forward at all.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Orchestrated multi-agent (<code>orchestrated-multi-agent</code>):</strong> Distinct review-support roles for evidence refresh, comment normalization, policy checking, and handoff-state management are often worth orchestrating separately because approval loops mix negotiation, provenance, and governance-sensitive ownership tracking.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> Humans remain embedded in every normal cycle because reviewers and approval owners must decide whether proposed revisions are sufficient and whether the next handoff may proceed.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Recommendation only (<code>recommendation-only</code>)</li>
+<li><strong>Reversibility:</strong> Draft revisions and readiness assessments can be revised, but a premature or misleading readiness signal can bias reviewers, trigger avoidable escalation, or move a sensitive request into the wrong approval path before the mistake is caught.</li>
+<li><strong>Escalation:</strong> Escalate whenever approval authority is ambiguous, reviewer disagreement remains unresolved on a material issue, required evidence cannot be validated, or the workflow would otherwise imply handoff permission without a clear human owner.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Confirm the current approval owner, mandatory reviewers, and acceptance criteria before the workflow consolidates comments or proposes a readiness state.</li>
+<li>Decide whether proposed revisions and evidence responses sufficiently address reviewer feedback before another approval round begins.</li>
+<li>Accept or reject the governed handoff into the next approval checkpoint and record who now owns the decision.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> High (<code>high</code>)</li>
+<li><strong>Failure impact:</strong> Misstating approval readiness, losing reviewer objections, or obscuring who owns the sign-off can create significant financial, operational, or people-risk exposure and can push sensitive requests through governance checkpoints on a misleading record.</li>
+<li><strong>Auditability:</strong> Preserve artifact versions, reviewer comments, evidence references, readiness recommendations, ownership changes, human overrides, and handoff timestamps so investigators can reconstruct how the approval state evolved.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A human approval owner must explicitly accept any readiness recommendation before the artifact advances to the next approval stage or formal review queue.</li>
+<li>Required reviewer objections, unresolved evidence disputes, and authority ambiguities must remain visible unless a human reviewer explicitly accepts the residual risk.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Limit sensitive personnel, financial, operational, or security details in shared review surfaces to what the relevant reviewers need.</li>
+<li>Apply retention and access controls so draft artifacts and approval discussions do not leak beyond the governed review group.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restrict agent permissions so the workflow can read review context and update bounded collaboration state without silently changing approval authorities or committing downstream actions.</li>
+<li>Log authority-map changes, manual overrides, and handoff acceptances so covert expansion of workflow power is detectable.</li>
+</ul>
+<p><strong>Notes:</strong> High risk is appropriate because the pattern shapes how high-stakes approval decisions are framed and handed off, even though humans retain the actual approval authority.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The next useful action depends on evolving reviewer comments, contested evidence, and changing handoff state rather than a fixed linear review script.</li>
+<li>Safe performance benefits from specialized agent roles that can refresh evidence, compare revisions, and track approval ownership while sharing one auditable collaboration state.</li>
+<li>The workflow must decide when to propose another revision, surface unresolved disagreement, or pause for human authority clarification instead of just producing a polished draft.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="approval-ownership-becomes-unclear-or-stale-during-the-review-cycle">Approval ownership becomes unclear or stale during the review cycle<a class="headerlink" href="#approval-ownership-becomes-unclear-or-stale-during-the-review-cycle" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Reviewers act on a packet without knowing who may approve progression, and sensitive requests may move forward without accountable human control.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Keep the current approval owner and required next checkpoint as explicit fields in the handoff ledger.</li>
+<li>Revalidate authority mappings whenever review participants or request scope change materially.</li>
+</ul>
+<h3 id="reviewer-objections-or-dissenting-evidence-are-compressed-away-during-revision">Reviewer objections or dissenting evidence are compressed away during revision<a class="headerlink" href="#reviewer-objections-or-dissenting-evidence-are-compressed-away-during-revision" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The updated artifact appears more settled than reality, leading downstream approvers to miss material disagreement or unresolved risk.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Preserve unresolved objections and challenged evidence in dedicated trace and handoff sections.</li>
+<li>Block readiness recommendations that claim issues are closed without linked evidence or explicit human acceptance.</li>
+</ul>
+<h3 id="the-workflow-recommends-approval-readiness-before-mandatory-review-conditions-are-satisfied">The workflow recommends approval readiness before mandatory review conditions are satisfied<a class="headerlink" href="#the-workflow-recommends-approval-readiness-before-mandatory-review-conditions-are-satisfied" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Requests enter formal approval queues too early, creating rework, governance breaches, or misplaced trust in the review record.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Check required reviewer completion, approval order, and non-waivable control gates before surfacing readiness.</li>
+<li>Require explicit human confirmation when residual issues are tolerated for the next stage.</li>
+</ul>
+<h3 id="parallel-edits-or-stale-state-reintroduce-superseded-comments-and-evidence">Parallel edits or stale state reintroduce superseded comments and evidence<a class="headerlink" href="#parallel-edits-or-stale-state-reintroduce-superseded-comments-and-evidence" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Review cycles churn, approvers see inconsistent records, and humans lose trust in the collaboration surface.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Version the artifact and handoff ledger together so comments and evidence stay tied to the correct revision.</li>
+<li>Highlight stale comments, superseded evidence, and concurrent edits before generating the next recommendation.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of approval-bound artifacts that reach the next human checkpoint without bouncing due to missing ownership, missing review state, or hidden objections.</li>
+<li>Reduction in time spent reconciling reviewer comments, evidence disputes, and version confusion across approval rounds.</li>
+<li>Rate at which downstream approvers can identify the current owner, unresolved issues, and provenance of major revisions from the handoff ledger.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The review artifact makes accepted edits, open objections, and current approval ownership easy to inspect.</li>
+<li>Readiness recommendations stay bounded to collaboration support and never masquerade as the approval decision itself.</li>
+<li>Handoff state remains synchronized with draft content so reviewers do not see a cleaner or more final status than the evidence supports.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test conflicting reviewer instructions and verify the workflow preserves the disagreement rather than inventing consensus.</li>
+<li>Test authority changes mid-cycle and confirm the handoff ledger updates before another readiness recommendation is issued.</li>
+<li>Test stale evidence or superseded comments and ensure the next cycle highlights the mismatch instead of silently carrying it forward.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate approval-loop quality using ownership clarity, objection visibility, and handoff reliability in addition to drafting speed; a faster cycle is not a win if it launders disagreement or blurs authority.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep comment intake, evidence refresh, revision proposal, readiness assessment, and handoff-state update as explicit stages over shared review state.</li>
+<li>Separate the collaboration surface from any downstream approval system so a recommendation cannot be mistaken for an approval event.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations connect shared review workbenches, document systems, approval queues, and policy repositories.</li>
+<li>Keep the pattern neutral about specific document suites, review tools, or enterprise approval platforms.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start where email- or comment-driven approval loops currently create version drift, hidden objections, or uncertain ownership.</li>
+<li>Tune readiness and issue-resolution rules conservatively with real approvers before expanding the workflow into more sensitive approval paths.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/human-agent-collaborative-work/">docs/patterns/human-agent-collaborative-work.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Engineering (<code>engineering</code>):</strong> A review board and engineering lead iterate with agents on an architecture exception package, keeping rollback evidence, reviewer objections, and final sign-off ownership explicit.</li>
+<li><strong>Finance (<code>finance</code>):</strong> Finance reviewers and a compensation analyst use agents to reconcile benchmark data, controller comments, and delegation rules before a compensation exception moves to the approving VP.</li>
+<li><strong>Compliance (<code>compliance</code>):</strong> Compliance, legal, and control-testing reviewers iterate with agents on a regulator reporting timeline exception packet, keeping reviewer objections, evidence gaps, and the next approval owner explicit.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Operations leaders and agents repeatedly revise a maintenance-change approval packet, preserving unresolved dependencies and the human owner of the next approval checkpoint.</li>
+<li><strong>Support (<code>support</code>):</strong> Support, security, legal, and revenue reviewers use agents to refine an incident remediation and credit package while preserving contested commitments and explicit approval ownership.</li>
+<li><strong>HR (<code>hr</code>):</strong> HR reviewers collaborate with agents on an accommodation or exception memo, negotiating evidence and reviewer comments without obscuring who retains final approval authority.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../analyst-copilot-loop/">Analyst copilot loop</a> (more-governed-variant-of)</li>
+<li>Both patterns structure mixed-initiative collaboration, but this one centers on explicit approval cycles, negotiated evidence, and named approval ownership rather than open-ended shared drafting.</li>
+<li><a href="../../gather-retrieve-synthesize/approval-packet-generation/">Approval packet generation</a> (can-consume-output-from)</li>
+<li>Approval packet generation can supply the initial governed artifact and evidence bundle that this pattern iteratively revises through review cycles.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/compliance/regulator-reporting-timeline-exception-package-readiness-loop/">Regulator reporting timeline exception package readiness loop</a></li>
+<li><a href="../../../instances/engineering/production-shared-credential-exception-review-board-readiness-loop/">Production shared credential exception review-board readiness loop</a></li>
+<li><a href="../../../instances/finance/material-vendor-payment-control-exception-package-readiness-loop/">Material vendor payment-control exception package readiness loop</a></li>
+<li><a href="../../../instances/hr/critical-backfill-headcount-freeze-exception-package-readiness-loop/">Critical backfill headcount-freeze exception package readiness loop</a></li>
+<li><a href="../../../instances/operations/network-fuel-system-test-deferral-exception-package-readiness-loop/">Network fuel system test deferral exception package readiness loop</a></li>
+<li><a href="../../../instances/support/enterprise-security-incident-remediation-credit-package-readiness-loop/">Enterprise security incident remediation credit package readiness loop</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/human-agent-collaborative-work/approval-centered-collaboration.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

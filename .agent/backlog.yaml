@@ -1,0 +1,211 @@
+version: 1
+last_updated: 2026-03-21
+principle: Build the ontology in dependency order and do not skip prerequisites.
+items:
+  - id: phase-0-memory-bootstrap
+    phase: 0
+    priority: P0
+    status: done
+    title: Bootstrap committed execution memory under .agent/
+    depends_on: []
+    deliverables:
+      - .agent/mission.md
+      - .agent/backlog.yaml
+      - .agent/iterations/
+      - .agent/decisions.md
+      - .agent/ontology-status.yaml
+      - .agent/coverage-matrix.yaml
+      - .agent/repo-map.md
+      - .agent/glossary.md
+
+  - id: phase-1-foundations-and-schema
+    phase: 1
+    priority: P0
+    status: done
+    title: Create foundational docs and canonical schema
+    depends_on:
+      - phase-0-memory-bootstrap
+    deliverables:
+      - docs/ontology.md
+      - docs/schema.md
+      - docs/index-tree.md
+      - docs/contribution-guide.md
+      - schema/pattern.schema.json
+    notes:
+      - Establish field definitions before any vocabulary or pattern authoring.
+      - Keep the schema aligned with the pattern-first mission in README.md.
+
+  - id: phase-2-controlled-vocabularies
+    phase: 2
+    priority: P0
+    status: done
+    title: Define controlled vocabularies for the ontology core
+    depends_on:
+      - phase-1-foundations-and-schema
+    deliverables:
+      - data/vocabularies/problem-structures.yaml
+      - data/vocabularies/domains.yaml
+      - data/vocabularies/architectures.yaml
+      - data/vocabularies/capabilities.yaml
+      - data/vocabularies/autonomy-levels.yaml
+      - data/vocabularies/risk-levels.yaml
+
+  - id: phase-3-navigation-views
+    phase: 3
+    priority: P1
+    status: done
+    title: Create pattern-first navigation views
+    depends_on:
+      - phase-2-controlled-vocabularies
+    deliverables:
+      - data/views/index-tree.yaml
+      - data/views/by-domain.yaml
+      - data/views/by-architecture.yaml
+      - data/views/by-autonomy.yaml
+      - data/views/by-risk.yaml
+
+  - id: phase-4-pattern-family-docs
+    phase: 4
+    priority: P1
+    status: done
+    title: Define top-level pattern family documentation
+    depends_on:
+      - phase-3-navigation-views
+    deliverables:
+      - docs/patterns/
+    notes:
+      - Start with the seed families named in the orchestration prompt.
+      - Use the new browse views as the canonical family order and linkage baseline for family doc authoring.
+
+  - id: phase-5-seed-patterns
+    phase: 5
+    priority: P1
+    status: done
+    title: Author first canonical YAML pattern entries
+    depends_on:
+      - phase-4-pattern-family-docs
+    deliverables:
+      - data/patterns/
+    notes:
+      - Begin with high-value seed patterns only after schema, vocabularies, and views exist.
+      - Use the Phase 4 family docs as narrative anchors so seed patterns stay within stable family boundaries.
+      - The first batch covered gather/synthesize, investigate/verify, and monitor/triage with browse-view linkage already in place.
+      - The second batch now adds first canonical entries in `plan-coordinate-schedule`, `recommend-decide-escalate`, and `execute-automate` while covering the low-risk, critical-risk, and `approval-gated-execution` architecture gaps.
+      - A follow-on batch now adds the first `optimize-adapt` pattern, leaving `human-agent-collaborative-work` as the only empty family that already has a direct problem-structure vocabulary mapping.
+      - The new `analyst-copilot-loop` anchor now covers `human-agent-collaborative-work`, leaving `transform-process` as the only still-empty top-level family.
+      - "The `structured-representation-transformation` vocabulary term now closes the family-mapping gap for `transform-process`."
+      - "`document-to-structured-data-handoff` now provides first canonical seed coverage for `transform-process`, so Phase 5 has at least one representative pattern in every top-level family."
+
+  - id: phase-6-grounded-instances
+    phase: 6
+    priority: P2
+    status: done
+    title: Add Markdown instances linked to mature patterns
+    depends_on:
+      - phase-5-seed-patterns
+    deliverables:
+      - instances/
+    notes:
+      - The first three grounded examples now exist for research, engineering, and finance, each tied directly to one of the initial canonical patterns.
+      - A follow-on instance batch now grounds the planning, recommendation, and execution patterns in operations, compliance, and HR scenarios.
+      - "Support is now grounded through a collaboration-oriented escalation example linked to `analyst-copilot-loop`, so every currently modeled domain has at least one instance."
+      - "`transform-process` is now grounded through a finance AP handoff example linked to `document-to-structured-data-handoff`."
+      - "`transform-process` now has additional compliance and operations grounding through pharmacovigilance safety-case intake and facilities corrective-maintenance handoff examples."
+      - "`optimize-adapt` is now grounded through a support queue reprioritization example linked to `queue-prioritization-optimization`."
+      - "`optimize-adapt` now has a governed compliance grounding example through a regulatory consumer-complaint response queue reprioritization scenario, so the family is covered across support, operations, and compliance."
+      - "`recommend-decide-escalate` now has a second grounded finance example and `execute-automate` now has a second grounded compliance example, but both families still have many partial domain slices."
+      - "`recommend-decide-escalate` is now grounded across finance, compliance, and operations after adding a multi-site service-package feasibility recommendation example."
+      - "`recommend-decide-escalate` is now also grounded in support through a severity-one service-credit and recovery-package recommendation scenario, so the family now spans finance, compliance, operations, and support."
+      - "`recommend-decide-escalate` is now also grounded in HR through an international relocation and sign-on package recommendation scenario, so the family now spans finance, compliance, operations, support, and HR."
+      - "`human-agent-collaborative-work` now has grounded support, research, and compliance examples after adding a regulator-response copilot loop for sanctions-alert closure review."
+      - "`monitor-detect-triage` is now grounded in finance, compliance, and operations after adding pharmacovigilance safety-signal and cold-chain excursion triage examples."
+      - "`investigate-reconcile-verify` is now grounded in engineering, finance, and compliance after adding treasury cash-position discrepancy and sanctions-screening-gap root-cause investigation examples."
+      - "`gather-retrieve-synthesize` is now grounded in every currently modeled domain after adding compliance, HR, and engineering synthesis examples alongside the earlier research, finance, operations, and support anchors."
+      - "`human-agent-collaborative-work` is now grounded across support, research, compliance, and engineering after adding a deprecated message-broker client migration exception copilot loop."
+      - "`human-agent-collaborative-work` is now also grounded in operations through a supplier labeling deviation remediation brief copilot loop, so the family now spans support, research, compliance, engineering, and operations."
+      - "`human-agent-collaborative-work` is now also grounded in finance through a quarter-close covenant clarification package copilot loop, so the family now spans support, research, compliance, engineering, operations, and finance."
+      - "`monitor-detect-triage` is now grounded in support through a suspected account takeover alert triage scenario, so the family now has representative monitoring coverage across finance, compliance, operations, and support."
+      - "`monitor-detect-triage` is now also grounded in engineering through a production release regression alert triage scenario, extending the family into a domain that already had adjacent investigation, synthesis, and collaboration coverage."
+      - "`investigate-reconcile-verify` is now grounded in operations through a distribution-sorter misroute root-cause investigation scenario, so the family now spans engineering, finance, compliance, and operations."
+      - "`investigate-reconcile-verify` is now also grounded in support through an enterprise admin entitlement drift root-cause investigation scenario, so the family now spans engineering, finance, compliance, operations, and support."
+      - "`human-agent-collaborative-work` is now grounded across support, research, compliance, engineering, operations, finance, and HR after adding a workplace accommodation exception memo copilot loop."
+      - "`transform-process` is now also grounded in HR through a medical leave certification packet to leave-case record handoff, so the family now spans finance, compliance, operations, support, and HR."
+      - "`transform-process` is now also grounded in research through a benchmark study artifact packet to research review intake record handoff, so the family now spans finance, compliance, operations, support, HR, and research."
+      - "`transform-process` is now grounded across all seven currently modeled domains after adding an engineering release-candidate evidence packet to deployment-review staging record handoff."
+      - "`plan-coordinate-schedule` is now also grounded in engineering through a cross-team release-readiness review scheduling scenario, so the family now spans engineering, operations, support, and HR."
+      - "`plan-coordinate-schedule` is now also grounded in finance through a quarter-close control review scheduling scenario, so the family now spans engineering, finance, operations, support, and HR."
+      - "`plan-coordinate-schedule` is now also grounded in research through a benchmark-study publication-readiness review scheduling scenario, so the family now spans engineering, finance, operations, research, support, and HR."
+      - "`plan-coordinate-schedule` is now grounded across all seven currently modeled domains after adding a control-remediation sign-off review scheduling scenario."
+      - "`execute-automate` is now also grounded in research through an approved human-subjects ethics amendment portal submission, so the family now spans finance, compliance, HR, operations, research, and support while leaving engineering as the only open domain slice."
+      - "`execute-automate` is now grounded across all seven currently modeled domains after adding an engineering production change-freeze exception portal submission."
+      - "`recommend-decide-escalate` is now grounded across engineering, finance, compliance, operations, support, and HR after adding a managed-database major-version upgrade exception recommendation scenario, leaving research as the remaining open domain slice in that family."
+      - "`recommend-decide-escalate` is now grounded across all seven currently modeled domains after adding a benchmark-study publication go/no-go recommendation scenario in research."
+      - Phase 6 now has at least one grounded instance in every family and every currently modeled domain, so broader balancing work can move into Phase 7 coverage refinement.
+
+  - id: phase-7-coverage-refinement
+    phase: 7
+    priority: P2
+    status: in_progress
+    title: Expand weak combinations in the coverage matrix
+    depends_on:
+      - phase-6-grounded-instances
+    deliverables:
+      - Balanced coverage across families, domains, architectures, and governance profiles
+    notes:
+      - The last empty family gap is closed at the canonical pattern layer and `transform-process` now has its first grounded example.
+      - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or autonomy combinations.
+      - "`approval-packet-generation` now gives `gather-retrieve-synthesize` a second canonical pattern plus representative `orchestrated-multi-agent` and `high` risk coverage without crossing into recommendation or execution."
+      - "`optimize-adapt` is now grounded across engineering, finance, compliance, operations, research, support, and HR after adding an engineering CI pipeline failure review queue reprioritization example."
+      - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, support, research, and HR after adding a protected-leave return-to-work status drift root-cause investigation example."
+      - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, research, support, and HR after adding a benchmark-study disclosure risk alert triage example, so all nine top-level families are now grounded across all seven currently modeled domains."
+      - "`critical-signal-corroboration-triage` now gives `monitor-detect-triage` a second canonical pattern plus representative `critical` risk and `orchestrated-multi-agent` coverage while keeping the family bounded at corroboration, prioritization, and governed routing."
+      - "`policy-constrained-escalation-routing` now gives `recommend-decide-escalate` a second canonical pattern plus representative `orchestrated-multi-agent` coverage while keeping the family bounded at governed route recommendation and escalation packaging."
+      - "`normalization-and-enrichment` now gives `transform-process` a second canonical pattern plus representative `low` risk coverage while keeping the family bounded at reversible normalization, approved enrichment, and downstream-safe staging."
+      - "`exception-aware-task-execution` now gives `execute-automate` a second canonical pattern plus representative `moderate` risk, `bounded-delegation`, and `orchestrated-multi-agent` coverage while keeping the family bounded at resilient routine completion, bounded retries, and exception-driven escalation."
+      - "`authoritative-record-reconciliation` now gives `investigate-reconcile-verify` a second canonical pattern plus representative `record-reconciliation`, `tool-using-single-agent`, `bounded-delegation`, and `moderate` risk coverage while staying bounded at authoritative-state restoration and correction packaging rather than root-cause diagnosis or downstream business action."
+      - "`approval-centered-collaboration` now gives `human-agent-collaborative-work` a second canonical pattern plus representative `orchestrated-multi-agent`, `recommendation-only`, and `high` risk coverage while staying bounded at review-cycle collaboration and explicit approval ownership rather than decision adjudication or execution."
+      - "`change-triggered-context-briefing` now gives `gather-retrieve-synthesize` a third canonical pattern plus representative `low` risk, `event-driven-monitoring`, and `bounded-delegation` coverage while staying bounded at contextual revision digests rather than alert triage, open-ended research, or downstream action."
+      - "`anomaly-detection-review` now gives `monitor-detect-triage` a third canonical pattern plus representative `moderate` risk, `tool-using-single-agent`, and `bounded-delegation` coverage while staying bounded at explainable anomaly packet assembly and governed routing rather than critical corroboration, investigation, or execution."
+      - "`explainable-watchlist-maintenance` now gives `monitor-detect-triage` a fourth canonical pattern plus representative `low` risk and `exception-gated-autonomy` coverage while staying bounded at explainable watchlisting, bounded noise suppression, and routine attention routing rather than anomaly review, recommendation, investigation, or execution."
+      - "`claimed-state-verification` now gives `investigate-reconcile-verify` a third canonical pattern plus representative `evidence-backed-verification`, `low` risk, and `event-driven-monitoring` coverage while staying bounded at confirming or disproving low-stakes claimed states rather than repairing records, diagnosing causes, or propagating downstream completion."
+      - "`shared-workbench-orchestration` now gives `human-agent-collaborative-work` a third canonical pattern plus representative `low` risk, `bounded-delegation`, and `event-driven-monitoring` coverage while staying bounded at internal workbench upkeep rather than synthesis-only drafting, approval readiness, or downstream execution."
+      - "`batch-content-transformation` now gives `transform-process` a third canonical pattern plus representative `high` risk, `approval-gated`, `orchestrated-multi-agent`, and `human-in-the-loop` coverage while staying bounded at reviewed release-safe representations rather than downstream publication or action."
+      - "`approval-gated-transformation-release` now gives `transform-process` a sixth canonical pattern plus representative `approval-gated-execution` coverage while staying bounded at transformed downstream-ready packages, explicit hold states, and approval manifests rather than evidence verdicts or live downstream action."
+      - "`transform-process` now spans all tracked architecture types after adding `approval-gated-transformation-release` plus engineering, finance, and operations approval-bound handoff package examples alongside the earlier document handoff, normalization, batch transformation, change-refresh, and channel-safe packaging anchors."
+      - "`approval-gated-triage-dispatch` now gives `monitor-detect-triage` a fifth canonical pattern plus representative `approval-gated-execution` coverage while staying bounded at governed dispatch release of an already-triaged packet rather than authority choice, recommendation, investigation, or response execution."
+      - "`monitor-detect-triage` now spans all tracked architecture types after adding `approval-gated-triage-dispatch` plus finance, compliance, and operations approval-bound dispatch examples alongside the earlier anomaly-review, alert-triage, watchlist, and critical-corroboration anchors."
+      - "`governed-optimization-bundle-retuning` now gives `optimize-adapt` a third canonical pattern plus representative `orchestrated-multi-agent`, `recommendation-only`, and `high` risk coverage while staying bounded at governed shared-state retuning and human-adopted bundle updates rather than direct queue scoring, decision adjudication, or downstream execution."
+      - "`staged-change-execution-with-rollback-holds` now gives `execute-automate` a fourth canonical pattern plus representative `high` risk and `exception-gated-autonomy` coverage while staying bounded at staged live-state progression, rollback-aware hold points, and human-visible intervention rather than browser submission, routine delegated execution, or low-risk closure."
+      - "`critical-command-window-resequencing` now gives `plan-coordinate-schedule` a fourth canonical pattern plus representative `critical` risk, `orchestrated-multi-agent`, `human-in-the-loop`, and `human-directed` coverage while staying bounded at checkpoint resequencing, explicit holds, and command-window coordination packets rather than triage, recommendation, or execution."
+      - "`plan-coordinate-schedule` now spans low-, moderate-, high-, and critical-risk slices after adding `critical-command-window-resequencing` plus engineering, finance, and operations command-window examples alongside the earlier scheduling, replanning, and coordination-refresh anchors."
+      - "`critical-escalation-authority-recommendation` now gives `recommend-decide-escalate` a fifth canonical pattern plus representative `critical` risk, `orchestrated-multi-agent`, `human-in-the-loop`, and `human-directed` coverage while staying bounded at severe authority selection, governed option narrowing, and decision-support packet assembly rather than crisis briefing, collaboration, planning, or execution."
+      - "`recommend-decide-escalate` now spans low-, moderate-, high-, and critical-risk slices after adding `critical-escalation-authority-recommendation` plus engineering, finance, and compliance authority-recommendation examples alongside the earlier deal, policy-routing, readiness-gate, and attestation anchors."
+      - "`delegated-authority-option-ranking` now gives `recommend-decide-escalate` a sixth canonical pattern plus representative `bounded-delegation` coverage while staying bounded at in-band option narrowing, explicit blocked-option visibility, and escalation packaging rather than approval adjudication, scheduling, or execution."
+      - "`critical-protected-priority-adaptation` now gives `optimize-adapt` a fourth canonical pattern plus representative `critical` risk, `human-directed`, and additional `orchestrated-multi-agent` plus `human-in-the-loop` coverage while staying bounded at severe-state optimization-state recommendation, expiry discipline, and rollback preparation rather than authority choice, command planning, collaboration ownership, or execution."
+      - "`optimize-adapt` now spans low-, moderate-, high-, and critical-risk slices after adding `critical-protected-priority-adaptation` plus engineering, finance, and operations protected-priority adaptation examples alongside the earlier queue reprioritization, threshold calibration, and governed bundle-retuning anchors."
+      - "`critical-protected-artifact-collaboration` now gives `human-agent-collaborative-work` a fourth canonical pattern plus representative `critical` risk, `orchestrated-multi-agent`, `human-in-the-loop`, and `human-directed` coverage while staying bounded at protected shared-artifact collaboration, disagreement preservation, annex control, and human-owned handoff readiness rather than authority selection, command sequencing, or execution."
+      - "`human-agent-collaborative-work` now spans low-, moderate-, high-, and critical-risk slices after adding `critical-protected-artifact-collaboration` plus engineering, finance, and compliance protected-room collaboration examples alongside the earlier analyst-copilot, approval-centered, and shared-workbench anchors."
+      - "`contingency-plan-activation-gate` now gives `plan-coordinate-schedule` a fifth canonical pattern plus representative `approval-gated` and `approval-gated-execution` coverage while staying bounded at activation-readiness planning, explicit holds, and human approval before any downstream fallback action."
+      - "`plan-coordinate-schedule` now spans all tracked architecture types after adding `contingency-plan-activation-gate` plus finance, operations, and compliance activation-gate examples alongside the earlier scheduling, replanning, coordination-refresh, and critical command-window anchors."
+      - "`human-directed-task-orchestration` now gives `execute-automate` a fifth canonical pattern plus representative `human-directed` autonomy coverage while staying bounded at explicit human step direction, verified execution state, and takeover-safe live action rather than browser approval gating, delegated routine execution, or collaboration-first work."
+      - "`execute-automate` now spans all six tracked autonomy levels after adding `human-directed-task-orchestration` plus engineering, operations, and compliance guided-execution examples alongside the earlier browser-gated, staged, delegated, and event-triggered execution anchors."
+      - "`approval-gated-collaborative-artifact-release` now gives `human-agent-collaborative-work` a fifth canonical pattern plus representative `approval-gated-execution` and `approval-gated` coverage while staying bounded at one jointly prepared artifact, explicit release manifests, visible disagreement, and human-approved handoff rather than recommendation adjudication, transformation, or live execution."
+      - "`human-agent-collaborative-work` now spans all tracked architecture types after adding `approval-gated-collaborative-artifact-release` plus engineering, finance, and compliance approval-bound artifact-release examples alongside the earlier analyst-copilot, approval-centered, shared-workbench, and critical protected-artifact anchors."
+      - "With `transform-process`, `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` now spanning all tracked architecture types, the next refinement step should likely target only another narrow family-safe `approval-gated-execution` imbalance in `gather-retrieve-synthesize`, `recommend-decide-escalate`, or `optimize-adapt` rather than a broad balancing batch."
+      - "`approval-gated-optimization-state-release` now gives `optimize-adapt` a sixth canonical pattern plus representative `approval-gated-execution` and `approval-gated` coverage while staying bounded at one exact optimization-state revision, explicit validity and rollback controls, and human-approved live release rather than recommendation adjudication, command planning, or downstream execution."
+      - "`optimize-adapt` now spans all tracked architecture types after adding `approval-gated-optimization-state-release` plus engineering, finance, and operations approval-bound optimization-revision release examples alongside the earlier threshold-calibration, review-sampling, queue-optimization, bundle-retuning, and critical protected-priority anchors."
+      - "`approval-gated-briefing-release` now gives `gather-retrieve-synthesize` a fifth canonical pattern plus representative `approval-gated-execution` and `approval-gated` coverage while staying bounded at release of one exact synthesized briefing revision into a governed visibility lane rather than recommendation, planning, or execution."
+      - "`gather-retrieve-synthesize` now spans all tracked architecture types after adding `approval-gated-briefing-release` plus engineering, operations, and finance approval-bound briefing-release examples alongside the earlier research synthesis, approval packet, change-triggered briefing, and crisis-briefing anchors."
+      - "`approval-gated-recommendation-release` now gives `recommend-decide-escalate` a seventh canonical pattern plus representative `approval-gated-execution` and `approval-gated` coverage while staying bounded at release of one exact recommendation packet revision into one named human decision lane rather than decision adjudication, collaboration, planning, or execution."
+      - "All nine top-level families now span the tracked architecture types, so the next refinement step should rebalance grounded depth in underrepresented domains and governance-heavy approval-bound slices rather than chase another matrix-closure gap."
+      - "`approval-gated-optimization-state-release` now spans engineering, finance, compliance, operations, research, support, and HR after adding its remaining support-grounded live-state release example, so that optimize-family approval-bound slice no longer has a domain hole."
+      - "With the optimize release gap closed, the next refinement step should likely target the still-thinnest HR domain through one governance-heavy approval-bound slice, with `approval-gated-transformation-release` as the leading candidate if family fit holds."
+      - "`approval-gated-transformation-release` now also has explicit HR grounding through a restricted leave recertification intake-packet release example, so the transform-family approval-bound slice now spans engineering, finance, operations, and HR while staying bounded at one transformed package revision, one explicit hold-and-manifest boundary, and one restricted intake lane."
+      - "With the HR transform release slice now grounded, the next refinement step should likely keep rebalancing the still-thinnest HR domain through another family-safe approval-bound example, with `approval-gated-briefing-release` as a likely candidate if the output stays one exact synthesized briefing revision and one bounded visibility lane."
+      - "`approval-gated-transformation-release` now spans engineering, finance, compliance, operations, research, support, and HR after adding a support-grounded restricted vendor-intake packet release example, so that transform-family approval-bound slice no longer has a domain hole."
+      - "With the approval-bound transform slice now closed across all seven domains, the next refinement step should likely target the still-thinnest HR domain through one family-safe `change-triggered-representation-refresh` example, if the output stays one already-issued staged HR packet revision refreshed after authoritative source changes."
+      - "`change-triggered-representation-refresh` now also has explicit compliance grounding through a cross-border transfer-assessment review-record refresh example, so moderate-risk transform refresh now spans engineering, finance, support, HR, and compliance while staying bounded at one already-issued staged record revision, explicit delta lineage, and supersession state."
+      - "With compliance now lifted to twenty-three grounded instances, the next refinement step should likely target the tied thinnest research domain through one similarly family-safe `change-triggered-representation-refresh` example, if the output stays one already-issued staged research record revision refreshed after authoritative source changes."
+      - "`change-triggered-representation-refresh` now also has explicit research grounding through a benchmark-study research-review intake-record refresh example, so moderate-risk transform refresh now spans engineering, finance, support, HR, compliance, and research while staying bounded at one already-issued staged record revision, explicit delta lineage, and supersession state."
+      - "Research now rises to twenty-three grounded instances, leaving HR alone as the thinnest modeled domain at twenty-two, so the next refinement step should likely target one similarly narrow HR-grounded slice rather than reopen broader transform expansion."
+      - "A low-risk `workflow-hand-off-and-completion` example is now a leading next candidate for HR if the output stays at authoritative post-decision closure, archive, and tracker propagation rather than new approval, recommendation, or live people-action execution."

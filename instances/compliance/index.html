@@ -1,0 +1,792 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>compliance - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#compliance" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              compliance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="compliance">compliance<a class="headerlink" href="#compliance" title="Permanent link">&para;</a></h1>
+<p>Grounded examples for the <code>compliance</code> domain.</p>
+<h2 id="instances">Instances<a class="headerlink" href="#instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="beneficial-ownership-registry-update-submission/">Beneficial ownership registry update submission</a></li>
+<li>A corporate compliance operations team must file an updated beneficial ownership report after a private equity recapitalization changes the controlling ownership chain for a regulated subsidiary. The target government registry is browser-only, requires multi-page entry for legal entity identifiers, ownership percentages, controlling-person details, and supporting attachments, and final submission may proceed only after legal, compliance, and corporate secretary approvals are verified in the case system. <code>mermaid flowchart TD A["Approved registry update&lt;br&gt;request ready for execution"] --&gt;|"assemble"| B["Assemble filing packet from&lt;br&gt;entity records, capitalization table,&lt;br&gt;ownership memo, and attachments"] B --&gt;|"check"| C{"Legal, compliance, and corporate&lt;br&gt;secretary approvals verified&lt;br&gt;in the case system?"} C --&gt;|"No"| H["Hold submission and escalate&lt;br&gt;for human review"] C --&gt;|"Yes"| D["Enter registry portal and populate&lt;br&gt;entity, ownership, and controller fields"] D --&gt;|"reconcile"| E{"Portal identifiers, prior filing state,&lt;br&gt;and ownership percentages match&lt;br&gt;the approved packet?"} E --&gt;|"No"| H E --&gt;|"Yes"| F["Upload officer attestations&lt;br&gt;and supporting documents"] F --&gt;|"recheck"| G{"Approvals still current&lt;br&gt;immediately before submit?"} G --&gt;|"No"| H G --&gt;|"Yes"| I["Submit registry update and capture&lt;br&gt;screenshots and reference number"] I --&gt;|"confirm"| J{"Clear portal confirmation&lt;br&gt;received?"} J --&gt;|"No"| H J --&gt;|"Yes"| K["Store evidence bundle and&lt;br&gt;record filing completion"]</code></li>
+<li><a href="control-library-caveat-board-shared-workbench-upkeep/">Control-library caveat board shared workbench upkeep</a></li>
+<li>An internal compliance operations team maintains a shared control-library caveat board while policy owners, testing coordinators, and regional compliance liaisons continuously refine implementation notes tied to standard controls. Small updates arrive throughout the week: one owner links a superseding procedure reference, a testing coordinator flags a stale evidence note, a regional liaison adds one localized caveat, and another reviewer reassigns section ownership after a team change. The agent keeps that internal workbench usable by refreshing linked source references, normalizing duplicate caveat notes, preserving accepted owner assignments, and carrying unresolved applicability questions forward in an explicit hold register. Humans remain responsible for deciding what a control obligation means, whether any caveat changes compliance posture, whether an exception is acceptable, and when any material should move into separate attestation, remediation, legal review, regulator communication, or execution workflows. <code>mermaid flowchart TD start["Small board updates&lt;br&gt;arrive from collaborators"] --&gt; scope{"Update stays inside approved&lt;br&gt;caveat-board upkeep boundary?"} scope -- "No" --&gt; handoff["Stop and hand off to the appropriate&lt;br&gt;adjacent workflow"] scope -- "Yes" --&gt; sync["Refresh linked control references,&lt;br&gt;evidence metadata, and owner context"] sync --&gt; verify{"Control links, evidence dates,&lt;br&gt;and owner assignments revalidated?"} verify -- "No" --&gt; hold["Record mismatch or applicability question&lt;br&gt;in the explicit hold register"] verify -- "Yes" --&gt; review{"Would the change reinterpret a control,&lt;br&gt;clear an accepted hold, or imply advice?"} review -- "No" --&gt; update["Normalize duplicate caveat notes and&lt;br&gt;update the shared board revision history"] review -- "Yes" --&gt; human["Send the row to a human owner&lt;br&gt;for bounded review"] human -- "Approved" --&gt; update human -- "Keep held" --&gt; hold</code></li>
+<li><a href="control-remediation-sign-off-review-coordination-refresh-after-validation-slip/">Control-remediation sign-off review coordination refresh after validation slip</a></li>
+<li>A sanctions-screening control-remediation sign-off review already has an issued coordination packet, required attendee set, regulator-committed milestone link, and tentative steering-committee review hold. After issuance, authoritative validation state changes: evidence validation completes later than expected, the internal audit liaison must hand off attendance to an approved alternate, and the remediation calendar updates the last acceptable review window before steering-committee materials lock. The workflow should refresh the existing sign-off coordination package, send targeted participant delta notices, and hold the changed state at explicit remediation-owner adoption or exception checkpoints rather than rebuilding the entire remediation plan, adjudicating whether remediation is sufficient, or submitting the attestation. <code>mermaid flowchart TD A["Authoritative validation, delegate,&lt;br&gt;or review-window change lands"] B["Verify the new validation timestamp,&lt;br&gt;approved alternate, and latest acceptable&lt;br&gt;review window against remediation records"] C{"Updated review state stays inside the&lt;br&gt;committed milestone and sign-off authority rules?"} D["Refresh the existing sign-off packet,&lt;br&gt;tentative hold, and lineage log"] E["Send targeted delta notices to affected&lt;br&gt;reviewers, delegate owners, and coordinators"] F{"Remediation owner adopts the materially&lt;br&gt;changed coordination state?"} G["Publish the refreshed packet as the&lt;br&gt;current authoritative review state"] H["Keep the refreshed packet tentative at&lt;br&gt;the adoption checkpoint"] I["Route a bounded exception for milestone-risk,&lt;br&gt;unsupported authority change, or other&lt;br&gt;out-of-policy refresh conditions"] A --&gt;|"Detect authoritative change"| B B --&gt;|"Check policy and schedule boundary"| C C --&gt;|"Yes"| D C --&gt;|"No"| I D --&gt;|"Reissue current package"| E E --&gt;|"Present changed state for adoption"| F F --&gt;|"Yes"| G F --&gt;|"No"| H</code></li>
+<li><a href="control-remediation-sign-off-review-scheduling/">Control-remediation sign-off review scheduling</a></li>
+<li>A compliance program coordinator needs to schedule a control-remediation sign-off review before a regulator-committed remediation milestone closes for a high-priority sanctions-screening control gap. The meeting must include the compliance controls director, the remediation workstream owner, the model governance lead, the internal audit liaison, and the accountable technology risk manager because the review sits between evidence-pack completion and formal attestation submission to the remediation steering committee. The workflow is about constructing a viable slot inside the committed review window, placing reversible holds across New York, Toronto, and London calendars, and escalating quickly when no in-policy overlap exists rather than guessing at delegates, relaxing the remediation deadline, or making the final meeting commitment without human confirmation. <code>mermaid flowchart TD start["Review request after&lt;br&gt;validation artifacts complete"] --&gt; gather["Check milestone cutoff,&lt;br&gt;required roles, and calendar rules"] gather --&gt; search["Search New York, Toronto,&lt;br&gt;and London availability"] search --&gt; overlap{"In-policy overlap&lt;br&gt;before cutoff?"} overlap --&gt;|"Yes"| hold["Place reversible holds&lt;br&gt;and draft role-based invite"] overlap --&gt;|"No"| escalate["Escalate calendar conflict&lt;br&gt;for human resolution"] hold --&gt; confirm{"Compliance controls director&lt;br&gt;confirms slot?"} confirm --&gt;|"Yes"| finalize["Send final sign-off review invite&lt;br&gt;and record confirmation status"] confirm --&gt;|"No"| revise["Release holds or revise&lt;br&gt;candidate slots"] revise --&gt; search</code></li>
+<li><a href="control-remediation-sign-off-timeline-replanning-after-evidence-collection-slip/">Control-remediation sign-off timeline replanning after evidence-collection slip</a></li>
+<li>A compliance remediation program already has an approved timeline that sequences evidence collection, control-validation review, internal audit walkthrough, remediation-owner sign-off review, steering-committee packet lock, and a non-waivable regulator-facing checkpoint tied to quarter-close reporting. Then the baseline plan stops being feasible: evidence collection for one control segment slips by several business days, an internal-audit reviewer window compresses, or the filing-linked checkpoint stays fixed while the original sign-off path no longer fits. The workflow should recompute a revised timeline, document which milestones can move and which must remain fixed, and prepare a coordination-ready replanning packet for the compliance controls director, remediation workstream owner, internal audit liaison, regulatory reporting coordinator, and technology risk manager rather than deciding whether the evidence is sufficient, waiving a required control review, filing anything with the regulator, or executing the remediation work itself. <code>mermaid flowchart TD A["Evidence slip or reviewer-window compression detected"] B["Refresh baseline timeline,&lt;br&gt;evidence-readiness status,&lt;br&gt;reviewer availability, and fixed checkpoint data"] C["Verify source freshness and&lt;br&gt;required review constraints"] D{"Any in-policy revised timeline preserves&lt;br&gt;required review steps and the fixed&lt;br&gt;regulator-facing checkpoint?"} E["Build revised remediation&lt;br&gt;sign-off timeline"] F["Record moved milestones,&lt;br&gt;fixed dates, rejected alternatives,&lt;br&gt;and residual deadline risk"] G["Assemble coordination-ready&lt;br&gt;replanning packet"] H["Compliance controls director and&lt;br&gt;required partners review for adoption"] I["Hold with escalation packet for&lt;br&gt;constraint conflicts or unresolved&lt;br&gt;evidence uncertainty"] A --&gt;|"Refresh current state"| B B --&gt;|"Check readiness inputs"| C C --&gt;|"Fresh and usable"| D C --&gt;|"Stale or uncertain inputs"| I D --&gt;|"Yes"| E D --&gt;|"No"| I E --&gt;|"Document impacts"| F F --&gt;|"Prepare handoff"| G G --&gt;|"Route for approval"| H I --&gt;|"Escalate within workflow boundary"| H</code></li>
+<li><a href="cross-border-deal-exception-review/">Cross-border deal exception review</a></li>
+<li>A regional account team proposes a renewal for a multinational distributor that wants nonstandard pricing, extended payment terms through a reseller, and a contractual exception allowing customer data support from an additional jurisdiction. Compliance must review whether the combined commercial package should be recommended as-is, narrowed to a safer structure, or escalated because pricing concessions, contract language, and cross-border exposure interact in ways that exceed ordinary approval thresholds. <code>mermaid flowchart TD start["Regional account team submits&lt;br&gt;cross-border exception package"] gather["Collect pricing terms, reseller structure,&lt;br&gt;contract redlines, jurisdiction guidance,&lt;br&gt;and prior exception evidence"] verify["Verify precedent fit, approval-matrix thresholds,&lt;br&gt;and whether privacy, export, sanctions,&lt;br&gt;and revenue-recognition checks are current"] blocker{"Any non-waivable constraint or&lt;br&gt;material unresolved legal or compliance question?"} threshold{"Is the requested package supportable&lt;br&gt;within ordinary approval thresholds?"} narrowcheck{"Would a narrower structure keep pricing,&lt;br&gt;terms, and jurisdiction scope inside policy?"} asis["Recommend the package as-is with&lt;br&gt;supporting evidence and trade-offs"] narrow["Recommend a narrower structure with&lt;br&gt;safer pricing, terms, or jurisdiction scope"] escalate["Hold the local approval path and prepare&lt;br&gt;an escalation packet with explicit blockers"] review["Authorized reviewers inspect the packet&lt;br&gt;before any customer-facing approval signal"] start --&gt;|"Open compliance review"| gather gather --&gt;|"Build review packet"| verify verify --&gt;|"Checks complete"| blocker blocker --&gt;|"Yes"| escalate blocker --&gt;|"No"| threshold threshold --&gt;|"Yes"| asis threshold --&gt;|"No"| narrowcheck narrowcheck --&gt;|"Yes"| narrow narrowcheck --&gt;|"No"| escalate asis --&gt;|"Route for human review"| review narrow --&gt;|"Route for human review"| review escalate --&gt;|"Route for governed escalation"| review</code></li>
+<li><a href="cross-border-transfer-assessment-packet-approved-for-restricted-privacy-counsel-intake/">Cross-border transfer assessment packet approved for restricted privacy counsel intake</a></li>
+<li>A privacy compliance team is preparing a transfer-assessment packet for a new analytics subprocess that would route employee telemetry into a vendor environment with cross-border access. The authoritative source state spans the vendor data-flow inventory, subprocess register, transfer-impact questionnaire responses, approved contract annexes, regional data-category mappings, and prior exception history. The downstream restricted intake lane expects one transformed packet with normalized transfer identifiers, jurisdiction scope, annex inventory, privacy tags, held-field markers, and an approval manifest authorizing handoff into that single privacy-counsel intake queue. The workflow must stop once that exact packet revision is approved for intake, without deciding whether the transfer is permissible, issuing legal advice, contacting the vendor, or launching any regulator notification or remediation action. <code>mermaid flowchart TD start["Select authoritative cross-border transfer&lt;br&gt;sources and current packet state"] --&gt; stage["Assemble staged intake packet with&lt;br&gt;normalized transfer identifiers, jurisdiction scope,&lt;br&gt;annex inventory, privacy tags, and held fields"] stage --&gt; checks{"Do lineage, scope, jurisdiction,&lt;br&gt;and audience checks all pass?"} checks --&gt;|"No"| hold["Place packet in hold and exception queue for&lt;br&gt;missing annex lineage, stale subprocess scope,&lt;br&gt;tag conflicts, or audience mismatch"] hold --&gt; rule{"Does clearing the hold require a&lt;br&gt;schema or audience-rule change?"} rule --&gt;|"Yes"| escalate["Escalate to privacy governance owners for&lt;br&gt;bounded rule or hold-release review"] rule --&gt;|"No"| restage["Refresh authoritative inputs and&lt;br&gt;rebuild the exact packet revision"] escalate --&gt; restage restage --&gt; stage checks --&gt;|"Yes"| review["Privacy compliance reviewer checks the exact&lt;br&gt;packet revision, held-field markers, and manifest"] review --&gt; approve{"Approve release into one restricted&lt;br&gt;privacy-counsel intake lane?"} approve --&gt;|"No"| hold approve --&gt;|"Yes"| release["Release the approved packet and manifest to&lt;br&gt;the restricted privacy-counsel intake queue"]</code></li>
+<li><a href="cross-border-transfer-assessment-review-record-refresh-after-annex-update/">Cross-border transfer assessment review record refresh after annex update</a></li>
+<li>A privacy compliance program already maintains a restricted staged transfer-assessment review record for an in-flight vendor telemetry review so privacy reviewers can inspect one current package instead of reopening the subprocess inventory, transfer-impact questionnaire, annex repository, jurisdiction mapping tables, and prior exception log every time source state changes. After that review record is issued, authoritative updates still arrive: a signed annex supersedes a draft transfer mechanism attachment, the vendor subprocess inventory narrows the employee telemetry fields in scope, a jurisdiction mapping is corrected for a new support-access region, or exception lineage is updated to show that one prior annex reference was withdrawn. Each approved source change should trigger refresh of the staged transfer-assessment review record, preserving field-level delta lineage, explicit current-versus-superseded values, and exception routing whenever conflicting annex provenance, unresolved jurisdiction scope drift, or policy-disallowed overwrite logic would make the refreshed packet unsafe for downstream restricted privacy review. <code>mermaid flowchart TD A["Approved authoritative update&lt;br&gt;arrives for annex, subprocess scope,&lt;br&gt;jurisdiction mapping, or exception lineage"] --&gt; B["Load current source bundle,&lt;br&gt;prior staged review record,&lt;br&gt;and refresh policy tables"] B --&gt; C{"Approved source,&lt;br&gt;lineage, and restricted-audience&lt;br&gt;checks pass?"} C --&gt;|"No"| D["Route to exception queue and hold&lt;br&gt;for privacy compliance, counsel intake prep,&lt;br&gt;or vendor-governance follow-up"] C --&gt;|"Yes"| E["Rebuild the staged transfer-assessment&lt;br&gt;review record with field-level deltas&lt;br&gt;and superseded values"] E --&gt; F{"Conflicting annex provenance,&lt;br&gt;jurisdiction scope drift, or&lt;br&gt;policy-disallowed overwrite found?"} F --&gt;|"Yes"| D F --&gt;|"No"| G["Write refreshed current review record,&lt;br&gt;delta lineage trace, and refresh decision&lt;br&gt;for restricted downstream review"]</code></li>
+<li><a href="finalized-sanctions-alert-false-positive-disposition-closure-and-case-ledger-synchronization/">Finalized sanctions alert false-positive disposition closure and case-ledger synchronization</a></li>
+<li>A restricted sanctions review team has already recorded a final false-positive disposition for a screening alert in the authoritative case-management system after the investigative and adjudicative work is complete. That disposition is final for this workflow and must not be reopened, reinterpreted, or extended into any live payment, counterparty, or regulator-facing action. The remaining execute step is limited to low-risk closure bookkeeping: detect the final-disposition event, recheck that the alert identifier, disposition version, and approved archive references still match the source record, close the post-review queue item, sync the sanctions case ledger and alert tracker to the recorded closed-false-positive state, attach archive references for the final disposition memo and evidence bundle, record completion state in the audit store, and notify the internal sanctions operations coordinator that closure propagation is complete. If the alert was reopened, the disposition changed, or the target ledger points to a different alert episode, the workflow should stop and route manual follow-up instead of guessing. <code>mermaid flowchart TD A["Final false-positive&lt;br&gt;disposition event detected"] --&gt;|"revalidate"| B{"Source record still shows&lt;br&gt;final false-positive state?"} B --&gt;|"no"| H["Create manual follow-up record&lt;br&gt;and hold closure propagation"] B --&gt;|"yes"| C{"Alert id, disposition version,&lt;br&gt;archive references, and ledger episode align?"} C --&gt;|"no"| H C --&gt;|"yes"| D["Close restricted post-review&lt;br&gt;queue item"] D --&gt;|"sync"| E["Sync sanctions case ledger&lt;br&gt;and alert tracker to&lt;br&gt;closed-false-positive state"] E --&gt;|"attach"| F["Attach final disposition memo&lt;br&gt;and evidence bundle references"] F --&gt;|"record"| G["Record completion state&lt;br&gt;in the audit store"] G --&gt;|"notify"| I["Notify internal sanctions operations&lt;br&gt;coordinator that closure&lt;br&gt;propagation is complete"]</code></li>
+<li><a href="pharmacovigilance-follow-up-packet-to-safety-case-record-handoff/">Pharmacovigilance follow-up packet to safety case record handoff</a></li>
+<li>A drug safety operations team receives a follow-up packet for a serious adverse event involving a hospital patient who was re-admitted after using an infusion therapy. The source packet includes a faxed MedWatch form, an email from the treating physician, scanned discharge notes, product lot photographs, and an internal follow-up questionnaire completed by the field safety specialist. Before any regulator gateway submission can be prepared, the intake workflow must transform the packet into a structured safety case record with the required ICSR staging fields for reporter type, suspect product, event terms, onset dates, seriousness criteria, patient attributes, lot references, and expectedness flags while preserving provenance, uncertainty, and unresolved contradictions. <code>mermaid flowchart TD A["Receive follow-up packet&lt;br&gt;MedWatch fax, physician email, discharge notes, lot photos, and follow-up questionnaire"] B["Run OCR and document parsing&lt;br&gt;capture source spans for consequential safety facts"] C["Populate staged ICSR fields&lt;br&gt;reporter, product, event terms, onset, seriousness, patient, lot, and expectedness"] D{"Any minimum-case, channel, or contradiction issue detected&lt;br&gt;or would completion require unsupported inference?"} E["Place case on safety exception hold&lt;br&gt;for medical review, coding review, or data-entry correction"] F{"Do schema-required fields, provenance, and uncertainty markers&lt;br&gt;support a reviewable handoff package?"} G["Create structured safety case record&lt;br&gt;with transformation trace and reference-data versions"] H["Stop at staged case handoff&lt;br&gt;submission readiness stays with downstream human reviewers"] A --&gt; B --&gt; C --&gt; D D --&gt; E E --&gt; B D --&gt; F F --&gt; E F --&gt; G --&gt; H</code></li>
+<li><a href="pharmacovigilance-safety-signal-alert-triage/">Pharmacovigilance safety signal alert triage</a></li>
+<li>A drug-safety operations team receives a continuous stream of potential safety signals from spontaneous adverse-event intake, literature surveillance, patient-support programs, and protocol-deviation feeds tied to marketed and late-stage investigational products. The workflow must de-duplicate near-identical alerts, enrich each signal with product, seriousness, geography, expectedness, and prior-case context, and then prioritize which items should move first into human safety review. The goal is not to determine causality or write the final safety assessment, but to convert noisy inbound signals into an explainable reviewer queue with explicit escalation triggers for medically significant, regulator-sensitive, or time-bound cases. <code>mermaid flowchart TD A["Continuous safety signal intake&lt;br&gt;from cases, literature, support programs, and deviations"] --&gt; B["De-duplicate and enrich&lt;br&gt;product, seriousness, geography,&lt;br&gt;expectedness, and prior-case context"] B --&gt; C{"Duplicate or near-duplicate?"} C -- "Yes" --&gt; D["Hold or merge alert&lt;br&gt;record linkage rationale for audit"] C -- "No" --&gt; E["Score and rank signal&lt;br&gt;attach reporting-clock context"] E --&gt; F{"Medically significant,&lt;br&gt;regulator-sensitive, or time-bound?"} F -- "No" --&gt; I["Prioritized reviewer queue&lt;br&gt;with rationale and countdowns"] F -- "Yes" --&gt; G["Human safety review verifies&lt;br&gt;evidence, urgency, and routing basis"] G --&gt; H{"Escalation approved?"} H -- "Yes" --&gt; J["Escalated review path&lt;br&gt;safety scientist, medical reviewer, or compliance lead"] H -- "No" --&gt; I</code></li>
+<li><a href="privacy-attestation-disposition-packet-revision-approved-for-council-sign-off-lane/">Privacy-attestation disposition packet revision approved for council sign-off lane</a></li>
+<li>A privacy review workflow has already prepared one exact recommendation packet revision for an annual vendor telemetry safeguard attestation. The packet narrows the bounded options to approve with one current compensating control, require targeted remediation before sign-off, or escalate to privacy counsel, and it preserves why informal acceptance is blocked. Before that exact packet revision can enter the restricted privacy governance council sign-off lane, a named compliance release owner must approve the council scope, expiry window, and release manifest so council members receive the reviewed recommendation artifact rather than a stale or over-shared copy. The workflow stops at governed release of that packet revision; it does not decide whether the attestation is signed, update vendor status, or launch remediation work. <code>mermaid flowchart TD A["Exact privacy attestation&lt;br&gt;recommendation packet revision ready"] --&gt; B{"Packet hash, bounded options,&lt;br&gt;and blocked informal-acceptance&lt;br&gt;notes still match?"} B --&gt;|"No"| G["Hold packet revision&lt;br&gt;for manual follow-up&lt;br&gt;or supersession"] B --&gt;|"Yes"| C{"Council lane scope, expiry window,&lt;br&gt;and release manifest still valid?"} C --&gt;|"No"| G C --&gt;|"Yes"| D{"Named compliance release owner&lt;br&gt;approves governed release?"} D --&gt;|"No"| G D --&gt;|"Yes"| E["Release exact packet revision&lt;br&gt;to restricted privacy council lane&lt;br&gt;with approve / remediate /&lt;br&gt;escalate-to-counsel options"] E --&gt; F["Record handoff and block forwarding&lt;br&gt;outside approved council audience"]</code></li>
+<li><a href="regulator-reporting-timeline-exception-package-readiness-loop/">Regulator reporting timeline exception package readiness loop</a></li>
+<li>A regulatory compliance manager is coordinating a formal exception package because a business line cannot meet a near-term regulator reporting timeline after discovering that a required transaction-aggregation control was not fully operational in one jurisdiction. In a governed approval-collaboration workspace, the manager and agent support iterate on the readiness packet as legal, regional compliance, control-testing, and policy-office reviewers challenge whether the factual chronology is complete, whether the proposed temporary reporting approach is defensible, whether compensating controls are evidenced clearly enough, and whether the package properly states what remains unresolved. The agents help preserve reviewer objections, refresh source evidence, rewrite sections to reflect accepted edits and contested issues, and maintain an explicit handoff ledger showing who owns the next approval-readiness checkpoint. The human compliance manager and named approval owner remain responsible for deciding whether the packet is ready for formal approval review, whether any objection should block handoff, and whether the request should pause for more evidence or legal analysis rather than move toward adjudication. <code>mermaid flowchart TD A["Compliance manager opens&lt;br&gt;timeline-exception readiness packet"] --&gt; B["Agents refresh evidence,&lt;br&gt;preserve objections, and rewrite packet"] B --&gt; C["Verification check:&lt;br&gt;chronology, evidence freshness,&lt;br&gt;and authority mapping complete?"] C --&gt;|"No"| H["Hold for more evidence&lt;br&gt;or legal analysis"] H --&gt; B C --&gt;|"Yes"| D["Legal, regional compliance,&lt;br&gt;control-testing, and policy reviewers&lt;br&gt;challenge or accept revisions"] D --&gt; E["Compliance manager and named approval owner&lt;br&gt;review unresolved objections and handoff ledger"] E --&gt;|"Blocker remains"| F["Bounded escalation:&lt;br&gt;pause handoff and route issue to named&lt;br&gt;legal or policy decision-maker"] F --&gt; B E --&gt;|"Ready for handoff"| G["Transfer packet, unresolved objections,&lt;br&gt;and next approval owner to approval-routing queue&lt;br&gt;for formal human decision review"]</code></li>
+<li><a href="regulatory-consumer-complaint-response-queue-reprioritization/">Regulatory consumer complaint response queue reprioritization</a></li>
+<li>A retail-bank compliance operations manager is overseeing a backlog of open consumer complaints that require regulator-facing response packages, remediation recommendations, or formal closure review before statutory and consent-order deadlines expire. The queue mixes allegations about unauthorized fees, credit-reporting disputes, fair-lending concerns, servicing errors, and complaints routed in from a consumer-protection regulator portal. Recent handling data shows that analysts have been pulling easier documentation-only complaints forward while complex cases involving vulnerable customers, discrimination allegations, or regulator-referred matters age dangerously close to deadline. The optimization workflow must reprioritize the review queue within bounded limits so imminent deadlines, potential consumer harm, and protected-priority complaint classes rise appropriately without allowing low-balance customers, non-English submissions, or harder-to-investigate allegations to be systematically pushed back. <code>mermaid flowchart TD A["Queue aging, regulator referrals, or override patterns&lt;br&gt;trigger reprioritization review"] --&gt; B["Agent recomputes bounded queue ranking&lt;br&gt;using deadlines, harm indicators, protected classes,&lt;br&gt;outcome trends, and override history"] B --&gt; C["Verification checks test deadline exposure,&lt;br&gt;fairness drift, and reviewer-load impact"] C --&gt; D{"All guardrails pass and&lt;br&gt;changes stay within preapproved bounds?"} D --&gt;|"Yes"| E["Publish revised queue order with&lt;br&gt;case-level rationale and audit log"] D --&gt;|"No"| F["Escalate tuning packet for&lt;br&gt;supervisory review"] F --&gt; G{"Supervisor approves&lt;br&gt;material reprioritization?"} G --&gt;|"Yes"| E G --&gt;|"No"| H["Freeze updates and keep&lt;br&gt;last trusted policy active"] E --&gt; I{"Missed deadlines, QA defects, or&lt;br&gt;supervisor rejection rate rising?"} I --&gt;|"No"| J["Continue monitored execution&lt;br&gt;until next trigger"] I --&gt;|"Yes"| K["Rollback to last trusted policy and&lt;br&gt;escalate bounded retuning review"] K --&gt; H</code></li>
+<li><a href="sanctions-alert-closure-regulator-response-copilot-loop/">Sanctions-alert closure regulator response copilot loop</a></li>
+<li>A financial-crime compliance officer receives an examination inquiry from a banking regulator asking why a high-value cross-border payment alert generated by the sanctions-screening program was closed without filing a formal escalation or blocking the transaction. The officer uses a copilot inside the case workspace to iteratively assemble the alert chronology, pull the specific screening hits and analyst notes that drove the closure, draft a regulator-facing exception memo and supporting evidence packet, and rewrite policy-grounded explanations as reviewers tighten the response. The human officer remains responsible for interpreting policy, deciding whether the historical closure was defensible, choosing what commitments the institution will make in the response, and approving every outbound statement before anything is sent to the regulator. <code>mermaid flowchart TD start["Regulator asks why the sanctions alert&lt;br&gt;was closed without escalation or a block"] --&gt;|"Open response loop"| gather["Copilot assembles the alert chronology,&lt;br&gt;screening hits, analyst notes, and payment context"] gather --&gt;|"Evidence assembled"| verify{"Does each memo claim trace to inspectable evidence&lt;br&gt;and the applicable policy language?"} verify -- "No" --&gt; hold["Hold the draft, surface the evidence gap,&lt;br&gt;and gather or correct support"] hold --&gt;|"Support added or corrected"| gather verify -- "Yes" --&gt; draft["Copilot drafts the regulator-response memo&lt;br&gt;and supporting evidence packet"] draft --&gt;|"Draft ready for officer review"| human{"Does the human officer agree the historical closure&lt;br&gt;is defensible and the proposed commitments are acceptable?"} human -- "No" --&gt; escalate["Branch into formal issue management and&lt;br&gt;potential self-report analysis"] human -- "Yes" --&gt; review["Reviewers tighten the response and the officer&lt;br&gt;rechecks every outbound statement"] review --&gt;|"Internal review complete"| approve{"Final human approval for the outbound memo&lt;br&gt;and evidence packet?"} approve -- "No" --&gt; draft approve -- "Yes" --&gt; send["Transmit the human-approved response&lt;br&gt;through the regulatory-correspondence system"]</code></li>
+<li><a href="sanctions-alert-review-scoring-revision-approved-for-live-use/">Sanctions alert-review scoring revision approved for live use</a></li>
+<li>A sanctions governance lead has prepared one exact alert-review scoring revision after replay shows that the current live profile underweights nested beneficial-ownership signals, corridor-specific evasion patterns, and regulator-sensitive customer segments when alert volumes surge. The candidate revision raises sensitivity for those protected screening factors, tightens cooldown handling on low-yield alert clusters, and names a restore target if analyst overrides or missed-escalation risk rise. The workflow must release that exact scoring revision into bounded live use only after a human approver confirms the manifest, validity window, and rollback packet, while staying centered on governed optimization-state release rather than clearing alerts, adjudicating true matches, filing regulator reports, or launching remediation work. <code>mermaid flowchart TD A["Prepare exact sanctions alert-review&lt;br&gt;scoring revision candidate"] --&gt; B["Verify replay evidence, protected screening floors,&lt;br&gt;candidate hash, and named restore target"] B --&gt; C{"Manifest, validity window,&lt;br&gt;and rollback packet complete?"} C --&gt;|"No"| D["Hold release until manifest gaps&lt;br&gt;or control defects are corrected"] C --&gt;|"Yes"| E{"Named sanctions approver approves&lt;br&gt;that exact revision for bounded live use?"} E --&gt;|"No"| D E --&gt;|"Yes"| F["Activate approved revision in the named&lt;br&gt;screening-program scope and write audit trace"] F --&gt; G{"Override spikes, missed-escalation risk,&lt;br&gt;protected-segment degradation, or expiry?"} G --&gt;|"No"| I["Keep revision live within approved&lt;br&gt;scope and validity window"] I --&gt;|"Within window"| G G --&gt;|"Yes"| H["Restore the prior trusted profile&lt;br&gt;and record rollback or expiry action"]</code></li>
+<li><a href="sanctions-hold-state-truth-restoration/">Sanctions hold state truth restoration</a></li>
+<li>After a regulator-sensitive escalation, the sanctions response team finds that payment-hold status has diverged across the screening engine, case-management queue, payment-rail release ledger, and regional override records. Some transactions appear blocked in one system and released in another, while a subset are marked as pending manual review even though the linked payment messages show contradictory routing outcomes. Before compliance leadership, treasury, and legal teams can make any declaration about exposure scope or release posture, the workflow must restore the trusted current state of which payments are actually blocked, released, or unresolved and preserve explicit holds for every conflict that cannot be settled inside governed truth-restoration rules. <code>mermaid flowchart TD A["Divergent sanctions-hold state detected&lt;br&gt;across screening, case, payment, and override systems"] --&gt;|"Collect in-scope records"| B["Assemble transaction evidence set&lt;br&gt;with identifiers, timestamps, and source lineage"] B --&gt;|"Verify scope and record linkage"| C{"Do identifiers, timestamps, and case links&lt;br&gt;match across the source records?"} C --&gt;|"No"| H["Keep affected payments in an explicit hold state&lt;br&gt;and route bounded escalation to compliance,&lt;br&gt;treasury, and legal reviewers"] C --&gt;|"Yes"| D["Reconcile screening, payment, and override records&lt;br&gt;under governed precedence and freshness rules"] D --&gt;|"Check current-state agreement"| E{"Do the authoritative records converge on&lt;br&gt;blocked, released, or pending-review state?"} E --&gt;|"No"| H E --&gt;|"Yes"| F{"Does an independent verification check confirm&lt;br&gt;current evidence freshness and complete lineage?"} F --&gt;|"No"| H F --&gt;|"Yes"| G{"Do accountable human reviewers accept the trusted&lt;br&gt;current-state ledger and unresolved hold register?"} G --&gt;|"No"| H G --&gt;|"Yes"| I["Issue the trusted current-state packet&lt;br&gt;for downstream human use without releasing funds&lt;br&gt;or making regulator declarations"]</code></li>
+<li><a href="sanctions-remediation-human-directed-procedural-execution/">Sanctions remediation human-directed procedural execution</a></li>
+<li>A sanctions remediation lead is directing urgent procedural execution after investigators confirm that a newly designated entity may have received outbound payments through a stale screening alias in a regional payouts stack. The agent may execute only the significant steps the lead calls: place named counterparty and account blocks, pause queued payouts in specific corridors, preserve evidence from the screening and payment systems, update the case ledger with verified control state, and prepare a bounded takeover packet for legal counsel before any regulator-facing action occurs. Because each next step depends on what the previous controls actually changed and because the workflow must not expand into legal interpretation or regulator communication, it needs durable state, post-step verification, and strict safe-handoff discipline whenever the remediation lead redirects or narrows the branch. <code>mermaid flowchart TD start["Confirmed sanctions basis&lt;br&gt;and current authority boundary"] --&gt; direct{"Remediation lead directs&lt;br&gt;next permitted control step?"} direct --&gt;|"Yes"| act["Apply named account blocks,&lt;br&gt;corridor payout holds, or evidence capture"] direct --&gt;|"Pause or narrow"| hold["Hold current control state,&lt;br&gt;preserve evidence, and await direction"] act --&gt; verify{"Authoritative systems verify&lt;br&gt;control and ledger state?"} verify --&gt;|"Yes"| ledger["Update case ledger with verified state&lt;br&gt;and evidence references"] verify --&gt;|"No"| hold ledger --&gt; boundary{"Approval or escalation needed&lt;br&gt;before any further action?"} boundary --&gt;|"No"| direct boundary --&gt;|"Yes"| packet["Prepare bounded takeover packet&lt;br&gt;for legal counsel or senior compliance"] hold --&gt; redirect{"Lead provides clarified&lt;br&gt;in-scope direction?"} redirect --&gt;|"Yes"| direct redirect --&gt;|"No"| packet</code></li>
+<li><a href="sanctions-screening-gap-root-cause-investigation/">Sanctions screening gap root-cause investigation</a></li>
+<li>After a regulator inquiry, a financial-crime compliance team must investigate why several cross-border payments involving high-risk counterparties were not queued for manual sanctions review during a two-day window. The likely causes include a watchlist vendor update that changed name-normalization behavior, a screening-rule deployment mismatch across regions, a case-routing configuration error, or analyst-applied suppressions that propagated too broadly. The workflow reconciles alert logs, list-update history, routing decisions, and human case activity into a defensible explanation of the control gap and its contributing conditions. <code>mermaid flowchart TD start["Regulator inquiry triggers&lt;br&gt;screening-gap investigation"] --&gt; gather["Collect affected payments, screening logs,&lt;br&gt;list updates, routing records, and case activity"] gather --&gt; align["Normalize timestamps and build&lt;br&gt;a reconciled payment-by-payment timeline"] align --&gt; evidence{"Evidence provenance and&lt;br&gt;timeline alignment complete?"} evidence --&gt;|"No"| hold["Hold causal conclusion and request&lt;br&gt;missing or conflicting evidence"] hold --&gt; gather evidence --&gt;|"Yes"| compare["Compare vendor normalization, regional rule,&lt;br&gt;routing, and suppression hypotheses"] compare --&gt; verify["Run explicit verification checks against&lt;br&gt;match explanations, release approvals, and analyst actions"] verify --&gt; cause{"Primary cause and contributing&lt;br&gt;conditions verified?"} cause --&gt;|"Yes"| narrative["Produce auditable gap explanation,&lt;br&gt;scope ledger, and residual-uncertainty notes"] cause --&gt;|"No"| escalate["Escalate unresolved scope or competing causes&lt;br&gt;to compliance and engineering leads"]</code></li>
+<li><a href="sanctions-screening-manual-fallback-activation-gate/">Sanctions screening manual fallback activation gate</a></li>
+<li>After a material sanctions-screening outage is declared, compliance leadership has already identified the bounded fallback path and the accountable approval owner: a manual screening contingency for a defined set of payment corridors and protected release holds. Upstream truth-restoration and authority-routing work has already established the trusted outage scope, active payment holds, and decision lane. The planning workflow now has to prepare one activation-ready packet showing reviewer coverage by shift, queue partitioning, legal-notice constraints, protected-channel rules, and the prerequisite controls needed before the manual fallback can be approved. It should preserve explicit holds for any uncovered review cell, unresolved legal hold, or missing queue-control segregation, and stop at the approval gate rather than releasing payments, determining regulator posture, or launching manual screening operations. <code>mermaid flowchart TD A["Declared outage scope,&lt;br&gt;active payment holds,&lt;br&gt;and fallback lane received"] --&gt; B{"Trusted outage references,&lt;br&gt;hold state, and approval lane&lt;br&gt;still match accepted sources?"} B --&gt;|"No"| H["Escalate bounded mismatch for&lt;br&gt;authority-routing conflict or&lt;br&gt;missing authoritative input"] B --&gt;|"Yes"| C{"Reviewer shift coverage,&lt;br&gt;queue partitioning, and protected-channel&lt;br&gt;rules complete for scoped corridors?"} C --&gt;|"No"| G["Keep the packet on hold with&lt;br&gt;explicit uncovered review cells&lt;br&gt;or queue-control gaps"] C --&gt;|"Yes"| D{"Legal-notice constraints,&lt;br&gt;release holds, and prerequisite controls&lt;br&gt;fully represented?"} D --&gt;|"No"| G D --&gt;|"Yes"| E["Assemble the activation-ready packet,&lt;br&gt;readiness ledger, and hold register"] E --&gt; F{"Named compliance approval owner&lt;br&gt;approves the manual fallback packet?"} F --&gt;|"No"| G F --&gt;|"Yes"| I["Record the approved packet and stop&lt;br&gt;at the activation gate without releasing&lt;br&gt;payments or launching manual screening"]</code></li>
+<li><a href="sanctions-screening-outage-authority-recommendation/">Sanctions-screening outage authority recommendation</a></li>
+<li>A severe sanctions-screening outage has already been declared after screening coverage degrades for several cross-border payment corridors during a regulator-sensitive period. Regional compliance teams have partial backlog views, legal is assessing notification implications, and operations wants guidance on whether any narrowly scoped release path can stay local. The workflow must recommend whether the decision belongs with regional compliance leadership, enterprise sanctions and legal command, or a regulator-response authority, while narrowing the allowed hold-versus-release options and packaging the supporting rationale without releasing payments, contacting regulators, or directing the wider response. <code>mermaid flowchart TD A["Declared sanctions-screening outage&lt;br&gt;across named payment corridors"] B["Collect outage scope, backlog exposure,&lt;br&gt;override history, authority rules,&lt;br&gt;and legal-trigger evidence"] C{"Any non-waivable sanctions, legal,&lt;br&gt;or jurisdiction trigger beyond&lt;br&gt;regional delegated review limits?"} D{"Do regulator-notification posture&lt;br&gt;or protected review rules require&lt;br&gt;regulator-response ownership?"} E{"Can a narrowly scoped release class&lt;br&gt;stay inside regional authority bounds&lt;br&gt;with explicit hold protections?"} F["Recommend regional compliance leadership&lt;br&gt;Keep all other payments on hold and limit&lt;br&gt;options to hold or named narrow release review"] G["Recommend enterprise sanctions and legal command&lt;br&gt;Maintain payment holds and narrow options&lt;br&gt;to hold or enterprise-reviewed exceptions"] H["Recommend regulator-response authority&lt;br&gt;Maintain payment holds and block any local&lt;br&gt;release path pending protected review"] I["Assemble authority packet with evidence,&lt;br&gt;blocked lower-authority paths, bounded options,&lt;br&gt;and restricted annex references"] J{"Named human authority accepts&lt;br&gt;the recommended lane and option menu?"} K["Workflow stops at reviewed recommendation packet&lt;br&gt;No payments are released, no regulator contact occurs,&lt;br&gt;and no wider response is directed"] L["Hold state remains active, log the redirect,&lt;br&gt;and reroute only within the bounded&lt;br&gt;review path to the required higher authority"] A --&gt;|"Outage already declared"| B B --&gt;|"Authority and evidence check"| C C --&gt;|"Yes"| D C --&gt;|"No"| E D --&gt;|"Yes"| H D --&gt;|"No"| G E --&gt;|"Yes"| F E --&gt;|"No"| G F --&gt;|"Prepare packet"| I G --&gt;|"Prepare packet"| I H --&gt;|"Prepare packet"| I I --&gt;|"Protected handoff"| J J --&gt;|"Yes"| K J --&gt;|"No"| L</code></li>
+<li><a href="sanctions-screening-outage-protected-regulator-position-packet-collaboration-room/">Sanctions screening outage protected regulator-position packet collaboration room</a></li>
+<li>Once a material sanctions-screening outage is declared, compliance and legal open a protected collaboration room for one regulator-position packet that will later support human-controlled escalation and response. A senior compliance manager owns the packet while agents help reconcile outage chronology updates, legal objections, regional-compliance disagreements, and restricted annex material about affected customers, transactions, and temporary controls. The room remains centered on the shared artifact: humans and agents jointly revise the packet, preserve disputed language about exposure and remediation readiness, and keep annex boundaries and release conditions explicit. The human artifact owner remains responsible for deciding whether the packet is ready for the next handoff and whether disagreement or sensitivity still blocks release, while authority recommendation, regulator outreach, and operational containment choices stay in downstream workflows. <code>mermaid flowchart TD A["Material sanctions-screening outage declared&lt;br&gt;and protected room opened for one regulator-position packet"] --&gt; B["Agents and human reviewers refresh chronology,&lt;br&gt;revise packet text, and pull restricted annex material"] B --&gt; C["Protected-room controls check:&lt;br&gt;privilege boundaries, annex access,&lt;br&gt;and release-state rules still intact?"] C --&gt;|"No"| F["Hold release inside the room&lt;br&gt;until access, scope, or packet coherence is corrected"] F --&gt; B C --&gt;|"Yes"| D["Compliance, legal, and regional reviewers&lt;br&gt;keep disagreements visible in the packet&lt;br&gt;and disagreement register"] D --&gt; E["Senior compliance manager reviews&lt;br&gt;readiness, unresolved objections,&lt;br&gt;and sensitivity blockers"] E --&gt;|"Blocked by disagreement or sensitivity"| F E --&gt;|"Room cannot safely maintain one packet"| H["Bounded handoff to direct human handling&lt;br&gt;because protected collaboration can no longer proceed safely"] E --&gt;|"Ready for next handoff"| G["Release packet, disagreement register,&lt;br&gt;and annex map to downstream human-controlled&lt;br&gt;escalation and response workflows"]</code></li>
+<li><a href="serious-safety-signal-triage-packet-approved-for-expedited-medical-review-dispatch/">Serious safety signal triage packet approved for expedited medical-review dispatch</a></li>
+<li>A pharmacovigilance operations team has already triaged a serious safety-signal packet that groups related adverse-event alerts, seriousness coding, product context, reporting-clock references, and unresolved questions about expectedness. Before the packet may enter the expedited medical-review lane, a qualified safety reviewer must confirm that the exact packet revision, protected routing scope, and open holds are acceptable for downstream intake. The dispatch workflow therefore monitors packet freshness, follow-up completeness, reviewer sign-off, and protected lane metadata, then releases the packet into expedited medical review only when those approval conditions are satisfied. It stops at the governed handoff boundary rather than deciding causality, drafting regulator communication, or executing case-processing actions. <code>mermaid flowchart TD A["Already-triaged serious safety-signal packet&lt;br&gt;awaiting expedited medical-review dispatch"] --&gt; B["Monitor packet freshness, follow-up completeness,&lt;br&gt;duplicate linkage, and protected lane metadata"] B --&gt; C{"Packet revision current and&lt;br&gt;follow-up / hold checks clear?"} C --&gt;|"No"| H["Hold state:&lt;br&gt;stale packet, missing follow-up,&lt;br&gt;or unresolved duplicate / expectedness issue"] H --&gt; B C --&gt;|"Yes"| D["Qualified safety reviewer checks&lt;br&gt;exact packet revision, routing scope,&lt;br&gt;and visible holds"] D --&gt; E{"Reviewer sign-off and protected&lt;br&gt;lane scope confirmed?"} E --&gt;|"No"| I["Hold state:&lt;br&gt;approval missing, scope mismatch,&lt;br&gt;or protected-detail exposure risk"] I --&gt; B E --&gt;|"Yes"| F["Create dispatch manifest binding&lt;br&gt;packet version, reviewer identity,&lt;br&gt;lane id, and visible holds"] F --&gt; G["Dispatch one approved packet revision&lt;br&gt;to the expedited medical-review lane"] G --&gt; J["Stop at governed handoff boundary:&lt;br&gt;no causality decision, regulator drafting,&lt;br&gt;or case-processing action"]</code></li>
+<li><a href="vendor-biometric-retention-control-deviation-approval-packet-for-privacy-council-review/">Vendor biometric retention control deviation approval packet for privacy council review</a></li>
+<li>A privacy compliance manager must assemble a decision-ready approval packet because a physical-security vendor cannot yet produce the contractually required thirty-day deletion evidence for biometric visitor logs after a storage-region migration exposed gaps in the vendor's purge attestations and subprocessor inventory. The workflow gathers the scoped deviation request, deletion-job telemetry, regional biometric-data obligations, contract annexes, prior exception history, data-flow diagrams, and the proposed manual compensating controls into one governed packet for privacy council review. Agents help map packet claims to source evidence, build a reviewer-visible provenance index, keep unresolved issues such as missing subprocessor confirmation or stale DPIA references in an explicit exception register, and prepare the handoff record showing the named council reviewers and current completeness status. The workflow stops at packet generation and handoff; it does not recommend whether the deviation should be granted, adjudicate residual privacy risk, direct the vendor to remediate, or initiate any regulator or data-subject communication. <code>mermaid flowchart TD A["Scoped deviation request&lt;br&gt;and packet boundary confirmed"] --&gt; B["Gather vendor, telemetry, obligation,&lt;br&gt;contract, history, and data-flow evidence"] B --&gt; C["Assemble approval packet,&lt;br&gt;provenance index, and exception register"] C --&gt; D{"Packet assembly checks&lt;br&gt;complete, sourced, and reviewer-ready?"} D -- "No: missing evidence or stale references" --&gt; E["Hold for evidence completion&lt;br&gt;and keep blockers explicit"] D -- "No: scope or reviewer routing unclear" --&gt; F["Hold for scope or reviewer clarification&lt;br&gt;before handoff"] E --&gt; B F --&gt; C D -- "Yes" --&gt; G["Create handoff record with named council reviewers,&lt;br&gt;packet version, completeness state, and unresolved blockers"] G --&gt; H["Bounded transfer to review-routing queue&lt;br&gt;for privacy council evaluation only"]</code></li>
+<li><a href="vendor-data-transfer-safeguard-obligation-synthesis-for-cross-border-review/">Vendor data-transfer safeguard obligation synthesis for cross-border review</a></li>
+<li>A privacy compliance team is preparing a pre-review briefing for a vendor that will handle support telemetry and limited customer account data across multiple hosting regions. Before anyone approves the vendor, requests remediation, updates a transfer impact assessment, or gives legal advice, the workflow must assemble a cited current-state obligations brief showing which cross-border transfer safeguards, onward-transfer restrictions, localization commitments, supplementary-control requirements, notice duties, and subcontractor conditions are actually supported by the active source set. The useful output is an evidence-backed synthesis that separates verified obligations from jurisdiction and effective-date ambiguity, source conflicts, and open questions that still require legal or privacy-owner interpretation. <code>mermaid flowchart TD A["Scope the vendor review question&lt;br&gt;and approved source boundary"] --&gt; B["Gather active evidence&lt;br&gt;executed agreements, vendor disclosures,&lt;br&gt;regulator guidance, internal playbooks"] B --&gt; C["Build the evidence trace&lt;br&gt;extract safeguard claims, citations,&lt;br&gt;and open questions"] C --&gt; D{"Verification checks&lt;br&gt;citation validity, source precedence,&lt;br&gt;jurisdiction fit, effective dates,&lt;br&gt;and trust-boundary compliance"} D --&gt; E["Publish the verified obligations brief&lt;br&gt;with evidence trace and explicit open questions"] D --&gt; F["Hold the workflow&lt;br&gt;for citation gaps, source conflicts,&lt;br&gt;or vendor facts awaiting confirmation"] F --&gt; G["Bounded handoff for resolution&lt;br&gt;privacy owner, legal reviewer,&lt;br&gt;or vendor diligence owner only"] G --&gt; B E --&gt; H["Bounded handoff to downstream review&lt;br&gt;approval, remediation planning,&lt;br&gt;transfer-assessment update, or legal advice"]</code></li>
+<li><a href="vendor-telemetry-safeguard-requirement-attestation-recommendation/">Vendor telemetry safeguard requirement attestation recommendation</a></li>
+<li>A privacy compliance manager is reviewing the annual internal attestation for an observability vendor that stores pseudonymized customer-support telemetry used for service analytics and uptime investigations. The requirement set is fixed: encryption coverage, regional storage commitments, retention enforcement, subcontractor notice handling, access logging, and breach-notification language must all map cleanly to current evidence before the annual review can be signed. The evidence packet is close, but one retention screenshot predates a recent configuration migration, the vendor's latest subprocess list changes whether one regional notice clause still fits, and an earlier compensating-control note for limited debug exports may no longer match how the service is used. The workflow must recommend whether the packet is approvable as-is, needs targeted remediation, or should escalate to privacy counsel because requirement fit is no longer routine before any human signs the annual internal review or changes vendor status. <code>mermaid flowchart TD A["Start annual vendor safeguard review"] --&gt; B["Map fixed safeguard requirements&lt;br&gt;to current contract terms, subprocess records,&lt;br&gt;retention evidence, and exception history"] B --&gt; C{"Any stale or missing evidence&lt;br&gt;against the requirement set?"} C -- "Yes" --&gt; D["Hold for targeted remediation&lt;br&gt;refresh retention proof and update packet"] C -- "No" --&gt; E{"Any ambiguous clause fit,&lt;br&gt;subprocess-scope change,&lt;br&gt;or unsupported compensating control?"} E -- "Yes" --&gt; F["Hold for privacy counsel escalation&lt;br&gt;bounded legal/privacy interpretation path"] E -- "No" --&gt; G["Recommend attestation packet&lt;br&gt;approvable as-is"] D --&gt; H["Human privacy leadership review&lt;br&gt;for remediation follow-up or later re-review&lt;br&gt;before sign-off"] F --&gt; H G --&gt; H</code></li>
+<li><a href="vendor-transfer-remediation-packet-approved-for-privacy-counsel-intake/">Vendor transfer remediation packet approved for privacy counsel intake</a></li>
+<li>Compliance operations, privacy counsel, and vendor-governance reviewers are co-producing one remediation packet after a vendor data-transfer control gap is identified and needs formal legal review before any external communication or remediation commitment is made. Agents help reconcile control evidence, contract-language comments, jurisdiction-specific objections, and remediation wording into the shared packet while preserving which issues remain contested and what audience boundary is allowed. The workflow ends only when the named compliance release owner approves that exact packet revision for one bounded privacy-counsel intake lane, where downstream legal reviewers can decide what action or communication should follow. It does not decide the legal outcome, contact the vendor, or execute remediation steps. <code>mermaid flowchart TD A["Vendor transfer control gap&lt;br&gt;opens one governed remediation packet"] --&gt; B["Agents and reviewers reconcile control evidence,&lt;br&gt;contract-language comments, jurisdiction objections,&lt;br&gt;and remediation wording"] B --&gt; C{"Exact packet revision, objection ledger,&lt;br&gt;and privileged audience boundary&lt;br&gt;still complete and current?"} C --&gt;|"No"| H["Hold release for evidence refresh,&lt;br&gt;boundary correction, or packet supersession"] C --&gt;|"Yes"| D{"Release manifest binds the exact revision,&lt;br&gt;privacy-counsel intake lane,&lt;br&gt;and required signers?"} D --&gt;|"No"| H D --&gt;|"Yes"| E{"Named compliance release owner&lt;br&gt;approves this exact revision&lt;br&gt;for bounded counsel intake?"} E --&gt;|"No"| H E --&gt;|"Yes"| F["Release exact packet revision&lt;br&gt;to the bounded privacy-counsel intake lane"] F --&gt; G["Record handoff, accepted residual objections,&lt;br&gt;and block vendor contact or remediation execution"]</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

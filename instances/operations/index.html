@@ -1,0 +1,798 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>operations - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#operations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              operations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="operations">operations<a class="headerlink" href="#operations" title="Permanent link">&para;</a></h1>
+<p>Grounded examples for the <code>operations</code> domain.</p>
+<h2 id="instances">Instances<a class="headerlink" href="#instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="approved-distribution-sorter-routing-profile-cutover-staged-execution/">Approved distribution sorter routing profile cutover staged execution</a></li>
+<li>After network operations, site leadership, and safety reviewers approve a new routing profile for a high-volume distribution sorter ahead of a peak-shipping weekend, an operations control team must execute the cutover across a live facility. The workflow should begin from that approved profile and move through explicit preflight on sensor health, current backlog, fallback-profile availability, and safety interlocks; then activate the new routing logic one zone at a time, verify throughput, misroute, and jam signals at each checkpoint, and stop at visible hold points before widening scope or retiring the prior profile. If telemetry becomes ambiguous or the rollback path weakens, the workflow should pause or restore the previous routing state rather than continue through a stressed live network. <code>mermaid flowchart TD A["Approved routing profile&lt;br&gt;and named release authorities in force"] --&gt; B["Run preflight checks&lt;br&gt;sensor health, backlog ceiling, fallback profile, safety interlocks"] B --&gt; C{"Preflight evidence within&lt;br&gt;approved safety and readiness limits?"} C -- "No" --&gt; H["Visible hold or restore prior profile&lt;br&gt;with escalation to site leadership and safety review"] C -- "Yes" --&gt; D["Activate new routing logic&lt;br&gt;for the first protected sorter zone"] D --&gt; E{"Throughput, misroute, and jam signals&lt;br&gt;remain healthy and rollback-ready?"} E -- "No" --&gt; H E -- "Yes" --&gt; F["Protected human hold&lt;br&gt;before widening activation scope"] F -- "Released" --&gt; G["Expand activation to the next approved zone&lt;br&gt;and continue staged verification"] F -- "Held" --&gt; H G --&gt; I{"Facility-wide telemetry stays clear&lt;br&gt;and fallback path remains strong?"} I -- "No" --&gt; H I -- "Yes" --&gt; J["Protected human hold&lt;br&gt;before retiring the prior routing profile"] J -- "Release" --&gt; K["Retire prior profile&lt;br&gt;and record final stable-state confirmation"] J -- "Hold" --&gt; H</code></li>
+<li><a href="approved-emergency-maintenance-vendor-portal-dispatch-submission/">Approved emergency maintenance vendor portal dispatch submission</a></li>
+<li>An operations coordinator at a regional facilities command center needs to submit an already approved emergency dispatch request for a high-voltage switchgear failure that is threatening chilled-water service to a hospital-adjacent campus. The target contractor mobilization portal is browser-only, spreads the action across incident classification, site-access instructions, safety permits, not-to-exceed spend, crew callout details, and after-hours contact tabs, and final submission may proceed only after the incident commander, site safety lead, and facilities spend approver have all signed off in the operations work-management system. Because the portal action can mobilize external crews, trigger premium billing, and create site-entry authority that is difficult to unwind once accepted, the workflow must recheck approvals, confirm the approved dispatch packet still matches current site conditions, and halt safely if the live portal, permit state, or confirmation path becomes ambiguous. <code>mermaid flowchart TD A["Receive approved emergency dispatch packet"] --&gt; B{"Incident commander,&lt;br&gt;site safety lead, and spend approver&lt;br&gt;all currently signed off?"} B --&gt;|"No"| H["Hold submission and escalate&lt;br&gt;for approval refresh"] B --&gt;|"Yes"| C{"Dispatch packet, permits, and&lt;br&gt;current site conditions still match?"} C --&gt;|"No"| I["Hold submission and route to&lt;br&gt;operations leadership review"] C --&gt;|"Yes"| D["Enter incident, access, permit,&lt;br&gt;spend, and crew details in vendor portal"] D --&gt; E{"Portal state is expected,&lt;br&gt;complete, and within approved scope?"} E --&gt;|"No"| J["Save draft or abandon session;&lt;br&gt;preserve evidence for human takeover"] E --&gt;|"Yes"| F{"Positive submission confirmation&lt;br&gt;and portal reference received?"} F --&gt;|"No"| K["Bounded reconciliation hold;&lt;br&gt;human verifies status before retry"] F --&gt;|"Yes"| G["Record confirmation and masked evidence;&lt;br&gt;dispatch submission complete"]</code></li>
+<li><a href="approved-sorter-routing-cutover-evidence-gate-verification/">Approved sorter routing cutover evidence gate verification</a></li>
+<li>Site leadership has an approved routing-profile cutover packet for a high-volume sorter, but the packet cannot be released to live activation until current evidence still supports safe downstream use. The workflow rechecks safety interlocks, fallback-profile availability, sensor-health telemetry, backlog ceiling, and protected zone scope against the packet, then emits a verified, held, or insufficient verdict for site approval. It must not alter the routing profile, recommend a different zone order, or start the cutover itself. <code>mermaid flowchart TD start["Approved sorter routing-profile&lt;br&gt;cutover packet"] start --&gt; verify["Recheck safety interlocks,&lt;br&gt;fallback-profile restore proof,&lt;br&gt;sensor-health telemetry,&lt;br&gt;backlog ceiling, and&lt;br&gt;protected zone scope"] verify --&gt; assess{"Current evidence and scope&lt;br&gt;still support the approved&lt;br&gt;cutover packet?"} assess --&gt; verified["Emit verified verdict&lt;br&gt;with evidence lineage"] verified --&gt; gate["Present verified packet at the&lt;br&gt;site and safety approval gate"] gate --&gt; stop["Stop before live activation&lt;br&gt;or routing-profile change"] assess --&gt; held["Emit held verdict and keep packet&lt;br&gt;blocked for refreshed evidence&lt;br&gt;or site lead review"] assess --&gt; insufficient["Emit insufficient verdict for&lt;br&gt;scope drift, unsafe backlog, or&lt;br&gt;interlock and fallback conflict"] held --&gt; escalate["Route bounded follow-up to&lt;br&gt;site and safety leads without&lt;br&gt;changing the cutover plan"] insufficient --&gt; escalate</code></li>
+<li><a href="cold-chain-emergency-supervised-step-through-task-orchestration/">Cold-chain emergency supervised step-through task orchestration</a></li>
+<li>A regional cold-chain operations lead is directing emergency response after multiple reefer trailers at a cross-dock begin reporting rising temperatures during a snowstorm-driven power instability event. The agent may execute only the significant steps the supervisor calls: place affected lots on quality hold, dispatch probe verification to named trailers, reroute salvageable shipments to two approved facilities, update chain-of-custody records, and verify that the next planned move still respects product, lane, and carrier constraints before continuing. Because inventory quality, field conditions, and available carriers are changing minute by minute, the workflow must preserve exact step state, stop before interpreting a new emergency plan on its own, and produce a takeover-safe handoff if the supervisor escalates one branch to site quality or transportation command. <code>mermaid flowchart TD start["Supervisor names the next&lt;br&gt;significant emergency step"] hydrate["Hydrate current trailer temperatures,&lt;br&gt;lot hold status, facility capacity,&lt;br&gt;and carrier availability"] scope{"Directed step still within&lt;br&gt;approved containment scope?"} execute["Execute commanded action:&lt;br&gt;place lots on quality hold,&lt;br&gt;dispatch probe verification,&lt;br&gt;reroute salvageable shipments,&lt;br&gt;or update chain-of-custody"] verify{"Verification passes for&lt;br&gt;temperature, product, lane,&lt;br&gt;carrier, and facility constraints?"} ledger["Record executed action,&lt;br&gt;evidence, and exact step state"] next{"Supervisor authorizes the&lt;br&gt;next significant move?"} halt["Hold the current branch and&lt;br&gt;publish the current state"] handoff["Produce a takeover packet for&lt;br&gt;site quality or transportation command"] stop["Stop before interpreting&lt;br&gt;a new emergency plan"] start --&gt; hydrate hydrate --&gt; scope scope --&gt;|"Yes"| execute scope --&gt;|"No"| halt execute --&gt; verify verify --&gt;|"Yes"| ledger verify --&gt;|"No"| halt ledger --&gt; next next --&gt;|"Yes"| hydrate next --&gt;|"Escalate branch"| handoff next --&gt;|"No"| stop halt --&gt; handoff</code></li>
+<li><a href="cold-chain-excursion-triage-packet-approved-for-network-command-center-dispatch/">Cold-chain excursion triage packet approved for network command-center dispatch</a></li>
+<li>A logistics control team has already triaged a cold-chain excursion packet that groups the affected facilities, shipment cohorts, sensor corroboration, route metadata, and unresolved uncertainty about product exposure. The next step is not to choose the reroute, quarantine, or product-disposition response; it is to decide whether the exact packet revision may be released into the protected network command-center intake lane that coordinates those downstream actions. The dispatch workflow watches packet freshness, facility-scope holds, command-window metadata, and duty-manager approval state, then releases the packet only when the approved manifest authorizes one bounded command-center lane and shift window. <code>mermaid flowchart TD A["Triaged cold-chain packet&lt;br&gt;ready for dispatch review"] --&gt; B{"Packet revision current&lt;br&gt;and freshness in bounds?"} B -- "No" --&gt; H["Hold dispatch&lt;br&gt;refresh packet or command metadata"] B -- "Yes" --&gt; C{"Any facility-scope hold&lt;br&gt;or command-window drift?"} C -- "Yes" --&gt; I["Keep packet on hold&lt;br&gt;record scope or window conflict"] C -- "No" --&gt; D{"Duty manager approved&lt;br&gt;this exact packet revision?"} D -- "No" --&gt; J["Await approval&lt;br&gt;dispatch remains blocked"] D -- "Yes" --&gt; E{"Approved manifest limited to&lt;br&gt;one lane and shift window?"} E -- "No" --&gt; K["Block dispatch&lt;br&gt;reject broadened command path"] E -- "Yes" --&gt; F["Release approved packet&lt;br&gt;to protected command-center intake lane"] F --&gt; G["Write dispatch manifest&lt;br&gt;and audit trail"]</code></li>
+<li><a href="cold-chain-temperature-excursion-alert-triage/">Cold-chain temperature excursion alert triage</a></li>
+<li>A cold-chain operations center monitors live temperature, door-open, location, and power-status telemetry from refrigerated trailers, depots, and pharmacy storage units carrying temperature-sensitive products. The workflow must separate sensor chatter and transient blips from excursions that may threaten product quality, enrich alerts with route stage, shipment criticality, equipment service history, and prior exception context, and then route the most consequential cases to the right response queue. The emphasis is on continuous watching, explainable severity ranking, and human-gated escalation into quarantine, maintenance, or customer-notification decisions rather than on executing those downstream actions automatically.</li>
+<li><a href="contamination-command-window-checkpoint-resequencing/">Contamination command-window checkpoint resequencing</a></li>
+<li>A food-distribution command center has already declared a critical contamination coordination window with an active checkpoint sequence for laboratory readiness review, facility containment confirmation, carrier hold verification, legal review, and partner-briefing preparation. As the event unfolds, authoritative conditions change: laboratory turnaround slips, one facility confirms containment earlier than expected, and legal narrows the latest safe partner-briefing window while a carrier review owner rotates to an approved after-hours delegate. The workflow must rebuild one authoritative checkpoint order, preserve explicit holds for any partner-facing or containment checkpoint that is not yet safe to advance, and issue one current command packet so operations, quality, and legal teams stop coordinating from diverging whiteboard timelines.</li>
+<li><a href="conveyor-safety-bulletin-synthesis-for-network-readiness-review/">Conveyor safety bulletin synthesis for network readiness review</a></li>
+<li>A central fulfillment operations reliability team is preparing a monthly network-readiness review for conveyor and sorter assets ahead of peak volume. The workflow must gather OEM safety bulletins, field service advisories, site-specific operating waivers, completed inspection records, and parts-availability notices to produce a grounded synthesis of which restrictions, mandatory checks, temporary mitigations, and unresolved conflicts currently apply at each affected site. The goal is not to decide shutdowns, reprioritize work orders, or assign crews, but to assemble a cited operating-context brief that site leaders and planners can trust before any downstream action.</li>
+<li><a href="cross-functional-maintenance-review-scheduling/">Cross-functional maintenance review scheduling</a></li>
+<li>A plant operations coordinator needs to schedule a pre-maintenance review for a Saturday ERP and warehouse-control cutover affecting manufacturing, facilities, network engineering, and the overnight support desk. The meeting has to land before the approved maintenance window, include both on-site and remote participants across two shifts, avoid shift handoff gaps, and secure a conference room with dial-in support near the operations floor.</li>
+<li><a href="distribution-sorter-misroute-root-cause-investigation/">Distribution sorter misroute root-cause investigation</a></li>
+<li>After a regional fulfillment hub has already declared an incident for a spike in parcel misroutes during an overnight sort wave, network operations must determine why cartons bound for three destination zones were repeatedly diverted to the wrong outbound lanes. The leading explanations conflict: a stale destination-lookup table may have remained active after a routing update, diverter timing may have drifted after a maintenance intervention, barcode image quality may have degraded because of dust buildup on the tunnel scanners, or supervisors may have authorized a temporary manual recirculation workaround that bypassed normal scan confirmation. The workflow reconciles controls logs, scan evidence, maintenance history, and human shift notes into a defensible explanation of what failed, what remains uncertain, and which follow-up checks still matter before leadership commits to remediation or customer-facing statements.</li>
+<li><a href="distribution-sorter-throughput-fallback-option-recommendation/">Distribution sorter throughput fallback option recommendation</a></li>
+<li>A regional distribution hub is entering an evening peak with one sorter lane running below expected throughput after repeated sensor resets. The duty supervisor has a documented local authority band that allows only a limited set of fallback options, such as capped overtime, bounded overflow transfer to a nearby hub, or continuing at reduced throughput for lower-priority volume, while larger vendor-callout spend, cold-chain handling changes, or cross-region service-commitment exceptions require higher approval. The workflow must rank the viable in-band recovery options, show which fallback paths are blocked by spend, safety, and service guardrails, and package escalation only if the local menu no longer covers the case before anyone dispatches labor, reroutes loads, or changes customer commitments.</li>
+<li><a href="field-service-dispatch-queue-reprioritization/">Field-service dispatch queue reprioritization</a></li>
+<li>An operations dispatch supervisor for a regional utility service network needs to retune the live field-service work-order queue after an early-summer storm causes a surge of transformer inspections, downed-line assessments, meter-restoration visits, and routine preventive work. The dispatch platform already tracks outage impact, customer vulnerability flags, crew certifications, travel time, and appointment commitments, but the current ordering no longer fits the day because two line crews are offline, one district is under heat-safety restrictions, and yesterday's rush decisions created repeat visits for partially diagnosed equipment faults. The optimization workflow must reprioritize the queue so urgent restoration and safety work rises appropriately while preserving fairness for stranded low-income neighborhoods, bounded travel assumptions, and non-waivable safety constraints on who can be dispatched where.</li>
+<li><a href="maintenance-assurance-sampling-policy-revision-approved-for-live-use/">Maintenance-assurance sampling-policy revision approved for live use</a></li>
+<li>An operations assurance lead has prepared one exact sampling-policy revision for maintenance documentation spot checks after replay shows that the current policy undercovers newly onboarded vendors and safety-critical asset classes during outage season. The candidate revision increases coverage for those protected cohorts, tightens cooldown rules on recent low-yield strata, and includes an explicit restore target if escaped defects rise. The workflow must release that exact policy revision into live selection only after a human approver confirms the manifest, validity period, and rollback packet, while staying bounded at optimization-state release rather than assigning reviewers, changing maintenance schedules, or dispatching corrective work.</li>
+<li><a href="maintenance-documentation-spot-check-sampling-rate-tuning/">Maintenance documentation spot-check sampling-rate tuning</a></li>
+<li>An operations assurance team reviews completed maintenance work orders, inspection photos, calibration certificates, and technician notes to catch documentation gaps before they undermine safety audits, warranty recovery, or preventive-maintenance planning. A fixed spot-check policy currently over-samples routine low-risk records while under-covering work from recently onboarded vendors, safety-critical asset classes, and sites where documentation escapes were discovered only during later audits. The workflow must autonomously retune bounded spot-check sampling rates so maintenance records with rising escape risk or higher finding yield receive more review coverage, while preserving protected floors for safety-critical assets, respecting reviewer-capacity and outage-season workload constraints, minimizing copied worker detail, and preserving rollback if the loop begins chasing short-lived local defects.</li>
+<li><a href="multi-site-service-package-feasibility-recommendation/">Multi-site service package feasibility recommendation</a></li>
+<li>An operations services desk is reviewing a proposed support package for a retail chain that wants accelerated rollout across forty locations, weekend installation windows, tighter onsite response SLAs for its busiest sites, and dedicated spare-parts staging before quarter end. The workflow must recommend whether operations should support the package as scoped, counter with a phased or narrower service mix, or escalate because field capacity, subcontractor spend, inventory commitments, and exception thresholds move outside normal approval bands. <code>mermaid flowchart TD A["Review proposed multi-site&lt;br&gt;service package"] --&gt; B["Gather rollout assumptions, capacity forecasts,&lt;br&gt;subcontractor spend, inventory position,&lt;br&gt;and prior exception evidence"] B --&gt; C{"Does the package stay within&lt;br&gt;field capacity, subcontractor spend,&lt;br&gt;inventory, SLA, and approval bands?"} C --&gt;|"Yes"| D["Recommend support as scoped&lt;br&gt;with documented assumptions&lt;br&gt;and rationale"] C --&gt;|"No"| E{"Would a phased rollout or narrower&lt;br&gt;service mix bring the package back&lt;br&gt;inside normal approval bands?"} E --&gt;|"Yes"| F["Recommend phased or narrower package&lt;br&gt;and hold customer commitment pending&lt;br&gt;operations review"] E --&gt;|"No"| G["Escalate exception package for bounded&lt;br&gt;operations leadership review because&lt;br&gt;thresholds remain out of band"] D --&gt; H["Authorized operations reviewers inspect&lt;br&gt;the recommendation packet before any&lt;br&gt;service commitment is approved"] F --&gt; H G --&gt; I["Hold local approval path until escalated&lt;br&gt;review returns a decision path"]</code></li>
+<li><a href="network-cold-chain-command-briefing-revision-approved-for-regional-command-circulation/">Network cold-chain command briefing revision approved for regional command circulation</a></li>
+<li>An operations synthesis workflow has already produced one revised cold-chain command briefing that consolidates affected-lot counts, facility condition summaries, route exposure, hold-policy references, and unresolved containment questions after a network excursion. Before that exact revision is released into the restricted regional command circulation lane, a command owner must approve the visibility scope, freshness cutoff, and internal-only annex handling so regional leaders receive the intended context package without wider reuse or stale carry-forward. The workflow ends at approved circulation of that briefing revision; it does not choose reroute strategy, authorize disposal, issue regulator notices, or dispatch field teams.</li>
+<li><a href="network-cold-chain-emergency-reroute-activation-gate/">Network cold-chain emergency reroute activation gate</a></li>
+<li>During a regional refrigeration-control outage, network operations has already declared a bounded contingency path that would reroute temperature-sensitive inventory through alternate cross-docks and overflow cold storage if the primary network cannot recover before product-age thresholds are breached. Upstream monitoring and incident workflows have already established the trusted facility status and the named human approval lane. The planning workflow must now prepare one activation-ready reroute packet showing trailer commitments, receiving-site capacity, quality-release checkpoints, cold-chain monitoring coverage, and protected customer-communication holds. It should keep explicit holds for any lane that lacks confirmed carrier acceptance, receiving capacity, or quality sign-off, and stop at the approval gate instead of dispatching trucks, changing inventory state, or choosing a different emergency response.</li>
+<li><a href="network-cold-chain-excursion-command-crisis-briefing-evidence-synthesis/">Network cold-chain excursion command crisis briefing evidence synthesis</a></li>
+<li>An operations command center has already declared a critical cold-chain event after temperature excursions propagate across multiple distribution hubs handling time-sensitive medical inventory. Before anyone decides recall scope, reroutes shipments, authorizes disposal, or initiates regulator notifications, the workflow must assemble one command briefing that compresses confirmed affected inventory, sensor confidence, facility conditions, transit status, quality-hold rules, and unresolved containment questions into a provenance-preserving brief. The goal is a time-sensitive shared picture that separates verified current state from lower-authority field notes and incomplete recovery assumptions so human crisis leaders can coordinate from grounded context rather than fragmented spreadsheets and bridge traffic.</li>
+<li><a href="network-fuel-system-test-deferral-exception-package-readiness-loop/">Network fuel system test deferral exception package readiness loop</a></li>
+<li>A field operations continuity manager is coordinating a formal exception package because several regional facilities cannot complete a scheduled backup fuel-system integrity test before a forecasted severe-weather window, yet deferring the test requires explicit cross-functional approval. In a governed review workspace, the manager and agent support iterate on the packet as safety, facilities engineering, quality, and business-continuity reviewers challenge whether the operational constraints are evidenced adequately, whether the temporary safeguards are strong enough, whether site-level test history and open defects are represented accurately, and whether unresolved concerns are being carried forward transparently. The agents help preserve reviewer objections, refresh maintenance and continuity evidence, rewrite the packet to reflect accepted edits and contested issues, and maintain an explicit handoff ledger showing who owns the next approval-readiness checkpoint. The human operations manager and named approval owner remain responsible for deciding whether the packet is ready for formal approval review, whether any objection should stop progression, and whether the request should pause for more evidence or alternate continuity planning rather than move toward adjudication.</li>
+<li><a href="network-fuel-system-test-deferral-recommendation-packet-revision-approved-for-continuity-risk-board-decision-lane/">Network fuel-system test deferral recommendation packet revision approved for continuity risk board decision lane</a></li>
+<li>An operations continuity workflow has already prepared one exact recommendation packet revision for a temporary deferral of scheduled backup fuel-system integrity tests across several depots ahead of a forecast severe-weather window. The packet narrows the bounded options to defer the named sites with daily manual inspection and generator-watch controls, release a narrower deferral limited to the lowest-risk depots with vendor standby coverage, or escalate to executive safety review, and it keeps blocked paths such as a region-wide blanket deferral, extension past the allowed retest window, or vendor-cancellation without compensating controls explicit. Before that exact packet revision can enter the restricted continuity risk board decision lane, a named operations release owner must approve the board scope, validity window, and manifest binding so reviewers receive the governed recommendation artifact rather than a stale, broadened, or misrouted copy. The workflow stops at governed release of that packet revision; it does not decide whether the deferral is granted, reschedule the tests, or dispatch any field work.</li>
+<li><a href="peak-season-yard-throughput-replanning-after-weather-disruption/">Peak-season yard throughput replanning after weather disruption</a></li>
+<li>A regional distribution yard is already running a peak-season throughput plan that sequences inbound gate appointments, trailer spotting, dock-door turns, linehaul departure cuts, overflow-lot usage, and cold-chain protection windows. Then severe weather disrupts the baseline plan: lightning or ice slows yard moves, gate throughput drops, one outbound departure window stays fixed, and a safety hold limits which trailers can be repositioned until conditions stabilize. The workflow should recompute a revised yard-throughput plan, document which waves can move and which checkpoints must stay fixed, and prepare a coordination-ready replanning packet for the yard control lead, dock manager, linehaul dispatcher, safety coordinator, and regional network planner rather than deciding customer service exceptions, authorizing off-network reroutes, or executing trailer moves itself. <code>mermaid flowchart TD A["Weather disruption reduces yard throughput&lt;br&gt;during the peak window"] B["Refresh current yard state,&lt;br&gt;gate and dock capacity,&lt;br&gt;labor coverage, and fixed departures"] C["Verify weather severity,&lt;br&gt;safety holds, and queue data freshness"] D{"Any in-policy revised plan preserves&lt;br&gt;safety constraints and the fixed&lt;br&gt;departure commitments?"} E["Build revised yard-throughput plan&lt;br&gt;with resequenced waves and holds"] F["Record moved turns,&lt;br&gt;held trailers, overflow assumptions,&lt;br&gt;and residual service risk"] G["Assemble coordination-ready&lt;br&gt;replanning packet"] H["Yard control lead and required&lt;br&gt;partners review for adoption"] I["Hold with escalation packet for&lt;br&gt;stale inputs, unsafe conditions,&lt;br&gt;or infeasible constraints"] A --&gt;|"Refresh disrupted state"| B B --&gt;|"Run verification checks"| C C --&gt;|"Fresh and safe to plan"| D C --&gt;|"Stale or unsafe inputs"| I D --&gt;|"Yes"| E D --&gt;|"No"| I E --&gt;|"Document impacts"| F F --&gt;|"Prepare handoff"| G G --&gt;|"Route for adoption"| H I --&gt;|"Escalate within planning boundary"| H</code></li>
+<li><a href="site-inspection-packet-to-corrective-maintenance-work-order-handoff/">Site inspection packet to corrective maintenance work-order handoff</a></li>
+<li>A regional facilities operations center receives a corrective-maintenance intake packet after a distribution hub roof inspection finds recurring leaks above a conveyor mezzanine. The packet combines a contractor inspection PDF, annotated site photos, a facilities manager email summarizing affected zones, a handwritten temporary-mitigation checklist from the night shift, and a spreadsheet of prior patch repairs. Before any repair crew is dispatched, the workflow must transform the packet into a structured work-order staging record with the required CMMS fields for site, asset or location code, failure category, safety restrictions, access window, suspected cause, affected production area, and supporting evidence links while preserving uncertainty around root cause and repair scope. <code>mermaid flowchart TD A["Receive facilities intake packet&lt;br&gt;inspection PDF, photos, email, checklist, and repair history"] B["Extract maintenance intake facts&lt;br&gt;site, location, defect clues, safety restrictions, access window, and evidence links"] C["Normalize against approved references&lt;br&gt;asset registry, site map, location codes, contractor roster, and failure taxonomy"] D{"Do site, location, safety, and&lt;br&gt;repair-history details reconcile within policy?"} E["Place packet on planner review hold&lt;br&gt;resolve conflicting location, expired mitigations, or unclear scope"] F{"Does the staged record include required CMMS fields,&lt;br&gt;provenance, and uncertainty flags?"} G["Create corrective-maintenance staging record&lt;br&gt;structured work-order packet plus transformation trace"] H["Handoff only to CMMS staging and planner review lanes&lt;br&gt;no live work order or field dispatch"] A --&gt; B --&gt; C --&gt; D D --&gt; E E --&gt; B D --&gt; F F --&gt; E F --&gt; G --&gt; H</code></li>
+<li><a href="sorter-routing-package-approved-for-shift-cutover-handoff/">Sorter routing package approved for shift cutover handoff</a></li>
+<li>A distribution network is preparing to roll a revised sorter routing profile into one facility for an overnight shift after throughput and misroute issues made the current configuration unsustainable. The authoritative source state spans routing tables, lane capacities, fallback thresholds, maintenance exceptions, shift staffing constraints, and safety-console notes, but the downstream cutover workflow expects one structured routing package with explicit hold placeholders and a manifest authorizing handoff for that single shift window. The transformation workflow must reshape the bounded source material into the approved shift-release package, preserve lineage for every routing and fallback field, and stop once the manifest is signed rather than activating the profile, recommending whether the cutover should happen, or verifying operational readiness beyond the package contract itself.</li>
+<li><a href="supplier-labeling-deviation-remediation-brief-copilot-loop/">Supplier labeling deviation remediation brief copilot loop</a></li>
+<li>A network quality operations manager is preparing a governed remediation brief after three distribution centers logged repeated inbound pallet-labeling deviations from a packaging supplier, causing receiving delays, quarantine holds, and manual relabel work during a seasonal volume ramp. The manager uses a copilot inside a shared operations workspace to iteratively pull nonconformance evidence, compare shipment-level exception patterns across sites, draft the supplier-facing corrective-action brief and internal approval summary, and rewrite sections as procurement, warehouse leadership, and quality reviewers narrow the required asks. The human manager remains responsible for deciding which deviations are substantiated, choosing what remediation commitments and commercial consequences are appropriate, and approving every outbound statement before anything is sent to the supplier or recorded in the quality system of record.</li>
+<li><a href="suspected-contamination-command-center-channel-safe-lot-package/">Suspected contamination command-center channel-safe lot package</a></li>
+<li>An operations command center has declared a critical product-contamination event after multiple facilities report converging quality failures and downstream distribution partners begin asking for a current list of potentially exposed lots. The authoritative state spans lot genealogy systems, plant quality holds, cold-chain telemetry, warehouse inventory positions, shipment manifests, and legal-review notes that restrict which facility or product identifiers can be shared externally before verification is complete. Before partner coordination, executive oversight, and internal containment channels can work from one governed artifact, the workflow must transform that authoritative state into a channel-safe structured lot package with product-family groupings, region-level exposure fields, shipment-hold counts, quarantine-status codes, facility-alias renderings, held-detail placeholders for unresolved genealogy branches, and manifest-backed lineage that keeps restricted annexes inside the approved trust boundary.</li>
+<li><a href="suspected-contamination-lot-hold-state-truth-restoration/">Suspected contamination lot hold state truth restoration</a></li>
+<li>During a declared contamination event, the command center finds that lot hold and movement status diverge across genealogy systems, warehouse quarantine records, shipment manifests, and quality-review workbenches. Some downstream pallets appear contained in one system but still in transit in another, while one facility's manual hold action has not propagated consistently across partner-facing tracking views. Before operations, quality, and legal leaders decide whether the exposed inventory picture is stable enough for recall scoping, partner direction, or regulator communication, the workflow must determine which lots are definitively quarantined, which shipments are still exposed, and which branches remain unresolved because authoritative evidence conflicts.</li>
+<li><a href="suspected-contamination-review-priority-adaptation/">Suspected contamination review priority adaptation</a></li>
+<li>Operations leadership has already declared a severe contamination-response state after distribution and field reports suggest one refrigerated product lot may be spreading risk across multiple facilities and routes. Several existing review surfaces now compete for the same constrained specialist pool: lot-hold evidence review, traceability-gap assessment, field-inspection triage, and routine quality-exception follow-up. The normal prioritization state still surfaces easy documentation cleanup and lower-consequence inspection backlog items while supervisors repeatedly override the queues to protect potential spread paths, regulator-visible holds, and at-risk facility reviews. The workflow must recommend a temporary emergency optimization state that protects contamination-critical review lanes, preserves explicit expiry and rollback controls, and reallocates scarce attention without choosing the response authority, sequencing the command playbook, releasing or holding inventory, or dispatching corrective work directly.</li>
+<li><a href="warehouse-slotting-reference-rollout-verification/">Warehouse slotting reference rollout verification</a></li>
+<li>An operations excellence team marks an updated warehouse slotting quick-reference bundle as rolled out for the next shift after publishing new kiosk pages, scanner help cards, and printable supervisor sheets. Site leads want to know whether that claimed rollout state is actually true across the approved reference surfaces before they assume the new guidance is available on the floor. The workflow verifies the rollout claim against authoritative publication evidence and stops at a clear confirmed, disproved, or inconclusive result; it must not assign labor, reprioritize replenishment work, or push new materials itself.</li>
+<li><a href="warehouse-slotting-rollout-caveat-board-shared-workbench-upkeep/">Warehouse slotting rollout caveat board shared workbench upkeep</a></li>
+<li>A network operations excellence team maintains a shared rollout caveat board while a new warehouse slotting reference package is being introduced across several facilities. Site leads, central operations owners, and documentation stewards add waiver notes, scanner-profile caveats, aisle-configuration exceptions, training questions, and section-level ownership changes as the internal rollout board evolves. The agent keeps that internal workbench usable by refreshing linked rule-package references, normalizing duplicate caveat notes, updating blocked-versus-cleared status fields, and preserving unresolved local questions in a hold register. Humans still decide whether a caveat is genuinely resolved, whether a local workaround is acceptable, and when anything from the board should move into a separate planning, approval, or execution workflow. <code>mermaid flowchart TD start["Small rollout-board updates&lt;br&gt;arrive from facilities"] --&gt; scope{"Change stays inside approved&lt;br&gt;workbench-upkeep boundaries?"} scope -- "No" --&gt; handoff["Stop and hand off to the appropriate&lt;br&gt;planning, approval, or execution workflow"] scope -- "Yes" --&gt; sync["Refresh slotting-package links,&lt;br&gt;waiver ids, and facility context"] sync --&gt; verify{"Rule-package version, waiver status,&lt;br&gt;and facility mapping revalidated?"} verify -- "No" --&gt; hold["Keep the row blocked and record&lt;br&gt;the unresolved question in the hold register"] verify -- "Yes" --&gt; review{"Would the update clear a caveat,&lt;br&gt;approve a workaround, or imply commitment?"} review -- "No" --&gt; update["Normalize duplicate caveat notes,&lt;br&gt;update blocked-versus-cleared fields,&lt;br&gt;and write revision history"] review -- "Yes" --&gt; human["Route the row to a human owner&lt;br&gt;for bounded review"] human -- "Approved for upkeep only" --&gt; update human -- "Keep held" --&gt; hold human -- "Needs downstream workflow" --&gt; handoff</code></li>
+<li><a href="warehouse-slotting-rule-change-digest-for-shift-supervisor-briefing/">Warehouse slotting rule change digest for shift supervisor briefing</a></li>
+<li>A fulfillment network operations excellence team publishes a controlled slotting-rule package each Thursday before the next wave of weekend replenishment. When the authoritative ruleset changes, shift supervisors need a grounded digest showing which aisle-capacity constraints, hazardous-adjacency restrictions, seasonal overflow rules, scanner exception handling steps, and locally approved temporary waivers changed versus the prior package. The workflow should stop at a concise contextual briefing for supervisors and site leads; it should not reprioritize labor, assign move tasks, or decide whether a site should request a special operating exception.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,798 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>engineering - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#engineering" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              engineering
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="engineering">engineering<a class="headerlink" href="#engineering" title="Permanent link">&para;</a></h1>
+<p>Grounded examples for the <code>engineering</code> domain.</p>
+<h2 id="instances">Instances<a class="headerlink" href="#instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="approved-payments-tokenization-cutover-staged-execution/">Approved payments tokenization cutover staged execution</a></li>
+<li>After architecture, production-change, and payments-risk owners approve migration of card-token lookups from a legacy vault path to a new tokenization service, a release engineering team must execute the live cutover during a narrow evening window. The workflow should not re-decide whether the change is allowed. It should carry the already approved cutover through sequenced preflight checks on key replication, shadow-read parity, and rollback health; then move traffic in bounded stages, verify authorization and settlement signals at each checkpoint, and hold visibly for human release before widening blast radius or retiring the legacy fallback path. <code>mermaid flowchart TD A["Approved cutover scope&lt;br&gt;and release authorities in force"] --&gt; B["Run preflight checks&lt;br&gt;key replication, shadow-read parity, rollback health"] B --&gt; C{"Preflight evidence within&lt;br&gt;approved thresholds?"} C -- "No" --&gt; F["Visible hold or rollback packet&lt;br&gt;for release authority and incident lead"] C -- "Yes" --&gt; D["Shift limited merchant cohort&lt;br&gt;to the new tokenization service"] D --&gt; E{"Authorization, settlement, and&lt;br&gt;fallback signals stay healthy?"} E -- "No" --&gt; F E -- "Yes" --&gt; G["Human release hold&lt;br&gt;before widening blast radius"] G -- "Released" --&gt; H["Expand traffic to approved&lt;br&gt;broader production scope"] G -- "Held" --&gt; F H --&gt; I{"Broad-scope verification and&lt;br&gt;legacy fallback readiness still hold?"} I -- "No" --&gt; F I -- "Yes" --&gt; J["Protected human hold&lt;br&gt;before retiring legacy fallback path"] J -- "Release" --&gt; K["Disable legacy fallback path&lt;br&gt;and record final state confirmation"] J -- "Hold" --&gt; F</code></li>
+<li><a href="approved-production-change-freeze-exception-portal-submission/">Approved production change-freeze exception portal submission</a></li>
+<li>A release engineering operator needs to submit an already approved production change-freeze exception for an urgent database-connection pool fix on a customer-facing checkout service during a year-end commerce blackout. The target change-governance portal is browser-only, spreads the exception across service identity, customer-impact justification, rollback readiness, deployment window, approver attestations, and evidence-attachment tabs, and final submission may proceed only after the service owner, incident commander, and production change authority have all signed off in the engineering change record. Because the portal action can authorize production work during a freeze period and may trigger downstream paging, compliance logging, and deployment-window reservations, the workflow must recheck approvals, confirm the exception packet still matches the approved remediation scope, and halt safely if the live portal, freeze calendar state, or confirmation path becomes ambiguous. <code>mermaid flowchart TD start["Approved freeze-exception packet&lt;br&gt;ready for portal submission"] --&gt;|"recheck"| gate1{"Service owner, incident commander,&lt;br&gt;and change authority approvals&lt;br&gt;still current in the change record?"} gate1 --&gt;|"No"| hold["Save draft or abandon session,&lt;br&gt;preserve evidence and page state,&lt;br&gt;and hand off to release leadership"] gate1 --&gt;|"Yes"| portal["Open the browser-only portal and populate&lt;br&gt;service identity, justification, rollback,&lt;br&gt;window, attestations, and attachments"] portal --&gt;|"verify"| reconcile{"Live freeze window, existing exception state,&lt;br&gt;and entered packet still match&lt;br&gt;the approved remediation scope?"} reconcile --&gt;|"No"| hold reconcile --&gt;|"Yes"| finalgate{"Approvals and deployment window&lt;br&gt;still valid immediately before submit?"} finalgate --&gt;|"No"| hold finalgate --&gt;|"Yes"| submit["Submit the freeze exception and capture&lt;br&gt;masked screenshots and portal artifacts"] submit --&gt;|"confirm"| confirm{"Clear confirmation number and&lt;br&gt;reservation outcome received&lt;br&gt;without ambiguity?"} confirm --&gt;|"No"| hold confirm --&gt;|"Yes"| done["Store the evidence bundle and record&lt;br&gt;the submitted freeze exception"]</code></li>
+<li><a href="approved-release-candidate-evidence-gate-verification/">Approved release candidate evidence gate verification</a></li>
+<li>A release board has an approved production packet for a payments-platform release candidate, but the packet cannot be handed into the cutover workflow until current evidence still proves the release is safe to rely on. The workflow rechecks signed artifact hashes, dependency-health snapshots, rollback credential validity, and protected cohort scope against the approved package, then emits an inspectable verified, held, or insufficient verdict for human release approval. It must not narrow the rollout plan, republish artifacts, or start the deployment itself. <code>mermaid flowchart TD start["Approved release-candidate&lt;br&gt;packet"] start --&gt;|"recheck"| verify["Recheck signed artifact hashes,&lt;br&gt;dependency-health snapshots,&lt;br&gt;rollback credentials, and&lt;br&gt;protected cohort scope"] verify --&gt; ok{"Evidence current and&lt;br&gt;scope still aligned?"} ok --&gt;|"no"| hold["Emit held or insufficient verdict&lt;br&gt;with hold reasons and blocked&lt;br&gt;cutover state"] hold --&gt;|"route"| review["Send packet for bounded&lt;br&gt;manual release review"] ok --&gt;|"yes"| verdict["Emit verified verdict&lt;br&gt;with evidence lineage"] verdict --&gt;|"present"| gate["Present verified packet at the&lt;br&gt;human release approval gate"] gate --&gt;|"stop"| stop["Stop before cutover handoff&lt;br&gt;or deployment"]</code></li>
+<li><a href="approved-release-readiness-review-closure-and-tracker-completion/">Approved release-readiness review closure and tracker completion</a></li>
+<li>A platform release review records that a service version is accepted and ready for scheduler handoff after change evidence, rollback notes, and dependency sign-offs have all been approved in the release-governance system. No deployment should occur yet. The downstream workflow is limited to low-risk completion work: detect the accepted-state event, verify that the release identifier and review version still match the source record, close the readiness checklist, sync the release tracker to the approved state, attach links to the archived evidence bundle, clear the review queue entry, and notify the release coordinator that the package is ready for the next scheduled step. If the milestone mapping, evidence bundle, or review version is inconsistent, the workflow should stop and route the case to manual follow-up rather than guessing. <code>mermaid flowchart TD A["Accepted readiness&lt;br&gt;event detected"] --&gt;|"revalidate"| B{"Source record still shows&lt;br&gt;accepted readiness state?"} B --&gt;|"no"| H["Create manual follow-up packet&lt;br&gt;and halt"] B --&gt;|"yes"| C{"Release id, review version,&lt;br&gt;milestone mapping, and evidence bundle align?"} C --&gt;|"no"| H C --&gt;|"yes"| D["Close readiness checklist"] D --&gt;|"sync"| E["Update release tracker&lt;br&gt;to approved state"] E --&gt;|"attach"| F["Attach archived evidence&lt;br&gt;bundle links"] F --&gt;|"clear"| G["Clear review queue entry"] G --&gt;|"notify"| I["Notify release coordinator&lt;br&gt;that package is ready&lt;br&gt;for the next scheduled step"]</code></li>
+<li><a href="ci-pipeline-failure-review-queue-reprioritization/">CI pipeline failure review queue reprioritization</a></li>
+<li>A developer productivity engineering lead is overseeing an existing queue of CI pipeline failures that need review before merge flow, release-candidate promotion, and shared test infrastructure stability degrade further. The backlog mixes release-branch build breaks, flaky integration-suite failures, security-scan regressions, expired signing-certificate jobs, and recurring failures tied to shared build images or test fixtures. Recent handling data shows that reviewers have been pulling forward easy-to-reproduce single-repository failures while cross-repository failures, release-blocking branches, and jobs with repeated quarantine or reopen history are aging until they disrupt downstream engineering work across multiple teams. The optimization workflow must reprioritize the review queue within bounded limits so release proximity, shared-infrastructure blast radius, repeat-failure patterns, and protected production-readiness paths rise appropriately without letting smaller repositories, lower-visibility teams, or slower-to-diagnose failures be systematically pushed back. <code>mermaid flowchart TD A["Queue aging, release pressure, or override patterns&lt;br&gt;trigger reprioritization review"] --&gt; B["Agent recomputes bounded queue ranking&lt;br&gt;using release proximity, shared-infrastructure blast radius,&lt;br&gt;repeat-failure history, and fairness signals"] B --&gt; C["Verification checks test protected-path coverage,&lt;br&gt;reviewer-capacity impact, fairness drift, and rollback bounds"] C --&gt; D{"All guardrails pass and&lt;br&gt;changes stay within preapproved tuning limits?"} D --&gt;|"Yes"| E["Publish revised queue order with&lt;br&gt;failure-level rationale and audit log"] D --&gt;|"No"| F["Escalate tuning packet for&lt;br&gt;engineering-lead review"] F --&gt; G{"Lead approves material&lt;br&gt;reprioritization change?"} G --&gt;|"Yes"| E G --&gt;|"No"| H["Hold new tuning and keep&lt;br&gt;last trusted policy active"] E --&gt; I{"Protected failures aging longer,&lt;br&gt;override rate rising, or queue volatility increasing?"} I --&gt;|"No"| J["Continue monitored queue execution&lt;br&gt;until the next reevaluation trigger"] I --&gt;|"Yes"| K["Rollback to last trusted policy and&lt;br&gt;escalate bounded retuning review"] K --&gt; H</code></li>
+<li><a href="cross-team-release-readiness-review-scheduling/">Cross-team release-readiness review scheduling</a></li>
+<li>A release engineering coordinator needs to schedule a release-readiness review for a customer-facing identity service before an approved Thursday evening production cutover. The meeting must include the release manager, the service owner, the on-call site reliability lead, the database migration owner, and a security reviewer because the release changes authentication flows and schema state together. The workflow is about constructing a viable meeting slot inside the evidence-freeze window, placing reversible holds across multiple calendars, and escalating quickly when a required attendee cannot make the allowed review window rather than guessing at substitutes or committing to the final meeting without human confirmation. <code>mermaid flowchart TD start["Release review request before&lt;br&gt;approved Thursday cutover"] --&gt; gather["Check evidence-freeze window,&lt;br&gt;required roles, and review rules"] gather --&gt; search["Search release, service, SRE,&lt;br&gt;database, and security calendars"] search --&gt; overlap{"In-policy overlap before&lt;br&gt;the review cutoff?"} overlap --&gt;|"Yes"| hold["Place reversible holds&lt;br&gt;for required attendees"] overlap --&gt;|"No"| escalate["Hold scheduling and escalate&lt;br&gt;to release owner for exception review"] hold --&gt; verify{"All required roles covered and&lt;br&gt;no unapproved substitute needed?"} verify --&gt;|"Yes"| approve{"Release owner approves&lt;br&gt;selected slot and any exception?"} verify --&gt;|"No"| escalate approve --&gt;|"Yes"| finalize["Send final invite and log&lt;br&gt;confirmed readiness review slot"] approve --&gt;|"No"| release["Release tentative holds and&lt;br&gt;return to slot search"] release --&gt; search</code></li>
+<li><a href="database-upgrade-exception-recommendation-packet-revision-approved-for-architecture-board-decision-lane/">Database-upgrade exception recommendation packet revision approved for architecture board decision lane</a></li>
+<li>A platform engineering review workflow has already prepared one exact recommendation packet revision for a managed database major-version upgrade exception. The packet narrows the bounded options to defer the upgrade, approve one time-boxed waiver with compensating controls, or escalate to executive risk review, and it records why broader rollout paths are blocked. Before that exact packet revision can enter the restricted architecture board decision lane, a named release-governance owner must approve the lane scope, expiry window, and manifest binding so board members receive the reviewed recommendation artifact rather than a stale or broadened copy. The workflow stops at governed release of that packet revision; it does not decide whether the waiver is granted, schedule the upgrade, or execute any production change. <code>mermaid flowchart TD start["Exact database-upgrade&lt;br&gt;recommendation packet revision ready"] --&gt; verify{"Packet hash, bounded options,&lt;br&gt;and blocked rollout paths&lt;br&gt;still match?"} verify --&gt;|"No"| hold["Hold packet revision&lt;br&gt;for manual follow-up&lt;br&gt;or supersession"] verify --&gt;|"Yes"| scope{"Board lane scope, expiry window,&lt;br&gt;and manifest binding&lt;br&gt;still valid?"} scope --&gt;|"No"| hold scope --&gt;|"Yes"| approve{"Named release-governance owner&lt;br&gt;approves bounded board release?"} approve --&gt;|"No"| hold approve --&gt;|"Yes"| release["Release exact packet revision&lt;br&gt;to architecture board lane&lt;br&gt;with defer / waiver / escalate options"] release --&gt; record["Record handoff and block forwarding&lt;br&gt;outside approved board audience"]</code></li>
+<li><a href="deprecated-message-broker-client-migration-exception-copilot-loop/">Deprecated message broker client migration exception copilot loop</a></li>
+<li>A principal engineer is preparing a time-bounded exception packet for an architecture review board because a high-throughput order-routing service cannot yet migrate off a deprecated message-broker client before the platform team's retirement deadline. The engineer uses a copilot inside a shared engineering workspace to iteratively pull compatibility-test evidence, compare dependency constraints across services, rewrite the exception memo for reliability and security reviewers, and maintain an open-questions and owners list as reviewers tighten the ask. The human engineer remains responsible for deciding whether the incompatibilities actually justify the exception, choosing which mitigation and rollback commitments are credible, and approving the final packet before anything is submitted to the review board or recorded in the engineering system of record. <code>mermaid flowchart TD A["Principal engineer opens&lt;br&gt;exception packet and review workspace"] --&gt; B["Copilot gathers compatibility tests,&lt;br&gt;dependency constraints, incident history,&lt;br&gt;and platform-standard evidence"] B --&gt; C{"Verification check:&lt;br&gt;are claims traceable to current&lt;br&gt;test, dependency, and policy evidence?"} C --&gt;|"No"| H["Hold state:&lt;br&gt;refresh evidence, trim unsupported claims,&lt;br&gt;and update open questions and owners"] H --&gt; B C --&gt;|"Yes"| D["Reliability and security reviewers&lt;br&gt;challenge the draft and tighten asks"] D --&gt; E{"Bounded escalation:&lt;br&gt;does evidence indicate an active production&lt;br&gt;safety issue needing incident or change control?"} E --&gt;|"Yes"| I["Route to formal incident or change-control handling;&lt;br&gt;pause routine exception-packet finalization"] E --&gt;|"No"| F{"Human approval gate:&lt;br&gt;does the principal engineer accept the exception rationale,&lt;br&gt;mitigations, rollback, and expiration terms?"} F --&gt;|"Revise"| H F --&gt;|"Approve"| G["Submit the final packet,&lt;br&gt;expiration date, and follow-up owners&lt;br&gt;to the review board queue and system of record"]</code></li>
+<li><a href="internal-sdk-release-asset-publication-verification/">Internal SDK release asset publication verification</a></li>
+<li>An internal developer-platform pipeline marks version <code>4.12.0</code> of a shared SDK as published after package build, checksum generation, and release-note steps report success. Release coordinators still need to know whether the claimed state is actually true across the approved package registry, checksum manifest store, and internal release-notes surface before other teams depend on the version for routine integration work. The workflow verifies the publication claim against those authoritative sources and emits a bounded verdict; it must not republish assets, reopen the build, or infer a broader release-readiness decision. <code>mermaid flowchart TD A["Pipeline claim received&lt;br&gt;SDK 4.12.0 marked published"] --&gt; B["Open or reuse durable&lt;br&gt;verification record"] B --&gt; C{"Approved sources and&lt;br&gt;version-match rules in scope?"} C -- "No" --&gt; H["Bounded escalation&lt;br&gt;human follow-up record"] C -- "Yes" --&gt; D["Check package registry,&lt;br&gt;checksum manifest, and&lt;br&gt;release-notes surface"] D --&gt; E{"All authoritative checks&lt;br&gt;match claimed version?"} E -- "Yes" --&gt; F["Emit confirmed verdict&lt;br&gt;with evidence trace"] E -- "No" --&gt; G{"Lagging surface still within&lt;br&gt;approved wait window?"} G -- "Yes" --&gt; I["Hold as partial verification&lt;br&gt;and await allowed lag"] G -- "No" --&gt; H</code></li>
+<li><a href="managed-database-major-version-upgrade-exception-recommendation/">Managed-database major-version upgrade exception recommendation</a></li>
+<li>A platform engineering review group is evaluating whether to support an accelerated production upgrade of the managed PostgreSQL version used by the checkout and order-history services after the cloud provider shortens support for the current major version. The requesting team wants approval to compress the normal compatibility window, accept a shorter rollback checkpoint, and combine the database engine upgrade with a required driver update before the seasonal release freeze begins. The workflow must recommend whether engineering should support the exception as scoped, counter with a narrower staged path, or escalate because rollback uncertainty, dependency compatibility, customer-impact risk, and change-governance thresholds move outside delegated approval limits before any production change is committed. <code>mermaid flowchart TD A["Review group receives&lt;br&gt;accelerated upgrade request"] B["Verify support deadline,&lt;br&gt;service exposure, and proposed scope"] C{"Rollback checkpoint,&lt;br&gt;driver compatibility, and migration evidence verified?"} D["Hold request until stronger rollback proof,&lt;br&gt;staging results, or narrower scope is provided"] E{"Delegated approval gate:&lt;br&gt;freeze policy and authority limits still in band?"} F["Recommend narrower staged path with&lt;br&gt;separated driver change or longer soak"] G{"Residual customer-impact risk&lt;br&gt;and rollback uncertainty acceptable?"} H["Recommend support for the&lt;br&gt;scoped exception with controls"] I["Escalate to higher change authority&lt;br&gt;before any production commitment"] A --&gt; B B --&gt; C C -- "No" --&gt; D D --&gt; B C -- "Yes" --&gt; E E -- "No" --&gt; I E -- "Yes" --&gt; G G -- "No" --&gt; F G -- "Yes" --&gt; H</code></li>
+<li><a href="multi-region-payments-outage-crisis-briefing-evidence-synthesis/">Multi-region payments outage crisis briefing evidence synthesis</a></li>
+<li>After incident command has already declared a severity-zero outage for a multi-region payments platform disruption, an executive bridge needs one source-backed situation brief every thirty minutes. Before anyone recommends rollback paths, attributes root cause, approves customer communications, or executes mitigation steps, the workflow assembles a grounded crisis brief showing verified customer impact, failing dependencies, current mitigation checkpoints, recent production changes, external-status posture, and open unknowns. The useful output is a provenance-preserving synthesis that separates confirmed service state from operator hypotheses and stale bridge commentary so human responders start from one inspectable picture instead of fragmented war-room updates. <code>mermaid flowchart TD A["Severity-zero outage declared&lt;br&gt;executive bridge briefing requested"] --&gt; B["Retrieve current evidence&lt;br&gt;telemetry, dependency state, change logs, impact tracker, prior brief"] B --&gt; C{"Material claims have&lt;br&gt;fresh, source-ranked backing?"} C --&gt;|"No"| D["Hold release&lt;br&gt;log stale inputs, contradictions, and open unknowns"] D --&gt; E["Bounded escalation&lt;br&gt;request source-owner or governance confirmation"] E --&gt; B C --&gt;|"Yes"| F["Assemble crisis brief&lt;br&gt;separate verified state, mitigation checkpoints, and hypotheses"] F --&gt; G{"Incident commander approves&lt;br&gt;brief for executive bridge?"} G --&gt;|"No"| D G --&gt;|"Yes"| H["Publish reviewed brief&lt;br&gt;record provenance, approval, and supersession deadline"] H --&gt; I["Workflow stops at briefing handoff&lt;br&gt;rollback, root cause, and customer communications stay outside scope"]</code></li>
+<li><a href="payments-api-latency-incident-investigation/">Payments API latency incident investigation</a></li>
+<li>A payments platform experiences a sustained increase in checkout authorization latency during peak traffic after a routine infrastructure rollout. Alerts show elevated p95 response times and queue growth, but the immediate cause is unclear because the incident may involve gateway configuration drift, database pool saturation, or a dependency timeout introduced by a feature-flag change. <code>mermaid flowchart TD start["Latency incident declared&lt;br&gt;after rollout and queue growth"] --&gt; gather["Collect gateway logs, traces,&lt;br&gt;change history, database pool metrics,&lt;br&gt;and responder notes"] gather --&gt; align["Normalize timestamps and build&lt;br&gt;a shared incident timeline"] align --&gt; evidence{"Evidence complete enough&lt;br&gt;to test competing causes?"} evidence --&gt;|"No"| hold["Hold root-cause declaration and request&lt;br&gt;missing telemetry or timeline clarification"] hold --&gt; gather evidence --&gt;|"Yes"| compare["Compare gateway drift, database saturation,&lt;br&gt;and feature-flag timeout hypotheses"] compare --&gt; verify{"Verification checks isolate one&lt;br&gt;primary cause and bounded scope?"} verify --&gt;|"No"| escalate["Escalate unresolved or conflicting evidence&lt;br&gt;for bounded specialist investigation"] verify --&gt;|"Yes"| approve{"Incident lead approves&lt;br&gt;the root-cause narrative?"} approve --&gt;|"No"| hold approve --&gt;|"Yes"| handoff["Publish reconciled timeline,&lt;br&gt;ranked hypotheses, and follow-up packet&lt;br&gt;for human-approved remediation"]</code></li>
+<li><a href="payments-cutover-command-window-checkpoint-resequencing/">Payments cutover command-window checkpoint resequencing</a></li>
+<li>A payments-platform release has already entered a declared overnight cutover command window with an approved checkpoint sequence for rollback validation, database replication confirmation, security approval, traffic-shift readiness, and executive release communication. Mid-window, authoritative conditions change: rollback validation finishes later than expected, the security approver's delegate mapping changes because of a concurrent incident bridge, and the final replication confirmation can only occur inside a narrower maintenance boundary. The workflow must rebuild one authoritative checkpoint timeline, preserve explicit holds where protected checkpoints cannot yet move safely, and hand release leadership one current command packet rather than letting separate teams coordinate from stale war-room notes. <code>mermaid flowchart TD A["Declared cutover command window&lt;br&gt;and active checkpoint sequence"] --&gt; B["Verify authoritative updates for&lt;br&gt;rollback completion, replication timing,&lt;br&gt;and approved security delegate changes"] B --&gt; C{"Protected checkpoints can be&lt;br&gt;re-sequenced inside the narrower&lt;br&gt;maintenance boundary?"} C --&gt;|"No"| D["Place affected checkpoints on hold&lt;br&gt;and record protected-window conflicts&lt;br&gt;in the command ledger"] D --&gt; E["Bounded escalation to release leadership&lt;br&gt;for timing or authority resolution"] E --&gt; F{"Release leadership approves&lt;br&gt;an exception or revised handling?"} F --&gt;|"No"| G["Keep the hold state active&lt;br&gt;and wait for new authoritative input"] F --&gt;|"Yes"| H["Assemble one updated command packet&lt;br&gt;covering rollback, security approval,&lt;br&gt;replication, traffic shift, and executive notice"] C --&gt;|"Yes"| H H --&gt; I{"Release leadership approves&lt;br&gt;the resequenced packet?"} I --&gt;|"No"| G I --&gt;|"Yes"| J["Publish the authoritative checkpoint ledger&lt;br&gt;and send targeted timeline delta notices"]</code></li>
+<li><a href="payments-tokenization-cutover-readiness-gate-disposition-recommendation/">Payments tokenization cutover readiness gate disposition recommendation</a></li>
+<li>A platform engineering release board is re-evaluating whether a payments tokenization cutover should enter its governed production gate before a seasonal traffic ramp. Since the last review, rollback validation for one downstream settlement path expired, one dependency team reopened a schema-compatibility blocker, and the remaining freeze-window slack narrowed from five days to two. The workflow must recommend whether engineering should proceed with the cutover as scoped, hold for refreshed evidence, narrow to a lower-risk merchant segment, or escalate because rollback confidence, blocker coupling, and change-governance thresholds no longer fit delegated release authority before any production change record is approved. <code>mermaid flowchart TD A["Re-evaluate payments tokenization cutover&lt;br&gt;before the seasonal traffic ramp"] B["Verify rollback rehearsal freshness,&lt;br&gt;schema-compatibility status, freeze-window slack,&lt;br&gt;and delegated authority thresholds"] C{"Rollback validation for the affected&lt;br&gt;settlement path is current?"} D{"Reopened schema blocker is resolved&lt;br&gt;without hidden dependency coupling?"} E{"A lower-risk merchant segment can proceed&lt;br&gt;while excluding the affected path and staying&lt;br&gt;within two-day slack and delegated authority?"} H["Recommend hold&lt;br&gt;until rollback evidence is refreshed&lt;br&gt;and verification is rerun"] P["Recommend proceed as scoped&lt;br&gt;for the current cutover plan"] N["Recommend narrow rollout&lt;br&gt;to the lower-risk merchant segment"] X["Escalate to higher release authority&lt;br&gt;before any production change record is approved"] G["Human release board approval gate&lt;br&gt;reviews the disposition recommendation packet"] A --&gt; B --&gt; C C --&gt;|"No"| H --&gt; G C --&gt;|"Yes"| D D --&gt;|"Yes"| P --&gt; G D --&gt;|"No"| E E --&gt;|"Yes"| N --&gt; G E --&gt;|"No"| X --&gt; G</code></li>
+<li><a href="payments-tokenization-exception-packet-approved-for-architecture-review-intake/">Payments tokenization exception packet approved for architecture review intake</a></li>
+<li>A platform security lead, a payments architect, and release engineering reviewers are co-producing one governed exception packet because a tokenization cutover needs a temporary deviation from the standard rollback-control policy for one release train. Agents help reconcile test evidence, rollback caveats, architecture comments, and residual-risk wording into the shared packet while preserving which objections remain unresolved and which edits the human artifact owner accepted. The workflow ends only when the named release owner approves that exact packet revision for one bounded architecture-review intake lane, where downstream reviewers may decide whether to grant or reject the exception. It does not choose the review outcome, resequence the change window, or execute the cutover. <code>mermaid flowchart TD A["Tokenization cutover exception&lt;br&gt;opens one governed packet"] --&gt; B["Agents and reviewers reconcile&lt;br&gt;test evidence, rollback caveats,&lt;br&gt;architecture comments, and residual-risk wording"] B --&gt; C{"Exact packet revision, objection ledger,&lt;br&gt;and current rehearsal evidence&lt;br&gt;still complete and current?"} C --&gt;|"No"| H["Hold release for evidence refresh,&lt;br&gt;comment resolution, or packet supersession"] C --&gt;|"Yes"| D{"Release manifest binds the exact revision,&lt;br&gt;one architecture-review intake lane,&lt;br&gt;and required signers?"} D --&gt;|"No"| H D --&gt;|"Yes"| E{"Named release owner approves&lt;br&gt;that exact revision for bounded&lt;br&gt;architecture-review intake?"} E --&gt;|"No"| H E --&gt;|"Yes"| F["Release exact packet revision&lt;br&gt;to the bounded architecture-review&lt;br&gt;intake lane"] F --&gt; G["Record handoff, accepted residual objections,&lt;br&gt;and block cutover resequencing&lt;br&gt;or exception adjudication"]</code></li>
+<li><a href="privileged-service-account-quarterly-control-attestation-recommendation/">Privileged service-account quarterly control attestation recommendation</a></li>
+<li>A platform security control owner is preparing the quarterly internal attestation for a small set of privileged production service accounts used by build-signing, secret replication, and release-approval automation. The evidence packet already exists, but one account family has stale owner-review evidence, another relies on a soon-to-expire compensating-control exception, and a recent service split changed whether two identities still fall inside the same least-privilege scope. The workflow must recommend whether the attestation package is supportable as submitted, should pause for targeted remediation, or should escalate to platform security governance because the current requirement fit is ambiguous before any human signs the quarter's control record or changes live access. <code>mermaid flowchart TD A["Review quarterly privileged service-account evidence packet&lt;br&gt;for build-signing, secret replication, and release-approval automation"] --&gt; B["Verify each account family against current controls:&lt;br&gt;owner-review freshness, rotation evidence, and least-privilege scope"] B --&gt; C{"Any stale proof or expiring&lt;br&gt;compensating-control exception?"} C --&gt;|"Yes"| D["Hold attestation for targeted remediation&lt;br&gt;until refreshed evidence or exception action is supplied"] C --&gt;|"No"| E{"Did the service split create ambiguous scope&lt;br&gt;or exceed delegated review bounds?"} E --&gt;|"Yes"| F["Escalate to platform security governance&lt;br&gt;for requirement-fit interpretation before sign-off"] E --&gt;|"No"| G["Recommend supportable as submitted&lt;br&gt;with requirement-to-evidence rationale packet"] D --&gt; H["Human security owner decides next step;&lt;br&gt;workflow does not sign attestation or change access"] F --&gt; H G --&gt; H</code></li>
+<li><a href="production-incident-guided-remediation-task-orchestration/">Production incident guided remediation task orchestration</a></li>
+<li>A senior incident commander is directing live remediation for a checkout-platform outage after a bad cache invalidation sequence and stale feature-flag state start cascading request failures across two regions. The agent is allowed to execute specific remediation steps only when the commander calls them: gather the current service and flag state, disable one canary rule, drain one worker pool, restart one dependency tier, verify error-rate and queue-depth recovery, and update the incident record after each step. Because the bridge is evolving quickly and the next safe action depends on what the previous step actually changed, the workflow must preserve one authoritative step ledger, stop before improvising a new branch, and package an exact takeover state if the commander hands control to the database platform team or rollback authority. <code>mermaid flowchart TD A["Commander directs current step&lt;br&gt;and confirms authority boundary"] --&gt; B["Agent gathers live service, flag, and queue state&lt;br&gt;then records the directive in the step ledger"] B --&gt; C{"Directed action still explicit&lt;br&gt;and within commander authority?"} C -- "Yes" --&gt; D["Agent executes one commanded remediation step&lt;br&gt;and updates the incident record"] C -- "No" --&gt; H["Hold state&lt;br&gt;stop execution and package takeover for database team or rollback authority"] D --&gt; E{"Verification shows expected recovery&lt;br&gt;with current error rate and queue depth?"} E -- "Yes" --&gt; F{"Commander directs another bounded step?"} E -- "No" --&gt; G{"Observed state conflicts, mixed state remains,&lt;br&gt;or next step crosses authority?"} F -- "Yes" --&gt; B F -- "No" --&gt; I["Hold on commander direction&lt;br&gt;maintain ledger and verified current state"] G -- "Yes" --&gt; H G -- "No" --&gt; B</code></li>
+<li><a href="production-release-regression-alert-triage/">Production release regression alert triage</a></li>
+<li>A platform reliability team continuously watches deployment events, canary analysis results, service-level indicators, feature-flag changes, and customer-impact signals to detect risky production regressions shortly after a release lands. The workflow must collapse duplicate alerts tied to the same release wave, enrich each alert with deploy metadata, blast-radius estimates, rollback readiness, and prior release history, and then prioritize which cases need immediate human review. A case should move to the urgent queue when, for example, a release shows error-budget burn above the defined threshold for two consecutive evaluation windows, p95 latency degradation beyond the allowed canary delta for a tier-one service, or concurrent authentication and checkout failures across more than one region. The goal is to create an evidence-backed triage packet for the on-call engineering owner, release manager, or incident lead, not to decide root cause, execute rollback, or declare an incident automatically. <code>mermaid flowchart TD A["Monitor release-linked signals&lt;br&gt;deploy events, canary results, SLIs,&lt;br&gt;feature-flag changes, and customer impact"] --&gt; B["Merge duplicate alerts&lt;br&gt;by release wave and detector lineage"] B --&gt; C["Enrich triage case&lt;br&gt;deploy metadata, blast radius,&lt;br&gt;rollback readiness, and release history"] C --&gt; D{"Threshold checks met?&lt;br&gt;two-window error-budget burn,&lt;br&gt;canary delta, or multi-region failures"} D -- "No" --&gt; E["Hold monitored case&lt;br&gt;re-rank when new telemetry arrives"] D -- "Yes" --&gt; F{"Verification passes across&lt;br&gt;telemetry, release scope,&lt;br&gt;and routing policy?"} F -- "No or conflicted" --&gt; G["Bounded human review&lt;br&gt;on-call owner or release manager&lt;br&gt;verifies evidence before escalation"] F -- "Yes" --&gt; H["Publish urgent triage packet&lt;br&gt;threshold hits, ownership, rollback context,&lt;br&gt;and routing rationale"] G --&gt; H</code></li>
+<li><a href="production-shared-credential-exception-review-board-readiness-loop/">Production shared credential exception review-board readiness loop</a></li>
+<li>A staff security engineer is coordinating a formal exception package because a revenue-critical integration service still relies on a shared production credential in a legacy broker path that cannot be fully replaced before the next platform hardening milestone. The engineer uses an approval-centered collaboration workspace with agent support to iteratively reconcile security findings, architecture-review objections, SRE rollback expectations, and evidence about the migration plan into a board-ready exception packet. As reviewers push back on residual-risk language, compensating-control sufficiency, expiration dates, and evidence quality, the agents help refresh source material, preserve unresolved objections, rewrite sections with claim-to-source traceability, and maintain an explicit handoff ledger showing who currently owns the next approval checkpoint. The human security engineer and designated approval owner remain responsible for deciding whether the packet is actually ready for review-board handoff, whether any objection is acceptable to carry forward, and whether the request should pause for more evidence instead of moving into formal adjudication. <code>mermaid flowchart TD A["Staff security engineer opens&lt;br&gt;the exception packet workspace"] --&gt; B["Agents refresh security findings,&lt;br&gt;policy criteria, migration evidence,&lt;br&gt;and handoff-ledger ownership"] B --&gt; C{"Verification check:&lt;br&gt;are packet claims traceable&lt;br&gt;to current evidence?"} C --&gt;|"No"| H["Hold state:&lt;br&gt;pause for more evidence, keep unresolved objections visible,&lt;br&gt;and preserve the current approval owner"] H --&gt; B C --&gt;|"Yes"| D["Security, architecture, and SRE reviewers&lt;br&gt;challenge residual risk, compensating controls,&lt;br&gt;rollback expectations, and expiration terms"] D --&gt; E{"Bounded escalation:&lt;br&gt;does refreshed evidence indicate an immediate&lt;br&gt;production safety or security exposure?"} E --&gt;|"Yes"| I["Route to formal incident or emergency-change handling;&lt;br&gt;pause the routine board-readiness loop"] E --&gt;|"No"| F{"Human readiness checkpoint:&lt;br&gt;do the staff security engineer and named approval owner&lt;br&gt;accept the packet for board handoff?"} F --&gt;|"Revise"| H F --&gt;|"Approve"| G["Submit the board-ready packet,&lt;br&gt;handoff ledger, and required follow-up checkpoints&lt;br&gt;to the review-board intake queue"]</code></li>
+<li><a href="production-signing-key-compromise-authority-recommendation/">Production signing-key compromise authority recommendation</a></li>
+<li>Security leadership has already declared a severe incident after evidence suggests the production artifact-signing key used for desktop agents and internal service packages may have been exposed outside the approved hardware boundary. Platform engineering, product security, legal, and trust teams now need a governed recommendation about which human authority should decide the next step: limited revocation and release freeze inside platform security command, escalation to executive cyber command for customer-trust review, or immediate legal and trust-office ownership because contractual disclosure and broad package invalidation may be implicated. The workflow must narrow the decision-ready option set and assemble the authority packet without revoking keys, publishing notices, or coordinating the response timeline itself. <code>mermaid flowchart TD A["Severe signing-key compromise&lt;br&gt;already declared"] B["Collect key-custody evidence,&lt;br&gt;artifact lineage, release-hold state,&lt;br&gt;delegation rules, and disclosure constraints"] C{"Does the case stay inside platform security&lt;br&gt;delegated authority for limited revocation&lt;br&gt;and release-freeze recommendation review?"} D{"Do customer-trust, contractual disclosure,&lt;br&gt;or broad package invalidation triggers require&lt;br&gt;higher protected review?"} E["Recommend platform security command&lt;br&gt;Limit options to bounded limited revocation&lt;br&gt;and release-freeze review"] F["Recommend executive cyber command&lt;br&gt;Narrow options to executive customer-trust review&lt;br&gt;with local paths blocked"] G["Recommend legal and trust-office ownership&lt;br&gt;Keep revocation and disclosure actions on hold&lt;br&gt;pending protected higher-authority review"] H["Assemble authority packet with evidence,&lt;br&gt;blocked lower-authority paths,&lt;br&gt;bounded options, and annex references"] I{"Named human authority accepts&lt;br&gt;the recommended lane and option menu?"} J["Workflow stops at reviewed recommendation packet&lt;br&gt;No keys are revoked, no notices are published,&lt;br&gt;and no response timeline is coordinated"] K["Hold state remains in effect, log the redirect,&lt;br&gt;and reroute only within the bounded&lt;br&gt;review path to the required authority"] A --&gt; B --&gt; C C -- "Yes" --&gt; E C -- "No" --&gt; D D -- "No" --&gt; F D -- "Yes" --&gt; G E --&gt; H F --&gt; H G --&gt; H H --&gt; I I -- "Yes" --&gt; J I -- "No" --&gt; K</code></li>
+<li><a href="production-signing-key-compromise-protected-review-packet-collaboration-room/">Production signing-key compromise protected review packet collaboration room</a></li>
+<li>After a severe signing-key compromise is declared, platform security opens a protected collaboration room for one shared review packet that will later feed executive, legal, and release-governance handling. A staff security engineer owns the packet while agents help reconcile forensic updates, SRE objections, customer-impact wording disputes, and executive-only annex material about key-custody gaps and revocation blast radius. The room stays focused on keeping one protected artifact current: accepted text, contested sections, restricted annexes, and explicit release conditions all remain visible as reviewers challenge whether the packet is complete enough for the next human handoff. The human artifact owner remains responsible for deciding whether disagreement is tolerable, whether the packet is ready to leave the room, and whether downstream authority selection, command planning, or revocation action should begin elsewhere. <code>mermaid flowchart TD A["Severe signing-key compromise&lt;br&gt;declared"] --&gt; B["Protected collaboration room&lt;br&gt;opens one shared review packet"] B --&gt; C["Agents refresh forensics,&lt;br&gt;reviewer objections, and annex references"] C --&gt; D["Packet stays current with&lt;br&gt;visible disagreement ledger,&lt;br&gt;restricted annex controls,&lt;br&gt;and release-state tracking"] D --&gt; E{"Human artifact owner&lt;br&gt;judges handoff readiness"} E --&gt;|"Not ready, disputed, or&lt;br&gt;access scope unclear"| F["Hold packet in room&lt;br&gt;until evidence, wording,&lt;br&gt;or annex boundaries are corrected"] F --&gt; C E --&gt;|"Ready for bounded&lt;br&gt;human handoff"| G["Release packet to executive,&lt;br&gt;legal, and release-governance&lt;br&gt;review outside the room"] D -.-&gt; H["Room must not choose authority,&lt;br&gt;plan revocation sequencing,&lt;br&gt;or execute response actions"]</code></li>
+<li><a href="production-signing-key-integrity-review-priority-adaptation/">Production signing-key integrity review priority adaptation</a></li>
+<li>Security leadership has already declared a severe software-integrity event after evidence suggests the production artifact-signing key may have been exposed outside the approved hardware boundary. Several existing review surfaces are now competing for the same limited specialist capacity: artifact lineage inspection, package trust-impact review, release-freeze exception review, and customer-impact evidence validation. Normal review ordering keeps surfacing locally noisy build issues and lower-risk package checks while exposed-platform artifacts, high-blast-radius trust assessments, and restricted-annex evidence reviews are being pulled forward manually. The workflow must recommend a temporary emergency optimization state that protects the highest-consequence integrity review lanes, adds explicit expiry and rollback controls, and improves scarce-reviewer allocation without selecting the decision authority, sequencing the incident command timeline, revoking keys, or publishing any customer communication. <code>mermaid flowchart TD A["Declared severe signing-key integrity event&lt;br&gt;and competing review backlogs trigger adaptation review"] --&gt; B["Agents consolidate artifact lineage, signing telemetry,&lt;br&gt;package trust-impact, release-freeze exceptions,&lt;br&gt;and customer-impact evidence with override history"] B --&gt; C["Guardrail checks confirm protected review lanes,&lt;br&gt;restricted-annex handling, expiry requirements,&lt;br&gt;and rollback triggers remain explicit"] C --&gt; D{"Is evidence complete and does the candidate&lt;br&gt;stay inside emergency governance boundaries?"} D --&gt;|"Yes"| E["Build temporary severe-mode priority state that&lt;br&gt;reserves capacity for exposed artifacts,&lt;br&gt;high-blast-radius trust reviews, and protected evidence lanes"] D --&gt;|"No"| F["Hold new adaptation, keep the last trusted queue state,&lt;br&gt;and escalate boundary or evidence gaps&lt;br&gt;to platform security and release-engineering leaders"] E --&gt; G{"Do human reviewers adopt the emergency&lt;br&gt;optimization packet with expiry metadata?"} G --&gt;|"No"| F G --&gt;|"Yes"| H["Activate the temporary optimization state&lt;br&gt;with audit trace, review expiry, and rollback packet"] H --&gt; I{"Do protected items still age, overrides rise,&lt;br&gt;or expiry / rollback triggers fire?"} I --&gt;|"No"| J["Continue monitored severe-mode prioritization&lt;br&gt;until the scheduled expiry review"] I --&gt;|"Yes"| K["Rollback to the prior trusted prioritization state&lt;br&gt;and escalate severe-mode reassessment"] K --&gt; F</code></li>
+<li><a href="recurring-ci-warning-watchlist-upkeep/">Recurring CI warning watchlist upkeep</a></li>
+<li>A release-engineering team monitors recurring non-blocking CI warning signatures across internal services, SDKs, and build pipelines: deprecated compiler flags, flaky-but-retryable integration checks, stale dependency notices, and repeated packaging warnings that do not yet block releases or warrant incident review. The workflow must collapse duplicate warning signatures by repository and release train, enrich each watchlist item with owner, recurrence age, recent healthy runs, known exception windows, and prior suppression history, and then publish a routine release-hygiene queue for weekly owner attention. The goal is to keep persistent weak signals visible long enough for engineering teams to clean them up before they harden into outages, broken releases, or review debt, not to declare incidents, change build policy, or trigger remediation automatically. <code>mermaid flowchart TD A["New CI warning signatures&lt;br&gt;or healthy-run updates arrive"] --&gt; B["Merge recurring warnings by&lt;br&gt;signature, repository, and release train"] B --&gt; C{"Verification check:&lt;br&gt;owner, recurrence age, healthy runs,&lt;br&gt;exception window, and suppression history&lt;br&gt;are available and consistent?"} C --&gt;|"No"| H["Hold watchlist update&lt;br&gt;and request bounded context repair"] C --&gt;|"Yes"| D{"Signal still fits approved&lt;br&gt;low-risk watchlist scope?"} D --&gt;|"No"| I["Bounded escalation to release engineering&lt;br&gt;because spread, release impact, or policy risk&lt;br&gt;exceeds delegated watchlist upkeep"] D --&gt;|"Yes"| E{"Recent healthy runs or approved&lt;br&gt;exception windows justify suppression&lt;br&gt;or aging out?"} E --&gt;|"Yes"| F["Record suppression or removal rationale&lt;br&gt;in watchlist audit history"] E --&gt;|"No"| G["Publish the weekly hygiene queue&lt;br&gt;with owner, recurrence age,&lt;br&gt;and merged watchlist context"] G --&gt; J["Log queue publication, merges,&lt;br&gt;and retained weak-signal visibility state"] F --&gt; J</code></li>
+<li><a href="release-candidate-cutover-bundle-approved-for-change-window-handoff/">Release candidate cutover bundle approved for change-window handoff</a></li>
+<li>Release engineering has a signed release candidate for a payments platform update, but the downstream deployment workflow expects one controlled cutover bundle rather than raw artifacts scattered across CI, change management, feature-flag tooling, and rollback documentation. The transformation workflow collects the authoritative release assets, rollout cohort definitions, rollback hooks, dependency manifests, environment constraints, and hold-state placeholders into a structured change-window package, then binds that package to an approval manifest that specifies the exact deployment queue and time window it may enter. The workflow must stop once the transformed bundle and manifest are approved for downstream handoff, without issuing the go/no-go judgment itself or performing the actual deployment. <code>mermaid flowchart TD start["Signed release candidate&lt;br&gt;and bounded cutover scope"] --&gt; assemble["Assemble structured change-window bundle&lt;br&gt;from artifacts, cohorts, rollback hooks, and dependencies"] assemble --&gt; verify{"Lineage, schema, rollback references,&lt;br&gt;and environment constraints complete?"} verify -- "No" --&gt; hold["Place unresolved waivers, missing rollback evidence,&lt;br&gt;or scope conflicts in hold state"] verify -- "Yes" --&gt; manifest["Bind exact bundle revision&lt;br&gt;to change-window approval manifest"] manifest --&gt; approve{"Release engineering and operations&lt;br&gt;approve this package version and handoff boundary?"} approve -- "No" --&gt; hold["Place unresolved waivers, missing rollback evidence,&lt;br&gt;or scope conflicts in hold state"] approve -- "Yes" --&gt; handoff["Emit approved cutover bundle and manifest&lt;br&gt;for downstream deployment-queue handoff only"] handoff --&gt; stop["Stop before go/no-go judgment&lt;br&gt;or live deployment execution"]</code></li>
+<li><a href="release-candidate-evidence-packet-to-deployment-review-staging-record-handoff/">Release candidate evidence packet to deployment review staging record handoff</a></li>
+<li>A release engineering team receives a deployment-readiness packet for a customer-facing billing service that is scheduled to enter the organization’s governed production-review queue. The packet combines the release manifest, CI pipeline summary, integration and canary test exports, artifact provenance attestations, SBOM and vulnerability-scan results, rollback runbook excerpts, environment-specific configuration diff summaries, and a sanitized incident-history note covering the service’s last failed rollout. Before any approver opens a release gate, schedules a change window, or authorizes rollout, the workflow must transform that heterogeneous packet into a structured deployment-review staging record with required fields for service and repository identity, release candidate version, build and artifact digests, target environment set, test-result inventory, dependency-change flags, rollback artifact status, security-review markers, exception flags, and source-evidence links while preserving contradictions, missing evidence, and low-confidence mappings. <code>mermaid flowchart TD A["Receive deployment-readiness packet&lt;br&gt;manifest, pipeline summary, tests, attestations, scans, runbook, config diff, and incident note"] B["Extract and normalize release evidence&lt;br&gt;service identity, candidate version, artifact digests, environments, tests, rollback, and security markers"] C["Assemble staged deployment-review record&lt;br&gt;capture field-level provenance, uncertainty, and lossiness notes"] D{"Any required-field gap, mixed candidate evidence,&lt;br&gt;timestamp policy failure, contradiction, or boundary overexposure?"} E["Route packet to exception hold&lt;br&gt;release manager, service owner, or security reviewer inspection"] F{"Does the staged record satisfy schema version,&lt;br&gt;traceability, and reviewable handoff checks?"} G["Write deployment-review staging record&lt;br&gt;with source-evidence links and transformation trace"] H["Stop at staging handoff&lt;br&gt;no gate opening, change-window scheduling, or rollout authorization"] A --&gt; B --&gt; C --&gt; D D --&gt; E E --&gt; B D --&gt; F F --&gt; E F --&gt; G --&gt; H</code></li>
+<li><a href="release-candidate-review-staging-record-refresh-after-evidence-change/">Release candidate review staging record refresh after evidence change</a></li>
+<li>A platform release review program keeps a structured staging record for each release candidate so architecture, security, and operations reviewers can inspect one current package instead of chasing artifacts across CI, ticketing, and deployment planning systems. After the first record is created, upstream state keeps moving: flaky tests are rerun, rollout notes are revised, dependency manifests are regenerated, rollback evidence is attached, and change-ticket metadata is corrected. When one of those authoritative source changes lands, the workflow should refresh the staged release-review record, update the field-level lineage and delta trace, and route exceptions whenever conflicting manifests, missing evidence links, or schema-breaking changes would make the refreshed package misleading. <code>mermaid flowchart TD A["Authoritative evidence change&lt;br&gt;lands for a release candidate"] --&gt; B{"Trigger is authoritative&lt;br&gt;and build lineage is current?"} B -- "No" --&gt; H["Hold refresh&lt;br&gt;route exception for reviewer follow-up"] B -- "Yes" --&gt; C["Re-read changed CI results, manifests,&lt;br&gt;rollback evidence, and ticket metadata"] C --&gt; D{"Evidence links complete,&lt;br&gt;hashes consistent, and schema compatible?"} D -- "No" --&gt; H D -- "Yes" --&gt; E["Refresh the staged&lt;br&gt;release-review record"] E --&gt; F["Update field-level lineage&lt;br&gt;and delta trace"] F --&gt; G{"Still bounded to staging refresh&lt;br&gt;without release decision or deployment action?"} G -- "No" --&gt; H G -- "Yes" --&gt; I["Publish one current staged&lt;br&gt;review package for governance reviewers"]</code></li>
+<li><a href="release-candidate-risk-briefing-revision-approved-for-architecture-board-circulation/">Release-candidate risk briefing revision approved for architecture board circulation</a></li>
+<li>A release engineering analyst has already synthesized one revision of a release-candidate risk briefing covering recent benchmark regressions, unresolved dependency caveats, rollback evidence, protected-service exceptions, and open reviewer questions for a major platform launch. Before that exact revision is circulated into the restricted architecture board lane, a named release owner must approve the audience scope, freshness window, and supersession boundary so the board sees the approved context package rather than a stale or partially redacted copy. The workflow stops at governed release of that exact briefing revision; it does not rescore the release, decide launch go/no-go, schedule the change window, or execute deployment steps. <code>mermaid flowchart TD A["Release-candidate risk&lt;br&gt;briefing revision ready"] --&gt; B{"Revision id, provenance ledger,&lt;br&gt;and freshness window still match?"} B --&gt;|"No"| G["Hold revision for refresh&lt;br&gt;or supersession review"] B --&gt;|"Yes"| C{"Architecture board lane scope&lt;br&gt;and protected-service redactions approved?"} C --&gt;|"No"| G C --&gt;|"Yes"| D{"Named release owner approves&lt;br&gt;governed board circulation?"} D --&gt;|"No"| G D --&gt;|"Yes"| E["Release exact briefing revision&lt;br&gt;to restricted architecture board lane"] E --&gt; F["Record manifest, expiry,&lt;br&gt;and stale-copy blocks"]</code></li>
+<li><a href="release-readiness-review-coordination-refresh-after-approver-window-change/">Release-readiness review coordination refresh after approver window change</a></li>
+<li>A release-readiness review for a customer-facing identity service already has a coordination packet, tentative hold, required-attendee list, and evidence-ready checkpoint linked to the governing change record. After that package is issued, authoritative schedule conditions shift: the security reviewer’s approved delegate mapping changes, the database migration owner loses the original review window because of an incident bridge, and updated test-evidence timing pushes the earliest valid review start later in the same day. The workflow should refresh the existing coordination package, issue participant-specific delta notices, and hold the changed schedule state at an explicit release-owner adoption checkpoint rather than rebuilding the whole cutover plan, deciding go/no-go, or touching the deployment itself. <code>mermaid flowchart TD A["Authoritative delegate, availability,&lt;br&gt;or evidence-ready change arrives"] B["Verify the updated delegate mapping,&lt;br&gt;migration-owner window loss, and latest&lt;br&gt;evidence-ready timestamp against the&lt;br&gt;governing change record"] C{"A viable refreshed review slot and&lt;br&gt;required-role coverage still stay inside the&lt;br&gt;approved cutover window?"} D["Refresh the existing coordination packet,&lt;br&gt;tentative hold, attendee state, and lineage"] E["Send participant-specific delta notices to&lt;br&gt;affected reviewers, delegates, and release&lt;br&gt;coordination owners"] F{"Release owner adopts the materially&lt;br&gt;changed review timing or attendee state?"} G["Publish the refreshed packet as the&lt;br&gt;current authoritative review coordination state"] H["Keep the refreshed packet tentative at&lt;br&gt;the release-owner adoption checkpoint"] I["Route a bounded exception for freeze-window&lt;br&gt;risk, missing approved delegate coverage,&lt;br&gt;or other out-of-policy refresh conditions"] A --&gt;|"Detect authoritative change"| B B --&gt;|"Check schedule and role constraints"| C C --&gt;|"Yes"| D C --&gt;|"No"| I D --&gt;|"Reissue current package"| E E --&gt;|"Present changed state for adoption"| F F --&gt;|"Yes"| G F --&gt;|"No"| H</code></li>
+<li><a href="release-review-scoring-revision-approved-for-live-use/">Release-review scoring revision approved for live use</a></li>
+<li>Release engineering and reliability teams use a scoring policy to decide which build regressions, dependency anomalies, canary findings, and rollout caveats are surfaced to the human release-review queue first. After several weeks of replay and shadow evaluation, an optimization steward has prepared one exact scoring-policy revision that better weights blast radius, signing-surface impact, and repeated canary drift for one payments-platform cohort. The workflow must release that exact revision into bounded live use only after a release manager approves the manifest, validity window, and rollback packet, while keeping the boundary clear: this pattern activates the reviewed optimization-state revision itself, but it does not approve the release, execute the production deployment, or page responders. <code>mermaid flowchart TD A["Prepare exact release-review&lt;br&gt;scoring revision candidate"] --&gt; B["Verify replay evidence, candidate hash,&lt;br&gt;payments-platform cohort, and restore target"] B --&gt; C{"Manifest, validity window,&lt;br&gt;and rollback packet complete?"} C --&gt;|"No"| D["Hold release until manifest gaps&lt;br&gt;or verification failures are corrected"] C --&gt;|"Yes"| E{"Release manager approves that exact&lt;br&gt;revision for bounded live use?"} E --&gt;|"No"| D E --&gt;|"Yes"| F["Activate approved scoring revision for the named&lt;br&gt;payments-platform cohort and write audit trace"] F --&gt; G{"Protected-signoff aging, repeated canary drift,&lt;br&gt;or queue-aging guardrails breached or expired?"} G --&gt;|"No"| H["Keep revision live within the approved&lt;br&gt;cohort and bounded review window"] H --&gt;|"Within window"| G G --&gt;|"Yes"| I["Restore the prior trusted scoring profile&lt;br&gt;and record rollback or expiry action"]</code></li>
+<li><a href="service-mesh-migration-readiness-evidence-synthesis-for-architecture-review/">Service mesh migration readiness evidence synthesis for architecture review</a></li>
+<li>A platform engineering architecture review board is preparing a gate review for migrating customer-facing microservices from legacy sidecar proxies to a managed service mesh control plane. Before anyone approves migration waves, updates production standards, or schedules cutovers, the workflow needs a cited readiness brief showing which reliability assumptions, dependency constraints, rollback prerequisites, security-control requirements, performance baselines, and unresolved adoption risks are actually supported by the current source set. The useful output is an evidence-backed synthesis that separates verified readiness facts from stale design assumptions, conflicting operational signals, and open questions that still require service-owner or security review. <code>mermaid flowchart TD A["Scope the migration-readiness question&lt;br&gt;and approved engineering source boundary"] --&gt; B["Gather current readiness evidence&lt;br&gt;RFCs, service catalog data, telemetry,&lt;br&gt;load tests, rollback drills, incidents,&lt;br&gt;and security standards"] B --&gt; C["Build the cited readiness synthesis&lt;br&gt;separate verified facts, stale assumptions,&lt;br&gt;conflicting signals, and open questions"] C --&gt; D{"Verification checks&lt;br&gt;citation validity, source precedence,&lt;br&gt;recency, service and dependency scope,&lt;br&gt;rollback evidence, and security-control coverage"} D --&gt; E["Publish the verified readiness brief&lt;br&gt;with evidence trace for architecture review"] D --&gt; F["Hold the workflow&lt;br&gt;for missing rollback proof, unresolved&lt;br&gt;traffic-policy dependencies, or source conflicts"] F --&gt; G["Bounded handoff for resolution&lt;br&gt;service owner, platform reviewer,&lt;br&gt;or security reviewer only"] G --&gt; B E --&gt; H["Bounded handoff to downstream review&lt;br&gt;migration-wave approval, standards updates,&lt;br&gt;or cutover scheduling"]</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

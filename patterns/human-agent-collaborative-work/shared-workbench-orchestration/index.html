@@ -1,0 +1,1509 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Shared workbench orchestration - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#shared-workbench-orchestration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Shared workbench orchestration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shared-workbench-artifact-and-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared workbench artifact and template
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-updates-and-collaborator-edits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source updates and collaborator edits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upkeep-rules-and-boundary-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upkeep rules and boundary policies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prior-workbench-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prior workbench state
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maintained-shared-workbench-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintained shared workbench artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upkeep-and-provenance-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upkeep and provenance ledger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-questions-and-hold-state-register" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open-questions and hold-state register
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-agent-overwrites-accepted-human-wording-or-collapses-nuanced-notes-into-a-cleaner-but-less-faithful-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The agent overwrites accepted human wording or collapses nuanced notes into a cleaner but less faithful update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stale-or-mismatched-source-links-are-carried-forward-into-the-refreshed-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stale or mismatched source links are carried forward into the refreshed artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-upkeep-expands-into-unbounded-drafting-or-recommendation-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatic upkeep expands into unbounded drafting or recommendation behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-workbench-content-is-mistaken-for-approved-external-or-decision-ready-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal workbench content is mistaken for approved external or decision-ready material
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="shared-workbench-orchestration">Shared workbench orchestration<a class="headerlink" href="#shared-workbench-orchestration" title="Permanent link">&para;</a></h1>
+<p>Structure low-risk human-agent collaboration around proactive upkeep of a bounded internal workbench so routine edits, source refreshes, and unresolved questions stay synchronized without turning the loop into broad drafting, recommendation, approval, or execution.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>shared-workbench-orchestration</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/human-agent-collaborative-work/">Human-agent collaborative work</a></li>
+<li><strong>Problem structure:</strong> Human-agent collaboration (<code>human-agent-collaboration</code>)</li>
+<li><strong>Domains:</strong> Research (<code>research</code>), Operations (<code>operations</code>), Compliance (<code>compliance</code>), Support (<code>support</code>), HR (<code>hr</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Keep a bounded internal artifact current, inspectable, and easy to resume as humans and agents co-maintain notes, evidence links, status fields, and open questions across many small updates, while stopping short of recommendation, approval adjudication, or outward execution.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="shared-workbench-artifact-and-template">Shared workbench artifact and template<a class="headerlink" href="#shared-workbench-artifact-and-template" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The internal worksheet, tracker, note board, or staging artifact whose structure, allowed fields, and expected sections define what upkeep is in scope.</li>
+<li><strong>Kind:</strong> workbench</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Benchmark evidence matrix with section owners, run links, caveat flags, and open methodology questions</li>
+<li>Support workaround staging board with draft steps, product notes, reviewer comments, and publication blockers</li>
+</ul>
+<h3 id="source-updates-and-collaborator-edits">Source updates and collaborator edits<a class="headerlink" href="#source-updates-and-collaborator-edits" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> New comments, linked records, source revisions, field changes, and lightweight human edits that should be folded into the shared workbench without losing provenance or ownership.</li>
+<li><strong>Kind:</strong> update-stream</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Reviewer note adds one missing benchmark run id and marks a caveat as still unresolved</li>
+<li>Product support engineer updates one workaround step and attaches a new diagnostic screenshot</li>
+</ul>
+<h3 id="upkeep-rules-and-boundary-policies">Upkeep rules and boundary policies<a class="headerlink" href="#upkeep-rules-and-boundary-policies" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The rules describing which sections the agent may normalize or refresh automatically, what confidence checks are required, and which changes must stay pending for human review.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>The agent may reorder checklist items, refresh linked evidence metadata, and summarize duplicate comments, but cannot invent new conclusions</li>
+<li>Internal staging notes may be updated automatically, but anything that looks like a publishable customer statement must remain marked for human approval</li>
+</ul>
+<h3 id="prior-workbench-state">Prior workbench state<a class="headerlink" href="#prior-workbench-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Existing section status, unresolved questions, accepted wording, and prior change history used to preserve continuity across repeated upkeep cycles.</li>
+<li><strong>Kind:</strong> workbench-state</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Earlier evidence matrix revision with one accepted benchmark caveat and two still-open reviewer questions</li>
+<li>Previous article-staging snapshot showing which draft steps were human-approved and which comments were deferred</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="maintained-shared-workbench-artifact">Maintained shared workbench artifact<a class="headerlink" href="#maintained-shared-workbench-artifact" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The updated internal artifact with normalized structure, refreshed source links, preserved ownership markers, and clearly bounded edits that keep the workspace usable.</li>
+<li><strong>Kind:</strong> workbench</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Benchmark evidence board refreshed with current run links, deduplicated reviewer notes, and explicit unresolved methodology questions</li>
+<li>Support article staging board updated with normalized troubleshooting steps, linked diagnostics, and section-level reviewer ownership</li>
+</ul>
+<h3 id="upkeep-and-provenance-ledger">Upkeep and provenance ledger<a class="headerlink" href="#upkeep-and-provenance-ledger" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured record of what changed, which source or human edit caused each update, what was left untouched, and where the workflow paused for review.</li>
+<li><strong>Kind:</strong> audit-log</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Ledger showing one stale benchmark citation was replaced, two duplicate comments were merged, and one interpretation-heavy note was held for analyst review</li>
+<li>Change trace linking article-step edits to product comments, screenshot updates, and a held publication-risk note</li>
+</ul>
+<h3 id="open-questions-and-hold-state-register">Open-questions and hold-state register<a class="headerlink" href="#open-questions-and-hold-state-register" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Explicit list of unresolved conflicts, missing sources, blocked sections, or boundary-triggering edits that require human follow-up before the workbench can advance.</li>
+<li><strong>Kind:</strong> handoff-record</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Register showing one benchmark anomaly still needs human interpretation before it can move from caveat to accepted note</li>
+<li>Hold-state list marking a customer-facing wording suggestion as out of scope for automatic workbench upkeep</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in low-risk internal collaboration surfaces where the reusable problem is keeping a shared working artifact synchronized and inspectable as people and agents make many small changes, not producing a final external deliverable or adjudicating decisions.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Shared workbench, board, or staged-draft interface with version history</li>
+<li>Source systems or document stores linked from the workbench</li>
+<li>Comment, annotation, or review channels feeding lightweight updates into the artifact</li>
+<li>Audit and revision history storage for workbench changes</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Workbench owner or coordinator</li>
+<li>Human collaborators supplying edits, notes, or source links</li>
+<li>Agent maintaining bounded artifact structure and state</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep the workflow bounded at internal workbench upkeep rather than broad drafting, recommendation packaging, approval readiness, or downstream execution.</li>
+<li>Preserve accepted human wording, ownership markers, and unresolved disagreements instead of silently rewriting them into cleaner but less faithful content.</li>
+<li>Revalidate linked sources, status markers, and section placement before updating the artifact so stale or mismatched context is not carried forward.</li>
+<li>Make boundary-triggering changes explicit when the next requested edit would turn the internal workbench into an external communication, formal recommendation, or approval packet.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The shared artifact is internal and reversible enough that most upkeep mistakes create localized rework rather than major external harm.</li>
+<li>Source links, comments, and prior revisions expose enough metadata to let the agent refresh the workbench without guessing hidden context.</li>
+<li>Humans remain available to resolve ambiguous merges, interpretation-heavy content, and any request to promote the artifact into a more consequential downstream workflow.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Monitoring (<code>monitoring</code>):</strong> Useful upkeep often begins when comments, source links, or workbench fields change, so the workflow needs to notice bounded updates instead of waiting for a full manual restart.</li>
+<li><strong>Retrieval (<code>retrieval</code>):</strong> The agent must fetch linked records, prior revisions, and referenced artifacts before it can refresh fields or reconcile small edits in the workbench.</li>
+<li><strong>Transformation (<code>transformation</code>):</strong> The core task is normalizing notes, field values, section structure, and lightweight artifacts into a cleaner shared workbench without inventing new substantive conclusions.</li>
+<li><strong>Coordination (<code>coordination</code>):</strong> Shared workbench upkeep depends on keeping ownership, open questions, blocked sections, and handoff expectations synchronized across people and agent actions.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Repeated upkeep cycles need durable state about accepted wording, prior holds, unresolved conflicts, and what changed last time so the artifact remains resumable.</li>
+<li><strong>Verification (<code>verification</code>):</strong> The workflow must check source freshness, comment applicability, and section placement before refreshing the workbench so stale or misthreaded edits do not silently persist.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> The pattern commonly reads and updates shared boards, note systems, document stores, and comment surfaces through tools rather than text-only reasoning.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Upkeep rules define which edits can be applied automatically, which content must remain internal, and which changes should stop for human review.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Event-driven monitoring (<code>event-driven-monitoring</code>):</strong> Shared workbench upkeep is often triggered by comments, linked-source changes, or section-state updates that should prompt a refresh cycle as they arrive.</li>
+<li><strong>Tool-using single agent (<code>tool-using-single-agent</code>):</strong> One bounded agent can usually reconcile lightweight edits, refresh source links, normalize structure, and update the ledger without requiring multi-agent specialization.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> Humans remain a normal part of the workflow because ambiguous merges, interpretation-heavy notes, and any promotion beyond internal upkeep require accountable review.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Bounded delegation (<code>bounded-delegation</code>)</li>
+<li><strong>Reversibility:</strong> Most workbench updates are easy to revise, replay, or roll back because the artifact remains internal and the workflow records what changed. Poor upkeep can still waste collaborator time, hide nuance, or propagate stale internal context until someone corrects the board.</li>
+<li><strong>Escalation:</strong> Escalate when sources conflict materially, accepted human wording would be overwritten, the workbench starts requiring substantive interpretation instead of upkeep, or a requested change would publish, recommend, approve, or execute something beyond the internal artifact.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Define the allowed workbench fields, source boundaries, automatic normalization rules, and hold conditions before delegated upkeep begins.</li>
+<li>Review conflicts, interpretation-heavy notes, or edits that would move the artifact toward external communication, recommendation, or approval packaging.</li>
+<li>Periodically sample the upkeep ledger and accepted-versus-held changes to confirm the workflow still preserves human intent and stays inside its low-risk boundary.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> Low (<code>low</code>)</li>
+<li><strong>Failure impact:</strong> Mistakes usually create localized confusion, stale notes, duplicated cleanup work, or reduced trust in the workbench, but harm is generally reversible and inexpensive to correct because the pattern stays inside internal artifact upkeep rather than external or decision-bearing action.</li>
+<li><strong>Auditability:</strong> Preserve triggering updates, source versions, accepted and held edits, ownership changes, section moves, policy version, and human overrides so reviewers can reconstruct how the workbench evolved.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Case-by-case approval is not required for in-scope workbench refreshes that stay within approved templates, source boundaries, and hold rules.</li>
+<li>Human approval is required before the maintained artifact is promoted into a publishable brief, recommendation, approval packet, external message, or any downstream action workflow.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep copied content to the minimum needed for internal upkeep and prefer links or narrow excerpts over wholesale duplication of sensitive source material.</li>
+<li>Respect role-based access and workspace-retention rules so internal artifacts do not become a shadow archive of customer, employee, or operational data.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Limit agent write access to the bounded internal workbench and its ledger rather than allowing publication or system-of-record updates.</li>
+<li>Log rule changes, human overrides, and repeated hold conditions so covert expansion of the upkeep workflow is detectable.</li>
+</ul>
+<p><strong>Notes:</strong> Low risk fits because the pattern focuses on reversible internal artifact maintenance, uses explicit hold points at boundary crossings, and does not by itself create recommendations, approvals, or external commitments.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Useful upkeep requires deciding which new comments, source changes, and field updates actually warrant refreshing the shared artifact and how they should be incorporated without losing prior context.</li>
+<li>The workflow must preserve evolving state about accepted wording, unresolved issues, ownership, and held edits across many small human and source-driven changes.</li>
+<li>Safe performance depends on recognizing when a requested update is still internal workbench maintenance and when it should stop for human handling or hand off to a more consequential pattern.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="the-agent-overwrites-accepted-human-wording-or-collapses-nuanced-notes-into-a-cleaner-but-less-faithful-update">The agent overwrites accepted human wording or collapses nuanced notes into a cleaner but less faithful update<a class="headerlink" href="#the-agent-overwrites-accepted-human-wording-or-collapses-nuanced-notes-into-a-cleaner-but-less-faithful-update" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Collaborators lose trust in the workbench and may act on an internal artifact that no longer reflects the intended nuance or ownership boundaries.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Preserve accepted text and ownership labels separately from proposed normalization edits.</li>
+<li>Require held-review state for updates that materially rewrite interpretation-heavy or externally sensitive language.</li>
+</ul>
+<h3 id="stale-or-mismatched-source-links-are-carried-forward-into-the-refreshed-artifact">Stale or mismatched source links are carried forward into the refreshed artifact<a class="headerlink" href="#stale-or-mismatched-source-links-are-carried-forward-into-the-refreshed-artifact" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The workbench appears current even though linked evidence, screenshots, or source identifiers no longer support the maintained notes.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Revalidate linked source identifiers, timestamps, and section mappings before updating the artifact.</li>
+<li>Record unresolved source mismatches in the hold-state register rather than keeping optimistic placeholders.</li>
+</ul>
+<h3 id="automatic-upkeep-expands-into-unbounded-drafting-or-recommendation-behavior">Automatic upkeep expands into unbounded drafting or recommendation behavior<a class="headerlink" href="#automatic-upkeep-expands-into-unbounded-drafting-or-recommendation-behavior" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> A low-risk maintenance loop starts behaving like a broader copilot or decision-support workflow without the right controls.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Keep outputs limited to maintained internal artifacts, change ledgers, and explicit hold-state records.</li>
+<li>Escalate when edits would add new conclusions, ranked options, approval posture, or outbound messaging.</li>
+</ul>
+<h3 id="internal-workbench-content-is-mistaken-for-approved-external-or-decision-ready-material">Internal workbench content is mistaken for approved external or decision-ready material<a class="headerlink" href="#internal-workbench-content-is-mistaken-for-approved-external-or-decision-ready-material" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Downstream users may over-trust a staging artifact whose contents were only meant to keep internal collaboration synchronized.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Mark the artifact clearly as internal working state and preserve visible hold markers on non-approved sections.</li>
+<li>Require explicit human promotion before any workbench content feeds publication, recommendation, approval, or execution workflows.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of in-scope workbench updates that keep source links, ownership markers, and unresolved questions synchronized without manual reconstruction.</li>
+<li>Reviewer correction rate for automatically maintained sections, status fields, or deduplicated comments in sampled workbench revisions.</li>
+<li>Rate at which boundary-triggering edits are held for human review instead of being silently folded into the internal artifact.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The maintained workbench remains easy to inspect, resume, and audit because accepted text, proposed edits, source provenance, and open questions stay explicit.</li>
+<li>Automatic upkeep improves freshness and readability without inventing new conclusions or flattening unresolved disagreement.</li>
+<li>The workflow remains bounded at internal artifact refinement and does not blur into recommendation, approval, publication, or execution.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test conflicting human edits and verify the workflow preserves a hold state instead of pretending the conflict is resolved.</li>
+<li>Test stale linked evidence and confirm the workbench records a blocked section or open question rather than carrying forward unsupported content.</li>
+<li>Test a request for external-ready wording and ensure the workflow stops at a marked hold boundary rather than promoting the artifact automatically.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate the pattern on freshness, resume-ability, and boundary discipline together; faster cleanup is not a win if the maintained workbench obscures authorship, provenance, or unresolved questions.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep change detection, source refresh, structure normalization, hold-state evaluation, and ledger writing as explicit stages over one durable workbench record.</li>
+<li>Preserve accepted content, held edits, and section ownership as first-class state instead of burying them in freeform revision chatter.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations connect shared workbench tools to comment streams, document stores, trackers, and internal knowledge sources.</li>
+<li>Keep the pattern neutral about specific note-taking apps, collaborative docs, issue trackers, or knowledge-work surfaces.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with narrow internal artifacts where structure drift and stale links waste time but mistakes remain cheap to correct.</li>
+<li>Review repeated hold reasons and manual workarounds early because they often reveal either scope creep or missing template rules.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/human-agent-collaborative-work/">docs/patterns/human-agent-collaborative-work.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Research (<code>research</code>):</strong> Keep a benchmark evidence matrix current as analysts, reviewers, and experiment systems add new run links, caveat notes, and unresolved methodology questions before any board-facing memo is assembled.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Maintain a shared rollout caveat board for a warehouse rules change so site leads, operations owners, and the agent can keep waivers, blocked sections, and source references synchronized without assigning work.</li>
+<li><strong>Compliance (<code>compliance</code>):</strong> Maintain an internal control-library caveat board so policy owners, testing coordinators, and the agent can keep source references, caveat notes, ownership, and explicit holds synchronized without turning the workbench into advice or attestation.</li>
+<li><strong>Support (<code>support</code>):</strong> Keep a workaround-article staging board aligned as support leads, product engineers, and the agent refine internal steps, screenshots, and reviewer notes before publication is even considered.</li>
+<li><strong>HR (<code>hr</code>):</strong> Maintain an internal open-enrollment FAQ caveat board so benefits specialists, regional HR partners, and the agent can keep policy references, caveat notes, and unresolved wording questions synchronized before any employee-facing guidance is drafted for release.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../analyst-copilot-loop/">Analyst copilot loop</a> (more-bounded-variant-of)</li>
+<li>Both patterns rely on mixed-initiative collaboration around a shared artifact, but this one stays narrowly focused on internal workbench upkeep rather than broader drafting, interpretation, and human-agent co-analysis.</li>
+<li><a href="../../gather-retrieve-synthesize/change-triggered-context-briefing/">Change-triggered context briefing</a> (contrasts-with)</li>
+<li>Both may react to source changes, but this pattern keeps a mutable internal workspace synchronized over time instead of producing a one-shot informational digest.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/compliance/control-library-caveat-board-shared-workbench-upkeep/">Control-library caveat board shared workbench upkeep</a></li>
+<li><a href="../../../instances/hr/open-enrollment-faq-caveat-board-shared-workbench-upkeep/">Open enrollment FAQ caveat board shared workbench upkeep</a></li>
+<li><a href="../../../instances/operations/warehouse-slotting-rollout-caveat-board-shared-workbench-upkeep/">Warehouse slotting rollout caveat board shared workbench upkeep</a></li>
+<li><a href="../../../instances/research/model-serving-benchmark-evidence-matrix-shared-workbench-upkeep/">Model-serving benchmark evidence matrix shared workbench upkeep</a></li>
+<li><a href="../../../instances/support/premium-support-workaround-article-staging-board-shared-workbench-upkeep/">Premium support workaround article staging board shared workbench upkeep</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/human-agent-collaborative-work/shared-workbench-orchestration.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

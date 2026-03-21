@@ -1,0 +1,1528 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Batch content transformation - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#batch-content-transformation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Batch content transformation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensitive-source-content-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensitive source content batch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-policy-and-transformation-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release policy and transformation profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-schema-and-packaging-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target schema and packaging contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detection-references-and-approved-lookup-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detection references and approved lookup resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#release-safe-structured-batch-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release-safe structured batch package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformation-and-redaction-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transformation and redaction trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reviewer-exception-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewer exception queue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reviewed-staging-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewed staging manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#residual-identifiers-or-secrets-survive-transformation-and-appear-in-the-release-safe-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Residual identifiers or secrets survive transformation and appear in the release-safe package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#over-redaction-or-aggressive-generalization-removes-the-meaning-needed-for-downstream-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Over-redaction or aggressive generalization removes the meaning needed for downstream review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudonym-or-record-linkage-handling-becomes-inconsistent-across-the-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pseudonym or record-linkage handling becomes inconsistent across the batch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-reviewer-approves-a-package-against-the-wrong-release-profile-or-stale-policy-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A reviewer approves a package against the wrong release profile or stale policy version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="batch-content-transformation">Batch content transformation<a class="headerlink" href="#batch-content-transformation" title="Permanent link">&para;</a></h1>
+<p>Transform sensitive content batches into reviewed, release-safe structured outputs through governed de-identification, redaction, and policy-constrained lossiness that stop before publication or operational action.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>batch-content-transformation</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/transform-process/">Transform / Process</a></li>
+<li><strong>Problem structure:</strong> Structured representation transformation (<code>structured-representation-transformation</code>)</li>
+<li><strong>Domains:</strong> Research (<code>research</code>), HR (<code>hr</code>), Support (<code>support</code>), Compliance (<code>compliance</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Convert batches of sensitive narrative, document, or transcript content into de-identified, redacted, and schema-aligned structured representations that can be reviewed and handed off safely without exposing restricted source material.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="sensitive-source-content-batch">Sensitive source content batch<a class="headerlink" href="#sensitive-source-content-batch" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> A bounded batch of raw documents, transcripts, notes, attachments, or case narratives containing protected, confidential, or policy-constrained information.</li>
+<li><strong>Kind:</strong> document-collection</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Interview transcripts with participant identifiers and free-text disclosures</li>
+<li>Employee relations case packets with medical, manager, and witness narratives</li>
+<li>Support transcripts and attachments that may contain secrets, personal data, or customer environment details</li>
+</ul>
+<h3 id="release-policy-and-transformation-profile">Release policy and transformation profile<a class="headerlink" href="#release-policy-and-transformation-profile" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The approved de-identification, redaction, minimization, and allowed-lossiness rules that define what can be retained, generalized, masked, or removed for the target audience.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Research disclosure-control policy for external review datasets</li>
+<li>HR restricted-data handling profile for workforce trend analysis</li>
+<li>Support privacy and secret-scrubbing rules for quality-review packages</li>
+</ul>
+<h3 id="target-schema-and-packaging-contract">Target schema and packaging contract<a class="headerlink" href="#target-schema-and-packaging-contract" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The destination schema, required fields, allowed vocabularies, and package structure for the release-safe output.</li>
+<li><strong>Kind:</strong> schema</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Release-safe case summary schema with approved coded fields and evidence links</li>
+<li>Structured transcript annotation schema with de-identified participant and issue tags</li>
+</ul>
+<h3 id="detection-references-and-approved-lookup-resources">Detection references and approved lookup resources<a class="headerlink" href="#detection-references-and-approved-lookup-resources" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Controlled vocabularies, identifier dictionaries, secret-detection rules, and reviewer-maintained mappings used to recognize sensitive elements without inventing unsupported facts.</li>
+<li><strong>Kind:</strong> reference-data</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Approved geography and organization-generalization tables</li>
+<li>Secret-pattern detectors and customer-environment token lists</li>
+<li>Workforce taxonomy for normalized case categories</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="release-safe-structured-batch-package">Release-safe structured batch package<a class="headerlink" href="#release-safe-structured-batch-package" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured records or datasets that preserve the task-relevant meaning of the source batch while removing, masking, or generalizing restricted content according to policy.</li>
+<li><strong>Kind:</strong> record-bundle</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>De-identified interview-record dataset for a research methods review</li>
+<li>Redacted case-summary package for workforce governance review</li>
+<li>Privacy-screened transcript summary set for support quality analysis</li>
+</ul>
+<h3 id="transformation-and-redaction-trace">Transformation and redaction trace<a class="headerlink" href="#transformation-and-redaction-trace" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Batch and record-level evidence of what was transformed, removed, generalized, or retained, including policy versions, detector outcomes, unresolved uncertainties, and reviewer actions.</li>
+<li><strong>Kind:</strong> trace</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Mapping log from raw participant references to pseudonymous subject ids</li>
+<li>Audit trail showing which support transcript spans were masked as secrets, personal data, or customer-specific infrastructure details</li>
+</ul>
+<h3 id="reviewer-exception-queue">Reviewer exception queue<a class="headerlink" href="#reviewer-exception-queue" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Items that could not be released safely because residual identifiers, policy conflicts, semantic loss, or low-confidence detections require human correction or sign-off.</li>
+<li><strong>Kind:</strong> review-queue</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Transcript segments with ambiguous self-disclosures that may still identify a participant</li>
+<li>HR case notes where redaction would remove the facts needed for downstream review</li>
+<li>Support chats containing unclear token strings or screenshots that may reveal customer architecture</li>
+</ul>
+<h3 id="reviewed-staging-manifest">Reviewed staging manifest<a class="headerlink" href="#reviewed-staging-manifest" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The batch-level handoff manifest that records package scope, approval status, intended downstream audience, and any restrictions on further use.</li>
+<li><strong>Kind:</strong> manifest</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Approval record for a release-safe dataset shared with a limited research review board</li>
+<li>Restricted-use manifest for a support quality-review packet kept inside internal governance tooling</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in governance-sensitive environments where organizations must reshape large batches of sensitive content into usable structured forms while making privacy, redaction, de-identification, and lossiness decisions explicit before any broader sharing or downstream action.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restricted document or transcript repositories</li>
+<li>De-identification, redaction, and secret-detection tooling</li>
+<li>Controlled vocabulary, policy, and schema registries</li>
+<li>Review workbenches and staging stores for release-safe packages</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Privacy or compliance reviewer</li>
+<li>Domain analyst or operations specialist</li>
+<li>Data steward or governance owner</li>
+<li>Release manager for limited downstream sharing</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Stop at a reviewed staging package or release-safe representation rather than publication, adjudication, or operational execution.</li>
+<li>Preserve enough semantic structure for downstream review without exposing restricted identifiers, secrets, or unnecessary sensitive detail.</li>
+<li>Make redaction, generalization, suppression, and other lossy transformations visible and attributable.</li>
+<li>Require formal human approval before a transformed batch is marked release-safe for downstream use.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The organization can define audience-specific release profiles and acceptable residual-risk thresholds.</li>
+<li>Raw source content remains available within a restricted trust boundary for authorized re-review or regeneration.</li>
+<li>Downstream consumers can use staged structured outputs without requiring access to the full raw content batch.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Transformation (<code>transformation</code>):</strong> The core task is reshaping raw sensitive content into structured, policy-constrained output representations.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> The workflow must read protected content, invoke redaction or detection tools, consult controlled references, and write reviewed packages into governed staging systems.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Release profiles, residual-risk limits, audience restrictions, and approved lossiness rules determine whether transformed output can be handed off safely.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Batch-level traceability, pseudonym mappings, unresolved exceptions, and reviewer actions must persist across multi-step transformation and review.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> Safe transformation depends on halting or routing records when redaction confidence is low, semantic loss becomes material, or residual identifiers remain.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Orchestrated multi-agent (<code>orchestrated-multi-agent</code>):</strong> Specialized agents often divide the work across segmentation, sensitive-element detection, policy-constrained transformation, and release-package validation so separation of concerns remains explicit in high-risk workflows.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> Human reviewers are part of the normal operating model because ambiguous identifiers, borderline lossiness, and release approvals cannot be delegated away in high-risk privacy-sensitive batches.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Approval gated (<code>approval-gated</code>)</li>
+<li><strong>Reversibility:</strong> Structured outputs and redaction decisions can usually be regenerated while the raw batch remains inside the restricted boundary, but any external or broader internal sharing after release may be difficult to fully unwind if sensitive content slips through.</li>
+<li><strong>Escalation:</strong> Escalate whenever residual identifiers or secrets may remain, required meaning would be lost by redaction, the target audience changes, policy versions conflict, or reviewers cannot determine whether the package is safe for the intended handoff.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Approve the batch-specific release profile, intended audience, and acceptable residual-risk threshold before transformation output can be marked release-safe.</li>
+<li>Review exceptions where de-identification confidence is low, semantic collapse is material, or policy conflicts prevent a clear release decision.</li>
+<li>Sign off on the reviewed staging manifest before the transformed batch is handed to any downstream analysis, review, or limited-distribution workflow.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> High (<code>high</code>)</li>
+<li><strong>Failure impact:</strong> Incorrect transformation can expose personal data, confidential business information, protected health details, or security-sensitive content in a supposedly release-safe package, creating material privacy, regulatory, contractual, or trust harm even though the workflow stops before execution.</li>
+<li><strong>Auditability:</strong> Preserve source-to-output lineage within the restricted boundary, pseudonym or suppression mappings, policy and detector versions, reviewer comments, approval decisions, and batch manifest state so every release-safe field can be explained without re-running the workflow blindly.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A qualified human reviewer must approve the release-safe package or staged dataset before it is handed to any downstream audience beyond the restricted transformation workspace.</li>
+<li>Changes to de-identification rules, redaction thresholds, audience profiles, or allowed generalization logic require governance-owner approval before future batches use them.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Minimize copied sensitive content and retain only the excerpts, coded values, or generalized fields needed to justify the transformed output.</li>
+<li>Separate restricted raw content access from release-safe package access so most downstream users never need the original batch.</li>
+<li>Treat residual re-identification risk, secret leakage risk, and linkage risk as explicit review criteria rather than implicit assumptions.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restrict transformation tooling, intermediate storage, and approval actions to approved identities and audited environments.</li>
+<li>Log policy changes, detector overrides, pseudonym mapping access, and release-manifest approvals so improper disclosure paths are detectable.</li>
+</ul>
+<p><strong>Notes:</strong> High risk is appropriate because the workflow intentionally reshapes sensitive content for broader use, and failure can create serious disclosure harm even though it stops before publication or operational execution.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Sensitive batches vary widely in structure, disclosure patterns, and contextual clues, so the workflow must adapt transformation strategy instead of following one brittle redaction script.</li>
+<li>Safe de-identification requires deciding when to generalize, suppress, preserve coded meaning, or escalate for human review based on policy and context.</li>
+<li>Maintaining record-level lineage, pseudonym consistency, exception state, and approval context across large batches is difficult to do reliably with static one-pass tooling alone.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="residual-identifiers-or-secrets-survive-transformation-and-appear-in-the-release-safe-package">Residual identifiers or secrets survive transformation and appear in the release-safe package<a class="headerlink" href="#residual-identifiers-or-secrets-survive-transformation-and-appear-in-the-release-safe-package" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Downstream users receive content that can expose a person, customer, or restricted environment despite the supposed safety boundary.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Require reviewer-visible evidence for retained borderline content and block release on low-confidence detections.</li>
+<li>Run layered detection over text, metadata, attachments, and structured fields before manifest approval.</li>
+</ul>
+<h3 id="over-redaction-or-aggressive-generalization-removes-the-meaning-needed-for-downstream-review">Over-redaction or aggressive generalization removes the meaning needed for downstream review<a class="headerlink" href="#over-redaction-or-aggressive-generalization-removes-the-meaning-needed-for-downstream-review" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The package becomes unusable or misleading because policy safety was achieved by hiding the very context the next workflow needs.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Track semantic-loss warnings and route records where redaction destroys material task meaning into exception review.</li>
+<li>Keep allowed generalization patterns explicit and audience-specific instead of using blanket suppression.</li>
+</ul>
+<h3 id="pseudonym-or-record-linkage-handling-becomes-inconsistent-across-the-batch">Pseudonym or record-linkage handling becomes inconsistent across the batch<a class="headerlink" href="#pseudonym-or-record-linkage-handling-becomes-inconsistent-across-the-batch" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Related records cannot be analyzed correctly or, worse, cross-record linkage inadvertently reveals the original identity.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Use stable batch-scoped identity mapping with audited access and deterministic replay inside the restricted boundary.</li>
+<li>Validate one-to-one mapping consistency before reviewer sign-off.</li>
+</ul>
+<h3 id="a-reviewer-approves-a-package-against-the-wrong-release-profile-or-stale-policy-version">A reviewer approves a package against the wrong release profile or stale policy version<a class="headerlink" href="#a-reviewer-approves-a-package-against-the-wrong-release-profile-or-stale-policy-version" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Content is shared under controls that do not match the intended audience or current governance requirements.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Bind approval records to explicit policy, schema, and audience versions in the staging manifest.</li>
+<li>Block handoff when policy provenance is incomplete or the requested audience differs from the approved profile.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of transformed batch records accepted by downstream reviewers without requesting access to the original raw content.</li>
+<li>Rate of residual-identifier, secret-leakage, or prohibited-field findings discovered after approval.</li>
+<li>Rate of high-risk records correctly diverted to exception review instead of being released as safe.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Release-safe outputs preserve the task-relevant structure and meaning needed by the intended audience.</li>
+<li>Redaction, generalization, suppression, and pseudonymization choices are explicit, reproducible, and tied to approved policy.</li>
+<li>Reviewers can understand why a batch was considered safe without expanding raw-content access beyond the restricted boundary.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test batches with mixed file formats, screenshots, free-text disclosures, and hidden metadata to verify detection and exception routing remain effective.</li>
+<li>Test adversarial linkage cases where combinations of harmless-looking fields could re-identify a subject or customer after transformation.</li>
+<li>Test policy-version changes and audience-profile swaps to ensure stale approvals cannot release a package under the wrong governance rules.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate privacy protection, semantic preservation, and reviewer efficiency together; a highly redacted package is not a success if it still leaks residual identifiers or becomes too lossy to support the intended downstream review.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep segmentation, detection, transformation, validation, and manifest-approval stages explicit so reviewer handoffs and audit trails remain clear.</li>
+<li>Use restricted-boundary storage for pseudonym mappings and only emit release-safe identifiers into downstream packages.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations connect secure content repositories, detection services, policy registries, reviewer queues, and governed staging stores.</li>
+<li>Keep the pattern neutral about specific de-identification vendors, transcript platforms, or secret-scanning products.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with narrow audience profiles and sampled reviewer calibration before broadening release-safe use cases.</li>
+<li>Monitor exception backlog, reviewer disagreement rates, and post-release residual-risk findings to adjust transformation profiles safely.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/transform-process/">docs/patterns/transform-process.md</a></li>
+<li><a href="../../../ontology/index-tree/">docs/index-tree.md</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Research (<code>research</code>):</strong> Transform participant interview transcripts into a de-identified structured dataset for a limited research review board without exposing direct or indirect identifiers.</li>
+<li><strong>HR (<code>hr</code>):</strong> Convert accommodation or employee-relations case batches into redacted structured summaries for workforce governance review while shielding medical and personally identifying details.</li>
+<li><strong>Support (<code>support</code>):</strong> Reshape support transcript and attachment batches into privacy-screened quality-review records that preserve issue patterns without exposing secrets or customer-specific infrastructure.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../document-to-structured-data-handoff/">Document to structured data handoff</a> (adjacent)</li>
+<li>Both patterns reshape content into structured handoff packages, but batch-content-transformation adds high-risk de-identification, redaction, and reviewed release-safe packaging constraints.</li>
+<li><a href="../normalization-and-enrichment/">Normalization and enrichment</a> (adjacent)</li>
+<li>Normalization-and-enrichment covers lower-risk canonical cleanup, while this pattern centers governed lossiness and privacy-sensitive transformation of restricted content.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/hr/redacted-accommodation-case-batch-to-workforce-review-dataset/">Redacted accommodation case batch to workforce review dataset</a></li>
+<li><a href="../../../instances/research/de-identified-participant-interview-batch-to-release-safe-study-dataset/">De-identified participant interview batch to release-safe study dataset</a></li>
+<li><a href="../../../instances/support/privacy-screened-support-transcript-batch-to-quality-review-dataset/">Privacy-screened support transcript batch to quality-review dataset</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/transform-process/batch-content-transformation.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

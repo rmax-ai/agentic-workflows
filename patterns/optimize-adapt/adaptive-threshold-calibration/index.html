@@ -1,0 +1,1500 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Adaptive threshold calibration - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#adaptive-threshold-calibration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Adaptive threshold calibration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#active-threshold-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Active threshold configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outcome-and-operator-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outcome and operator feedback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-approved-calibration-bounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-approved calibration bounds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signal-distribution-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal distribution statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated-threshold-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updated threshold configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calibration-change-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calibration change record
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pending-review-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pending review package
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#calibration-chases-dismiss-rate-without-checking-coverage-preservation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calibration chases dismiss rate without checking coverage preservation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback-data-is-too-thin-or-too-noisy-to-justify-a-parameter-move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feedback data is too thin or too noisy to justify a parameter move
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-protected-floor-is-inadvertently-approached-due-to-cumulative-small-moves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A protected floor is inadvertently approached due to cumulative small moves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calibration-bounds-or-protected-floors-are-outdated-after-a-system-or-policy-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calibration bounds or protected floors are outdated after a system or policy change
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="adaptive-threshold-calibration">Adaptive threshold calibration<a class="headerlink" href="#adaptive-threshold-calibration" title="Permanent link">&para;</a></h1>
+<p>Continuously refine detection, scoring, or alert thresholds using observed false-positive and false-negative rates so signal quality improves over time without crossing pre-approved sensitivity bounds.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>adaptive-threshold-calibration</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/optimize-adapt/">Optimize / Adapt</a></li>
+<li><strong>Problem structure:</strong> Feedback-driven optimization (<code>feedback-driven-optimization</code>)</li>
+<li><strong>Domains:</strong> Engineering (<code>engineering</code>), Operations (<code>operations</code>), Compliance (<code>compliance</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Improve detection quality and reduce alert fatigue by calibrating sensitivity parameters within approved bounds, guided by operator feedback and outcome data, while preserving auditability and the ability to roll back any parameter change.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="active-threshold-configuration">Active threshold configuration<a class="headerlink" href="#active-threshold-configuration" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The current set of detection cutoffs, scoring weights, or sensitivity parameters governing which signals are surfaced, scored above a given level, or suppressed.</li>
+<li><strong>Kind:</strong> configuration</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Alert score cutoff currently set to 0.75 in an anomaly-detection pipeline</li>
+<li>False-positive suppression window of 5 minutes applied to a sensor feed</li>
+</ul>
+<h3 id="outcome-and-operator-feedback">Outcome and operator feedback<a class="headerlink" href="#outcome-and-operator-feedback" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Observed false-positive and false-negative rates, operator override or dismiss actions, acknowledged miss reports, and any explicit quality ratings given to surfaced signals.</li>
+<li><strong>Kind:</strong> outcome-history</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>40 percent of alerts marked as not actionable in the past two weeks by on-call engineers</li>
+<li>Three confirmed missed detections reported after post-incident review</li>
+</ul>
+<h3 id="pre-approved-calibration-bounds">Pre-approved calibration bounds<a class="headerlink" href="#pre-approved-calibration-bounds" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The explicitly authorized range within which each parameter may be moved without additional sign-off, along with any absolute limits that must never be crossed regardless of feedback.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Sensitivity cutoff may be adjusted within plus-or-minus 0.10 of its baseline without supervisor approval</li>
+<li>Regulatory signals must not be suppressed regardless of false-positive rate</li>
+</ul>
+<h3 id="signal-distribution-statistics">Signal distribution statistics<a class="headerlink" href="#signal-distribution-statistics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Recent volume, variance, and distribution characteristics of incoming signals used to assess whether a proposed threshold shift is justified by changing input conditions or is chasing noise.</li>
+<li><strong>Kind:</strong> operating-context</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Sudden spike in infrastructure events that temporarily elevates false-positive rates</li>
+<li>Seasonal quiet period during which low-volume thresholds need downward recalibration</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="updated-threshold-configuration">Updated threshold configuration<a class="headerlink" href="#updated-threshold-configuration" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The revised parameter set reflecting the calibrated values, remaining within approved bounds and accompanied by change rationale.</li>
+<li><strong>Kind:</strong> configuration</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Alert score cutoff moved from 0.75 to 0.82 to reduce confirmed non-actionable noise</li>
+<li>Suppression window shortened after a missed-detection cluster was traced to over-aggressive filtering</li>
+</ul>
+<h3 id="calibration-change-record">Calibration change record<a class="headerlink" href="#calibration-change-record" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> A structured description of each parameter change, the feedback signals that justified it, the bounds checked, and any parameters that were candidates for change but held at their current values.</li>
+<li><strong>Kind:</strong> audit-log</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Change record noting which override-dismiss pattern drove the cutoff increase and that the regulatory floor was not approached</li>
+<li>Record of a proposed suppression-window extension that was blocked because it would have crossed a minimum-sensitivity bound</li>
+</ul>
+<h3 id="pending-review-package">Pending review package<a class="headerlink" href="#pending-review-package" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Optional package assembled for human review when a proposed change approaches a bound, requires crossing a protected parameter floor, or involves an unusually large shift in sensitivity.</li>
+<li><strong>Kind:</strong> review-package</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Package presenting a threshold proposal that would reduce sensitivity by more than the delegated bound allows</li>
+<li>Brief explaining why a missed-detection cluster justifies a review of the current floor definition</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in signal-generating workflows where threshold-based filtering, scoring, or classification affects downstream operator workload and coverage quality, and where parameter history and change rationale must remain inspectable.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Monitoring or anomaly-detection platforms</li>
+<li>Alerting and on-call management systems</li>
+<li>Scoring pipelines or rule engines</li>
+<li>Configuration management or parameter stores</li>
+<li>Audit and change-log infrastructure</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Detection or alerting engineer</li>
+<li>Operations or on-call analyst</li>
+<li>Compliance or risk analyst</li>
+<li>Governance or system owner</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Calibration changes must stay within pre-approved parameter bounds and never modify protected-floor values without explicit sign-off.</li>
+<li>Every parameter change must be recorded with the feedback signals and rationale that motivated it.</li>
+<li>The workflow must be able to roll back any calibration change quickly if downstream coverage degrades.</li>
+<li>Proposed changes that approach bounds or affect protected signals must be routed to human review before taking effect.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Feedback data such as dismiss rates and override actions are available with enough volume to distinguish systematic bias from short-term noise.</li>
+<li>Parameter bounds and protected floors are maintained in a structured, versioned policy source that the calibration loop can read.</li>
+<li>The system surfacing signals can apply updated thresholds without a full redeployment cycle.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Monitoring (<code>monitoring</code>):</strong> The pattern requires ongoing observation of signal quality metrics and operator feedback rather than one-time analysis.</li>
+<li><strong>Optimization (<code>optimization</code>):</strong> The core behavior is adjusting threshold parameters against competing goals such as false-positive reduction and coverage preservation.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Every proposed change must be validated against pre-approved bounds and protected floors before it can be applied.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Tracking parameter history, recent feedback trends, and prior calibration decisions is essential to avoid oscillation and maintain inspectability.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> The loop needs safe fallback behavior when feedback data is sparse, contradictory, or when a proposed change would cross a bound that triggers human review.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Tool-using single agent (<code>tool-using-single-agent</code>):</strong> A single calibration agent can read outcome metrics, evaluate parameter candidates against bounds, apply within-bounds changes, and write the change record without requiring multi-agent coordination.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> Changes that approach parameter bounds or affect protected floors are held pending human review, making human judgment a normal part of the calibration loop rather than a rare exception path.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Bounded delegation (<code>bounded-delegation</code>)</li>
+<li><strong>Reversibility:</strong> Individual threshold changes can be rolled back quickly by restoring the previous configuration entry, making calibration changes highly reversible. Downstream signal fatigue or missed-detection patterns that accumulated while a miscalibrated threshold was active may take longer to recover.</li>
+<li><strong>Escalation:</strong> Escalate when a proposed change would move a parameter outside its pre-approved bound, when feedback data quality is too low to justify any change, when rolling back a recent calibration does not restore expected coverage, or when protected-floor parameters are candidates for change.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Define and periodically review the pre-approved calibration bounds, protected floors, and the feedback-quality thresholds that must be met before any parameter move is allowed.</li>
+<li>Review pending packages assembled when a proposed change approaches or would cross an approved bound, and decide whether to extend the bound, accept the proposal within a narrower move, or hold the current setting.</li>
+<li>Audit the calibration change log on a regular cadence to confirm that parameter drift is improving coverage quality rather than gaming a local metric.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> Low (<code>low</code>)</li>
+<li><strong>Failure impact:</strong> Miscalibrated thresholds raise false-positive rates or reduce signal coverage, causing operator fatigue or delayed detection, but harm is usually localized, detectable through routine quality metrics, and correctable by reverting to a prior configuration.</li>
+<li><strong>Auditability:</strong> Retain the outcome signals consulted, the parameter values considered and applied or deferred, the bounds checked, rollback events, and any escalation decisions so every calibration cycle is fully traceable.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Parameter changes within pre-approved bounds can be applied by the calibration agent without additional sign-off.</li>
+<li>Changes that would move a parameter outside its approved range, lower a protected floor, or shift sensitivity by more than a defined maximum step require explicit human approval before taking effect.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Calibration feedback should be aggregated at the signal-class level and should not expose individual operator identities or case-specific content unless directly necessary for governance review.</li>
+<li>Avoid persisting raw alert content or operator notes in calibration history beyond what is needed to audit the parameter decision.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restrict who can modify parameter bounds and protected floors; changes to the policy source that governs calibration scope must require privileged access and produce their own audit trail.</li>
+<li>Log all calibration changes and rollback actions so unauthorized threshold manipulation is detectable.</li>
+</ul>
+<p><strong>Notes:</strong> Low-risk posture is appropriate because calibration changes are reversible configuration updates that do not trigger external actions, and failures degrade signal quality gradually rather than causing immediate irreversible harm.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Effective calibration requires interpreting noisy, lagged feedback across many signal classes simultaneously rather than manually tuning one threshold at a time.</li>
+<li>The loop must decide whether observed dismiss rates reflect a true calibration need or transient conditions, and that judgment is more reliably made by a system that tracks recent context than by periodic human review alone.</li>
+<li>An agentic calibration loop can enforce bounds and route out-of-bounds proposals to human review consistently, reducing the risk of manual threshold drift between review cycles.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="calibration-chases-dismiss-rate-without-checking-coverage-preservation">Calibration chases dismiss rate without checking coverage preservation<a class="headerlink" href="#calibration-chases-dismiss-rate-without-checking-coverage-preservation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> False-positive rate falls but real signals begin to be missed, creating a coverage gap that is harder to detect than excessive noise.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Require the calibration loop to verify that missed-detection rates and signal volume remain stable before applying any sensitivity-reducing change.</li>
+<li>Alert governance owners when both dismiss rate and total surfaced signal volume fall together, which may indicate over-suppression.</li>
+</ul>
+<h3 id="feedback-data-is-too-thin-or-too-noisy-to-justify-a-parameter-move">Feedback data is too thin or too noisy to justify a parameter move<a class="headerlink" href="#feedback-data-is-too-thin-or-too-noisy-to-justify-a-parameter-move" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The loop applies an unjustified change based on a short feedback window, causing threshold oscillation that erodes operator trust.</li>
+<li><strong>Severity:</strong> low</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Require a minimum feedback sample size before any calibration change is considered.</li>
+<li>Fall back to the current configuration and queue a review request when evidence quality is below the minimum threshold.</li>
+</ul>
+<h3 id="a-protected-floor-is-inadvertently-approached-due-to-cumulative-small-moves">A protected floor is inadvertently approached due to cumulative small moves<a class="headerlink" href="#a-protected-floor-is-inadvertently-approached-due-to-cumulative-small-moves" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> A series of within-bounds incremental changes collectively push a threshold to near a protected limit, increasing the risk of a future bounds violation.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Track cumulative drift from the baseline configuration in addition to individual step size.</li>
+<li>Trigger a review when cumulative movement in one direction reaches a configurable fraction of the total allowed range.</li>
+</ul>
+<h3 id="calibration-bounds-or-protected-floors-are-outdated-after-a-system-or-policy-change">Calibration bounds or protected floors are outdated after a system or policy change<a class="headerlink" href="#calibration-bounds-or-protected-floors-are-outdated-after-a-system-or-policy-change" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The loop continues calibrating against stale boundaries that no longer reflect current operational or regulatory requirements.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Version the policy source that defines bounds and floors with explicit effective dates.</li>
+<li>Trigger a policy-source review whenever the underlying detection system, scoring model, or governing regulation changes materially.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Reduction in operator dismiss rate for surfaced signals without a corresponding increase in confirmed missed detections.</li>
+<li>Stability of threshold parameters over time, with calibration changes becoming smaller and less frequent as the system converges on well-calibrated values.</li>
+<li>Percentage of proposed calibration changes that remain within approved bounds and are applied without requiring human review.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Each calibration change is traceable to specific outcome signals and is explainable in terms of feedback trends and bounds checked.</li>
+<li>Protected floors and approved bounds are never crossed autonomously, and all proposed violations are routed to human review correctly.</li>
+<li>Rollback from any miscalibration restores expected coverage within one calibration cycle.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Simulate a sudden spike in unrelated infrastructure noise and verify the loop does not over-suppress sensitive signal classes.</li>
+<li>Test feedback data that is below the minimum sample threshold and confirm the loop holds the current configuration rather than making a speculative move.</li>
+<li>Introduce a cumulative drift scenario where many small moves approach a bound and confirm the review trigger fires correctly.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate calibration quality on both noise reduction and coverage preservation together; lower dismiss rates achieved by silencing real signal classes represent a failure mode, not improvement.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Separate feedback collection, bound validation, change application, and audit-log writing so each stage can be inspected, replayed, or replaced independently.</li>
+<li>Keep the pending-review package and the applied-change record in the same audit store so governance owners see the full calibration history in one place.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations integrate alerting or detection platforms, configuration management systems, operator feedback stores, and a policy source that owns parameter bounds.</li>
+<li>Keep the pattern neutral about whether thresholds are numeric cutoffs, rule weights, or model operating points; the feedback-and-bounds loop applies across all of these.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start in recommendation-only mode with a human approving all proposed changes before moving to within-bounds autonomous application.</li>
+<li>Monitor both dismiss rates and confirmed-miss rates closely during the initial autonomous calibration period before relaxing review thresholds.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/optimize-adapt/">docs/patterns/optimize-adapt.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+<li><a href="../../../vocabularies/risk-levels/">data/vocabularies/risk-levels.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Engineering (<code>engineering</code>):</strong> Calibrate anomaly-detection alert thresholds for a production monitoring pipeline using weekly on-call dismiss and escalation data, keeping sensitivity cutoffs within approved engineering-team bounds.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Adjust sensor-excursion detection thresholds for a cold-chain monitoring system using confirmed-alarm and false-positive history, bounded by regulatory minimum-sensitivity floors.</li>
+<li><strong>Compliance (<code>compliance</code>):</strong> Tune risk-score cutoffs for a transaction-screening pipeline using analyst override patterns and confirmed-miss reports, with protected floors for regulated screening categories that cannot be lowered without legal sign-off.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../queue-prioritization-optimization/">Queue prioritization optimization</a> (adjacent)</li>
+<li>Queue ordering and threshold calibration are both feedback-driven adaptation loops, but one optimizes work sequence while the other optimizes detection sensitivity.</li>
+<li><a href="../../monitor-detect-triage/risk-alert-triage/">Risk alert triage</a> (complement)</li>
+<li>Downstream triage quality feeds back into threshold calibration; patterns that triage alerts well also generate the operator feedback this pattern relies on.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<p>None yet.</p>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/optimize-adapt/adaptive-threshold-calibration.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

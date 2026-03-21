@@ -1,0 +1,1505 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Queue prioritization optimization - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#queue-prioritization-optimization" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Queue prioritization optimization
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#active-queue-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Active queue state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outcome-and-feedback-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outcome and feedback history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-objectives-and-policy-guardrails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service objectives and policy guardrails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capacity-and-context-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capacity and context changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated-queue-ordering-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updated queue ordering policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimized-work-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimized work queue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimization-audit-trail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimization audit trail
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-optimizer-chases-a-proxy-metric-that-harms-real-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The optimizer chases a proxy metric that harms real outcomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback-bias-amplifies-unfair-or-unstable-prioritization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feedback bias amplifies unfair or unstable prioritization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-or-deadline-changes-are-not-reflected-in-the-optimization-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy or deadline changes are not reflected in the optimization loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sparse-or-contradictory-feedback-causes-overconfident-reprioritization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sparse or contradictory feedback causes overconfident reprioritization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="queue-prioritization-optimization">Queue prioritization optimization<a class="headerlink" href="#queue-prioritization-optimization" title="Permanent link">&para;</a></h1>
+<p>Continuously tune queue ordering and prioritization logic using downstream outcomes so work lands in a more effective sequence without violating service, fairness, or policy constraints.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>queue-prioritization-optimization</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/optimize-adapt/">Optimize / Adapt</a></li>
+<li><strong>Problem structure:</strong> Feedback-driven optimization (<code>feedback-driven-optimization</code>)</li>
+<li><strong>Domains:</strong> Support (<code>support</code>), Operations (<code>operations</code>), Compliance (<code>compliance</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Improve how incoming work is ordered and surfaced over time by learning from resolution outcomes, queue aging, and override behavior while keeping hard service and governance priorities explicit.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="active-queue-state">Active queue state<a class="headerlink" href="#active-queue-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The current backlog, item attributes, aging signals, SLA timers, and present ordering or priority assignments.</li>
+<li><strong>Kind:</strong> queue-state</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Support ticket queue with current severity, customer tier, and wait time</li>
+<li>Compliance review backlog with due dates and policy tags</li>
+</ul>
+<h3 id="outcome-and-feedback-history">Outcome and feedback history<a class="headerlink" href="#outcome-and-feedback-history" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Historical resolution times, reopen rates, manual overrides, customer or reviewer feedback, and missed-priority examples used to judge whether prior ordering worked.</li>
+<li><strong>Kind:</strong> outcome-history</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Tickets that were reopened after being deprioritized</li>
+<li>Cases where reviewers manually pulled work ahead of the scored order</li>
+</ul>
+<h3 id="service-objectives-and-policy-guardrails">Service objectives and policy guardrails<a class="headerlink" href="#service-objectives-and-policy-guardrails" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The targets, fairness rules, escalation thresholds, and non-waivable priorities that bound what the optimization loop is allowed to change.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>VIP customers must never outrank safety-critical incidents solely because of account value</li>
+<li>Regulatory deadlines must stay ahead of routine backlog reduction goals</li>
+</ul>
+<h3 id="capacity-and-context-changes">Capacity and context changes<a class="headerlink" href="#capacity-and-context-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Staffing levels, handoff availability, seasonal spikes, incident conditions, and other operating context that may justify different prioritization behavior.</li>
+<li><strong>Kind:</strong> operating-context</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Temporary shortage of specialized reviewers</li>
+<li>Surge in backlog after a product outage</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="updated-queue-ordering-policy">Updated queue ordering policy<a class="headerlink" href="#updated-queue-ordering-policy" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Recomputed scores, weights, or ranking logic that changes how current and future items are prioritized within approved bounds.</li>
+<li><strong>Kind:</strong> prioritization-policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Increased weight on reopen risk after evidence that fast closes are creating repeat work</li>
+<li>Temporary prioritization boost for items nearing regulatory deadlines</li>
+</ul>
+<h3 id="optimized-work-queue">Optimized work queue<a class="headerlink" href="#optimized-work-queue" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The resulting ordered backlog or ranked recommendations for what should be handled next.</li>
+<li><strong>Kind:</strong> ranked-queue</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Ranked support backlog with rationale for promoted and deferred items</li>
+<li>Reviewer queue that elevates cases with both deadline pressure and high downstream risk</li>
+</ul>
+<h3 id="optimization-audit-trail">Optimization audit trail<a class="headerlink" href="#optimization-audit-trail" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Record of the feedback signals used, changes applied, guardrails checked, and exceptions escalated or blocked.</li>
+<li><strong>Kind:</strong> audit-log</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Log showing which objective drift trigger caused a weight rollback</li>
+<li>Explanation of why a proposed reprioritization was blocked by fairness rules</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in recurring queue-based workflows where backlog order materially affects service quality, throughput, and risk, and where optimization must remain inspectable instead of turning into opaque score chasing.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Ticketing or case management systems</li>
+<li>Workforce or capacity planning tools</li>
+<li>SLA and outcome analytics stores</li>
+<li>Policy or rules engines</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Queue manager or team lead</li>
+<li>Frontline analyst or case handler</li>
+<li>Operations or support supervisor</li>
+<li>Governance or policy owner</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Hard service commitments, regulatory deadlines, and protected-priority rules cannot be optimized away.</li>
+<li>Optimization changes must remain explainable enough for supervisors to review and override.</li>
+<li>The workflow should prefer bounded tuning of ranking logic over silent changes to business policy.</li>
+<li>Feedback signals may be delayed or biased, so adaptation must include drift checks and rollback paths.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Outcome history is rich enough to distinguish useful prioritization from noisy short-term fluctuations.</li>
+<li>Supervisors can review escalations when the optimization loop encounters policy conflicts or objective drift.</li>
+<li>Queue systems can persist rationale, overrides, and change history for later inspection.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Monitoring (<code>monitoring</code>):</strong> The pattern depends on ongoing observation of queue health, aging, outcomes, and changing operating conditions rather than one-off analysis.</li>
+<li><strong>Optimization (<code>optimization</code>):</strong> The core behavior is adjusting ranking logic and trade-offs so future queue ordering improves against explicit objectives.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Learning from past overrides, reopen events, and outcome trends requires durable cross-queue memory.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> The workflow must enforce non-waivable priorities, fairness rules, and escalation thresholds before applying an optimization change.</li>
+<li><strong>Verification (<code>verification</code>):</strong> Proposed improvements should be checked against trusted outcome data and guardrail tests before they affect live ordering.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> The system needs safe fallbacks when feedback is sparse, objectives conflict, or a tuning change destabilizes the queue.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Event-driven monitoring (<code>event-driven-monitoring</code>):</strong> Queue state and outcome events naturally trigger reevaluation of ranking logic as work arrives, ages, resolves, or is manually overridden.</li>
+<li><strong>Tool-using single agent (<code>tool-using-single-agent</code>):</strong> A single optimization agent can usually ingest queue telemetry, test bounded scoring changes, and publish revised ordering recommendations within one governed loop.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Exception-gated autonomy (<code>exception-gated-autonomy</code>)</li>
+<li><strong>Reversibility:</strong> Score weights and ordering policies can usually be rolled back quickly, but delayed handling of urgent work, missed deadlines, or customer frustration may only be partially reversible.</li>
+<li><strong>Escalation:</strong> Escalate whenever the optimizer detects conflicting objectives, sparse or contradictory feedback, fairness drift, unusually large ordering changes, or a proposed adjustment that would alter protected-priority handling.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Define and periodically review the service objectives, fairness rules, and protected-priority guardrails the optimizer is allowed to use.</li>
+<li>Review escalated tuning proposals when feedback signals conflict, policy constraints would be crossed, or the optimization effect exceeds delegated bounds.</li>
+<li>Audit rollback decisions and persistent manual overrides to confirm the loop is improving the right objective rather than gaming the metric.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> Moderate (<code>moderate</code>)</li>
+<li><strong>Failure impact:</strong> Poor queue optimization can increase SLA misses, reviewer churn, unfair work distribution, and avoidable customer or control issues, but harm is usually containable if drift is caught and rollbacks are available.</li>
+<li><strong>Auditability:</strong> Preserve the feedback signals consulted, optimization objective version, proposed and applied ranking changes, manual overrides, rollback actions, and escalation decisions for each material update.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Human approval is required for changes that modify protected-priority rules, fairness constraints, or escalation thresholds rather than only tuning ranking weights within preapproved bounds.</li>
+<li>Supervisory review is required before a tuning change that materially shifts queue behavior after a major incident, outage, or policy update remains active.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Limit optimization features to the minimum case or customer data needed to support prioritization quality and governance review.</li>
+<li>Avoid exposing unnecessary personal or sensitive case detail in optimization dashboards and audit packets.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restrict who can change optimization objectives, guardrails, and deployment thresholds.</li>
+<li>Log administrative overrides and policy-linked tuning changes so unauthorized reprioritization is detectable.</li>
+</ul>
+<p><strong>Notes:</strong> Moderate-risk posture is appropriate because the pattern changes operational sequencing rather than directly executing irreversible external actions, yet can still create material service or control issues if it optimizes the wrong signals.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The workflow must interpret delayed, noisy feedback and choose how to adapt queue ranking instead of relying on one static priority formula.</li>
+<li>Useful optimization depends on stateful memory of overrides, outcomes, and context shifts across many queue cycles.</li>
+<li>The system must decide when to keep tuning automatically, when to roll back, and when to escalate because the feedback loop is no longer trustworthy.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="the-optimizer-chases-a-proxy-metric-that-harms-real-outcomes">The optimizer chases a proxy metric that harms real outcomes<a class="headerlink" href="#the-optimizer-chases-a-proxy-metric-that-harms-real-outcomes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Queue performance appears to improve on paper while urgent, complex, or high-value work is delayed or mishandled.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Evaluate multiple outcome measures such as reopen rate, SLA attainment, and manual override frequency together.</li>
+<li>Require supervisors to review objective definitions and protected-priority exceptions on a regular cadence.</li>
+</ul>
+<h3 id="feedback-bias-amplifies-unfair-or-unstable-prioritization">Feedback bias amplifies unfair or unstable prioritization<a class="headerlink" href="#feedback-bias-amplifies-unfair-or-unstable-prioritization" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Similar items receive inconsistent treatment, certain request classes are systematically deprioritized, or queue order oscillates in ways that confuse operators.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Test for fairness drift and ordering volatility before applying material tuning changes.</li>
+<li>Cap how far one update can move scores without human review.</li>
+</ul>
+<h3 id="policy-or-deadline-changes-are-not-reflected-in-the-optimization-loop">Policy or deadline changes are not reflected in the optimization loop<a class="headerlink" href="#policy-or-deadline-changes-are-not-reflected-in-the-optimization-loop" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The queue continues optimizing for outdated service goals and misses new compliance, support, or operational priorities.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Version objectives and guardrails with explicit effective dates.</li>
+<li>Trigger reevaluation when policy sources or service commitments change.</li>
+</ul>
+<h3 id="sparse-or-contradictory-feedback-causes-overconfident-reprioritization">Sparse or contradictory feedback causes overconfident reprioritization<a class="headerlink" href="#sparse-or-contradictory-feedback-causes-overconfident-reprioritization" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The workflow makes unstable ordering changes based on weak evidence and reduces operator trust in the queue.</li>
+<li><strong>Severity:</strong> medium</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Fall back to the last trusted prioritization policy when evidence quality is low.</li>
+<li>Escalate unusually large proposed changes for supervisory review.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Reduction in SLA misses, deadline breaches, or aging-out items after optimization changes are applied.</li>
+<li>Lower reopen or rework rate for items that were promoted or deferred by the optimized queue.</li>
+<li>Percentage of queue items handled in optimized order without later human override for preventable reasons.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Queue ranking changes remain explainable in terms of outcomes, constraints, and applied guardrails.</li>
+<li>Protected-priority items and fairness rules remain intact even when throughput pressure increases.</li>
+<li>The workflow can roll back quickly when optimization degrades service quality or operator trust.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Replay backlog spikes, staffing shortages, and deadline-heavy periods to verify the optimizer stays within approved bounds.</li>
+<li>Test sparse, delayed, and contradictory feedback to confirm the loop degrades into rollback or escalation instead of unstable tuning.</li>
+<li>Test new policy or SLA changes and ensure outdated objective weights are not silently reused.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate operational improvement and governance stability together; faster average handling is not success if the queue becomes less fair, less controllable, or less reliable for urgent work.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Separate telemetry collection, outcome evaluation, bounded score tuning, and publishing of queue changes so each stage can be inspected or rolled back.</li>
+<li>Keep human overrides and reviewer comments in the same state history used to judge whether the optimization is actually helping.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations integrate ticketing or case systems, analytics stores, staffing data, and policy engines.</li>
+<li>Keep the pattern neutral about specific queueing vendors, optimization methods, or model types.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with recommendation visibility or bounded score updates before allowing larger autonomous reprioritization moves.</li>
+<li>Monitor objective drift and operator disagreement closely after rollout, especially during workload surges.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/optimize-adapt/">docs/patterns/optimize-adapt.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Support (<code>support</code>):</strong> Reweight a support backlog using reopen rates, SLA misses, and supervisor overrides so urgent tickets surface earlier without starving other obligations.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Adapt work-order queue sequencing as staffing, backlog aging, and downstream rework patterns change through the day.</li>
+<li><strong>Compliance (<code>compliance</code>):</strong> Optimize reviewer queue order using missed-deadline risk and prior escalation outcomes while preserving non-waivable policy priorities.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../monitor-detect-triage/risk-alert-triage/">Risk alert triage</a> (can-optimize)</li>
+<li>Outcome feedback from triage queues can feed this pattern to improve future alert ordering and escalation priority.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/compliance/regulatory-consumer-complaint-response-queue-reprioritization/">Regulatory consumer complaint response queue reprioritization</a></li>
+<li><a href="../../../instances/engineering/ci-pipeline-failure-review-queue-reprioritization/">CI pipeline failure review queue reprioritization</a></li>
+<li><a href="../../../instances/finance/quarter-close-exception-review-queue-reprioritization/">Quarter-close exception review queue reprioritization</a></li>
+<li><a href="../../../instances/hr/protected-leave-case-review-queue-reprioritization/">Protected leave case review queue reprioritization</a></li>
+<li><a href="../../../instances/operations/field-service-dispatch-queue-reprioritization/">Field-service dispatch queue reprioritization</a></li>
+<li><a href="../../../instances/research/embargoed-benchmark-replication-review-queue-reprioritization/">Embargoed benchmark replication review queue reprioritization</a></li>
+<li><a href="../../../instances/support/post-outage-enterprise-ticket-queue-reprioritization/">Post-outage enterprise ticket queue reprioritization</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/optimize-adapt/queue-prioritization-optimization.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

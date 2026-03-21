@@ -1,0 +1,1554 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pattern-first ontology of agentic workflows">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Critical channel-safe state packaging - Agentic Workflows</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#critical-channel-safe-state-packaging" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Agentic Workflows" class="md-header__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Critical channel-safe state packaging
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Agentic Workflows" class="md-nav__button md-logo" aria-label="Agentic Workflows" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Agentic Workflows
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ontology/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/index-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ontology/contribution-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern-families/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../browse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vocabularies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declared-critical-case-authoritative-state-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Declared critical-case authoritative state bundle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audience-specific-channel-policy-and-restriction-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audience-specific channel policy and restriction profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-package-schema-and-hold-state-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target package schema and hold-state contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prior-package-versions-and-lineage-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prior package versions and lineage state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approved-reference-data-and-rendering-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approved reference data and rendering tables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#channel-safe-structured-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Channel-safe structured package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lineage-minimization-and-transformation-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lineage, minimization, and transformation trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hold-state-and-exception-register" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hold-state and exception register
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capability-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomy-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autonomy profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#human-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human checkpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk and governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk and governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approval-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-agentic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why agentic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restricted-identifiers-exploit-detail-or-partner-confidential-state-leaks-into-a-broader-channel-safe-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restricted identifiers, exploit detail, or partner-confidential state leaks into a broader channel-safe package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#over-suppression-removes-materially-necessary-context-from-the-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Over-suppression removes materially necessary context from the package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stale-or-conflicting-authoritative-state-is-rendered-as-if-it-were-current" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stale or conflicting authoritative state is rendered as if it were current
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-package-is-released-under-the-wrong-audience-profile-or-hold-state-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A package is released under the wrong audience profile or hold-state manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robustness-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robustness checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grounded-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grounded instances
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical source
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="critical-channel-safe-state-packaging">Critical channel-safe state packaging<a class="headerlink" href="#critical-channel-safe-state-packaging" title="Permanent link">&para;</a></h1>
+<p>Transform authoritative critical-case state into audience-safe structured packages with explicit lineage, release holds, and channel-specific minimization so human leaders can share one governed representation without exposing raw restricted systems or drifting into briefing, recommendation, or execution.</p>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pattern id:</strong> <code>critical-channel-safe-state-packaging</code></li>
+<li><strong>Pattern family:</strong> <a href="../../../pattern-families/transform-process/">Transform / Process</a></li>
+<li><strong>Problem structure:</strong> Structured representation transformation (<code>structured-representation-transformation</code>)</li>
+<li><strong>Domains:</strong> Finance (<code>finance</code>), Operations (<code>operations</code>), Support (<code>support</code>)</li>
+</ul>
+<h2 id="workflow-goal">Workflow goal<a class="headerlink" href="#workflow-goal" title="Permanent link">&para;</a></h2>
+<p>Transform authoritative state from a declared critical case into channel-safe, audience-specific structured packages that preserve lineage, apply explicit hold states to unsafe fields, and hand off a governed representation for bounded coordination without turning the workflow into narrative synthesis, decision support, or operational execution.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<h3 id="declared-critical-case-authoritative-state-bundle">Declared critical-case authoritative state bundle<a class="headerlink" href="#declared-critical-case-authoritative-state-bundle" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The current bounded set of authoritative records, metrics, manifests, case fields, or system-of-record extracts that define the critical situation and must be packaged without exposing raw restricted detail to every downstream audience.</li>
+<li><strong>Kind:</strong> source-bundle</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Intraday cash, settlement, collateral, and counterparty exposure records assembled for a liquidity-stress bridge</li>
+<li>Lot genealogy, quarantine state, facility evidence, and shipment hold records for a suspected contamination event</li>
+<li>Incident, entitlement, service-impact, and workaround-status records for a severity-one customer bridge</li>
+</ul>
+<h3 id="audience-specific-channel-policy-and-restriction-profile">Audience-specific channel policy and restriction profile<a class="headerlink" href="#audience-specific-channel-policy-and-restriction-profile" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The approved audience boundary, minimization rules, field suppression requirements, masking logic, and routing constraints that determine which form of the package may appear in each crisis, executive, partner, or customer-facing channel.</li>
+<li><strong>Kind:</strong> policy</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Executive bridge profile that allows liquidity buckets and runway indicators but holds named counterparties and account identifiers</li>
+<li>Partner coordination profile that shows exposed product families and shipment holds while suppressing facility identifiers pending legal review</li>
+<li>Customer bridge profile that permits service-state codes and workaround readiness while withholding exploit detail and internal dependency names</li>
+</ul>
+<h3 id="target-package-schema-and-hold-state-contract">Target package schema and hold-state contract<a class="headerlink" href="#target-package-schema-and-hold-state-contract" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The schema, required fields, release statuses, annex structure, and explicit hold-state semantics that define how authoritative state must be transformed for safe channel use.</li>
+<li><strong>Kind:</strong> schema</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Liquidity event package contract with exposure buckets, funding-window fields, and held-detail placeholders</li>
+<li>Recall-readiness package schema with lot-family, exposure-region, and quarantine-state fields plus restricted annex pointers</li>
+<li>Customer crisis package template with service-component, region-impact, communication-safe issue code, and hold-state fields</li>
+</ul>
+<h3 id="prior-package-versions-and-lineage-state">Prior package versions and lineage state<a class="headerlink" href="#prior-package-versions-and-lineage-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Earlier released or held package versions, supersession metadata, and field-level lineage records used to keep transformations consistent and to explain what changed or remains withheld.</li>
+<li><strong>Kind:</strong> case-state</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Previous executive bridge package with held counterparty details awaiting treasury verification</li>
+<li>Earlier partner lot-status package version that omitted one facility because legal review was incomplete</li>
+<li>Prior customer bridge package showing that workaround availability was still unresolved</li>
+</ul>
+<h3 id="approved-reference-data-and-rendering-tables">Approved reference data and rendering tables<a class="headerlink" href="#approved-reference-data-and-rendering-tables" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Controlled mappings, taxonomy tables, channel labels, and annex rules used to generalize or normalize authoritative detail without inventing unsupported facts.</li>
+<li><strong>Kind:</strong> reference-data</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Examples:</strong></li>
+<li>Approved liquidity bucket definitions, jurisdiction codes, and entity hierarchies</li>
+<li>Product-family taxonomy, distribution-region map, and partner-safe facility alias table</li>
+<li>Customer-safe service taxonomy and approved status-code renderings for support bridges</li>
+</ul>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<h3 id="channel-safe-structured-package">Channel-safe structured package<a class="headerlink" href="#channel-safe-structured-package" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The audience-bounded structured representation that preserves the materially relevant state of the critical case while masking, generalizing, or holding unsafe details according to policy.</li>
+<li><strong>Kind:</strong> record-bundle</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Executive bridge package with liquidity runway buckets, collateral stress indicators, and restricted annex references</li>
+<li>Partner-safe lot-status package with exposed product families, shipment-hold counts, and facility-region groupings</li>
+<li>Customer bridge service-state package with affected capabilities, region-impact buckets, and approved workaround-status fields</li>
+</ul>
+<h3 id="lineage-minimization-and-transformation-trace">Lineage, minimization, and transformation trace<a class="headerlink" href="#lineage-minimization-and-transformation-trace" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> Structured trace showing which authoritative fields populated each package element, which values were generalized or held, which profile rules applied, and when the package superseded prior versions.</li>
+<li><strong>Kind:</strong> trace</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Ledger showing which settlement and collateral records produced each liquidity bucket and which counterparty fields remained held</li>
+<li>Trace linking lot-family counts to source genealogy records while recording the suppressed facility identifiers behind partner-safe aliases</li>
+<li>Package history showing which internal incident fields were mapped into customer-safe service-state codes and which exploit details stayed restricted</li>
+</ul>
+<h3 id="hold-state-and-exception-register">Hold-state and exception register<a class="headerlink" href="#hold-state-and-exception-register" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The explicit list of fields, records, annexes, or package versions that cannot be released safely because verification, legal, privacy, security, or policy conditions are still unresolved.</li>
+<li><strong>Kind:</strong> review-queue</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Named exposure lines held because manual treasury adjustments are not yet source-verified</li>
+<li>Facility-specific contamination indicators held pending legal review of partner-disclosure scope</li>
+<li>Internal dependency failure notes held because they would reveal exploitability beyond the approved customer profile</li>
+</ul>
+<h3 id="release-manifest">Release manifest<a class="headerlink" href="#release-manifest" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description:</strong> The handoff manifest recording intended audience, package version, hold state, reviewer approvals, supersession status, and where the transformation workflow stopped short of recommendation, notification, or execution.</li>
+<li><strong>Kind:</strong> manifest</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Examples:</strong></li>
+<li>Manifest showing an executive bridge package was approved for internal use only and supersedes the prior held version</li>
+<li>Command-center manifest proving the partner-safe package stopped before recall, shipment reroute, or regulator notification decisions</li>
+<li>Customer-bridge manifest confirming which restricted annexes remained internal and when the package must be refreshed</li>
+</ul>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
+<p>Operates in declared critical situations where multiple audiences need one current structured package derived from authoritative state, but the workflow must enforce channel safety, explicit holds, and source lineage instead of sharing raw systems or improvising narrative summaries.</p>
+<h3 id="systems">Systems<a class="headerlink" href="#systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Authoritative system-of-record stores, telemetry-backed status systems, or governed case databases</li>
+<li>Policy, restriction-profile, and schema registries for critical communication channels</li>
+<li>Staging stores or package workspaces for audience-bounded structured artifacts</li>
+<li>Lineage, manifest, and review systems for hold-state tracking and supersession</li>
+</ul>
+<h3 id="actors">Actors<a class="headerlink" href="#actors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Crisis lead, bridge owner, or package requester</li>
+<li>Domain operator or analyst responsible for authoritative source interpretation</li>
+<li>Privacy, legal, security, or governance reviewer</li>
+<li>Executive, partner, or customer-channel consumer of the package</li>
+</ul>
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start only after a critical case is declared or an equivalent governed packaging request establishes the audience and source boundary.</li>
+<li>Derive every released field from authoritative state or approved rendering tables; never fill gaps with unsupported inference or narrative guesswork.</li>
+<li>Preserve explicit hold states for material details that cannot yet be released safely instead of flattening them into silence or over-broad generalization.</li>
+<li>Stop at the reviewed structured package, hold register, and manifest; do not compose a response strategy, approve downstream communication, or execute operational changes.</li>
+</ul>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Authoritative source systems expose stable references, timestamps, and version state that support field-level lineage into the package.</li>
+<li>Intended audiences can consume a structured package or annex model without direct access to the raw restricted systems.</li>
+<li>Human owners remain available to approve package release and to adjudicate whether held details can be generalized, narrowed, or kept internal.</li>
+</ul>
+<h2 id="capability-requirements">Capability requirements<a class="headerlink" href="#capability-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Transformation (<code>transformation</code>):</strong> The core task is reshaping authoritative critical-case state into an audience-safe structured representation with explicit holds and lineage.</li>
+<li><strong>Tool use (<code>tool-use</code>):</strong> The workflow must read multiple authoritative systems, consult policy and schema registries, and write governed packages, manifests, and traces.</li>
+<li><strong>Verification (<code>verification</code>):</strong> Safe packaging depends on checking source authority, field freshness, and whether held or generalized values still satisfy the channel contract.</li>
+<li><strong>Policy and constraint checking (<code>policy-and-constraint-checking</code>):</strong> Audience restrictions, minimization rules, annex policies, and release prerequisites determine what may appear in each package version.</li>
+<li><strong>Memory and state tracking (<code>memory-and-state-tracking</code>):</strong> Package versions, held details, supersession lineage, and annex restrictions must persist across fast-changing critical-case updates.</li>
+<li><strong>Exception handling (<code>exception-handling</code>):</strong> The workflow must halt or route fields whenever policy conflicts, stale authoritative state, or unresolved disclosure risk makes release unsafe.</li>
+</ul>
+<h2 id="execution-architecture">Execution architecture<a class="headerlink" href="#execution-architecture" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Orchestrated multi-agent (<code>orchestrated-multi-agent</code>):</strong> Critical channel-safe packaging often benefits from explicit separation between authoritative-state retrieval, policy-constrained rendering, hold validation, and manifest assembly so each stage remains inspectable under pressure.</li>
+<li><strong>Human in the loop (<code>human-in-the-loop</code>):</strong> Human reviewers stay embedded because audience boundaries, held details, and critical-channel release decisions cannot be delegated away safely.</li>
+</ul>
+<h2 id="autonomy-profile">Autonomy profile<a class="headerlink" href="#autonomy-profile" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Level:</strong> Human directed (<code>human-directed</code>)</li>
+<li><strong>Reversibility:</strong> Packages and manifests can be superseded or narrowed quickly, but a wrongly released critical-channel package may already have shaped stakeholder coordination or exposed restricted detail before correction catches up.</li>
+<li><strong>Escalation:</strong> Escalate whenever authoritative fields conflict materially, the audience profile changes, held details become essential to interpretation, lineage is incomplete, or the workflow would otherwise need to recommend actions, justify decisions, or trigger operational communication.</li>
+</ul>
+<h3 id="human-checkpoints">Human checkpoints<a class="headerlink" href="#human-checkpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Confirm the declared critical-case scope, intended audience, and approved source boundary before package assembly begins.</li>
+<li>Review each package version before it is released into executive, partner, customer, regulator-facing, or equivalent high-consequence channels.</li>
+<li>Decide whether held details should remain suppressed, move into a narrower annex, or trigger escalation into legal, privacy, security, or deeper investigation workflows.</li>
+</ul>
+<h2 id="risk-and-governance">Risk and governance<a class="headerlink" href="#risk-and-governance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Risk level:</strong> Critical (<code>critical</code>)</li>
+<li><strong>Failure impact:</strong> An inaccurate or unsafe package can misstate critical operational or financial reality, expose restricted details to the wrong audience, delay protective action, or create contractual, privacy, or trust harm precisely when stakeholders are relying on a constrained shared representation.</li>
+<li><strong>Auditability:</strong> Preserve authoritative source references, transformation rules, held-field decisions, package versions, supersession history, reviewer approvals, and release-manifest state so every distributed representation can be reconstructed and challenged.</li>
+</ul>
+<h3 id="approval-requirements">Approval requirements<a class="headerlink" href="#approval-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A human owner must approve each package release into executive, partner, customer-facing, or other high-consequence channels after reviewing held details and manifest state.</li>
+<li>Governance approval is required before changing audience profiles, minimization rules, annex structure, or hold-release logic used by future package versions.</li>
+</ul>
+<h3 id="privacy">Privacy<a class="headerlink" href="#privacy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Include only the sensitive financial, customer, operational, or shipment detail needed for the intended channel rather than copying full raw records into bridge workspaces.</li>
+<li>Keep restricted annexes, held identifiers, and source traces inside narrower trust boundaries than the main released package whenever possible.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restrict access to package workspaces, source systems, held-detail annexes, and manifest approvals because tampering or oversharing during a critical event can amplify harm.</li>
+<li>Log manual overrides, hold releases, and package-distribution events so reviewers can detect provenance breaks or unauthorized dissemination.</li>
+</ul>
+<p><strong>Notes:</strong> Critical-risk posture fits because the workflow governs how severe situations are represented to consequential audiences, even though it remains bounded at structured packaging rather than response recommendation, adjudication, or execution.</p>
+<h2 id="why-agentic">Why agentic<a class="headerlink" href="#why-agentic" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Authoritative state, audience boundaries, and safe rendering rules can shift rapidly during a critical event, so the transformation path must adapt instead of applying one fixed export template.</li>
+<li>The workflow must decide when to generalize, hold, split into annexes, or preserve exact structure so the package remains both safe and materially useful.</li>
+<li>Maintaining field-level lineage, supersession state, and held-detail continuity across successive package versions is difficult to do reliably with static one-pass exports alone.</li>
+</ul>
+<h2 id="failure-modes">Failure modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
+<h3 id="restricted-identifiers-exploit-detail-or-partner-confidential-state-leaks-into-a-broader-channel-safe-package">Restricted identifiers, exploit detail, or partner-confidential state leaks into a broader channel-safe package<a class="headerlink" href="#restricted-identifiers-exploit-detail-or-partner-confidential-state-leaks-into-a-broader-channel-safe-package" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Executives, customers, partners, or other recipients receive information outside the approved disclosure boundary during a critical case.</li>
+<li><strong>Severity:</strong> critical</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Apply explicit audience profiles and require reviewer-visible evidence for any retained borderline field.</li>
+<li>Keep held-field and annex decisions traceable to approved policy rules and manifest approval.</li>
+</ul>
+<h3 id="over-suppression-removes-materially-necessary-context-from-the-package">Over-suppression removes materially necessary context from the package<a class="headerlink" href="#over-suppression-removes-materially-necessary-context-from-the-package" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Consumers coordinate around a package that is technically safe but operationally misleading because key qualifiers or hold rationale disappeared.</li>
+<li><strong>Severity:</strong> high</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Represent held or suppressed material explicitly with reason codes instead of silently omitting it.</li>
+<li>Route cases where safe packaging would destroy necessary meaning into exception review rather than forcing a release.</li>
+</ul>
+<h3 id="stale-or-conflicting-authoritative-state-is-rendered-as-if-it-were-current">Stale or conflicting authoritative state is rendered as if it were current<a class="headerlink" href="#stale-or-conflicting-authoritative-state-is-rendered-as-if-it-were-current" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> The structured package misstates exposure, impact, workaround readiness, or containment status during a high-consequence event.</li>
+<li><strong>Severity:</strong> critical</li>
+<li><strong>Detectability:</strong> medium</li>
+<li><strong>Mitigations:</strong></li>
+<li>Revalidate source freshness and authority before each package release and preserve supersession lineage between versions.</li>
+<li>Hold conflicting fields instead of flattening disagreement into one apparently settled value.</li>
+</ul>
+<h3 id="a-package-is-released-under-the-wrong-audience-profile-or-hold-state-manifest">A package is released under the wrong audience profile or hold-state manifest<a class="headerlink" href="#a-package-is-released-under-the-wrong-audience-profile-or-hold-state-manifest" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Impact:</strong> Content is shared to the wrong channel or without the intended restrictions, creating avoidable disclosure or coordination harm.</li>
+<li><strong>Severity:</strong> critical</li>
+<li><strong>Detectability:</strong> high</li>
+<li><strong>Mitigations:</strong></li>
+<li>Bind release approval to explicit audience, schema, and hold-state versions in the manifest.</li>
+<li>Block dissemination when manifest provenance is incomplete or the requested channel differs from the approved profile.</li>
+</ul>
+<h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="success-metrics">Success metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Percentage of critical-case package versions accepted by intended channel owners without reopening raw restricted systems to reconstruct missing context.</li>
+<li>Rate of held-detail, disclosure-boundary, or stale-state findings discovered after package release.</li>
+<li>Percentage of material fields with inspectable authoritative lineage and explicit hold or generalization status.</li>
+</ul>
+<h3 id="quality-criteria">Quality criteria<a class="headerlink" href="#quality-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Released packages preserve the materially relevant structure of the critical state while making held and generalized details visible.</li>
+<li>Reviewers can explain why each field appears, why each held value stays restricted, and how the package differs from the prior version.</li>
+<li>The workflow remains bounded at channel-safe representation packaging and does not collapse into freeform briefing, decision recommendation, or execution.</li>
+</ul>
+<h3 id="robustness-checks">Robustness checks<a class="headerlink" href="#robustness-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test conflicting authoritative feeds and confirm the package holds disagreement explicitly instead of presenting one unsupported answer.</li>
+<li>Test audience-profile swaps and annex rule changes to ensure stale approvals cannot release a package into the wrong channel.</li>
+<li>Test rapid successive updates and verify held-field continuity and supersession lineage remain understandable across versions.</li>
+</ul>
+<p><strong>Benchmark notes:</strong> Evaluate disclosure safety, semantic usefulness, and lineage integrity together; a polished package is not successful if it hides material holds or cannot prove how critical fields were rendered.</p>
+<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="orchestration-notes">Orchestration notes<a class="headerlink" href="#orchestration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep authoritative-state retrieval, audience-profile application, field rendering, hold validation, and manifest publication as explicit stages over shared package state.</li>
+<li>Preserve append-only supersession and hold-decision history so later reviewers can see how each released package evolved.</li>
+</ul>
+<h3 id="integration-notes">Integration notes<a class="headerlink" href="#integration-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Common implementations integrate source-of-truth systems, policy registries, secure staging stores, lineage services, and bridge or package workspaces.</li>
+<li>Keep the pattern neutral about specific incident-management, treasury, customer-communication, or supply-chain platforms.</li>
+</ul>
+<h3 id="deployment-notes">Deployment notes<a class="headerlink" href="#deployment-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with one high-consequence channel and one narrowly defined package schema before broadening into more audiences or annex variants.</li>
+<li>Monitor hold-release frequency, reviewer disagreement, and post-release disclosure or stale-state findings before increasing packaging speed or scope.</li>
+</ul>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../../pattern-families/transform-process/">docs/patterns/transform-process.md</a></li>
+<li><a href="../../../vocabularies/problem-structures/">data/vocabularies/problem-structures.yaml</a></li>
+</ul>
+<h2 id="example-domains">Example domains<a class="headerlink" href="#example-domains" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Finance (<code>finance</code>):</strong> Transform live liquidity, collateral, and settlement state into an executive bridge exposure package with masked counterparties, held account identifiers, and explicit supersession when the event evolves.</li>
+<li><strong>Operations (<code>operations</code>):</strong> Render contamination-response lot and shipment state into a partner-safe command package with facility aliases, quarantine-state fields, and held detail for unresolved legal review.</li>
+<li><strong>Support (<code>support</code>):</strong> Package severity-one service state into a customer-bridge record with customer-safe impact codes, workaround status, and restricted annexes for internal-only dependency detail.</li>
+</ul>
+<h2 id="related-patterns">Related patterns<a class="headerlink" href="#related-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../gather-retrieve-synthesize/crisis-briefing-evidence-synthesis/">Crisis briefing evidence synthesis</a> (contrasts-with)</li>
+<li>Both support critical coordination, but this pattern emits a structured audience-safe package with explicit holds and manifests rather than a narrative evidence brief.</li>
+<li><a href="../batch-content-transformation/">Batch content transformation</a> (adjacent)</li>
+<li>Batch-content-transformation governs de-identification of sensitive source batches, while this pattern centers live authoritative-state rendering into channel-safe packages for critical audiences.</li>
+<li><a href="../change-triggered-representation-refresh/">Change-triggered representation refresh</a> (can-follow)</li>
+<li>Refresh logic may keep a package current between releases, but the defining behavior here is governed channel-safe rendering with hold-state control for critical contexts.</li>
+</ul>
+<h2 id="grounded-instances">Grounded instances<a class="headerlink" href="#grounded-instances" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../instances/finance/liquidity-stress-bridge-channel-safe-exposure-package/">Liquidity stress bridge channel-safe exposure package</a></li>
+<li><a href="../../../instances/operations/suspected-contamination-command-center-channel-safe-lot-package/">Suspected contamination command-center channel-safe lot package</a></li>
+<li><a href="../../../instances/support/severity-one-customer-bridge-channel-safe-service-state-package/">Severity-one customer bridge channel-safe service-state package</a></li>
+</ul>
+<h2 id="canonical-source">Canonical source<a class="headerlink" href="#canonical-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>data/patterns/transform-process/critical-channel-safe-state-packaging.yaml</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

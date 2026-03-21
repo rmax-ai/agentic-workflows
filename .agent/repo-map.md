@@ -1,0 +1,252 @@
+# Repository Map
+
+## Current committed structure
+
+### Root files
+
+- `README.md` — repository mission, pattern-first framing, and intended target structure.
+- `mkdocs.yml` — MkDocs publication config that renders the derived site from `build/site-docs` into `build/site`.
+- `.python-version` — pinned local interpreter target for uv-managed Python helper scripts.
+- `pyproject.toml` — Python helper-tool metadata and dependency declarations for uv.
+- `uv.lock` — locked Python helper dependencies for reproducible local execution.
+- `.gitattributes` — text normalization and Linguist hints for planned YAML and Markdown content.
+- `.gitignore` — ignore rules that preserve committed `.agent/` memory while excluding runtime artifacts.
+- `LICENSE` — repository license.
+
+### Current automation
+
+- `scripts/run-agentic-workflows-loop.sh` — runs one repository iteration by assembling prompt context and invoking Copilot.
+- `scripts/run-agentic-workflows-forever.sh` — optional wrapper for repeated iterations with a stop-file check.
+- `scripts/python/validate_yaml.py` — uv-managed Python helper that validates repository YAML files without relying on ad hoc Ruby.
+- `scripts/python/build_site_docs.py` — uv-managed Python helper that regenerates the MkDocs input tree in `build/site-docs` from canonical Markdown, YAML, instance, and schema sources.
+- `.github/workflows/publish-site.yml` — GitHub Actions workflow that validates YAML, regenerates `build/site-docs`, builds `build/site`, and deploys the generated site through GitHub Pages.
+
+### Derived publication layer
+
+- `build/site-docs/` — generated Markdown source tree for MkDocs; disposable and rebuilt from canonical repository truth.
+- `build/site/` — generated static HTML output from MkDocs.
+
+### Current execution-memory assets
+
+- `.agent/current-plan.md` — current ordered iteration plan.
+- `.agent/prompts/mega-prompt.txt` — master orchestration prompt for the repo-building loop.
+- `.agent/prompts/operator-prompt.txt` — per-iteration operator instructions.
+- `.agent/prompts/mermaid-illustration-orchestrator-prompt.txt` — specialized orchestrator prompt for adding validated Mermaid workflow diagrams to eligible pattern and instance Markdown files.
+- `.agent/mission.md` — stable mission and curation rules for the repository.
+- `.agent/backlog.yaml` — dependency-ordered task backlog.
+- `.agent/iterations/` — one dated Markdown file per iteration, grouped by year.
+- `.agent/decisions.md` — durable architectural and process decisions.
+- `.agent/ontology-status.yaml` — status inventory and gap tracking.
+- `.agent/coverage-matrix.yaml` — coverage grid for planned pattern/domain/architecture/risk combinations.
+- `.agent/glossary.md` — repository terminology guide.
+
+### Current foundational ontology assets
+
+- `docs/ontology.md` — canonical explanation of ontology layers, relationships, and normalization rules.
+- `docs/schema.md` — field-by-field guide to the canonical pattern schema.
+- `docs/index-tree.md` — proposed pattern-first browse tree and derived view strategy.
+- `docs/contribution-guide.md` — dependency-aware authoring and placement rules.
+- `docs/patterns/README.md` — directory-level guide for the top-level pattern family overviews.
+- `docs/patterns/*.md` — nine family overview docs that define family boundaries, neighboring links, governance concerns, and seed-pattern guidance before canonical YAML authoring.
+- `schema/pattern.schema.json` — canonical JSON Schema for YAML pattern entries.
+
+### Current controlled vocabularies
+
+- `data/vocabularies/problem-structures.yaml` — reusable workflow problem forms for `problem_structure`.
+- `data/vocabularies/domains.yaml` — approved contextual domain ids for `domain`.
+- `data/vocabularies/architectures.yaml` — execution architecture ids for `execution_architecture`.
+- `data/vocabularies/capabilities.yaml` — reusable capability ids for `capability_requirements`.
+- `data/vocabularies/autonomy-levels.yaml` — autonomy ladder for `autonomy_profile.level`.
+- `data/vocabularies/risk-levels.yaml` — governance-sensitive levels for `risk_governance.level`.
+
+### Current navigation views
+
+- `data/views/index-tree.yaml` — canonical family-ordered browse tree scaffold that keeps the default navigation pattern-first.
+- `data/views/by-domain.yaml` — derived domain view that groups future canonical patterns by domain while preserving family order.
+- `data/views/by-architecture.yaml` — derived architecture view that organizes future canonical patterns by execution style.
+- `data/views/by-autonomy.yaml` — derived autonomy view that organizes future canonical patterns by discretion and control boundary.
+- `data/views/by-risk.yaml` — derived risk view that organizes future canonical patterns by governance posture.
+
+### Current canonical pattern data
+
+- `data/patterns/gather-retrieve-synthesize/research-synthesis-with-citation-verification.yaml` — canonical gather/synthesize pattern for evidence-grounded synthesis with citation verification.
+- `data/patterns/gather-retrieve-synthesize/approval-packet-generation.yaml` — canonical gather/synthesize pattern for governed approval-packet assembly that ends at human-reviewed handoff, with explicit provenance, exception visibility, and multi-agent evidence assembly.
+- `data/patterns/gather-retrieve-synthesize/change-triggered-context-briefing.yaml` — canonical gather/synthesize pattern for low-risk, event-triggered contextual digests that compare bounded source revisions, preserve carry-forward context, and stop at informational handoff.
+- `data/patterns/gather-retrieve-synthesize/crisis-briefing-evidence-synthesis.yaml` — canonical gather/synthesize pattern for critical-risk, time-sensitive crisis briefs that compress cross-source evidence with provenance and freshness controls while stopping before triage, recommendation, investigation, or execution.
+- `data/patterns/transform-process/document-to-structured-data-handoff.yaml` — canonical transform/process pattern for turning heterogeneous documents into schema-aligned structured records with provenance, lossiness, and exception-aware handoff.
+- `data/patterns/transform-process/normalization-and-enrichment.yaml` — canonical transform/process pattern for reversible cleanup and approved enrichment of low-stakes records into canonical staging forms with explicit lineage and exception handling.
+- `data/patterns/transform-process/batch-content-transformation.yaml` — canonical transform/process pattern for high-risk batch de-identification, redaction, and release-safe restructuring of sensitive content while staying bounded at governed handoff.
+- `data/patterns/transform-process/change-triggered-representation-refresh.yaml` — canonical transform/process pattern for event-triggered rematerialization of staged structured packages after authoritative source changes, with delta lineage, idempotent refresh control, and exception routing.
+- `data/patterns/transform-process/critical-channel-safe-state-packaging.yaml` — canonical transform/process pattern for turning authoritative critical-case state into audience-safe structured packages with explicit lineage, release holds, and channel-specific minimization while stopping before briefing, recommendation, or execution.
+- `data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml` — canonical investigation pattern for evidence-backed incident diagnosis and reconciled timelines.
+- `data/patterns/investigate-reconcile-verify/authoritative-record-reconciliation.yaml` — canonical investigation pattern for governed restoration of authoritative record state across drifting structured systems, with explicit discrepancy ledgers, reversible correction packaging, and steward-visible exceptions.
+- `data/patterns/investigate-reconcile-verify/claimed-state-verification.yaml` — canonical investigation pattern for low-risk, event-triggered confirmation or disproval of claimed completion, publication, or propagation state against authoritative evidence, with inspectable verdicts and explicit handoff on inconclusive cases.
+- `data/patterns/investigate-reconcile-verify/critical-authoritative-state-restoration.yaml` — canonical investigation pattern for critical-risk restoration of one trusted current-state ledger from conflicting authoritative records, with explicit hold-state preservation and bounded human-reviewed handoff before any downstream decision or action.
+- `data/patterns/monitor-detect-triage/risk-alert-triage.yaml` — canonical monitoring pattern for governed alert prioritization and escalation packaging.
+- `data/patterns/monitor-detect-triage/anomaly-detection-review.yaml` — canonical monitoring pattern for explainable mid-severity anomaly review under bounded delegation, with bounded context assembly, review-packet packaging, and governed routing before higher-risk triage or investigation.
+- `data/patterns/monitor-detect-triage/critical-signal-corroboration-triage.yaml` — canonical monitoring pattern for corroborating severe signals across evidence sources and packaging governed critical escalations without drifting into response execution.
+- `data/patterns/monitor-detect-triage/explainable-watchlist-maintenance.yaml` — canonical monitoring pattern for low-risk recurring-signal watchlist upkeep with bounded noise suppression, explicit aging state, routine attention routing, and exception-gated escalation when weak signals outgrow delegated scope.
+- `data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml` — canonical planning and coordination pattern for low-risk multi-party scheduling under bounded delegation.
+- `data/patterns/plan-coordinate-schedule/schedule-adjustment-and-replanning.yaml` — canonical planning pattern for dependency-aware schedule revision after material changes invalidate a baseline plan, with explicit human adoption checkpoints and multi-agent feasibility analysis.
+- `data/patterns/plan-coordinate-schedule/authoritative-change-coordination-refresh.yaml` — canonical planning and coordination pattern for event-triggered refresh of already-issued coordination packages after authoritative schedule, attendee, or timing changes, with targeted delta notices, exception gating, and human adoption checkpoints.
+- `data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml` — canonical recommendation pattern for governed commercial option ranking, approval guidance, and escalation packaging.
+- `data/patterns/recommend-decide-escalate/policy-constrained-escalation-routing.yaml` — canonical recommendation pattern for routing sensitive cases to the right authority through policy-bounded escalation recommendations and audit-ready handoff packaging.
+- `data/patterns/recommend-decide-escalate/readiness-gate-disposition-recommendation.yaml` — canonical recommendation pattern for event-triggered proceed/hold/narrow/escalate guidance at governed readiness gates, with explicit blocker freshness, threshold visibility, and human decision handoff.
+- `data/patterns/recommend-decide-escalate/control-requirement-attestation-recommendation.yaml` — canonical recommendation pattern for bounded control and requirement attestation guidance that maps evidence to explicit obligations, recommends approve/remediate/escalate posture, and stops before formal sign-off or system change.
+- `data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml` — canonical execution pattern for sensitive browser-based submissions under explicit approval gates and exception handling.
+- `data/patterns/execute-automate/staged-change-execution-with-rollback-holds.yaml` — canonical execution pattern for high-risk staged live-state progression with preflight checks, checkpoint verification, rollback-aware holds, and explicit human release before blast-radius expansion.
+- `data/patterns/execute-automate/exception-aware-task-execution.yaml` — canonical execution pattern for bounded-delegation routine task completion with durable state, bounded retries, verification, and exception-driven escalation.
+- `data/patterns/execute-automate/workflow-hand-off-and-completion.yaml` — canonical execution pattern for low-risk downstream closure triggered by authoritative state changes, with idempotent completion, source revalidation, and audit-ready propagation.
+- `data/patterns/optimize-adapt/queue-prioritization-optimization.yaml` — canonical optimization pattern for tuning queue ordering from outcome feedback under explicit service, fairness, and policy guardrails.
+- `data/patterns/optimize-adapt/adaptive-threshold-calibration.yaml` — canonical optimization pattern for reversible threshold and sensitivity calibration from operator feedback and observed signal quality under pre-approved bounds and review triggers.
+- `data/patterns/optimize-adapt/governed-optimization-bundle-retuning.yaml` — canonical optimization pattern for orchestrated, high-governance retuning of shared optimization bundles across coupled review surfaces, with explicit human adoption of candidate bundle versions.
+- `data/patterns/human-agent-collaborative-work/analyst-copilot-loop.yaml` — canonical human-agent collaboration pattern for mixed-initiative co-working around a shared artifact, explicit handoffs, and visible responsibility boundaries.
+- `data/patterns/human-agent-collaborative-work/approval-centered-collaboration.yaml` — canonical human-agent collaboration pattern for governed approval-loop collaboration, negotiated evidence, approval-readiness recommendation, and explicit handoff ownership without collapsing into the approval decision itself.
+- `data/patterns/human-agent-collaborative-work/shared-workbench-orchestration.yaml` — canonical human-agent collaboration pattern for low-risk, bounded-delegation upkeep of shared internal workbenches with explicit hold states, provenance, and boundary control before any downstream recommendation, approval, or execution.
+- `data/patterns/human-agent-collaborative-work/critical-protected-artifact-collaboration.yaml` — canonical human-agent collaboration pattern for severe protected-room co-authoring around one shared artifact, with explicit disagreement preservation, annex control, and human-owned release readiness before downstream authority, planning, or execution workflows.
+
+### Current grounded examples
+
+- `instances/research/regulatory-obligation-synthesis-for-data-retention-review.md` — grounded research/compliance-adjacent instance for evidence-backed policy synthesis and citation review.
+- `instances/research/model-serving-platform-benchmark-briefing-copilot-loop.md` — grounded research collaboration case for mixed-initiative benchmark preparation with traceable experiment evidence and explicit analyst sign-off.
+- `instances/research/model-serving-benchmark-evidence-matrix-shared-workbench-upkeep.md` — grounded research collaboration case for keeping a benchmark evidence matrix synchronized as runs, caveats, and reviewer notes change inside a bounded internal workbench.
+- `instances/research/approved-human-subjects-ethics-amendment-portal-submission.md` — grounded research execution case for approval-gated browser submission of a human-subjects ethics amendment with protocol-version checks, masked evidence capture, and explicit human takeover on portal or governance ambiguity.
+- `instances/research/benchmark-study-artifact-packet-to-research-review-intake-record-handoff.md` — grounded research transform case for turning heterogeneous benchmark-study artifacts into a structured pre-publication review intake record with provenance, uncertainty capture, and exception routing.
+- `instances/research/de-identified-participant-interview-batch-to-release-safe-study-dataset.md` — grounded research transform case for turning sensitive qualitative study artifacts into a de-identified, release-safe structured dataset with disclosure-risk review and restricted-boundary lineage.
+- `instances/research/benchmark-study-publication-go-no-go-recommendation.md` — grounded research recommendation case for ranking, narrowing, or escalating publication of a benchmark study against reproducibility, licensing, privacy, and reputational-risk thresholds before any external claim is committed.
+- `instances/research/benchmark-study-artifact-freeze-readiness-gate-disposition-recommendation.md` — grounded research recommendation case for event-triggered artifact-freeze gate guidance as reproducibility, licensing, privacy, and disclosure signals shift before external submission.
+- `instances/research/benchmark-study-publication-readiness-review-scheduling.md` — grounded research scheduling case for bounded-delegation coordination of a benchmark-study publication-readiness review inside an embargoed abstract-submission window.
+- `instances/research/benchmark-study-disclosure-risk-alert-triage.md` — grounded research monitoring case for collapsing draft-sharing, embargo, reproducibility, and dataset-rights signals into an explainable urgent-review queue before benchmark disclosures drift outside approved boundaries.
+- `instances/research/benchmark-study-metric-drift-anomaly-review.md` — grounded research monitoring case for bounded review of unexplained benchmark metric drift before it turns into a publication, disclosure, or integrity incident.
+- `instances/research/benchmark-metadata-hygiene-watchlist-upkeep.md` — grounded research monitoring case for keeping recurring benchmark metadata gaps visible in a low-risk stewardship queue before they become publication-readiness or integrity-review blockers.
+- `instances/research/benchmark-study-artifact-freeze-completion-verification.md` — grounded research verification case for confirming that a claimed benchmark-study artifact freeze is truly reflected in the approved registry, immutable manifest, and governance packet references before reviewers rely on that state.
+- `instances/research/embargoed-benchmark-replication-review-queue-reprioritization.md` — grounded research optimization case for feedback-driven reprioritization of a benchmark replication review backlog under fairness, embargo, reviewer-capacity, and rollback guardrails.
+- `instances/research/benchmark-portfolio-bundle-retuning.md` — grounded research optimization case for governed retuning of a shared benchmark-program bundle across intake, replication, and publication-readiness surfaces without deciding publication outcomes.
+- `instances/research/cross-lab-benchmark-replication-discrepancy-investigation.md` — grounded research investigation case for reconciling experiment lineage, dataset drift, evaluation-harness changes, and serving evidence into a defensible explanation of benchmark divergence before any rerun or claim decision.
+- `instances/research/approved-benchmark-study-review-disposition-closure.md` — grounded research execution case for low-risk, event-triggered registry, archive, and checklist closure after an internal benchmark-study review disposition is already approved.
+- `instances/research/approved-human-subjects-continuing-review-closure-and-protocol-registry-synchronization.md` — grounded research execution case for low-risk, event-triggered annual-review queue cleanup, protocol-registry synchronization, archive linkage, and coordinator notification after an authoritative continuing-review approval is already recorded.
+- `instances/engineering/payments-api-latency-incident-investigation.md` — grounded engineering incident case for reconciled telemetry and root-cause analysis.
+- `instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md` — grounded engineering synthesis case for assembling cited architecture, reliability, rollback, and security evidence before service-mesh migration approval.
+- `instances/engineering/multi-region-payments-outage-crisis-briefing-evidence-synthesis.md` — grounded engineering synthesis case for assembling one provenance-preserving executive outage brief from live telemetry, change records, and customer-impact evidence after a severity-zero declaration.
+- `instances/engineering/deprecated-message-broker-client-migration-exception-copilot-loop.md` — grounded engineering collaboration case for mixed-initiative architecture-exception packet drafting around deprecation risk, mitigation commitments, and explicit human approval boundaries.
+- `instances/engineering/production-release-regression-alert-triage.md` — grounded engineering monitoring case for collapsing release-linked detector noise into an explainable urgent-review queue without auto-triggering rollback or incident declaration.
+- `instances/engineering/recurring-ci-warning-watchlist-upkeep.md` — grounded engineering monitoring case for maintaining a low-risk release-hygiene watchlist of recurring CI warning signatures, suppressions, and aging state before they become blocking release issues.
+- `instances/engineering/release-candidate-evidence-packet-to-deployment-review-staging-record-handoff.md` — grounded engineering transform case for turning heterogeneous release-readiness evidence into a structured deployment-review staging record with provenance, schema fidelity, and exception routing before any approval or rollout decision.
+- `instances/engineering/release-candidate-review-staging-record-refresh-after-evidence-change.md` — grounded engineering transform case for refreshing a structured release-review package when CI, manifest, or rollback evidence changes after initial staging.
+- `instances/engineering/cross-team-release-readiness-review-scheduling.md` — grounded engineering scheduling case for bounded-delegation coordination of a pre-cutover release-readiness review across required technical reviewers and release-policy windows.
+- `instances/engineering/release-readiness-review-coordination-refresh-after-approver-window-change.md` — grounded engineering scheduling case for refreshing an issued release-review coordination packet after authoritative approver, delegate, or evidence-window changes without reopening the full cutover plan.
+- `instances/engineering/approved-production-change-freeze-exception-portal-submission.md` — grounded engineering execution case for approval-gated browser submission of a production change-freeze exception with rollback evidence, freeze-policy checks, and explicit safe halt behavior before authorizing a blackout-period production path.
+- `instances/engineering/approved-payments-tokenization-cutover-staged-execution.md` — grounded engineering execution case for carrying an approved payments tokenization cutover through staged traffic shifts, checkpoint verification, and rollback-aware holds before widening production blast radius.
+- `instances/engineering/managed-database-major-version-upgrade-exception-recommendation.md` — grounded engineering recommendation case for ranking, narrowing, or escalating an accelerated managed-database major-version upgrade exception before seasonal freeze commitments are made.
+- `instances/engineering/privileged-service-account-quarterly-control-attestation-recommendation.md` — grounded engineering recommendation case for bounded internal attestation guidance on least-privilege evidence, stale owner reviews, and exception-backed privileged service accounts before quarterly sign-off.
+- `instances/engineering/payments-tokenization-cutover-readiness-gate-disposition-recommendation.md` — grounded engineering recommendation case for refreshed production cutover-gate guidance after blocker reopen events, rollback-evidence expiry, and freeze-window pressure changes.
+- `instances/engineering/ci-pipeline-failure-review-queue-reprioritization.md` — grounded engineering optimization case for bounded reprioritization of a CI failure review backlog under release-pressure, fairness, blast-radius, security, and rollback guardrails.
+- `instances/engineering/production-shared-credential-exception-review-board-readiness-loop.md` — grounded engineering approval-loop collaboration case for preparing a formal shared-credential security exception packet while preserving reviewer objections, evidence freshness, and explicit board-handoff ownership.
+- `instances/engineering/production-signing-key-compromise-protected-review-packet-collaboration-room.md` — grounded engineering critical collaboration case for keeping one protected severe review packet current with visible disagreement, annex control, and explicit human release ownership after a signing-key compromise declaration.
+- `instances/engineering/approved-release-readiness-review-closure-and-tracker-completion.md` — grounded engineering execution case for low-risk, event-triggered release-review closure, tracker synchronization, evidence-link attachment, and queue cleanup after an accepted readiness decision is already recorded.
+- `instances/engineering/internal-sdk-release-asset-publication-verification.md` — grounded engineering verification case for confirming that an internal SDK publication claim is actually reflected across the package registry, checksum manifest store, and release-notes surface before teams rely on it.
+- `instances/finance/suspicious-wire-transfer-alert-triage.md` — grounded finance triage case for governed alert prioritization and escalation.
+- `instances/finance/procurement-card-segregation-of-duties-attestation-recommendation.md` — grounded finance recommendation case for internal attestation guidance on procurement-card segregation-of-duties evidence, stale training proof, and exception validity before controller sign-off.
+- `instances/finance/intraday-liquidity-stress-protected-funding-review-packet-collaboration-room.md` — grounded finance critical collaboration case for maintaining one restricted liquidity-stress review packet with contested wording, sensitive annexes, and human-owned handoff readiness before contingency decisions.
+- `instances/compliance/pharmacovigilance-safety-signal-alert-triage.md` — grounded compliance monitoring case for de-duplicating and prioritizing drug-safety signals into human review queues with reporting-clock context.
+- `instances/compliance/sanctions-screening-outage-protected-regulator-position-packet-collaboration-room.md` — grounded compliance critical collaboration case for preserving legal disagreement, annex scope, and release ownership inside one severe regulator-position packet before formal escalation or outreach.
+- `instances/operations/cold-chain-temperature-excursion-alert-triage.md` — grounded operations monitoring case for turning noisy refrigeration telemetry into explainable excursion-response queues without auto-executing downstream interventions.
+- `instances/operations/cross-functional-maintenance-review-scheduling.md` — grounded operations scheduling case for bounded-delegation coordination around maintenance review timing.
+- `instances/operations/multi-site-service-package-feasibility-recommendation.md` — grounded operations recommendation case for ranking, narrowing, or escalating a multi-site service rollout package against delivery-capacity, subcontractor-spend, inventory, and SLA constraints before customer commitment.
+- `instances/operations/warehouse-slotting-rule-change-digest-for-shift-supervisor-briefing.md` — grounded operations gather/synthesize case for an authoritative warehouse ruleset revision digest that highlights changed constraints, unchanged guardrails, and unresolved waiver questions without assigning work or requesting exceptions.
+- `instances/operations/suspected-contamination-command-center-channel-safe-lot-package.md` — grounded operations transform case for packaging contamination-event lot and shipment state into a partner-safe structured artifact with facility aliasing, held branches, and manifest-backed release boundaries.
+- `instances/operations/suspected-contamination-lot-hold-state-truth-restoration.md` — grounded operations investigation case for restoring one trusted contamination hold-state ledger across genealogy, quarantine, and shipment systems during a command-center event before any release, destruction, or notification decision.
+- `instances/operations/warehouse-slotting-rollout-caveat-board-shared-workbench-upkeep.md` — grounded operations collaboration case for maintaining an internal rollout caveat board as site notes, waivers, and linked rules change without turning the board into an execution queue.
+- `instances/operations/warehouse-slotting-reference-rollout-verification.md` — grounded operations verification case for confirming that a claimed rollout of updated warehouse slotting reference material actually reached the approved kiosk and signage surfaces before supervisors rely on it.
+- `instances/compliance/cross-border-deal-exception-review.md` — grounded compliance review case for governed recommendation support on cross-border commercial exceptions.
+- `instances/compliance/vendor-telemetry-safeguard-requirement-attestation-recommendation.md` — grounded compliance recommendation case for internal annual attestation guidance on vendor telemetry safeguards, evidence freshness, and exception-backed requirement fit before privacy sign-off.
+- `instances/compliance/sanctions-alert-closure-regulator-response-copilot-loop.md` — grounded compliance collaboration case for mixed-initiative regulator response drafting around a closed sanctions alert, with explicit policy citation and human-owned conclusions.
+- `instances/compliance/pharmacovigilance-follow-up-packet-to-safety-case-record-handoff.md` — grounded compliance transform case for turning regulated drug-safety follow-up packets into reviewable ICSR staging records with provenance and exception routing.
+- `instances/compliance/vendor-data-transfer-safeguard-obligation-synthesis-for-cross-border-review.md` — grounded compliance synthesis case for assembling executed transfer terms, regulator guidance, vendor disclosures, and internal privacy-review artifacts into a cited obligations brief before cross-border vendor review decisions.
+- `instances/compliance/control-remediation-sign-off-review-scheduling.md` — grounded compliance scheduling case for bounded-delegation coordination of a regulator-visible remediation sign-off review across control, audit, and technology-risk stakeholders before attestation cutoff.
+- `instances/compliance/control-remediation-sign-off-review-coordination-refresh-after-validation-slip.md` — grounded compliance scheduling case for refreshing a remediation sign-off review packet after authoritative validation, delegate, or milestone-window changes while preserving exception gating and remediation-owner adoption.
+- `instances/compliance/regulator-reporting-timeline-exception-package-readiness-loop.md` — grounded compliance approval-loop collaboration case for iteratively preparing a regulator reporting timeline exception packet while preserving legal, policy, and control objections before formal human approval review.
+- `instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md` — grounded support escalation case for mixed-initiative diagnosis, customer messaging, and explicit engineering/security handoff ownership.
+- `instances/support/enterprise-admin-entitlement-drift-root-cause-investigation.md` — grounded support investigation case for reconciling entitlement, identity, configuration, and responder evidence into a defensible explanation before remediation or customer-facing root-cause commitments.
+- `instances/support/severity-one-service-credit-and-recovery-package-recommendation.md` — grounded support recommendation case for ranking, narrowing, or escalating a service-credit and recovery-package path against entitlement rules, concession thresholds, precedent risk, and stakeholder approvals before any customer-facing commitment.
+- `instances/support/suspected-account-takeover-support-alert-triage.md` — grounded support monitoring case for correlating noisy takeover signals into an explainable urgent-review queue without auto-triggering customer or security interventions.
+- `instances/support/enterprise-support-severity-drift-anomaly-review.md` — grounded support monitoring case for bounded review of noisy severity-drift, reopen-cycle, and entitlement-change anomalies before they harden into incidents or trust escalations.
+- `instances/support/self-serve-article-confusion-watchlist-upkeep.md` — grounded support monitoring case for maintaining a low-risk knowledge-ops watchlist of recurring self-serve confusion signals before they require live escalation or deeper anomaly review.
+- `instances/support/premium-support-workaround-article-publication-verification.md` — grounded support verification case for confirming that a claimed workaround article is actually live across the approved support surfaces before case teams cite it to customers.
+- `instances/support/customer-escalation-bridge-scheduling.md` — grounded support scheduling case for same-day customer escalation bridge coordination across support, engineering, customer success, and incident leadership.
+- `instances/support/enterprise-support-obligation-synthesis-for-severity-one-review.md` — grounded support synthesis case for assembling cited premium-support obligations and entitlement evidence before customer-facing Sev1 commitments or concession discussions.
+- `instances/support/premium-support-escalation-runbook-change-digest-for-duty-manager-briefing.md` — grounded support gather/synthesize case for a premium-runbook revision digest that preserves changed steps, unchanged account-context assumptions, and unresolved ownership questions without routing live cases.
+- `instances/support/premium-support-workaround-article-staging-board-shared-workbench-upkeep.md` — grounded support collaboration case for keeping an internal workaround-article staging board synchronized as reviewers add low-level edits, blockers, and linked product evidence before any publication decision.
+- `instances/support/enterprise-outage-evidence-packet-to-support-escalation-record-handoff.md` — grounded support transform case for turning a multi-channel outage packet into a structured severity-escalation staging record with provenance, privacy flags, and exception routing before any live bridge launch or engineering page.
+- `instances/support/privacy-screened-support-transcript-batch-to-quality-review-dataset.md` — grounded support transform case for turning transcript and attachment batches into a privacy-screened quality-review dataset with secret masking, customer-detail generalization, and reviewed release-safe handoff.
+- `instances/support/premium-support-escalation-record-refresh-after-diagnostic-bundle-change.md` — grounded support transform case for refreshing a structured escalation package when authoritative diagnostics, entitlement state, or incident links change after initial staging.
+- `instances/support/severity-one-customer-bridge-channel-safe-service-state-package.md` — grounded support transform case for turning live incident state into a customer-safe structured service-state package with held-detail placeholders, release manifests, and supersession tracking during a severity-one bridge.
+- `instances/support/enterprise-security-incident-remediation-credit-package-readiness-loop.md` — grounded support approval-loop collaboration case for refining a sensitive remediation-and-credit packet through security, legal, revenue, and customer-success objections before formal human approval review.
+- `instances/hr/approved-payroll-status-change-submission.md` — grounded HR execution case for approval-gated payroll status changes in a browser-only portal.
+- `instances/hr/interview-panel-availability-coordination.md` — grounded HR scheduling case for recruiter-led final-round interview panel coordination under timezone, fairness, and SLA constraints.
+- `instances/hr/pay-transparency-posting-obligation-synthesis-for-requisition-launch-review.md` — grounded HR synthesis case for assembling cited multi-jurisdiction pay-transparency posting obligations before requisition launch, compensation exceptions, or template updates.
+- `instances/hr/leave-intake-policy-change-digest-for-people-operations-briefing.md` — grounded HR gather/synthesize case for a leave-intake policy revision digest that preserves changed guidance, carry-forward requirements, and unresolved counsel or vendor questions without making eligibility or accommodation decisions.
+- `instances/hr/international-relocation-and-sign-on-package-recommendation.md` — grounded HR recommendation case for ranking, narrowing, or escalating an executive-hire relocation and sign-on exception package against compensation-band, mobility-policy, internal-equity, and approval constraints before any offer commitment.
+- `instances/hr/workplace-accommodation-exception-memo-copilot-loop.md` — grounded HR collaboration case for mixed-initiative accommodation exception memo drafting with privacy-aware evidence handling, explicit human approval, and escalation to legal or occupational-health review when the record is not yet supportable.
+- `instances/hr/medical-leave-certification-packet-to-leave-case-record-handoff.md` — grounded HR transform case for turning a sensitive multi-document leave intake packet into a structured leave-case staging record with provenance, privacy tags, and exception routing before any adjudication or payroll action.
+- `instances/hr/protected-leave-case-review-queue-reprioritization.md` — grounded HR optimization case for bounded protected-leave backlog reprioritization under privacy, fairness, workload-balance, service-level, and rollback guardrails.
+- `instances/hr/protected-leave-review-bundle-retuning.md` — grounded HR optimization case for governed retuning of a shared leave-and-accommodation bundle across intake urgency, evidence sufficiency, follow-up timing, and specialist-review surfaces.
+- `instances/hr/protected-leave-return-to-work-status-drift-root-cause-investigation.md` — grounded HR investigation case for reconciling leave-case, HRIS, payroll, timekeeping, benefits, and document evidence into a defensible explanation before any corrective pay, leave, or employee-communication action.
+- `instances/hr/work-authorization-expiry-risk-alert-triage.md` — grounded HR monitoring case for collapsing noisy work-authorization expiry and reverification signals into an explainable human-review queue without automating outreach, filing, or employment-status action.
+- `instances/hr/work-authorization-lapse-triage-packet-approved-for-restricted-immigration-compliance-review-dispatch.md` — grounded HR monitoring case for approval-gated release of a sensitive work-authorization lapse packet into a restricted immigration-compliance review lane while preserving privacy scope, exact packet lineage, and explicit dispatch holds.
+- `instances/hr/worker-lifecycle-change-anomaly-review.md` — grounded HR monitoring case for bounded review of unusual worker-status, pay-group, leave-return, and override-change clusters before they become payroll, access, or compliance incidents.
+- `instances/hr/critical-backfill-headcount-freeze-exception-package-readiness-loop.md` — grounded HR approval-loop collaboration case for refining a headcount-freeze exception request through finance, talent, and executive objections before a named human approval owner takes formal adjudication.
+- `instances/hr/redacted-accommodation-case-batch-to-workforce-review-dataset.md` — grounded HR transform case for converting accommodation case batches into a redacted governance dataset with medical-detail suppression, semantic-loss handling, and reviewed release-safe packaging.
+- `instances/finance/invoice-packet-to-payables-record-handoff.md` — grounded finance transformation case for converting heterogeneous invoice packets into ERP-ready payable records with provenance and exception routing.
+- `instances/finance/quarter-close-covenant-review-package-refresh-after-ledger-adjustment.md` — grounded finance transform case for refreshing a structured covenant review package after approved ledger or debt-support changes alter the staged record.
+- `instances/finance/liquidity-stress-bridge-channel-safe-exposure-package.md` — grounded finance transform case for packaging critical liquidity and collateral state into an audience-safe exposure artifact with held-detail controls during a severe treasury bridge.
+- `instances/finance/intraday-liquidity-state-truth-restoration.md` — grounded finance investigation case for restoring one trusted intraday liquidity ledger across treasury, bank, collateral, and manual adjustment systems during a severe funding disruption before any payment freeze, facility draw, or disclosure decision.
+- `instances/finance/dual-approved-vendor-bank-account-change-submission.md` — grounded finance execution case for approval-gated browser submission of a sensitive vendor remittance bank-account change.
+- `instances/operations/site-inspection-packet-to-corrective-maintenance-work-order-handoff.md` — grounded operations transform case for turning facilities inspection packets into CMMS-ready corrective-maintenance staging records with traceability and exception routing.
+- `instances/operations/field-service-dispatch-queue-reprioritization.md` — grounded operations optimization case for storm-affected field-service dispatch reprioritization under safety, fairness, and rollback guardrails.
+- `instances/operations/approved-emergency-maintenance-vendor-portal-dispatch-submission.md` — grounded operations execution case for approval-gated browser submission of an emergency contractor mobilization and site-access request under safety, spend, and incident-command controls.
+- `instances/operations/distribution-sorter-misroute-root-cause-investigation.md` — grounded operations investigation case for reconciling sorter controls, scanner evidence, maintenance history, and supervisor workarounds into a defensible root-cause narrative before remediation or customer commitments.
+- `instances/operations/approved-distribution-sorter-routing-profile-cutover-staged-execution.md` — grounded operations execution case for applying an approved sorter routing profile one zone at a time with throughput, jam, and misroute verification plus protected rollback holds.
+- `instances/operations/supplier-labeling-deviation-remediation-brief-copilot-loop.md` — grounded operations collaboration case for mixed-initiative supplier remediation-brief drafting around labeling deviations, evidence lineage, and explicit human approval of outbound commitments.
+- `instances/operations/network-fuel-system-test-deferral-exception-package-readiness-loop.md` — grounded operations approval-loop collaboration case for iteratively preparing a governed maintenance-test deferral packet while preserving safety, continuity, and facilities objections before formal human approval review.
+- `instances/support/post-outage-enterprise-ticket-queue-reprioritization.md` — grounded support optimization case for bounded queue retuning after an outage using reopen feedback, SLA pressure, and fairness guardrails.
+- `instances/support/enterprise-admin-lockout-executive-bridge-crisis-briefing-evidence-synthesis.md` — grounded support synthesis case for assembling one source-backed executive bridge brief across entitlement, incident, and security evidence during a severe tenant admin lockout.
+- `instances/support/approved-break-glass-admin-access-restoration-submission.md` — grounded support execution case for approval-gated browser submission of a high-impact tenant admin access restoration under incident, security, and customer-account controls.
+- `instances/finance/multi-year-renewal-pricing-and-payment-structure-recommendation.md` — grounded finance recommendation case for governed renewal pricing and payment-structure review under margin, credit, and accounting constraints.
+- `instances/finance/cash-forecast-primary-cutover-readiness-gate-disposition-recommendation.md` — grounded finance recommendation case for refreshed cutover-gate guidance as reconciliation variance, control-attestation freshness, and quarter-close timing shift before any system-of-record change.
+- `instances/finance/treasury-cash-position-discrepancy-investigation.md` — grounded finance investigation case for reconciling treasury, bank, and ERP evidence into a close-critical root-cause narrative.
+- `instances/finance/debt-covenant-obligation-synthesis-for-quarter-close-review.md` — grounded finance synthesis case for assembling binding debt-agreement obligations, waivers, and close support into a cited quarter-close briefing before disclosure or lender certification work begins.
+- `instances/finance/quarter-close-covenant-clarification-package-copilot-loop.md` — grounded finance collaboration case for mixed-initiative lender-response drafting around covenant interpretation support, evidence lineage, and explicit human approval of all outbound commitments.
+- `instances/finance/quarter-close-control-review-scheduling.md` — grounded finance scheduling case for bounded-delegation coordination of a quarter-close control review across controllership, treasury accounting, SEC reporting, internal controls, and finance systems before sign-off deadlines.
+- `instances/finance/quarter-close-control-review-coordination-refresh-after-consolidation-shift.md` — grounded finance scheduling case for refreshing a published quarter-close review packet after authoritative consolidation timing, delegate, or blackout-window changes while preserving controller adoption boundaries.
+- `instances/finance/quarter-close-exception-review-queue-reprioritization.md` — grounded finance optimization case for bounded reprioritization of a quarter-close exception backlog under materiality, fairness, auditability, and rollback guardrails.
+- `instances/finance/quarter-close-control-bundle-retuning.md` — grounded finance optimization case for governed retuning of a shared quarter-close control bundle across exception scoring, evidence sufficiency, reviewer-load balancing, and deadline-buffer surfaces.
+- `instances/finance/approved-cash-forecast-primary-cutover-staged-execution.md` — grounded finance execution case for promoting an approved treasury forecast workflow through shadow, limited-activation, and primary-source cutover stages with variance checks and rollback-aware holds.
+- `instances/finance/material-vendor-payment-control-exception-package-readiness-loop.md` — grounded finance approval-loop collaboration case for iteratively preparing a sensitive prepayment control-exception package without implying controller or CFO approval before the formal handoff.
+- `instances/compliance/beneficial-ownership-registry-update-submission.md` — grounded compliance execution case for approval-gated browser submission of a regulated beneficial-ownership filing.
+- `instances/compliance/regulatory-consumer-complaint-response-queue-reprioritization.md` — grounded compliance optimization case for statutory complaint-review backlog reprioritization under deadline, fairness, supervisory-review, and rollback guardrails.
+- `instances/compliance/sanctions-screening-gap-root-cause-investigation.md` — grounded compliance investigation case for reconstructing why governed sanctions-review controls were bypassed during a high-risk payment window.
+- `instances/compliance/sanctions-hold-state-truth-restoration.md` — grounded compliance investigation case for restoring one trusted sanctions hold-state picture across screening, queue, and payment-rail systems during a regulator-sensitive discrepancy window before release, filing, or counterparty communication.
+- `instances/operations/conveyor-safety-bulletin-synthesis-for-network-readiness-review.md` — grounded operations synthesis case for assembling OEM bulletins, inspection records, waivers, and asset context into a cited readiness brief before maintenance planning or site action.
+- `instances/operations/network-cold-chain-excursion-command-crisis-briefing-evidence-synthesis.md` — grounded operations synthesis case for compressing sensor, inventory, facility, and quality-hold evidence into one command-center crisis brief after a declared cold-chain event.
+
+## Not yet present but planned
+
+### Additional documentation
+
+- `docs/domains/`
+- `docs/architectures/`
+
+## Reading order for future contributors and agents
+
+1. `README.md`
+2. `.agent/current-plan.md`
+3. `.agent/mission.md`
+4. `.agent/backlog.yaml`
+5. `.agent/ontology-status.yaml`
+6. `.agent/coverage-matrix.yaml`
+7. `.agent/decisions.md`
+8. `data/vocabularies/`
+9. `docs/patterns/`
+10. `schema/pattern.schema.json`
+11. `instances/`
