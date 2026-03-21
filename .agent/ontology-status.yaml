@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 39
-  instance_files: 132
+  pattern_files: 40
+  instance_files: 135
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -53,15 +53,15 @@ pattern_counts_by_family:
   plan-coordinate-schedule: 4
   recommend-decide-escalate: 5
   execute-automate: 4
-  optimize-adapt: 4
+  optimize-adapt: 5
   human-agent-collaborative-work: 4
 instance_counts_by_domain:
   engineering: 24
   finance: 23
   compliance: 15
-  operations: 20
-  research: 17
-  support: 19
+  operations: 21
+  research: 18
+  support: 20
   hr: 14
 repo_reality:
   available_ontology_assets:
@@ -115,6 +115,7 @@ repo_reality:
     - data/patterns/execute-automate/workflow-hand-off-and-completion.yaml
     - data/patterns/optimize-adapt/queue-prioritization-optimization.yaml
     - data/patterns/optimize-adapt/adaptive-threshold-calibration.yaml
+    - data/patterns/optimize-adapt/adaptive-review-sampling-rate-tuning.yaml
     - data/patterns/optimize-adapt/governed-optimization-bundle-retuning.yaml
     - data/patterns/optimize-adapt/critical-protected-priority-adaptation.yaml
     - data/patterns/human-agent-collaborative-work/analyst-copilot-loop.yaml
@@ -135,6 +136,7 @@ repo_reality:
     - instances/research/benchmark-study-artifact-freeze-readiness-gate-disposition-recommendation.md
     - instances/research/benchmark-study-artifact-freeze-completion-verification.md
     - instances/research/de-identified-participant-interview-batch-to-release-safe-study-dataset.md
+    - instances/research/embargoed-benchmark-artifact-spot-check-sampling-rate-tuning.md
     - instances/research/benchmark-portfolio-bundle-retuning.md
     - instances/engineering/release-candidate-review-staging-record-refresh-after-evidence-change.md
     - instances/engineering/payments-api-latency-incident-investigation.md
@@ -195,6 +197,7 @@ repo_reality:
     - instances/operations/distribution-sorter-misroute-root-cause-investigation.md
     - instances/operations/approved-distribution-sorter-routing-profile-cutover-staged-execution.md
     - instances/operations/approved-sorter-routing-cutover-evidence-gate-verification.md
+    - instances/operations/maintenance-documentation-spot-check-sampling-rate-tuning.md
     - instances/operations/supplier-labeling-deviation-remediation-brief-copilot-loop.md
     - instances/operations/network-fuel-system-test-deferral-exception-package-readiness-loop.md
     - instances/operations/warehouse-slotting-reference-rollout-verification.md
@@ -225,6 +228,7 @@ repo_reality:
     - instances/support/enterprise-outage-evidence-packet-to-support-escalation-record-handoff.md
     - instances/support/enterprise-security-incident-remediation-credit-package-readiness-loop.md
     - instances/support/enterprise-support-severity-drift-anomaly-review.md
+    - instances/support/enterprise-support-quality-review-sampling-rate-tuning.md
     - instances/support/self-serve-article-confusion-watchlist-upkeep.md
     - instances/support/premium-support-workaround-article-publication-verification.md
     - instances/support/privacy-screened-support-transcript-batch-to-quality-review-dataset.md
