@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 227
+  instance_files: 228
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -56,7 +56,7 @@ pattern_counts_by_family:
   optimize-adapt: 6
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
-  engineering: 32
+  engineering: 33
   finance: 33
   compliance: 33
   operations: 33
@@ -70,6 +70,7 @@ consistency_notes:
   - "`critical-signal-corroboration-triage` now has explicit `finance` grounding through a coordinated account-takeover and payment-ring corroboration example, deepening that critical-risk monitor-family slice within finance while preserving a clean boundary at multi-signal corroboration, packet assembly, duplicate-aware case aggregation, and human-controlled routing rather than funds holds, customer outreach, suspicious-activity filing, or live response execution."
   - "`critical-signal-corroboration-triage` now has explicit `compliance` grounding through an implantable cardiac device field-failure corroboration example, deepening that critical-risk monitor-family slice within compliance while preserving a clean boundary at multi-source safety-signal corroboration, duplicate-aware case aggregation, escalation-packet assembly, and human-controlled routing rather than root-cause diagnosis, recall choice, regulator notification, clinician outreach, CAPA launch, or live patient-risk response."
   - "`critical-signal-corroboration-triage` now has explicit `operations` grounding through a regional ammonia refrigeration leak corroboration example, deepening that critical-risk monitor-family slice within operations while preserving a clean boundary at multi-source facility-safety corroboration, duplicate-aware case aggregation, escalation-packet assembly, and human-controlled routing rather than evacuation choice, hazmat dispatch, site shutdown, inventory rerouting, regulator notification, or root-cause analysis."
+  - "`critical-signal-corroboration-triage` now has explicit `engineering` grounding through a production package provenance tamper corroboration example, deepening that critical-risk monitor-family slice within engineering while preserving a clean boundary at multi-source software-supply-chain corroboration, duplicate-aware case aggregation, escalation-packet assembly, and human-controlled routing rather than key revocation, package takedown, release rollback, runner quarantine, disclosure, or root-cause investigation."
   - "`control-requirement-attestation-recommendation` now has additional `engineering` grounding through a production artifact-signing key custody attestation recommendation example, deepening that low-risk recommend-family slice within engineering beyond privileged service-account review while preserving a clean boundary at requirement-fit recommendation, evidence-gap visibility, and rationale packet assembly rather than attestation sign-off, key rotation, quorum-policy changes, or live signing-path updates."
   - "`control-requirement-attestation-recommendation` now has additional `compliance` grounding through a gifts-and-hospitality threshold-control attestation recommendation example, deepening that low-risk recommend-family slice within compliance beyond vendor telemetry safeguard review while preserving a clean boundary at requirement-fit recommendation, evidence-gap visibility, rationale packet assembly, and human-reviewed handoff rather than attestation sign-off, legal advice, regulator communication, remediation execution, or live compliance-record changes."
   - "`control-requirement-attestation-recommendation` now has explicit `operations` grounding through a refrigerated distribution hub temperature-safeguard attestation recommendation example, and the canonical pattern domain/example metadata plus `data/views/by-domain.yaml` were updated together because the new grounding exposed a real browse-alignment gap while preserving a clean boundary at requirement-fit recommendation, gap visibility, rationale packet assembly, and audit logging rather than attestation sign-off, corrective work, or live cold-chain changes."
@@ -227,6 +228,7 @@ repo_reality:
     - instances/engineering/production-signing-key-compromise-authority-recommendation.md
     - instances/engineering/database-upgrade-exception-recommendation-packet-revision-approved-for-architecture-board-decision-lane.md
     - instances/engineering/production-signing-key-integrity-review-priority-adaptation.md
+    - instances/engineering/production-package-provenance-tamper-critical-corroboration-triage.md
      - instances/finance/suspicious-wire-transfer-alert-triage.md
      - instances/finance/suspicious-wire-triage-packet-approved-for-restricted-fraud-review-dispatch.md
      - instances/finance/enterprise-arrears-settlement-band-option-recommendation.md
@@ -378,7 +380,7 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and two hundred twenty-five grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and two hundred twenty-eight grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "`evidence-gated-verification-for-release` now also has explicit research grounding through an approved benchmark-study publication-integrity packet verification example, so the investigate-family approval-bound slice now spans engineering, finance, operations, research, and HR while preserving a clean boundary at evidence sufficiency, release-hold state, and human-approved downstream reliance rather than publication recommendation, packet refresh, or execution."
     - "`shared-workbench-orchestration` now also has explicit compliance grounding through an internal control-library caveat-board upkeep example, extending the low-risk collaboration-upkeep slice beyond research, operations, support, and HR while preserving a clean boundary at internal artifact refresh, source revalidation, ownership preservation, and explicit hold-state management rather than legal advice, adjudication, regulator communication, or execution."
@@ -387,7 +389,7 @@ repo_reality:
     - "`shared-workbench-orchestration` now also has additional HR grounding through an internal hiring-panel interview-guide caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within HR beyond benefits FAQ maintenance while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than interviewer-guidance approval, policy adjudication, candidate communication, or hiring execution."
     - "`shared-workbench-orchestration` now also has additional support grounding through an internal premium-support diagnostic-runbook caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within support beyond workaround-article staging while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than runbook approval, customer communication, or live incident execution."
     - "`claimed-state-verification` now also has additional HR grounding through an internal job-architecture handbook publication verification example, proving that a second low-risk HR verification slice can deepen the domain without reopening canonical pattern or browse-view work."
-    - "Finance now leads at thirty-three grounded instances while engineering, compliance, operations, research, support, and HR remain at thirty-two, so the next refinement should target another already-canonical thin slice that improves critical-risk depth without reopening schema, vocabulary, or browse-view work."
+    - "Engineering, finance, compliance, and operations now sit at thirty-three grounded instances while research, support, and HR remain at thirty-two, so the next refinement should target one already-canonical thin slice in the remaining thinnest domains without reopening schema, vocabulary, or browse-view work."
   next_action:
-    id: phase-7-next-critical-compliance-monitor-depth
-    summary: "Use the next iteration to deepen the already-aligned `compliance` slice for `critical-signal-corroboration-triage` with one bounded corroborated alert scenario, while keeping canonical pattern metadata and browse views unchanged unless that pairing exposes real drift."
+    id: phase-7-next-thin-domain-instance-depth
+    summary: "Use the next iteration to deepen one already-aligned slice in `research`, `support`, or `hr`, preferring an instance-only batch whose canonical pattern metadata and browse views already match the intended domain pairing unless the new grounding exposes real drift."
