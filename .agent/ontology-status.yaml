@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 194
+  instance_files: 195
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -61,9 +61,10 @@ instance_counts_by_domain:
   compliance: 26
   operations: 29
   research: 26
-  support: 26
+  support: 27
   hr: 26
 consistency_notes:
+  - "`claimed-state-verification` now has additional `support` grounding through an internal premium-support advisory-macro publication verification example, deepening that low-risk investigate-family slice while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative evidence traceability rather than macro editing, republishing, customer communication, or downstream execution."
   - "`schedule-adjustment-and-replanning` now has explicit `compliance` grounding through a control-remediation sign-off timeline replanning example after evidence-collection delay or reviewer-window compression threatened a fixed regulator-facing checkpoint, extending that moderate-risk plan-family replanning slice beyond engineering and research while preserving a clean boundary at revised schedule production, impact ledgering, and coordination-ready handoff rather than remediation sufficiency adjudication, control waiver, regulator filing, or execution."
   - "`schedule-adjustment-and-replanning` now has explicit `research` grounding through a benchmark-study publication timeline replanning example after evidence-analysis or data-governance clearance delay compressed the original publication-review window, extending that moderate-risk plan-family replanning slice beyond engineering and compliance while preserving a clean boundary at revised schedule production, impact ledgering, and coordination-ready handoff rather than governance recommendation, publication adjudication, or submission execution."
   - "`critical-authoritative-state-restoration` now has explicit `hr` grounding through a protected-leave occupational-health and benefits state-truth restoration example, extending that critical investigate-family slice beyond finance, compliance, and operations while preserving a clean boundary at authoritative current-state restoration, unresolved holds, and human-reviewed handoff rather than accommodation adjudication, payroll action, or employee communication."
@@ -285,6 +286,7 @@ repo_reality:
     - instances/support/enterprise-support-case-quality-review-scoring-revision-approved-for-live-use.md
     - instances/support/self-serve-article-confusion-watchlist-upkeep.md
     - instances/support/premium-support-workaround-article-publication-verification.md
+    - instances/support/premium-support-advisory-macro-publication-verification.md
     - instances/support/finalized-enterprise-support-case-review-closure-and-escalation-tracker-synchronization.md
     - instances/support/enterprise-admin-entitlement-resynchronization-runbook-execution.md
     - instances/support/privacy-screened-support-transcript-batch-to-quality-review-dataset.md

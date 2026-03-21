@@ -2,7 +2,9 @@
 
 ## Iteration focus
 
-Next iteration focus: deepen the tied thinnest `support` domain with one already-canonical, family-safe `claimed-state-verification` grounding around internal premium-support advisory-macro publication verification, because the canonical pattern metadata and derived `data/views/by-domain.yaml` bucket already expose that support investigate-family slice and let this pass stay narrow and instance-first.
+Next iteration focus: rebalance one of the now thinnest remaining domains (`compliance`, `research`, or `hr`) with one already-canonical, family-safe grounded instance, again preferring a slice whose canonical metadata and derived domain view already align so the next batch can stay narrow and instance-first.
+
+Iteration `20260321-145355` is now complete: `claimed-state-verification` gained additional `support` grounding through one internal premium-support advisory-macro publication verification example, while the canonical pattern metadata and derived `data/views/by-domain.yaml` already correctly exposed that low-risk investigate-family slice.
 
 Iteration `20260321-144739` is now complete: `schedule-adjustment-and-replanning` gained new `compliance` grounding through one control-remediation sign-off timeline replanning example after evidence-collection delay or reviewer-window compression threatened a fixed regulator-facing checkpoint, while the canonical pattern metadata and derived `data/views/by-domain.yaml` already correctly exposed the slice.
 
@@ -66,21 +68,21 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
 - Phase 5: canonical coverage now spans forty-nine patterns across all nine top-level pattern families. `recommend-decide-escalate` now sits at seven canonical patterns; `transform-process` and `optimize-adapt` each sit at six; `gather-retrieve-synthesize` now sits at five; and `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` each remain at five. Future additions should remain narrow and land only where a genuinely reusable workflow shape deepens uneven grounded coverage rather than duplicating already-covered matrix cells.
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred ninety-four instance files now committed.
+- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred ninety-five instance files now committed.
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: `compliance`, `research`, `support`, and `hr` remain tied as the thinnest modeled domains at twenty-six grounded examples each. This iteration should take one already-canonical, family-safe `support` slice where canonical metadata and the derived browse view already align so the batch can remain instance-only unless true drift appears.
+- Current refinement target: `compliance`, `research`, and `hr` are now tied as the thinnest modeled domains at twenty-six grounded examples each, while `support` has moved to twenty-seven. The next refinement pass should reassess those three tied domains for one already-canonical, family-safe slice whose canonical metadata and derived browse view ideally already align.
 
 ## Ordered tasks
 
-1. Add one `support`-grounded `claimed-state-verification` instance for internal premium-support advisory-macro publication verification, keeping the workflow bounded at confirming or disproving the claimed publication state rather than editing macros, pushing customer communications, or repairing downstream systems.
-2. Confirm that `data/patterns/investigate-reconcile-verify/claimed-state-verification.yaml` and the `support` bucket in `data/views/by-domain.yaml` already expose the targeted slice correctly; avoid editing either file unless the new instance reveals real drift from canonical truth.
+1. Reassess the now tied thinnest domains (`compliance`, `research`, and `hr`) and choose one already-canonical, family-safe slice for one new grounded instance that deepens coverage without expanding structural inventory.
+2. Confirm whether the chosen canonical pattern metadata and the relevant bucket in `data/views/by-domain.yaml` already expose the targeted slice correctly; avoid editing either file unless the new instance reveals real drift from canonical truth.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded content batch, then refresh execution memory on top of the verified canonical baseline.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-144739`
+- Timestamp: `20260321-145355`
 - Previous completed scope: added one research-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern metadata to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Previous completed scope: added one HR-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added one compliance-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
@@ -97,8 +99,10 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Current working hypothesis: the completed research planning refinement remains valid only because the primary output stayed one revised publication timeline plus one replanning rationale-and-impact ledger and one coordination-ready handoff packet, while governance recommendation, publication-integrity adjudication, reviewer-authority choice, and external submission remained explicitly outside the workflow.
 - Completed scope: added one compliance-grounded `control-remediation-sign-off-timeline-replanning-after-evidence-collection-slip` instance under `schedule-adjustment-and-replanning`, confirmed the canonical pattern metadata and derived domain view already exposed the compliance slice correctly, and confirmed YAML validation still passes.
 - Current working hypothesis: the completed compliance planning refinement remains valid only because the primary output stayed one revised sign-off timeline plus one replanning rationale-and-impact ledger and one coordination-ready handoff packet, while remediation sufficiency adjudication, control waiver, regulator filing, and remediation execution remained explicitly outside the workflow.
-- Current scoped follow-on: add one `support`-grounded `claimed-state-verification` example around internal premium-support advisory-macro publication verification, provided the workflow stays bounded at evidence-backed verification of the claimed publication state across approved support surfaces and avoids drifting into macro editing, communication, or execution.
-- Boundary reminder: future planning-family depth work remains valid only if the primary outputs stay a revised schedule, explicit impact ledger, and coordination-ready handoff; any branch that would choose policy outcomes, waive required checkpoints, adjudicate authority, or execute downstream action must halt for human escalation instead of improvising.
+- Completed scope: added one support-grounded `premium-support-advisory-macro-publication-verification` instance under `claimed-state-verification`, confirmed the canonical pattern metadata and derived domain view already exposed the support slice correctly, and confirmed YAML validation still passes.
+- Current working hypothesis: the completed support verification refinement remains valid only because the primary outputs stayed one bounded claimed-state verdict plus one evidence-and-provenance trace and one explicit follow-up record, while macro editing, republishing, customer communication, escalation choice, and downstream execution remained explicitly outside the workflow.
+- Current scoped follow-on: reassess the now tied thinnest domains (`compliance`, `research`, and `hr`) for one equally bounded already-canonical grounding slice whose canonical metadata and derived domain view ideally already align.
+- Boundary reminder: future low-risk verification depth work remains valid only if the primary outputs stay a confirmed/disproved/inconclusive verdict, authoritative evidence traceability, and explicit follow-up state; any branch that would repair records, publish content, communicate externally, or execute downstream action must halt for human escalation instead of improvising.
 
 ## Constraints
 
