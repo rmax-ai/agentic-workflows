@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Next iteration focus: continue the tied-domain refinement track with one instance-only slice in one of the now-tied thinnest domains (`compliance`, `research`, `support`, or `hr`) under an already-mapped pattern/domain pair so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears.
+Next iteration focus: continue the tied-domain refinement track with one instance-only slice in one of the now-tied thinnest domains (`compliance`, `research`, `support`, or `hr`) under an already-mapped pattern/domain pair so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears. The current in-flight target is a second `support` grounding for `workflow-hand-off-and-completion`, keeping the batch bounded to low-risk post-decision closure propagation rather than new recommendation or execution behavior.
 
 Iteration `20260321-184438` is now complete: `workflow-hand-off-and-completion` gained a second `hr` grounding example through one accepted work-authorization review closure and compliance-tracker synchronization scenario, and the bounded instance-only batch validated cleanly through YAML validation plus the derived MkDocs publication build.
 
@@ -90,7 +90,7 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Ordered tasks
 
-1. Reassess the now-tied thinnest domains through `instances/{compliance,research,support,hr}/*.md` plus the already-mapped pattern/domain pairs in `data/views/by-domain.yaml`, then choose one equally bounded instance-only refinement slice.
+1. Reassess the now-tied thinnest domains through `instances/{compliance,research,support,hr}/*.md` plus the already-mapped pattern/domain pairs in `data/views/by-domain.yaml`, then choose one equally bounded instance-only refinement slice. For the current iteration, use that reassessment to author a second `support` grounding under `workflow-hand-off-and-completion`.
 2. Prefer another instance-only refinement batch, and avoid canonical pattern or derived-view edits unless the next grounding exposes genuine drift from repository truth.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the next bounded content batch, then refresh execution memory on top of the verified canonical baseline.
 4. Re-run `uv run python scripts/python/build_site_docs.py` and `uv run mkdocs build` whenever publication-facing docs, patterns, views, vocabularies, instances, or schema change.
