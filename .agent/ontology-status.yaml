@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-execute-operations-support-covered
+repository_stage: phase-6-grounding-monitor-operations-compliance-covered
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 22
+  instance_files: 24
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -55,8 +55,8 @@ pattern_counts_by_family:
 instance_counts_by_domain:
   engineering: 1
   finance: 4
-  compliance: 5
-  operations: 4
+  compliance: 6
+  operations: 5
   research: 2
   support: 4
   hr: 2
@@ -96,9 +96,11 @@ repo_reality:
     - instances/finance/dual-approved-vendor-bank-account-change-submission.md
     - instances/finance/multi-year-renewal-pricing-and-payment-structure-recommendation.md
     - instances/operations/cross-functional-maintenance-review-scheduling.md
+    - instances/operations/cold-chain-temperature-excursion-alert-triage.md
     - instances/operations/site-inspection-packet-to-corrective-maintenance-work-order-handoff.md
     - instances/operations/field-service-dispatch-queue-reprioritization.md
     - instances/compliance/cross-border-deal-exception-review.md
+    - instances/compliance/pharmacovigilance-safety-signal-alert-triage.md
     - instances/compliance/beneficial-ownership-registry-update-submission.md
     - instances/compliance/sanctions-alert-closure-regulator-response-copilot-loop.md
     - instances/compliance/pharmacovigilance-follow-up-packet-to-safety-case-record-handoff.md
@@ -123,12 +125,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and twenty-two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and twenty-four grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
-  - "`execute-automate` is now grounded in finance, compliance, HR, operations, and support, leaving engineering and research as the remaining open domain slices if broader approval-gated execution coverage becomes worthwhile later."
-  - "`monitor-detect-triage` still has only one grounded finance example, while compliance and operations remain natural next slices because the canonical pattern already points toward those domains."
+  - "`monitor-detect-triage` is now grounded across finance, compliance, and operations, leaving support, HR, engineering, and research as open domain slices only if broader monitoring coverage becomes worth pursuing later."
   - "`investigate-reconcile-verify` is still grounded primarily in engineering, with support and operations only partial and finance, compliance, research, and HR still open if broader investigation coverage becomes important later."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-deepen-monitor-triage
-  summary: "Use the next small grounding batch to deepen `monitor-detect-triage`, with preference for an operations or compliance alert-triage example that materially differs from the current finance suspicious-wire anchor."
+  id: phase-6-broaden-investigation-grounding
+  summary: "Use the next small grounding batch to broaden `investigate-reconcile-verify`, with preference for a finance or compliance investigation example that materially differs from the current engineering root-cause anchor."

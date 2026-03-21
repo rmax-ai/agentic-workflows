@@ -115,7 +115,8 @@ items:
       - "`optimize-adapt` now has a governed compliance grounding example through a regulatory consumer-complaint response queue reprioritization scenario, so the family is covered across support, operations, and compliance."
       - "`recommend-decide-escalate` now has a second grounded finance example and `execute-automate` now has a second grounded compliance example, but both families still have many partial domain slices."
       - "`human-agent-collaborative-work` now has grounded support, research, and compliance examples after adding a regulator-response copilot loop for sanctions-alert closure review."
-      - "The next small batch should rebalance another thin partial family/domain slice, with `execute-automate` in operations or support now standing out more clearly than additional optimization work."
+      - "`monitor-detect-triage` is now grounded in finance, compliance, and operations after adding pharmacovigilance safety-signal and cold-chain excursion triage examples."
+      - "The next small batch should rebalance another thin partial family/domain slice, with `investigate-reconcile-verify` in finance or compliance now standing out more clearly than more monitoring expansion."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement

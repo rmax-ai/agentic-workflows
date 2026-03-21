@@ -76,6 +76,8 @@
 - `instances/research/model-serving-platform-benchmark-briefing-copilot-loop.md` — grounded research collaboration case for mixed-initiative benchmark preparation with traceable experiment evidence and explicit analyst sign-off.
 - `instances/engineering/payments-api-latency-incident-investigation.md` — grounded engineering incident case for reconciled telemetry and root-cause analysis.
 - `instances/finance/suspicious-wire-transfer-alert-triage.md` — grounded finance triage case for governed alert prioritization and escalation.
+- `instances/compliance/pharmacovigilance-safety-signal-alert-triage.md` — grounded compliance monitoring case for de-duplicating and prioritizing drug-safety signals into human review queues with reporting-clock context.
+- `instances/operations/cold-chain-temperature-excursion-alert-triage.md` — grounded operations monitoring case for turning noisy refrigeration telemetry into explainable excursion-response queues without auto-executing downstream interventions.
 - `instances/operations/cross-functional-maintenance-review-scheduling.md` — grounded operations scheduling case for bounded-delegation coordination around maintenance review timing.
 - `instances/compliance/cross-border-deal-exception-review.md` — grounded compliance review case for governed recommendation support on cross-border commercial exceptions.
 - `instances/compliance/sanctions-alert-closure-regulator-response-copilot-loop.md` — grounded compliance collaboration case for mixed-initiative regulator response drafting around a closed sanctions alert, with explicit policy citation and human-owned conclusions.
