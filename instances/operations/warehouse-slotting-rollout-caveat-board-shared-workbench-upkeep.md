@@ -12,6 +12,21 @@ Operations.
 
 A network operations excellence team maintains a shared rollout caveat board while a new warehouse slotting reference package is being introduced across several facilities. Site leads, central operations owners, and documentation stewards add waiver notes, scanner-profile caveats, aisle-configuration exceptions, training questions, and section-level ownership changes as the internal rollout board evolves. The agent keeps that internal workbench usable by refreshing linked rule-package references, normalizing duplicate caveat notes, updating blocked-versus-cleared status fields, and preserving unresolved local questions in a hold register. Humans still decide whether a caveat is genuinely resolved, whether a local workaround is acceptable, and when anything from the board should move into a separate planning, approval, or execution workflow.
 
+```mermaid
+flowchart TD
+start["Small rollout-board updates<br>arrive from facilities"] --> scope{"Change stays inside approved<br>workbench-upkeep boundaries?"}
+scope -- "No" --> handoff["Stop and hand off to the appropriate<br>planning, approval, or execution workflow"]
+scope -- "Yes" --> sync["Refresh slotting-package links,<br>waiver ids, and facility context"]
+sync --> verify{"Rule-package version, waiver status,<br>and facility mapping revalidated?"}
+verify -- "No" --> hold["Keep the row blocked and record<br>the unresolved question in the hold register"]
+verify -- "Yes" --> review{"Would the update clear a caveat,<br>approve a workaround, or imply commitment?"}
+review -- "No" --> update["Normalize duplicate caveat notes,<br>update blocked-versus-cleared fields,<br>and write revision history"]
+review -- "Yes" --> human["Route the row to a human owner<br>for bounded review"]
+human -- "Approved for upkeep only" --> update
+human -- "Keep held" --> hold
+human -- "Needs downstream workflow" --> handoff
+```
+
 ## Target systems / source systems
 
 - Shared rollout caveat board with facility sections, ownership fields, unblock status, and revision history
