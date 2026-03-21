@@ -2,32 +2,33 @@
 
 ## Iteration focus
 
-Iteration `20260321-112439` is now complete: `optimize-adapt` gained the clean approval-gated slice through `approval-gated-optimization-state-release`, plus linked engineering, finance, and operations examples. The remaining obviously clean `approval-gated-execution` candidates are now the narrower gaps in `gather-retrieve-synthesize` and `recommend-decide-escalate`.
+Iteration `20260321-113520` is now scoped: close the cleaner of the two remaining `approval-gated-execution` architecture gaps by extending `gather-retrieve-synthesize` with a governed release pattern for one exact synthesized briefing or context package revision, plus a small cross-domain instance batch. The exploratory comparison with `recommend-decide-escalate` showed that briefing release has clearer approval semantics and a safer family boundary than approval-gating the visibility of a recommendation.
 
 ## Current phase
 
 - Phase 2: controlled vocabularies are complete and stable enough for bounded Phase 7 refinement.
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
-- Phase 5: canonical coverage now spans forty-seven patterns across all nine top-level pattern families. `recommend-decide-escalate`, `transform-process`, and `optimize-adapt` now each sit at six canonical patterns; `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` now each sit at five; and `gather-retrieve-synthesize` remains at four. Future additions should remain narrow and land only where a remaining autonomy or architecture gap maps to a genuinely reusable workflow shape.
+- Phase 5: canonical coverage now spans forty-seven patterns across all nine top-level pattern families. `recommend-decide-escalate`, `transform-process`, and `optimize-adapt` now each sit at six canonical patterns; `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` now each sit at five; and `gather-retrieve-synthesize` remains at four pending the newly scoped approval-gated briefing-release slice. Future additions should remain narrow and land only where a remaining autonomy or architecture gap maps to a genuinely reusable workflow shape.
 - Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred fifty-five instance files now committed.
-- Phase 7: coverage refinement remains active, all nine top-level families span the full tracked `low` / `moderate` / `high` / `critical` risk ladder, and `transform-process`, `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, `optimize-adapt`, and `human-agent-collaborative-work` now span all tracked architecture types.
+- Phase 7: coverage refinement remains active, all nine top-level families span the full tracked `low` / `moderate` / `high` / `critical` risk ladder, and `transform-process`, `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, `optimize-adapt`, and `human-agent-collaborative-work` now span all tracked architecture types. The cleanest remaining architecture hole is `gather-retrieve-synthesize` at `approval-gated-execution`.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: the remaining obvious structural holes are now the still-empty `approval-gated-execution` cells in `gather-retrieve-synthesize` and `recommend-decide-escalate`; the optimize-family slice is now covered by gating the live release of one exact optimization-state revision instead of broad permission to keep tuning.
+- Current refinement target: implement `gather-retrieve-synthesize` approval-gated coverage through release of one exact synthesized briefing revision, explicit hold state, audience-bound approval, and release-manifest handoff. Leave `recommend-decide-escalate` untouched this iteration unless a later pass finds an equally crisp bounded artifact.
 
 ## Ordered tasks
 
-1. Inspect whether `gather-retrieve-synthesize` or `recommend-decide-escalate` contains the next cleanest remaining `approval-gated-execution` gap without blurring family boundaries.
-2. Keep any follow-on batch as narrow as the completed optimize-family release slice: one canonical pattern, a few grounded instances, and only the directly required derived-view and `.agent/` updates.
-3. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each bounded batch.
+1. Add one `gather-retrieve-synthesize` canonical pattern for approval-gated release of a synthesized briefing or context package, keeping the primary artifact a grounded context handoff rather than a recommendation, plan, or operational action.
+2. Ground that pattern with 2-3 cross-domain instances in high-consequence briefing contexts such as engineering, operations, and finance or compliance.
+3. Update only the directly dependent family doc, derived views, and `.agent/` files needed to keep coverage and navigation aligned with the canonical addition.
+4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each bounded batch.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-112439`
+- Timestamp: `20260321-113520`
 - Previous completed scope: added `approval-gated-optimization-state-release` under `optimize-adapt`, linked engineering, finance, and operations approval-bound optimization-revision release instances, updated the optimize/adapt family doc, and refreshed the derived index, domain, architecture, autonomy, and risk views.
-- Current working hypothesis: the next clean approval-gated addition, if any, should come from `gather-retrieve-synthesize` or `recommend-decide-escalate` only if it preserves an equally clear primary artifact boundary.
-- Boundary reminder: the new pattern must stop at governed release of the optimization-state artifact and must not drift into authority recommendation, command planning, or downstream execution.
+- Current working hypothesis: `gather-retrieve-synthesize` can absorb the next approval-gated slice cleanly if the workflow begins from an already-synthesized briefing and ends at approved release of one exact version into bounded downstream visibility.
+- Boundary reminder: the new pattern must stop at release approval, hold-state control, and manifest handoff for a context artifact; it must not drift into truth adjudication, recommendation ranking, command planning, or execution.
 
 ## Constraints
 
@@ -36,6 +37,7 @@ Iteration `20260321-112439` is now complete: `optimize-adapt` gained the clean a
 - Prefer one modest normalization batch over broader family expansion whenever derived views or execution memory drift from canonical pattern data.
 - Keep governance, reversibility, privacy, and auditability explicit in every new pattern and instance.
 - Keep future critical-risk refinements centered on each target family's own primary artifact boundary rather than letting severe workflows collapse into adjacent families.
+- Treat the current gather-family refinement as valid only if approval governs one exact synthesized briefing or context-package revision, with audience scope, freshness, and hold/release state explicit, rather than vague permission to brief, recommend, or act.
 - Treat future transform-family additions as in-family only if the primary artifact remains a transformed package, lineage trace, explicit hold state, or approval/release manifest rather than a crisis brief, evidence verdict, recommendation, or downstream execution step.
 - Treat collaboration-family work as in-family only if the primary output remains a critical shared artifact, explicit approval-readiness collaboration loop, or human-owned joint work surface rather than authority choice, command sequencing, or executed action.
 - Treat future recommendation-family additions as in-family only if the output remains a bounded recommendation or narrowed option set inside delegated authority limits; anything that resolves the approval itself or commits the downstream change belongs in an adjacent family.
@@ -46,4 +48,4 @@ Iteration `20260321-112439` is now complete: `optimize-adapt` gained the clean a
 
 ## Expected outcome
 
-The next iteration should leave the repository with one more family-safe structural slice covered only if the added pattern is as clean and reusable as `approval-gated-collaborative-artifact-release`, with browse views and `.agent/` memory synchronized to that canonical truth.
+The next iteration should leave the repository with one more family-safe structural slice covered through a clean `gather-retrieve-synthesize` approval-gated briefing-release pattern, linked instances, refreshed browse views, and synchronized `.agent/` memory.
