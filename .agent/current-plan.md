@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Iteration `20260321-123736` is now in progress: the next bounded refinement target is `approval-gated-briefing-release` in `hr`, where the slice remains family-safe only if approval governs one exact synthesized briefing revision, one explicit hold-and-release state, and one bounded HR visibility lane without drifting into recommendation, case adjudication, communication rollout, or downstream action.
+
 Iteration `20260321-123202` is now complete: `approval-gated-transformation-release` gained new `hr` grounding, and the canonical pattern metadata plus derived domain view now expose that transform-family approval-bound slice across four modeled domains without drifting past one exact transformed downstream-ready package revision, one explicit hold-and-manifest boundary, or one bounded HR intake lane.
 
 Iteration `20260321-114951` is now complete: `recommend-decide-escalate` gained the new `approval-gated-recommendation-release` slice plus linked engineering, finance, and compliance examples. The family boundary held because approval governs release of one exact recommendation packet revision into one bounded human decision lane, while the actual choice remains explicitly human-owned.
@@ -26,7 +28,7 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and governance-heavy approval-bound slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: continue rebalancing the still-thinnest `hr` domain with one governance-heavy approval-bound example, likely in `approval-gated-briefing-release`, if the slice can stay centered on one exact synthesized briefing revision, one explicit hold-and-release state, and one bounded HR visibility lane.
+- Current refinement target: rebalance the still-thinnest `hr` domain with one governance-heavy approval-bound gather slice in `approval-gated-briefing-release`, keeping the primary output as one exact synthesized briefing revision plus release state for one bounded HR visibility lane.
 
 ## Ordered tasks
 
@@ -37,11 +39,11 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-123202`
+- Timestamp: `20260321-123736`
 - Previous completed scope: added the remaining support-grounded optimize-family approval-bound release instance for `approval-gated-optimization-state-release`, expanded the canonical pattern's domain and example metadata to include `support`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added one HR-grounded `approval-gated-transformation-release` example, expanded the canonical pattern's domain and example metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Current working hypothesis: approval-gated transform refinement remains family-safe only when the governed object is one exact transformed downstream-ready package revision with explicit lineage, hold state, and approval manifest, while recommendation, adjudication, employee communication, and downstream execution stay explicitly outside the workflow.
-- Current scoped follow-on: identify the next cleanest HR-heavy approval-bound slice, likely `approval-gated-briefing-release`, so the next batch improves domain balance without reopening broad structural expansion.
+- Current working hypothesis: approval-gated gather refinement remains family-safe only when the governed object is one exact synthesized briefing revision with explicit provenance, hold state, freshness boundary, and release manifest, while recommendation, case adjudication, employee communications, and downstream execution stay explicitly outside the workflow.
+- Current scoped follow-on: add one HR-heavy approval-bound `approval-gated-briefing-release` example plus the dependent canonical metadata and derived browse-view updates needed to expose that slice cleanly.
 - Boundary reminder: future transform-family approval-gated work should remain tied to one exact transformed package revision, one bounded downstream-use lane, and one explicit hold-and-manifest boundary rather than vague permission to decide, communicate, or act on the downstream case.
 
 ## Constraints
