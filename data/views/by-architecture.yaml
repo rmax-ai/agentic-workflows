@@ -32,7 +32,7 @@ architectures:
     source_vocabulary: architectures
   pattern_families:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification, change-triggered-context-briefing]
-    transform-process: [document-to-structured-data-handoff, normalization-and-enrichment]
+    transform-process: [document-to-structured-data-handoff, normalization-and-enrichment, change-triggered-representation-refresh]
     investigate-reconcile-verify: [authoritative-record-reconciliation, claimed-state-verification]
     monitor-detect-triage: [anomaly-detection-review]
     plan-coordinate-schedule: [calendar-conflict-coordination]
@@ -74,7 +74,7 @@ architectures:
     source_vocabulary: architectures
   pattern_families:
     gather-retrieve-synthesize: [change-triggered-context-briefing]
-    transform-process: []
+    transform-process: [change-triggered-representation-refresh]
     investigate-reconcile-verify: [claimed-state-verification]
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: []

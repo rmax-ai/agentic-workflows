@@ -1,0 +1,283 @@
+id: change-triggered-representation-refresh
+slug: change-triggered-representation-refresh
+name: Change-triggered representation refresh
+summary: Detect authoritative upstream source changes and re-materialize a downstream-safe staged structured representation with explicit lineage, deltas, and exception routing before any review, recommendation, or execution proceeds.
+pattern_family:
+  id: transform-process
+  label: Transform / Process
+problem_structure:
+  id: structured-representation-transformation
+  label: Structured representation transformation
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+workflow_goal: Refresh an existing staged structured package whenever authoritative upstream source state changes so downstream consumers receive a current schema-aligned representation, explicit delta trace, and reviewable exceptions without re-reading raw source bundles.
+inputs:
+  - name: Authoritative source change signal
+    description: A trusted event, revision marker, or state-change record indicating that the bounded source package underlying a staged representation has changed and should trigger refresh.
+    kind: change-event
+    required: true
+    examples:
+      - New test evidence or dependency manifest attached to a release-candidate review packet
+      - Journal adjustment or covenant-support workbook revision posted during quarter close
+      - Updated diagnostic bundle or entitlement snapshot added to a premium support escalation case
+  - name: Current source state bundle
+    description: The current authoritative records, documents, attachments, and metadata that should be re-read to rebuild the staged representation.
+    kind: source-bundle
+    required: true
+    examples:
+      - Active release evidence set, ticket links, and environment metadata for a candidate build
+      - Current ledger extracts, debt schedule notes, and treasury support documents for covenant staging
+      - Latest ticket timeline, logs, incident links, and customer-environment metadata for an escalation record
+  - name: Prior staged representation and lineage state
+    description: The last emitted structured package, lineage metadata, and refresh status used to detect deltas, preserve continuity, and suppress duplicate rematerialization.
+    kind: staging-state
+    required: true
+    examples:
+      - Prior deployment-review staging record with artifact hashes and field-level provenance
+      - Previous covenant review package snapshot and trace ledger from earlier close-cycle refreshes
+      - Existing escalation record version with source pointers and unresolved data-quality exceptions
+  - name: Target schema and refresh policy
+    description: The schema contract, field precedence rules, allowed recalculation logic, and thresholds that define when a source change can refresh in place versus requiring exception review.
+    kind: policy
+    required: true
+    examples:
+      - Release-review intake schema with rules for replacing flaky-test summaries only after authoritative reruns land
+      - Quarter-close covenant staging policy defining which adjusted balances supersede draft workbook values
+      - Support escalation record contract requiring entitlement and severity fields to remain source-verifiable after refresh
+  - name: Approved reference data and exception rules
+    description: Controlled mappings, version catalogs, and escalation rules that help reconcile changed source values without inventing unsupported structure.
+    kind: reference-data
+    required: false
+    examples:
+      - Service catalog aliases and artifact-type registry for release evidence packaging
+      - Entity hierarchy and covenant-definition tables used to map updated finance inputs consistently
+      - Product, entitlement, and incident-taxonomy registries for support escalation packaging
+outputs:
+  - name: Refreshed staged representation
+    description: A current schema-aligned structured package that downstream reviewers or tools can consume instead of working directly from the changed raw source bundle.
+    kind: record-bundle
+    required: true
+    examples:
+      - Updated deployment-review staging record with current test, rollback, and dependency evidence
+      - Refreshed covenant review package reflecting late ledger adjustments and revised supporting notes
+      - Current premium support escalation record with refreshed diagnostic package and environment fields
+  - name: Delta and lineage trace
+    description: Record of which source changes caused the refresh, how each affected field was recalculated or preserved, and which prior values were superseded.
+    kind: trace
+    required: true
+    examples:
+      - Field ledger showing a failed-test status cleared after an authoritative rerun and linking both evidence snapshots
+      - Change map from prior covenant ratios to refreshed values after approved journal entries posted
+      - Trace showing which ticket, log, and entitlement changes altered the staged escalation package
+  - name: Exception review queue
+    description: Refresh attempts, fields, or source deltas that could not be incorporated safely because of schema conflicts, ambiguous precedence, policy violations, or missing lineage.
+    kind: review-queue
+    required: true
+    examples:
+      - Release evidence fields blocked because two artifact manifests disagree about the shipped dependency version
+      - Finance refresh exceptions where adjusted balances arrive without the approved workbook lineage needed for covenant staging
+      - Support escalation updates routed for review when account entitlement and incident-severity sources conflict
+environment:
+  summary: Operates in event-triggered staging workflows where a previously structured handoff must stay synchronized with authoritative upstream state changes, but the workflow remains bounded to representation refresh rather than recommendation, adjudication, alert triage, or downstream execution.
+  systems:
+    - Event feeds, revision logs, or change-data-capture sources
+    - Source-of-truth repositories and operational record systems
+    - Staging databases or structured handoff stores
+    - Schema registries, reference-data services, and lineage stores
+    - Exception queues or review workbenches
+  actors:
+    - Workflow or data product owner
+    - Domain reviewer consuming the staged package
+    - Operations, finance, engineering, or support analyst resolving exceptions
+    - Auditor or governance steward
+  constraints:
+    - Refresh only bounded staged representations tied to approved trigger sources rather than reopening broad research or downstream action flows.
+    - Preserve prior-to-current field lineage, superseded values, and source-version identifiers so consumers can understand what changed.
+    - Do not infer unsupported replacements when source deltas are ambiguous, conflicting, or policy-disallowed.
+    - Stop at refreshed staging handoff plus exception routing; recommendation, approval, triage, and execution happen in adjacent patterns.
+  assumptions:
+    - Trusted source systems emit stable enough version or change signals to trigger refresh deterministically.
+    - Prior staged packages and lineage traces remain available so refresh can compare against a clear baseline.
+    - Downstream consumers can accept refreshed staging outputs separately from the raw source bundle and can tolerate exceptions being held back for review.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The workflow begins from authoritative change detection rather than only from manual requests to rebuild staged packages.
+  - capability:
+      id: transformation
+      label: Transformation
+      source_vocabulary: capabilities
+    necessity: The core task is re-materializing a structured representation so it matches changed source state while preserving schema fidelity and lineage.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow must read source systems, compare staged and current state, consult schemas and registries, and write refreshed packages and traces.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Safe refresh requires checking trigger authority, source precedence, and whether recalculated fields still satisfy the target staging contract.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Durable state is needed for prior-version comparison, duplicate-trigger suppression, lineage continuity, and replay-safe refresh.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Refresh rules decide which source deltas may overwrite prior staged values and which conflicts must remain exceptions.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The workflow must halt or route fields when changed source material breaks schema expectations, lineage assumptions, or governance limits.
+execution_architecture:
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: Authoritative revision and state-change events naturally trigger representation refresh so staged packages stay current without manual polling or bulk reruns.
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: One bounded refresh agent can usually re-read the changed source bundle, compare prior and current state, rebuild the structured package, and emit lineage and exceptions within a governed loop.
+autonomy_profile:
+  level:
+    id: exception-gated-autonomy
+    label: Exception-gated autonomy
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Define the authoritative triggers, target schema, overwrite rules, and exception thresholds before automatic refresh is enabled.
+    - Review escalations when source precedence is ambiguous, a refresh would materially change downstream interpretation, or the staging schema no longer fits the changed source bundle.
+    - Audit sampled refresh runs and repeated exception classes when upstream systems, schemas, or lineage contracts change.
+  reversibility: Refreshed outputs are staged derivatives that can usually be regenerated from source and prior versions, though downstream reviewers may temporarily rely on a stale or incorrect package until correction is published.
+  escalation: Escalate whenever the trigger is not authoritative, multiple source deltas conflict, schema-migration logic would be required, policy forbids automatic overwrite, or the refresh would otherwise cross into recommendation, adjudication, or execution.
+risk_governance:
+  level:
+    id: moderate
+    label: Moderate
+    source_vocabulary: risk-levels
+  failure_impact: Incorrect refreshes can propagate stale, conflicting, or misleading staged records into downstream review, reporting, or operational preparation, causing rework and trust erosion, but harm is usually containable because the workflow stops before irreversible external action.
+  approval_requirements:
+    - Case-by-case approval is not required for in-policy refresh runs triggered by approved source changes within stable schemas and overwrite rules.
+    - Human approval is required before enabling new trigger sources, changing precedence logic, or allowing automatic refresh across schema-breaking deltas or previously manual exception classes.
+  auditability: Preserve trigger ids, source and prior-version identifiers, field-level overwrite or carry-forward decisions, exception outcomes, replay or deduplication state, and final staged package versions so every refresh can be reconstructed.
+  privacy:
+    - Carry forward only the fields and excerpts needed for the refreshed staged package and lineage trace rather than duplicating entire raw source bundles.
+    - Respect domain-specific need-to-know controls when refreshed packages incorporate finance, customer, or engineering evidence with restricted details.
+  security:
+    - Use least-privilege access for trigger feeds, source systems, staging stores, and lineage services involved in refresh.
+    - Log overwrite rules, schema-version changes, and manual exception resolutions so unauthorized reshaping of staged packages is detectable.
+  notes: Moderate-risk governance fits because the pattern updates derivative records that may influence later human review or workflow preparation, yet remains bounded to reversible staged representations rather than direct operational action.
+why_agentic:
+  - Useful refresh requires deciding which changed source elements should overwrite, merge with, or preserve prior staged values instead of rerunning a blind full replacement every time.
+  - The workflow must reason over prior state, current state, and policy constraints together so delta traces stay intelligible and duplicate triggers do not create noisy churn.
+  - Safe operation depends on recognizing when a change implies schema drift, ambiguous lineage, or domain conflict that should escalate rather than be flattened into an apparently current record.
+failure_modes:
+  - mode: A stale or non-authoritative change signal triggers refresh against the wrong source snapshot
+    impact: Downstream users receive a staged package that appears current but is built from draft, partial, or superseded source state.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Revalidate source version and publication status before rebuilding the staged representation.
+      - Store trigger provenance and suppress refresh when the event conflicts with current source-of-truth state.
+  - mode: Refresh logic overwrites a materially important prior value with an ambiguous or conflicting delta
+    impact: The staged package hides disagreement between upstream systems and can mislead reviewers about what changed.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Require field-level precedence rules and preserve superseded values in the delta trace.
+      - Route conflicting deltas to the exception queue instead of forcing a single refreshed value.
+  - mode: Schema drift or missing lineage causes fields to be dropped silently during rematerialization
+    impact: The refreshed package looks complete enough to use even though critical downstream-safe context disappeared.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Block publication when required fields, lineage links, or schema validations fail.
+      - Version schemas explicitly and test refresh against schema-change scenarios before rollout.
+  - mode: Duplicate or rapid successive events create inconsistent staged versions or trace gaps
+    impact: Reviewers cannot tell which package is current and may act on an outdated or partially refreshed representation.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Use idempotent refresh keys tied to source versions and staged package ids.
+      - Persist in-progress and completed refresh state so retries resume coherently instead of emitting conflicting outputs.
+evaluation:
+  success_metrics:
+    - Percentage of authoritative source changes that produce one current staged package with complete delta and lineage trace.
+    - Rate of conflicting, schema-breaking, or ambiguous deltas correctly diverted to exception review before downstream reuse.
+    - Downstream reviewer rate of accepting refreshed staged packages without reopening the raw source bundle to reconstruct what changed.
+  quality_criteria:
+    - Refreshed staged outputs reflect current source state while preserving the meaning and provenance of prior consequential values.
+    - Delta traces distinguish overwritten, unchanged, newly introduced, and exception-held fields clearly enough for audit and review.
+    - The workflow remains bounded to representation refresh and does not morph into decision support, alert triage, or execution.
+  robustness_checks:
+    - Test duplicate, out-of-order, and partially failed trigger deliveries to confirm refresh remains idempotent and current.
+    - Test schema-version changes, missing lineage, and conflicting source precedence to ensure the workflow blocks or escalates instead of silently degrading.
+    - Test rapid source churn on one staged entity and confirm the latest authoritative version is reconstructed without losing prior delta history.
+  benchmark_notes: Evaluate currentness, lineage quality, and exception discipline together; a fast refresh loop is not successful if downstream users cannot see what changed or trust why the staged package was updated.
+implementation_notes:
+  orchestration_notes:
+    - Keep trigger intake, source re-read, prior-state comparison, representation rebuild, delta trace emission, and exception publication as explicit stages over shared durable state.
+    - Prefer append-only lineage and version markers so reviewers can inspect successive refreshes without diffing opaque blobs.
+  integration_notes:
+    - Common implementations combine event subscriptions, source record APIs, staging stores, schema registries, and audit or lineage services.
+    - Keep the pattern neutral about specific CDC tooling, queues, record stores, or workflow vendors.
+  deployment_notes:
+    - Start with one bounded staged entity type and authoritative trigger source before broadening to multi-source refresh cascades.
+    - Monitor exception rates, duplicate-trigger suppression, and downstream trust in refreshed packages before expanding automation depth.
+  references:
+    - docs/patterns/transform-process.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: document-to-structured-data-handoff
+    relationship: often-precedes
+    notes: Initial extraction commonly produces the first staged record that this pattern later keeps current as upstream source state changes.
+  - id: normalization-and-enrichment
+    relationship: can-include
+    notes: Refresh may reuse canonicalization and approved enrichment logic, but the defining behavior here is triggered rematerialization from changed source state.
+  - id: change-triggered-context-briefing
+    relationship: contrasts-with
+    notes: Both respond to source changes, but this pattern outputs a refreshed structured staging package rather than an informational change digest.
+  - id: workflow-hand-off-and-completion
+    relationship: contrasts-with
+    notes: This pattern stops at current staged representation and exception routing, whereas workflow hand-off and completion applies a verified event to downstream operational closure.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Refresh a release-review staging record when new test evidence, dependency manifests, or rollback notes land so reviewers see the current package without re-reading every artifact.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Rebuild a quarter-close covenant review package after approved journal adjustments change the underlying balances, preserving prior ratios and refreshed lineage for controller review.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Re-materialize a premium support escalation record when diagnostic bundles, entitlement state, or incident links change so downstream escalation review uses current structured context.
+maturity: draft
+tags:
+  - transform-process
+  - structured-representation-transformation
+  - change-triggered-representation-refresh
+  - event-driven-monitoring
+  - staged-representation
+  - lineage-trace
+  - exception-gated-autonomy

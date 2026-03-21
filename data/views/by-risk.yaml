@@ -44,7 +44,7 @@ risk_levels:
     source_vocabulary: risk-levels
   pattern_families:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification]
-    transform-process: [document-to-structured-data-handoff]
+    transform-process: [document-to-structured-data-handoff, change-triggered-representation-refresh]
     investigate-reconcile-verify: [authoritative-record-reconciliation]
     monitor-detect-triage: [anomaly-detection-review]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
