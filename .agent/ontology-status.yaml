@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 61
+  instance_files: 62
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ instance_counts_by_domain:
   operations: 9
   research: 8
   support: 9
-  hr: 8
+  hr: 9
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -145,6 +145,7 @@ repo_reality:
     - instances/hr/medical-leave-certification-packet-to-leave-case-record-handoff.md
     - instances/hr/protected-leave-case-review-queue-reprioritization.md
     - instances/hr/protected-leave-return-to-work-status-drift-root-cause-investigation.md
+    - instances/hr/work-authorization-expiry-risk-alert-triage.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -160,12 +161,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and sixty-one grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and sixty-two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-  - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, support, research, and HR after adding a protected-leave return-to-work status drift root-cause investigation example, so no family/domain gaps remain there at the current domain set."
-  - "`monitor-detect-triage` is now the thinnest domain-balancing family because it remains grounded across engineering, finance, compliance, operations, and support while research and HR are still open."
-  - "HR and research now each have eight grounded instances, leaving them one example behind engineering, finance, compliance, operations, and support."
-  - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
+    - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, support, research, and HR after adding a protected-leave return-to-work status drift root-cause investigation example, so no family/domain gaps remain there at the current domain set."
+    - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, support, and HR after adding a work-authorization expiry risk triage example, leaving research as the final open domain slice in that family."
+    - "Research now has eight grounded instances, leaving it one example behind engineering, finance, compliance, operations, support, and HR."
+    - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-7-expand-monitoring-into-hr
-  summary: "Use the next small grounding batch to add one grounded `risk-alert-triage` example in HR so `monitor-detect-triage` narrows to a single remaining research gap while bringing HR coverage closer to the other mature domains."
+  id: phase-7-close-monitoring-research-gap
+  summary: "Use the next small grounding batch to add one grounded `risk-alert-triage` example in research so `monitor-detect-triage` closes its last open domain slice before broader coverage balancing resumes."

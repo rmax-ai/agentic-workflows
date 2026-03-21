@@ -156,4 +156,4 @@ items:
       - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.
       - "`optimize-adapt` is now grounded across engineering, finance, compliance, operations, research, support, and HR after adding an engineering CI pipeline failure review queue reprioritization example."
       - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, support, research, and HR after adding a protected-leave return-to-work status drift root-cause investigation example."
-      - "The next small grounding batch should likely add one HR-domain monitoring example so `monitor-detect-triage` narrows to a single remaining research gap while bringing HR instance coverage closer to the other mature domains."
+      - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, support, and HR after adding a work-authorization expiry risk triage example, leaving research as the final open domain slice in that family."
