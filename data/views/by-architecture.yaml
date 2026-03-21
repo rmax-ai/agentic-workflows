@@ -59,7 +59,7 @@ architectures:
     label: Human in the loop
     source_vocabulary: architectures
   pattern_families:
-    gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation, crisis-briefing-evidence-synthesis]
+    gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation, crisis-briefing-evidence-synthesis, approval-gated-briefing-release]
     transform-process: [batch-content-transformation, critical-channel-safe-state-packaging, approval-gated-transformation-release]
     investigate-reconcile-verify: [incident-root-cause-analysis, authoritative-record-reconciliation, evidence-gated-verification-for-release, critical-authoritative-state-restoration]
     monitor-detect-triage: [anomaly-detection-review, risk-alert-triage, approval-gated-triage-dispatch, critical-signal-corroboration-triage]
@@ -87,7 +87,7 @@ architectures:
     label: Approval-gated execution
     source_vocabulary: architectures
   pattern_families:
-    gather-retrieve-synthesize: []
+    gather-retrieve-synthesize: [approval-gated-briefing-release]
     transform-process: [approval-gated-transformation-release]
     investigate-reconcile-verify: [evidence-gated-verification-for-release]
     monitor-detect-triage: [approval-gated-triage-dispatch]

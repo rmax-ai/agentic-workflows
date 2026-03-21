@@ -1,0 +1,268 @@
+id: approval-gated-briefing-release
+slug: approval-gated-briefing-release
+name: Approval-gated briefing release
+summary: Release one exact synthesized briefing or context-package revision into a bounded downstream visibility lane only after explicit human approval confirms audience scope, hold state, freshness boundary, and manifest linkage, without re-synthesizing evidence, adjudicating decisions, planning actions, or executing downstream work.
+pattern_family:
+  id: gather-retrieve-synthesize
+  label: Gather / Retrieve / Synthesize
+problem_structure:
+  id: context-gathering-and-synthesis
+  label: Context gathering and synthesis
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+workflow_goal: Hold one already-synthesized briefing revision at a governed release boundary and release that exact version into one intended visibility lane only after a human approves audience scope, freshness, and manifest details, while keeping the workflow bounded at briefing release rather than recommendation, decision, planning, or execution.
+inputs:
+  - name: Synthesized briefing revision
+    description: An already-prepared briefing, context package, or situation summary revision that is complete enough for human release review and should remain version-bound during the approval step.
+    kind: brief
+    required: true
+    examples:
+      - Executive outage context brief revision awaiting restricted leadership circulation
+      - Operations command summary revision prepared for regional coordination visibility
+      - Treasury liquidity stress briefing revision queued for committee readers
+  - name: Release boundary and audience policy
+    description: The approved visibility lane, reviewer list, disclosure constraints, redaction rules, freshness expectations, and reuse limits that govern who may receive the briefing revision.
+    kind: policy
+    required: true
+    examples:
+      - Executive-bridge policy limiting a platform incident brief to named leadership channels and one expiry window
+      - Command-center dissemination rule set that separates internal-only annexes from broader operational visibility
+      - Treasury committee circulation policy with confidentiality tier and redistribution prohibitions
+  - name: Provenance, freshness, and open-question package
+    description: Source trace, synthesis timestamps, unresolved questions, and supersession metadata accompanying the briefing so the approver can judge whether the exact revision is still safe to release.
+    kind: trace
+    required: true
+    examples:
+      - Claim ledger showing which statements rely on telemetry, ticket state, or manually confirmed notes
+      - Freshness report for facility status, inventory counts, and unresolved containment questions
+      - Source-and-timestamp bundle attached to a liquidity stress summary before committee circulation
+  - name: Hold and supersession state
+    description: Current release status, blocked audience lanes, pending corrections, and any newer candidate revisions that might invalidate the briefing under review.
+    kind: case-state
+    required: false
+    examples:
+      - Held executive brief pending security-owner redaction confirmation
+      - Prior command summary superseded by a newer revision with updated site counts
+      - Treasury stress briefing blocked because one market-exposure figure is being refreshed
+outputs:
+  - name: Approved briefing release manifest
+    description: Structured approval record binding the exact briefing revision, approver, audience lane, hold status, expiry, and any required redactions or usage notes.
+    kind: manifest
+    required: true
+    examples:
+      - Release manifest authorizing one outage briefing revision for named executive bridge recipients
+      - Signed command-center manifest for one regional operations visibility lane and freshness deadline
+  - name: Released briefing revision
+    description: The exact synthesized briefing or context package revision delivered into the approved bounded visibility lane with its linked provenance and labeling intact.
+    kind: brief
+    required: true
+    examples:
+      - Restricted executive incident brief distributed with source-authority labels and open unknowns
+      - Treasury committee context note released with confidentiality banner and unresolved exposure caveats
+  - name: Release-state and supersession record
+    description: Audit trail showing whether the briefing was released, held, superseded, or expired, together with any blocked dissemination attempts.
+    kind: handoff
+    required: true
+    examples:
+      - Ledger showing an older command brief was held after a fresher revision arrived before approval
+      - Audit entry proving a finance briefing expired at market close and cannot be reused without reapproval
+  - name: Visibility-lane handoff record
+    description: Structured record of which downstream lane received the briefing, who acknowledged it, and where the workflow stopped short of decision-making or operational action.
+    kind: handoff
+    required: true
+    examples:
+      - Executive bridge handoff noting that the release ended at visibility and did not authorize mitigation decisions
+      - Committee circulation record showing the brief was shared for awareness only, not adjudication or trade execution
+environment:
+  summary: Operates in high-consequence workflows where a synthesized context artifact already exists, but release of one exact revision into a downstream visibility lane must remain explicitly approved, audience-bounded, freshness-aware, and reversible without letting the workflow slide into recommendation, planning, or execution.
+  systems:
+    - Governed briefing or document workspaces holding revision history and release state
+    - Source-trace, timestamp, or provenance ledgers attached to synthesized briefs
+    - Approval and dissemination tooling that records audience scope and release manifests
+    - Restricted downstream channels, committees, or command bridges that consume released briefings
+  actors:
+    - Briefing owner, incident lead, or analyst responsible for the synthesized artifact
+    - Human approver who controls the visibility boundary for one exact revision
+    - Downstream readers in the approved visibility lane
+    - Governance, privacy, security, or risk reviewers for sensitive briefing contexts
+  constraints:
+    - Start from an already-synthesized briefing revision rather than re-opening broad evidence assembly or changing the artifact's substantive analytical boundary.
+    - Bind approval to one exact revision, one visibility lane, and one freshness window so stale or altered versions cannot inherit release authority.
+    - Keep unresolved questions, redactions, and hold reasons visible rather than smoothing them away to speed circulation.
+    - Stop at approved briefing release and handoff; do not verify underlying truth claims anew, recommend actions, choose decisions, or execute downstream steps.
+  assumptions:
+    - The underlying briefing carries stable revision identifiers, provenance, and freshness metadata suitable for governed release review.
+    - Human approvers remain accountable for whether a synthesized briefing may enter the bounded downstream lane.
+    - Distribution tooling can enforce lane scope, expiry, and supersession state for released artifacts.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow must gather the exact briefing revision, attached provenance package, audience policy, and any supersession state before a safe release decision can be staged.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Release readiness depends on compressing revision status, redaction notes, freshness signals, and visibility constraints into one manifest rather than forcing humans to reconstruct the boundary from scattered metadata.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: The system must confirm revision identity, manifest binding, freshness markers, and hold-state consistency so the wrong briefing version is not released.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Audience scope, redistribution limits, sensitivity labels, and expiry rules determine whether the briefing may cross the release boundary at all.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow has to remember prior releases, superseded revisions, blocked attempts, and expiry state so old briefing versions cannot silently recirculate.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Approvers, briefing owners, and downstream lanes often need explicit release-state handoffs when questions, redactions, or supersession events interrupt circulation.
+execution_architecture:
+  - architecture:
+      id: approval-gated-execution
+      label: Approval-gated execution
+      source_vocabulary: architectures
+    fit: The pattern centers on a held release boundary where an already-synthesized briefing revision remains blocked until explicit approval authorizes distribution into one bounded visibility lane.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human review is intrinsic because only accountable owners should accept residual uncertainty, confirm lane scope, and release a high-consequence briefing revision.
+autonomy_profile:
+  level:
+    id: approval-gated
+    label: Approval gated
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the exact briefing revision, approved visibility lane, and freshness or expiry window before release review proceeds.
+    - Approve, hold, or supersede the release after reviewing provenance status, redactions, and unresolved questions attached to that exact revision.
+    - Decide whether a changed audience, new evidence, or broader reuse request requires re-synthesis or handoff to another pattern instead of releasing the current brief.
+  reversibility: A released briefing can be withdrawn, superseded, or expired, but once it anchors downstream understanding the visibility effects may be only partially reversible even if the artifact is later corrected.
+  escalation: Escalate whenever the briefing is stale, the audience lane broadens beyond the approved boundary, provenance or open-question state is incomplete, or the workflow would otherwise need to recommend actions, adjudicate decisions, or reopen synthesis.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Releasing the wrong or stale briefing revision can mislead executives, committees, or command readers, widen sensitive visibility improperly, and bias consequential downstream decisions even though the workflow itself stops before those decisions are made.
+  approval_requirements:
+    - A named human approver must authorize release of the exact briefing revision, bounded audience lane, and any attached redactions or expiry terms.
+    - Any request to reuse the briefing outside the approved lane, after expiry, or after a material revision change requires fresh human approval rather than inherited permission.
+  auditability: Preserve revision ids, provenance bundles, redaction state, approver identity, blocked or held releases, lane scope, expiry timing, recipient acknowledgements, and supersession lineage so later review can reconstruct exactly what was released and why.
+  privacy:
+    - Limit briefing circulation to the approved downstream lane and minimize personal, customer, employee, financial, or security-sensitive details to what that audience actually needs.
+    - Keep restricted annexes, masked excerpts, and redistribution prohibitions explicit when the synthesized brief includes protected source material.
+  security:
+    - Enforce least-privilege access to briefing workspaces, dissemination tooling, and downstream visibility lanes because release state itself can be sensitive.
+    - Log release attempts, manifest edits, lane changes, and supersession events so unauthorized circulation or stale-brief reuse is detectable.
+  notes: High-risk governance fits because the workflow governs visibility of consequential synthesized context artifacts, even though it remains bounded at release control rather than decision-making or operational execution.
+why_agentic:
+  - Safe release requires adapting to revision changes, blocked lanes, redaction needs, and freshness boundaries instead of treating briefing circulation as a static file-share step.
+  - The workflow must coordinate state across manifests, superseded versions, approvals, and downstream lanes so one exact revision is released and nearby revisions remain held.
+  - It must recognize when a release request would cross the family boundary into re-synthesis, recommendation, planning, or execution and stop rather than improvise.
+failure_modes:
+  - mode: The wrong briefing revision is released under a valid approval
+    impact: Readers receive a mismatched or outdated context package and may anchor downstream judgment on statements the approver never reviewed.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Bind approval to immutable revision identifiers and reject release when the manifest and briefing hash do not match.
+      - Show supersession lineage and blocked older revisions prominently in the release tooling.
+  - mode: A stale briefing is circulated beyond its freshness boundary
+    impact: Downstream readers rely on expired context even though newer evidence or a newer synthesized revision exists.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Enforce expiry checks and freshness markers before every release or reuse attempt.
+      - Require new approval when the freshness window has lapsed or material source state has changed.
+  - mode: Visibility scope expands beyond the approved lane
+    impact: Sensitive context reaches unintended audiences or is treated as a broadly approved narrative rather than a bounded release.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Encode lane restrictions and redistribution limits in the release manifest and downstream tooling.
+      - Log and block circulation attempts outside the approved audience boundary.
+  - mode: Release packaging implies recommendation or action authorization
+    impact: Consumers mistake a context artifact for a decision, plan, or go-ahead to act, blurring the family boundary.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Label the artifact as briefing release only and record that downstream interpretation or action remains human-owned.
+      - Escalate prompts that ask the workflow to add prescriptions, approvals, or execution steps to the released brief.
+evaluation:
+  success_metrics:
+    - Percentage of briefing releases where the approved revision id, audience lane, and manifest metadata match exactly without later correction.
+    - Rate at which stale, superseded, or out-of-scope briefing revisions are blocked before downstream visibility.
+    - Time from briefing-ready status to human-approved bounded release when provenance and freshness state are complete.
+  quality_criteria:
+    - The release manifest clearly binds one exact briefing revision, one audience lane, one freshness window, and any applicable redactions or hold reasons.
+    - Superseded, expired, or broadened-scope release attempts are visible and blocked rather than implicitly reusing prior approval.
+    - The workflow remains bounded at briefing release and does not re-synthesize context, verify truth claims anew, recommend action, or trigger execution.
+  robustness_checks:
+    - Test with a newer briefing revision arriving during approval review and ensure the older revision is held or superseded instead of being released accidentally.
+    - Test with an attempted lane expansion and confirm the workflow blocks release until fresh approval or a different downstream pattern handles the request.
+    - Test with incomplete provenance or stale timestamps and verify the workflow escalates instead of pushing the briefing across the boundary.
+  benchmark_notes: Evaluate manifest binding, visibility discipline, and stale-brief prevention together; fast circulation is not success if the wrong revision or wrong audience receives the artifact.
+implementation_notes:
+  orchestration_notes:
+    - Keep revision retrieval, manifest assembly, approval gating, release-state tracking, and supersession handling as explicit stages over shared briefing state.
+    - Preserve immutable revision identifiers and lane metadata so downstream tooling can enforce the release boundary instead of relying on naming conventions alone.
+  integration_notes:
+    - Common implementations integrate briefing workspaces, provenance ledgers, approval systems, and restricted dissemination channels.
+    - Keep the pattern neutral about specific incident tools, executive-briefing platforms, committee portals, or secure document systems.
+  deployment_notes:
+    - Start in workflows where synthesized briefings already exist but stale reuse, oversharing, or unclear release ownership creates confusion.
+    - Tune expiry windows, lane scopes, and redaction rules conservatively before broadening release automation to more sensitive contexts.
+  references:
+    - docs/patterns/gather-retrieve-synthesize.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: crisis-briefing-evidence-synthesis
+    relationship: follows
+    notes: Crisis briefing synthesis can create the governed context artifact that this pattern later releases into one bounded visibility lane.
+  - id: approval-packet-generation
+    relationship: contrasts-with
+    notes: Approval packet generation assembles evidence for a later review, while this pattern begins with an already-synthesized briefing and governs its release boundary.
+  - id: approval-gated-collaborative-artifact-release
+    relationship: contrasts-with
+    notes: If the artifact is still being jointly authored with visible disagreement resolution, the collaborative-work family fits better; this pattern assumes the briefing revision is already synthesized and only release control remains.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Release one exact release-risk briefing revision into a restricted architecture-board lane after a human confirms freshness, audience scope, and unresolved caveats.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Approve one command-summary revision for regional operations visibility while keeping reroute, staffing, and contingency decisions outside the release workflow.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Circulate one treasury liquidity stress briefing revision to a named committee only after a controller confirms confidentiality scope, expiry, and linked exposure caveats.
+maturity: draft
+tags:
+  - gather-retrieve-synthesize
+  - approval-gated
+  - briefing-release
+  - governed-visibility
+  - exact-revision

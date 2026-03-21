@@ -58,7 +58,7 @@ autonomy_levels:
     label: Approval gated
     source_vocabulary: autonomy-levels
   pattern_families:
-    gather-retrieve-synthesize: []
+    gather-retrieve-synthesize: [approval-gated-briefing-release]
     transform-process: [batch-content-transformation, approval-gated-transformation-release]
     investigate-reconcile-verify: [evidence-gated-verification-for-release]
     monitor-detect-triage: [risk-alert-triage, approval-gated-triage-dispatch]

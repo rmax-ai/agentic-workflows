@@ -42,7 +42,7 @@ families:
   - id: context-gathering-and-synthesis
     label: Context gathering and synthesis
     source_vocabulary: problem-structures
-  pattern_ids: [research-synthesis-with-citation-verification, approval-packet-generation, change-triggered-context-briefing, crisis-briefing-evidence-synthesis]
+  pattern_ids: [research-synthesis-with-citation-verification, approval-packet-generation, change-triggered-context-briefing, crisis-briefing-evidence-synthesis, approval-gated-briefing-release]
 - family:
     id: transform-process
   path: patterns/transform-process

@@ -19,7 +19,7 @@ The conceptual seed patterns already named in the browse tree are:
 - `multi-source-synthesis`
 - `evidence-grounded-briefing`
 
-The current canonical family coverage now spans low-risk change digests, moderate citation-verified synthesis, high-risk approval packet assembly, and critical crisis briefing synthesis, while preserving a consistent stop point at grounded context handoff.
+The current canonical family coverage now spans low-risk change digests, moderate citation-verified synthesis, high-risk approval packet assembly, high-risk approval-gated release of one exact briefing revision, and critical crisis briefing synthesis, while preserving a consistent stop point at grounded context handoff.
 
 ## Problem-structure mapping
 
@@ -30,6 +30,8 @@ That mapping should anchor future canonical pattern entries when the main proble
 ## Family boundary
 
 This family ends when the primary output is a grounded understanding artifact.
+
+Approval-gated release variants still belong here only when they begin from an already-synthesized briefing or context package and end at explicit human approval to release that exact revision into a bounded visibility lane rather than into recommendation, decision, planning, or execution.
 
 Critical-risk variants still belong here only when a critical case is already declared and the workflow remains bounded at time-sensitive evidence assembly, cross-source compression, provenance-preserving synthesis, and crisis-briefing handoff.
 
@@ -55,6 +57,7 @@ A strong canonical pattern in this family should state:
 - which source types and trust boundaries matter,
 - how synthesis quality is judged,
 - when the output is complete enough to hand off to investigation, planning, recommendation, or human review,
+- for approval-gated release slices, how one exact briefing revision is held, approved, expired, or superseded before bounded downstream visibility,
 - for critical cases, how source freshness, audience-specific redaction, and crisis-briefing handoff are handled without implying action selection or root-cause certainty.
 
 ## See also

@@ -57,7 +57,7 @@ risk_levels:
     label: High
     source_vocabulary: risk-levels
   pattern_families:
-    gather-retrieve-synthesize: [approval-packet-generation]
+    gather-retrieve-synthesize: [approval-packet-generation, approval-gated-briefing-release]
     transform-process: [batch-content-transformation, approval-gated-transformation-release]
     investigate-reconcile-verify: [incident-root-cause-analysis, evidence-gated-verification-for-release]
     monitor-detect-triage: [risk-alert-triage, approval-gated-triage-dispatch]
