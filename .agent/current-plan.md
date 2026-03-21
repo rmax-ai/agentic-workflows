@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-101259` is now complete: `recommend-decide-escalate` gained `delegated-authority-option-ranking` to close the remaining family-safe `bounded-delegation` autonomy gap, along with two linked instances and the derived browse-view updates required by the new canonical pattern.
+Iteration `20260321-102507` is now scoped around one family-safe planning refinement: add an approval-gated contingency-activation pattern under `plan-coordinate-schedule`, ground it with a small critical-domain instance batch, and refresh only the derived browse views and `.agent/` memory that follow from the new canonical truth.
 
 ## Current phase
 
@@ -14,20 +14,20 @@ Iteration `20260321-101259` is now complete: `recommend-decide-escalate` gained 
 - Phase 7: coverage refinement remains active, and all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: the recommendation-family `bounded-delegation` gap is now closed, so the next refinement step should inspect the remaining family-safe autonomy or architecture concentrations rather than reopening recommendation-family scope.
+- Current refinement target: `plan-coordinate-schedule` is the cleanest next family-safe candidate because it can naturally absorb an `approval-gated` / `approval-gated-execution` slice without drifting into downstream execution or upstream recommendation.
 
 ## Ordered tasks
 
-1. Inspect the remaining autonomy and architecture concentrations for another genuinely family-safe refinement opportunity before adding more canonical content.
-2. Prefer the next batch to stay similarly narrow: one reusable shape, modest grounded examples, and only the derived browse-view updates that follow directly from canonical truth.
-3. Continue updating `.agent/` execution memory and validating repository YAML with `uv run python scripts/python/validate_yaml.py` for each committed refinement batch.
+1. Add one `plan-coordinate-schedule` pattern for approval-gated contingency activation that stays bounded at readiness gating, explicit holds, and coordination-packet handoff rather than executing the contingency itself.
+2. Ground the new planning pattern with a modest critical-domain instance batch, preferably in finance, operations, and compliance where contingency-activation governance is concrete and adjacent-family boundaries are already documented.
+3. Refresh only the derived browse views and `.agent/` execution memory implied by the canonical addition, then validate repository YAML with `uv run python scripts/python/validate_yaml.py`.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-101259`
-- Completed scope: added `delegated-authority-option-ranking`, linked finance and operations instances, and refreshed the derived index, architecture, autonomy, risk, and domain views plus `.agent/` execution memory.
-- Working result: the family now covers delegated-authority recommendation cleanly by keeping the output to a bounded in-band option set, boundary register, and escalation packet rather than approval adjudication, scheduling, or execution.
-- Reflection: this batch confirmed that the cleanest way to add `bounded-delegation` to `recommend-decide-escalate` is a guardrail-constrained option-ranking shape rather than escalation routing, collaboration, or delegated action.
+- Timestamp: `20260321-102507`
+- Planned scope: add one approval-gated contingency-activation planning pattern, link a small critical-domain instance batch, and refresh the derived index, architecture, autonomy, risk, and domain views plus `.agent/` execution memory if the canonical addition lands cleanly.
+- Working hypothesis: the cleanest remaining narrow architecture gap is a planning workflow that prepares and gates contingency activation readiness without choosing the authority lane, verifying truth, or executing the contingency.
+- Reflection target: confirm that the new pattern's main artifact remains a human-approved coordination or activation packet so the batch stays within `plan-coordinate-schedule` rather than leaking into recommendation or execution.
 
 ## Constraints
 
@@ -40,7 +40,8 @@ Iteration `20260321-101259` is now complete: `recommend-decide-escalate` gained 
 - Treat the new verification-family batch as in-family only if the main output is an inspectable evidence verdict plus approval-gated release boundary, not a recommendation, correction package, or executed downstream change.
 - Treat future optimize-family batches as in-family only if the main output remains an adaptive optimization-state change, sampled-policy adjustment, or bounded self-tuning artifact rather than alert triage, recommendation, scheduling, or executed operational change.
 - Treat future recommendation-family batches as in-family only if the output remains a bounded recommendation or narrowed option set inside delegated authority limits; anything that resolves the approval itself or commits the downstream change belongs in an adjacent family.
+- Treat the new planning-family batch as in-family only if the output remains a contingency-activation readiness ledger, explicit hold state, and approval-gated coordination packet rather than a decision recommendation, verification verdict, or executed contingency step.
 
 ## Expected outcome
 
-This iteration leaves the repository with one more family-safe autonomy slice covered: `recommend-decide-escalate` now includes a delegated-authority recommendation pattern grounded by linked instances, and the browse views plus `.agent/` memory are synchronized with the new canonical truth.
+This iteration should leave the repository with one more family-safe planning slice covered: `plan-coordinate-schedule` gains an approval-gated contingency-activation pattern grounded by linked critical-domain instances, and the browse views plus `.agent/` memory remain synchronized with the new canonical truth.
