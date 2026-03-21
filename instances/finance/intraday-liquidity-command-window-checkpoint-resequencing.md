@@ -12,6 +12,31 @@ Finance.
 
 During a severe payment-rail disruption, treasury has declared a critical liquidity bridge window with a current sequence for bank confirmation review, collateral availability challenge, cash-state control sign-off, executive coordination, and market-open communication preparation. Then authoritative timing shifts land inside the same bridge: one bank confirmation arrives late, a control reviewer becomes unavailable and hands off to an approved delegate, and the market-open communication lock time moves earlier because of exchange and lender coordination pressure. The workflow must resequence the live bridge checkpoints, preserve explicit holds where prerequisite confirmation or authority is still missing, and produce one current bridge packet that leaders can adopt before any funding, payment-freeze, or disclosure action is considered.
 
+```mermaid
+flowchart TD
+    A["Declared liquidity bridge window<br>and active checkpoint sequence"]
+    B["Verify authoritative timing shifts for<br>bank confirmation freshness, collateral and cash-state readiness,<br>approved control delegate handoff, and earlier market-open lock time"]
+    C{"Can treasury keep an in-policy<br>checkpoint order before the earlier<br>market-open boundary?"}
+    D["Place blocked checkpoints on hold<br>and log timing, freshness, or authority conflicts<br>in the bridge ledger"]
+    E["Bounded escalation to treasury and risk leaders<br>for protected-window or ownership resolution"]
+    F{"Do leaders resolve the conflict<br>without crossing authority or timing rules?"}
+    G["Keep the hold state active<br>and wait for new authoritative updates"]
+    H["Assemble one updated bridge packet<br>with the resequenced checkpoint ledger,<br>hold register, and targeted participant deltas"]
+    I{"Do treasury leaders adopt<br>the resequenced bridge packet?"}
+    J["Publish the authoritative bridge timeline<br>and targeted checkpoint updates for<br>live liquidity coordination"]
+    A --> B
+    B --> C
+    C -->|"No"| D
+    D --> E
+    E --> F
+    F -->|"No"| G
+    F -->|"Yes"| H
+    C -->|"Yes"| H
+    H --> I
+    I -->|"No"| G
+    I -->|"Yes"| J
+```
+
 ## Target systems / source systems
 
 - Treasury bridge workspace containing the declared critical scope, active checkpoint order, and prior packet versions
