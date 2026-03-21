@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-130630` is now in progress: `approval-gated-transformation-release` should gain the last missing `support` grounding, with the work bounded to one exact transformed support packet revision, one explicit hold-and-manifest state, and one restricted downstream intake lane rather than collaboration, recommendation, adjudication, or downstream execution.
+Iteration `20260321-130630` is now complete: `approval-gated-transformation-release` gained new `support` grounding, and the canonical pattern metadata plus derived domain view now expose that transform-family approval-bound slice across all seven modeled domains without drifting past one exact vendor-escalation intake packet revision, one explicit hold-and-manifest state, or one bounded restricted downstream lane.
 
 Iteration `20260321-130011` is now complete: `approval-gated-transformation-release` gained new `research` grounding, and the canonical pattern metadata plus derived domain view now expose that transform-family approval-bound slice across six modeled domains without drifting past one exact publication-integrity intake packet revision, one explicit hold-and-manifest state, or one bounded restricted review lane.
 
@@ -34,25 +34,26 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
 - Phase 5: canonical coverage now spans forty-nine patterns across all nine top-level pattern families. `recommend-decide-escalate` now sits at seven canonical patterns; `transform-process` and `optimize-adapt` each sit at six; `gather-retrieve-synthesize` now sits at five; and `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` each remain at five. Future additions should remain narrow and land only where a genuinely reusable workflow shape deepens uneven grounded coverage rather than duplicating already-covered matrix cells.
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred seventy-eight instance files now committed.
-- Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and governance-heavy approval-bound slices rather than adding fresh structural inventory.
+- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred seventy-nine instance files now committed.
+- Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: continue rebalancing governance-heavy approval-bound slices by closing the remaining `support` domain hole in `approval-gated-transformation-release`, if the work can stay centered on one exact transformed package revision plus explicit hold-and-manifest state rather than collaboration, recommendation, legal adjudication, or execution.
+- Current refinement target: shift to the still-thinnest `hr` domain through one family-safe `change-triggered-representation-refresh` example, if the work can stay centered on one already-issued staged HR packet revision refreshed after authoritative source changes rather than recommendation, verification, collaboration, or execution.
 
 ## Ordered tasks
 
-1. Confirm the cleanest support-heavy approval-bound transform slice for `approval-gated-transformation-release`, keeping the primary output as one exact transformed package revision plus explicit hold-and-manifest state rather than a collaborative artifact, recommendation packet, case adjudication, or live action.
-2. Add only one modest support-grounded example plus the directly dependent canonical metadata and derived browse-view updates needed by that slice.
+1. Confirm the cleanest HR-grounded moderate transform slice for `change-triggered-representation-refresh`, keeping the primary output as one already-issued staged representation refreshed after authoritative source changes rather than a recommendation packet, verification verdict, collaborative artifact, or live action.
+2. Add only one modest HR-grounded example plus the directly dependent canonical metadata and derived browse-view updates needed by that slice.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded pattern/view/instance batch.
-4. Refresh execution memory immediately afterward so the new support transform slice becomes the next recorded baseline rather than an implied change.
+4. Refresh execution memory immediately afterward so the next HR transform-refresh target becomes the recorded baseline rather than an implied change.
 
 ## Iteration checkpoint
 
 - Timestamp: `20260321-130630`
 - Previous completed scope: added one research-grounded `approval-gated-transformation-release` example, expanded the canonical pattern's domain and example metadata to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Completed scope: added one support-grounded `approval-gated-transformation-release` example, expanded the canonical pattern's domain and example metadata to include `support`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Current working hypothesis: transform-family approval-gated refinement remains family-safe only when the governed object is one exact transformed package revision with explicit hold state, lineage trace, and one bounded downstream intake or handoff lane, while collaborative drafting, publication recommendation, legal adjudication, evidence verdicts, and live action stay explicitly outside the workflow.
-- Current scoped follow-on: add the remaining support-grounded approval-bound transform slice in `approval-gated-transformation-release` so this batch can close the last open domain hole for that pattern without reopening broader structural expansion.
+- Current scoped follow-on: identify the cleanest HR-grounded change-refresh slice in `change-triggered-representation-refresh` so the next batch can deepen transform-family coverage in the thinnest domain without reopening broader structural expansion.
 - Boundary reminder: future transform-family approval-gated work should remain tied to one exact transformed package revision, one explicit hold or release manifest state, and one bounded downstream reliance lane rather than vague permission to decide, verify, or execute the underlying case.
 
 ## Constraints
@@ -65,7 +66,7 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Treat the completed gather-family refinement as valid only because approval governs one exact synthesized briefing or context-package revision, with audience scope, freshness, and hold/release state explicit, rather than vague permission to brief, recommend, or act.
 - Treat future transform-family additions as in-family only if the primary artifact remains a transformed package, lineage trace, explicit hold state, or approval/release manifest rather than a crisis brief, evidence verdict, recommendation, or downstream execution step.
 - Treat the completed research transform-family batch as valid only because approval governed one exact transformed publication-integrity intake packet revision into one bounded review lane, while collaborative claim drafting, publication recommendation, integrity adjudication, manuscript submission, and external disclosure stayed outside the workflow.
-- Treat the next support transform-family batch as valid only if approval governs release of one exact transformed service or case-handling packet revision into one bounded downstream review lane, while recommendation, investigation, resolution choice, and live action remain outside the workflow.
+- Treat the next transform-family refresh batch as valid only if the primary output remains one already-issued staged packet or record revision refreshed after authoritative source changes, with delta lineage and explicit supersession state, while recommendation, verification, adjudication, and live action remain outside the workflow.
 - Treat collaboration-family work as in-family only if the primary output remains a critical shared artifact, explicit approval-readiness collaboration loop, or human-owned joint work surface rather than authority choice, command sequencing, or executed action.
 - Treat future recommendation-family additions as in-family only if the output remains a bounded recommendation or narrowed option set inside delegated authority limits; anything that resolves the approval itself or commits the downstream change belongs in an adjacent family.
 - Treat future optimize-family batches as in-family only if the main output remains an adaptive optimization-state change, sampled-policy adjustment, or bounded self-tuning artifact rather than alert triage, recommendation, scheduling, or executed operational change.
@@ -78,4 +79,4 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Expected outcome
 
-This iteration should stay in depth-balancing mode: add one support-grounded governance-heavy approval-bound transform example plus directly dependent metadata/view updates in `approval-gated-transformation-release`, and keep the work bounded to one family-safe slice rather than opening a broader structural batch.
+The next iteration should stay in depth-balancing mode: add one HR-grounded moderate transform refresh example plus directly dependent metadata/view updates in `change-triggered-representation-refresh`, and keep the work bounded to one family-safe slice rather than opening a broader structural batch.

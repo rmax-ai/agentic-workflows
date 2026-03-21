@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 178
+  instance_files: 179
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -61,7 +61,7 @@ instance_counts_by_domain:
   compliance: 22
   operations: 29
   research: 22
-  support: 23
+  support: 24
   hr: 21
 repo_reality:
   available_ontology_assets:
@@ -275,6 +275,7 @@ repo_reality:
     - instances/support/premium-support-escalation-record-refresh-after-diagnostic-bundle-change.md
     - instances/support/severity-one-customer-bridge-channel-safe-service-state-package.md
     - instances/support/enterprise-recovery-package-recommendation-packet-revision-approved-for-executive-customer-review-decision-lane.md
+    - instances/support/enterprise-identity-outage-vendor-escalation-packet-approved-for-restricted-vendor-intake.md
     - instances/compliance/cross-border-transfer-assessment-packet-approved-for-restricted-privacy-counsel-intake.md
     - instances/compliance/vendor-data-transfer-safeguard-obligation-synthesis-for-cross-border-review.md
     - instances/compliance/vendor-telemetry-safeguard-requirement-attestation-recommendation.md
@@ -313,12 +314,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred seventy-eight grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred seventy-nine grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`approval-gated-transformation-release` now spans engineering, finance, compliance, operations, research, and HR through explicit grounded examples, leaving support as the only remaining open domain for that approval-bound transform slice."
-    - "The research by-domain browse view is back in sync with canonical pattern truth after extending `approval-gated-transformation-release` into research."
-    - "Research now rises to twenty-two grounded instances, tying compliance while HR remains the thinnest modeled domain at twenty-one, so refinement should keep prioritizing narrow governance-heavy slices instead of broader structural expansion."
-    - "The next refinement step should likely close the remaining support hole in `approval-gated-transformation-release` if the transform-family boundary can stay centered on one exact transformed package revision and one bounded downstream intake lane."
+    - "`approval-gated-transformation-release` now spans engineering, finance, compliance, operations, research, support, and HR through explicit grounded examples, so that approval-bound transform slice no longer has a remaining domain hole."
+    - "The support by-domain browse view is back in sync with canonical pattern truth after extending `approval-gated-transformation-release` into support."
+    - "Support now rises to twenty-four grounded instances while HR remains the thinnest modeled domain at twenty-one, with compliance and research tied at twenty-two, so refinement should keep prioritizing narrow family-safe slices instead of broader structural expansion."
+    - "The next refinement step should likely target the still-thinnest HR domain through one `change-triggered-representation-refresh` example if the transform-family boundary can stay centered on one already-issued staged packet revision plus delta lineage and supersession state."
   next_action:
-    id: phase-7-next-support-approval-bound-transform-depth
-    summary: "Use the next iteration to close the remaining support-domain hole in `approval-gated-transformation-release` with one governance-heavy approval-bound example plus the directly dependent canonical and browse-view updates needed by that slice."
+    id: phase-7-next-hr-transform-refresh-depth
+    summary: "Use the next iteration to deepen the still-thinnest HR domain with one `change-triggered-representation-refresh` example plus the directly dependent canonical and browse-view updates needed by that slice."
