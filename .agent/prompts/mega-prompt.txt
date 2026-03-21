@@ -516,7 +516,7 @@ If a new concept seems needed:
 - first check vocabulary files
 - then check existing patterns
 - only add it if justified
-- record the decision in `.agent/decisions.md`
+- record the decision in `.agent/decisions.md` and put the detailed record in `.agent/decisions/`
 
 ==================================================
 WHEN IN DOUBT

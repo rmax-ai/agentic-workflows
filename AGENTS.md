@@ -36,7 +36,7 @@ If your work touches terminology, also read `.agent/glossary.md`.
 1. Keep the ontology pattern-first.
 2. Work in dependency order: execution memory -> foundations/schema -> vocabularies -> views -> patterns -> instances.
 3. Do not add shallow pattern files before schema and controlled vocabularies are stable.
-4. Record durable ontology decisions in `.agent/decisions.md` before letting them spread across multiple files.
+4. Record durable ontology decisions in `.agent/decisions.md` and store their detail in `.agent/decisions/` before letting them spread across multiple files.
 5. Prefer modest, dependency-aware batches over large uncontrolled generation.
 6. Treat governance, autonomy boundaries, reversibility, failure cost, privacy, and auditability as first-class concerns.
 
@@ -57,7 +57,8 @@ The `.agent/` directory is committed repository state, not disposable scratch sp
 Maintain these files when your work changes repository state:
 
 - `.agent/current-plan.md` for the current next steps
-- `.agent/decisions.md` for durable decisions
+- `.agent/decisions.md` for the durable decision index
+- `.agent/decisions/` for per-decision detail records
 - `.agent/iterations/` for one dated Markdown file per iteration
 - `.agent/ontology-status.yaml` for current phase and gaps
 - `.agent/coverage-matrix.yaml` for coverage progress

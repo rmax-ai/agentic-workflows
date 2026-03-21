@@ -35,7 +35,8 @@
 - `.agent/mission.md` — stable mission and curation rules for the repository.
 - `.agent/backlog.yaml` — dependency-ordered task backlog.
 - `.agent/iterations/` — one dated Markdown file per iteration, grouped by year.
-- `.agent/decisions.md` — durable architectural and process decisions.
+- `.agent/decisions.md` — durable decision index with one-line summaries keyed by D-code.
+- `.agent/decisions/` — per-decision detail files keyed by D-code slug.
 - `.agent/ontology-status.yaml` — status inventory and gap tracking.
 - `.agent/coverage-matrix.yaml` — coverage grid for planned pattern/domain/architecture/risk combinations.
 - `.agent/glossary.md` — repository terminology guide.
@@ -246,7 +247,8 @@
 5. `.agent/ontology-status.yaml`
 6. `.agent/coverage-matrix.yaml`
 7. `.agent/decisions.md`
-8. `data/vocabularies/`
-9. `docs/patterns/`
-10. `schema/pattern.schema.json`
-11. `instances/`
+8. `.agent/decisions/` when a decision detail matters for the current task
+9. `data/vocabularies/`
+10. `docs/patterns/`
+11. `schema/pattern.schema.json`
+12. `instances/`

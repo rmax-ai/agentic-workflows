@@ -44,7 +44,7 @@ Grounded coverage is still intentionally thin, so current work should keep expan
 
 1. Work in dependency order: execution memory -> foundations and schema -> vocabularies -> views -> patterns -> instances.
 2. Do not create shallow pattern files before the schema and controlled vocabularies exist.
-3. Record durable ontology choices in `.agent/decisions.md` before they spread across new files.
+3. Record durable ontology choices in `.agent/decisions.md` and store their detail in `.agent/decisions/` before they spread across new files.
 4. Use `.agent/coverage-matrix.yaml` and `.agent/ontology-status.yaml` to drive systematic expansion instead of ad hoc additions.
 5. Prefer representative, governance-aware coverage over large batches of weak entries.
 

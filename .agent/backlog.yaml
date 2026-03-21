@@ -13,6 +13,7 @@ items:
       - .agent/backlog.yaml
       - .agent/iterations/
       - .agent/decisions.md
+      - .agent/decisions/
       - .agent/ontology-status.yaml
       - .agent/coverage-matrix.yaml
       - .agent/repo-map.md

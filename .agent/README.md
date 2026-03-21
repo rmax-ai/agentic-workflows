@@ -9,7 +9,7 @@ This directory stores committed execution memory for the repository. It helps fu
 - `backlog.yaml` — dependency-ordered phases and work items for the ontology roadmap.
 - `ontology-status.yaml` — current phase status, inventory counts, coverage summaries, and consistency notes.
 - `coverage-matrix.yaml` — the structured coverage grid for families, domains, architectures, and risk levels.
-- `decisions.md` — durable design and process decisions that should not be rediscovered each run.
+- `decisions.md` — durable decision index with one-line summaries keyed by D-code.
 - `repo-map.md` — the current map of committed repository structure and what each major path means.
 - `glossary.md` — repository-specific terminology for patterns, domains, instances, views, schema, and execution memory.
 - `stop.txt` — a local stop signal used by long-running loop tooling; it is runtime control state, not ontology content.
@@ -18,6 +18,7 @@ This directory stores committed execution memory for the repository. It helps fu
 
 - `iterations/` — one Markdown file per iteration, grouped by year. This is the running history of completed work.
   - `iterations/README.md` — the layout and usage rules for iteration history.
+- `decisions/` — one Markdown file per durable decision, keyed by D-code slug.
 - `prompts/` — the orchestration prompts used by the repository automation loop.
   - `mega-prompt.txt` — the master prompt that assembles the full repository context.
   - `operator-prompt.txt` — the per-iteration operator instructions.

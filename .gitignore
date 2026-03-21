@@ -87,6 +87,8 @@ claude-project.json
 !.agent/mission.md
 !.agent/repo-map.md
 !.agent/ontology-status.yaml
+!.agent/decisions/
+!.agent/decisions/**/*.md
 !.agent/current-plan.md
 !.agent/backlog.yaml
 !.agent/decisions.md
