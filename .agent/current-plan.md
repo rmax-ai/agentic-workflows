@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-125434` is in progress: scope one compliance-grounded `approval-gated-transformation-release` refinement that stays bounded to one exact transformed package revision, one explicit hold-and-manifest state, and one restricted downstream compliance intake lane.
+Iteration `20260321-125434` is now complete: `approval-gated-transformation-release` gained new `compliance` grounding, and the canonical pattern metadata plus derived domain view now expose that transform-family approval-bound slice across five modeled domains without drifting past one exact transformed packet revision, one explicit hold-and-manifest state, or one restricted privacy-counsel intake lane.
 
 Iteration `20260321-124822` is now complete: `evidence-gated-verification-for-release` gained new `hr` grounding, and the canonical pattern metadata plus derived domain view now expose that investigate-family approval-bound slice across four modeled domains without drifting past one exact evidence packet revision, one explicit sufficiency verdict, or one restricted HR release lane.
 
@@ -30,26 +30,27 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
 - Phase 5: canonical coverage now spans forty-nine patterns across all nine top-level pattern families. `recommend-decide-escalate` now sits at seven canonical patterns; `transform-process` and `optimize-adapt` each sit at six; `gather-retrieve-synthesize` now sits at five; and `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` each remain at five. Future additions should remain narrow and land only where a genuinely reusable workflow shape deepens uneven grounded coverage rather than duplicating already-covered matrix cells.
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred seventy-six instance files now committed.
+- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred seventy-seven instance files now committed.
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and governance-heavy approval-bound slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: continue rebalancing the still-thinnest domains with one governance-heavy compliance transform or release-bound slice, likely in `approval-gated-transformation-release`, if the workflow can stay centered on one exact transformed package revision plus explicit hold-and-manifest state rather than investigation, recommendation, or execution.
+- Current refinement target: continue rebalancing the still-thinnest domains with one governance-heavy research approval-bound transform slice, likely in `approval-gated-transformation-release`, if the workflow can stay centered on one exact transformed package revision plus explicit hold-and-manifest state rather than recommendation, legal adjudication, or execution.
 
 ## Ordered tasks
 
-1. Confirm the cleanest compliance-heavy approval-bound transform slice for `approval-gated-transformation-release`, keeping the primary output as one exact transformed package revision plus explicit hold-and-manifest state rather than an evidence verdict, recommendation packet, or live compliance action.
-2. Add only one modest compliance-grounded example plus the directly dependent canonical metadata and derived browse-view updates needed by that slice.
+1. Confirm the cleanest research-heavy approval-bound transform slice for `approval-gated-transformation-release`, keeping the primary output as one exact transformed package revision plus explicit hold-and-manifest state rather than a recommendation packet, legal adjudication artifact, or live action.
+2. Add only one modest research-grounded example plus the directly dependent canonical metadata and derived browse-view updates needed by that slice.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded pattern/view/instance batch.
-4. Refresh execution memory immediately afterward so the new compliance transform slice becomes the next recorded baseline rather than an implied change.
+4. Refresh execution memory immediately afterward so the new research transform slice becomes the next recorded baseline rather than an implied change.
 
 ## Iteration checkpoint
 
 - Timestamp: `20260321-125434`
 - Previous completed scope: added one HR-grounded `evidence-gated-verification-for-release` example, expanded the canonical pattern's domain and example metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Current scoped work: add one compliance-grounded `approval-gated-transformation-release` example plus the directly dependent canonical metadata and derived domain-view updates needed for that slice.
-- Current working hypothesis: transform-family approval-gated refinement remains family-safe only when the governed object is one exact transformed compliance package revision with explicit hold state, lineage trace, and one bounded downstream intake or handoff lane, while evidence verdicts, recommendation, adjudication, and live compliance action stay explicitly outside the workflow.
-- Boundary reminder: future transform-family approval-gated work should remain tied to one exact transformed package revision, one explicit hold or release manifest state, and one bounded downstream reliance lane rather than vague permission to decide, verify, or execute the underlying compliance action.
+- Completed scope: added one compliance-grounded `approval-gated-transformation-release` example, expanded the canonical pattern's domain and example metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Current working hypothesis: transform-family approval-gated refinement remains family-safe only when the governed object is one exact transformed package revision with explicit hold state, lineage trace, and one bounded downstream intake or handoff lane, while recommendation, legal adjudication, evidence verdicts, and live action stay explicitly outside the workflow.
+- Current scoped follow-on: identify the next clean research-grounded approval-bound transform slice, likely still in `approval-gated-transformation-release`, so the next batch improves a still-thin domain without reopening broader structural expansion.
+- Boundary reminder: future transform-family approval-gated work should remain tied to one exact transformed package revision, one explicit hold or release manifest state, and one bounded downstream reliance lane rather than vague permission to decide, verify, or execute the underlying case.
 
 ## Constraints
 
@@ -72,4 +73,4 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Expected outcome
 
-The next iteration should stay in depth-balancing mode: add one compliance-grounded governance-heavy approval-bound example plus directly dependent metadata/view updates, likely in `approval-gated-transformation-release`, and keep the work bounded to one family-safe slice rather than opening a broader structural batch.
+The next iteration should stay in depth-balancing mode: add one research-grounded governance-heavy approval-bound transform example plus directly dependent metadata/view updates, likely in `approval-gated-transformation-release`, and keep the work bounded to one family-safe slice rather than opening a broader structural batch.
