@@ -12,6 +12,18 @@ Finance.
 
 A collections strategy workflow has already prepared one exact recommendation packet revision for a high-value enterprise arrears case. The packet narrows the bounded options to a capped late-fee waiver, a short installment plan, or escalation for a larger concession, and it keeps blocked requests such as principal reduction and an extended payment holiday explicit. Before that exact packet revision can be routed into the controller concessions committee decision lane, a named finance approver must approve the committee scope, expiry window, and release manifest so reviewers receive the governed recommendation artifact rather than a stale or redistributed copy. The workflow stops at governed release of that packet revision; it does not decide which concession is granted, update billing records, or execute customer communications.
 
+```mermaid
+flowchart TD
+    A["Exact arrears recommendation packet revision<br>is ready for governed release review"] --> B["Verify packet hash, bounded option set,<br>blocked terms, committee lane, and expiry metadata"]
+    B --> C{"Refreshed exposure, dispute state,<br>or scope drift detected?"}
+    C -->|"Yes"| H["Hold and supersede the pending revision<br>until a refreshed packet or bounded escalation is prepared"]
+    C -->|"No"| D["Named finance approver reviews committee scope,<br>release manifest, and blocked reuse constraints"]
+    D --> E{"Approve release into the controller<br>committee decision lane?"}
+    E -->|"No"| I["Keep the packet on hold<br>outside committee routing"]
+    E -->|"Yes"| F["Release the exact approved revision<br>and manifest to the controller committee lane"]
+    F --> G["Record audit lineage, recipient scope,<br>and stop before concession adjudication or billing changes"]
+```
+
 ## Target systems / source systems
 
 - Collections recommendation workspace holding the current packet revision, bounded option set, blocked-term rationale, and prior superseded drafts
