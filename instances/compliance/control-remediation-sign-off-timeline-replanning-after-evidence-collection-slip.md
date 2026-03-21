@@ -12,6 +12,30 @@ Compliance.
 
 A compliance remediation program already has an approved timeline that sequences evidence collection, control-validation review, internal audit walkthrough, remediation-owner sign-off review, steering-committee packet lock, and a non-waivable regulator-facing checkpoint tied to quarter-close reporting. Then the baseline plan stops being feasible: evidence collection for one control segment slips by several business days, an internal-audit reviewer window compresses, or the filing-linked checkpoint stays fixed while the original sign-off path no longer fits. The workflow should recompute a revised timeline, document which milestones can move and which must remain fixed, and prepare a coordination-ready replanning packet for the compliance controls director, remediation workstream owner, internal audit liaison, regulatory reporting coordinator, and technology risk manager rather than deciding whether the evidence is sufficient, waiving a required control review, filing anything with the regulator, or executing the remediation work itself.
 
+```mermaid
+flowchart TD
+    A["Evidence slip or reviewer-window compression detected"]
+    B["Refresh baseline timeline,<br>evidence-readiness status,<br>reviewer availability, and fixed checkpoint data"]
+    C["Verify source freshness and<br>required review constraints"]
+    D{"Any in-policy revised timeline preserves<br>required review steps and the fixed<br>regulator-facing checkpoint?"}
+    E["Build revised remediation<br>sign-off timeline"]
+    F["Record moved milestones,<br>fixed dates, rejected alternatives,<br>and residual deadline risk"]
+    G["Assemble coordination-ready<br>replanning packet"]
+    H["Compliance controls director and<br>required partners review for adoption"]
+    I["Hold with escalation packet for<br>constraint conflicts or unresolved<br>evidence uncertainty"]
+
+    A -->|"Refresh current state"| B
+    B -->|"Check readiness inputs"| C
+    C -->|"Fresh and usable"| D
+    C -->|"Stale or uncertain inputs"| I
+    D -->|"Yes"| E
+    D -->|"No"| I
+    E -->|"Document impacts"| F
+    F -->|"Prepare handoff"| G
+    G -->|"Route for approval"| H
+    I -->|"Escalate within workflow boundary"| H
+```
+
 ## Target systems / source systems
 
 - Remediation program tracker with the approved baseline schedule, sign-off dependencies, severity tier, quarter-close linkage, and prior timeline versions
