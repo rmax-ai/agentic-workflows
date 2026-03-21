@@ -19,6 +19,9 @@ domain:
   - id: operations
     label: Operations
     source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
 workflow_goal: Watch already-triaged high-consequence packets that are waiting at a protected dispatch boundary, keep version and hold state explicit, and release the exact approved packet into the intended downstream escalation lane without deciding the response, authority, or operational action that follows.
 inputs:
   - name: Already-triaged escalation packet
@@ -278,6 +281,11 @@ example_domains:
       label: Operations
       source_vocabulary: domains
     example: Send a cold-chain excursion packet into a network command-center intake lane only after duty-manager approval confirms the facility scope and command boundary.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Release a work-authorization lapse triage packet into a restricted immigration-compliance review lane only after HR compliance approval confirms the exact packet revision, privacy scope, and reviewer boundary.
 maturity: draft
 tags:
   - monitor-detect-triage

@@ -117,7 +117,7 @@ domains:
     gather-retrieve-synthesize: [change-triggered-context-briefing, approval-gated-briefing-release]
     transform-process: [approval-gated-transformation-release]
     investigate-reconcile-verify: [authoritative-record-reconciliation]
-    monitor-detect-triage: [anomaly-detection-review]
+    monitor-detect-triage: [anomaly-detection-review, approval-gated-triage-dispatch]
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [policy-constrained-escalation-routing, approval-gated-recommendation-release]
     execute-automate: [browser-based-form-completion-with-approval-gates]
