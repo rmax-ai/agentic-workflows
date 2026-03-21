@@ -12,6 +12,24 @@ Operations.
 
 After network operations, site leadership, and safety reviewers approve a new routing profile for a high-volume distribution sorter ahead of a peak-shipping weekend, an operations control team must execute the cutover across a live facility. The workflow should begin from that approved profile and move through explicit preflight on sensor health, current backlog, fallback-profile availability, and safety interlocks; then activate the new routing logic one zone at a time, verify throughput, misroute, and jam signals at each checkpoint, and stop at visible hold points before widening scope or retiring the prior profile. If telemetry becomes ambiguous or the rollback path weakens, the workflow should pause or restore the previous routing state rather than continue through a stressed live network.
 
+```mermaid
+flowchart TD
+    A["Approved routing profile<br>and named release authorities in force"] --> B["Run preflight checks<br>sensor health, backlog ceiling, fallback profile, safety interlocks"]
+    B --> C{"Preflight evidence within<br>approved safety and readiness limits?"}
+    C -- "No" --> H["Visible hold or restore prior profile<br>with escalation to site leadership and safety review"]
+    C -- "Yes" --> D["Activate new routing logic<br>for the first protected sorter zone"]
+    D --> E{"Throughput, misroute, and jam signals<br>remain healthy and rollback-ready?"}
+    E -- "No" --> H
+    E -- "Yes" --> F["Protected human hold<br>before widening activation scope"]
+    F -- "Released" --> G["Expand activation to the next approved zone<br>and continue staged verification"]
+    F -- "Held" --> H
+    G --> I{"Facility-wide telemetry stays clear<br>and fallback path remains strong?"}
+    I -- "No" --> H
+    I -- "Yes" --> J["Protected human hold<br>before retiring the prior routing profile"]
+    J -- "Release" --> K["Retire prior profile<br>and record final stable-state confirmation"]
+    J -- "Hold" --> H
+```
+
 ## Target systems / source systems
 
 - Operations change record with the approved routing-profile package, protected facility zones, safety limits, and rollback triggers
