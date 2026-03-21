@@ -19,6 +19,15 @@ domain:
   - id: compliance
     label: Compliance
     source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
 workflow_goal: Hold one already-prepared recommendation packet revision at a governed release boundary and release that exact packet plus its bounded option set into one named human decision lane only after a human approves the release terms, while keeping the workflow bounded at recommendation handoff rather than decision adjudication, planning, or execution.
 inputs:
   - name: Recommendation packet revision
@@ -288,6 +297,21 @@ example_domains:
       label: Compliance
       source_vocabulary: domains
     example: Release one privacy attestation disposition packet revision into a compliance council sign-off lane without approving the attestation itself or launching remediation.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Release one benchmark-publication recommendation packet revision into a named publication council lane after a human confirms embargo scope, bounded claims, and expiry without approving publication itself.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Approve one enterprise recovery-package recommendation packet revision for an executive customer-review lane while leaving customer remedy choice, billing changes, and communications outside the release workflow.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Release one executive offer-exception recommendation packet revision into a compensation committee lane after a human confirms audience scope, blocked terms, and validity without approving the offer itself.
 maturity: draft
 tags:
   - recommend-decide-escalate
