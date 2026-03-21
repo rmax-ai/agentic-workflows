@@ -75,6 +75,7 @@
 - `instances/research/regulatory-obligation-synthesis-for-data-retention-review.md` — grounded research/compliance-adjacent instance for evidence-backed policy synthesis and citation review.
 - `instances/research/model-serving-platform-benchmark-briefing-copilot-loop.md` — grounded research collaboration case for mixed-initiative benchmark preparation with traceable experiment evidence and explicit analyst sign-off.
 - `instances/engineering/payments-api-latency-incident-investigation.md` — grounded engineering incident case for reconciled telemetry and root-cause analysis.
+- `instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md` — grounded engineering synthesis case for assembling cited architecture, reliability, rollback, and security evidence before service-mesh migration approval.
 - `instances/finance/suspicious-wire-transfer-alert-triage.md` — grounded finance triage case for governed alert prioritization and escalation.
 - `instances/compliance/pharmacovigilance-safety-signal-alert-triage.md` — grounded compliance monitoring case for de-duplicating and prioritizing drug-safety signals into human review queues with reporting-clock context.
 - `instances/operations/cold-chain-temperature-excursion-alert-triage.md` — grounded operations monitoring case for turning noisy refrigeration telemetry into explainable excursion-response queues without auto-executing downstream interventions.

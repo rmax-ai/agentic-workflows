@@ -36,7 +36,7 @@ dimensions:
     - critical
 matrices:
   pattern_family_x_domain:
-    gather-retrieve-synthesize: {engineering: partial, finance: covered, compliance: covered, operations: covered, research: covered, support: covered, hr: covered}
+    gather-retrieve-synthesize: {engineering: covered, finance: covered, compliance: covered, operations: covered, research: covered, support: covered, hr: covered}
     transform-process: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
     investigate-reconcile-verify: {engineering: covered, finance: covered, compliance: covered, operations: partial, research: none, support: partial, hr: none}
     monitor-detect-triage: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
@@ -68,7 +68,7 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Nine canonical pattern entries now populate all nine top-level families, and thirty-one grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, compliance, operations, support, and synthesis coverage.
+    - Nine canonical pattern entries now populate all nine top-level families, and thirty-two grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, compliance, operations, support, and synthesis coverage.
     - "`recommend-decide-escalate` now has covered finance and compliance cells after adding a second governed recommendation instance for renewal pricing and payment-structure review."
     - "`execute-automate` now has covered finance, compliance, HR, operations, and support cells after adding approved emergency maintenance vendor-portal dispatch and break-glass admin access restoration submissions alongside the existing finance, compliance, and payroll examples."
     - "`human-agent-collaborative-work` now has covered support, research, and compliance cells after adding a regulator-response copilot loop for sanctions-alert closure review."
@@ -77,5 +77,5 @@ summary:
     - "`plan-coordinate-schedule` now has covered operations, support, and HR cells after adding grounded customer-bridge and interview-panel coordination examples."
     - "`monitor-detect-triage` now has covered finance, compliance, and operations cells after adding pharmacovigilance safety-signal triage and cold-chain temperature excursion triage examples alongside the suspicious-wire finance anchor."
     - "`investigate-reconcile-verify` now has covered engineering, finance, and compliance cells after adding treasury cash-position discrepancy and sanctions-screening-gap root-cause investigation examples alongside the engineering incident anchor."
-    - "`gather-retrieve-synthesize` now has covered research, finance, compliance, operations, support, and HR cells after adding debt-covenant quarter-close, conveyor-safety readiness, enterprise-support obligations, cross-border data-transfer safeguard, and pay-transparency posting-obligation synthesis examples, leaving engineering as the only partial slice."
-    - The highest-leverage next gap still looks like one additional gather/synthesize slice rather than more investigation or monitoring coverage, because that family now has only its engineering cell left partial while several other families remain broad but intentionally thin across domains.
+    - "`gather-retrieve-synthesize` now has covered research, engineering, finance, compliance, operations, support, and HR cells after adding debt-covenant quarter-close, cross-border safeguard, conveyor-safety readiness, enterprise-support obligations, pay-transparency posting-obligation, and service-mesh migration-readiness synthesis examples."
+    - The highest-leverage next gap now looks like a governed operations example in `recommend-decide-escalate`, because the gather/synthesis family has reached full current-domain coverage while several other families remain intentionally thin.

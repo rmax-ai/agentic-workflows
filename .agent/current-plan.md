@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-The last iteration closed the HR slice for `gather-retrieve-synthesize`, leaving engineering as that family's only remaining partial domain cell. This iteration should finish that family-balanced grounding move with exactly one engineering synthesis instance rather than broadening scope to a new family.
+The engineering evidence-synthesis instance is now in place, so `gather-retrieve-synthesize` is grounded across every currently modeled domain. The next modest batch should pivot to another thin family, with `recommend-decide-escalate` looking like the best adjacent target because it already has finance and compliance anchors and an operations-adjacent partial slice that can be strengthened cleanly.
 
 ## Current phase
 
@@ -10,16 +10,16 @@ The last iteration closed the HR slice for `gather-retrieve-synthesize`, leaving
 - Phase 3: navigation views are complete and now reference canonical patterns in all nine top-level families
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
 - Phase 5: canonical seed coverage now spans all nine top-level pattern families
-- Phase 6: grounded instances now cover thirty-one total scenarios, with `gather-retrieve-synthesize` grounded across research, finance, compliance, operations, support, and HR and only engineering still partial within that family, `investigate-reconcile-verify` grounded across engineering, finance, and compliance, `monitor-detect-triage` grounded across finance, compliance, and operations, `execute-automate` grounded across finance, compliance, HR, operations, and support, and `optimize-adapt` grounded across support, operations, and compliance
+- Phase 6: grounded instances now cover thirty-two total scenarios, with `gather-retrieve-synthesize` grounded across research, engineering, finance, compliance, operations, support, and HR, `investigate-reconcile-verify` grounded across engineering, finance, and compliance, `monitor-detect-triage` grounded across finance, compliance, and operations, `execute-automate` grounded across finance, compliance, HR, operations, and support, and `optimize-adapt` grounded across support, operations, and compliance
 - Tooling baseline: uv-managed Python 3.14 helper workflow remains the validation path
 
 ## Ordered tasks
 
-1. Author exactly one engineering instance linked to `research-synthesis-with-citation-verification`, centered on a cited architecture, migration, or reliability-evidence brief that remains upstream of implementation or incident response.
-2. Keep the grounding batch scoped to that single instance so the iteration closes the last partial engineering slice in `gather-retrieve-synthesize` without widening to additional families.
-3. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the required iteration log after the grounding batch so repository memory reflects the completed family/domain coverage move.
-4. Validate repository YAML with the existing uv-managed helper before closing the iteration.
-5. Set the next plan toward another thin family/domain combination after this gather/synthesis engineering gap is closed.
+1. Re-read `deal-desk-recommendation-support` plus the current recommendation instances and decide whether an operations-domain governed recommendation example is the cleanest next coverage move.
+2. If that family remains the best target, author exactly one operations instance linked to `deal-desk-recommendation-support`, framed as option ranking and escalation packaging upstream of execution.
+3. Keep the next batch scoped to one small grounding move so family balancing stays more important than raw instance volume.
+4. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the required iteration log after the next grounding batch so repository memory reflects the new target.
+5. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
 
 ## Constraints
 
@@ -32,4 +32,4 @@ The last iteration closed the HR slice for `gather-retrieve-synthesize`, leaving
 
 ## Expected outcome
 
-This iteration should complete the remaining engineering gather/synthesis slice with one grounded instance, leaving the next iteration free to rebalance another thin family/domain area.
+The next iteration should pivot from now-complete gather/synthesis grounding to one similarly disciplined family-balancing move, most likely in `recommend-decide-escalate`.
