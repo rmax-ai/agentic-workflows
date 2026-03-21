@@ -12,6 +12,20 @@ Engineering.
 
 Release engineering and reliability teams use a scoring policy to decide which build regressions, dependency anomalies, canary findings, and rollout caveats are surfaced to the human release-review queue first. After several weeks of replay and shadow evaluation, an optimization steward has prepared one exact scoring-policy revision that better weights blast radius, signing-surface impact, and repeated canary drift for one payments-platform cohort. The workflow must release that exact revision into bounded live use only after a release manager approves the manifest, validity window, and rollback packet, while keeping the boundary clear: this pattern activates the reviewed optimization-state revision itself, but it does not approve the release, execute the production deployment, or page responders.
 
+```mermaid
+flowchart TD
+    A["Prepare exact release-review<br>scoring revision candidate"] --> B["Verify replay evidence, candidate hash,<br>payments-platform cohort, and restore target"]
+    B --> C{"Manifest, validity window,<br>and rollback packet complete?"}
+    C -->|"No"| D["Hold release until manifest gaps<br>or verification failures are corrected"]
+    C -->|"Yes"| E{"Release manager approves that exact<br>revision for bounded live use?"}
+    E -->|"No"| D
+    E -->|"Yes"| F["Activate approved scoring revision for the named<br>payments-platform cohort and write audit trace"]
+    F --> G{"Protected-signoff aging, repeated canary drift,<br>or queue-aging guardrails breached or expired?"}
+    G -->|"No"| H["Keep revision live within the approved<br>cohort and bounded review window"]
+    H -->|"Within window"| G
+    G -->|"Yes"| I["Restore the prior trusted scoring profile<br>and record rollback or expiry action"]
+```
+
 ## Target systems / source systems
 
 - Versioned release-review scoring registry holding the current live profile, candidate revision hash, and prior trusted versions
