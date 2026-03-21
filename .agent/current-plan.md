@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Active target: restore the last trailing-domain imbalance with one more `hr` grounded example, keeping the next batch instance-only and away from the just-used `transform-process` family as well as the recently used `recommend-decide-escalate`, `gather-retrieve-synthesize`, and `human-agent-collaborative-work` families.
-- Selection rule: choose an already-canonical approval-bound or other governance-heavy slice whose `hr` domain metadata and derived browse exposure already align so the next batch can stay structurally neutral.
-- Read-first set: this plan, the selected canonical pattern, one same-domain neighboring HR instance, one cross-domain neighboring instance in the same family, and the newest relevant files in `.agent/iterations/2026/`.
-- Boundary rule: keep the next example centered on the chosen pattern's primary artifact or coordination boundary and stop before adjudication, downstream execution, external communication, or policy reinterpretation.
+- Active target: restore the last trailing-domain imbalance with one more `hr` grounded example on `workflow-hand-off-and-completion`, keeping the batch instance-only inside the `execute-automate` family and away from the recently used `transform-process`, `recommend-decide-escalate`, `gather-retrieve-synthesize`, and `human-agent-collaborative-work` families.
+- Selection rule: use the already-canonical low-risk post-decision closure slice whose `hr` metadata and derived browse exposure already align, and vary the closure boundary from the existing HR leave, accommodation, and work-authorization examples.
+- Read-first set: this plan, `data/patterns/execute-automate/workflow-hand-off-and-completion.yaml`, one same-domain neighboring HR closure instance, one cross-domain neighboring closure instance, and the newest relevant files in `.agent/iterations/2026/`.
+- Boundary rule: keep the new example centered on authoritative post-decision closure bookkeeping and stop before adjudication, employee communication, payroll or access changes, manager instruction, external communication, or policy reinterpretation.
 
 ## Current phase
 
@@ -24,11 +24,11 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Reassess the remaining trailing `hr` domain and pick one equally bounded already-canonical slice whose metadata and derived browse mapping already align.
-2. Author exactly one new grounded instance and keep the batch instance-only unless the new example exposes real canonical or browse drift.
+1. Confirm `workflow-hand-off-and-completion` as the best-fit already-canonical `hr` slice and select a distinct post-decision closure scenario that does not duplicate existing leave, accommodation, or work-authorization examples.
+2. Author exactly one new grounded `hr` instance for that execute-family pattern and keep the batch instance-only unless the new example exposes real canonical or browse drift.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
-4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and `.agent/iterations/2026/20260322-003245.md` after verification.
-5. Carry the next-step target forward toward closing Phase 7 parity pressure once HR is restored to the leading-domain count.
+4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and `.agent/iterations/2026/20260322-004005.md` after verification.
+5. Carry the next-step target forward toward Phase 7 closure once HR is restored to the leading-domain count and any remaining parity pressure shifts back to structural refinement rather than trailing-domain balancing.
 
 ## Recent checkpoints
 
