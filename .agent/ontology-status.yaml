@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 174
+  instance_files: 175
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ instance_counts_by_domain:
   operations: 29
   research: 21
   support: 23
-  hr: 19
+  hr: 20
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -295,6 +295,7 @@ repo_reality:
     - instances/hr/protected-leave-accommodation-review-scoring-revision-approved-for-live-use.md
     - instances/hr/executive-offer-exception-recommendation-packet-revision-approved-for-compensation-committee-decision-lane.md
     - instances/hr/bereavement-leave-compliance-briefing-revision-approved-for-people-policy-council-circulation.md
+    - instances/hr/work-authorization-lapse-triage-packet-approved-for-restricted-immigration-compliance-review-dispatch.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -310,12 +311,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred seventy-four grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred seventy-five grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`approval-gated-briefing-release` now spans engineering, finance, operations, and HR through explicit grounded examples, so that gather-family approval-bound slice no longer has an HR domain hole."
-    - "The gather-family by-domain browse view is back in sync with canonical pattern truth after extending `approval-gated-briefing-release` into HR."
-    - "HR remains the thinnest modeled domain at nineteen grounded instances, so refinement should keep prioritizing narrow governance-heavy slices instead of broader structural expansion."
-    - "The next refinement step should likely keep rebalancing HR with one governance-heavy approval-bound example, likely in `approval-gated-triage-dispatch` if the monitor-family boundary holds, rather than open a broader structural batch."
+    - "`approval-gated-triage-dispatch` now spans finance, compliance, operations, and HR through explicit grounded examples, so that monitor-family approval-bound dispatch slice no longer has an HR domain hole."
+    - "The monitor-family by-domain browse view is back in sync with canonical pattern truth after extending `approval-gated-triage-dispatch` into HR."
+    - "HR remains the thinnest modeled domain at twenty grounded instances, so refinement should keep prioritizing narrow governance-heavy slices instead of broader structural expansion."
+    - "The next refinement step should likely keep rebalancing HR with one governance-heavy approval-bound example, likely in `evidence-gated-verification-for-release` if the investigate-family boundary holds, rather than open a broader structural batch."
   next_action:
-    id: phase-7-next-hr-approval-bound-triage-depth
-    summary: "Use the next iteration to rebalance the thin HR domain with one governance-heavy approval-bound example plus the directly dependent canonical and browse-view updates needed by that slice, with `approval-gated-triage-dispatch` as the leading candidate if fit holds."
+    id: phase-7-next-hr-approval-bound-investigate-depth
+    summary: "Use the next iteration to rebalance the thin HR domain with one governance-heavy approval-bound example plus the directly dependent canonical and browse-view updates needed by that slice, with `evidence-gated-verification-for-release` as the leading candidate if fit holds."
