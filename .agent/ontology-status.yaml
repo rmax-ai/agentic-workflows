@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 196
+  instance_files: 197
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -60,7 +60,7 @@ instance_counts_by_domain:
   finance: 31
   compliance: 27
   operations: 29
-  research: 26
+  research: 27
   support: 27
   hr: 26
 consistency_notes:
@@ -75,6 +75,7 @@ consistency_notes:
   - "`approval-gated-triage-dispatch` now has explicit `research` grounding through a benchmark-study disclosure-risk packet approved for restricted disclosure-governance review dispatch, extending that monitor-family approval-bound slice beyond finance, compliance, operations, and HR while preserving a clean boundary at governed packet release rather than disclosure adjudication or publication action."
   - "`approval-centered-collaboration` canonical domain/example metadata plus `data/views/by-domain.yaml` are now realigned with the already-committed `support` and `compliance` readiness-loop instances, restoring browse consistency before further refinement work."
   - "`exception-aware-task-execution` now has explicit `support` grounding through an enterprise admin entitlement resynchronization runbook execution example, extending that bounded-delegation execute-family slice beyond engineering and operations while preserving a clean boundary at delegated routine completion, durable checkpointing, explicit verification, and exception-only escalation rather than customer communication, contract interpretation, or discretionary entitlement redesign."
+  - "`workflow-hand-off-and-completion` now has additional `research` grounding through an approved human-subjects continuing-review closure and protocol-registry synchronization example, deepening that low-risk execute-family closure slice beyond benchmark-governance-only context while preserving a clean boundary at authoritative post-decision closure, queue cleanup, registry synchronization, archive linkage, and internal coordinator notification rather than protocol amendment, participant communication, or study execution."
 repo_reality:
   available_ontology_assets:
     - .github/workflows/publish-site.yml
