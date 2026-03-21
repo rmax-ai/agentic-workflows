@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-131341` is now complete: `change-triggered-representation-refresh` gained new `hr` grounding through one protected-leave review staging-record refresh example, and the canonical pattern metadata plus derived domain view now expose that moderate-risk transform-refresh slice without drifting past one already-issued staged HR packet revision, one explicit current-versus-superseded state boundary, or one bounded restricted downstream review lane.
+Iteration `20260321-131858` is now in progress: deepen `change-triggered-representation-refresh` with one compliance-grounded staged-record refresh example so the repository balances one of the tied thinnest domains without widening structural scope. Keep the work bounded to one already-issued restricted compliance review or intake record refreshed after authoritative source changes, with explicit delta lineage, current-versus-superseded state, and exception routing rather than recommendation, verification adjudication, collaboration, or downstream execution.
 
 Iteration `20260321-130630` is now complete: `approval-gated-transformation-release` gained new `support` grounding, and the canonical pattern metadata plus derived domain view now expose that transform-family approval-bound slice across all seven modeled domains without drifting past one exact vendor-escalation intake packet revision, one explicit hold-and-manifest state, or one bounded restricted downstream lane.
 
@@ -40,22 +40,22 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: shift to one of the now-tied thinnest domains through a family-safe compliance-grounded `change-triggered-representation-refresh` example, if the work can stay centered on one already-issued staged compliance packet or case record refreshed after authoritative source changes rather than recommendation, verification, collaboration, or execution.
+- Current refinement target: land one compliance-grounded `change-triggered-representation-refresh` example, likely around a restricted transfer-assessment or comparable governed intake or review record, if the work can stay centered on one already-issued staged compliance packet or case record refreshed after authoritative source changes rather than recommendation, verification, collaboration, or execution.
 
 ## Ordered tasks
 
-1. Confirm the cleanest compliance-grounded moderate transform slice for `change-triggered-representation-refresh`, keeping the primary output as one already-issued staged representation refreshed after authoritative source changes rather than a recommendation packet, verification verdict, collaborative artifact, or live action.
+1. Confirm the cleanest compliance-grounded moderate transform slice for `change-triggered-representation-refresh`, preferably one restricted transfer-assessment or equivalent governed review or intake record refresh, while keeping the primary output as one already-issued staged representation refreshed after authoritative source changes rather than a recommendation packet, verification verdict, collaborative artifact, or live action.
 2. Add only one modest compliance-grounded example plus the directly dependent canonical metadata and derived browse-view updates needed by that slice.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded pattern/view/instance batch.
 4. Refresh execution memory immediately afterward so the next compliance transform-refresh target becomes the recorded baseline rather than an implied change.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-131341`
-- Previous completed scope: added one support-grounded `approval-gated-transformation-release` example, expanded the canonical pattern's domain and example metadata to include `support`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Completed scope: added one HR-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern's domain and example metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Timestamp: `20260321-131858`
+- Previous completed scope: added one HR-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern's domain and example metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Current scoped batch: add one compliance-grounded `change-triggered-representation-refresh` example, expand the canonical pattern metadata to include `compliance`, refresh the derived domain view, and confirm YAML validation still passes.
 - Current working hypothesis: transform-family change-refresh refinement remains family-safe only when the primary output is one current staged representation rebuilt after authoritative source changes, with explicit delta lineage, superseded-value traceability, and reviewable exceptions, while recommendation, verification verdicts, collaborative drafting, and live action stay explicitly outside the workflow.
-- Current scoped follow-on: identify the cleanest compliance-grounded change-refresh slice in `change-triggered-representation-refresh` so the next batch can deepen transform-family coverage in a still-thin domain without reopening broader structural expansion.
+- Current scoped follow-on: if the compliance slice lands cleanly, move next to one similarly narrow research-grounded change-refresh example so the tied thinnest domains continue to balance without reopening broader structural expansion.
 - Boundary reminder: future transform-family refresh work should remain tied to one already-issued staged package or record revision, one explicit current-versus-superseded state boundary, and one bounded downstream reliance lane rather than a recommendation packet, evidence verdict, approval artifact, or operational action.
 
 ## Constraints
