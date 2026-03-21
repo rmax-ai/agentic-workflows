@@ -47,7 +47,7 @@ matrices:
     human-agent-collaborative-work: {engineering: covered, finance: covered, compliance: covered, operations: covered, research: covered, support: covered, hr: covered}
   pattern_family_x_architecture:
     gather-retrieve-synthesize: {tool-using-single-agent: covered, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: covered, approval-gated-execution: none}
-    transform-process: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
+    transform-process: {tool-using-single-agent: covered, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
     investigate-reconcile-verify: {tool-using-single-agent: covered, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: covered, approval-gated-execution: none}
     monitor-detect-triage: {tool-using-single-agent: covered, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: covered, approval-gated-execution: none}
     plan-coordinate-schedule: {tool-using-single-agent: covered, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
@@ -57,7 +57,7 @@ matrices:
     human-agent-collaborative-work: {tool-using-single-agent: covered, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: covered, approval-gated-execution: none}
   pattern_family_x_risk:
     gather-retrieve-synthesize: {low: covered, moderate: covered, high: covered, critical: none}
-    transform-process: {low: covered, moderate: covered, high: none, critical: none}
+    transform-process: {low: covered, moderate: covered, high: covered, critical: none}
     investigate-reconcile-verify: {low: covered, moderate: covered, high: covered, critical: none}
     monitor-detect-triage: {low: none, moderate: covered, high: covered, critical: covered}
     plan-coordinate-schedule: {low: covered, moderate: covered, high: none, critical: none}
@@ -68,12 +68,13 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Twenty-five canonical pattern entries now populate all nine top-level families, and ninety grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, recommendation, collaboration, compliance, operations, support, HR, research, and synthesis coverage.
+    - Twenty-six canonical pattern entries now populate all nine top-level families, and ninety-three grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, recommendation, collaboration, compliance, operations, support, HR, research, and synthesis coverage.
     - "`recommend-decide-escalate` now has covered engineering, finance, compliance, operations, research, support, and HR cells after adding a benchmark-study publication go/no-go recommendation example alongside the earlier finance, compliance, operations, support, HR, and engineering cases."
     - "`execute-automate` now has covered engineering, finance, compliance, HR, operations, research, and support cells after adding an approved production change-freeze exception portal submission alongside the earlier finance, compliance, payroll, operations, support, and research examples."
     - "`human-agent-collaborative-work` now has covered support, research, compliance, engineering, operations, finance, and HR cells after adding regulator-response, benchmark-briefing, support-escalation, deprecated-message-broker migration exception, supplier-labeling remediation-brief, quarter-close covenant clarification, workplace accommodation exception memo, and the newer engineering, finance, HR, compliance, operations, and support approval-readiness collaboration loops."
     - "`transform-process` now has covered finance, compliance, operations, support, HR, research, and engineering cells after adding a release-candidate evidence packet to deployment-review staging record handoff alongside the earlier finance, compliance, operations, support, HR, and research examples."
     - "`normalization-and-enrichment` now gives `transform-process` representative `low` risk coverage while preserving a clean family boundary at reversible cleanup, canonicalization, and approved enrichment before downstream review or action."
+    - "`batch-content-transformation` now gives `transform-process` representative `high` risk, `approval-gated`, `orchestrated-multi-agent`, and `human-in-the-loop` coverage while preserving a clean family boundary at reviewed release-safe transformation rather than downstream publication, adjudication, or execution."
     - "`optimize-adapt` now has covered engineering, support, operations, compliance, research, HR, and finance cells after adding a CI pipeline failure review queue reprioritization example alongside the earlier post-outage support, field-service dispatch, regulatory complaint, embargoed benchmark review, protected leave case, and quarter-close exception examples."
     - "`adaptive-threshold-calibration` now gives `optimize-adapt` representative `low` risk and `human-in-the-loop` architecture coverage while preserving a clean family boundary at reversible threshold tuning and audit-ready change control."
     - "`plan-coordinate-schedule` now has covered engineering, finance, compliance, operations, research, support, and HR cells after adding a control-remediation sign-off review scheduling example alongside the earlier quarter-close control review, cross-team release-readiness review, benchmark-study publication-readiness review, customer-bridge, interview-panel, and maintenance-review coordination cases."
@@ -93,4 +94,4 @@ summary:
     - "`shared-workbench-orchestration` now gives `human-agent-collaborative-work` representative `low` risk, `bounded-delegation`, and `event-driven-monitoring` coverage while preserving a clean family boundary at bounded internal artifact upkeep rather than synthesis-only drafting, approval readiness, or downstream execution."
     - "`gather-retrieve-synthesize` now has covered research, engineering, finance, compliance, operations, support, and HR cells at both the grounded-example layer and the canonical-pattern layer after adding `change-triggered-context-briefing` for operations, support, and HR alongside the earlier research, engineering, finance, and compliance anchors."
     - "`change-triggered-context-briefing` now gives `gather-retrieve-synthesize` representative `low` risk, `event-driven-monitoring`, and `bounded-delegation` coverage while preserving a clean family boundary at contextual revision digests rather than alert triage, recommendation, or execution."
-    - "`human-agent-collaborative-work` now has representative low-, moderate-, and high-risk coverage plus event-driven collaboration support, so the next highest-leverage gaps shift toward other narrow family-specific slices such as higher-risk `transform-process` rather than additional broad domain spread."
+    - "`transform-process` now has representative low-, moderate-, and high-risk coverage plus research, HR, and support grounding for privacy-sensitive batch reshaping, so the next highest-leverage gap within that family shifts toward event-driven representation refresh rather than another broad domain expansion."

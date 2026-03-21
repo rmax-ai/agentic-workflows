@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 25
-  instance_files: 90
+  pattern_files: 26
+  instance_files: 93
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -47,7 +47,7 @@ coverage_totals:
   risk_levels_with_patterns: 4
 pattern_counts_by_family:
   gather-retrieve-synthesize: 3
-  transform-process: 2
+  transform-process: 3
   investigate-reconcile-verify: 3
   monitor-detect-triage: 3
   plan-coordinate-schedule: 2
@@ -60,9 +60,9 @@ instance_counts_by_domain:
   finance: 12
   compliance: 11
   operations: 13
-  research: 14
-  support: 14
-  hr: 12
+  research: 15
+  support: 15
+  hr: 13
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -87,6 +87,7 @@ repo_reality:
     - data/patterns/gather-retrieve-synthesize/change-triggered-context-briefing.yaml
     - data/patterns/transform-process/document-to-structured-data-handoff.yaml
     - data/patterns/transform-process/normalization-and-enrichment.yaml
+    - data/patterns/transform-process/batch-content-transformation.yaml
     - data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml
     - data/patterns/investigate-reconcile-verify/authoritative-record-reconciliation.yaml
     - data/patterns/investigate-reconcile-verify/claimed-state-verification.yaml
@@ -119,6 +120,7 @@ repo_reality:
     - instances/research/approved-benchmark-study-review-disposition-closure.md
     - instances/research/benchmark-study-artifact-freeze-readiness-gate-disposition-recommendation.md
     - instances/research/benchmark-study-artifact-freeze-completion-verification.md
+    - instances/research/de-identified-participant-interview-batch-to-release-safe-study-dataset.md
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md
     - instances/engineering/deprecated-message-broker-client-migration-exception-copilot-loop.md
@@ -176,6 +178,7 @@ repo_reality:
     - instances/support/enterprise-security-incident-remediation-credit-package-readiness-loop.md
     - instances/support/enterprise-support-severity-drift-anomaly-review.md
     - instances/support/premium-support-workaround-article-publication-verification.md
+    - instances/support/privacy-screened-support-transcript-batch-to-quality-review-dataset.md
     - instances/compliance/vendor-data-transfer-safeguard-obligation-synthesis-for-cross-border-review.md
     - instances/compliance/vendor-telemetry-safeguard-requirement-attestation-recommendation.md
     - instances/hr/approved-payroll-status-change-submission.md
@@ -190,6 +193,7 @@ repo_reality:
     - instances/hr/work-authorization-expiry-risk-alert-triage.md
     - instances/hr/critical-backfill-headcount-freeze-exception-package-readiness-loop.md
     - instances/hr/worker-lifecycle-change-anomaly-review.md
+    - instances/hr/redacted-accommodation-case-batch-to-workforce-review-dataset.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -205,12 +209,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty-five canonical patterns across all nine top-level families, and ninety grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty-six canonical patterns across all nine top-level families, and ninety-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`shared-workbench-orchestration` now gives `human-agent-collaborative-work` a third canonical pattern plus representative `low` risk, `bounded-delegation`, and `event-driven-monitoring` coverage while staying bounded at internal workbench upkeep rather than synthesis-only drafting, approval readiness, or downstream execution."
-    - "`human-agent-collaborative-work` now has canonical pattern coverage in engineering, finance, compliance, operations, research, support, and HR, and it now spans `tool-using-single-agent`, `orchestrated-multi-agent`, `human-in-the-loop`, and `event-driven-monitoring` architectures without drifting into approval-gated execution."
-    - "The derived architecture, autonomy, and risk browse views are now realigned to canonical collaboration metadata, including the existing `analyst-copilot-loop` tool-using slice and the new low-risk shared-workbench anchor, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
-    - "All nine top-level families still have at least two canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps are narrower family-specific governance slices rather than missing global scaffolding."
+    - "`batch-content-transformation` now gives `transform-process` a third canonical pattern plus representative `high` risk, `approval-gated`, `orchestrated-multi-agent`, and `human-in-the-loop` coverage while staying bounded at reviewed release-safe representations rather than downstream publication or action."
+    - "`transform-process` now has canonical pattern coverage across engineering, finance, compliance, operations, research, support, and HR, and it now spans `tool-using-single-agent`, `orchestrated-multi-agent`, and `human-in-the-loop` architectures without drifting into approval-gated execution."
+    - "The derived architecture, autonomy, and risk browse views are now realigned to canonical transform metadata, including the new high-risk release-safe batch anchor, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
+    - "All nine top-level families still have at least two canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps are narrower family-specific architecture slices such as event-driven `transform-process` rather than missing global scaffolding."
 next_action:
-  id: phase-7-high-risk-transform-refinement
-  summary: "Use the next iteration to add one more governance-sensitive `transform-process` pattern that extends the family beyond low- and moderate-risk representation change while staying bounded at structured handoff, governed lossiness, or sensitive normalization rather than recommendation, approval, or execution."
+  id: phase-7-event-driven-transform-refinement
+  summary: "Use the next iteration to add one trigger-driven `transform-process` refinement that keeps the family centered on representation change, change-aware refresh, and reviewed handoff rather than recommendation, approval adjudication, or execution."
