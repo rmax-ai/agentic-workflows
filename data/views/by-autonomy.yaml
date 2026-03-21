@@ -61,7 +61,7 @@ autonomy_levels:
     gather-retrieve-synthesize: []
     transform-process: [batch-content-transformation, approval-gated-transformation-release]
     investigate-reconcile-verify: [evidence-gated-verification-for-release]
-    monitor-detect-triage: [risk-alert-triage]
+    monitor-detect-triage: [risk-alert-triage, approval-gated-triage-dispatch]
     plan-coordinate-schedule: [contingency-plan-activation-gate]
     recommend-decide-escalate: []
     execute-automate: [browser-based-form-completion-with-approval-gates]

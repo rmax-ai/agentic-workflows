@@ -19,6 +19,7 @@ The current canonical patterns in this family are:
 - `explainable-watchlist-maintenance`
 - `anomaly-detection-review`
 - `risk-alert-triage`
+- `approval-gated-triage-dispatch`
 - `critical-signal-corroboration-triage`
 
 ## Problem-structure mapping
@@ -29,12 +30,14 @@ That term should anchor future canonical patterns when the persistent challenge 
 
 ## Family boundary
 
-This family usually stops at watchlisting, prioritization, and routing.
+This family usually stops at watchlisting, prioritization, routing, and, for higher-consequence cases, explicit approval-gated release of an already-triaged packet into a downstream lane.
 
 - If the workflow is maintaining a low-stakes recurring-signal watchlist, bounded suppression logic, or routine attention queue without creating case packets or recommending action, it still belongs here.
 - If the workflow is packaging a mid-severity anomaly for governed human review, it belongs here only while it stops short of diagnosis or action.
+- If the workflow is releasing an already-triaged packet into a restricted escalation queue, command channel, or review lane, it still belongs here only while it stops at governed dispatch of that packet rather than choosing authority, recommending response, or executing it.
 
 - If the main challenge becomes **explaining why a flagged issue exists or reconciling records**, move to [investigate-reconcile-verify](./investigate-reconcile-verify.md).
+- If the main challenge becomes **choosing who should decide, what authority lane should own the case, or which next-step option to recommend**, move to [recommend-decide-escalate](./recommend-decide-escalate.md).
 - If the main challenge becomes **choosing and sequencing coordinated next steps**, move to [plan-coordinate-schedule](./plan-coordinate-schedule.md).
 - If the workflow directly **acts on the alert under control rules**, it may cross into [execute-automate](./execute-automate.md).
 - If the workflow mainly **refreshes contextual briefs after authoritative source changes** rather than watching operational signals, move to [gather-retrieve-synthesize](./gather-retrieve-synthesize.md).
@@ -55,7 +58,7 @@ A strong canonical pattern in this family should state:
 - what counts as notable or urgent,
 - when a recurring weak signal stays on a low-risk watchlist versus aging out,
 - what contextual evidence accompanies a triaged item,
-- where the handoff goes next: investigation, planning, execution, or human review.
+- where the handoff goes next: investigation, planning, execution, or human review, and whether that dispatch itself requires explicit approval before the packet may cross the boundary.
 
 ## See also
 

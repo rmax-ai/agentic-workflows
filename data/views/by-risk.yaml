@@ -60,7 +60,7 @@ risk_levels:
     gather-retrieve-synthesize: [approval-packet-generation]
     transform-process: [batch-content-transformation, approval-gated-transformation-release]
     investigate-reconcile-verify: [incident-root-cause-analysis, evidence-gated-verification-for-release]
-    monitor-detect-triage: [risk-alert-triage]
+    monitor-detect-triage: [risk-alert-triage, approval-gated-triage-dispatch]
     plan-coordinate-schedule: [authoritative-change-coordination-refresh]
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
     execute-automate: [staged-change-execution-with-rollback-holds]

@@ -1,0 +1,287 @@
+id: approval-gated-triage-dispatch
+slug: approval-gated-triage-dispatch
+name: Approval-gated triage dispatch
+summary: Release an already-triaged packet into one governed downstream escalation queue, command channel, or restricted review lane only after explicit approval confirms scope, hold state, and dispatch boundary, without choosing the response, re-verifying truth, or executing follow-on action.
+pattern_family:
+  id: monitor-detect-triage
+  label: Monitor / Detect / Triage
+problem_structure:
+  id: continuous-monitoring-and-triage
+  label: Continuous monitoring and triage
+  source_vocabulary: problem-structures
+domain:
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+workflow_goal: Watch already-triaged high-consequence packets that are waiting at a protected dispatch boundary, keep version and hold state explicit, and release the exact approved packet into the intended downstream escalation lane without deciding the response, authority, or operational action that follows.
+inputs:
+  - name: Already-triaged escalation packet
+    description: The bounded triage packet produced upstream with severity, supporting context, unresolved uncertainty, and the predeclared downstream lane this workflow is allowed to prepare for dispatch.
+    kind: case-packet
+    required: true
+    examples:
+      - Suspicious wire packet prepared for restricted fraud-review dispatch with duplicate lineage and beneficiary context already attached
+      - Serious safety-signal packet prepared for expedited medical review with seriousness tags, expectedness context, and open uncertainty noted
+      - Cold-chain excursion packet prepared for network command-center dispatch with facility scope, shipment impact, and sensor-corroboration references
+  - name: Dispatch approval policy and lane boundary
+    description: The approved rules defining which triage packet classes require approval, who may sign, which downstream queues or channels are allowed, and what dispatch remains blocked even after approval.
+    kind: policy
+    required: true
+    examples:
+      - Dual-control rule requiring treasury fraud and risk-operations approval before a suspicious-payment packet may enter the restricted fraud lane
+      - Safety-governance rule specifying which severe pharmacovigilance packets may be released into the expedited medical-review queue
+      - Operations command rule limiting cold-chain escalation dispatch to one command-center bridge and one protected shift window
+  - name: Current approval, hold, and deduplication state
+    description: The latest packet version, signer status, duplicate suppression history, freshness checks, and unresolved holds that determine whether dispatch may proceed or must remain blocked.
+    kind: case-state
+    required: true
+    examples:
+      - Packet revision history showing one suspicious-wire packet superseded after beneficiary enrichment changed
+      - Safety-signal dispatch draft held because one linked case follow-up remains within the freshness window but not yet attached
+      - Command-center packet awaiting duty-manager approval after two cold-chain alerts were merged into one excursion case
+  - name: Downstream lane availability and protected routing metadata
+    description: Queue ownership, command-channel identifiers, restricted reviewer rosters, timing windows, and routing references needed to release the packet into the correct downstream lane without broadening scope.
+    kind: routing-state
+    required: false
+    examples:
+      - Restricted fraud-review queue identifier, escalation SLA, and approved payment-hold liaison references
+      - Expedited medical-review lane id, on-call safety-physician roster, and reporting-clock metadata
+      - Command-center bridge identifier, facility response roster, and protected communications-window record
+outputs:
+  - name: Approved downstream dispatch
+    description: The released triage packet in the exact downstream escalation queue, command channel, or restricted review lane that approval authorized.
+    kind: queue
+    required: true
+    examples:
+      - Suspicious-wire case released into the restricted fraud-review queue with the approved packet revision and lane scope bound explicitly
+      - Serious safety-signal packet released into expedited medical review with approval timestamps and protected routing metadata attached
+      - Cold-chain excursion packet released into the network command-center intake lane for one bounded facility set and shift window
+  - name: Dispatch manifest
+    description: Manifest binding the approved packet version, downstream lane boundary, signer identities, approval status, and the precise point where triage dispatch stopped before downstream response began.
+    kind: manifest
+    required: true
+    examples:
+      - Manifest showing the suspicious-wire packet was approved for fraud-review dispatch but no payment restriction or filing action has started
+      - Manifest proving the safety-signal packet entered expedited review while causality assessment and reporting decisions remain downstream
+      - Manifest showing the cold-chain packet was dispatched to command intake without activating reroutes or product disposition actions
+  - name: Dispatch hold register
+    description: Explicit list of unresolved freshness, duplicate, scope, signer, or routing issues that prevented a packet from being released or that remained visible at dispatch time.
+    kind: review-queue
+    required: true
+    examples:
+      - Hold showing beneficiary-screening refresh expired before suspicious-wire dispatch approval completed
+      - Hold showing one medically significant follow-up narrative still missing before expedited safety dispatch could proceed
+      - Hold showing one facility remained outside approved cold-chain command scope so the packet stayed partially blocked
+  - name: Dispatch audit log
+    description: Durable record of packet versions, approval requests, hold changes, duplicate merges, dispatch releases, and manual overrides across the approval-gated dispatch loop.
+    kind: audit-log
+    required: true
+    examples:
+      - Log of who approved the suspicious-wire packet, which queue boundary was authorized, and why an earlier packet revision was superseded
+      - Audit trail showing when the safety packet entered expedited review and which protected-routing policy version applied
+      - Command-center dispatch log showing hold removals, queue release time, and any blocked attempts to broaden facility scope
+environment:
+  summary: Operates in high-consequence monitoring environments where triage packets are already assembled and prioritized, but crossing into protected downstream escalation lanes still requires explicit human approval and visible hold discipline.
+  systems:
+    - Event and case-management systems that store triaged packets and duplicate lineage
+    - Approval-routing, signer, and policy-governance tooling
+    - Restricted queue, command-channel, or review-lane systems
+    - Audit, hold-tracking, and packet-version stores
+  actors:
+    - Human approver such as a fraud lead, safety reviewer, or operations duty manager
+    - Queue owner or command-channel steward who receives approved packets downstream
+    - Governance owner responsible for dispatch rules, signer roles, and protected routing boundaries
+    - Domain specialist who may request clarification on held packet state without changing the downstream response itself
+  constraints:
+    - Treat the triage packet as an upstream input; do not re-score severity, settle factual truth, or expand into root-cause investigation inside this workflow.
+    - Bind approval to one exact packet version and one downstream queue, channel, or review-lane boundary so broader response scope cannot inherit stale approval implicitly.
+    - Keep blocked, stale, duplicate, or scope-conflicted conditions explicit in the dispatch manifest and hold register rather than normalizing them away.
+    - Stop at governed packet release, manifesting, and audit state; do not choose the response authority, recommend the operational action, collaborate on one shared response artifact, or execute the response itself.
+  assumptions:
+    - Upstream monitoring and triage workflows already produced a bounded packet with sufficient context for controlled dispatch review.
+    - The organization can define stable signer roles, queue boundaries, and protected downstream lanes for the triage classes covered by this pattern.
+    - Downstream responders or reviewers can consume the released packet without requiring this workflow to re-open full source-signal analysis.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The workflow watches triaged packets, approval windows, lane state, and hold freshness continuously so dispatch does not stall or proceed on stale packet conditions.
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: Safe dispatch depends on pulling the latest packet version, signer state, duplicate lineage, and protected-routing metadata before release decisions are surfaced.
+  - capability:
+      id: triage
+      label: Triage
+      source_vocabulary: capabilities
+    necessity: Even after packet assembly, the workflow still prioritizes which dispatch-ready packets should move first into scarce restricted lanes and which must remain held.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Approvers, queue stewards, and downstream lane boundaries must stay aligned so the released packet reaches the correct controlled destination with visible ownership.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow reads packet stores, approval systems, routing registries, and audit services, then writes manifests, holds, and dispatch events through tools.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Dispatch class, signer requirements, freshness windows, protected lane boundaries, and escalation restrictions determine whether release may occur.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Packet supersession, duplicate merges, approval lineage, blocked dispatch attempts, and hold changes must remain durable across repeated dispatch cycles.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The workflow needs safe fallbacks when signer state is incomplete, packet freshness lapses, routing metadata conflicts, or dispatch would exceed the bounded downstream lane.
+execution_architecture:
+  - architecture:
+      id: approval-gated-execution
+      label: Approval-gated execution
+      source_vocabulary: architectures
+    fit: The packet is technically ready for downstream release but remains concretely blocked until explicit approval unlocks dispatch into the protected queue or command lane.
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: Dispatch eligibility changes as new triaged packets arrive, holds clear, approvals expire, or protected lane state updates, so the pattern naturally runs as an event-driven gate.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human approvers remain in the normal path because releasing a triaged packet into a restricted escalation lane is consequential even though the downstream response is still out of scope.
+autonomy_profile:
+  level:
+    id: approval-gated
+    label: Approval gated
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Approve the packet classes, signer roles, protected downstream lanes, and freshness rules before routine triage dispatch begins.
+    - Review the exact packet version, hold register, and dispatch manifest before releasing any packet into a restricted queue, command channel, or expedited review lane.
+    - Approve changes to signer logic, queue boundaries, duplicate-handling rules, or dispatch hold criteria before those changes affect future dispatches.
+  reversibility: Dispatch approval can be withdrawn or superseded while the packet remains at the gate, but once an incorrect packet enters a protected downstream lane it may trigger irreversible human mobilization, customer concern, or regulatory timing pressure even though this workflow itself does not execute the response.
+  escalation: Escalate whenever packet freshness is uncertain, signer authority conflicts, the requested lane exceeds the approved boundary, duplicate lineage is unresolved, or the next requested step would choose response authority, recommend action, verify underlying truth, or perform downstream execution.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Misrouting, delaying, or over-broadly releasing a high-consequence triage packet can trigger unnecessary escalations, hide urgent cases behind stale holds, or send sensitive cases into the wrong restricted lane, creating significant operational, financial, compliance, or trust harm even before any downstream response is chosen.
+  approval_requirements:
+    - Human approval is required before any triaged packet is released into a protected escalation queue, command channel, expedited review lane, or equivalent downstream handoff boundary.
+    - Governance-owner approval is required before changing signer roles, protected lane definitions, freshness windows, duplicate-merging rules, or dispatch-hold criteria for future runs.
+  auditability: Preserve packet identifiers and versions, triage lineage references, hold reasons, signer identities, approval timestamps, downstream lane boundaries, blocked dispatch attempts, manual overrides, and supersession history so reviewers can reconstruct exactly what was released and why.
+  privacy:
+    - Limit broad dispatch artifacts to the minimum case context needed for downstream intake, leaving sensitive personal, financial, patient, or shipment details in narrower governed systems when possible.
+    - Keep signer evidence, held annexes, and protected identifiers inside restricted stores rather than copying them into every downstream queue view.
+  security:
+    - Restrict write access to packet versions, dispatch manifests, queue-boundary mappings, and approval records because tampering could suppress urgent escalation or release the wrong case into a sensitive lane.
+    - Log manual dispatch overrides, signer substitutions, lane-boundary edits, and hold removals so hidden bypass of the approval gate remains detectable.
+  notes: High risk fits because the workflow determines whether a severe triage packet may cross a protected operational boundary, while still remaining distinct from the recommendation, verification, collaboration, and execution work that follows.
+why_agentic:
+  - Useful dispatch gating depends on interpreting evolving packet state, approval readiness, duplicate lineage, and protected-lane scope rather than blindly forwarding every triaged case.
+  - The workflow must keep one exact packet version, one downstream boundary, and one visible hold state aligned across multiple systems and human checkpoints.
+  - Safe behavior requires recognizing when uncertainty about packet freshness, scope, or authority should block dispatch instead of being compressed into a superficially ready handoff.
+failure_modes:
+  - mode: Approval is attached to the wrong triage packet revision or downstream lane boundary
+    impact: A stale or mis-scoped packet is released into a protected queue or command lane, creating confusion, duplicated mobilization, or reliance on the wrong case context.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Bind approval to explicit packet ids, revision hashes, and downstream boundary identifiers.
+      - Block dispatch whenever the packet changes after approval review starts or when lane metadata is incomplete.
+  - mode: Hidden holds or stale context are normalized away before dispatch
+    impact: Downstream responders believe the packet is cleared for intake even though freshness windows, duplicate state, or protected-context constraints should still be visible.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Represent holds explicitly in the manifest and queue release record instead of collapsing them into generic ready status.
+      - Recheck freshness, duplicate lineage, and protected-lane constraints immediately before dispatch release.
+  - mode: The workflow drifts into authority selection, recommendation, or response execution
+    impact: Family boundaries blur and the dispatch gate begins deciding who should act or what should be done rather than only governing the handoff boundary.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Limit outputs to approved dispatch records, manifests, hold registers, and audit logs.
+      - Route authority choice, response design, shared response drafting, truth verification, and live action into adjacent patterns instead of handling them inline.
+  - mode: Duplicate severe packets are dispatched separately into the same restricted lane
+    impact: Reviewers or responders receive fragmented context and may treat one underlying case as multiple unrelated emergencies.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Preserve duplicate lineage and blocked-split rules across packet revisions.
+      - Require reviewer-visible merge rationale before multiple packets for the same underlying case may be dispatched concurrently.
+evaluation:
+  success_metrics:
+    - Median time from a packet becoming dispatch-eligible to an approval-bound release or explicit hold decision.
+    - Rate of approved packets that enter the intended downstream lane without later scope correction, duplicate collapse, or approval-boundary dispute.
+    - Percentage of materially stale, mis-scoped, or signer-incomplete packets correctly held before dispatch.
+  quality_criteria:
+    - Every released packet shows the exact packet revision, downstream lane boundary, signer set, unresolved holds, and the point where triage dispatch stopped.
+    - Dispatch logs preserve enough lineage to reconstruct why one packet moved downstream while another remained held.
+    - The workflow stays bounded at governed dispatch release rather than deciding response authority, validating deeper truth claims, or executing follow-on work.
+  robustness_checks:
+    - Test packet supersession during approval review and confirm the older revision cannot be dispatched silently.
+    - Test expired freshness windows, missing signer state, or protected-lane changes and verify the workflow emits explicit holds instead of releasing optimistically.
+    - Test duplicate severe packets with overlapping evidence and ensure the workflow preserves one coherent dispatch boundary or escalates the split for human review.
+  benchmark_notes: Evaluate dispatch-timeliness, boundary discipline, and lineage integrity together; a faster handoff is not success if it releases stale packets or hides the exact approval scope.
+implementation_notes:
+  orchestration_notes:
+    - Keep packet-watch, freshness and hold checks, manifest assembly, approval capture, and downstream release as explicit stages over one durable dispatch state.
+    - Prefer append-only approval and dispatch records so reviewers can inspect repeated attempts, blocked releases, and packet supersession without diffing opaque state.
+  integration_notes:
+    - Common implementations integrate triage packet stores, approval systems, restricted queue or command tooling, and audit services.
+    - Keep the pattern neutral about specific fraud, safety, logistics, or case-management vendors so the reusable dispatch shape remains stable.
+  deployment_notes:
+    - Start with one tightly bounded triage class and one protected downstream lane before expanding approval-gated dispatch across broader severe-case programs.
+    - Monitor blocked-dispatch frequency, stale-packet rates, and wrong-lane corrections continuously because approval gating can silently drift into either bottlenecking urgent cases or normalizing unsafe releases.
+  references:
+    - docs/patterns/monitor-detect-triage.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: risk-alert-triage
+    relationship: often-precedes
+    notes: Broader governed alert triage often assembles and prioritizes the packet that this pattern later holds at an explicit approval gate before downstream release.
+  - id: critical-signal-corroboration-triage
+    relationship: often-precedes
+    notes: Severe corroborated cases may enter this pattern once the critical packet exists and the remaining question is whether it may cross into a protected command or review lane.
+  - id: critical-escalation-authority-recommendation
+    relationship: contrasts-with
+    notes: That recommendation pattern helps choose which authority or response lane should own a severe case, while this pattern assumes the downstream lane is already bounded and governs only approved packet release.
+example_domains:
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Release a suspicious-payment packet into a restricted fraud-review lane only after dual-control approval confirms the exact case revision and queue boundary.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Dispatch an already-triaged safety-signal packet into expedited medical review only after a qualified reviewer approves the packet version and protected routing scope.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Send a cold-chain excursion packet into a network command-center intake lane only after duty-manager approval confirms the facility scope and command boundary.
+maturity: draft
+tags:
+  - monitor-detect-triage
+  - approval-gated-dispatch
+  - escalation-handoff
+  - protected-routing
+  - governed-triage
