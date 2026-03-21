@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Iteration `20260321-141156` is now in progress: add one research-grounded `approval-gated-triage-dispatch` instance so the tied-thinnest `research` domain gains depth through an already-canonical monitor-family approval-bound dispatch slice, then update only the directly dependent canonical pattern metadata and derived `data/views/by-domain.yaml` entry needed to keep browse state aligned.
+
 Iteration `20260321-140641` is now complete: `approval-centered-collaboration` has been normalized so the canonical pattern domain/example metadata and the derived `data/views/by-domain.yaml` browse artifact now reflect the already-committed `support` and `compliance` readiness-loop instances, restoring browse consistency before any further domain-depth expansion.
 
 Iteration `20260321-140121` is now complete: `shared-workbench-orchestration` gained new `compliance` grounding through one internal control-library caveat-board upkeep example, and the directly dependent canonical pattern metadata plus derived domain view now expose that low-risk collaboration slice without drifting past internal artifact upkeep, source refresh, ownership preservation, and explicit hold-state management.
