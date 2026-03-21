@@ -12,6 +12,19 @@ Compliance.
 
 A privacy compliance manager must assemble a decision-ready approval packet because a physical-security vendor cannot yet produce the contractually required thirty-day deletion evidence for biometric visitor logs after a storage-region migration exposed gaps in the vendor's purge attestations and subprocessor inventory. The workflow gathers the scoped deviation request, deletion-job telemetry, regional biometric-data obligations, contract annexes, prior exception history, data-flow diagrams, and the proposed manual compensating controls into one governed packet for privacy council review. Agents help map packet claims to source evidence, build a reviewer-visible provenance index, keep unresolved issues such as missing subprocessor confirmation or stale DPIA references in an explicit exception register, and prepare the handoff record showing the named council reviewers and current completeness status. The workflow stops at packet generation and handoff; it does not recommend whether the deviation should be granted, adjudicate residual privacy risk, direct the vendor to remediate, or initiate any regulator or data-subject communication.
 
+```mermaid
+flowchart TD
+    A["Scoped deviation request<br>and packet boundary confirmed"] --> B["Gather vendor, telemetry, obligation,<br>contract, history, and data-flow evidence"]
+    B --> C["Assemble approval packet,<br>provenance index, and exception register"]
+    C --> D{"Packet assembly checks<br>complete, sourced, and reviewer-ready?"}
+    D -- "No: missing evidence or stale references" --> E["Hold for evidence completion<br>and keep blockers explicit"]
+    D -- "No: scope or reviewer routing unclear" --> F["Hold for scope or reviewer clarification<br>before handoff"]
+    E --> B
+    F --> C
+    D -- "Yes" --> G["Create handoff record with named council reviewers,<br>packet version, completeness state, and unresolved blockers"]
+    G --> H["Bounded transfer to review-routing queue<br>for privacy council evaluation only"]
+```
+
 ## Target systems / source systems
 
 - Privacy exception workspace holding the scoped deviation request, packet draft, completeness checklist, and handoff status
