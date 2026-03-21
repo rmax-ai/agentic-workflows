@@ -66,6 +66,9 @@ architectures:
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: [adaptive-threshold-calibration]
+    human-agent-collaborative-work: [analyst-copilot-loop]
+- architecture:
+    id: event-driven-monitoring
     label: Event-driven monitoring
     source_vocabulary: architectures
   pattern_families:

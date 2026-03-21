@@ -72,6 +72,7 @@
 - `data/patterns/recommend-decide-escalate/policy-constrained-escalation-routing.yaml` — canonical recommendation pattern for routing sensitive cases to the right authority through policy-bounded escalation recommendations and audit-ready handoff packaging.
 - `data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml` — canonical execution pattern for sensitive browser-based submissions under explicit approval gates and exception handling.
 - `data/patterns/optimize-adapt/queue-prioritization-optimization.yaml` — canonical optimization pattern for tuning queue ordering from outcome feedback under explicit service, fairness, and policy guardrails.
+- `data/patterns/optimize-adapt/adaptive-threshold-calibration.yaml` — canonical optimization pattern for reversible threshold and sensitivity calibration from operator feedback and observed signal quality under pre-approved bounds and review triggers.
 - `data/patterns/human-agent-collaborative-work/analyst-copilot-loop.yaml` — canonical human-agent collaboration pattern for mixed-initiative co-working around a shared artifact, explicit handoffs, and visible responsibility boundaries.
 
 ### Current grounded examples

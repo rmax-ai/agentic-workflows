@@ -38,6 +38,9 @@ domains:
     recommend-decide-escalate: []
     execute-automate: []
     optimize-adapt: [adaptive-threshold-calibration]
+    human-agent-collaborative-work: []
+- domain:
+    id: finance
     label: Finance
     source_vocabulary: domains
   pattern_families:

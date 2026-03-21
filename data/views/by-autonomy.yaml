@@ -80,6 +80,9 @@ autonomy_levels:
     recommend-decide-escalate: []
     execute-automate: []
     optimize-adapt: [adaptive-threshold-calibration]
+    human-agent-collaborative-work: []
+- autonomy_level:
+    id: exception-gated-autonomy
     label: Exception-gated autonomy
     source_vocabulary: autonomy-levels
   pattern_families:
