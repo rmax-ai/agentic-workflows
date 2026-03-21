@@ -705,8 +705,7 @@ Mitigation:
 1. Derive navigation from repository truth or generated section indexes.
 2. Avoid one giant hand-maintained `nav` block when the site grows.
 
-### Risk: The first version feels documentation-heavy rather than
-app-like
+### Risk: The first version feels too documentation-heavy
 
 Mitigation:
 
