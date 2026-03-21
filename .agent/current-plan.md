@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-060319` is complete: it grounded `approval-centered-collaboration` with three new governance-heavy instances in engineering, finance, and HR, giving the newer collaboration pattern its first concrete approval-readiness examples.
+Iteration `20260321-061141` is now scoped: extend `approval-centered-collaboration` with a tightly bounded grounding batch in compliance, operations, and support so the pattern no longer relies only on engineering, finance, and HR approval-readiness loops.
 
 ## Current phase
 
@@ -16,18 +16,18 @@ Iteration `20260321-060319` is complete: it grounded `approval-centered-collabor
 
 ## Ordered tasks
 
-1. Re-read `.agent/coverage-matrix.yaml`, `data/patterns/human-agent-collaborative-work/approval-centered-collaboration.yaml`, and the new engineering, finance, and HR readiness-loop instances before expanding the pattern again.
-2. Prefer the next bounded batch to add two or three more grounded instances for `approval-centered-collaboration`, ideally in compliance, operations, or support where approval-loop collaboration has strong governance distinction from the existing `analyst-copilot-loop` examples.
-3. Keep the next batch tightly bounded to approval-readiness collaboration, reviewer objection handling, evidence negotiation, and explicit handoff ownership rather than drifting into downstream approval adjudication or execution.
-4. After the next content commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log so execution memory keeps matching repository reality.
-5. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
+1. Re-read `.agent/coverage-matrix.yaml`, `data/patterns/human-agent-collaborative-work/approval-centered-collaboration.yaml`, and the existing engineering, finance, and HR readiness-loop instances before extending the pattern again.
+2. In this iteration, add exactly three grounded Markdown instances for `approval-centered-collaboration` in compliance, operations, and support so the pattern has representative governance-heavy coverage across all remaining high-value open domains.
+3. Keep the new instances tightly bounded to approval-readiness collaboration, reviewer objection handling, evidence negotiation, and explicit handoff ownership rather than drifting into downstream approval adjudication, formal escalation routing, or execution.
+4. After the content commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and `.agent/iterations/2026/20260321-061141.md` so execution memory keeps matching repository reality.
+5. Validate repository YAML with the existing uv-managed helper before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-060319`
-- Baseline validation: `uv run python scripts/python/validate_yaml.py` succeeded before edits.
-- Completed subagent scope: authored three approval-loop grounded instances in `instances/engineering/`, `instances/finance/`, and `instances/hr/`, then committed them in one focused content batch.
-- Completed orchestrator follow-up: refreshed execution memory, revalidated YAML, and recorded the next approval-loop coverage target.
+- Timestamp: `20260321-061141`
+- Baseline context: prior iteration `20260321-060319` completed engineering, finance, and HR grounding for `approval-centered-collaboration`.
+- Planned subagent scope: author three approval-loop grounded instances in `instances/compliance/`, `instances/operations/`, and `instances/support/`, then commit them in one focused content batch.
+- Planned orchestrator follow-up: refresh execution memory, revalidate YAML, and record the next post-grounding refinement target.
 
 ## Constraints
 
@@ -39,4 +39,4 @@ Iteration `20260321-060319` is complete: it grounded `approval-centered-collabor
 
 ## Expected outcome
 
-The next iteration should likely extend `approval-centered-collaboration` into additional governance-heavy domains such as compliance, operations, or support so the newer collaboration pattern gains broader grounded coverage before the loop returns to other refinement gaps.
+This iteration should leave `approval-centered-collaboration` grounded in compliance, operations, and support as well as engineering, finance, and HR, after which the next planning pass can reassess narrower architecture or risk-slice gaps across families.
