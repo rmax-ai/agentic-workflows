@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 190
+  instance_files: 191
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,8 +62,9 @@ instance_counts_by_domain:
   operations: 29
   research: 25
   support: 25
-  hr: 25
+  hr: 26
 consistency_notes:
+  - "`critical-authoritative-state-restoration` now has explicit `hr` grounding through a protected-leave occupational-health and benefits state-truth restoration example, extending that critical investigate-family slice beyond finance, compliance, and operations while preserving a clean boundary at authoritative current-state restoration, unresolved holds, and human-reviewed handoff rather than accommodation adjudication, payroll action, or employee communication."
   - "`claimed-state-verification` now has explicit `hr` grounding through an internal parental-leave guidance publication-state verification example, extending that low-risk investigate-family slice beyond engineering, operations, research, and support while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting rather than policy interpretation, communication, or record mutation."
   - "`approval-gated-triage-dispatch` now has explicit `research` grounding through a benchmark-study disclosure-risk packet approved for restricted disclosure-governance review dispatch, extending that monitor-family approval-bound slice beyond finance, compliance, operations, and HR while preserving a clean boundary at governed packet release rather than disclosure adjudication or publication action."
   - "`approval-centered-collaboration` canonical domain/example metadata plus `data/views/by-domain.yaml` are now realigned with the already-committed `support` and `compliance` readiness-loop instances, restoring browse consistency before further refinement work."
