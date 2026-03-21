@@ -4,6 +4,17 @@
 
 This family covers workflows that improve future behavior using feedback from prior outcomes. Its main concern is adaptation under constraints: tuning plans, thresholds, policies, or actions so the system gets better over time without losing governance control.
 
+```mermaid
+flowchart TD
+    Outcome["Prior outcomes<br>and evaluation feedback"] -->|"assess feedback"| Assess["Assess feedback<br>against targets and constraints"]
+    Assess -->|"prepare bounded candidates"| Prepare["Prepare bounded tuning<br>candidates"]
+    Prepare -->|"submit for governance"| Gate{"Governance check<br>or approval"}
+    Gate -->|"approved and in bounds"| Apply["Release or apply one exact<br>optimization-state revision"]
+    Gate -->|"not approved or out of bounds"| Revise["Revise, defer, or route for<br>bounded review"]
+    Revise -->|"rework within constraints"| Prepare
+    Apply -->|"observe later outcomes"| Outcome
+```
+
 ## What belongs in this family
 
 Use this family for patterns that:
