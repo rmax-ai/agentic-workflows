@@ -6,7 +6,7 @@ Iteration `20260321-114951` is now complete: `recommend-decide-escalate` gained 
 
 Iteration `20260321-115928` is now complete: `approval-gated-recommendation-release` gained new research, support, and HR grounding, and the canonical pattern metadata plus derived domain view now expose that slice across six domains without drifting past packet release into decision adjudication or execution.
 
-Iteration `20260321-120725` is now scoped to close the last remaining domain-depth gap for that same pattern by adding one operations-grounded example and only the directly dependent canonical, derived-view, and execution-memory follow-through.
+Iteration `20260321-120725` is now complete: `approval-gated-recommendation-release` gained its last missing operations-grounded example, and the canonical pattern metadata plus derived domain view now expose that approval-bound recommend slice across all seven modeled domains without drifting past packet release into decision adjudication or execution.
 
 ## Current phase
 
@@ -14,25 +14,26 @@ Iteration `20260321-120725` is now scoped to close the last remaining domain-dep
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
 - Phase 5: canonical coverage now spans forty-nine patterns across all nine top-level pattern families. `recommend-decide-escalate` now sits at seven canonical patterns; `transform-process` and `optimize-adapt` each sit at six; `gather-retrieve-synthesize` now sits at five; and `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` each remain at five. Future additions should remain narrow and land only where a genuinely reusable workflow shape deepens uneven grounded coverage rather than duplicating already-covered matrix cells.
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred sixty-four instance files now committed.
+- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred sixty-five instance files now committed.
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and governance-heavy approval-bound slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: finish the remaining operations grounding gap for `approval-gated-recommendation-release` before opening another approval-bound slice in a neighboring family.
+- Current refinement target: compare the next thinnest approval-bound neighboring slices, especially `approval-gated-collaborative-artifact-release` and `approval-gated-optimization-state-release`, now that the recommend-family release slice spans all seven modeled domains.
 
 ## Ordered tasks
 
-1. Add one operations-grounded instance for `approval-gated-recommendation-release` that keeps the release boundary tied to one exact recommendation packet revision and one bounded downstream decision lane.
-2. Update only directly dependent artifacts after the instance lands: the canonical pattern metadata and the derived `data/views/by-domain.yaml` operations entry if needed.
-3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py`.
-4. After the content batch, update iteration memory, ontology status, coverage notes, and the next-step plan without opening a new structural pattern batch.
+1. Compare thin approval-bound neighboring slices, starting with `approval-gated-collaborative-artifact-release` and `approval-gated-optimization-state-release`, and choose the next one that can gain grounded depth without widening family boundaries.
+2. Prefer new instances or small metadata normalization over new canonical patterns unless a genuinely missing reusable shape appears.
+3. Keep the next batch modest: one bounded family target, a few grounded examples, and only directly dependent memory or derived-view updates.
+4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each bounded batch.
 
 ## Iteration checkpoint
 
 - Timestamp: `20260321-120725`
 - Previous completed scope: added research, support, and HR approval-bound recommendation-packet release instances for `approval-gated-recommendation-release`, expanded the canonical pattern's domain and example metadata, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Current scoped scope: close the last remaining operations grounding gap for `approval-gated-recommendation-release`, then reassess whether the next refinement should stay within recommendation-release depth or shift to another thin approval-bound neighboring family.
+- Completed scope: added the operations approval-bound recommendation-packet release instance for `approval-gated-recommendation-release`, expanded the canonical pattern's domain and example metadata to include operations, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Current working hypothesis: approval-gated refinement is family-safe only when the governed object is one exact artifact revision and one bounded downstream lane; for the recommend family, that means packet release must stay distinct from the actual human decision.
+- Current scoped follow-on: use the now fully cross-domain recommend-family approval-gated slice as a reference when comparing whether the next depth-balancing batch belongs in collaboration or optimize rather than continuing to deepen recommendation release itself.
 - Boundary reminder: future approval-gated work should remain tied to one exact artifact revision and one bounded handoff lane rather than broad permission to keep recommending, coordinating, or executing.
 
 ## Constraints
@@ -53,4 +54,4 @@ Iteration `20260321-120725` is now scoped to close the last remaining domain-dep
 
 ## Expected outcome
 
-The next iteration should stay in depth-balancing mode: add a small number of grounded examples or normalization updates where underrepresented domains and approval-bound governance slices are still comparatively thin, with a bias toward finishing near-complete family/domain slices before opening broader new batches.
+The next iteration should stay in depth-balancing mode: choose one still-thin approval-bound neighboring slice, add a small number of grounded examples or normalization updates, and keep the work bounded to directly dependent artifacts rather than opening a new structural pattern batch.
