@@ -19,6 +19,9 @@ domain:
   - id: operations
     label: Operations
     source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
   - id: hr
     label: HR
     source_vocabulary: domains
@@ -32,6 +35,7 @@ inputs:
       - Suspicious wire packet prepared for restricted fraud-review dispatch with duplicate lineage and beneficiary context already attached
       - Serious safety-signal packet prepared for expedited medical review with seriousness tags, expectedness context, and open uncertainty noted
       - Cold-chain excursion packet prepared for network command-center dispatch with facility scope, shipment impact, and sensor-corroboration references
+      - Benchmark-study disclosure-risk packet prepared for restricted disclosure-governance review dispatch with embargo scope, external-review request lineage, and rerun caveats already attached
   - name: Dispatch approval policy and lane boundary
     description: The approved rules defining which triage packet classes require approval, who may sign, which downstream queues or channels are allowed, and what dispatch remains blocked even after approval.
     kind: policy
@@ -40,6 +44,7 @@ inputs:
       - Dual-control rule requiring treasury fraud and risk-operations approval before a suspicious-payment packet may enter the restricted fraud lane
       - Safety-governance rule specifying which severe pharmacovigilance packets may be released into the expedited medical-review queue
       - Operations command rule limiting cold-chain escalation dispatch to one command-center bridge and one protected shift window
+      - Research governance rule limiting benchmark disclosure-risk dispatch to one restricted disclosure-review lane and one approved reviewer audience
   - name: Current approval, hold, and deduplication state
     description: The latest packet version, signer status, duplicate suppression history, freshness checks, and unresolved holds that determine whether dispatch may proceed or must remain blocked.
     kind: case-state
@@ -48,6 +53,7 @@ inputs:
       - Packet revision history showing one suspicious-wire packet superseded after beneficiary enrichment changed
       - Safety-signal dispatch draft held because one linked case follow-up remains within the freshness window but not yet attached
       - Command-center packet awaiting duty-manager approval after two cold-chain alerts were merged into one excursion case
+      - Disclosure-risk packet awaiting research-governance approval after a late rerun regression and outside-review request were merged into one benchmark case
   - name: Downstream lane availability and protected routing metadata
     description: Queue ownership, command-channel identifiers, restricted reviewer rosters, timing windows, and routing references needed to release the packet into the correct downstream lane without broadening scope.
     kind: routing-state
@@ -56,6 +62,7 @@ inputs:
       - Restricted fraud-review queue identifier, escalation SLA, and approved payment-hold liaison references
       - Expedited medical-review lane id, on-call safety-physician roster, and reporting-clock metadata
       - Command-center bridge identifier, facility response roster, and protected communications-window record
+      - Restricted disclosure-governance queue identifier, approved reviewer roster, and embargo-window metadata for one benchmark study
 outputs:
   - name: Approved downstream dispatch
     description: The released triage packet in the exact downstream escalation queue, command channel, or restricted review lane that approval authorized.
@@ -65,6 +72,7 @@ outputs:
       - Suspicious-wire case released into the restricted fraud-review queue with the approved packet revision and lane scope bound explicitly
       - Serious safety-signal packet released into expedited medical review with approval timestamps and protected routing metadata attached
       - Cold-chain excursion packet released into the network command-center intake lane for one bounded facility set and shift window
+      - Benchmark-study disclosure-risk packet released into restricted disclosure-governance review with the approved packet revision and reviewer-audience scope bound explicitly
   - name: Dispatch manifest
     description: Manifest binding the approved packet version, downstream lane boundary, signer identities, approval status, and the precise point where triage dispatch stopped before downstream response began.
     kind: manifest
@@ -73,6 +81,7 @@ outputs:
       - Manifest showing the suspicious-wire packet was approved for fraud-review dispatch but no payment restriction or filing action has started
       - Manifest proving the safety-signal packet entered expedited review while causality assessment and reporting decisions remain downstream
       - Manifest showing the cold-chain packet was dispatched to command intake without activating reroutes or product disposition actions
+      - Manifest showing the benchmark disclosure-risk packet was dispatched for restricted governance review without approving external sharing or publication steps
   - name: Dispatch hold register
     description: Explicit list of unresolved freshness, duplicate, scope, signer, or routing issues that prevented a packet from being released or that remained visible at dispatch time.
     kind: review-queue
@@ -81,6 +90,7 @@ outputs:
       - Hold showing beneficiary-screening refresh expired before suspicious-wire dispatch approval completed
       - Hold showing one medically significant follow-up narrative still missing before expedited safety dispatch could proceed
       - Hold showing one facility remained outside approved cold-chain command scope so the packet stayed partially blocked
+      - Hold showing one draft annex remained outside the approved reviewer audience so the benchmark packet stayed blocked at dispatch
   - name: Dispatch audit log
     description: Durable record of packet versions, approval requests, hold changes, duplicate merges, dispatch releases, and manual overrides across the approval-gated dispatch loop.
     kind: audit-log
@@ -89,6 +99,7 @@ outputs:
       - Log of who approved the suspicious-wire packet, which queue boundary was authorized, and why an earlier packet revision was superseded
       - Audit trail showing when the safety packet entered expedited review and which protected-routing policy version applied
       - Command-center dispatch log showing hold removals, queue release time, and any blocked attempts to broaden facility scope
+      - Disclosure-governance dispatch log showing reviewer-boundary checks, packet release time, and blocked attempts to broaden benchmark draft access
 environment:
   summary: Operates in high-consequence monitoring environments where triage packets are already assembled and prioritized, but crossing into protected downstream escalation lanes still requires explicit human approval and visible hold discipline.
   systems:

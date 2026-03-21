@@ -89,7 +89,7 @@ domains:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification]
     transform-process: [normalization-and-enrichment, change-triggered-representation-refresh, approval-gated-transformation-release]
     investigate-reconcile-verify: [claimed-state-verification, evidence-gated-verification-for-release]
-    monitor-detect-triage: [explainable-watchlist-maintenance, anomaly-detection-review]
+    monitor-detect-triage: [explainable-watchlist-maintenance, anomaly-detection-review, approval-gated-triage-dispatch]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: [readiness-gate-disposition-recommendation, approval-gated-recommendation-release]
     execute-automate: [workflow-hand-off-and-completion]
