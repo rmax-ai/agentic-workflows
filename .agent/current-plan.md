@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-144337` is now scoped: the next bounded refinement should rebalance the now sole-thinnest `compliance` domain with one already-canonical, family-safe grounded instance, again preferring a slice whose canonical metadata and derived domain view already align so the batch can stay narrow and instance-first.
+Next iteration focus: rebalance the now sole-thinnest `compliance` domain with one already-canonical, family-safe grounded instance, again preferring a slice whose canonical metadata and derived domain view already align so the batch can stay narrow and instance-first.
 
 Iteration `20260321-143747` is now complete: `schedule-adjustment-and-replanning` gained new `research` grounding through one benchmark-study publication timeline replanning example after evidence-analysis or data-governance clearance delay compressed the original publication-review window, while the canonical pattern metadata and derived `data/views/by-domain.yaml` already correctly exposed the slice.
 
