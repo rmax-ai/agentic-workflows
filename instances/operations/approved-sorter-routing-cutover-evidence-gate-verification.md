@@ -12,6 +12,20 @@ Operations.
 
 Site leadership has an approved routing-profile cutover packet for a high-volume sorter, but the packet cannot be released to live activation until current evidence still supports safe downstream use. The workflow rechecks safety interlocks, fallback-profile availability, sensor-health telemetry, backlog ceiling, and protected zone scope against the packet, then emits a verified, held, or insufficient verdict for site approval. It must not alter the routing profile, recommend a different zone order, or start the cutover itself.
 
+```mermaid
+flowchart TD
+    start["Approved sorter routing-profile<br>cutover packet"]
+    start --> verify["Recheck safety interlocks,<br>fallback-profile restore proof,<br>sensor-health telemetry,<br>backlog ceiling, and<br>protected zone scope"]
+    verify --> assess{"Current evidence and scope<br>still support the approved<br>cutover packet?"}
+    assess --> verified["Emit verified verdict<br>with evidence lineage"]
+    verified --> gate["Present verified packet at the<br>site and safety approval gate"]
+    gate --> stop["Stop before live activation<br>or routing-profile change"]
+    assess --> held["Emit held verdict and keep packet<br>blocked for refreshed evidence<br>or site lead review"]
+    assess --> insufficient["Emit insufficient verdict for<br>scope drift, unsafe backlog, or<br>interlock and fallback conflict"]
+    held --> escalate["Route bounded follow-up to<br>site and safety leads without<br>changing the cutover plan"]
+    insufficient --> escalate
+```
+
 ## Target systems / source systems
 
 - Operations cutover packet store holding the approved routing profile, protected zone sequence, and fallback plan
