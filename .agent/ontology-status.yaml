@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 183
+  instance_files: 184
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -58,7 +58,7 @@ pattern_counts_by_family:
 instance_counts_by_domain:
   engineering: 30
   finance: 31
-  compliance: 23
+  compliance: 24
   operations: 29
   research: 23
   support: 24
@@ -258,6 +258,7 @@ repo_reality:
     - instances/compliance/vendor-transfer-remediation-packet-approved-for-privacy-counsel-intake.md
     - instances/compliance/privacy-attestation-disposition-packet-revision-approved-for-council-sign-off-lane.md
     - instances/compliance/cross-border-transfer-assessment-review-record-refresh-after-annex-update.md
+    - instances/compliance/finalized-sanctions-alert-false-positive-disposition-closure-and-case-ledger-synchronization.md
     - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
     - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
     - instances/support/customer-escalation-bridge-scheduling.md
