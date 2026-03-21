@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-expanded
+repository_stage: phase-6-grounding-balanced
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 9
+  instance_files: 11
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -54,8 +54,8 @@ pattern_counts_by_family:
   human-agent-collaborative-work: 1
 instance_counts_by_domain:
   engineering: 1
-  finance: 2
-  compliance: 1
+  finance: 3
+  compliance: 2
   operations: 1
   research: 1
   support: 2
@@ -97,6 +97,8 @@ repo_reality:
     - instances/hr/approved-payroll-status-change-submission.md
     - instances/finance/invoice-packet-to-payables-record-handoff.md
     - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
+    - instances/finance/multi-year-renewal-pricing-and-payment-structure-recommendation.md
+    - instances/compliance/beneficial-ownership-registry-update-submission.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -112,10 +114,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and nine grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and eleven grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
-  - "`recommend-decide-escalate`, `execute-automate`, and `human-agent-collaborative-work` still each rely on a single grounded instance, so representative coverage remains thin."
+  - "`human-agent-collaborative-work` still relies on a single grounded support example, so representative collaboration coverage remains the thinnest family-level gap."
+  - "`recommend-decide-escalate` and `execute-automate` now each have two grounded examples, but both families still leave many domain slices partial."
   - "Most families still have only one or two domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-balance-lightly-grounded-families
-  summary: "Add another small instance batch for lightly grounded families such as recommendation, execution, or human-agent collaboration to reduce remaining partial coverage without expanding the canonical pattern set yet."
+  id: phase-6-deepen-collaboration-grounding
+  summary: "Add the next small instance batch in `human-agent-collaborative-work`, preferably in research or compliance, and only then use any remaining budget on another partial family/domain slice."

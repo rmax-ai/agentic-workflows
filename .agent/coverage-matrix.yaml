@@ -41,8 +41,8 @@ matrices:
     investigate-reconcile-verify: {engineering: covered, finance: none, compliance: none, operations: partial, research: none, support: partial, hr: none}
     monitor-detect-triage: {engineering: none, finance: covered, compliance: partial, operations: partial, research: none, support: none, hr: none}
     plan-coordinate-schedule: {engineering: none, finance: none, compliance: none, operations: covered, research: none, support: partial, hr: partial}
-    recommend-decide-escalate: {engineering: none, finance: partial, compliance: covered, operations: partial, research: none, support: none, hr: none}
-    execute-automate: {engineering: none, finance: partial, compliance: partial, operations: none, research: none, support: none, hr: covered}
+    recommend-decide-escalate: {engineering: none, finance: covered, compliance: covered, operations: partial, research: none, support: none, hr: none}
+    execute-automate: {engineering: none, finance: partial, compliance: covered, operations: none, research: none, support: none, hr: covered}
     optimize-adapt: {engineering: none, finance: none, compliance: partial, operations: partial, research: none, support: covered, hr: none}
     human-agent-collaborative-work: {engineering: none, finance: none, compliance: partial, operations: none, research: partial, support: covered, hr: none}
   pattern_family_x_architecture:
@@ -68,7 +68,7 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Nine canonical pattern entries now populate all nine top-level families, and grounded examples extend across all seven currently modeled domains with deeper finance and support coverage.
-    - "`transform-process` is now grounded through a finance AP handoff instance, converting its finance, tool-using-single-agent, and moderate-risk cells from partial to covered."
-    - "`optimize-adapt` is now grounded through a support queue reprioritization instance, reducing one of the newer families that previously had only canonical coverage and no linked example."
-    - The highest-leverage next gaps are now the lightly grounded recommendation, execution, and human-agent collaboration families plus the remaining uncovered transform and optimize domain slices.
+    - Nine canonical pattern entries now populate all nine top-level families, and eleven grounded examples extend across all seven currently modeled domains with deeper finance, compliance, and support coverage.
+    - "`recommend-decide-escalate` now has covered finance and compliance cells after adding a second governed recommendation instance for renewal pricing and payment-structure review."
+    - "`execute-automate` now has covered compliance and HR cells after adding a regulated beneficial-ownership filing example alongside the existing HR payroll submission case."
+    - The highest-leverage next gaps are now the still-thin `human-agent-collaborative-work` family plus remaining partial recommendation, execution, transform, and optimize domain slices.
