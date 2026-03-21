@@ -12,6 +12,19 @@ Finance.
 
 During a severe payment-rail disruption, a treasury command bridge sees contradictory intraday liquidity state across the treasury management system, bank confirmations, collateral tooling, and manually entered desk adjustments. Some balances appear settled in one source but still encumbered or pending in another, while emergency funding facilities show different availability timestamps across two control views. Before executives, controllers, and risk leaders decide whether to freeze outbound payments, draw facilities, or escalate externally, the workflow must determine the trusted current state of cash, encumbrances, and near-term obligations with explicit provisional holds where evidence does not yet reconcile.
 
+```mermaid
+flowchart TD
+    A["Collect treasury snapshots, bank confirmations,<br>collateral state, and manual desk adjustments"] --> B["Reconcile balances, encumbrances, and facility availability<br>under source-precedence and freshness rules"]
+    B --> C{"Do authoritative records and live evidence<br>reconcile within the approved window?"}
+    C -->|"Yes"| D["Build trusted intraday liquidity ledger<br>with source lineage and timestamps"]
+    C -->|"No"| E["Place disputed positions in a provisional hold register<br>with explicit conflict reasons"]
+    E --> F{"Can treasury, control, and risk reviewers<br>verify a bounded current state?"}
+    F -->|"Yes"| D
+    F -->|"No"| G["Escalate unresolved material positions to the command bridge<br>while preserving holds and uncertainty"]
+    D --> H["Issue the human-reviewable state-restoration packet<br>and stop before payment freezes, facility draws, or external actions"]
+    G --> H
+```
+
 ## Target systems / source systems
 
 - Treasury management system cash-position snapshots, entity-level funding ledgers, and bridge workspace records
