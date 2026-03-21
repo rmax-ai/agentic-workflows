@@ -78,5 +78,5 @@ risk_levels:
     plan-coordinate-schedule: [critical-command-window-resequencing]
     recommend-decide-escalate: [critical-escalation-authority-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates]
-    optimize-adapt: []
+    optimize-adapt: [critical-protected-priority-adaptation]
     human-agent-collaborative-work: []

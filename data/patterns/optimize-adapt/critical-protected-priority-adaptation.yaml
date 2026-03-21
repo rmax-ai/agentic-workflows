@@ -1,0 +1,292 @@
+id: critical-protected-priority-adaptation
+slug: critical-protected-priority-adaptation
+name: Critical protected-priority adaptation
+summary: Recommend time-bounded critical-risk updates to prioritization weights, protected-review lanes, and optimization guardrails during a declared severe state so scarce capacity stays aligned with the highest-consequence work without drifting into authority selection, command planning, or direct execution.
+pattern_family:
+  id: optimize-adapt
+  label: Optimize / Adapt
+problem_structure:
+  id: feedback-driven-optimization
+  label: Feedback-driven optimization
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+workflow_goal: Recompute and package a human-adopted emergency optimization state for an already-declared severe situation so protected-priority work, fairness constraints, and reversibility safeguards are preserved while existing review or routing surfaces adapt to crisis conditions.
+inputs:
+  - name: Declared severe optimization state
+    description: Human-declared severe operating state that defines the optimization scope, affected queues or review surfaces, active holds, time pressure, and the bounded objective for critical adaptation.
+    kind: severe-state
+    required: true
+    examples:
+      - Critical software-integrity event with multiple review backlogs competing for scarce security and release-engineering attention
+      - Liquidity stress bridge with payment, collateral, and exception-review surfaces all compressing before market close
+      - Suspected contamination command state with hold-review, lot-release, and field-inspection queues all drawing from the same specialist pool
+  - name: Current optimization policy and protected-priority map
+    description: The active ranking logic, thresholds, lane protections, reserve-capacity rules, and non-waivable protected-priority classes that may be adapted only within emergency governance boundaries.
+    kind: optimization-state
+    required: true
+    examples:
+      - Review policy showing which artifact-integrity cases, signing exceptions, and customer-trust exposure checks must stay protected
+      - Treasury queue logic defining funding-critical payment classes, collateral deadlines, and protected supervisory review lanes
+      - Operations review policy identifying safety, contamination-spread, and regulator-visible work that cannot be deprioritized
+  - name: Severe-state outcomes and override telemetry
+    description: Current queue aging, manual overrides, false-priority examples, reviewer saturation signals, missed-protection incidents, and rollback history showing where the normal optimization state is failing under severe conditions.
+    kind: outcome-history
+    required: true
+    examples:
+      - Release-integrity review items repeatedly pulled forward by humans while lower-risk failures still consume top queue slots
+      - Controller overrides showing that normal close-review ordering is missing same-day funding-protection items
+      - Field supervisors bypassing routine dispatch order because contamination-spread checks are aging too long
+  - name: Emergency guardrails and expiry rules
+    description: The severe-state governance package defining allowed adaptation ranges, protected lanes that cannot be changed, required human checkpoints, rollback triggers, and the expiry conditions for any temporary optimization state.
+    kind: policy
+    required: true
+    examples:
+      - Crisis rules allowing temporary reserve-capacity increases while blocking changes to legal-review gates or customer-notification protections
+      - Emergency playbook requiring daily expiry review of any priority-buffer change during liquidity stress
+      - Safety governance limits on lowering inspection floors or merging contamination lanes during incident mode
+  - name: Capacity and context shifts
+    description: The current staffing, system availability, review-channel restrictions, and operating changes that may justify critical adaptation or invalidate normal-state tuning assumptions.
+    kind: operating-context
+    required: false
+    examples:
+      - Restricted availability of senior sign-off reviewers after a holiday release freeze begins
+      - Market-close deadlines compressing treasury review windows while one collateral feed remains degraded
+      - Containment-zone staffing shortages that reduce on-site inspection throughput for several hours
+outputs:
+  - name: Critical adaptation recommendation package
+    description: Human-reviewable proposal describing the temporary optimization-state changes, the protected-priority problems they address, the explicit trade-offs accepted, and the evidence for why the severe state justifies them.
+    kind: recommendation-package
+    required: true
+    examples:
+      - Package proposing a temporary integrity-review fast lane, stronger blast-radius weighting, and tighter downgrade holds for exposed signing artifacts
+      - Treasury package recommending reserve-capacity protection for same-day obligations while narrowing lower-value exception handling during the severe window
+      - Operations package recommending stronger contamination-spread weighting and protected inspection slots for at-risk lots until containment confidence improves
+  - name: Candidate emergency optimization state
+    description: Versioned temporary queue, scoring, or protection settings that would become active only after human adoption and that include explicit expiry and rollback metadata.
+    kind: optimization-state
+    required: true
+    examples:
+      - Temporary review-policy version with revised urgency weights, protected-lane capacity reservations, and a next-review expiry timestamp
+      - Emergency treasury prioritization state with tightened payment-protection buffers and limited low-consequence deferral rules
+      - Severe-mode inspection policy with additional protected slots for contamination-trace cases and a rollback condition linked to containment verification
+  - name: Expiry and rollback control packet
+    description: Structured record of when the emergency optimization state must be reevaluated, which metrics force immediate rollback, and what previous trusted state should be restored if the severe adaptation degrades protected handling.
+    kind: rollback-plan
+    required: true
+    examples:
+      - Packet requiring rollback if high-consequence review aging rises or if fairness drift appears across product lines during the severe window
+      - Expiry plan restoring the prior treasury prioritization state at market close unless a human steward extends the severe-mode bundle
+      - Rollback packet returning to the pre-incident inspection policy if protected contamination checks no longer age faster than routine tasks
+  - name: Critical adaptation audit trace
+    description: Durable log of the severe-state signals consulted, blocked adaptation ideas, guardrails checked, human adoption decisions, expiry extensions, and rollback actions.
+    kind: audit-log
+    required: true
+    examples:
+      - Trace showing why a proposed low-visibility queue merger was blocked because it would have weakened protected review segregation
+      - Log linking the accepted liquidity-protection retuning to manual override clusters, market-close deadlines, and same-day obligation misses
+environment:
+  summary: Operates after a severe condition is already declared and the main optimization question is how to temporarily adapt existing review, routing, or prioritization state so protected work stays visible and scarce capacity is governed under pressure.
+  systems:
+    - Critical-case workspace or command dashboard
+    - Queueing, review, or scoring systems holding current prioritization state
+    - Telemetry and override-history stores
+    - Policy and emergency-governance repositories
+    - Audit, rollback, and version-control tooling for optimization state
+  actors:
+    - Optimization steward or severe-state operations lead
+    - Domain specialists validating protected-priority assumptions
+    - Governance, risk, or policy owner
+    - Human reviewer adopting, narrowing, or rejecting emergency optimization changes
+  constraints:
+    - Start only after a human or governed upstream workflow has already declared the severe state or explicitly requested critical optimization adaptation.
+    - Stop at recommendation, candidate optimization-state packaging, expiry controls, and rollback preparation rather than authority selection, command-window sequencing, collaboration-heavy adjudication, or execution of the live change.
+    - Keep protected-priority classes, fairness boundaries, privacy restrictions, and reversibility limits explicit instead of hiding them inside one crisis score.
+    - Any emergency optimization state must be temporary, versioned, and tied to explicit expiry review so crisis tuning does not silently become the new baseline policy.
+  assumptions:
+    - The current optimization state, override behavior, and protected lanes are documented well enough to compare severe-mode adaptation options.
+    - Human stewards remain accountable for adopting, extending, narrowing, or rolling back the temporary optimization state.
+    - Adjacent planning, authority, and execution workflows can consume the adapted state without forcing this pattern to take on those responsibilities directly.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The workflow must track queue drift, severe-state aging, override clusters, and protected-priority misses continuously while the operating window remains volatile.
+  - capability:
+      id: optimization
+      label: Optimization
+      source_vocabulary: capabilities
+    necessity: The central task is to adapt weights, protected-lane buffers, and reserve-capacity rules under emergency constraints rather than leaving normal-state logic unchanged.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Specialists for telemetry review, guardrail checking, and rollback packaging need one shared severe-state view so the adaptation remains coherent and auditable.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Critical adaptation must enforce emergency guardrails, expiry rules, protected lanes, privacy limits, and non-waivable review protections before any proposal reaches humans.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Proposed severe-mode changes should be checked against trusted override and outcome evidence so urgency pressure does not justify unsupported retuning.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow must preserve prior trusted states, accepted emergency variants, expiry extensions, and rollback triggers across a volatile severe window.
+  - capability:
+      id: recommendation
+      label: Recommendation
+      source_vocabulary: capabilities
+    necessity: The output is an emergency optimization recommendation and candidate state for human adoption, not an autonomous live reprioritization.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Missing evidence, disputed protected classes, stale severe-state assumptions, or guardrail conflicts must trigger deferral or escalation instead of forced adaptation.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Severe adaptation often benefits from separate roles for telemetry analysis, protected-lane checking, emergency-state simulation, and rollback packaging so one shared crisis optimization state stays inspectable under time pressure.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human stewards remain in the normal loop because critical optimization changes alter how scarce attention is allocated during severe conditions and therefore require explicit adoption and expiry review.
+autonomy_profile:
+  level:
+    id: human-directed
+    label: Human directed
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the severe-state scope, protected-priority classes, and emergency guardrails before candidate adaptation options are compared.
+    - Review the critical adaptation package, expiry packet, and rollback triggers before any temporary optimization state is adopted.
+    - Reassess extension or rollback at each severe-state review point so temporary retuning does not outlive the critical condition that justified it.
+  reversibility: Candidate emergency states are easy to recompute, and adopted optimization settings can usually be rolled back to the last trusted version. Harm from misallocated scarce attention during a severe window may be only partially reversible if protected work ages out, unsafe items slip, or critical deadlines are missed before the rollback takes effect.
+  escalation: Escalate whenever protected-priority definitions are disputed, emergency evidence is stale or contradictory, the requested change would alter authority or planning boundaries, privacy or fairness safeguards would weaken materially, or no temporary optimization state can stay inside the declared severe guardrails.
+risk_governance:
+  level:
+    id: critical
+    label: Critical
+    source_vocabulary: risk-levels
+  failure_impact: A bad critical adaptation can redirect scarce review capacity away from safety-, fiduciary-, or regulator-sensitive work during the shortest decision window, causing severe downstream harm even though the workflow stops short of execution.
+  approval_requirements:
+    - Human adoption is required before any emergency optimization state changes live prioritization, reserve-capacity protection, or protected-review lane handling during the severe condition.
+    - Governance owners must approve changes to emergency guardrails, expiry rules, protected classes, and rollback criteria used by future critical adaptation cycles.
+  auditability: Preserve the pre-severe and candidate emergency optimization states, override clusters, protected-lane checks, blocked proposals, human adoption and extension decisions, expiry reviews, and rollback events so reviewers can reconstruct how severe-mode adaptation was justified and controlled.
+  privacy:
+    - Limit copied case, customer, employee, market, or safety detail in adaptation packets to the minimum needed for authorized human review.
+    - Use aggregated severe-state evidence or restricted annexes when protected-priority rationale can be explained without broad exposure of sensitive underlying records.
+  security:
+    - Restrict who can edit emergency optimization states, protected-lane definitions, and rollback controls so severe-mode tuning cannot be manipulated silently.
+    - Log privileged overrides, expiry extensions, and emergency guardrail changes in durable reviewable records.
+  notes: Critical-risk governance fits because the workflow changes how protected work competes for scarce attention during a declared severe condition, yet remains family-clean by stopping at governed optimization-state recommendation and rollback preparation rather than selecting authorities, planning command moves, or executing the changes directly.
+why_agentic:
+  - Severe adaptation requires interpreting noisy live feedback, override behavior, and protected-priority drift faster than a static emergency playbook can anticipate.
+  - The workflow benefits from specialized roles that compare temporary optimization states, test guardrail compliance, and package rollback logic while preserving one coherent severe-state history.
+  - Safe performance depends on recognizing when uncertainty or guardrail conflict is itself a reason to defer adaptation rather than forcing a crisis retuning move.
+failure_modes:
+  - mode: Severe-mode retuning overweights visible urgency and underprotects hidden high-consequence work
+    impact: Scarce reviewers are pulled toward loud or easy-to-measure items while safety-critical, fiduciary, or regulator-sensitive work ages out during the severe window.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Encode protected-priority lanes and reserve-capacity floors as explicit hard constraints rather than soft optimization preferences.
+      - Require the package to show which quieter protected classes gain or lose attention under each candidate emergency state.
+  - mode: Temporary crisis tuning persists after the severe condition has changed
+    impact: Emergency weights and protected buffers become stale baseline policy, causing prolonged distortion, unfairness, or hidden backlog harm after the critical window passes.
+    severity: high
+    detectability: high
+    mitigations:
+      - Attach expiry metadata and mandatory review timestamps to every adopted emergency optimization state.
+      - Restore the last trusted baseline automatically unless a human steward explicitly extends the temporary state.
+  - mode: The workflow drifts into planning, authority recommendation, or execution
+    impact: Users mistake the optimization package for a command timeline, decision-owner choice, or live operational instruction, blurring family boundaries and governance controls.
+    severity: high
+    detectability: high
+    mitigations:
+      - Limit outputs to adaptation packages, candidate states, expiry controls, and audit traces.
+      - Hand off authority questions, command sequencing, and execution steps to adjacent recommendation, planning, or execution patterns.
+  - mode: Critical adaptation hides fairness or privacy regression inside one emergency metric
+    impact: The severe-mode policy appears efficient while lower-visibility groups, sensitive records, or protected lanes lose safeguards during the crisis.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Require fairness, privacy, and protected-lane checks to be reported separately from throughput or aging improvement.
+      - Block human adoption if restricted-detail handling or protected-group treatment worsens beyond approved tolerance.
+evaluation:
+  success_metrics:
+    - Reduction in aging, override frequency, or missed-protection incidents for the protected-priority work targeted by the emergency adaptation.
+    - Time from severe-state declaration to delivery of a human-reviewable adaptation package with explicit expiry and rollback controls.
+    - Percentage of adopted emergency optimization states that are rolled back or expired on schedule without hidden persistence into normal operations.
+  quality_criteria:
+    - The package makes protected-priority trade-offs, expiry conditions, fairness checks, and rollback triggers explicit instead of hiding them in one urgent score.
+    - Outputs remain bounded at temporary optimization-state recommendation and do not imply authority selection, command planning, or operational execution.
+    - Reviewers can reconstruct why the severe-mode state differed from the baseline and what evidence justified the temporary change.
+  robustness_checks:
+    - Test a noisy severe event where visible queue spikes are not the same as the highest-consequence work and verify protected lanes stay preserved.
+    - Test expiry and extension scenarios to ensure emergency tuning reverts to baseline unless a human explicitly renews it.
+    - Test a proposed adaptation that would alter authority, planning, or execution boundaries and confirm the workflow defers the request instead of absorbing it.
+  benchmark_notes: Evaluate critical adaptation on protection quality, rollback discipline, and boundary clarity together; faster severe-mode reprioritization is not success if it weakens protected handling or silently becomes a new operating policy.
+implementation_notes:
+  orchestration_notes:
+    - Keep telemetry review, candidate-state generation, protected-lane checking, expiry design, and rollback packaging as explicit coordinated stages over shared severe-state optimization history.
+    - Preserve a clean stop point so downstream authority, planning, and execution tooling consumes the package rather than being embedded inside this workflow.
+  integration_notes:
+    - Common implementations integrate critical-case dashboards, prioritization engines, telemetry stores, policy repositories, and state-versioning systems.
+    - Keep the pattern neutral about whether the optimization surface is a review queue, scoring model, reserve-capacity map, or protected routing lane; the severe adaptation loop applies across these forms.
+  deployment_notes:
+    - Start where severe conditions already trigger ad hoc manual reprioritization and where protected work needs clearer temporary guardrails than normal-state tuning provides.
+    - Monitor expiry discipline, human overrides, and protected-class aging closely because critical adaptation loses trust quickly if it is not visibly temporary and reversible.
+  references:
+    - docs/patterns/optimize-adapt.md
+    - data/vocabularies/problem-structures.yaml
+    - data/vocabularies/autonomy-levels.yaml
+    - data/vocabularies/risk-levels.yaml
+related_patterns:
+  - id: governed-optimization-bundle-retuning
+    relationship: severe-variant-of
+    notes: This pattern narrows bundle retuning to declared severe windows with temporary expiry and stronger protected-priority controls.
+  - id: critical-command-window-resequencing
+    relationship: adjacent
+    notes: When the main problem becomes checkpoint timing and cross-team sequencing, the workflow belongs in planning rather than critical optimization adaptation.
+  - id: critical-escalation-authority-recommendation
+    relationship: adjacent
+    notes: When the key question is which human authority should decide the severe case, use the recommendation family rather than absorbing that choice into optimization.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Recommend a temporary severe-mode review policy that reserves protected capacity for signing-integrity and blast-radius analysis items during a production trust event without revoking keys or planning the incident response.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Retune a liquidity-stress review state so same-day funding protection and collateral-critical items stay protected while less consequential exception work is temporarily deprioritized pending human adoption.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Adapt contamination-response review lanes so safety-critical inspection and traceability work retains protected capacity while routine follow-up tasks are temporarily narrowed under severe conditions.
+maturity: draft
+tags:
+  - optimize-adapt
+  - feedback-driven-optimization
+  - critical-risk
+  - protected-priority-adaptation
+  - human-directed

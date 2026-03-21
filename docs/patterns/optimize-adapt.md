@@ -30,8 +30,10 @@ That mapping should anchor future canonical patterns when the primary structure 
 This family is downstream of action and observation.
 
 - If the main workflow is **ongoing detection and prioritization of new signals**, see [monitor-detect-triage](./monitor-detect-triage.md).
+- If the main workflow is **sequencing checkpoints, coordination windows, or command timing under crisis pressure**, see [plan-coordinate-schedule](./plan-coordinate-schedule.md).
+- If the main workflow is **choosing which human authority should decide a severe case**, see [recommend-decide-escalate](./recommend-decide-escalate.md).
+- If the main workflow is **shared drafting, deliberation, or approval ownership between people and agents**, see [human-agent-collaborative-work](./human-agent-collaborative-work.md).
 - If the main workflow is **executing approved work right now**, see [execute-automate](./execute-automate.md).
-- If humans and agents are jointly interpreting feedback and steering change together, see [human-agent-collaborative-work](./human-agent-collaborative-work.md).
 
 ## Why this family is meaningfully agentic
 
@@ -49,6 +51,17 @@ A strong canonical pattern in this family should state:
 - what knobs or choices may change,
 - what constraints limit adaptation,
 - whether the loop stays automated or routes through collaborative review.
+
+## Current canonical anchors
+
+The current optimize/adapt anchors show the family across several governance levels:
+
+- `adaptive-threshold-calibration` covers low-risk reversible tuning of sensitivity parameters inside pre-approved bounds.
+- `queue-prioritization-optimization` covers moderate-risk learning loops that reorder existing work under explicit fairness and service guardrails.
+- `governed-optimization-bundle-retuning` covers high-risk recommendation-only retuning of shared optimization state across coupled review surfaces.
+- `critical-protected-priority-adaptation` anchors the critical slice with time-bounded severe-state optimization recommendations that protect scarce capacity, expiry discipline, and rollback readiness without drifting into authority selection, command planning, collaboration ownership, or direct execution.
+
+Critical optimize/adapt work should remain centered on temporary optimization-state changes, protected-priority lane protection, or governed retuning packages. If the output starts naming who decides, sequencing the response, or triggering the live change directly, it belongs in an adjacent family instead.
 
 ## See also
 

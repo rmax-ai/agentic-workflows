@@ -37,7 +37,7 @@ autonomy_levels:
     plan-coordinate-schedule: [critical-command-window-resequencing]
     recommend-decide-escalate: [critical-escalation-authority-recommendation]
     execute-automate: []
-    optimize-adapt: []
+    optimize-adapt: [critical-protected-priority-adaptation]
     human-agent-collaborative-work: [analyst-copilot-loop]
 - autonomy_level:
     id: recommendation-only
