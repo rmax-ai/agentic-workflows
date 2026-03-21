@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-The last iteration deepened `monitor-detect-triage` with two new grounded examples: pharmacovigilance safety-signal triage in compliance and cold-chain temperature excursion triage in operations. This iteration should stay modest and rebalance the thinner `investigate-reconcile-verify` family with grounded finance and compliance examples that materially differ from the existing engineering incident anchor.
+The last iteration added two grounded `investigate-reconcile-verify` examples: a finance treasury cash-position discrepancy investigation and a compliance sanctions-screening gap root-cause investigation. With that family now grounded across engineering, finance, and compliance, the next modest batch should likely rebalance `gather-retrieve-synthesize`, which remains comparatively thin at the instance layer.
 
 ## Current phase
 
@@ -10,14 +10,14 @@ The last iteration deepened `monitor-detect-triage` with two new grounded exampl
 - Phase 3: navigation views are complete and now reference canonical patterns in all nine top-level families
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
 - Phase 5: canonical seed coverage now spans all nine top-level pattern families
-- Phase 6: grounded instances now cover twenty-four total scenarios, with `monitor-detect-triage` grounded across finance, compliance, and operations, `execute-automate` grounded across finance, compliance, HR, operations, and support, and `optimize-adapt` grounded across support, operations, and compliance
+- Phase 6: grounded instances now cover twenty-six total scenarios, with `investigate-reconcile-verify` grounded across engineering, finance, and compliance, `monitor-detect-triage` grounded across finance, compliance, and operations, `execute-automate` grounded across finance, compliance, HR, operations, and support, and `optimize-adapt` grounded across support, operations, and compliance
 - Tooling baseline: uv-managed Python 3.14 helper workflow remains the validation path
 
 ## Ordered tasks
 
-1. Re-read `incident-root-cause-analysis`, the engineering investigation anchor, and nearby governed finance/compliance instances so the next examples stay inside investigation boundaries rather than drifting into triage, recommendation, or execution.
-2. Add a modest batch of one or two grounded `investigate-reconcile-verify` instances, preferably covering finance and compliance with evidence-reconciliation, explicit uncertainty handling, and human-owned closure decisions.
-3. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the required iteration log after the grounding batch so repository memory reflects stronger investigation coverage.
+1. Re-read `research-synthesis-with-citation-verification` plus the existing research gather/synthesis grounding and nearby compliance or finance instances so the next examples stay inside evidence retrieval and synthesis boundaries rather than drifting into recommendation or collaboration.
+2. Keep the next grounding batch modest: prefer one or two `gather-retrieve-synthesize` instances in underrepresented domains such as finance, compliance, or operations.
+3. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the required iteration log after the next grounding batch so repository memory reflects stronger gather/synthesis coverage.
 4. Continue validating repository YAML with the existing uv-managed helper before closing each iteration.
 
 ## Constraints
@@ -26,9 +26,9 @@ The last iteration deepened `monitor-detect-triage` with two new grounded exampl
 - Treat `data/views/` as derived browse artifacts and keep any future updates aligned with stable vocabulary and pattern ids.
 - Ensure every subagent task ends with exactly one git commit.
 - Prefer modest grounding batches that improve coverage balance inside one thin family/domain slice rather than forcing a broad cross-family sweep.
-- Keep this iteration scoped to one modest investigation-grounding batch plus required `.agent/` memory updates; do not expand the canonical pattern set unless dependency order changes.
+- Keep the next iteration scoped to one modest gather/synthesis grounding batch plus required `.agent/` memory updates; do not expand the canonical pattern set unless dependency order changes.
 - Keep governance, reversibility, privacy, and auditability explicit in grounded examples.
 
 ## Expected outcome
 
-This iteration should deepen `investigate-reconcile-verify` in finance and/or compliance with one or two grounded, governance-aware instances while preserving the repository's pattern-first structure and modest-batch discipline.
+The next iteration should deepen `gather-retrieve-synthesize` with one or two grounded, governance-aware instances in underrepresented domains while preserving the repository's pattern-first structure and modest-batch discipline.

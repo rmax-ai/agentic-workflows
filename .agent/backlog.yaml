@@ -116,7 +116,8 @@ items:
       - "`recommend-decide-escalate` now has a second grounded finance example and `execute-automate` now has a second grounded compliance example, but both families still have many partial domain slices."
       - "`human-agent-collaborative-work` now has grounded support, research, and compliance examples after adding a regulator-response copilot loop for sanctions-alert closure review."
       - "`monitor-detect-triage` is now grounded in finance, compliance, and operations after adding pharmacovigilance safety-signal and cold-chain excursion triage examples."
-      - "The next small batch should rebalance another thin partial family/domain slice, with `investigate-reconcile-verify` in finance or compliance now standing out more clearly than more monitoring expansion."
+      - "`investigate-reconcile-verify` is now grounded in engineering, finance, and compliance after adding treasury cash-position discrepancy and sanctions-screening-gap root-cause investigation examples."
+      - "With finance and compliance investigation grounding in place, the next small batch should likely rebalance `gather-retrieve-synthesize`, which remains much thinner than the now-broadened investigation family."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement

@@ -94,8 +94,10 @@
 - `instances/support/post-outage-enterprise-ticket-queue-reprioritization.md` — grounded support optimization case for bounded queue retuning after an outage using reopen feedback, SLA pressure, and fairness guardrails.
 - `instances/support/approved-break-glass-admin-access-restoration-submission.md` — grounded support execution case for approval-gated browser submission of a high-impact tenant admin access restoration under incident, security, and customer-account controls.
 - `instances/finance/multi-year-renewal-pricing-and-payment-structure-recommendation.md` — grounded finance recommendation case for governed renewal pricing and payment-structure review under margin, credit, and accounting constraints.
+- `instances/finance/treasury-cash-position-discrepancy-investigation.md` — grounded finance investigation case for reconciling treasury, bank, and ERP evidence into a close-critical root-cause narrative.
 - `instances/compliance/beneficial-ownership-registry-update-submission.md` — grounded compliance execution case for approval-gated browser submission of a regulated beneficial-ownership filing.
 - `instances/compliance/regulatory-consumer-complaint-response-queue-reprioritization.md` — grounded compliance optimization case for statutory complaint-review backlog reprioritization under deadline, fairness, supervisory-review, and rollback guardrails.
+- `instances/compliance/sanctions-screening-gap-root-cause-investigation.md` — grounded compliance investigation case for reconstructing why governed sanctions-review controls were bypassed during a high-risk payment window.
 
 ## Not yet present but planned
 
