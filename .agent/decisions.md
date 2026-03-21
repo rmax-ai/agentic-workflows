@@ -53,3 +53,9 @@
 - **Status:** accepted
 - **Decision:** Model `data/views/` as derived browse artifacts that reference stable family and vocabulary ids, leaving canonical pattern payloads in `data/patterns/` rather than duplicating them into views.
 - **Rationale:** The repository's organizing spine is pattern-first, so alternate browse paths should help navigation without becoming a second source of truth. Reference-oriented views stay regenerable as patterns accumulate and make it easier to keep domain, architecture, autonomy, and risk indexes consistent with the canonical pattern files.
+
+## D-0010 — Map transform-process to structured representation transformation
+
+- **Status:** accepted
+- **Decision:** Use `structured-representation-transformation` as the controlled `problem_structure` term for the `transform-process` family and its first canonical seed pattern.
+- **Rationale:** The family needed a direct vocabulary mapping to close the last empty top-level pattern gap, but the term also had to preserve the family boundary. Framing the structure around representation change keeps transformation-first workflows distinct from evidence synthesis, verification, or operational execution while remaining broad enough for future normalization, enrichment, and batch reshaping patterns.

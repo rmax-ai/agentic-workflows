@@ -37,7 +37,7 @@ dimensions:
 matrices:
   pattern_family_x_domain:
     gather-retrieve-synthesize: {engineering: partial, finance: none, compliance: partial, operations: none, research: covered, support: none, hr: none}
-    transform-process: {engineering: none, finance: none, compliance: none, operations: none, research: none, support: none, hr: none}
+    transform-process: {engineering: none, finance: partial, compliance: partial, operations: partial, research: none, support: none, hr: none}
     investigate-reconcile-verify: {engineering: covered, finance: none, compliance: none, operations: partial, research: none, support: partial, hr: none}
     monitor-detect-triage: {engineering: none, finance: covered, compliance: partial, operations: partial, research: none, support: none, hr: none}
     plan-coordinate-schedule: {engineering: none, finance: none, compliance: none, operations: covered, research: none, support: partial, hr: partial}
@@ -47,7 +47,7 @@ matrices:
     human-agent-collaborative-work: {engineering: none, finance: none, compliance: partial, operations: none, research: partial, support: covered, hr: none}
   pattern_family_x_architecture:
     gather-retrieve-synthesize: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
-    transform-process: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
+    transform-process: {tool-using-single-agent: partial, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
     investigate-reconcile-verify: {tool-using-single-agent: none, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
     monitor-detect-triage: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: covered, approval-gated-execution: none}
     plan-coordinate-schedule: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
@@ -57,7 +57,7 @@ matrices:
     human-agent-collaborative-work: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
   pattern_family_x_risk:
     gather-retrieve-synthesize: {low: none, moderate: covered, high: none, critical: none}
-    transform-process: {low: none, moderate: none, high: none, critical: none}
+    transform-process: {low: none, moderate: partial, high: none, critical: none}
     investigate-reconcile-verify: {low: none, moderate: none, high: covered, critical: none}
     monitor-detect-triage: {low: none, moderate: none, high: covered, critical: none}
     plan-coordinate-schedule: {low: covered, moderate: none, high: none, critical: none}
@@ -68,6 +68,6 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Eight canonical pattern entries now populate eight of the nine top-level families, and grounded examples now extend across all seven currently modeled domains.
-    - The support-domain collaboration instance upgrades `human-agent-collaborative-work` from partial to covered in the support slice while keeping mixed-initiative grounding distinct from recommendation or execution families.
-    - The highest-leverage next gaps are the still-empty `transform-process` family and the many partial cells in newer families that still have only one grounded example each.
+    - Nine canonical pattern entries now populate all nine top-level families, and grounded examples still extend across all seven currently modeled domains.
+    - The new `document-to-structured-data-handoff` seed converts `transform-process` from an empty family into a set of partial coverage cells in finance, compliance, operations, tool-using-single-agent architecture, and moderate risk.
+    - The highest-leverage next gaps are now the ungrounded `transform-process` family slices and the many partial cells in newer families that still have only one grounded example each.

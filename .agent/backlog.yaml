@@ -80,7 +80,7 @@ items:
   - id: phase-5-seed-patterns
     phase: 5
     priority: P1
-    status: in_progress
+    status: done
     title: Author first canonical YAML pattern entries
     depends_on:
       - phase-4-pattern-family-docs
@@ -93,7 +93,8 @@ items:
       - The second batch now adds first canonical entries in `plan-coordinate-schedule`, `recommend-decide-escalate`, and `execute-automate` while covering the low-risk, critical-risk, and `approval-gated-execution` architecture gaps.
       - A follow-on batch now adds the first `optimize-adapt` pattern, leaving `human-agent-collaborative-work` as the only empty family that already has a direct problem-structure vocabulary mapping.
       - The new `analyst-copilot-loop` anchor now covers `human-agent-collaborative-work`, leaving `transform-process` as the only still-empty top-level family.
-      - "`transform-process` remains deferred because it still lacks a justified direct problem-structure mapping and canonical seed candidate."
+      - "The `structured-representation-transformation` vocabulary term now closes the family-mapping gap for `transform-process`."
+      - "`document-to-structured-data-handoff` now provides first canonical seed coverage for `transform-process`, so Phase 5 has at least one representative pattern in every top-level family."
 
   - id: phase-6-grounded-instances
     phase: 6
@@ -108,6 +109,7 @@ items:
       - The first three grounded examples now exist for research, engineering, and finance, each tied directly to one of the initial canonical patterns.
       - A follow-on instance batch now grounds the planning, recommendation, and execution patterns in operations, compliance, and HR scenarios.
       - Support is now grounded through a collaboration-oriented escalation example linked to `analyst-copilot-loop`, so every currently modeled domain has at least one instance.
+      - The new `transform-process` seed pattern is still ungrounded, making the first instance for that family the highest-leverage next Phase 6 task.
       - Several families still have only one grounded example, so future Phase 6 work should deepen representative coverage without turning instances into generic domain overviews.
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
@@ -121,5 +123,5 @@ items:
     deliverables:
       - Balanced coverage across families, domains, architectures, and governance profiles
     notes:
-      - The highest-leverage remaining ontology gap is still the empty `transform-process` family, which requires a justified problem-structure refinement before canonical seed authoring.
-      - After that gap is addressed, rebalance partial coverage across orchestrated architectures and lightly grounded families.
+      - The last empty family gap is now closed at the canonical pattern layer.
+      - After the first `transform-process` instance lands, rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.
