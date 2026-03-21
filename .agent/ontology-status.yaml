@@ -31,7 +31,7 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 11
+  pattern_files: 12
   instance_files: 63
   pattern_family_docs: 9
   glossary_files: 1
@@ -51,7 +51,7 @@ pattern_counts_by_family:
   investigate-reconcile-verify: 1
   monitor-detect-triage: 2
   plan-coordinate-schedule: 1
-  recommend-decide-escalate: 1
+  recommend-decide-escalate: 2
   execute-automate: 1
   optimize-adapt: 1
   human-agent-collaborative-work: 1
@@ -90,6 +90,7 @@ repo_reality:
     - data/patterns/monitor-detect-triage/critical-signal-corroboration-triage.yaml
     - data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml
     - data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml
+    - data/patterns/recommend-decide-escalate/policy-constrained-escalation-routing.yaml
     - data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml
     - data/patterns/optimize-adapt/queue-prioritization-optimization.yaml
     - data/patterns/human-agent-collaborative-work/analyst-copilot-loop.yaml
@@ -164,11 +165,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, eleven canonical patterns across all nine top-level families, and sixty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twelve canonical patterns across all nine top-level families, and sixty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "All nine top-level families are now grounded across engineering, finance, compliance, operations, research, support, and HR after adding research-domain monitoring coverage."
-    - "`monitor-detect-triage` now also has a second canonical pattern covering corroborated critical-signal triage, but most other families still have only one canonical pattern, leaving many architecture and risk cells partial even though the family/domain matrix is fully grounded."
-    - "`orchestrated-multi-agent` now spans `gather-retrieve-synthesize`, `investigate-reconcile-verify`, and `monitor-detect-triage`, while low-risk anchors remain concentrated in `plan-coordinate-schedule` and critical-risk anchors remain sparse outside `monitor-detect-triage` and `execute-automate`."
+    - "`policy-constrained-escalation-routing` now gives `recommend-decide-escalate` a second canonical pattern and representative `orchestrated-multi-agent` coverage while staying bounded at governed routing rather than downstream execution."
+    - "Most families outside `gather-retrieve-synthesize`, `monitor-detect-triage`, and `recommend-decide-escalate` still have only one canonical pattern, and low-risk anchors remain concentrated in `plan-coordinate-schedule`."
+    - "`orchestrated-multi-agent` now spans `gather-retrieve-synthesize`, `investigate-reconcile-verify`, `monitor-detect-triage`, and `recommend-decide-escalate`, while critical-risk anchors remain sparse outside `monitor-detect-triage` and `execute-automate`."
 next_action:
   id: phase-7-balance-architecture-and-risk-cells
-  summary: "Use the next bounded batch to add one second canonical pattern that fills a thin `low` risk cell outside planning, or broadens `orchestrated-multi-agent` into another family beyond the current gather, investigation, and monitoring anchors."
+  summary: "Use the next bounded batch to add one second canonical pattern that fills a thin `low` risk cell outside `plan-coordinate-schedule`, ideally in a family that still has only one canonical entry."
