@@ -12,6 +12,25 @@ Finance.
 
 An accounts payable operations analyst receives a weekly packet of emailed invoices from an international freight forwarder covering fuel surcharges, customs brokerage, and port handling fees for multiple inbound shipments. The downstream ERP import process expects a structured payable header plus line-item records tied to purchase orders, cost centers, tax treatment, currency codes, and receiving dates, but the source packet mixes scanned PDFs, broker spreadsheets, and handwritten annotations from warehouse receiving. The transformation workflow must extract the billable facts into a staging record package, preserve field-level source references, and route exceptions whenever totals, vendor identifiers, or shipment references cannot be matched cleanly within policy.
 
+```mermaid
+flowchart TD
+    A["Receive invoice packet<br>emailed PDFs, broker spreadsheets, and handwritten receiving notes"]
+    B["Extract invoice facts and source spans<br>vendor, totals, line items, shipment references, currency, tax, and receiving dates"]
+    C["Normalize against approved records<br>vendor master, purchase orders, cost centers, receipts, currency, and tax tables"]
+    D{"Any total mismatch, vendor conflict,<br>unmatched shipment reference, or new remittance detail?"}
+    E["Place packet on AP exception hold<br>analyst review before any payable handoff"]
+    F{"Do payable header, line items, provenance,<br>and policy checks support a staged ERP import package?"}
+    G["Create staged payables record package<br>structured header, lines, and transformation trace"]
+    H["Handoff only to AP staging<br>no posting or payment release"]
+
+    A --> B --> C --> D
+    D --> E
+    E --> B
+    D --> F
+    F --> E
+    F --> G --> H
+```
+
 ## Target systems / source systems
 
 - ERP or AP staging system for payable header and line-item imports
