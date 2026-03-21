@@ -85,7 +85,9 @@
 - `instances/hr/approved-payroll-status-change-submission.md` — grounded HR execution case for approval-gated payroll status changes in a browser-only portal.
 - `instances/hr/interview-panel-availability-coordination.md` — grounded HR scheduling case for recruiter-led final-round interview panel coordination under timezone, fairness, and SLA constraints.
 - `instances/finance/invoice-packet-to-payables-record-handoff.md` — grounded finance transformation case for converting heterogeneous invoice packets into ERP-ready payable records with provenance and exception routing.
+- `instances/finance/dual-approved-vendor-bank-account-change-submission.md` — grounded finance execution case for approval-gated browser submission of a sensitive vendor remittance bank-account change.
 - `instances/operations/site-inspection-packet-to-corrective-maintenance-work-order-handoff.md` — grounded operations transform case for turning facilities inspection packets into CMMS-ready corrective-maintenance staging records with traceability and exception routing.
+- `instances/operations/field-service-dispatch-queue-reprioritization.md` — grounded operations optimization case for storm-affected field-service dispatch reprioritization under safety, fairness, and rollback guardrails.
 - `instances/support/post-outage-enterprise-ticket-queue-reprioritization.md` — grounded support optimization case for bounded queue retuning after an outage using reopen feedback, SLA pressure, and fairness guardrails.
 - `instances/finance/multi-year-renewal-pricing-and-payment-structure-recommendation.md` — grounded finance recommendation case for governed renewal pricing and payment-structure review under margin, credit, and accounting constraints.
 - `instances/compliance/beneficial-ownership-registry-update-submission.md` — grounded compliance execution case for approval-gated browser submission of a regulated beneficial-ownership filing.
