@@ -114,11 +114,12 @@ items:
       - "`optimize-adapt` is now grounded through a support queue reprioritization example linked to `queue-prioritization-optimization`."
       - "`optimize-adapt` now has a governed compliance grounding example through a regulatory consumer-complaint response queue reprioritization scenario, so the family is covered across support, operations, and compliance."
       - "`recommend-decide-escalate` now has a second grounded finance example and `execute-automate` now has a second grounded compliance example, but both families still have many partial domain slices."
+      - "`recommend-decide-escalate` is now grounded across finance, compliance, and operations after adding a multi-site service-package feasibility recommendation example."
       - "`human-agent-collaborative-work` now has grounded support, research, and compliance examples after adding a regulator-response copilot loop for sanctions-alert closure review."
       - "`monitor-detect-triage` is now grounded in finance, compliance, and operations after adding pharmacovigilance safety-signal and cold-chain excursion triage examples."
       - "`investigate-reconcile-verify` is now grounded in engineering, finance, and compliance after adding treasury cash-position discrepancy and sanctions-screening-gap root-cause investigation examples."
       - "`gather-retrieve-synthesize` is now grounded in every currently modeled domain after adding compliance, HR, and engineering synthesis examples alongside the earlier research, finance, operations, and support anchors."
-      - "The next small grounding batch should likely pivot to another thin family, with `recommend-decide-escalate` in operations as the cleanest adjacent slice because the family already has finance and compliance grounding plus an operations-adjacent canonical domain."
+      - "The next small grounding batch should likely rebalance a thin domain, with `human-agent-collaborative-work` in engineering as the cleanest adjacent slice because the family already has support, research, and compliance grounding while engineering remains comparatively light overall."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement

@@ -41,7 +41,7 @@ matrices:
     investigate-reconcile-verify: {engineering: covered, finance: covered, compliance: covered, operations: partial, research: none, support: partial, hr: none}
     monitor-detect-triage: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
     plan-coordinate-schedule: {engineering: none, finance: none, compliance: none, operations: covered, research: none, support: covered, hr: covered}
-    recommend-decide-escalate: {engineering: none, finance: covered, compliance: covered, operations: partial, research: none, support: none, hr: none}
+    recommend-decide-escalate: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
     execute-automate: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: covered, hr: covered}
     optimize-adapt: {engineering: none, finance: none, compliance: covered, operations: covered, research: none, support: covered, hr: none}
     human-agent-collaborative-work: {engineering: none, finance: none, compliance: covered, operations: none, research: covered, support: covered, hr: none}
@@ -68,8 +68,8 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Nine canonical pattern entries now populate all nine top-level families, and thirty-two grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, compliance, operations, support, and synthesis coverage.
-    - "`recommend-decide-escalate` now has covered finance and compliance cells after adding a second governed recommendation instance for renewal pricing and payment-structure review."
+    - Nine canonical pattern entries now populate all nine top-level families, and thirty-three grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, recommendation, collaboration, compliance, operations, support, and synthesis coverage.
+    - "`recommend-decide-escalate` now has covered finance, compliance, and operations cells after adding a governed multi-site service-package feasibility recommendation example."
     - "`execute-automate` now has covered finance, compliance, HR, operations, and support cells after adding approved emergency maintenance vendor-portal dispatch and break-glass admin access restoration submissions alongside the existing finance, compliance, and payroll examples."
     - "`human-agent-collaborative-work` now has covered support, research, and compliance cells after adding a regulator-response copilot loop for sanctions-alert closure review."
     - "`transform-process` now has covered finance, compliance, and operations cells after adding pharmacovigilance safety-case intake and facilities corrective-maintenance handoff examples."
@@ -78,4 +78,4 @@ summary:
     - "`monitor-detect-triage` now has covered finance, compliance, and operations cells after adding pharmacovigilance safety-signal triage and cold-chain temperature excursion triage examples alongside the suspicious-wire finance anchor."
     - "`investigate-reconcile-verify` now has covered engineering, finance, and compliance cells after adding treasury cash-position discrepancy and sanctions-screening-gap root-cause investigation examples alongside the engineering incident anchor."
     - "`gather-retrieve-synthesize` now has covered research, engineering, finance, compliance, operations, support, and HR cells after adding debt-covenant quarter-close, cross-border safeguard, conveyor-safety readiness, enterprise-support obligations, pay-transparency posting-obligation, and service-mesh migration-readiness synthesis examples."
-    - The highest-leverage next gap now looks like a governed operations example in `recommend-decide-escalate`, because the gather/synthesis family has reached full current-domain coverage while several other families remain intentionally thin.
+    - The highest-leverage next gap now looks like an engineering-domain example in `human-agent-collaborative-work`, because recommendation coverage is more balanced while engineering still has relatively few grounded collaboration-oriented artifacts.
