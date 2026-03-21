@@ -19,6 +19,9 @@ domain:
   - id: finance
     label: Finance
     source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
 workflow_goal: Hold one already-synthesized briefing revision at a governed release boundary and release that exact version into one intended visibility lane only after a human approves audience scope, freshness, and manifest details, while keeping the workflow bounded at briefing release rather than recommendation, decision, planning, or execution.
 inputs:
   - name: Synthesized briefing revision
@@ -259,6 +262,11 @@ example_domains:
       label: Finance
       source_vocabulary: domains
     example: Circulate one treasury liquidity stress briefing revision to a named committee only after a controller confirms confidentiality scope, expiry, and linked exposure caveats.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Release one redacted workforce-policy compliance briefing revision into a restricted people-policy council lane only after an HR governance owner confirms audience scope, freshness, and protected-detail handling.
 maturity: draft
 tags:
   - gather-retrieve-synthesize

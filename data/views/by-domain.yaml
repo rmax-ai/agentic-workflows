@@ -114,7 +114,7 @@ domains:
     label: HR
     source_vocabulary: domains
   pattern_families:
-    gather-retrieve-synthesize: [change-triggered-context-briefing]
+    gather-retrieve-synthesize: [change-triggered-context-briefing, approval-gated-briefing-release]
     transform-process: [approval-gated-transformation-release]
     investigate-reconcile-verify: [authoritative-record-reconciliation]
     monitor-detect-triage: [anomaly-detection-review]
