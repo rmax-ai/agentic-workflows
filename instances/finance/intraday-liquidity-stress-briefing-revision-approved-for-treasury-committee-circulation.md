@@ -12,6 +12,18 @@ Finance.
 
 A treasury analytics workflow has already synthesized one revision of an intraday liquidity stress briefing that summarizes current cash-position pressure, facility headroom, concentration exposure, covenant watchpoints, market-funding caveats, and unresolved data-latency questions for the current funding day. Before that exact revision is circulated into the restricted treasury committee lane, a controller must approve the confidentiality scope, freshness window, and supersession state so committee readers receive the reviewed context package instead of a stale or broadened copy. The workflow stops at governed release of that briefing revision; it does not recommend a facility draw, decide funding strategy, schedule market actions, or execute treasury transactions.
 
+```mermaid
+flowchart TD
+    A["Intraday liquidity stress<br>briefing revision ready"] --> B{"Revision id, source timestamps,<br>and supersession state verified?"}
+    B -->|"No"| G["Hold briefing for refresh<br>or supersession handling"]
+    B -->|"Yes"| C{"Committee lane, confidentiality tier,<br>and expiry window valid?"}
+    C -->|"No"| G
+    C -->|"Yes"| D{"Controller approves exact revision<br>for treasury committee circulation?"}
+    D -->|"No"| G
+    D -->|"Yes"| E["Release exact briefing revision<br>to restricted treasury committee lane"]
+    E --> F["Record approval manifest,<br>expiry, and blocked recirculation"]
+```
+
 ## Target systems / source systems
 
 - Treasury briefing workspace storing the synthesized stress summary, revision history, caveat register, and source-timestamp trace
