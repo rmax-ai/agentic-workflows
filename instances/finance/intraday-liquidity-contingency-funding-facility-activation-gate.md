@@ -12,6 +12,20 @@ Finance.
 
 After a severe payment-rail disruption, treasury leadership has already declared the contingency scope and identified the committed fallback path: a governed intraday funding facility activation that would protect priority payment obligations if the normal liquidity position does not recover before market-open deadlines. Upstream workflows have already restored the trusted cash picture and routed the correct authority lane. The planning workflow now has to assemble one activation-ready packet showing collateral readiness, lender notice windows, dual-control staffing, protected payment-queue holds, and market-open communication constraints. It should keep explicit holds for any missing lender callback, collateral shortfall, or control-coverage gap, and stop at the human approval gate rather than drawing the facility, releasing payments, or re-arguing whether the contingency should exist.
 
+```mermaid
+flowchart TD
+    A["Declared contingency scope,<br>trusted cash picture, and<br>authority lane received"] --> B{"Trusted cash-state,<br>collateral status, and authority lane<br>still match accepted sources?"}
+    B -->|"No"| H["Escalate bounded mismatch for<br>stale readiness inputs or<br>unclear gate prerequisites"]
+    B -->|"Yes"| C{"Collateral sufficiency,<br>lender callback window, and<br>dual-control staffing verified?"}
+    C -->|"No"| G["Keep the packet on hold with<br>explicit callback, collateral, or<br>control-coverage blockers"]
+    C -->|"Yes"| D{"Protected payment-queue holds and<br>market-open communication constraints<br>fully represented?"}
+    D -->|"No"| G
+    D -->|"Yes"| E["Assemble the activation-ready packet,<br>readiness ledger, and hold register"]
+    E --> F{"Named treasury approval owner<br>approves the facility activation packet?"}
+    F -->|"No"| G
+    F -->|"Yes"| I["Record the approved packet and stop<br>at the activation gate without drawing<br>the facility or releasing payments"]
+```
+
 ## Target systems / source systems
 
 - Treasury continuity playbook and bridge workspace with the declared fallback scope, prior gate packets, and protected liquidity thresholds
