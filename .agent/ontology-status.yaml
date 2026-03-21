@@ -265,12 +265,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, thirty-nine canonical patterns across all nine top-level families, and one hundred thirty-two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty canonical patterns across all nine top-level families, and one hundred thirty-five grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`evidence-gated-verification-for-release` now gives `investigate-reconcile-verify` a fifth canonical pattern plus representative `approval-gated-execution`, `approval-gated`, and additional `high` risk coverage while staying bounded at evidence sufficiency, held-state visibility, and approval-ready trust gates rather than recommendation, reconciliation, or execution."
-    - "`investigate-reconcile-verify` now includes engineering, finance, and operations release-gate verification grounding through approved release-candidate, morning-liquidity-posting, and sorter-routing-cutover evidence gate scenarios that stay centered on trust validation before downstream reliance."
-    - "The derived investigate family doc, index tree, and alternate browse views are now realigned to canonical pattern inventory, including the new approval-gated verification anchor and its engineering, finance, operations, autonomy, architecture, and risk placements, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
-    - "Approval-gated execution is no longer isolated to `execute-automate`, so the next refinement step should likely inspect the remaining architecture or autonomy concentrations rather than returning to risk-ladder completion."
+    - "The derived autonomy browse view has now been realigned with canonical pattern truth, so `adaptive-review-sampling-rate-tuning` correctly appears under `autonomous-with-audit` instead of the stale `approval-gated` bucket."
+    - "Autonomous-with-audit now spans both `execute-automate` and `optimize-adapt` across canonical patterns, derived views, and `.agent/` memory, which clears this iteration's normalization target."
+    - "The next refinement step should likely inspect the remaining architecture or autonomy concentrations rather than returning to risk-ladder completion or additional drift cleanup unless another inconsistency appears."
   next_action:
     id: phase-7-autonomy-architecture-balance
-    summary: "Use the next iteration to inspect the remaining narrow architecture and autonomy concentrations now that `approval-gated-execution` spans more than one family, and only add a new family-clean pattern if it represents a real reusable workflow shape."
+    summary: "Use the next iteration to inspect the remaining narrow architecture and autonomy concentrations now that `autonomous-with-audit` is correctly represented beyond `execute-automate`, and only add a new family-clean pattern if it represents a real reusable workflow shape."
