@@ -16,6 +16,9 @@ domain:
   - id: finance
     label: Finance
     source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
   - id: support
     label: Support
     source_vocabulary: domains
@@ -267,6 +270,11 @@ example_domains:
       label: Finance
       source_vocabulary: domains
     example: Rebuild a quarter-close covenant review package after approved journal adjustments change the underlying balances, preserving prior ratios and refreshed lineage for controller review.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Refresh a restricted leave-review staging record after authoritative recertification evidence or case-source corrections land so reviewers see the current privacy-scoped package with superseded values and delta lineage intact.
   - domain:
       id: support
       label: Support
