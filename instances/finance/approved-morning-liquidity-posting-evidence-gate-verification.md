@@ -12,6 +12,20 @@ Finance.
 
 Treasury controllers have a prepared morning liquidity posting packet that may become the authoritative same-day view for funding and exposure decisions, but they require one last evidence gate before approving downstream reliance. The workflow rechecks statement freshness, legal-entity coverage, manual adjustment approvals, and posting-boundary controls against the packet, then emits a verified, held, or insufficient verdict with explicit evidence lineage for controller approval. It must not choose an alternate treasury plan, rewrite the packet, or publish the authoritative posting itself.
 
+```mermaid
+flowchart TD
+    start["Prepared morning liquidity<br>posting packet"]
+    start --> verify["Recheck statement freshness,<br>legal-entity coverage,<br>manual adjustment approvals, and<br>posting-boundary controls"]
+    verify --> assess{"Does current evidence support<br>the prepared posting packet?"}
+    assess --> verified["Emit verified verdict<br>with evidence lineage"]
+    assess --> held["Emit held verdict for stale evidence,<br>scope drift, or missing approval proof"]
+    assess --> insufficient["Emit insufficient verdict for material<br>evidence conflict or boundary failure"]
+    verified --> gate["Present verified packet at the<br>controller approval gate"]
+    gate --> stop["Stop before authoritative posting<br>or funding action"]
+    held --> followup["Keep packet blocked pending<br>refreshed evidence or controller review"]
+    insufficient --> followup
+```
+
 ## Target systems / source systems
 
 - Treasury posting packet and controller review workspace holding the candidate entity scope, manual adjustments, and downstream consumer list
