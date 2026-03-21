@@ -12,6 +12,19 @@ Compliance.
 
 Once a material sanctions-screening outage is declared, compliance and legal open a protected collaboration room for one regulator-position packet that will later support human-controlled escalation and response. A senior compliance manager owns the packet while agents help reconcile outage chronology updates, legal objections, regional-compliance disagreements, and restricted annex material about affected customers, transactions, and temporary controls. The room remains centered on the shared artifact: humans and agents jointly revise the packet, preserve disputed language about exposure and remediation readiness, and keep annex boundaries and release conditions explicit. The human artifact owner remains responsible for deciding whether the packet is ready for the next handoff and whether disagreement or sensitivity still blocks release, while authority recommendation, regulator outreach, and operational containment choices stay in downstream workflows.
 
+```mermaid
+flowchart TD
+    A["Material sanctions-screening outage declared<br>and protected room opened for one regulator-position packet"] --> B["Agents and human reviewers refresh chronology,<br>revise packet text, and pull restricted annex material"]
+    B --> C["Protected-room controls check:<br>privilege boundaries, annex access,<br>and release-state rules still intact?"]
+    C -->|"No"| F["Hold release inside the room<br>until access, scope, or packet coherence is corrected"]
+    F --> B
+    C -->|"Yes"| D["Compliance, legal, and regional reviewers<br>keep disagreements visible in the packet<br>and disagreement register"]
+    D --> E["Senior compliance manager reviews<br>readiness, unresolved objections,<br>and sensitivity blockers"]
+    E -->|"Blocked by disagreement or sensitivity"| F
+    E -->|"Room cannot safely maintain one packet"| H["Bounded handoff to direct human handling<br>because protected collaboration can no longer proceed safely"]
+    E -->|"Ready for next handoff"| G["Release packet, disagreement register,<br>and annex map to downstream human-controlled<br>escalation and response workflows"]
+```
+
 ## Target systems / source systems
 
 - Restricted compliance collaboration room with the main regulator-position packet, disagreement register, annex map, and release-state controls
