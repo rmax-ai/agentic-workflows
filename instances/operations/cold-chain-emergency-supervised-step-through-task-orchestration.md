@@ -12,6 +12,33 @@ Operations.
 
 A regional cold-chain operations lead is directing emergency response after multiple reefer trailers at a cross-dock begin reporting rising temperatures during a snowstorm-driven power instability event. The agent may execute only the significant steps the supervisor calls: place affected lots on quality hold, dispatch probe verification to named trailers, reroute salvageable shipments to two approved facilities, update chain-of-custody records, and verify that the next planned move still respects product, lane, and carrier constraints before continuing. Because inventory quality, field conditions, and available carriers are changing minute by minute, the workflow must preserve exact step state, stop before interpreting a new emergency plan on its own, and produce a takeover-safe handoff if the supervisor escalates one branch to site quality or transportation command.
 
+```mermaid
+flowchart TD
+    start["Supervisor names the next<br>significant emergency step"]
+    hydrate["Hydrate current trailer temperatures,<br>lot hold status, facility capacity,<br>and carrier availability"]
+    scope{"Directed step still within<br>approved containment scope?"}
+    execute["Execute commanded action:<br>place lots on quality hold,<br>dispatch probe verification,<br>reroute salvageable shipments,<br>or update chain-of-custody"]
+    verify{"Verification passes for<br>temperature, product, lane,<br>carrier, and facility constraints?"}
+    ledger["Record executed action,<br>evidence, and exact step state"]
+    next{"Supervisor authorizes the<br>next significant move?"}
+    halt["Hold the current branch and<br>publish the current state"]
+    handoff["Produce a takeover packet for<br>site quality or transportation command"]
+    stop["Stop before interpreting<br>a new emergency plan"]
+
+    start --> hydrate
+    hydrate --> scope
+    scope -->|"Yes"| execute
+    scope -->|"No"| halt
+    execute --> verify
+    verify -->|"Yes"| ledger
+    verify -->|"No"| halt
+    ledger --> next
+    next -->|"Yes"| hydrate
+    next -->|"Escalate branch"| handoff
+    next -->|"No"| stop
+    halt --> handoff
+```
+
 ## Target systems / source systems
 
 - Cold-chain control tower, shipment visibility, and route-execution systems
