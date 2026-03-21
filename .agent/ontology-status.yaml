@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 243
+  instance_files: 244
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ pattern_counts_by_family:
   optimize-adapt: 6
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
-  engineering: 34
+  engineering: 35
   finance: 35
   compliance: 35
   operations: 35
@@ -72,7 +72,8 @@ instance_counts_by_domain:
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred forty-three grounded examples across all seven currently modeled domains, with compliance, finance, operations, research, and support now at thirty-five grounded instances each while engineering and HR remain the trailing domains at thirty-four each."
+  - "The repository now has two hundred forty-four grounded examples across all seven currently modeled domains, with compliance, engineering, finance, operations, research, and support now at thirty-five grounded instances each while HR remains the only trailing domain at thirty-four."
+  - "`approval-gated-transformation-release` now has additional `engineering` grounding through a build-artifact catalog schema transformation package approved for one authoritative system-inventory intake lane, deepening that high-risk transform-family release-control slice within engineering beyond change-window cutover and staging-record refresh examples while preserving a clean boundary at governed release of one exact transformed catalog package rather than inventory approval, policy adjudication, artifact deprecation, or build-system change."
   - "`policy-constrained-escalation-routing` now has additional `compliance` grounding through a regulatory incident breach-notification escalation-routing example, deepening that high-risk recommend-family escalation slice within compliance beyond attestation and authority-restoration examples while preserving a clean boundary at governed authority routing, blocked lower-authority visibility, and audit-ready packet assembly rather than breach adjudication, regulator notification, customer communication, or incident-response execution."
   - "`approval-gated-collaborative-artifact-release` now has additional `research` grounding through a participant consent-language variance clarification packet approved for a human-subjects ethics pre-review intake lane, deepening that high-governance collaboration release slice within research beyond benchmark claim clarification while preserving a clean boundary at governed release of one exact collaborative artifact revision rather than ethics adjudication, participant communication, protocol amendment submission, or downstream review execution."
   - "`approval-gated-briefing-release` now has additional `operations` grounding through a gateway-port berth closure impact briefing revision approved for a marine continuity cell circulation lane, deepening that high-risk gather-family release-control slice within operations beyond the existing cold-chain command briefing example while preserving a clean boundary at governed release of one exact briefing artifact rather than vessel rerouting, berth reassignment, carrier or regulator communication, or downstream recovery execution."

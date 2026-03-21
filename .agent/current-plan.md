@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Active target: restore trailing-domain parity by adding one more `engineering` grounded example, keeping the batch instance-only and away from the recently used `recommend-decide-escalate`, `gather-retrieve-synthesize`, and `human-agent-collaborative-work` families.
-- Selected slice: deepen `approval-gated-transformation-release` in `transform-process` with an engineering scenario centered on approval-bound release of one transformed artifact-catalog package into one named intake lane.
-- Read-first set: this plan, `data/patterns/transform-process/approval-gated-transformation-release.yaml`, `instances/engineering/release-candidate-cutover-bundle-approved-for-change-window-handoff.md`, `instances/compliance/cross-border-transfer-assessment-packet-approved-for-restricted-privacy-counsel-intake.md`, and the most recent relevant files in `.agent/iterations/2026/`.
-- Boundary rule: keep the example centered on transformation, hold-state visibility, lineage, and manifest-bound intake release; stop before catalog governance decisions, legal or policy interpretation, inventory adjudication, or any downstream system execution.
+- Active target: restore the last trailing-domain imbalance with one more `hr` grounded example, keeping the next batch instance-only and away from the just-used `transform-process` family as well as the recently used `recommend-decide-escalate`, `gather-retrieve-synthesize`, and `human-agent-collaborative-work` families.
+- Selection rule: choose an already-canonical approval-bound or other governance-heavy slice whose `hr` domain metadata and derived browse exposure already align so the next batch can stay structurally neutral.
+- Read-first set: this plan, the selected canonical pattern, one same-domain neighboring HR instance, one cross-domain neighboring instance in the same family, and the newest relevant files in `.agent/iterations/2026/`.
+- Boundary rule: keep the next example centered on the chosen pattern's primary artifact or coordination boundary and stop before adjudication, downstream execution, external communication, or policy reinterpretation.
 
 ## Current phase
 
@@ -24,15 +24,15 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Author exactly one new engineering grounded instance for `approval-gated-transformation-release`, using a transformed build-artifact catalog package scenario and keeping the batch structurally neutral.
-2. Confirm that the new scenario does not require canonical pattern or browse-view metadata edits; keep the batch instance-only unless the example exposes real drift.
+1. Reassess the remaining trailing `hr` domain and pick one equally bounded already-canonical slice whose metadata and derived browse mapping already align.
+2. Author exactly one new grounded instance and keep the batch instance-only unless the new example exposes real canonical or browse drift.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
 4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and `.agent/iterations/2026/20260322-003245.md` after verification.
-5. Carry the next-step target forward toward the remaining trailing domain once engineering parity is restored.
+5. Carry the next-step target forward toward closing Phase 7 parity pressure once HR is restored to the leading-domain count.
 
 ## Recent checkpoints
 
-- `20260322-003245`: selected an engineering `transform-process` refinement centered on `approval-gated-transformation-release` after reviewing the current trailing-domain balance, canonical metadata alignment, and neighboring engineering/compliance examples.
+- `20260322-003245`: `approval-gated-transformation-release` gained additional `engineering` grounding through `instances/engineering/build-artifact-catalog-schema-transformation-approved-for-system-inventory-intake.md`, restoring engineering to thirty-five grounded examples through a structurally neutral, instance-only transform-family refinement.
 - `20260322-002355`: `policy-constrained-escalation-routing` gained additional `compliance` grounding through `instances/compliance/regulatory-incident-breach-notification-escalation-routing.md`, restoring compliance to thirty-five grounded examples through a structurally neutral, instance-only recommend-family escalation-routing refinement.
 - `20260322-001611`: `approval-gated-briefing-release` gained additional `operations` grounding through `instances/operations/gateway-port-berth-closure-impact-briefing-revision-approved-for-marine-continuity-cell-circulation.md`, restoring operations to thirty-five grounded examples through a structurally neutral, instance-only gather-family release-control refinement.
 - `20260322-001125`: `approval-gated-collaborative-artifact-release` gained additional `research` grounding through `instances/research/participant-consent-language-variance-clarification-packet-approved-for-human-subjects-ethics-pre-review-intake.md`, staying bounded at governed release of one exact collaborative artifact revision into one named ethics pre-review lane.
