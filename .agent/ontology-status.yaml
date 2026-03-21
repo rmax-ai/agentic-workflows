@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 38
-  instance_files: 129
+  pattern_files: 39
+  instance_files: 132
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -48,7 +48,7 @@ coverage_totals:
 pattern_counts_by_family:
   gather-retrieve-synthesize: 4
   transform-process: 5
-  investigate-reconcile-verify: 4
+  investigate-reconcile-verify: 5
   monitor-detect-triage: 4
   plan-coordinate-schedule: 4
   recommend-decide-escalate: 5
@@ -56,10 +56,10 @@ pattern_counts_by_family:
   optimize-adapt: 4
   human-agent-collaborative-work: 4
 instance_counts_by_domain:
-  engineering: 23
-  finance: 22
+  engineering: 24
+  finance: 23
   compliance: 15
-  operations: 19
+  operations: 20
   research: 17
   support: 19
   hr: 14
@@ -94,6 +94,7 @@ repo_reality:
     - data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml
     - data/patterns/investigate-reconcile-verify/authoritative-record-reconciliation.yaml
     - data/patterns/investigate-reconcile-verify/claimed-state-verification.yaml
+    - data/patterns/investigate-reconcile-verify/evidence-gated-verification-for-release.yaml
     - data/patterns/investigate-reconcile-verify/critical-authoritative-state-restoration.yaml
     - data/patterns/monitor-detect-triage/risk-alert-triage.yaml
     - data/patterns/monitor-detect-triage/anomaly-detection-review.yaml
@@ -156,6 +157,7 @@ repo_reality:
     - instances/engineering/approved-release-readiness-review-closure-and-tracker-completion.md
     - instances/engineering/payments-tokenization-cutover-readiness-gate-disposition-recommendation.md
     - instances/engineering/internal-sdk-release-asset-publication-verification.md
+    - instances/engineering/approved-release-candidate-evidence-gate-verification.md
     - instances/engineering/production-signing-key-compromise-authority-recommendation.md
     - instances/engineering/production-signing-key-integrity-review-priority-adaptation.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
@@ -170,6 +172,7 @@ repo_reality:
     - instances/finance/quarter-close-exception-review-queue-reprioritization.md
     - instances/finance/quarter-close-control-bundle-retuning.md
     - instances/finance/approved-cash-forecast-primary-cutover-staged-execution.md
+    - instances/finance/approved-morning-liquidity-posting-evidence-gate-verification.md
     - instances/finance/material-vendor-payment-control-exception-package-readiness-loop.md
     - instances/finance/procurement-card-segregation-of-duties-attestation-recommendation.md
     - instances/finance/cash-forecast-primary-cutover-readiness-gate-disposition-recommendation.md
@@ -191,6 +194,7 @@ repo_reality:
     - instances/operations/warehouse-slotting-rollout-caveat-board-shared-workbench-upkeep.md
     - instances/operations/distribution-sorter-misroute-root-cause-investigation.md
     - instances/operations/approved-distribution-sorter-routing-profile-cutover-staged-execution.md
+    - instances/operations/approved-sorter-routing-cutover-evidence-gate-verification.md
     - instances/operations/supplier-labeling-deviation-remediation-brief-copilot-loop.md
     - instances/operations/network-fuel-system-test-deferral-exception-package-readiness-loop.md
     - instances/operations/warehouse-slotting-reference-rollout-verification.md
@@ -257,12 +261,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, thirty-eight canonical patterns across all nine top-level families, and one hundred twenty-nine grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, thirty-nine canonical patterns across all nine top-level families, and one hundred thirty-two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`critical-protected-artifact-collaboration` now gives `human-agent-collaborative-work` a fourth canonical pattern plus representative `critical` risk, `orchestrated-multi-agent`, `human-in-the-loop`, and `human-directed` coverage while staying bounded at protected shared-artifact collaboration, disagreement preservation, annex control, and human-owned handoff readiness rather than authority selection, command sequencing, or execution."
-    - "`human-agent-collaborative-work` now spans `low`, `moderate`, `high`, and `critical` risk slices, making it the ninth family and completing full tracked risk-ladder coverage across all nine top-level families."
-    - "The derived collaboration family doc, index tree, and alternate browse views are now realigned to canonical pattern inventory, including the new critical collaboration anchor and its engineering, finance, compliance, autonomy, architecture, and risk placements, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
-    - "Now that all families span the tracked risk ladder, the next refinement step should likely target a narrow autonomy or architecture imbalance rather than another risk-completion batch."
+    - "`evidence-gated-verification-for-release` now gives `investigate-reconcile-verify` a fifth canonical pattern plus representative `approval-gated-execution`, `approval-gated`, and additional `high` risk coverage while staying bounded at evidence sufficiency, held-state visibility, and approval-ready trust gates rather than recommendation, reconciliation, or execution."
+    - "`investigate-reconcile-verify` now includes engineering, finance, and operations release-gate verification grounding through approved release-candidate, morning-liquidity-posting, and sorter-routing-cutover evidence gate scenarios that stay centered on trust validation before downstream reliance."
+    - "The derived investigate family doc, index tree, and alternate browse views are now realigned to canonical pattern inventory, including the new approval-gated verification anchor and its engineering, finance, operations, autonomy, architecture, and risk placements, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
+    - "Approval-gated execution is no longer isolated to `execute-automate`, so the next refinement step should likely inspect the remaining architecture or autonomy concentrations rather than returning to risk-ladder completion."
   next_action:
     id: phase-7-autonomy-architecture-balance
-    summary: "Use the next iteration to inspect narrow autonomy and architecture imbalances now that all families span the tracked risk ladder, and only add a new family-clean pattern if it represents a real reusable workflow shape."
+    summary: "Use the next iteration to inspect the remaining narrow architecture and autonomy concentrations now that `approval-gated-execution` spans more than one family, and only add a new family-clean pattern if it represents a real reusable workflow shape."
