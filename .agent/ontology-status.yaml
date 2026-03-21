@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 48
-  instance_files: 158
+  pattern_files: 49
+  instance_files: 161
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -51,14 +51,14 @@ pattern_counts_by_family:
   investigate-reconcile-verify: 5
   monitor-detect-triage: 5
   plan-coordinate-schedule: 5
-  recommend-decide-escalate: 6
+  recommend-decide-escalate: 7
   execute-automate: 5
   optimize-adapt: 6
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
-  engineering: 29
-  finance: 30
-  compliance: 19
+  engineering: 30
+  finance: 31
+  compliance: 20
   operations: 28
   research: 18
   support: 20
@@ -114,6 +114,7 @@ repo_reality:
     - data/patterns/recommend-decide-escalate/readiness-gate-disposition-recommendation.yaml
     - data/patterns/recommend-decide-escalate/control-requirement-attestation-recommendation.yaml
     - data/patterns/recommend-decide-escalate/critical-escalation-authority-recommendation.yaml
+    - data/patterns/recommend-decide-escalate/approval-gated-recommendation-release.yaml
      - data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml
      - data/patterns/execute-automate/human-directed-task-orchestration.yaml
      - data/patterns/execute-automate/staged-change-execution-with-rollback-holds.yaml
@@ -173,6 +174,7 @@ repo_reality:
     - instances/engineering/internal-sdk-release-asset-publication-verification.md
     - instances/engineering/approved-release-candidate-evidence-gate-verification.md
     - instances/engineering/production-signing-key-compromise-authority-recommendation.md
+    - instances/engineering/database-upgrade-exception-recommendation-packet-revision-approved-for-architecture-board-decision-lane.md
     - instances/engineering/production-signing-key-integrity-review-priority-adaptation.md
      - instances/finance/suspicious-wire-transfer-alert-triage.md
      - instances/finance/suspicious-wire-triage-packet-approved-for-restricted-fraud-review-dispatch.md
@@ -203,6 +205,7 @@ repo_reality:
     - instances/finance/intraday-liquidity-stress-protected-funding-review-packet-collaboration-room.md
     - instances/finance/intraday-liquidity-stress-briefing-revision-approved-for-treasury-committee-circulation.md
     - instances/finance/quarter-close-covenant-position-packet-approved-for-controller-committee-intake.md
+    - instances/finance/arrears-concession-recommendation-packet-revision-approved-for-controller-committee-decision-lane.md
      - instances/operations/cold-chain-emergency-supervised-step-through-task-orchestration.md
      - instances/operations/cross-functional-maintenance-review-scheduling.md
      - instances/operations/cold-chain-temperature-excursion-alert-triage.md
@@ -246,6 +249,7 @@ repo_reality:
     - instances/compliance/sanctions-screening-manual-fallback-activation-gate.md
     - instances/compliance/sanctions-screening-outage-protected-regulator-position-packet-collaboration-room.md
     - instances/compliance/vendor-transfer-remediation-packet-approved-for-privacy-counsel-intake.md
+    - instances/compliance/privacy-attestation-disposition-packet-revision-approved-for-council-sign-off-lane.md
     - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
     - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
     - instances/support/customer-escalation-bridge-scheduling.md
