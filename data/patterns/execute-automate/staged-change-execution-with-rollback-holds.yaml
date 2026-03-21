@@ -1,0 +1,268 @@
+id: staged-change-execution-with-rollback-holds
+slug: staged-change-execution-with-rollback-holds
+name: Staged change execution with rollback holds
+summary: Carry an already approved high-stakes change through sequenced preflight, bounded stage transitions, checkpoint verification, and rollback-aware hold points so humans can inspect live state before blast radius expands or ambiguous outcomes compound.
+pattern_family:
+  id: execute-automate
+  label: Execute / Automate
+problem_structure:
+  id: exception-aware-orchestration
+  label: Exception-aware orchestration
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+workflow_goal: Execute an already approved high-stakes operational change through explicit preflight, staged transition, verification, and rollback-ready hold points while preserving checkpoint lineage and stopping before ambiguous or unsafe state spreads into wider impact.
+inputs:
+  - name: Approved change package
+    description: The authoritative package that grants permission to execute the change, defines scope, names protected boundaries, and records the human authorities who approved entry into execution.
+    kind: change-request
+    required: true
+    examples:
+      - Approved production cutover packet for moving payment traffic to a new tokenization service
+      - Signed treasury change record authorizing promotion of a new cash forecast engine to primary status
+  - name: Stage execution and rollback plan
+    description: The versioned execution runbook describing stage order, preflight conditions, hold-release criteria, rollback triggers, and the specific evidence required before each progression step.
+    kind: execution-plan
+    required: true
+    examples:
+      - Runbook requiring data-parity checks, a limited traffic canary, settlement verification, and rollback-to-legacy within five minutes if error thresholds rise
+      - Warehouse control cutover plan defining one-zone activation, throughput thresholds, jam-rate limits, and profile-restore steps
+  - name: Live system and dependency state
+    description: Current operational signals, dependency health, control-plane state, and environment conditions that determine whether the next stage remains safe to execute.
+    kind: execution-state
+    required: true
+    examples:
+      - Service health, queue depth, feature-flag state, and payment-settlement parity readings during a cutover window
+      - Forecast feed completeness, bank-statement latency, and current operator overrides before promoting a treasury workflow
+  - name: Prior checkpoint and intervention history
+    description: Durable record of completed stages, human hold releases, verification outcomes, and any prior rollback or exception actions already taken in the same execution window.
+    kind: stage-history
+    required: false
+    examples:
+      - Record showing that preflight passed, the first cohort traffic shift completed, and the change authority released the next stage
+      - History indicating that a prior sorter-profile activation was rolled back after misroute thresholds were exceeded
+outputs:
+  - name: Checkpointed execution state record
+    description: Durable record showing which stages completed, which remain on hold, whether rollback occurred, and what live state was confirmed at each checkpoint.
+    kind: execution-result
+    required: true
+    examples:
+      - Cutover record showing preflight pass, limited traffic activation, full promotion, and legacy-path retirement confirmation
+      - Treasury execution state showing shadow period completion, primary flip approval hold, authoritative promotion, and fallback path preserved
+  - name: Verification and rollback ledger
+    description: Ordered trace of preflight checks, stage transitions, verification evidence, human-visible hold releases, rollback readiness checks, and any rollback actions taken.
+    kind: audit-log
+    required: true
+    examples:
+      - Ledger linking each traffic-shift increment to latency, error-rate, and settlement-parity checks plus the operator release decision
+      - Trace showing which sorter-zone activation triggered a hold, what telemetry failed, and how the previous routing profile was restored
+  - name: Hold or rollback intervention packet
+    description: Structured handoff describing why progression stopped, what state is currently live, what rollback path remains available, and what a human responder must confirm next.
+    kind: escalation-packet
+    required: true
+    examples:
+      - Packet showing that payment authorization errors rose during the canary and the workflow paused before widening traffic
+      - Intervention record explaining that forecast variance exceeded tolerance after primary promotion and the legacy source was restored pending treasury review
+environment:
+  summary: Operates in governed high-stakes execution windows where approval to proceed already exists, but safe completion depends on moving live state through explicit stages, proving checkpoint conditions, and preserving viable rollback options until the change is truly stable.
+  systems:
+    - Change-management, ticketing, or control-room systems
+    - Control planes, orchestration engines, or domain-specific execution tooling
+    - Monitoring, verification, and observability systems
+    - Rollback state stores, backup paths, or prior-version registries
+    - Audit and evidence stores
+  actors:
+    - Workflow or change owner
+    - Domain operator or automation controller
+    - Human authority who can release protected hold points
+    - Verification or risk reviewer
+    - Rollback responder or incident lead
+  constraints:
+    - Begin only from an authoritative approved change package and stay inside its stated scope, blast-radius limits, and protected boundaries.
+    - Recheck preflight conditions and rollback readiness before every consequential stage transition rather than trusting earlier snapshots.
+    - Preserve one authoritative stage history so resumed or partially rolled-back execution cannot skip checkpoints silently.
+    - Stop at explicit human-visible holds whenever verification is incomplete, rollback viability degrades, or the next stage would materially expand live impact.
+  assumptions:
+    - The target environment exposes trustworthy enough signals to verify stage completion, degraded behavior, and rollback readiness during execution.
+    - A bounded rollback or fallback path exists for at least the early and middle stages of the change window.
+    - Human owners remain available to release protected hold points, authorize rollback, or take over if checkpoint evidence becomes ambiguous.
+capability_requirements:
+  - capability:
+      id: action-execution
+      label: Action execution
+      source_vocabulary: capabilities
+    necessity: The workflow must carry out real stage transitions that change live operational state rather than only recommend or document them.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: High-stakes staged execution requires interacting with control planes, APIs, workflow systems, observability tools, and rollback mechanisms.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Durable checkpoint state is required so progression, hold releases, partial rollbacks, and resumed execution remain inspectable across a multi-stage window.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Every stage must prove its intended effect and the health of rollback options before the workflow may advance.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: The workflow must enforce approved scope, protected blast-radius limits, hold-release criteria, and escalation thresholds during execution.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The pattern is defined by deciding when to continue, hold, narrow, or roll back as live execution diverges from the approved path.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Execution, verification, and rollback roles need a shared view of stage state so protected hold points and intervention decisions stay aligned.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Separate preflight, stage-execution, verification, and rollback-readiness roles often need coordinated shared state because no single step is safe without awareness of the others.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human-visible hold points remain part of the normal operating model because blast-radius expansion, rollback release, and ambiguous checkpoint interpretation should not be hidden inside automation.
+autonomy_profile:
+  level:
+    id: exception-gated-autonomy
+    label: Exception-gated autonomy
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Define the protected stages, preflight rules, rollback triggers, and hold-release conditions before automation enters a live execution window.
+    - Review and release the human-visible hold points that precede blast-radius expansion, authoritative promotion, or retirement of the prior fallback path.
+    - Take over or authorize rollback when checkpoint evidence conflicts, rollback readiness degrades, or the next stage would exceed the approved scope.
+  reversibility: Early and intermediate stages are designed to remain reversible through bounded rollback or fallback, but later stages may become slower or more expensive to unwind once external traffic, downstream decisions, or physical operations depend on the new state.
+  escalation: Escalate whenever preflight checks fail, verification signals disagree, rollback prerequisites are no longer healthy, or a human-visible hold cannot be released confidently from current evidence.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Incorrect staged execution can move production, financial, or operational workflows into a harmful live state, causing customer-facing disruption, financial loss, or unsafe field conditions even when a rollback path still exists.
+  approval_requirements:
+    - A human authority must approve the execution package, stage sequence, rollback plan, and protected hold points before any live stage transitions begin.
+    - Human release is required for stage transitions that materially expand blast radius, retire the trusted fallback path, or proceed after degraded-but-tolerable checkpoint evidence.
+    - Changes to rollback thresholds, protected stages, or allowed automation scope require formal owner approval before future runs may use them.
+  auditability: Preserve the approved package version, stage definitions, preflight results, commands or actions taken, checkpoint evidence, human hold releases, rollback triggers, intervention packets, and final live-state confirmations so each execution window can be reconstructed.
+  privacy:
+    - Limit copied production, transaction, logistics, or operator data to the evidence needed to verify checkpoint health and human intervention decisions.
+    - Mask or restrict logs that would expose secrets, financial identifiers, customer details, or facility-sensitive information outside approved audit stores.
+  security:
+    - Use least-privilege credentials for each execution and verification role, and separate rollback authority from ordinary stage progression where possible.
+    - Record who or what released each hold, advanced each stage, and triggered any rollback so silent scope expansion or covert execution is detectable.
+  notes: High-risk governance fits because the workflow acts on already approved but still consequential live changes whose harm can often be contained through staged progression and rollback, yet cannot be treated as routine delegated execution or low-risk bookkeeping.
+why_agentic:
+  - The workflow must decide from live evidence whether to continue, hold, narrow scope, or roll back rather than merely replaying one static cutover script.
+  - Safe execution depends on carrying forward durable knowledge of completed stages, released holds, and current rollback viability across a changing operating window.
+  - The agentic value lies in checkpoint reasoning and intervention discipline: the workflow is useful only if it knows when not to advance.
+failure_modes:
+  - mode: The workflow advances using stale preflight or dependency state
+    impact: A later stage runs even though prerequisite conditions no longer hold, increasing blast radius before humans notice.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Refresh authoritative dependency and rollback-readiness signals immediately before each consequential transition.
+      - Expire cached preflight evidence aggressively and force a visible hold when required signals are missing or stale.
+  - mode: Checkpoint verification is treated as good enough despite conflicting evidence
+    impact: The workflow widens live impact while hidden errors, drift, or unsafe conditions are already emerging.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Define hard verification gates and tolerated ambiguity bands explicitly for every protected stage.
+      - Route conflicting telemetry into a hold or rollback packet instead of allowing silent operator override.
+  - mode: Rollback viability degrades before the workflow notices
+    impact: The change appears reversible on paper but the system has already lost the ability to restore the prior trusted state quickly.
+    severity: high
+    detectability: low
+    mitigations:
+      - Re-verify backup integrity, fallback-path health, and restore permissions before every stage that would make rollback slower or narrower.
+      - Treat rollback-readiness loss itself as a stop condition even if the forward path looks healthy.
+  - mode: Repeated resumptions or partial rollbacks create unclear authoritative stage state
+    impact: Humans and automation disagree about which live state is current, making duplicate actions or unsafe continuation more likely.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Keep one append-only stage ledger with explicit authoritative status for each stage, hold, and rollback transition.
+      - Require state reconciliation before resuming after interruption or partial rollback.
+evaluation:
+  success_metrics:
+    - Percentage of approved high-stakes changes completed or safely rolled back without unauthorized blast-radius expansion.
+    - Rate of ambiguous or degrading stage transitions caught at a visible hold before broader customer, financial, or operational harm accumulates.
+    - Completeness of checkpoint lineage linking approvals, stage evidence, hold releases, and rollback actions for audited runs.
+  quality_criteria:
+    - Every stage transition has explicit preflight, verification, and rollback-readiness evidence rather than implicit trust in earlier state.
+    - Human-visible holds remain inspectable and meaningful instead of becoming automatic rubber stamps.
+    - Final records distinguish clearly among successful completion, held progression, narrowed execution, and rollback outcomes.
+  robustness_checks:
+    - Test degraded dependencies between stages and confirm the workflow pauses before entering the next blast-radius tier.
+    - Test stale or missing rollback artifacts and ensure execution stops even when forward metrics remain nominal.
+    - Test interruption, replay, and partial rollback scenarios to verify the stage ledger prevents duplicate or skipped transitions.
+  benchmark_notes: Evaluate checkpoint discipline, rollback readiness, and harm containment together; rapid completion is not success if the workflow cannot prove why each stage advanced or why it stopped.
+implementation_notes:
+  orchestration_notes:
+    - Separate approval-state intake, preflight validation, stage execution, checkpoint verification, hold publication, and rollback handling into explicit coordinated stages over shared durable state.
+    - Make hold-release decisions and rollback-readiness checks first-class workflow data rather than buried in console logs or operator chat.
+  integration_notes:
+    - Common implementations connect change systems, execution control planes, observability tools, backup or restore systems, and audit stores.
+    - Keep the pattern neutral about whether the staged change is a traffic shift, authoritative-system promotion, or physical operations control update; the checkpointed execution loop applies across all of them.
+  deployment_notes:
+    - Start with one high-stakes change class that already has a trusted rollback path, measurable checkpoints, and disciplined change authority ownership.
+    - Review hold frequency, rollback quality, and evidence completeness early so protected checkpoints stay informative rather than ceremonial.
+  references:
+    - docs/patterns/execute-automate.md
+    - data/vocabularies/problem-structures.yaml
+    - data/vocabularies/autonomy-levels.yaml
+    - data/vocabularies/risk-levels.yaml
+related_patterns:
+  - id: readiness-gate-disposition-recommendation
+    relationship: follows-from
+    notes: A readiness-gate workflow can decide whether a high-stakes change should proceed, but this pattern starts only after that decision and carries the approved change through staged execution.
+  - id: exception-aware-task-execution
+    relationship: contrasts-with
+    notes: Both patterns preserve state and handle off-nominal conditions, but this one is centered on high-stakes staged progression with rollback holds rather than routine bounded delegation and retries.
+  - id: workflow-hand-off-and-completion
+    relationship: can-hand-off-to
+    notes: Once staged execution is complete and authoritative state is stable, low-risk downstream closure and bookkeeping can move into the completion pattern.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Execute an approved payments-service cutover through preflight, limited traffic activation, checkpoint verification, and rollback-aware holds before full production promotion.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Promote an approved treasury forecasting workflow to authoritative primary status through a shadow period, controlled activation, variance checks, and rollback holds before the legacy path is retired.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Apply an approved sorter-routing profile through one-zone activation, throughput and misroute checks, human-visible hold release, and rapid rollback if site conditions degrade.
+maturity: draft
+tags:
+  - execute-automate
+  - exception-aware-orchestration
+  - staged-execution
+  - rollback-aware
+  - checkpoint-verification
+  - high-risk

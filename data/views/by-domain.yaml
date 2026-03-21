@@ -36,7 +36,7 @@ domains:
     monitor-detect-triage: [critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning, authoritative-change-coordination-refresh]
     recommend-decide-escalate: [readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation]
-    execute-automate: [exception-aware-task-execution, workflow-hand-off-and-completion]
+    execute-automate: [staged-change-execution-with-rollback-holds, exception-aware-task-execution, workflow-hand-off-and-completion]
     optimize-adapt: [adaptive-threshold-calibration]
     human-agent-collaborative-work: [approval-centered-collaboration]
 - domain:
@@ -50,7 +50,7 @@ domains:
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [authoritative-change-coordination-refresh]
     recommend-decide-escalate: [deal-desk-recommendation-support, readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation]
-    execute-automate: [browser-based-form-completion-with-approval-gates]
+    execute-automate: [browser-based-form-completion-with-approval-gates, staged-change-execution-with-rollback-holds]
     optimize-adapt: [governed-optimization-bundle-retuning]
     human-agent-collaborative-work: [approval-centered-collaboration]
 - domain:
@@ -78,7 +78,7 @@ domains:
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
-    execute-automate: [exception-aware-task-execution]
+    execute-automate: [staged-change-execution-with-rollback-holds, exception-aware-task-execution]
     optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration]
     human-agent-collaborative-work: [approval-centered-collaboration, shared-workbench-orchestration]
 - domain:

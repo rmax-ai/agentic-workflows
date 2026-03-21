@@ -102,7 +102,7 @@ families:
   - id: exception-aware-orchestration
     label: Exception-aware orchestration
     source_vocabulary: problem-structures
-  pattern_ids: [browser-based-form-completion-with-approval-gates, exception-aware-task-execution, workflow-hand-off-and-completion]
+  pattern_ids: [browser-based-form-completion-with-approval-gates, staged-change-execution-with-rollback-holds, exception-aware-task-execution, workflow-hand-off-and-completion]
 - family:
     id: optimize-adapt
   path: patterns/optimize-adapt
