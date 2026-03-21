@@ -25,6 +25,9 @@ domain:
   - id: research
     label: Research
     source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
   - id: hr
     label: HR
     source_vocabulary: domains
@@ -291,6 +294,11 @@ example_domains:
       label: Research
       source_vocabulary: domains
     example: Transform benchmark-claim evidence, rerun lineage, and disclosure holds into a restricted publication-integrity intake packet whose manifest authorizes one bounded review lane without recommending publication or submitting the study.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Reshape enterprise outage diagnostics, entitlement scope, and sanitized vendor-facing evidence into a restricted vendor-escalation intake packet whose manifest authorizes one bounded support handoff lane without recommending concessions, negotiating resolution, or executing live response work.
   - domain:
       id: hr
       label: HR

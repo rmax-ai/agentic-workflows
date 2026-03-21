@@ -101,7 +101,7 @@ domains:
     source_vocabulary: domains
   pattern_families:
     gather-retrieve-synthesize: [change-triggered-context-briefing, crisis-briefing-evidence-synthesis, approval-gated-briefing-release]
-    transform-process: [change-triggered-representation-refresh, critical-channel-safe-state-packaging]
+    transform-process: [change-triggered-representation-refresh, critical-channel-safe-state-packaging, approval-gated-transformation-release]
     investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification]
     monitor-detect-triage: [explainable-watchlist-maintenance, anomaly-detection-review]
     plan-coordinate-schedule: [calendar-conflict-coordination]
