@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 208
+  instance_files: 209
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -60,7 +60,7 @@ instance_counts_by_domain:
   finance: 31
   compliance: 29
   operations: 30
-  research: 29
+  research: 30
   support: 30
   hr: 29
 consistency_notes:
@@ -75,6 +75,7 @@ consistency_notes:
   - "`claimed-state-verification` now has explicit `hr` grounding through an internal parental-leave guidance publication-state verification example, extending that low-risk investigate-family slice beyond engineering, operations, research, and support while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting rather than policy interpretation, communication, or record mutation."
   - "`claimed-state-verification` now has additional `hr` grounding through an internal job-architecture handbook publication verification example, deepening that same low-risk investigate-family slice within HR beyond parental-leave guidance while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative evidence traceability rather than handbook rewriting, leveling adjudication, manager communication, or downstream system change."
   - "`claimed-state-verification` now has additional `research` grounding through an internal benchmark registry snapshot publication verification example, deepening that same low-risk investigate-family slice within research beyond benchmark artifact-freeze confirmation while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative evidence traceability rather than snapshot republication, benchmark adjudication, release approval, or broader remediation."
+  - "`approval-gated-triage-dispatch` now has additional `research` grounding through an approved secondary-dataset access request triage packet for restricted governance review dispatch, deepening that monitor-family approval-bound slice within research beyond benchmark disclosure-risk review while preserving a clean boundary at one exact triaged packet release, bounded recipient scope, hold visibility, and audit-ready lineage rather than access adjudication, disclosure choice, or downstream execution."
   - "`approval-gated-triage-dispatch` now has explicit `research` grounding through a benchmark-study disclosure-risk packet approved for restricted disclosure-governance review dispatch, extending that monitor-family approval-bound slice beyond finance, compliance, operations, and HR while preserving a clean boundary at governed packet release rather than disclosure adjudication or publication action."
   - "`approval-centered-collaboration` canonical domain/example metadata plus `data/views/by-domain.yaml` are now realigned with the already-committed `support` and `compliance` readiness-loop instances, restoring browse consistency before further refinement work."
   - "`exception-aware-task-execution` now has explicit `support` grounding through an enterprise admin entitlement resynchronization runbook execution example, extending that bounded-delegation execute-family slice beyond engineering and operations while preserving a clean boundary at delegated routine completion, durable checkpointing, explicit verification, and exception-only escalation rather than customer communication, contract interpretation, or discretionary entitlement redesign."
@@ -177,6 +178,7 @@ repo_reality:
     - instances/research/benchmark-study-publication-integrity-intake-packet-approved-for-restricted-review-lane.md
     - instances/research/approved-benchmark-study-publication-integrity-packet-evidence-gate-verification.md
     - instances/research/benchmark-study-research-review-intake-record-refresh-after-rerun-manifest-update.md
+    - instances/research/approved-secondary-dataset-access-request-triage-packet-for-restricted-governance-review-dispatch.md
     - instances/engineering/release-candidate-review-staging-record-refresh-after-evidence-change.md
     - instances/engineering/release-candidate-cutover-bundle-approved-for-change-window-handoff.md
     - instances/engineering/payments-api-latency-incident-investigation.md
