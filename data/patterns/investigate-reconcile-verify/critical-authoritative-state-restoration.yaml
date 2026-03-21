@@ -19,6 +19,9 @@ domain:
   - id: operations
     label: Operations
     source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
 workflow_goal: Determine the trusted current state of a critical situation by reconciling conflicting records, snapshots, and case evidence under emergency source-of-truth rules, then produce a human-reviewed state-restoration package that preserves unresolved truth gaps and stops before recommendation, notification, or execution.
 inputs:
   - name: Critical discrepancy declaration and scope
@@ -262,6 +265,11 @@ example_domains:
       label: Operations
       source_vocabulary: domains
     example: Reconcile lot genealogy, quarantine, and shipment-hold systems during a contamination event to determine which inventory is definitively contained versus still uncertain.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Restore the trusted current state of a protected-leave episode when leave, occupational-health, and benefits systems disagree about active review, effective dates, and unresolved dependency holds.
 maturity: draft
 tags:
   - investigate-reconcile-verify
@@ -269,4 +277,3 @@ tags:
   - critical-risk
   - authoritative-state
   - truth-restoration
-
