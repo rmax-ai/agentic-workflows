@@ -12,6 +12,18 @@ Compliance.
 
 A privacy compliance team is preparing a pre-review briefing for a vendor that will handle support telemetry and limited customer account data across multiple hosting regions. Before anyone approves the vendor, requests remediation, updates a transfer impact assessment, or gives legal advice, the workflow must assemble a cited current-state obligations brief showing which cross-border transfer safeguards, onward-transfer restrictions, localization commitments, supplementary-control requirements, notice duties, and subcontractor conditions are actually supported by the active source set. The useful output is an evidence-backed synthesis that separates verified obligations from jurisdiction and effective-date ambiguity, source conflicts, and open questions that still require legal or privacy-owner interpretation.
 
+```mermaid
+flowchart TD
+    A["Scope the vendor review question<br>and approved source boundary"] --> B["Gather active evidence<br>executed agreements, vendor disclosures,<br>regulator guidance, internal playbooks"]
+    B --> C["Build the evidence trace<br>extract safeguard claims, citations,<br>and open questions"]
+    C --> D{"Verification checks<br>citation validity, source precedence,<br>jurisdiction fit, effective dates,<br>and trust-boundary compliance"}
+    D --> E["Publish the verified obligations brief<br>with evidence trace and explicit open questions"]
+    D --> F["Hold the workflow<br>for citation gaps, source conflicts,<br>or vendor facts awaiting confirmation"]
+    F --> G["Bounded handoff for resolution<br>privacy owner, legal reviewer,<br>or vendor diligence owner only"]
+    G --> B
+    E --> H["Bounded handoff to downstream review<br>approval, remediation planning,<br>transfer-assessment update, or legal advice"]
+```
+
 ## Target systems / source systems
 
 - Controlled compliance review workspace where the obligations brief, evidence trace, and open-questions ledger are stored
