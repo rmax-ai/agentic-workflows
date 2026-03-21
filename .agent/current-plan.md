@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Iteration `20260321-132512` is now scoped: `change-triggered-representation-refresh` should gain new `research` grounding through one already-issued research review or intake record refresh example, and only the directly dependent canonical pattern metadata plus derived domain view should change if the slice stays bounded to one staged structured representation refreshed after authoritative source updates with explicit delta lineage, supersession state, and reviewable exceptions.
+
 Iteration `20260321-131858` is now complete: `change-triggered-representation-refresh` gained new `compliance` grounding through one cross-border transfer-assessment review-record refresh example, and the canonical pattern metadata plus derived domain view now expose that moderate-risk transform-refresh slice without drifting past one already-issued staged compliance review record revision, one explicit current-versus-superseded state boundary, or one bounded restricted downstream privacy-review lane.
 
 Iteration `20260321-130630` is now complete: `approval-gated-transformation-release` gained new `support` grounding, and the canonical pattern metadata plus derived domain view now expose that transform-family approval-bound slice across all seven modeled domains without drifting past one exact vendor-escalation intake packet revision, one explicit hold-and-manifest state, or one bounded restricted downstream lane.
@@ -40,7 +42,7 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: shift to one of the now-tied thinnest domains through a family-safe research-grounded `change-triggered-representation-refresh` example, if the work can stay centered on one already-issued staged research packet or review record refreshed after authoritative source changes rather than recommendation, verification, collaboration, or execution.
+- Current refinement target: add one family-safe research-grounded `change-triggered-representation-refresh` example centered on one already-issued staged research packet or review record refreshed after authoritative source changes rather than recommendation, verification, collaboration, or execution.
 
 ## Ordered tasks
 
@@ -51,11 +53,12 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-131858`
+- Timestamp: `20260321-132512`
 - Previous completed scope: added one HR-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern's domain and example metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Completed scope: added one compliance-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Previous completed scope: added one compliance-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Current scoped scope: add one research-grounded `change-triggered-representation-refresh` example, expand the canonical pattern metadata to include `research`, refresh the derived domain view, and then update execution memory after validation.
 - Current working hypothesis: transform-family change-refresh refinement remains family-safe only when the primary output is one current staged representation rebuilt after authoritative source changes, with explicit delta lineage, superseded-value traceability, and reviewable exceptions, while recommendation, verification verdicts, collaborative drafting, and live action stay explicitly outside the workflow.
-- Current scoped follow-on: move next to one similarly narrow research-grounded change-refresh example so the tied thinnest domains continue to balance without reopening broader structural expansion.
+- Current scoped follow-on: if the research slice lands cleanly, move next to another similarly narrow transform or investigate refinement in one of the tied thinnest domains without reopening broader structural expansion.
 - Boundary reminder: future transform-family refresh work should remain tied to one already-issued staged package or record revision, one explicit current-versus-superseded state boundary, and one bounded downstream reliance lane rather than a recommendation packet, evidence verdict, approval artifact, or operational action.
 
 ## Constraints
