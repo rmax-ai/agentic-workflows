@@ -16,8 +16,8 @@ Iteration `20260321-063819` is complete: `control-requirement-attestation-recomm
 
 ## Ordered tasks
 
-1. Re-read `.agent/coverage-matrix.yaml`, `.agent/ontology-status.yaml`, and the current family docs before choosing the next narrow Phase 7 refinement now that the low-risk recommendation slice is covered.
-2. Prefer the next iteration to target another family-specific architecture or governance gap with similarly bounded scope rather than reopening broad expansion.
+1. Re-read `.agent/coverage-matrix.yaml`, `.agent/ontology-status.yaml`, and the `gather-retrieve-synthesize` plus `monitor-detect-triage` family docs before choosing the next narrow Phase 7 refinement now that the low-risk recommendation slice is covered.
+2. Prefer the next iteration to compare two similarly bounded follow-ons: a low-risk `gather-retrieve-synthesize` pattern or a moderate-risk `monitor-detect-triage` pattern, and pick the cleaner family boundary rather than reopening broad expansion.
 3. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log after the next content batch so execution memory stays synchronized.
 4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` before closing each iteration.
 
@@ -26,7 +26,7 @@ Iteration `20260321-063819` is complete: `control-requirement-attestation-recomm
 - Timestamp: `20260321-063819`
 - Baseline context: prior iteration `20260321-062746` completed moderate-risk, event-driven readiness-disposition coverage for `recommend-decide-escalate`, leaving low-risk recommendation support as the cleanest remaining in-family risk gap.
 - Completed subagent scope: added `control-requirement-attestation-recommendation`, grounded it with engineering, finance, and compliance instances, updated the affected browse views, and validated repository YAML successfully.
-- Planned orchestrator follow-up: record the new low-risk recommendation coverage, reassess the remaining family-specific architecture and governance gaps, and queue the next dependency-safe refinement step.
+- Planned orchestrator follow-up: record the new low-risk recommendation coverage, then use `gather-retrieve-synthesize` low-risk and `monitor-detect-triage` moderate-risk as the first two candidate gap slices for the next dependency-safe refinement step.
 
 ## Constraints
 
@@ -38,4 +38,4 @@ Iteration `20260321-063819` is complete: `control-requirement-attestation-recomm
 
 ## Expected outcome
 
-The next iteration should move to another narrow family-specific architecture or governance slice, because `recommend-decide-escalate` now has representative low-, moderate-, and high-risk recommendation coverage without reopening broader repository scaffolding.
+The next iteration should move to another narrow family-specific architecture or governance slice, with low-risk `gather-retrieve-synthesize` and moderate-risk `monitor-detect-triage` now the leading candidates because `recommend-decide-escalate` has representative low-, moderate-, and high-risk recommendation coverage without reopening broader repository scaffolding.

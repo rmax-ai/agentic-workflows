@@ -203,5 +203,5 @@ repo_reality:
     - "`approval-centered-collaboration` now also has grounded compliance, operations, and support instances through regulator reporting-timeline exception, network fuel-system test deferral exception, and enterprise security incident remediation-credit readiness loops, extending the pattern's approval-readiness collaboration coverage across six governance-heavy domains without drifting into adjudication."
     - "Every top-level family still has at least two canonical patterns and full family/domain grounding, and all six autonomy levels now have at least one canonical pattern, so the next highest-leverage gaps are narrower family-specific architecture and governance slices rather than missing global scaffolding."
 next_action:
-  id: phase-7-reassess-next-family-specific-gap
-  summary: "Reassess the remaining family-specific architecture and governance slices now that `recommend-decide-escalate` has representative low-, moderate-, and high-risk coverage, then choose the next similarly bounded refinement."
+  id: phase-7-compare-low-risk-gather-vs-moderate-monitor
+  summary: "Compare a low-risk `gather-retrieve-synthesize` refinement against a moderate-risk `monitor-detect-triage` refinement and choose the cleaner next bounded family-specific slice now that `recommend-decide-escalate` spans low, moderate, and high risk."
