@@ -1,0 +1,272 @@
+id: critical-authoritative-state-restoration
+slug: critical-authoritative-state-restoration
+name: Critical authoritative state restoration
+summary: Resolve time-sensitive high-consequence state discrepancies by reconciling conflicting authoritative records and live status evidence into a trusted current-state ledger with explicit holds and uncertainty, without diagnosing root cause or taking downstream action.
+pattern_family:
+  id: investigate-reconcile-verify
+  label: Investigate / Reconcile / Verify
+problem_structure:
+  id: record-reconciliation
+  label: Record reconciliation
+  source_vocabulary: problem-structures
+domain:
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+workflow_goal: Determine the trusted current state of a critical situation by reconciling conflicting records, snapshots, and case evidence under emergency source-of-truth rules, then produce a human-reviewed state-restoration package that preserves unresolved truth gaps and stops before recommendation, notification, or execution.
+inputs:
+  - name: Critical discrepancy declaration and scope
+    description: A declared severe case, control emergency, or command-level discrepancy that defines the affected entities, time window, and bounded state questions that must be resolved quickly.
+    kind: case
+    required: true
+    examples:
+      - Treasury command bridge asks which settlement obligations and liquidity buffers are actually current and unencumbered
+      - Compliance response lead asks which payments are truly blocked, released, or still under sanctions hold after systems diverge
+      - Operations command center asks which product lots are genuinely quarantined, in transit, or still exposed after hold-state conflicts emerge
+  - name: Conflicting authoritative state evidence
+    description: Structured records, live snapshots, control logs, and governed notes that describe the same critical state from different systems or responsible teams.
+    kind: evidence-set
+    required: true
+    examples:
+      - Bank confirmations, treasury ledgers, collateral calls, and manual liquidity adjustments
+      - Screening engine status, case queue states, payment message holds, and override logs
+      - Lot genealogy, warehouse quarantine status, shipment holds, and lab-review records
+  - name: Emergency source-of-truth and hold rules
+    description: Approved precedence rules, freshness thresholds, identity constraints, and mandatory hold conditions that determine when one source may be trusted, when disagreement must remain visible, and when humans must intervene.
+    kind: policy
+    required: true
+    examples:
+      - Treat central-bank facility confirmation as authoritative only when the settlement timestamp is inside the approved freshness window
+      - Require human review if a blocked-payment state differs between sanctions case tooling and payment-rail hold records
+      - Keep a lot branch on hold when genealogy, shipment, and quality systems cannot agree on containment status
+  - name: Prior adjudications and active hold state
+    description: Optional prior reconciliations, manual overrides, hold manifests, or reviewer decisions that should inform the current truth-restoration pass without erasing new conflicts.
+    kind: case-state
+    required: false
+    examples:
+      - Earlier liquidity bridge ledger with two entity balances marked provisional
+      - Existing sanctions-hold exception record awaiting legal review
+      - Previous contamination command-center hold manifest for one unresolved lot family
+outputs:
+  - name: Trusted current-state ledger
+    description: The best available authoritative state for each in-scope entity, obligation, or lot, annotated with evidence references, freshness, and confidence.
+    kind: ledger
+    required: true
+    examples:
+      - Current intraday liquidity ledger with confirmed settled cash, encumbered balances, and provisional manual adjustments
+      - Payment-hold ledger showing which transactions are truly blocked, released, or pending sanctions adjudication
+      - Lot-state ledger showing quarantined, in-transit, and unresolved product branches with current evidence lineage
+  - name: Unresolved discrepancy and hold register
+    description: Explicit list of conflicts, unknowns, blocked merges, stale sources, and policy-triggered holds that prevent parts of the state from being treated as settled truth.
+    kind: review-queue
+    required: true
+    examples:
+      - Counterparty exposure lines held because a bank confirmation conflicts with a manual treasury adjustment
+      - Payments kept in unresolved state because the screening queue and release ledger disagree
+      - Lot branches held because warehouse and genealogy systems identify different downstream pallets
+  - name: State-restoration handoff packet
+    description: Structured package for downstream human decision-makers showing what state is trusted, what remains provisional, what evidence supports each conclusion, and where the workflow stopped.
+    kind: case-packet
+    required: true
+    examples:
+      - Treasury bridge packet showing confirmed funding runway, unresolved positions, and evidence links
+      - Compliance response packet showing authoritative sanctions-hold scope and unresolved release conflicts
+      - Operations command packet showing authoritative containment status and remaining ambiguous lot branches
+environment:
+  summary: Operates in critical situations where leaders need one trusted current-state picture quickly, but the source systems, human workbenches, and control ledgers disagree in ways that make premature certainty dangerous.
+  systems:
+    - Systems of record, ledgers, or regulated case systems that hold candidate authoritative state
+    - Snapshot, telemetry, or status systems that reflect live state during the critical window
+    - Command, bridge, or investigation workspaces for critical discrepancy review
+    - Audit, hold-manifest, and reviewer-approval systems
+  actors:
+    - Command lead, incident lead, or crisis coordinator requesting trusted-state restoration
+    - Domain analyst or steward who interprets source-system meaning
+    - Risk, compliance, legal, or control reviewer
+    - Human decision-maker who consumes the reconciled current-state packet
+  constraints:
+    - Stop at determining trusted current state, preserving unresolved ambiguity, and packaging that state for human consumption; do not explain root cause, choose a response, or execute the response.
+    - Preserve source lineage, timestamps, and reviewer-visible hold reasons for every consequential state element.
+    - Prefer explicit provisional or held states over forced harmonization when evidence conflicts materially.
+    - Keep emergency truth rules, manual overrides, and state-restoration approvals versioned and inspectable.
+  assumptions:
+    - Participating systems expose enough identifiers, timestamps, and status fields to support defensible cross-system reconciliation under pressure.
+    - Human owners are available to resolve protected conflicts, approve authoritative-state declarations, and decide what happens next.
+    - Downstream response, communication, or execution workflows can consume a bounded handoff packet without requiring this pattern to take those actions itself.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow must gather conflicting state evidence rapidly from multiple systems before trusted current state can be established.
+  - capability:
+      id: discrepancy-analysis
+      label: Discrepancy analysis
+      source_vocabulary: capabilities
+    necessity: The core problem is interpreting field-level and entity-level disagreements across competing records, snapshots, and human control artifacts.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Every authoritative-state conclusion must be checked against source freshness, precedence rules, and independent evidence rather than accepted at face value.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Emergency precedence rules, mandatory hold conditions, and protected-state boundaries determine when delegated reconciliation must stop and surface uncertainty.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Critical truth restoration usually spans multiple specialist roles and systems, so shared state and clear handoff boundaries are essential.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow reads ledgers, case systems, manifests, and status tooling and writes hold registers and handoff packets through governed tools rather than text-only reasoning.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Trusted-state conclusions, unresolved conflicts, superseded snapshots, and reviewer decisions must persist across repeated critical updates.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Safe operation depends on holding, escalating, or isolating conflicts that exceed delegated truth-restoration scope instead of flattening them into one false answer.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Critical state restoration often benefits from explicit roles for source retrieval, cross-system comparison, hold classification, and handoff assembly so the reconciliation path stays fast and inspectable.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Humans remain embedded because protected conflicts, emergency precedence exceptions, and final authoritative-state acceptance cannot be delegated away safely.
+autonomy_profile:
+  level:
+    id: human-directed
+    label: Human directed
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the declared critical scope, source-of-truth hierarchy, and protected-state boundaries before automated reconciliation begins.
+    - Review the trusted current-state ledger and hold register before the output is used for consequential decisions, declarations, communications, or operational changes.
+    - Approve changes to emergency precedence rules, identity-merge thresholds, or hold-release logic before those changes affect live critical cases.
+  reversibility: The reconciled ledger and handoff packet can be superseded as fresher evidence arrives, but once humans act on an incorrect critical-state picture the practical consequences may be costly or impossible to undo quickly.
+  escalation: Escalate whenever no defensible authoritative state can be established, identity or lineage breaks make merges unsafe, protected data cannot be separated cleanly, or the next requested step would require recommendation, declaration, or execution instead of truth restoration.
+risk_governance:
+  level:
+    id: critical
+    label: Critical
+    source_vocabulary: risk-levels
+  failure_impact: Declaring the wrong current state in a critical situation can trigger or delay emergency holds, misstate regulated or financial exposure, undermine safety containment, and cause leaders to act on a false picture precisely when response windows are narrow.
+  approval_requirements:
+    - Human approval is required before the trusted-state output is used for external reporting, executive declaration, customer or partner communication, fund restriction, shipment disposition, or other consequential downstream action.
+    - Governance review is required before changing emergency precedence logic, protected-state handling, or hold-release criteria used by future critical truth-restoration runs.
+  auditability: Preserve every source snapshot or query reference, precedence rule version, identity or match decision, unresolved conflict, hold reason, human override, and authoritative-state acceptance event so reviewers can reconstruct exactly how the trusted-state picture was formed.
+  privacy:
+    - Limit copied financial, regulated, shipment, or personal detail to the minimum needed for state restoration and downstream review rather than duplicating full raw records broadly.
+    - Keep protected identifiers and restricted evidence inside narrower review channels when the main state-restoration packet can rely on generalized or hashed references.
+  security:
+    - Restrict read and write access to critical workbenches, hold manifests, and authoritative-state ledgers because tampering can distort the trusted picture during a severe event.
+    - Record manual overrides, source-priority changes, and repeated reconciliation failures in durable logs so unauthorized state shaping remains detectable.
+  notes: Critical-risk governance fits because the pattern determines what humans can safely treat as the current truth under severe consequences, while still remaining bounded at reconciliation, hold-state preservation, and handoff rather than action selection or execution.
+why_agentic:
+  - Critical truth restoration requires adaptive reconciliation across stale, partial, and conflicting sources rather than one fixed precedence table applied once.
+  - The workflow must preserve evolving authoritative-state hypotheses, explicit holds, and reviewer decisions as the situation changes, which static spreadsheet reconciliation handles poorly under pressure.
+  - Safe operation depends on recognizing when unresolved ambiguity itself is materially important and should be surfaced instead of hidden behind a premature single answer.
+failure_modes:
+  - mode: A stale or partial snapshot is accepted as the current authoritative state
+    impact: Human leaders act on outdated exposure, hold, or containment information during a critical window.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Recheck source freshness and snapshot lineage before accepting a field into the trusted current-state ledger.
+      - Prefer provisional states and visible freshness warnings when no source meets the approved recency threshold.
+  - mode: Conflicting evidence is force-merged into a falsely settled answer
+    impact: Material uncertainty disappears from the handoff packet and downstream teams assume a certainty that does not exist.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Require explicit hold states and conflict reasons whenever precedence rules do not cleanly resolve disagreement.
+      - Block authoritative-state acceptance when mandatory fields remain unresolved or policy requires human adjudication.
+  - mode: Distinct entities, obligations, or lots are incorrectly merged during high-pressure reconciliation
+    impact: The trusted-state ledger conflates separate items and spreads the wrong status or hold state across them.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Apply stricter identity thresholds and reviewer-visible merge lineage for many-to-one or alias-heavy matches.
+      - Route uncertain identity joins into the unresolved hold register instead of collapsing them automatically.
+  - mode: The workflow drifts into recommendation, declaration, or execution
+    impact: Family boundaries blur and the critical reconciliation workflow starts making decisions or actions that should remain human-owned downstream.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Limit outputs to the trusted ledger, hold register, and state-restoration handoff packet.
+      - Keep downstream response, notification, and execution tools outside the delegated truth-restoration loop.
+evaluation:
+  success_metrics:
+    - Time to first human-reviewable trusted current-state ledger with complete evidence lineage and explicit hold status.
+    - Agreement between the workflow's trusted-state package and the final human-accepted current-state picture for the critical window.
+    - Percentage of materially unresolved conflicts that remain visible in the hold register rather than being hidden in the main ledger.
+  quality_criteria:
+    - Every trusted-state assertion cites source evidence, freshness, and the rule or reviewer decision that made it authoritative.
+    - The workflow preserves explicit provisional and held states whenever critical uncertainty remains.
+    - Outputs stay bounded at current-state restoration and handoff instead of drifting into root-cause explanation, recommendation, or execution.
+  robustness_checks:
+    - Test with fast-changing source snapshots and confirm the workflow supersedes prior truth safely instead of mixing incompatible time slices.
+    - Test overlapping identity aliases or partial match keys and verify that uncertain merges are held for review.
+    - Test mandatory protected-data redaction and confirm the workflow can preserve state meaning without leaking restricted detail into broader handoff packets.
+  benchmark_notes: Evaluate both truth quality and uncertainty discipline; a faster answer is not a success if critical unknowns or stale evidence disappear from the official current-state picture.
+implementation_notes:
+  orchestration_notes:
+    - Keep source intake, comparison, authoritative-state proposal, hold classification, and handoff assembly as explicit coordinated stages over shared critical-case state.
+    - Separate trusted-state restoration from downstream declaration, response, communication, and execution tooling so the family boundary remains intact.
+  integration_notes:
+    - Common implementations integrate ledgers, regulated case systems, inventory or status systems, command workspaces, and audit or hold-review tooling.
+    - Keep the pattern neutral about specific treasury, sanctions, supply-chain, or crisis-management platforms.
+  deployment_notes:
+    - Start with severe discrepancy scenarios where clear emergency precedence rules, audit requirements, and human review paths already exist.
+    - Monitor rates of superseded ledgers, unresolved holds, and human disagreement to ensure the workflow surfaces ambiguity instead of normalizing it away.
+  references:
+    - docs/patterns/investigate-reconcile-verify.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: authoritative-record-reconciliation
+    relationship: variant-of
+    notes: This pattern is a critical-risk, time-sensitive variant focused on trusted current-state restoration under severe consequences rather than routine reversible record repair.
+  - id: incident-root-cause-analysis
+    relationship: contrasts-with
+    notes: Root-cause analysis explains why a severe discrepancy emerged, while this pattern determines what the authoritative state is right now even if causes remain unresolved.
+example_domains:
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Reconcile treasury, bank, and collateral records during a liquidity event to determine which obligations and buffers are truly current before leaders choose a funding response.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Restore the trusted state of blocked, released, and pending transactions when sanctions hold systems disagree during an active regulator-sensitive review.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Reconcile lot genealogy, quarantine, and shipment-hold systems during a contamination event to determine which inventory is definitively contained versus still uncertain.
+maturity: draft
+tags:
+  - investigate-reconcile-verify
+  - record-reconciliation
+  - critical-risk
+  - authoritative-state
+  - truth-restoration
+

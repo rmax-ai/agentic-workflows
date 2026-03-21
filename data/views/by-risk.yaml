@@ -73,7 +73,7 @@ risk_levels:
   pattern_families:
     gather-retrieve-synthesize: [crisis-briefing-evidence-synthesis]
     transform-process: [critical-channel-safe-state-packaging]
-    investigate-reconcile-verify: []
+    investigate-reconcile-verify: [critical-authoritative-state-restoration]
     monitor-detect-triage: [critical-signal-corroboration-triage]
     plan-coordinate-schedule: []
     recommend-decide-escalate: []

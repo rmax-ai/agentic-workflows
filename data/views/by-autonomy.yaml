@@ -32,7 +32,7 @@ autonomy_levels:
   pattern_families:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation, crisis-briefing-evidence-synthesis]
     transform-process: [critical-channel-safe-state-packaging]
-    investigate-reconcile-verify: []
+    investigate-reconcile-verify: [critical-authoritative-state-restoration]
     monitor-detect-triage: []
     plan-coordinate-schedule: []
     recommend-decide-escalate: []

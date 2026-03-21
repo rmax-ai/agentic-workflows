@@ -18,6 +18,7 @@ The conceptual seed patterns already named in the browse tree are:
 - `discrepancy-investigation`
 - `record-reconciliation`
 - `evidence-backed-verification`
+- `critical-authoritative-state-restoration`
 
 ## Problem-structure mapping
 
@@ -29,6 +30,8 @@ This family maps directly to three existing `problem_structure` terms:
 
 Future canonical patterns in this family should choose the single primary term that best reflects whether the workflow is centered on explanation, alignment, or proof.
 
+`critical-authoritative-state-restoration` now gives this family a critical-risk anchor for time-sensitive workflows where the hard problem is determining trusted current state under severe consequences. It stays in-family only when the system is reconciling authoritative discrepancy, surfacing unresolved truth gaps, and handing off a bounded trusted-state package rather than triaging incoming signals, explaining why the discrepancy arose, recommending a response, or executing downstream changes.
+
 ## Family boundary
 
 This family starts once the workflow's hard part becomes trust restoration or correctness checking.
@@ -36,6 +39,8 @@ This family starts once the workflow's hard part becomes trust restoration or co
 - If the workflow mainly **gathers and summarizes context** before any inconsistency is being resolved, see [gather-retrieve-synthesize](./gather-retrieve-synthesize.md).
 - If the workflow mainly **monitors ongoing signals and decides what deserves attention**, see [monitor-detect-triage](./monitor-detect-triage.md).
 - If the workflow mainly **proposes a next-best action after verification**, see [recommend-decide-escalate](./recommend-decide-escalate.md).
+
+Critical variants still belong here only when the core deliverable is an authoritative current-state determination with explicit holds and evidence lineage. If the main value is severe-signal routing, crisis briefing, response recommendation, or operational action, the workflow belongs in an adjacent family even if some reconciliation occurs on the way.
 
 ## Why this family is meaningfully agentic
 

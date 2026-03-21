@@ -64,7 +64,7 @@ families:
   - id: evidence-backed-verification
     label: Evidence-backed verification
     source_vocabulary: problem-structures
-  pattern_ids: [incident-root-cause-analysis, authoritative-record-reconciliation, claimed-state-verification]
+  pattern_ids: [incident-root-cause-analysis, authoritative-record-reconciliation, claimed-state-verification, critical-authoritative-state-restoration]
 - family:
     id: monitor-detect-triage
   path: patterns/monitor-detect-triage
