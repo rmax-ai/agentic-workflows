@@ -36,7 +36,7 @@ architectures:
     investigate-reconcile-verify: [authoritative-record-reconciliation]
     monitor-detect-triage: []
     plan-coordinate-schedule: [calendar-conflict-coordination]
-    recommend-decide-escalate: [deal-desk-recommendation-support]
+    recommend-decide-escalate: [deal-desk-recommendation-support, control-requirement-attestation-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration]
 - architecture:
@@ -63,7 +63,7 @@ architectures:
     investigate-reconcile-verify: [incident-root-cause-analysis, authoritative-record-reconciliation]
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
-    recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing, readiness-gate-disposition-recommendation]
+    recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing, readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: [adaptive-threshold-calibration]
     human-agent-collaborative-work: [analyst-copilot-loop, approval-centered-collaboration]

@@ -34,7 +34,7 @@ risk_levels:
     investigate-reconcile-verify: []
     monitor-detect-triage: []
     plan-coordinate-schedule: [calendar-conflict-coordination]
-    recommend-decide-escalate: [readiness-gate-disposition-recommendation]
+    recommend-decide-escalate: [control-requirement-attestation-recommendation]
     execute-automate: [workflow-hand-off-and-completion]
     optimize-adapt: [adaptive-threshold-calibration]
     human-agent-collaborative-work: []

@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 20
-  instance_files: 74
+  pattern_files: 21
+  instance_files: 77
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -51,14 +51,14 @@ pattern_counts_by_family:
   investigate-reconcile-verify: 2
   monitor-detect-triage: 2
   plan-coordinate-schedule: 2
-  recommend-decide-escalate: 3
+  recommend-decide-escalate: 4
   execute-automate: 3
   optimize-adapt: 2
   human-agent-collaborative-work: 2
 instance_counts_by_domain:
-  engineering: 12
-  finance: 11
-  compliance: 10
+  engineering: 13
+  finance: 12
+  compliance: 11
   operations: 10
   research: 11
   support: 10
@@ -95,6 +95,7 @@ repo_reality:
     - data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml
     - data/patterns/recommend-decide-escalate/policy-constrained-escalation-routing.yaml
     - data/patterns/recommend-decide-escalate/readiness-gate-disposition-recommendation.yaml
+    - data/patterns/recommend-decide-escalate/control-requirement-attestation-recommendation.yaml
     - data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml
     - data/patterns/execute-automate/exception-aware-task-execution.yaml
     - data/patterns/execute-automate/workflow-hand-off-and-completion.yaml
@@ -119,6 +120,7 @@ repo_reality:
     - instances/engineering/cross-team-release-readiness-review-scheduling.md
     - instances/engineering/approved-production-change-freeze-exception-portal-submission.md
     - instances/engineering/managed-database-major-version-upgrade-exception-recommendation.md
+    - instances/engineering/privileged-service-account-quarterly-control-attestation-recommendation.md
     - instances/engineering/ci-pipeline-failure-review-queue-reprioritization.md
     - instances/engineering/production-shared-credential-exception-review-board-readiness-loop.md
     - instances/engineering/approved-release-readiness-review-closure-and-tracker-completion.md
@@ -133,6 +135,7 @@ repo_reality:
     - instances/finance/quarter-close-control-review-scheduling.md
     - instances/finance/quarter-close-exception-review-queue-reprioritization.md
     - instances/finance/material-vendor-payment-control-exception-package-readiness-loop.md
+    - instances/finance/procurement-card-segregation-of-duties-attestation-recommendation.md
     - instances/finance/cash-forecast-primary-cutover-readiness-gate-disposition-recommendation.md
     - instances/operations/cross-functional-maintenance-review-scheduling.md
     - instances/operations/cold-chain-temperature-excursion-alert-triage.md
@@ -159,6 +162,7 @@ repo_reality:
     - instances/support/enterprise-outage-evidence-packet-to-support-escalation-record-handoff.md
     - instances/support/enterprise-security-incident-remediation-credit-package-readiness-loop.md
     - instances/compliance/vendor-data-transfer-safeguard-obligation-synthesis-for-cross-border-review.md
+    - instances/compliance/vendor-telemetry-safeguard-requirement-attestation-recommendation.md
     - instances/hr/approved-payroll-status-change-submission.md
     - instances/hr/interview-panel-availability-coordination.md
     - instances/hr/pay-transparency-posting-obligation-synthesis-for-requisition-launch-review.md
@@ -184,11 +188,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty canonical patterns across all nine top-level families, and seventy-four grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty-one canonical patterns across all nine top-level families, and seventy-seven grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "All nine top-level families are now grounded across engineering, finance, compliance, operations, research, support, and HR after adding research-domain monitoring coverage."
     - "`policy-constrained-escalation-routing` now gives `recommend-decide-escalate` a second canonical pattern and representative `orchestrated-multi-agent` coverage while staying bounded at governed routing rather than downstream execution."
     - "`readiness-gate-disposition-recommendation` now gives `recommend-decide-escalate` a third canonical pattern plus representative `moderate` risk and `event-driven-monitoring` coverage while staying bounded at governed proceed/hold/narrow/escalate guidance rather than alert triage, collaborative approval drafting, or downstream execution."
+    - "`control-requirement-attestation-recommendation` now gives `recommend-decide-escalate` a fourth canonical pattern plus representative `low` risk coverage while staying bounded at requirement-fit recommendation for internal attestation packets rather than milestone gating, routing, collaboration, or execution."
     - "`normalization-and-enrichment` now gives `transform-process` a second canonical pattern and representative `low` risk coverage while staying bounded at reversible canonicalization and approved enrichment rather than downstream judgment or action."
     - "`adaptive-threshold-calibration` now gives `optimize-adapt` a second canonical pattern plus representative `low` risk and `human-in-the-loop` architecture coverage while keeping the family bounded at reversible parameter tuning rather than downstream triage or execution."
     - "`schedule-adjustment-and-replanning` now gives `plan-coordinate-schedule` a second canonical pattern plus representative `moderate` risk, `recommendation-only` autonomy, `human-in-the-loop`, and `orchestrated-multi-agent` architecture coverage while keeping the family bounded at revised plan handoff rather than recommendation or execution."
@@ -196,7 +201,7 @@ repo_reality:
     - "`workflow-hand-off-and-completion` now gives `execute-automate` a third canonical pattern plus representative `low` risk, `event-driven-monitoring`, and `autonomous-with-audit` coverage while keeping the family bounded at post-decision closure, archival, and low-risk state propagation rather than new consequential execution."
     - "`authoritative-record-reconciliation` now gives `investigate-reconcile-verify` a second canonical pattern plus representative `record-reconciliation`, `tool-using-single-agent`, `human-in-the-loop`, `bounded-delegation`, and `moderate` risk coverage while keeping the family bounded at authoritative-state restoration and correction packaging rather than causal diagnosis or downstream action."
     - "`approval-centered-collaboration` now also has grounded compliance, operations, and support instances through regulator reporting-timeline exception, network fuel-system test deferral exception, and enterprise security incident remediation-credit readiness loops, extending the pattern's approval-readiness collaboration coverage across six governance-heavy domains without drifting into adjudication."
-    - "Every top-level family still has at least two canonical patterns and full family/domain grounding, and all six autonomy levels now have at least one canonical pattern, so the next highest-leverage gaps are narrower family-specific architecture and risk slices rather than missing global scaffolding."
+    - "Every top-level family still has at least two canonical patterns and full family/domain grounding, and all six autonomy levels now have at least one canonical pattern, so the next highest-leverage gaps are narrower family-specific architecture and governance slices rather than missing global scaffolding."
 next_action:
-  id: phase-7-consider-low-risk-recommendation-slice
-  summary: "Use the next bounded batch to close the remaining low-risk `recommend-decide-escalate` gap if a clean pattern can be added without duplicating planning, monitoring triage, or downstream execution."
+  id: phase-7-reassess-next-family-specific-gap
+  summary: "Reassess the remaining family-specific architecture and governance slices now that `recommend-decide-escalate` has representative low-, moderate-, and high-risk coverage, then choose the next similarly bounded refinement."

@@ -91,7 +91,7 @@ families:
   - id: recommendation-and-decision-support
     label: Recommendation and decision support
     source_vocabulary: problem-structures
-  pattern_ids: [deal-desk-recommendation-support, policy-constrained-escalation-routing, readiness-gate-disposition-recommendation]
+  pattern_ids: [deal-desk-recommendation-support, policy-constrained-escalation-routing, readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation]
 - family:
     id: execute-automate
   path: patterns/execute-automate

@@ -1,0 +1,274 @@
+id: control-requirement-attestation-recommendation
+slug: control-requirement-attestation-recommendation
+name: Control requirement attestation recommendation
+summary: Evaluate a bounded control or requirement evidence packet against an explicit attestation checklist to recommend approve, remediate, or escalate guidance for a human owner without filing the attestation or changing governed systems.
+pattern_family:
+  id: recommend-decide-escalate
+  label: Recommend / Decide / Escalate
+problem_structure:
+  id: recommendation-and-decision-support
+  label: Recommendation and decision support
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+workflow_goal: Determine whether a bounded attestation packet sufficiently satisfies a known control or requirement set for human approval, whether targeted remediation is needed, or whether the case should escalate because gaps or ambiguity exceed delegated review bounds, while staying bounded at recommendation and evidence-gap visibility.
+inputs:
+  - name: Attestation scope and requirement set
+    description: The named control, standard, or requirement set being attested, including the exact obligations, review period, decision rights, and any non-waivable criteria.
+    kind: requirement-set
+    required: true
+    examples:
+      - Quarterly least-privilege control checklist for privileged production service accounts
+      - Internal finance checklist for procurement-card segregation-of-duties attestation
+      - Annual vendor safeguard requirement set for telemetry handling and retention controls
+  - name: Supporting evidence packet
+    description: Current evidence, linked records, screenshots, logs, sample results, and supporting notes showing how each requirement is or is not satisfied.
+    kind: evidence-set
+    required: true
+    examples:
+      - Access review exports, rotation logs, exception tickets, and owner acknowledgements
+      - Workflow reports, reconciliations, sample approvals, and training completion records
+      - Contract clauses, configuration snapshots, retention settings, and review workpapers
+  - name: Policy thresholds and exception history
+    description: The governing policy text, approved exceptions, freshness rules, materiality thresholds, and escalation criteria that shape the recommendation.
+    kind: policy
+    required: true
+    examples:
+      - Rule requiring escalation when evidence depends on an expired exception or unsupported compensating control
+      - Internal control policy defining when a missing sample blocks attestation approval
+      - Privacy review rule that escalates ambiguous subcontractor or retention coverage
+  - name: Reviewer notes and prior recommendation history
+    description: Optional comments, prior attestation outcomes, unresolved reviewer questions, and earlier remediation commitments that should inform the current recommendation.
+    kind: review-history
+    required: false
+    examples:
+      - Prior quarter note accepting a short-lived exception pending owner cleanup
+      - Reviewer comment that one evidence source was acceptable only if refreshed before the next cycle
+outputs:
+  - name: Recommended attestation disposition
+    description: Ranked options showing whether the attestation packet appears approvable as submitted, requires targeted remediation before approval, or should escalate because requirement fit is ambiguous or out of bounds.
+    kind: recommendation
+    required: true
+    examples:
+      - Recommend approve because every required control maps to current evidence and no blocking gaps remain
+      - Recommend remediate because owner-review evidence is stale for one privileged account set
+      - Recommend escalate because the packet depends on a compensating control that is outside delegated review authority
+  - name: Requirement gap register
+    description: Structured list of satisfied, partial, missing, stale, or exception-backed requirements that remains visible to the human approver.
+    kind: gap-register
+    required: true
+    examples:
+      - Register showing two satisfied requirements, one stale evidence item, and one open remediation action
+      - Mapping table identifying the exact safeguard clause that lacks current vendor proof
+  - name: Attestation rationale packet
+    description: Decision-ready packet linking each recommendation to evidence, policy thresholds, unresolved ambiguity, and any explicit escalation trigger.
+    kind: attestation-packet
+    required: true
+    examples:
+      - Packet showing why a finance attestation can proceed if one sample exception is refreshed before sign-off
+      - Packet explaining why a vendor safeguard attestation should escalate rather than infer requirement coverage from an outdated audit report
+  - name: Recommendation audit log
+    description: Durable log of requirement checks, evidence versions, recommendation revisions, and human checkpoints for the attestation review.
+    kind: audit-log
+    required: true
+    examples:
+      - Record of how the recommendation changed after a stale log export was replaced with a current one
+      - Log of human overrides and why a partially met requirement was accepted or rejected
+environment:
+  summary: Operates in governed internal review workflows where a human owner must decide whether a bounded control or requirement attestation packet is sufficiently evidenced, needs remediation, or should escalate before any formal sign-off or downstream action occurs.
+  systems:
+    - Control library, GRC, or policy repository
+    - Evidence workspace, document store, or review tracker
+    - Source systems containing logs, reports, configuration state, or sample results
+    - Exception register and prior attestation history
+  actors:
+    - Control or requirement owner
+    - Analyst or reviewer preparing the attestation packet
+    - Human approver or governance lead
+    - Domain specialist consulted when a requirement is ambiguous or exception-backed
+  constraints:
+    - The workflow must evaluate a known requirement set rather than invent new obligations or redesign the control.
+    - Outputs must stop at recommendation, requirement mapping, and escalation guidance rather than filing the attestation, changing live systems, or launching remediation work.
+    - Requirement-by-requirement evidence links, freshness limits, and approved exceptions must remain explicit so a clean summary cannot hide gaps.
+    - Novel scenarios, unsupported compensating controls, or ambiguous scope should degrade into remediation or escalation instead of confident approval guidance.
+  assumptions:
+    - The relevant requirement set and delegated decision boundary are documented in a form the workflow can reference.
+    - Human approvers remain accountable for accepting or rejecting the recommendation before any sign-off or downstream record change occurs.
+    - Source evidence is accessible in read-only form strongly enough to support traceable requirement mapping.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow needs current policy text, prior exceptions, and supporting evidence before it can judge whether an attestation packet fits the requirement set.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Useful attestation guidance depends on combining requirement text, evidence fragments, and reviewer context into one decision-ready packet.
+  - capability:
+      id: recommendation
+      label: Recommendation
+      source_vocabulary: capabilities
+    necessity: The central output is advice on approve, remediate, or escalate posture rather than a completed sign-off or system action.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Requirement-fit recommendations depend on explicit obligation text, exception boundaries, freshness rules, and escalation thresholds.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Evidence references, review period alignment, and approved-exception status must be checked before the workflow recommends approval.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow must preserve prior attestation outcomes, unresolved gaps, and recommendation revisions across review cycles.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Missing evidence, stale proof, and novel edge cases should produce explicit remediation or escalation instead of silent optimism.
+execution_architecture:
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: One bounded review agent can usually retrieve the requirement set, map evidence, and assemble a coherent attestation recommendation without the overhead of multi-agent orchestration.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human owners remain embedded because accepting an attestation posture or deciding to tolerate a gap is itself the governed action the workflow is supporting.
+autonomy_profile:
+  level:
+    id: recommendation-only
+    label: Recommendation only
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the applicable requirement set, exception posture, and delegated review boundary before live recommendations are used.
+    - Review the recommendation, requirement gap register, and rationale packet before any attestation is marked approved, remediated, or escalated.
+    - Approve changes to requirement mappings, freshness rules, or escalation thresholds before they affect future attestation guidance.
+  reversibility: Recommendations and gap mappings can be recomputed as evidence changes, and harm is usually limited to localized review churn, delayed sign-off, or avoidable follow-up because humans still control the consequential attestation decision.
+  escalation: Escalate whenever requirement scope is ambiguous, a packet depends on an expired or unsupported exception, non-waivable evidence is missing, or a reviewer would need to interpret policy beyond the delegated attestation boundary.
+risk_governance:
+  level:
+    id: low
+    label: Low
+    source_vocabulary: risk-levels
+  failure_impact: Poor recommendations usually create localized rework, review delay, or unnecessary escalation because the workflow remains bounded to internal approval guidance, the underlying evidence stays inspectable, and humans still own any formal attestation or downstream system change.
+  approval_requirements:
+    - A human control owner or governance lead must accept the recommendation before any attestation is formally signed, filed, or recorded as approved.
+    - Policy owners must approve changes to requirement definitions, exception rules, evidence freshness limits, or escalation criteria.
+  auditability: Preserve requirement mappings, source evidence references, freshness checks, approved exceptions, recommendation revisions, and human overrides so the attestation review can be reconstructed later.
+  privacy:
+    - Share only the evidence fragments needed for requirement review because attestation packets may include privileged configuration details, financial records, or vendor security material.
+    - Keep review logs and evidence links aligned to need-to-know access and retention rules for the governed domain.
+  security:
+    - Use least-privilege read access so recommendation tooling cannot silently alter source evidence, approval records, or governed systems.
+    - Log manual overrides, exception use, and reviewer acceptance of partial evidence in durable reviewable records.
+  notes: Low-risk governance fits because the pattern stays on the internal recommendation side of attestation review, stops before any formal sign-off or system change, and keeps every consequential approval step explicitly human-owned.
+why_agentic:
+  - Requirement-fit review involves mapping heterogeneous evidence to explicit obligations, freshness rules, and exception history rather than checking one static field.
+  - Good recommendations depend on distinguishing satisfied, partial, missing, and ambiguous requirements while preserving rationale that humans can inspect quickly.
+  - Safe performance requires knowing when the packet no longer fits a routine attestation review and should escalate instead of forcing a brittle answer.
+failure_modes:
+  - mode: The workflow overstates requirement coverage from weak or indirect evidence
+    impact: Human reviewers are nudged toward approving an attestation packet that still has unsupported gaps or assumptions.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Require each recommendation to map every material requirement to inspectable current evidence or an explicit exception.
+      - Show partial and unsupported requirements alongside satisfied ones instead of collapsing them into one completion score.
+  - mode: Stale evidence is treated as valid for the current review period
+    impact: The recommendation appears cleaner than the current control state and creates avoidable follow-up when humans discover the evidence drift.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Attach timestamps and review-period scope to every critical evidence item.
+      - Recheck freshness and exception validity immediately before surfacing the recommendation.
+  - mode: A novel or out-of-scope requirement question is handled as a routine attestation
+    impact: The workflow gives false confidence instead of sending the case to the right human authority for interpretation.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Encode escalation triggers for unsupported compensating controls, scope ambiguity, and policy interpretation gaps.
+      - Preserve reviewer uncertainty explicitly in the rationale packet rather than smoothing it away.
+  - mode: The workflow drifts into approval drafting, remediation planning, or execution beyond the family boundary
+    impact: Reviewers may treat a recommendation artifact as if the attestation were already approved or acted on.
+    severity: low
+    detectability: high
+    mitigations:
+      - Keep outputs limited to recommendations, gap registers, rationale packets, and audit logs.
+      - Separate remediation work planning, approval collaboration, and downstream execution tooling from the attestation workflow.
+evaluation:
+  success_metrics:
+    - Reviewer acceptance rate of recommendations without major requirement-mapping corrections.
+    - Time to produce a complete requirement-fit packet for human attestation review.
+    - Frequency with which stale, partial, or exception-backed evidence is surfaced before formal sign-off.
+  quality_criteria:
+    - Recommendations clearly distinguish satisfied, partial, missing, and exception-backed requirements.
+    - The rationale packet makes it easy for humans to see why approve, remediate, or escalate is the preferred posture.
+    - The workflow stays bounded at recommendation and evidence visibility rather than implying sign-off authority or downstream execution.
+  robustness_checks:
+    - Test packets with one stale evidence item and verify the workflow recommends remediation or escalation instead of approval.
+    - Test mixed direct and analogical evidence to confirm unsupported requirement coverage stays explicit.
+    - Test a novel requirement variant and ensure the workflow escalates rather than improvising policy interpretation.
+  benchmark_notes: Evaluation should reward clarity, traceability, and conservative escalation behavior; a faster recommendation is not helpful if it hides requirement gaps or implies that human sign-off is a formality.
+implementation_notes:
+  orchestration_notes:
+    - Keep requirement parsing, evidence mapping, threshold checking, and recommendation assembly as explicit stages so humans can inspect how each conclusion was formed.
+    - Preserve stable requirement identifiers and evidence links across recommendation revisions to avoid losing attestation history.
+  integration_notes:
+    - Common implementations integrate GRC or policy repositories, evidence workspaces, and source systems that hold logs, samples, or configuration state.
+    - Keep the pattern neutral about any specific GRC, IAM, ERP, or vendor-risk platform.
+  deployment_notes:
+    - Start with attestation workflows that already use explicit requirement checklists and internal human approval before expanding to more ambiguous reviews.
+    - Monitor override rates and repeated escalation causes to identify where requirement definitions or evidence collection need refinement.
+  references:
+    - docs/patterns/recommend-decide-escalate.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: readiness-gate-disposition-recommendation
+    relationship: adjacent-to
+    notes: Both patterns compare evidence to governance thresholds, but this one centers on requirement-fit recommendation for an attestation packet rather than proceed/hold/narrow guidance at a governed milestone.
+  - id: approval-centered-collaboration
+    relationship: adjacent-to
+    notes: Use the collaboration pattern when the core work is multi-party drafting and objection reconciliation; this pattern assumes the packet is bounded enough for direct recommendation on requirement fit.
+  - id: browser-based-form-completion-with-approval-gates
+    relationship: hands-off-to
+    notes: After a human accepts the recommendation and the attestation is approved for filing or submission, downstream approval-gated execution may record it in governed systems.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Recommend whether a quarterly privileged-service-account evidence packet satisfies least-privilege and owner-review requirements before a security owner signs the attestation.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Recommend whether a procurement-card segregation-of-duties packet is complete enough for internal controller attestation or needs targeted remediation.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Recommend whether a vendor telemetry safeguard packet satisfies internal privacy requirements before the annual review is signed or escalated.
+maturity: draft
+tags:
+  - recommend-decide-escalate
+  - recommendation-and-decision-support
+  - control-attestation
+  - requirement-review
+  - low-risk
+  - recommendation-only
