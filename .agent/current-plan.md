@@ -2,33 +2,32 @@
 
 ## Iteration focus
 
-Iteration `20260321-103612` is now scoped: close the remaining `execute-automate` autonomy gap by adding one human-directed execution pattern, grounding it with a modest cross-domain instance batch, and refreshing only the derived browse views and execution memory that should follow from that canonical addition.
+Iteration `20260321-103612` is now complete: `execute-automate` gained `human-directed-task-orchestration`, closing the family's empty `human-directed` autonomy slice with a live-action execution pattern plus linked engineering, operations, and compliance instances and the derived browse-view updates that follow from that canonical truth.
 
 ## Current phase
 
 - Phase 2: controlled vocabularies are complete and stable enough for bounded Phase 7 refinement.
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
-- Phase 5: canonical coverage now spans forty-two patterns across all nine top-level pattern families, and every top-level family still has at least four canonical patterns while `recommend-decide-escalate` now sits at six; `transform-process`, `investigate-reconcile-verify`, `optimize-adapt`, and `plan-coordinate-schedule` sit at five; and `gather-retrieve-synthesize`, `monitor-detect-triage`, `execute-automate`, and `human-agent-collaborative-work` sit at four. Future additions should remain narrow and land only where a remaining autonomy or architecture gap maps to a genuinely reusable workflow shape.
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred forty instance files now committed.
+- Phase 5: canonical coverage now spans forty-three patterns across all nine top-level pattern families, and every top-level family still has at least four canonical patterns while `recommend-decide-escalate` remains at six; `transform-process`, `investigate-reconcile-verify`, `optimize-adapt`, and `plan-coordinate-schedule` remain at five; `execute-automate` now also sits at five; and `gather-retrieve-synthesize`, `monitor-detect-triage`, and `human-agent-collaborative-work` remain at four. Future additions should remain narrow and land only where a remaining autonomy or architecture gap maps to a genuinely reusable workflow shape.
+- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred forty-three instance files now committed.
 - Phase 7: coverage refinement remains active, and all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: `execute-automate` still lacks a clean `human-directed` autonomy slice even though the family already spans approval-gated, bounded-delegation, exception-gated autonomy, and autonomous-with-audit execution. The next batch should close that gap with an action-first pattern whose main artifact is completed operational work under explicit human step direction rather than a recommendation, plan, or shared collaboration surface.
+- Current refinement target: the `execute-automate` human-directed gap is now closed, so the next batch should inspect the remaining narrow autonomy or architecture concentrations and only add another pattern if it is as family-safe as this guided-execution slice.
 
 ## Ordered tasks
 
-1. Add one new `execute-automate` canonical pattern for human-directed multi-step execution under explicit operator control, keeping the family boundary centered on completed operational action rather than planning, recommendation, or collaboration.
-2. Ground the new pattern with 2-3 linked instances in domains where guided execution is structurally natural, starting with engineering, operations, and compliance.
-3. Refresh only the derived browse views (`index-tree`, `by-domain`, `by-architecture`, `by-autonomy`, `by-risk`) and `.agent/` execution memory that change as a direct consequence of the new canonical truth.
-4. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the content batch and again after the final memory refresh if those files change.
+1. Inspect the remaining empty autonomy and architecture concentrations, especially the families that still lack an obviously family-safe `approval-gated-execution` slice, before adding more canonical content.
+2. Prefer the next batch to stay similarly narrow: one reusable shape, modest grounded examples, and only the derived browse-view updates that follow directly from canonical truth.
+3. Continue updating `.agent/` execution memory and validating repository YAML with `uv run python scripts/python/validate_yaml.py` for each committed refinement batch.
 
 ## Iteration checkpoint
 
 - Timestamp: `20260321-103612`
-- Ready scope: add a human-directed execution pattern under `execute-automate`, link a small engineering/operations/compliance instance batch, and refresh the derived browse views that consume canonical pattern metadata.
-- Intended result: `execute-automate` should no longer have an empty `human-directed` autonomy bucket, while still preserving its family boundary at controlled operational action rather than recommendation, planning, or shared collaborative authorship.
-- Design guardrail: keep the new pattern centered on operator-directed step execution with durable state, explicit takeover points, and bounded agent assistance, not on approval gating, generic copilot work, or event-triggered closure.
+- Completed scope: added `human-directed-task-orchestration` under `execute-automate`, linked engineering, operations, and compliance guided-execution instances, and refreshed the derived index, domain, architecture, autonomy, and risk views.
+- Working result: `execute-automate` now spans all six tracked autonomy levels, with the new pattern keeping the family boundary centered on live operational action under explicit human direction rather than delegated routine execution, browser gating, or shared collaboration.
+- Reflection: the cleanest way to add human-directed execution was to anchor the pattern on authoritative step ledgers, verified state after each consequential action, and takeover-safe resumption packets instead of letting the family drift into planning or copilot-style artifact work.
 
 ## Constraints
 
@@ -47,4 +46,4 @@ Iteration `20260321-103612` is now scoped: close the remaining `execute-automate
 
 ## Expected outcome
 
-This iteration should leave the repository with one more family-safe execution slice covered: `execute-automate` gains a human-directed execution pattern grounded by linked engineering, operations, and compliance examples, and the browse views plus `.agent/` memory stay synchronized with that canonical truth.
+This iteration leaves the repository with one more family-safe execution slice covered: `execute-automate` now includes a human-directed execution pattern grounded by linked engineering, operations, and compliance examples, and the browse views plus `.agent/` memory are synchronized with that canonical truth.

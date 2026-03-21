@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 42
-  instance_files: 140
+  pattern_files: 43
+  instance_files: 143
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -52,14 +52,14 @@ pattern_counts_by_family:
   monitor-detect-triage: 4
   plan-coordinate-schedule: 5
   recommend-decide-escalate: 6
-  execute-automate: 4
+  execute-automate: 5
   optimize-adapt: 5
   human-agent-collaborative-work: 4
 instance_counts_by_domain:
-  engineering: 24
+  engineering: 25
   finance: 25
-  compliance: 16
-  operations: 23
+  compliance: 17
+  operations: 24
   research: 18
   support: 20
   hr: 14
@@ -111,10 +111,11 @@ repo_reality:
     - data/patterns/recommend-decide-escalate/readiness-gate-disposition-recommendation.yaml
     - data/patterns/recommend-decide-escalate/control-requirement-attestation-recommendation.yaml
     - data/patterns/recommend-decide-escalate/critical-escalation-authority-recommendation.yaml
-    - data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml
-    - data/patterns/execute-automate/staged-change-execution-with-rollback-holds.yaml
-    - data/patterns/execute-automate/exception-aware-task-execution.yaml
-    - data/patterns/execute-automate/workflow-hand-off-and-completion.yaml
+     - data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml
+     - data/patterns/execute-automate/human-directed-task-orchestration.yaml
+     - data/patterns/execute-automate/staged-change-execution-with-rollback-holds.yaml
+     - data/patterns/execute-automate/exception-aware-task-execution.yaml
+     - data/patterns/execute-automate/workflow-hand-off-and-completion.yaml
     - data/patterns/optimize-adapt/queue-prioritization-optimization.yaml
     - data/patterns/optimize-adapt/adaptive-threshold-calibration.yaml
     - data/patterns/optimize-adapt/adaptive-review-sampling-rate-tuning.yaml
@@ -145,8 +146,9 @@ repo_reality:
     - instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md
     - instances/engineering/multi-region-payments-outage-crisis-briefing-evidence-synthesis.md
     - instances/engineering/deprecated-message-broker-client-migration-exception-copilot-loop.md
-    - instances/engineering/production-release-regression-alert-triage.md
-    - instances/engineering/recurring-ci-warning-watchlist-upkeep.md
+     - instances/engineering/production-release-regression-alert-triage.md
+     - instances/engineering/production-incident-guided-remediation-task-orchestration.md
+     - instances/engineering/recurring-ci-warning-watchlist-upkeep.md
     - instances/engineering/release-candidate-evidence-packet-to-deployment-review-staging-record-handoff.md
     - instances/engineering/cross-team-release-readiness-review-scheduling.md
     - instances/engineering/release-readiness-review-coordination-refresh-after-approver-window-change.md
@@ -189,7 +191,8 @@ repo_reality:
     - instances/finance/intraday-liquidity-contingency-funding-facility-activation-gate.md
     - instances/finance/intraday-liquidity-protection-priority-adaptation.md
     - instances/finance/intraday-liquidity-stress-protected-funding-review-packet-collaboration-room.md
-    - instances/operations/cross-functional-maintenance-review-scheduling.md
+     - instances/operations/cold-chain-emergency-supervised-step-through-task-orchestration.md
+     - instances/operations/cross-functional-maintenance-review-scheduling.md
     - instances/operations/cold-chain-temperature-excursion-alert-triage.md
     - instances/operations/distribution-sorter-throughput-fallback-option-recommendation.md
     - instances/operations/multi-site-service-package-feasibility-recommendation.md
@@ -211,10 +214,11 @@ repo_reality:
     - instances/operations/suspected-contamination-lot-hold-state-truth-restoration.md
     - instances/operations/contamination-command-window-checkpoint-resequencing.md
     - instances/operations/suspected-contamination-review-priority-adaptation.md
-    - instances/compliance/cross-border-deal-exception-review.md
-    - instances/compliance/pharmacovigilance-safety-signal-alert-triage.md
-    - instances/compliance/beneficial-ownership-registry-update-submission.md
-    - instances/compliance/sanctions-alert-closure-regulator-response-copilot-loop.md
+     - instances/compliance/cross-border-deal-exception-review.md
+     - instances/compliance/pharmacovigilance-safety-signal-alert-triage.md
+     - instances/compliance/beneficial-ownership-registry-update-submission.md
+     - instances/compliance/sanctions-remediation-human-directed-procedural-execution.md
+     - instances/compliance/sanctions-alert-closure-regulator-response-copilot-loop.md
     - instances/compliance/pharmacovigilance-follow-up-packet-to-safety-case-record-handoff.md
     - instances/compliance/regulatory-consumer-complaint-response-queue-reprioritization.md
     - instances/compliance/sanctions-screening-gap-root-cause-investigation.md
@@ -272,11 +276,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-two canonical patterns across all nine top-level families, and one hundred forty grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-three canonical patterns across all nine top-level families, and one hundred forty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`plan-coordinate-schedule` now has a natural `approval-gated` / `approval-gated-execution` slice through `contingency-plan-activation-gate`, so the family no longer has an empty planning-side approval-gated architecture bucket in the derived browse views."
-    - "The derived index, domain, architecture, autonomy, and risk browse views are back in sync with canonical planning-family truth after adding the contingency-activation pattern and linked finance, operations, and compliance examples."
-    - "The next refinement step should inspect the remaining architecture or autonomy concentrations rather than reopening planning-family balancing unless another structural gap proves cleaner."
+    - "`execute-automate` now has a natural `human-directed` slice through `human-directed-task-orchestration`, so the family no longer has an empty execution-side human-directed autonomy bucket in the derived browse views."
+    - "The derived index, domain, architecture, autonomy, and risk browse views are back in sync with canonical execute-family truth after adding the guided-execution pattern and linked engineering, operations, and compliance examples."
+    - "The next refinement step should inspect the remaining architecture or autonomy concentrations rather than reopening execute-family balancing unless another structural gap proves equally clean."
   next_action:
     id: phase-7-next-autonomy-architecture-balance
-    summary: "Use the next iteration to inspect the remaining narrow architecture and autonomy concentrations now that `plan-coordinate-schedule` also spans `approval-gated-execution`, and only add another pattern if it is a comparably clean reusable shape."
+    summary: "Use the next iteration to inspect the remaining narrow architecture and autonomy concentrations now that `execute-automate` also spans `human-directed`, and only add another pattern if it is a comparably clean reusable shape."

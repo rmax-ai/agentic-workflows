@@ -153,7 +153,7 @@ items:
       - Balanced coverage across families, domains, architectures, and governance profiles
     notes:
       - The last empty family gap is closed at the canonical pattern layer and `transform-process` now has its first grounded example.
-      - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.
+      - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or autonomy combinations.
       - "`approval-packet-generation` now gives `gather-retrieve-synthesize` a second canonical pattern plus representative `orchestrated-multi-agent` and `high` risk coverage without crossing into recommendation or execution."
       - "`optimize-adapt` is now grounded across engineering, finance, compliance, operations, research, support, and HR after adding an engineering CI pipeline failure review queue reprioritization example."
       - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, support, research, and HR after adding a protected-leave return-to-work status drift root-cause investigation example."
@@ -183,4 +183,6 @@ items:
       - "`human-agent-collaborative-work` now spans low-, moderate-, high-, and critical-risk slices after adding `critical-protected-artifact-collaboration` plus engineering, finance, and compliance protected-room collaboration examples alongside the earlier analyst-copilot, approval-centered, and shared-workbench anchors."
       - "`contingency-plan-activation-gate` now gives `plan-coordinate-schedule` a fifth canonical pattern plus representative `approval-gated` and `approval-gated-execution` coverage while staying bounded at activation-readiness planning, explicit holds, and human approval before any downstream fallback action."
       - "`plan-coordinate-schedule` now spans all tracked architecture types after adding `contingency-plan-activation-gate` plus finance, operations, and compliance activation-gate examples alongside the earlier scheduling, replanning, coordination-refresh, and critical command-window anchors."
-      - "With all nine top-level families now spanning the full tracked risk ladder, the next refinement step should likely target a narrow autonomy or architecture imbalance rather than another risk-completion batch."
+      - "`human-directed-task-orchestration` now gives `execute-automate` a fifth canonical pattern plus representative `human-directed` autonomy coverage while staying bounded at explicit human step direction, verified execution state, and takeover-safe live action rather than browser approval gating, delegated routine execution, or collaboration-first work."
+      - "`execute-automate` now spans all six tracked autonomy levels after adding `human-directed-task-orchestration` plus engineering, operations, and compliance guided-execution examples alongside the earlier browser-gated, staged, delegated, and event-triggered execution anchors."
+      - "With all nine top-level families now spanning the full tracked risk ladder and `execute-automate` now spanning all tracked autonomy levels, the next refinement step should likely target only another narrow family-safe autonomy or architecture imbalance rather than a broad balancing batch."
