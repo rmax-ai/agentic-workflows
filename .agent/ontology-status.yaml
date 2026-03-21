@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 237
+  instance_files: 238
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -56,7 +56,7 @@ pattern_counts_by_family:
   optimize-adapt: 6
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
-  engineering: 33
+  engineering: 34
   finance: 34
   compliance: 34
   operations: 34
@@ -66,7 +66,8 @@ instance_counts_by_domain:
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred thirty-seven grounded examples across all seven currently modeled domains; finance, compliance, HR, operations, research, and support now lead at thirty-four instances while engineering remains at thirty-three."
+  - "The repository now has two hundred thirty-eight grounded examples across all seven currently modeled domains, with engineering, finance, compliance, HR, operations, research, and support now all aligned at thirty-four instances each."
+  - "`approval-gated-recommendation-release` now has additional `engineering` grounding through a build-provenance exception recommendation packet revision approved for a release integrity council decision lane, deepening that high-risk recommend-family release-control slice within engineering beyond the existing database-upgrade exception example while preserving a clean boundary at governed release of one exact recommendation artifact rather than exception adjudication, artifact rebuild work, signing-key changes, shipment scheduling, or downstream deployment."
   - "`approval-gated-recommendation-release` now has additional `research` grounding through a sensitive cohort dataset access recommendation packet revision approved for a data access committee decision lane, deepening that high-risk recommend-family release-control slice within research beyond benchmark-study publication council review while preserving a clean boundary at governed release of one exact recommendation artifact rather than access adjudication, enclave provisioning, protocol amendment, or downstream data sharing."
   - "`approval-gated-recommendation-release` now has additional `support` grounding through a regulated customer audit-export remedy recommendation packet revision approved for a restricted account-governance board decision lane, deepening that high-risk recommend-family release-control slice within support beyond outage-recovery package review while preserving a clean boundary at governed release of one exact recommendation artifact rather than board adjudication, export execution, contract amendment, or customer communication."
   - "`policy-constrained-escalation-routing` now has explicit `operations` grounding through a regional cold-chain compressor failure escalation-routing example, deepening that high-risk recommend-family escalation slice within operations while preserving a clean boundary at governed authority routing, blocked-option visibility, and audit-ready packet assembly rather than business-continuity declaration, emergency-spend approval, inventory rerouting, or live response execution."
