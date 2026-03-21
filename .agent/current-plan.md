@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-061805` is complete: `workflow-hand-off-and-completion` now extends `execute-automate` with a low-risk, event-triggered downstream completion pattern plus new research and engineering grounding.
+Iteration `20260321-062746` is now in progress. The next bounded refinement step is to strengthen `recommend-decide-escalate` with one moderate-risk pattern centered on readiness-gate disposition guidance, ideally adding `event-driven-monitoring` architecture coverage without drifting into monitoring triage, collaborative approval loops, or downstream execution.
 
 ## Current phase
 
@@ -16,18 +16,19 @@ Iteration `20260321-061805` is complete: `workflow-hand-off-and-completion` now 
 
 ## Ordered tasks
 
-1. Re-read `.agent/coverage-matrix.yaml`, `.agent/ontology-status.yaml`, and the current `recommend-decide-escalate` patterns before choosing the next bounded refinement step.
-2. Use the next iteration to close one `recommend-decide-escalate` risk or architecture gap, preferably a low- or moderate-risk slice that does not duplicate monitoring or execution behavior.
-3. Prefer a follow-on batch that improves `recommend-decide-escalate` balance through one carefully chosen canonical pattern plus a small grounded instance set, rather than reopening broad family/domain expansion.
-4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the dated iteration log after the next content batch so execution memory stays synchronized.
-5. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` before closing each iteration.
+1. Add one new `recommend-decide-escalate` canonical pattern that covers a moderate-risk readiness-gate recommendation slice and stays bounded at disposition guidance rather than monitoring triage, approval adjudication, or execution.
+2. Prefer including `event-driven-monitoring` as one of the pattern's architectures if the trigger is milestone-state change or evidence freshness drift, while keeping the family centered on governed recommendation output.
+3. Ground the new pattern with a small multi-domain instance batch, ideally including at least one domain that currently lacks canonical `recommend-decide-escalate` pattern support.
+4. Update the affected browse views (`index-tree`, `by-domain`, `by-architecture`, `by-autonomy`, and `by-risk`) so the new pattern remains discoverable through derived navigation.
+5. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the dated iteration log after the content batch so execution memory stays synchronized.
+6. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` before closing each iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-061805`
-- Baseline context: prior iteration `20260321-061141` completed governance-heavy grounding for `approval-centered-collaboration` across compliance, operations, and support.
-- Completed subagent scope: added `data/patterns/execute-automate/workflow-hand-off-and-completion.yaml`, grounded it with research and engineering instances, updated all affected browse views, validated YAML, and committed the content batch as `2328d22`.
-- Completed orchestrator follow-up: refreshed execution memory, recorded the new `execute-automate` low-risk and event-driven coverage, and redirected the next step toward `recommend-decide-escalate` balancing.
+- Timestamp: `20260321-062746`
+- Baseline context: prior iteration `20260321-061805` completed low-risk, event-driven completion coverage for `execute-automate` and redirected the next step toward `recommend-decide-escalate` balancing.
+- Planned subagent scope: add one `recommend-decide-escalate` canonical pattern for readiness-gate disposition guidance, ground it with a small instance batch, update the affected browse views, validate YAML, and commit the content batch.
+- Planned orchestrator follow-up: refresh execution memory, record the new `recommend-decide-escalate` architecture and risk coverage, and identify the next narrow family-specific gap after this batch lands.
 
 ## Constraints
 
@@ -35,8 +36,8 @@ Iteration `20260321-061805` is complete: `workflow-hand-off-and-completion` now 
 - Ensure every subagent task ends with exactly one git commit and leaves no unrelated file churn behind.
 - Prefer a modest, dependency-aware batch that strengthens one family with one new pattern and a few instances rather than reopening broad expansion.
 - Keep governance, reversibility, privacy, and auditability explicit in every new instance.
-- Keep the new `execute-automate` pattern distinct from `exception-aware-task-execution` by centering it on low-risk downstream completion after an upstream approval or state transition, not on retry-heavy recovery inside moderate-risk delegated operations.
+- Keep the new `recommend-decide-escalate` pattern distinct from `risk-alert-triage`, `approval-centered-collaboration`, and `workflow-hand-off-and-completion` by centering it on recommending proceed/hold/escalate dispositions at a governed readiness gate rather than on alert intake, review-loop collaboration, or downstream closure.
 
 ## Expected outcome
 
-The next iteration should likely shift to a `recommend-decide-escalate` coverage slice, because `execute-automate` now has representative low-risk, event-driven, and autonomous-with-audit coverage and the remaining gaps are increasingly family-specific rather than repository-wide.
+This iteration should leave `recommend-decide-escalate` with stronger moderate-risk and possibly event-driven architecture coverage, plus a few new grounded instances tied to the added canonical pattern, so that the next gap can be chosen from a smaller and more family-specific set.
