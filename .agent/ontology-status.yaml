@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 232
+  instance_files: 233
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -58,7 +58,7 @@ pattern_counts_by_family:
 instance_counts_by_domain:
   engineering: 33
   finance: 34
-  compliance: 33
+  compliance: 34
   operations: 33
   research: 33
   support: 33
@@ -70,6 +70,7 @@ consistency_notes:
   - "`shared-workbench-orchestration` now has a third `research` grounding through a longitudinal survey methodology caveat-board upkeep example, deepening that low-risk collaboration-upkeep slice within research beyond benchmark evidence maintenance and data-use restriction tracking while preserving a clean boundary at source refresh, note normalization, ownership visibility, and explicit hold-state management rather than analysis recommendation, protocol adjudication, publication drafting, or study execution."
   - "`crisis-briefing-evidence-synthesis` now has additional `support` grounding through a regulated customer compliance archive export failure executive-bridge briefing example, deepening that critical-risk gather-family slice within support beyond the existing admin-lockout bridge context while preserving a clean boundary at provenance-preserving crisis-context assembly, freshness-aware evidence compression, and human-reviewed briefing handoff rather than disclosure choice, remediation sequencing, root-cause analysis, or execution."
   - "`authoritative-record-reconciliation` now has explicit `finance` grounding through a vendor-master and treasury settlement-instruction authoritative record reconciliation example, deepening that moderate-risk investigate-family slice within finance while preserving a clean boundary at authoritative-state restoration, discrepancy visibility, and correction-ready handoff rather than root-cause analysis, payment execution, supplier outreach, or master-data governance redesign."
+  - "`authoritative-record-reconciliation` now has explicit `compliance` grounding through a beneficial-ownership registry and case-ledger authoritative record reconciliation example, deepening that moderate-risk investigate-family slice within compliance while preserving a clean boundary at authoritative-state restoration, discrepancy visibility, and correction-ready handoff rather than root-cause analysis, regulator communication, screening adjudication, or filing execution."
   - "`critical-signal-corroboration-triage` now has explicit `finance` grounding through a coordinated account-takeover and payment-ring corroboration example, deepening that critical-risk monitor-family slice within finance while preserving a clean boundary at multi-signal corroboration, packet assembly, duplicate-aware case aggregation, and human-controlled routing rather than funds holds, customer outreach, suspicious-activity filing, or live response execution."
   - "`critical-signal-corroboration-triage` now has explicit `compliance` grounding through an implantable cardiac device field-failure corroboration example, deepening that critical-risk monitor-family slice within compliance while preserving a clean boundary at multi-source safety-signal corroboration, duplicate-aware case aggregation, escalation-packet assembly, and human-controlled routing rather than root-cause diagnosis, recall choice, regulator notification, clinician outreach, CAPA launch, or live patient-risk response."
   - "`critical-signal-corroboration-triage` now has explicit `operations` grounding through a regional ammonia refrigeration leak corroboration example, deepening that critical-risk monitor-family slice within operations while preserving a clean boundary at multi-source facility-safety corroboration, duplicate-aware case aggregation, escalation-packet assembly, and human-controlled routing rather than evacuation choice, hazmat dispatch, site shutdown, inventory rerouting, regulator notification, or root-cause analysis."
@@ -295,6 +296,7 @@ repo_reality:
      - instances/compliance/pharmacovigilance-safety-signal-alert-triage.md
      - instances/compliance/serious-safety-signal-triage-packet-approved-for-expedited-medical-review-dispatch.md
      - instances/compliance/beneficial-ownership-registry-update-submission.md
+     - instances/compliance/beneficial-ownership-registry-case-ledger-authoritative-record-reconciliation.md
      - instances/compliance/sanctions-remediation-human-directed-procedural-execution.md
      - instances/compliance/sanctions-alert-closure-regulator-response-copilot-loop.md
     - instances/compliance/pharmacovigilance-follow-up-packet-to-safety-case-record-handoff.md
