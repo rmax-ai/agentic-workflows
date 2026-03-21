@@ -12,6 +12,22 @@ Engineering.
 
 A developer productivity engineering lead is overseeing an existing queue of CI pipeline failures that need review before merge flow, release-candidate promotion, and shared test infrastructure stability degrade further. The backlog mixes release-branch build breaks, flaky integration-suite failures, security-scan regressions, expired signing-certificate jobs, and recurring failures tied to shared build images or test fixtures. Recent handling data shows that reviewers have been pulling forward easy-to-reproduce single-repository failures while cross-repository failures, release-blocking branches, and jobs with repeated quarantine or reopen history are aging until they disrupt downstream engineering work across multiple teams. The optimization workflow must reprioritize the review queue within bounded limits so release proximity, shared-infrastructure blast radius, repeat-failure patterns, and protected production-readiness paths rise appropriately without letting smaller repositories, lower-visibility teams, or slower-to-diagnose failures be systematically pushed back.
 
+```mermaid
+flowchart TD
+    A["Queue aging, release pressure, or override patterns<br>trigger reprioritization review"] --> B["Agent recomputes bounded queue ranking<br>using release proximity, shared-infrastructure blast radius,<br>repeat-failure history, and fairness signals"]
+    B --> C["Verification checks test protected-path coverage,<br>reviewer-capacity impact, fairness drift, and rollback bounds"]
+    C --> D{"All guardrails pass and<br>changes stay within preapproved tuning limits?"}
+    D -->|"Yes"| E["Publish revised queue order with<br>failure-level rationale and audit log"]
+    D -->|"No"| F["Escalate tuning packet for<br>engineering-lead review"]
+    F --> G{"Lead approves material<br>reprioritization change?"}
+    G -->|"Yes"| E
+    G -->|"No"| H["Hold new tuning and keep<br>last trusted policy active"]
+    E --> I{"Protected failures aging longer,<br>override rate rising, or queue volatility increasing?"}
+    I -->|"No"| J["Continue monitored queue execution<br>until the next reevaluation trigger"]
+    I -->|"Yes"| K["Rollback to last trusted policy and<br>escalate bounded retuning review"]
+    K --> H
+```
+
 ## Target systems / source systems
 
 - CI orchestration platform with active pipeline-failure backlog, branch metadata, workflow type, current queue order, and rerun history
