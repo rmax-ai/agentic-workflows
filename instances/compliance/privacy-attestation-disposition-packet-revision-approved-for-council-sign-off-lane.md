@@ -12,6 +12,18 @@ Compliance.
 
 A privacy review workflow has already prepared one exact recommendation packet revision for an annual vendor telemetry safeguard attestation. The packet narrows the bounded options to approve with one current compensating control, require targeted remediation before sign-off, or escalate to privacy counsel, and it preserves why informal acceptance is blocked. Before that exact packet revision can enter the restricted privacy governance council sign-off lane, a named compliance release owner must approve the council scope, expiry window, and release manifest so council members receive the reviewed recommendation artifact rather than a stale or over-shared copy. The workflow stops at governed release of that packet revision; it does not decide whether the attestation is signed, update vendor status, or launch remediation work.
 
+```mermaid
+flowchart TD
+    A["Exact privacy attestation<br>recommendation packet revision ready"] --> B{"Packet hash, bounded options,<br>and blocked informal-acceptance<br>notes still match?"}
+    B -->|"No"| G["Hold packet revision<br>for manual follow-up<br>or supersession"]
+    B -->|"Yes"| C{"Council lane scope, expiry window,<br>and release manifest still valid?"}
+    C -->|"No"| G
+    C -->|"Yes"| D{"Named compliance release owner<br>approves governed release?"}
+    D -->|"No"| G
+    D -->|"Yes"| E["Release exact packet revision<br>to restricted privacy council lane<br>with approve / remediate /<br>escalate-to-counsel options"]
+    E --> F["Record handoff and block forwarding<br>outside approved council audience"]
+```
+
 ## Target systems / source systems
 
 - Privacy attestation workspace holding the current recommendation packet revision, bounded disposition options, blocked-path notes, and superseded drafts
