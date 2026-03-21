@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 205
+  instance_files: 206
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ instance_counts_by_domain:
   operations: 30
   research: 28
   support: 29
-  hr: 28
+  hr: 29
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
@@ -72,6 +72,7 @@ consistency_notes:
   - "`schedule-adjustment-and-replanning` now has explicit `research` grounding through a benchmark-study publication timeline replanning example after evidence-analysis or data-governance clearance delay compressed the original publication-review window, extending that moderate-risk plan-family replanning slice beyond engineering and compliance while preserving a clean boundary at revised schedule production, impact ledgering, and coordination-ready handoff rather than governance recommendation, publication adjudication, or submission execution."
   - "`critical-authoritative-state-restoration` now has explicit `hr` grounding through a protected-leave occupational-health and benefits state-truth restoration example, extending that critical investigate-family slice beyond finance, compliance, and operations while preserving a clean boundary at authoritative current-state restoration, unresolved holds, and human-reviewed handoff rather than accommodation adjudication, payroll action, or employee communication."
   - "`claimed-state-verification` now has explicit `hr` grounding through an internal parental-leave guidance publication-state verification example, extending that low-risk investigate-family slice beyond engineering, operations, research, and support while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting rather than policy interpretation, communication, or record mutation."
+  - "`claimed-state-verification` now has additional `hr` grounding through an internal job-architecture handbook publication verification example, deepening that same low-risk investigate-family slice within HR beyond parental-leave guidance while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative evidence traceability rather than handbook rewriting, leveling adjudication, manager communication, or downstream system change."
   - "`approval-gated-triage-dispatch` now has explicit `research` grounding through a benchmark-study disclosure-risk packet approved for restricted disclosure-governance review dispatch, extending that monitor-family approval-bound slice beyond finance, compliance, operations, and HR while preserving a clean boundary at governed packet release rather than disclosure adjudication or publication action."
   - "`approval-centered-collaboration` canonical domain/example metadata plus `data/views/by-domain.yaml` are now realigned with the already-committed `support` and `compliance` readiness-loop instances, restoring browse consistency before further refinement work."
   - "`exception-aware-task-execution` now has explicit `support` grounding through an enterprise admin entitlement resynchronization runbook execution example, extending that bounded-delegation execute-family slice beyond engineering and operations while preserving a clean boundary at delegated routine completion, durable checkpointing, explicit verification, and exception-only escalation rather than customer communication, contract interpretation, or discretionary entitlement redesign."
@@ -353,7 +354,7 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and two hundred five grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and two hundred six grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "`evidence-gated-verification-for-release` now also has explicit research grounding through an approved benchmark-study publication-integrity packet verification example, so the investigate-family approval-bound slice now spans engineering, finance, operations, research, and HR while preserving a clean boundary at evidence sufficiency, release-hold state, and human-approved downstream reliance rather than publication recommendation, packet refresh, or execution."
     - "`shared-workbench-orchestration` now also has explicit compliance grounding through an internal control-library caveat-board upkeep example, extending the low-risk collaboration-upkeep slice beyond research, operations, support, and HR while preserving a clean boundary at internal artifact refresh, source revalidation, ownership preservation, and explicit hold-state management rather than legal advice, adjudication, regulator communication, or execution."
@@ -361,8 +362,8 @@ repo_reality:
     - "`shared-workbench-orchestration` now also has additional research grounding through an internal study-dataset data-use restriction board upkeep example, deepening the same low-risk collaboration-upkeep slice within research governance while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than consent interpretation, reuse approval, data release, or execution."
     - "`shared-workbench-orchestration` now also has additional HR grounding through an internal hiring-panel interview-guide caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within HR beyond benefits FAQ maintenance while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than interviewer-guidance approval, policy adjudication, candidate communication, or hiring execution."
     - "`shared-workbench-orchestration` now also has additional support grounding through an internal premium-support diagnostic-runbook caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within support beyond workaround-article staging while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than runbook approval, customer communication, or live incident execution."
-    - "Research and HR are now tied as the thinnest modeled domain counts at twenty-eight grounded instances each, so refinement should keep prioritizing narrow family-safe depth work inside that tied pair before broader structural expansion."
-    - "The next refinement step should reassess the now-tied thin domains (`research` and `hr`) for one already-canonical slice where grounded depth still trails engineering, finance, operations, compliance, and support, but the family boundary can stay explicit and bounded."
+    - "`claimed-state-verification` now also has additional HR grounding through an internal job-architecture handbook publication verification example, proving that a second low-risk HR verification slice can deepen the domain without reopening canonical pattern or browse-view work."
+    - "Research is now the thinnest modeled domain at twenty-eight grounded instances, so refinement should prioritize one equally bounded already-canonical research slice before broader structural expansion."
   next_action:
-    id: phase-7-next-tied-domain-depth-balance
-    summary: "Use the next iteration to rebalance one of the tied thinnest domains (`research` or `hr`) with one already-canonical, family-safe grounding slice, while keeping canonical pattern metadata and browse views unchanged unless that pairing exposes real drift."
+    id: phase-7-next-research-depth-balance
+    summary: "Use the next iteration to rebalance the now-thinnest domain (`research`) with one already-canonical, family-safe grounding slice, while keeping canonical pattern metadata and browse views unchanged unless that pairing exposes real drift."

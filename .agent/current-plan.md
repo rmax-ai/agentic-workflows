@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Next iteration focus: continue the thinnest-domain refinement track with one instance-only slice in `hr` under the already-mapped `claimed-state-verification` pattern/domain pair, because iteration `20260321-193259` is now complete: `shared-workbench-orchestration` gained a second `compliance` grounding through one internal policy-exception precedent board upkeep scenario, and the bounded batch validated cleanly without requiring schema, vocabulary, canonical pattern, or derived-view edits. Iteration `20260321-192716` is now complete: `shared-workbench-orchestration` gained a second `support` grounding through one internal premium-support diagnostic-runbook caveat-board upkeep scenario, so the next batch should reassess the newly narrowed thinnest-domain set after the compliance depth increase. Iteration `20260321-192124` is now complete: `shared-workbench-orchestration` gained a second `hr` grounding through one internal hiring-panel interview-guide caveat-board upkeep scenario, so the next batch should continue balancing the remaining thin domains with one equally bounded slice.
+Next iteration focus: continue the thinnest-domain refinement track with one instance-only slice in `research` under an already-mapped pattern/domain pair, because iteration `20260321-193954` is now complete: `claimed-state-verification` gained a second `hr` grounding through one internal job-architecture handbook publication verification scenario, and the bounded batch validated cleanly without requiring schema, vocabulary, canonical pattern, or derived-view edits. Iteration `20260321-193259` is now complete: `shared-workbench-orchestration` gained a second `compliance` grounding through one internal policy-exception precedent board upkeep scenario, and the bounded batch validated cleanly without requiring schema, vocabulary, canonical pattern, or derived-view edits. Iteration `20260321-192716` is now complete: `shared-workbench-orchestration` gained a second `support` grounding through one internal premium-support diagnostic-runbook caveat-board upkeep scenario, so the next batch should reassess the newly narrowed thinnest-domain set after the compliance depth increase.
 
 Iteration `20260321-191420` is now complete: `shared-workbench-orchestration` gained a second `research` grounding example through one internal study-dataset data-use restriction board upkeep scenario, and the bounded instance-only batch validated cleanly through YAML validation plus the derived MkDocs publication build.
 
@@ -88,16 +88,16 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
 - Phase 5: canonical coverage now spans forty-nine patterns across all nine top-level pattern families. `recommend-decide-escalate` now sits at seven canonical patterns; `transform-process` and `optimize-adapt` each sit at six; `gather-retrieve-synthesize` now sits at five; and `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` each remain at five. Future additions should remain narrow and land only where a genuinely reusable workflow shape deepens uneven grounded coverage rather than duplicating already-covered matrix cells.
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with two hundred five instance files now committed.
+- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with two hundred six instance files now committed.
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path, and the repository now also supports derived static-site publication through `uv run python scripts/python/build_site_docs.py`, `uv run mkdocs serve`, `uv run mkdocs build`, and GitHub Pages deployment through `.github/workflows/publish-site.yml`.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: `hr` and `research` are now tied as the thinnest modeled domains at twenty-eight grounded examples each. This iteration should use an already-canonical HR `claimed-state-verification` slice so refinement stays instance-only unless the new grounding exposes genuine ontology or browse drift.
+- Current refinement target: `research` is now the thinnest modeled domain at twenty-eight grounded examples. The next iteration should use one already-canonical research slice so refinement stays instance-only unless the new grounding exposes genuine ontology or browse drift.
 
 ## Ordered tasks
 
-1. Add one bounded HR-grounded `claimed-state-verification` instance that stays inside publication-state or claimed-state verification rather than content editing, policy adjudication, communication, or execution.
-2. Keep the batch instance-only, and avoid canonical pattern or derived-view edits unless the new grounding exposes genuine drift from repository truth.
+1. Reassess the now-thinnest `research` domain through `instances/research/*.md` plus the already-mapped pattern/domain pairs in `data/views/by-domain.yaml`, then choose one equally bounded instance-only refinement slice.
+2. Prefer another instance-only refinement batch, and avoid canonical pattern or derived-view edits unless the next grounding exposes genuine drift from repository truth.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded content batch, then refresh execution memory on top of the verified canonical baseline.
 4. Re-run `uv run python scripts/python/build_site_docs.py` and `uv run mkdocs build` whenever a new grounded instance changes publication-facing content.
 5. Keep `.github/workflows/publish-site.yml` aligned with the local publication pipeline whenever helper tooling, Python version, or build outputs change.
@@ -105,6 +105,10 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Iteration checkpoint
 
+- Timestamp: `20260321-193954`
+- Completed scope: added `instances/hr/internal-job-architecture-handbook-publication-verification.md` as a second HR grounding for `claimed-state-verification`, keeping the batch instance-only and bounded at publication-state verdicting, authoritative evidence traceability, and explicit follow-up before any handbook rewrite, leveling adjudication, manager communication, or downstream system change.
+- Current working hypothesis: low-risk claimed-state verification patterns continue to deepen cleanly when the claimed state is one already-approved internal publication or propagation event, the agent only tests authoritative evidence against predeclared tolerances, and humans retain control over content changes, policy interpretation, communications, and downstream action.
+- Current scoped follow-on: pick one equally bounded instance-only slice next in the now-thinnest domain (`research`) so balancing continues without reopening structural ontology work.
 - Timestamp: `20260321-193259`
 - Completed scope: added `instances/compliance/policy-exception-precedent-board-shared-workbench-upkeep.md` as a second compliance grounding for `shared-workbench-orchestration`, keeping the batch instance-only and bounded at internal artifact refresh, source revalidation, ownership preservation, visible hold-state management, and explicit handoff before any exception recommendation, approval adjudication, regulator communication, or execution step.
 - Current working hypothesis: low-risk shared-workbench upkeep patterns continue to deepen cleanly when the maintained artifact stays explicitly internal, the agent only refreshes structure and provenance, and humans retain interpretation plus adjudication authority over whether precedent caveats affect live exception handling.
@@ -201,4 +205,4 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Expected outcome
 
-The next iteration should stay in depth-balancing mode: pick one of the now tied thinnest domains for one family-safe example in an already-canonical pattern area, and keep the work bounded to that one slice rather than opening a broader structural batch.
+The next iteration should stay in depth-balancing mode: pick the now-thinnest domain (`research`) for one family-safe example in an already-canonical pattern area, and keep the work bounded to that one slice rather than opening a broader structural batch.
