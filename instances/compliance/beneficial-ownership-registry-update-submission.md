@@ -12,6 +12,23 @@ Compliance.
 
 A corporate compliance operations team must file an updated beneficial ownership report after a private equity recapitalization changes the controlling ownership chain for a regulated subsidiary. The target government registry is browser-only, requires multi-page entry for legal entity identifiers, ownership percentages, controlling-person details, and supporting attachments, and final submission may proceed only after legal, compliance, and corporate secretary approvals are verified in the case system.
 
+```mermaid
+flowchart TD
+    A["Approved registry update<br>request ready for execution"] -->|"assemble"| B["Assemble filing packet from<br>entity records, capitalization table,<br>ownership memo, and attachments"]
+    B -->|"check"| C{"Legal, compliance, and corporate<br>secretary approvals verified<br>in the case system?"}
+    C -->|"No"| H["Hold submission and escalate<br>for human review"]
+    C -->|"Yes"| D["Enter registry portal and populate<br>entity, ownership, and controller fields"]
+    D -->|"reconcile"| E{"Portal identifiers, prior filing state,<br>and ownership percentages match<br>the approved packet?"}
+    E -->|"No"| H
+    E -->|"Yes"| F["Upload officer attestations<br>and supporting documents"]
+    F -->|"recheck"| G{"Approvals still current<br>immediately before submit?"}
+    G -->|"No"| H
+    G -->|"Yes"| I["Submit registry update and capture<br>screenshots and reference number"]
+    I -->|"confirm"| J{"Clear portal confirmation<br>received?"}
+    J -->|"No"| H
+    J -->|"Yes"| K["Store evidence bundle and<br>record filing completion"]
+```
+
 ## Target systems / source systems
 
 - Compliance case-management system holding the approved filing request and sign-offs
