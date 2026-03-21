@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Next iteration focus: rebalance one of the now tied thinnest domains (`compliance`, `research`, `support`, or `hr`) with one already-canonical, family-safe grounded instance, again preferring a slice whose canonical metadata and derived domain view already align so the next batch can stay narrow and instance-first.
+Next iteration focus: deepen the tied thinnest `support` domain with one already-canonical, family-safe `claimed-state-verification` grounding around internal premium-support advisory-macro publication verification, because the canonical pattern metadata and derived `data/views/by-domain.yaml` bucket already expose that support investigate-family slice and let this pass stay narrow and instance-first.
 
 Iteration `20260321-144739` is now complete: `schedule-adjustment-and-replanning` gained new `compliance` grounding through one control-remediation sign-off timeline replanning example after evidence-collection delay or reviewer-window compression threatened a fixed regulator-facing checkpoint, while the canonical pattern metadata and derived `data/views/by-domain.yaml` already correctly exposed the slice.
 
@@ -70,12 +70,12 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: `compliance`, `research`, `support`, and `hr` are now tied as the thinnest modeled domains at twenty-six grounded examples each. The next refinement pass should reassess those tied domains for one already-canonical, family-safe slice whose canonical metadata and derived browse view ideally already align.
+- Current refinement target: `compliance`, `research`, `support`, and `hr` remain tied as the thinnest modeled domains at twenty-six grounded examples each. This iteration should take one already-canonical, family-safe `support` slice where canonical metadata and the derived browse view already align so the batch can remain instance-only unless true drift appears.
 
 ## Ordered tasks
 
-1. Reassess the tied thinnest domains (`compliance`, `research`, `support`, and `hr`) and choose one already-canonical, family-safe slice for one new grounded instance that deepens coverage without expanding structural inventory.
-2. Confirm whether the chosen canonical pattern metadata and the relevant bucket in `data/views/by-domain.yaml` already expose the targeted slice correctly; avoid editing either file unless the new instance reveals real drift from canonical truth.
+1. Add one `support`-grounded `claimed-state-verification` instance for internal premium-support advisory-macro publication verification, keeping the workflow bounded at confirming or disproving the claimed publication state rather than editing macros, pushing customer communications, or repairing downstream systems.
+2. Confirm that `data/patterns/investigate-reconcile-verify/claimed-state-verification.yaml` and the `support` bucket in `data/views/by-domain.yaml` already expose the targeted slice correctly; avoid editing either file unless the new instance reveals real drift from canonical truth.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded content batch, then refresh execution memory on top of the verified canonical baseline.
 
 ## Iteration checkpoint
@@ -97,7 +97,7 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Current working hypothesis: the completed research planning refinement remains valid only because the primary output stayed one revised publication timeline plus one replanning rationale-and-impact ledger and one coordination-ready handoff packet, while governance recommendation, publication-integrity adjudication, reviewer-authority choice, and external submission remained explicitly outside the workflow.
 - Completed scope: added one compliance-grounded `control-remediation-sign-off-timeline-replanning-after-evidence-collection-slip` instance under `schedule-adjustment-and-replanning`, confirmed the canonical pattern metadata and derived domain view already exposed the compliance slice correctly, and confirmed YAML validation still passes.
 - Current working hypothesis: the completed compliance planning refinement remains valid only because the primary output stayed one revised sign-off timeline plus one replanning rationale-and-impact ledger and one coordination-ready handoff packet, while remediation sufficiency adjudication, control waiver, regulator filing, and remediation execution remained explicitly outside the workflow.
-- Current scoped follow-on: reassess the now tied thinnest domains (`compliance`, `research`, `support`, and `hr`) for one equally bounded already-canonical grounding slice whose canonical metadata and derived domain view ideally already align.
+- Current scoped follow-on: add one `support`-grounded `claimed-state-verification` example around internal premium-support advisory-macro publication verification, provided the workflow stays bounded at evidence-backed verification of the claimed publication state across approved support surfaces and avoids drifting into macro editing, communication, or execution.
 - Boundary reminder: future planning-family depth work remains valid only if the primary outputs stay a revised schedule, explicit impact ledger, and coordination-ready handoff; any branch that would choose policy outcomes, waive required checkpoints, adjudicate authority, or execute downstream action must halt for human escalation instead of improvising.
 
 ## Constraints
