@@ -37,7 +37,7 @@ architectures:
     monitor-detect-triage: [explainable-watchlist-maintenance, anomaly-detection-review]
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [deal-desk-recommendation-support, delegated-authority-option-ranking, control-requirement-attestation-recommendation]
-    execute-automate: [browser-based-form-completion-with-approval-gates]
+    execute-automate: [browser-based-form-completion-with-approval-gates, human-directed-task-orchestration]
     optimize-adapt: [adaptive-threshold-calibration, adaptive-review-sampling-rate-tuning, queue-prioritization-optimization]
     human-agent-collaborative-work: [analyst-copilot-loop, shared-workbench-orchestration]
 - architecture:
@@ -65,7 +65,7 @@ architectures:
     monitor-detect-triage: [risk-alert-triage, anomaly-detection-review, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning, critical-command-window-resequencing]
     recommend-decide-escalate: [deal-desk-recommendation-support, delegated-authority-option-ranking, policy-constrained-escalation-routing, readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation, critical-escalation-authority-recommendation]
-    execute-automate: [browser-based-form-completion-with-approval-gates, staged-change-execution-with-rollback-holds]
+    execute-automate: [browser-based-form-completion-with-approval-gates, human-directed-task-orchestration, staged-change-execution-with-rollback-holds]
     optimize-adapt: [adaptive-threshold-calibration, governed-optimization-bundle-retuning, critical-protected-priority-adaptation]
     human-agent-collaborative-work: [analyst-copilot-loop, approval-centered-collaboration, shared-workbench-orchestration, critical-protected-artifact-collaboration]
 - architecture:

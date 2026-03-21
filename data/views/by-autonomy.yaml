@@ -36,7 +36,7 @@ autonomy_levels:
     monitor-detect-triage: []
     plan-coordinate-schedule: [critical-command-window-resequencing]
     recommend-decide-escalate: [critical-escalation-authority-recommendation]
-    execute-automate: []
+    execute-automate: [human-directed-task-orchestration]
     optimize-adapt: [critical-protected-priority-adaptation]
     human-agent-collaborative-work: [analyst-copilot-loop, critical-protected-artifact-collaboration]
 - autonomy_level:

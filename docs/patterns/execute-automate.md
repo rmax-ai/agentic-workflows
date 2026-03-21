@@ -16,6 +16,7 @@ Use this family for patterns that:
 The conceptual seed patterns already named in the browse tree are:
 
 - `approval-gated-action-execution`
+- `human-directed-task-orchestration`
 - `staged-change-execution-with-rollback-holds`
 - `exception-aware-task-execution`
 - `workflow-hand-off-and-completion`
@@ -27,7 +28,7 @@ This family maps directly to two existing `problem_structure` terms:
 - `approval-gated-execution`
 - `exception-aware-orchestration`
 
-Future canonical patterns should distinguish whether the defining challenge is approval control, staged reversible progression after approval, or resilient execution through edge cases.
+Future canonical patterns should distinguish whether the defining challenge is approval control, operator-directed stepwise execution, staged reversible progression after approval, or resilient execution through edge cases.
 
 ## Family boundary
 
@@ -52,6 +53,7 @@ A strong canonical pattern in this family should state:
 - what actions the workflow is allowed to take,
 - what approvals or control gates must be satisfied,
 - what stage transitions, checkpoint signals, and rollback holds govern progression after approval,
+- how explicit human direction, takeover-safe pauses, and step boundaries are maintained,
 - how state, retries, and exceptions are handled,
 - what feedback signals feed later optimization or governance review.
 

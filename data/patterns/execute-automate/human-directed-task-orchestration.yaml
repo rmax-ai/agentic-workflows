@@ -1,0 +1,271 @@
+id: human-directed-task-orchestration
+slug: human-directed-task-orchestration
+name: Human-directed task orchestration
+summary: Execute consequential multi-step work under explicit human step direction, with the agent carrying out instructed actions, preserving authoritative execution state, verifying each step, and packaging safe takeover or resumption when humans pause, redirect, or assume control.
+pattern_family:
+  id: execute-automate
+  label: Execute / Automate
+problem_structure:
+  id: exception-aware-orchestration
+  label: Exception-aware orchestration
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+workflow_goal: Complete a consequential operator-directed procedure across tools and systems while keeping each significant step tied to explicit human instruction, verified current state, and takeover-safe execution records.
+inputs:
+  - name: Directed execution charter
+    description: The named human lead, current objective, allowed procedure scope, protected boundaries, and explicit statement that the workflow is for directed execution rather than planning or open-ended collaboration.
+    kind: execution-order
+    required: true
+    examples:
+      - Incident commander directs a live remediation sequence for a production outage while keeping database failover authority reserved for a named responder
+      - Sanctions remediation lead authorizes immediate blocking, evidence preservation, and queue updates but forbids any regulator filing without separate approval
+  - name: Current procedure and control rules
+    description: The approved runbook fragments, step prerequisites, no-go conditions, verification requirements, and takeover rules that constrain which directed actions may be executed.
+    kind: policy
+    required: true
+    examples:
+      - Emergency service-recovery procedure requiring metric verification before each rollback or traffic move
+      - Cold-chain containment procedure defining hold-code entry, reroute preconditions, and chain-of-custody evidence requirements
+  - name: Live system and case state
+    description: Current telemetry, records, task context, approvals already in force, and environmental conditions needed to decide whether the next human-directed step is still safe to run.
+    kind: execution-state
+    required: true
+    examples:
+      - Current incident metrics, feature-flag state, node health, and open mitigation notes during a payments outage bridge
+      - Shipment temperature readings, trailer locations, lot holds, and vendor-response status during a cold-chain excursion
+  - name: Prior step ledger and takeover context
+    description: Durable history of completed steps, partial actions, human instructions, verification results, and any earlier handoff or pause state already accumulated in the same execution window.
+    kind: stage-history
+    required: false
+    examples:
+      - Ledger showing that traffic was narrowed, one cache flush completed, and the bridge lead requested human review before a database restart
+      - Resume packet showing that account blocks were applied but one sanctions-screening queue remains on hold pending legal review
+outputs:
+  - name: Directed execution ledger
+    description: Authoritative record of human instructions received, actions executed, verification outcomes, skipped or blocked steps, and the current procedure status.
+    kind: execution-result
+    required: true
+    examples:
+      - Timeline linking each incident-command instruction to the corresponding remediation action, health check, and remaining held steps
+      - Step ledger showing which cold-chain lots were isolated, which reroutes were completed, and which supervisory approvals still gate field pickup
+  - name: Verified operational state record
+    description: Current state snapshot showing what is now true in the target systems after the directed steps completed, partially completed, or halted.
+    kind: state-record
+    required: true
+    examples:
+      - Verified production state showing the rolled-back service version, current error rate, and remaining degraded dependencies after guided remediation
+      - Compliance control state showing which accounts are blocked, which transactions are held, and which remediation tasks remain open after directed sanctions action
+  - name: Takeover or resumption packet
+    description: Structured handoff that preserves pending steps, current evidence, partial changes, and boundary notes so a human or successor workflow can continue safely without rediscovery.
+    kind: escalation-packet
+    required: true
+    examples:
+      - Packet for the database platform team showing completed bridge actions, current lock contention, and the exact step where the incident commander requested takeover
+      - Resumption packet for a sanctions counsel review showing completed account holds, unresolved entity matches, and blocked next actions
+  - name: Execution evidence and control trace
+    description: Durable audit trail of tool actions, state checks, human directives, boundary confirmations, and any manual overrides or pauses taken during the run.
+    kind: audit-log
+    required: true
+    examples:
+      - Trace linking shell commands, feature-flag updates, incident-channel instructions, and post-step telemetry checks during a live outage response
+      - Audit record tying cold-chain system updates, supervisor directions, and chain-of-custody confirmations to each completed emergency step
+environment:
+  summary: Operates in consequential live procedures where humans retain control of the significant steps, but agents add value by executing directed actions quickly across tools, carrying forward durable state, verifying the effect of each step, and making pauses or takeovers safe when conditions change.
+  systems:
+    - Incident, case, or command-management systems
+    - Operational control planes, APIs, or workflow consoles
+    - Monitoring, verification, and evidence systems
+    - Audit stores and handoff ledgers
+  actors:
+    - Human incident, operations, or compliance lead directing the work
+    - Agent executor carrying out instructed steps and recording state
+    - Domain specialist who may take over a blocked or escalated branch
+    - Risk, security, or audit reviewer
+  constraints:
+    - Do not infer or expand significant next steps beyond explicit human direction and declared procedure scope.
+    - Re-verify current state after each consequential action before the workflow accepts another directed step as safe to run.
+    - Preserve one authoritative step ledger so pauses, redirects, and takeovers do not create conflicting accounts of current state.
+    - Stop and package handoff context when a requested action would cross policy, authority, or reversibility boundaries that the directing human has not explicitly cleared.
+  assumptions:
+    - A named human lead remains available to direct significant steps, confirm branch changes, and own irreversible or high-blast-radius decisions.
+    - Target systems expose enough confirmation signals for the workflow to verify each directed step before continuing.
+    - Adjacent recommendation, planning, and collaborative workflows may feed context into this pattern, but they do not replace the explicit action-first execution loop.
+capability_requirements:
+  - capability:
+      id: action-execution
+      label: Action execution
+      source_vocabulary: capabilities
+    necessity: The workflow must carry out real operational steps that change live system or case state rather than only drafting guidance.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: Directed execution requires using operational consoles, APIs, tickets, and evidence systems while humans stay focused on control decisions.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow needs durable step memory so humans can redirect or resume the procedure without losing authoritative state.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Each significant step must be checked against live signals before the next directed action proceeds.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: The system must enforce declared boundaries, reversible-versus-irreversible distinctions, and takeover conditions during execution.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Human leads, agent executors, and specialist responders need one shared procedure state so directed steps and takeovers remain aligned.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The workflow must recognize when verification failure, state drift, or unclear instructions require a pause, redirect, or human takeover instead of forced continuation.
+execution_architecture:
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: One execution agent can often carry out the instructed tool actions, maintain the step ledger, and verify state between directives while leaving consequential branching decisions to humans.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: The pattern is defined by explicit human direction of significant steps, so normal operation always includes human review of procedure progress and next-action authority.
+autonomy_profile:
+  level:
+    id: human-directed
+    label: Human directed
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the directed execution scope, named human lead, protected boundaries, and initial step sequence before any live action begins.
+    - Review verified state after each significant step or branch point before authorizing the next consequential action.
+    - Approve any takeover, boundary change, or irreversible step before the workflow resumes or hands control to another responder.
+  reversibility: Some directed steps can be retried or rolled back, but the broader procedure often mixes reversible and partially irreversible actions, so harm can compound quickly if the workflow executes an instruction against stale or misunderstood state.
+  escalation: Escalate whenever the next requested step is ambiguous, current verification signals disagree, authority boundaries are unclear, or safe continuation would require the agent to choose the procedure rather than execute it.
+risk_governance:
+  level:
+    id: critical
+    label: Critical
+    source_vocabulary: risk-levels
+  failure_impact: Mis-executed human-directed procedures can prolong outages, move unsafe physical inventory, freeze or release the wrong regulated activity, or otherwise create severe operational, safety, legal, or customer harm because the workflow is already acting on live systems under pressure.
+  approval_requirements:
+    - A named human lead must authorize entry into the directed execution loop and remain accountable for significant branch choices, takeover decisions, and irreversible actions.
+    - Material changes to procedure templates, takeover rules, or authority boundaries require governance approval before future directed runs may rely on them.
+  auditability: Preserve each human instruction, state snapshot, tool action, verification result, pause, takeover packet, and manual override so reviewers can reconstruct exactly how the directed execution progressed.
+  privacy:
+    - Limit copied incident, shipment, customer, counterparty, or case detail to the minimum needed for directed execution and governed handoff.
+    - Keep sensitive evidence in approved audit stores or restricted annexes when broad procedural visibility does not require full raw detail.
+  security:
+    - Use least-privilege credentials for the execution agent and separate privileged takeover authority from ordinary directed steps where possible.
+    - Log every state-changing action and human directive so silent scope expansion or off-record execution remains detectable.
+  notes: Critical-risk governance fits because the workflow performs live consequential work under time pressure, yet remains family-clean by requiring explicit human direction of significant steps rather than autonomous branching or broad collaborative authorship.
+why_agentic:
+  - Directed live procedures benefit from an agent that can translate human instructions into tool actions, verification checks, and durable state updates faster than manual swivel-chair execution.
+  - Safe performance depends on preserving context across pauses, redirects, and partial completion so humans can continue the procedure without reconstructing what already happened.
+  - The workflow must decide when not to act because ambiguous instructions, stale state, or verification conflicts are themselves critical signals during guided execution.
+failure_modes:
+  - mode: The workflow infers an unapproved next step from earlier context instead of waiting for explicit human direction
+    impact: A consequential action occurs outside the human's intended branch, widening impact or violating governance boundaries.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Require explicit human confirmation for each significant next step and record that instruction in the authoritative ledger.
+      - Block continuation when the requested action cannot be tied to the current directed scope and boundary rules.
+  - mode: Verification state is stale or contradictory when the next directed action executes
+    impact: The workflow continues the procedure against an outdated reality, increasing the chance of unsafe or ineffective action.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Re-read authoritative system state before and after each consequential action.
+      - Treat conflicting confirmation signals as a pause-and-escalate condition rather than a warning to ignore.
+  - mode: Takeover or resumption state omits partial changes or pending holds
+    impact: The human or successor workflow repeats, skips, or misunderstands steps, creating duplicate action or control gaps during a high-pressure handoff.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Keep one append-only step ledger with explicit completed, pending, blocked, and reversed statuses.
+      - Package current system state, partial actions, and blocked next steps together whenever execution pauses or transfers.
+  - mode: Directed execution drifts into planning or collaborative drafting instead of live action
+    impact: The workflow loses its execution-first boundary and operators cannot tell whether work has actually been carried through to operational state.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Limit outputs to execution ledgers, verified state records, takeover packets, and audit traces.
+      - Hand off planning, recommendation, or shared-artifact revision work to adjacent patterns rather than absorbing it into the step loop.
+evaluation:
+  success_metrics:
+    - Percentage of directed execution runs completed or safely handed off without unauthorized branch expansion or lost step state.
+    - Rate of ambiguous, stale, or unsafe conditions caught before the next consequential directed action executes.
+    - Completeness of takeover packets and audit traces for paused, redirected, or escalated runs.
+  quality_criteria:
+    - Every significant action is traceable to an explicit human directive and a verified current-state check.
+    - The workflow preserves one authoritative procedure ledger across pauses, redirects, and takeovers.
+    - Outputs remain execution-first: they show what operational work was completed, what remains blocked, and who must direct the next step.
+  robustness_checks:
+    - Test contradictory live signals between directed steps and confirm the workflow pauses instead of guessing the safest branch.
+    - Test interrupted runs and verify a human can resume from the takeover packet without repeating or skipping prior actions.
+    - Test instructions that would cross scope or authority boundaries and ensure the workflow blocks them until a named human clears the change explicitly.
+  benchmark_notes: Evaluate step fidelity, verified state quality, and handoff safety together; rapid execution is not success if the workflow cannot prove which human-directed actions actually ran and what state they left behind.
+implementation_notes:
+  orchestration_notes:
+    - Separate human instruction intake, state hydration, step execution, verification, and takeover packaging into explicit stages over shared durable procedure state.
+    - Keep the current directed step, verification result, and blocked-next-step reason visible as first-class data rather than only in operator chat or tool logs.
+  integration_notes:
+    - Common implementations integrate incident or case systems, operational control surfaces, observability tooling, and governed audit stores.
+    - Keep the pattern neutral about whether the directed execution uses shell commands, workflow consoles, operational APIs, or regulated case-management tools.
+  deployment_notes:
+    - Start with critical guided procedures that already have named human leads, explicit branch boundaries, and strong verification signals.
+    - Review takeover quality, blocked-step frequency, and disagreement between human intent and executed steps early so the pattern stays sharply bounded at directed execution.
+  references:
+    - docs/patterns/execute-automate.md
+    - data/vocabularies/problem-structures.yaml
+    - data/vocabularies/autonomy-levels.yaml
+related_patterns:
+  - id: exception-aware-task-execution
+    relationship: contrasts-with
+    notes: Both patterns preserve state and safe escalation, but this one requires explicit human direction of significant steps instead of delegated routine execution inside a preapproved runbook.
+  - id: staged-change-execution-with-rollback-holds
+    relationship: adjacent-to
+    notes: Both patterns execute consequential operational work, but this one centers on stepwise human direction and takeover safety rather than predeclared stage progression with hold-release checkpoints.
+  - id: critical-command-window-resequencing
+    relationship: can-follow-from
+    notes: A critical planning workflow may establish the current command sequence, after which this pattern carries the human-directed operational steps through live execution.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Under an incident commander's live direction, execute a production remediation sequence across feature flags, service restarts, and verification checks while preserving exact step state for safe handoff to a specialist team.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Under a cold-chain supervisor's direction, isolate at-risk inventory, issue hold codes, reroute protected shipments, and verify chain-of-custody state after each emergency step.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Under a sanctions remediation lead's direction, apply account blocks, transaction holds, and evidence-preservation steps while packaging unresolved branches for counsel takeover.
+maturity: draft
+tags:
+  - execute-automate
+  - exception-aware-orchestration
+  - human-directed
+  - guided-execution
+  - takeover-safe
+  - critical-risk

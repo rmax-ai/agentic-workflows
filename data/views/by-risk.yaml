@@ -77,6 +77,6 @@ risk_levels:
     monitor-detect-triage: [critical-signal-corroboration-triage]
     plan-coordinate-schedule: [contingency-plan-activation-gate, critical-command-window-resequencing]
     recommend-decide-escalate: [critical-escalation-authority-recommendation]
-    execute-automate: [browser-based-form-completion-with-approval-gates]
+    execute-automate: [browser-based-form-completion-with-approval-gates, human-directed-task-orchestration]
     optimize-adapt: [critical-protected-priority-adaptation]
     human-agent-collaborative-work: [critical-protected-artifact-collaboration]

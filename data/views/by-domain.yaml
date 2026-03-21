@@ -36,7 +36,7 @@ domains:
     monitor-detect-triage: [explainable-watchlist-maintenance, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning, authoritative-change-coordination-refresh]
     recommend-decide-escalate: [readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation, critical-escalation-authority-recommendation]
-    execute-automate: [staged-change-execution-with-rollback-holds, exception-aware-task-execution, workflow-hand-off-and-completion]
+    execute-automate: [human-directed-task-orchestration, staged-change-execution-with-rollback-holds, exception-aware-task-execution, workflow-hand-off-and-completion]
     optimize-adapt: [adaptive-threshold-calibration, critical-protected-priority-adaptation]
     human-agent-collaborative-work: [approval-centered-collaboration, critical-protected-artifact-collaboration]
 - domain:
@@ -64,7 +64,7 @@ domains:
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning, authoritative-change-coordination-refresh, contingency-plan-activation-gate]
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing, control-requirement-attestation-recommendation, critical-escalation-authority-recommendation]
-    execute-automate: [browser-based-form-completion-with-approval-gates]
+    execute-automate: [browser-based-form-completion-with-approval-gates, human-directed-task-orchestration]
     optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration]
     human-agent-collaborative-work: [analyst-copilot-loop, critical-protected-artifact-collaboration]
 - domain:
@@ -78,7 +78,7 @@ domains:
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [calendar-conflict-coordination, contingency-plan-activation-gate]
     recommend-decide-escalate: [deal-desk-recommendation-support, delegated-authority-option-ranking, policy-constrained-escalation-routing]
-    execute-automate: [staged-change-execution-with-rollback-holds, exception-aware-task-execution]
+    execute-automate: [human-directed-task-orchestration, staged-change-execution-with-rollback-holds, exception-aware-task-execution]
     optimize-adapt: [adaptive-threshold-calibration, adaptive-review-sampling-rate-tuning, queue-prioritization-optimization, critical-protected-priority-adaptation]
     human-agent-collaborative-work: [approval-centered-collaboration, shared-workbench-orchestration]
 - domain:
