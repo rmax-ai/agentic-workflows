@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 47
-  instance_files: 155
+  pattern_files: 48
+  instance_files: 158
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -46,7 +46,7 @@ coverage_totals:
   autonomy_levels_with_patterns: 6
   risk_levels_with_patterns: 4
 pattern_counts_by_family:
-  gather-retrieve-synthesize: 4
+  gather-retrieve-synthesize: 5
   transform-process: 6
   investigate-reconcile-verify: 5
   monitor-detect-triage: 5
@@ -56,10 +56,10 @@ pattern_counts_by_family:
   optimize-adapt: 6
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
-  engineering: 28
-  finance: 29
+  engineering: 29
+  finance: 30
   compliance: 19
-  operations: 27
+  operations: 28
   research: 18
   support: 20
   hr: 14
@@ -86,6 +86,7 @@ repo_reality:
     - data/patterns/gather-retrieve-synthesize/approval-packet-generation.yaml
     - data/patterns/gather-retrieve-synthesize/change-triggered-context-briefing.yaml
     - data/patterns/gather-retrieve-synthesize/crisis-briefing-evidence-synthesis.yaml
+    - data/patterns/gather-retrieve-synthesize/approval-gated-briefing-release.yaml
     - data/patterns/transform-process/document-to-structured-data-handoff.yaml
     - data/patterns/transform-process/normalization-and-enrichment.yaml
     - data/patterns/transform-process/batch-content-transformation.yaml
@@ -150,6 +151,7 @@ repo_reality:
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md
     - instances/engineering/multi-region-payments-outage-crisis-briefing-evidence-synthesis.md
+    - instances/engineering/release-candidate-risk-briefing-revision-approved-for-architecture-board-circulation.md
     - instances/engineering/deprecated-message-broker-client-migration-exception-copilot-loop.md
      - instances/engineering/production-release-regression-alert-triage.md
      - instances/engineering/production-incident-guided-remediation-task-orchestration.md
@@ -199,6 +201,7 @@ repo_reality:
     - instances/finance/intraday-liquidity-contingency-funding-facility-activation-gate.md
     - instances/finance/intraday-liquidity-protection-priority-adaptation.md
     - instances/finance/intraday-liquidity-stress-protected-funding-review-packet-collaboration-room.md
+    - instances/finance/intraday-liquidity-stress-briefing-revision-approved-for-treasury-committee-circulation.md
     - instances/finance/quarter-close-covenant-position-packet-approved-for-controller-committee-intake.md
      - instances/operations/cold-chain-emergency-supervised-step-through-task-orchestration.md
      - instances/operations/cross-functional-maintenance-review-scheduling.md
@@ -211,6 +214,7 @@ repo_reality:
     - instances/operations/field-service-dispatch-queue-reprioritization.md
     - instances/operations/conveyor-safety-bulletin-synthesis-for-network-readiness-review.md
     - instances/operations/network-cold-chain-excursion-command-crisis-briefing-evidence-synthesis.md
+    - instances/operations/network-cold-chain-command-briefing-revision-approved-for-regional-command-circulation.md
     - instances/operations/network-cold-chain-emergency-reroute-activation-gate.md
     - instances/operations/warehouse-slotting-rule-change-digest-for-shift-supervisor-briefing.md
     - instances/operations/warehouse-slotting-rollout-caveat-board-shared-workbench-upkeep.md
