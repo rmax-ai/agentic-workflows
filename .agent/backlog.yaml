@@ -136,6 +136,7 @@ items:
       - "`plan-coordinate-schedule` is now also grounded in finance through a quarter-close control review scheduling scenario, so the family now spans engineering, finance, operations, support, and HR."
       - "`plan-coordinate-schedule` is now also grounded in research through a benchmark-study publication-readiness review scheduling scenario, so the family now spans engineering, finance, operations, research, support, and HR."
       - "`plan-coordinate-schedule` is now grounded across all seven currently modeled domains after adding a control-remediation sign-off review scheduling scenario."
+      - "`execute-automate` is now also grounded in research through an approved human-subjects ethics amendment portal submission, so the family now spans finance, compliance, HR, operations, research, and support while leaving engineering as the only open domain slice."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement
@@ -150,4 +151,4 @@ items:
     notes:
       - The last empty family gap is closed at the canonical pattern layer and `transform-process` now has its first grounded example.
       - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.
-      - With `plan-coordinate-schedule` now grounded across all seven currently modeled domains, the next small grounding batch should likely rebalance the still-thin research domain with one `execute-automate` example because that family still has open research and engineering slices.
+      - With `execute-automate` now also grounded in research, the next small grounding batch should likely close the remaining engineering slice in that family with one approval-gated execution example before shifting to other partial families.

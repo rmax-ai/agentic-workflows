@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-plan-coordinate-schedule-compliance-complete
+repository_stage: phase-6-grounding-execute-automate-research-complete
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 51
+  instance_files: 52
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -57,7 +57,7 @@ instance_counts_by_domain:
   finance: 8
   compliance: 9
   operations: 9
-  research: 4
+  research: 5
   support: 9
   hr: 6
 repo_reality:
@@ -90,6 +90,9 @@ repo_reality:
     - data/patterns/human-agent-collaborative-work/analyst-copilot-loop.yaml
     - instances/research/regulatory-obligation-synthesis-for-data-retention-review.md
     - instances/research/model-serving-platform-benchmark-briefing-copilot-loop.md
+    - instances/research/benchmark-study-artifact-packet-to-research-review-intake-record-handoff.md
+    - instances/research/benchmark-study-publication-readiness-review-scheduling.md
+    - instances/research/approved-human-subjects-ethics-amendment-portal-submission.md
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md
     - instances/engineering/deprecated-message-broker-client-migration-exception-copilot-loop.md
@@ -147,13 +150,13 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and fifty-one grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and fifty-two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
   - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open domain slices only if further cross-domain investigation coverage becomes worthwhile."
   - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open monitoring slices only if deeper cross-domain triage coverage becomes worthwhile."
   - "`recommend-decide-escalate` is now grounded across finance, compliance, operations, support, and HR, leaving engineering and research as the remaining open slices only if broader cross-domain recommendation depth becomes more valuable than shoring up coordination coverage."
-  - "`execute-automate` is grounded across finance, compliance, HR, operations, and support, leaving engineering and research open if new approval-gated browser or portal execution cases become more valuable than coordination coverage."
+  - "`execute-automate` is now grounded across finance, compliance, HR, operations, research, and support, leaving engineering as the only open domain slice if another approval-gated browser or portal execution case is worth prioritizing next."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-expand-execute-automate-research-grounding
-  summary: "Use the next small grounding batch to add one grounded `browser-based-form-completion-with-approval-gates` example in research so a still-thin domain gains approval-gated execution coverage without widening scope."
+  id: phase-6-expand-execute-automate-engineering-grounding
+  summary: "Use the next small grounding batch to add one grounded `browser-based-form-completion-with-approval-gates` example in engineering so `execute-automate` closes its last open domain slice without widening scope."

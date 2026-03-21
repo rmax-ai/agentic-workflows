@@ -74,6 +74,7 @@
 
 - `instances/research/regulatory-obligation-synthesis-for-data-retention-review.md` — grounded research/compliance-adjacent instance for evidence-backed policy synthesis and citation review.
 - `instances/research/model-serving-platform-benchmark-briefing-copilot-loop.md` — grounded research collaboration case for mixed-initiative benchmark preparation with traceable experiment evidence and explicit analyst sign-off.
+- `instances/research/approved-human-subjects-ethics-amendment-portal-submission.md` — grounded research execution case for approval-gated browser submission of a human-subjects ethics amendment with protocol-version checks, masked evidence capture, and explicit human takeover on portal or governance ambiguity.
 - `instances/research/benchmark-study-artifact-packet-to-research-review-intake-record-handoff.md` — grounded research transform case for turning heterogeneous benchmark-study artifacts into a structured pre-publication review intake record with provenance, uncertainty capture, and exception routing.
 - `instances/research/benchmark-study-publication-readiness-review-scheduling.md` — grounded research scheduling case for bounded-delegation coordination of a benchmark-study publication-readiness review inside an embargoed abstract-submission window.
 - `instances/engineering/payments-api-latency-incident-investigation.md` — grounded engineering incident case for reconciled telemetry and root-cause analysis.
