@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-The last iteration closed the governed compliance slice for `optimize-adapt` by grounding `queue-prioritization-optimization` in a regulatory consumer-complaint review backlog. This iteration should stay modest and target the clearest remaining thin slice by grounding `execute-automate` in both operations and support with browser-mediated, approval-gated submissions that materially differ from the current finance, compliance, and HR anchors.
+The last iteration closed the operations and support grounding gaps for `execute-automate` by adding approval-gated browser-submission examples for emergency facilities dispatch and break-glass tenant admin access restoration. The next batch should stay modest and target another thin family slice, with `monitor-detect-triage` in operations or compliance now standing out more than further execution expansion.
 
 ## Current phase
 
@@ -10,14 +10,14 @@ The last iteration closed the governed compliance slice for `optimize-adapt` by 
 - Phase 3: navigation views are complete and now reference canonical patterns in all nine top-level families
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
 - Phase 5: canonical seed coverage now spans all nine top-level pattern families
-- Phase 6: grounded instances now cover twenty total scenarios, with `execute-automate` grounded across finance, compliance, and HR and `optimize-adapt` grounded across support, operations, and compliance
+- Phase 6: grounded instances now cover twenty-two total scenarios, with `execute-automate` grounded across finance, compliance, HR, operations, and support, and `optimize-adapt` grounded across support, operations, and compliance
 - Tooling baseline: uv-managed Python 3.14 helper workflow remains the validation path
 
 ## Ordered tasks
 
-1. Re-read `browser-based-form-completion-with-approval-gates` and the current operations and support instances to ensure the next execution examples add distinct structural value rather than duplicating finance, compliance, or HR submissions.
-2. Keep the batch modest but complete: add one operations and one support instance linked to `browser-based-form-completion-with-approval-gates`, emphasizing explicit approvals, safe halt behavior, and audit evidence for consequential portal actions.
-3. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the iteration log after the grounding batch so repository memory reflects the new `execute-automate` coverage.
+1. Re-read `risk-alert-triage` and the current finance monitoring anchor plus nearby operations and compliance instances to determine whether an operations or compliance alert-triage example adds the clearest structural value next.
+2. Keep the next grounding batch modest: prefer one or two `monitor-detect-triage` instances that materially differ from the current suspicious-wire-transfer example rather than reopening `execute-automate` immediately.
+3. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the iteration log after the next grounding batch so repository memory reflects the strengthened monitoring coverage.
 4. Continue validating repository YAML with the existing uv-managed helper before closing each iteration.
 
 ## Constraints
@@ -26,9 +26,9 @@ The last iteration closed the governed compliance slice for `optimize-adapt` by 
 - Treat `data/views/` as derived browse artifacts and keep any future updates aligned with stable vocabulary and pattern ids.
 - Ensure every subagent task ends with exactly one git commit.
 - Prefer modest grounding batches that improve coverage balance inside one thin family/domain slice rather than forcing a broad cross-family sweep.
-- Keep the iteration scoped to one modest execution-grounding batch plus required `.agent/` memory updates; do not expand the canonical pattern set unless dependency order changes.
+- Keep the next iteration scoped to one modest monitoring-grounding batch plus required `.agent/` memory updates; do not expand the canonical pattern set unless dependency order changes.
 - Keep governance, reversibility, privacy, and auditability explicit in grounded examples.
 
 ## Expected outcome
 
-The iteration should deepen `execute-automate` in operations and support with two grounded, governance-aware instances while preserving the repository's pattern-first structure and modest-batch discipline.
+The next iteration should deepen `monitor-detect-triage` in operations or compliance with one or two grounded, governance-aware instances while preserving the repository's pattern-first structure and modest-batch discipline.

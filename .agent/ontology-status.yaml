@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-compliance-optimization-covered
+repository_stage: phase-6-grounding-execute-operations-support-covered
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 20
+  instance_files: 22
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -56,9 +56,9 @@ instance_counts_by_domain:
   engineering: 1
   finance: 4
   compliance: 5
-  operations: 3
+  operations: 4
   research: 2
-  support: 3
+  support: 4
   hr: 2
 repo_reality:
   available_ontology_assets:
@@ -123,12 +123,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and twenty grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and twenty-two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
-  - "`execute-automate` is now grounded in finance, compliance, and HR, but operations, support, engineering, and research remain open domain slices for approval-gated execution."
-  - "`optimize-adapt` is now grounded in support, operations, and compliance, but engineering, finance, research, and HR remain open domain slices if broader optimization coverage becomes worthwhile later."
-  - "`plan-coordinate-schedule` is now stronger across operations, support, and HR, but the family still lacks grounded finance, compliance, engineering, and research examples if broader scheduling coverage becomes important later."
+  - "`execute-automate` is now grounded in finance, compliance, HR, operations, and support, leaving engineering and research as the remaining open domain slices if broader approval-gated execution coverage becomes worthwhile later."
+  - "`monitor-detect-triage` still has only one grounded finance example, while compliance and operations remain natural next slices because the canonical pattern already points toward those domains."
+  - "`investigate-reconcile-verify` is still grounded primarily in engineering, with support and operations only partial and finance, compliance, research, and HR still open if broader investigation coverage becomes important later."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-deepen-approval-gated-execution
-  summary: "Use the next small grounding batch to deepen `execute-automate`, with preference for an operations or support approval-gated execution example that materially differs from the current finance, compliance, and HR anchors."
+  id: phase-6-deepen-monitor-triage
+  summary: "Use the next small grounding batch to deepen `monitor-detect-triage`, with preference for an operations or compliance alert-triage example that materially differs from the current finance suspicious-wire anchor."

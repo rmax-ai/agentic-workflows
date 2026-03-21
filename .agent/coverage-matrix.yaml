@@ -42,7 +42,7 @@ matrices:
     monitor-detect-triage: {engineering: none, finance: covered, compliance: partial, operations: partial, research: none, support: none, hr: none}
     plan-coordinate-schedule: {engineering: none, finance: none, compliance: none, operations: covered, research: none, support: covered, hr: covered}
     recommend-decide-escalate: {engineering: none, finance: covered, compliance: covered, operations: partial, research: none, support: none, hr: none}
-    execute-automate: {engineering: none, finance: covered, compliance: covered, operations: none, research: none, support: none, hr: covered}
+    execute-automate: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: covered, hr: covered}
     optimize-adapt: {engineering: none, finance: none, compliance: covered, operations: covered, research: none, support: covered, hr: none}
     human-agent-collaborative-work: {engineering: none, finance: none, compliance: covered, operations: none, research: covered, support: covered, hr: none}
   pattern_family_x_architecture:
@@ -68,11 +68,11 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Nine canonical pattern entries now populate all nine top-level families, and twenty grounded examples extend across all seven currently modeled domains with deeper execution, optimization, scheduling, transform, compliance, and operations coverage.
+    - Nine canonical pattern entries now populate all nine top-level families, and twenty-two grounded examples extend across all seven currently modeled domains with deeper execution, optimization, scheduling, transform, compliance, operations, and support coverage.
     - "`recommend-decide-escalate` now has covered finance and compliance cells after adding a second governed recommendation instance for renewal pricing and payment-structure review."
-    - "`execute-automate` now has covered finance, compliance, and HR cells after adding a dual-approved vendor bank-account change submission alongside the existing regulated filing and payroll examples."
+    - "`execute-automate` now has covered finance, compliance, HR, operations, and support cells after adding approved emergency maintenance vendor-portal dispatch and break-glass admin access restoration submissions alongside the existing finance, compliance, and payroll examples."
     - "`human-agent-collaborative-work` now has covered support, research, and compliance cells after adding a regulator-response copilot loop for sanctions-alert closure review."
     - "`transform-process` now has covered finance, compliance, and operations cells after adding pharmacovigilance safety-case intake and facilities corrective-maintenance handoff examples."
     - "`optimize-adapt` now has covered support, operations, and compliance cells after adding a regulatory consumer-complaint response queue reprioritization example alongside the post-outage support and field-service dispatch cases."
     - "`plan-coordinate-schedule` now has covered operations, support, and HR cells after adding grounded customer-bridge and interview-panel coordination examples."
-    - The highest-leverage next gaps are now additional approval-gated execution slices in operations or support rather than more optimization, scheduling, transform, or collaboration coverage.
+    - The highest-leverage next gaps now look more like additional monitoring or investigation slices than more approval-gated execution coverage, because `monitor-detect-triage` and `investigate-reconcile-verify` still have far thinner grounded domain coverage.
