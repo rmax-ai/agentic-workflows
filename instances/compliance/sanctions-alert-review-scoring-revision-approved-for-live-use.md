@@ -12,6 +12,20 @@ Compliance.
 
 A sanctions governance lead has prepared one exact alert-review scoring revision after replay shows that the current live profile underweights nested beneficial-ownership signals, corridor-specific evasion patterns, and regulator-sensitive customer segments when alert volumes surge. The candidate revision raises sensitivity for those protected screening factors, tightens cooldown handling on low-yield alert clusters, and names a restore target if analyst overrides or missed-escalation risk rise. The workflow must release that exact scoring revision into bounded live use only after a human approver confirms the manifest, validity window, and rollback packet, while staying centered on governed optimization-state release rather than clearing alerts, adjudicating true matches, filing regulator reports, or launching remediation work.
 
+```mermaid
+flowchart TD
+    A["Prepare exact sanctions alert-review<br>scoring revision candidate"] --> B["Verify replay evidence, protected screening floors,<br>candidate hash, and named restore target"]
+    B --> C{"Manifest, validity window,<br>and rollback packet complete?"}
+    C -->|"No"| D["Hold release until manifest gaps<br>or control defects are corrected"]
+    C -->|"Yes"| E{"Named sanctions approver approves<br>that exact revision for bounded live use?"}
+    E -->|"No"| D
+    E -->|"Yes"| F["Activate approved revision in the named<br>screening-program scope and write audit trace"]
+    F --> G{"Override spikes, missed-escalation risk,<br>protected-segment degradation, or expiry?"}
+    G -->|"No"| I["Keep revision live within approved<br>scope and validity window"]
+    I -->|"Within window"| G
+    G -->|"Yes"| H["Restore the prior trusted profile<br>and record rollback or expiry action"]
+```
+
 ## Target systems / source systems
 
 - Versioned sanctions alert-scoring registry with the current live profile, candidate revision hash, protected screening floors, and prior trusted revisions
