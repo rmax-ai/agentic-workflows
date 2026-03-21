@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 18
-  instance_files: 63
+  instance_files: 66
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -56,13 +56,13 @@ pattern_counts_by_family:
   optimize-adapt: 2
   human-agent-collaborative-work: 2
 instance_counts_by_domain:
-  engineering: 9
-  finance: 9
+  engineering: 10
+  finance: 10
   compliance: 9
   operations: 9
   research: 9
   support: 9
-  hr: 9
+  hr: 10
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -116,6 +116,7 @@ repo_reality:
     - instances/engineering/approved-production-change-freeze-exception-portal-submission.md
     - instances/engineering/managed-database-major-version-upgrade-exception-recommendation.md
     - instances/engineering/ci-pipeline-failure-review-queue-reprioritization.md
+    - instances/engineering/production-shared-credential-exception-review-board-readiness-loop.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
     - instances/finance/invoice-packet-to-payables-record-handoff.md
     - instances/finance/dual-approved-vendor-bank-account-change-submission.md
@@ -125,6 +126,7 @@ repo_reality:
     - instances/finance/quarter-close-covenant-clarification-package-copilot-loop.md
     - instances/finance/quarter-close-control-review-scheduling.md
     - instances/finance/quarter-close-exception-review-queue-reprioritization.md
+    - instances/finance/material-vendor-payment-control-exception-package-readiness-loop.md
     - instances/operations/cross-functional-maintenance-review-scheduling.md
     - instances/operations/cold-chain-temperature-excursion-alert-triage.md
     - instances/operations/multi-site-service-package-feasibility-recommendation.md
@@ -156,6 +158,7 @@ repo_reality:
     - instances/hr/protected-leave-case-review-queue-reprioritization.md
     - instances/hr/protected-leave-return-to-work-status-drift-root-cause-investigation.md
     - instances/hr/work-authorization-expiry-risk-alert-triage.md
+    - instances/hr/critical-backfill-headcount-freeze-exception-package-readiness-loop.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -171,7 +174,7 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, eighteen canonical patterns across all nine top-level families, and sixty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, eighteen canonical patterns across all nine top-level families, and sixty-six grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "All nine top-level families are now grounded across engineering, finance, compliance, operations, research, support, and HR after adding research-domain monitoring coverage."
     - "`policy-constrained-escalation-routing` now gives `recommend-decide-escalate` a second canonical pattern and representative `orchestrated-multi-agent` coverage while staying bounded at governed routing rather than downstream execution."
@@ -180,8 +183,8 @@ repo_reality:
     - "`schedule-adjustment-and-replanning` now gives `plan-coordinate-schedule` a second canonical pattern plus representative `moderate` risk, `recommendation-only` autonomy, `human-in-the-loop`, and `orchestrated-multi-agent` architecture coverage while keeping the family bounded at revised plan handoff rather than recommendation or execution."
     - "`exception-aware-task-execution` now gives `execute-automate` a second canonical pattern plus representative `moderate` risk, `bounded-delegation`, and `orchestrated-multi-agent` coverage while keeping the family bounded at resilient task completion, bounded retries, and exception-driven escalation."
     - "`authoritative-record-reconciliation` now gives `investigate-reconcile-verify` a second canonical pattern plus representative `record-reconciliation`, `tool-using-single-agent`, `human-in-the-loop`, `bounded-delegation`, and `moderate` risk coverage while keeping the family bounded at authoritative-state restoration and correction packaging rather than causal diagnosis or downstream action."
-    - "`approval-centered-collaboration` now gives `human-agent-collaborative-work` a second canonical pattern plus representative `orchestrated-multi-agent`, `recommendation-only`, and `high` risk coverage while keeping the family bounded at review-cycle collaboration and explicit approval ownership rather than approval adjudication or downstream action."
-    - "Every top-level family now has at least two canonical patterns; the next highest-leverage gap is the lack of grounded instances tied specifically to `approval-centered-collaboration`."
+    - "`approval-centered-collaboration` now has its first grounded engineering, finance, and HR instances through shared-credential exception, vendor payment-control exception, and headcount-freeze exception readiness loops that keep reviewer objections, approval readiness, and handoff ownership explicit without drifting into adjudication."
+    - "Every top-level family now has at least two canonical patterns, and `approval-centered-collaboration` now has its first grounded examples; the next highest-leverage gap is extending that pattern into additional governance-heavy domains such as compliance, operations, or support."
 next_action:
-  id: phase-7-ground-approval-centered-collaboration
-  summary: "Use the next bounded batch to add two or three grounded instances for `approval-centered-collaboration`, focusing on representative approval-loop scenarios that emphasize reviewer objection handling, approval-readiness recommendation, and explicit human ownership."
+  id: phase-7-extend-approval-centered-collaboration
+  summary: "Use the next bounded batch to add two or three more grounded instances for `approval-centered-collaboration`, ideally in compliance, operations, or support so the newer collaboration pattern gains broader governance-heavy grounding beyond engineering, finance, and HR."
