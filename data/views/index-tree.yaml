@@ -50,7 +50,7 @@ families:
   - id: structured-representation-transformation
     label: Structured representation transformation
     source_vocabulary: problem-structures
-  pattern_ids: [document-to-structured-data-handoff]
+  pattern_ids: [document-to-structured-data-handoff, normalization-and-enrichment]
 - family:
     id: investigate-reconcile-verify
   path: patterns/investigate-reconcile-verify

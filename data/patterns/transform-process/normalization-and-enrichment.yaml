@@ -1,0 +1,240 @@
+id: normalization-and-enrichment
+slug: normalization-and-enrichment
+name: Normalization and enrichment
+summary: Normalize inconsistent low-stakes records and add approved reference metadata so downstream tools can consume a canonical, traceable handoff without changing authoritative source systems.
+pattern_family:
+  id: transform-process
+  label: Transform / Process
+problem_structure:
+  id: structured-representation-transformation
+  label: Structured representation transformation
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
+workflow_goal: Convert noisy records, extracted metadata, or semi-structured intake fields into canonicalized and lightly enriched staging records that remain easy to audit, regenerate, and hand off to downstream workflows.
+inputs:
+  - name: Source record bundle
+    description: Records, metadata fields, or semi-structured payloads that need cleanup before downstream use.
+    kind: record-bundle
+    required: true
+    examples:
+      - Service inventory rows with inconsistent owner, environment, and component names
+      - Research artifact metadata with mixed dataset, benchmark, and study labels
+  - name: Canonical schema and normalization policy
+    description: The target field contract, allowed canonical values, precedence rules, and fallback handling for unsupported inputs.
+    kind: schema
+    required: true
+    examples:
+      - Standard service catalog schema with approved environment and team identifiers
+      - Metadata contract for benchmark-study artifact staging records
+  - name: Approved reference data
+    description: Lookup tables or controlled mappings used to standardize and enrich source values without inventing unsupported facts.
+    kind: reference-data
+    required: true
+    examples:
+      - Team directory, service registry, and environment code list
+      - Canonical dataset registry and research program taxonomy
+  - name: Exception handling rules
+    description: Thresholds that determine when ambiguous, missing, or conflicting values must remain explicit instead of being forced into a canonical bucket.
+    kind: policy
+    required: false
+    examples:
+      - Leave unfamiliar component tags unresolved when no approved alias exists
+      - Route conflicting project identifiers to review rather than picking the newest value automatically
+outputs:
+  - name: Normalized record set
+    description: Schema-aligned records with canonical field values and lightweight enrichments ready for downstream staging or indexing.
+    kind: record-bundle
+    required: true
+    examples:
+      - Service metadata records with standardized ownership, environment, and dependency labels
+      - Research artifact entries with canonical dataset and benchmark identifiers
+  - name: Normalization and enrichment trace
+    description: Record of original values, applied mappings, approved lookup sources, and fields left unresolved.
+    kind: trace
+    required: true
+    examples:
+      - Change log showing that env-prod, production, and prod were normalized to a shared environment code
+      - Trace linking an artifact tag to the approved dataset registry entry used for enrichment
+  - name: Exception bundle
+    description: Records or fields that could not be normalized safely within policy and require follow-up before broader reuse.
+    kind: review-queue
+    required: true
+    examples:
+      - New component aliases awaiting taxonomy review
+      - Metadata rows with conflicting study identifiers from two source feeds
+environment:
+  summary: Operates in low-consequence metadata and staging workflows where the main challenge is cleaning inconsistent representations without losing original values or leaking the task into downstream judgment or execution.
+  systems:
+    - Intake workbenches or staging stores
+    - Reference-data registries and taxonomies
+    - Search, indexing, or downstream workflow systems
+    - Lightweight audit or change-log stores
+  actors:
+    - Workflow owner
+    - Operations or engineering analyst
+    - Data steward or taxonomy owner
+  constraints:
+    - Preserve original values or raw-source links for fields that are normalized or enriched.
+    - Enrich only from approved reference data and never from unsupported guesswork.
+    - Keep unresolved, novel, or conflicting values explicit instead of collapsing them into a nearby category.
+    - Stop at downstream-safe handoff; routing, recommendation, and execution happen in other patterns.
+  assumptions:
+    - Source records remain available so outputs can be regenerated if mapping rules change.
+    - Canonical schemas and reference tables are versioned well enough to audit bulk cleanup decisions.
+    - Downstream consumers can accept staged records that distinguish normalized, enriched, and unresolved fields.
+capability_requirements:
+  - capability:
+      id: transformation
+      label: Transformation
+      source_vocabulary: capabilities
+    necessity: The core task is reshaping inconsistent source values into a cleaner canonical representation.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow reads source records, consults reference data, and writes normalized outputs and traces to staging systems.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Approved mappings, fallback rules, and exception thresholds determine which cleanup actions are allowed.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow must retain original values, chosen canonical forms, lookup provenance, and unresolved exceptions across batches.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Safe normalization depends on declining unsupported canonicalization instead of forcing questionable values into the target schema.
+execution_architecture:
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: A single transformation agent can usually apply mappings, consult registries, preserve lineage, and emit exceptions inside one bounded control loop.
+autonomy_profile:
+  level:
+    id: bounded-delegation
+    label: Bounded delegation
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Define the canonical field contract, approved lookup sources, and unsupported-value rules before delegated normalization begins.
+    - Review unresolved aliases, conflicting identifiers, or proposed mapping-table changes that would expand normalization scope.
+    - Audit sampled outputs and enrichment traces when taxonomy owners update canonical labels or merge reference-data entries.
+  reversibility: Normalized outputs are typically staged derivatives that can be recomputed from the original records or rolled back from recent snapshots with limited downstream disruption.
+  escalation: Escalate when required fields would need unsupported inference, reference data conflicts materially, or a new alias pattern suggests the canonical taxonomy itself should change.
+risk_governance:
+  level:
+    id: low
+    label: Low
+    source_vocabulary: risk-levels
+  failure_impact: Mistakes usually create localized metadata cleanup work, search or reporting noise, or small downstream staging errors rather than material financial, regulatory, safety, or trust harm.
+  approval_requirements:
+    - Case-by-case approval is not required for in-policy normalization and enrichment applied within established schemas and lookup tables.
+    - Taxonomy or workflow owners should approve changes to canonical mappings, enrichment sources, or bulk-update rules that affect future batches.
+  auditability: Preserve original values, applied canonical mappings, reference-data versions, unresolved exceptions, and batch-level output status so operators can trace how each cleaned record was formed.
+  privacy:
+    - Minimize copied context to the fields needed for canonicalization and lineage rather than duplicating whole source payloads.
+    - Avoid propagating unrelated sensitive metadata into staging systems when only structural cleanup is required.
+  security:
+    - Use least-privilege access to source records, reference tables, and staging destinations involved in cleanup.
+    - Log mapping-table changes and bulk normalization runs so accidental or unauthorized reshaping is detectable and reversible.
+  notes: Low-risk governance fits because the pattern is bounded to reversible staging and metadata cleanup work, not authoritative decisions, regulated adjudication, or operational execution.
+why_agentic:
+  - The workflow must adapt cleanup strategy to inconsistent aliases, partial metadata, and mixed source conventions instead of applying one brittle static mapping.
+  - Safe enrichment depends on deciding when approved reference data clarifies a record and when ambiguity should remain explicit for later review.
+  - Maintaining per-field lineage, unresolved exceptions, and reusable normalization state across batches is cumbersome for one-shot scripts alone.
+failure_modes:
+  - mode: Over-normalization collapses distinct source categories into one canonical value
+    impact: Downstream consumers lose a useful distinction and may need to restore or split records manually.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Preserve original values alongside canonicalized ones in the trace.
+      - Require steward review before adding mappings that merge previously separate categories.
+  - mode: Stale reference data enriches records with outdated identifiers or ownership metadata
+    impact: Records appear clean but point downstream users to the wrong team, dataset, or catalog entry.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Record reference-data versions and freshness timestamps for each enrichment run.
+      - Route lookups with deprecated or conflicting matches into the exception bundle.
+  - mode: Unsupported values are forced into the nearest canonical bucket instead of staying unresolved
+    impact: Cleanup metrics look good while novel or ambiguous inputs are hidden from taxonomy owners.
+    severity: low
+    detectability: high
+    mitigations:
+      - Treat unknown or low-confidence mappings as explicit exceptions by default.
+      - Monitor exception-suppression rates and sample normalized batches for forced-fit behavior.
+  - mode: Trace data is omitted or incomplete for bulk updates
+    impact: Operators cannot explain how specific fields changed, slowing rollback and eroding trust in automated cleanup.
+    severity: low
+    detectability: high
+    mitigations:
+      - Make trace emission a required output for every batch, even when no exceptions occur.
+      - Block downstream publication when lineage logs or batch summaries are missing.
+evaluation:
+  success_metrics:
+    - Percentage of staged records accepted downstream without manual field cleanup.
+    - Percentage of normalized fields that retain original-value lineage and reference-data provenance.
+    - Rate of ambiguous or unsupported values routed to exceptions instead of being forced into canonical buckets.
+  quality_criteria:
+    - Canonicalized outputs improve consistency and downstream usability without hiding raw-source meaning.
+    - Enriched fields remain clearly distinguishable from directly observed source values.
+    - Exceptions are small, actionable, and informative enough for taxonomy owners to update mappings safely.
+  robustness_checks:
+    - Test with previously unseen aliases, mixed casing, and partial fields to confirm the workflow preserves ambiguity rather than inventing a confident mapping.
+    - Test stale or conflicting reference tables and verify enrichments degrade into explicit exceptions with versioned traces.
+    - Test rollback and replay on a recent batch to ensure normalized records can be regenerated cleanly from source inputs.
+  benchmark_notes: Evaluate downstream usability together with exception discipline and lineage quality; a cleaner-looking dataset is not success if unsupported normalization becomes harder to detect.
+implementation_notes:
+  orchestration_notes:
+    - Keep ingestion, normalization, enrichment, trace capture, and exception emission as explicit stages over shared batch state.
+    - Prefer append-only traces or reversible staging updates so taxonomy refinements do not require reconstructing hidden transformations.
+  integration_notes:
+    - Common implementations integrate staging databases, reference-data services, lightweight catalogs, and downstream indexing or workflow systems.
+    - Keep the pattern neutral about specific ETL tools, metadata platforms, or storage vendors.
+  deployment_notes:
+    - Start with narrow, low-consequence metadata surfaces before expanding to more consequential records.
+    - Review alias growth, enrichment freshness, and exception backlog trends so the bounded delegation scope stays trustworthy.
+  references:
+    - docs/patterns/transform-process.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: document-to-structured-data-handoff
+    relationship: follows-from
+    notes: Initial document extraction often feeds this lighter canonicalization step when structured outputs still need cleanup and approved reference enrichment before downstream reuse.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Normalize internal service-catalog records and enrich them with canonical owner and environment identifiers before indexing or dashboard reuse.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Clean facility or work-intake metadata into a shared taxonomy so downstream queues and reporting views consume consistent staging records.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Canonicalize benchmark artifact metadata and enrich it with approved dataset and study identifiers before downstream search or review workflows use it.
+maturity: draft
+tags:
+  - transform-process
+  - structured-representation-transformation
+  - normalization-enrichment
+  - canonicalization
+  - downstream-safe-handoff

@@ -31,7 +31,7 @@ domains:
     source_vocabulary: domains
   pattern_families:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation]
-    transform-process: []
+    transform-process: [normalization-and-enrichment]
     investigate-reconcile-verify: [incident-root-cause-analysis]
     monitor-detect-triage: [critical-signal-corroboration-triage]
     plan-coordinate-schedule: []
@@ -73,7 +73,7 @@ domains:
     source_vocabulary: domains
   pattern_families:
     gather-retrieve-synthesize: []
-    transform-process: [document-to-structured-data-handoff]
+    transform-process: [document-to-structured-data-handoff, normalization-and-enrichment]
     investigate-reconcile-verify: [incident-root-cause-analysis]
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [calendar-conflict-coordination]
@@ -87,7 +87,7 @@ domains:
     source_vocabulary: domains
   pattern_families:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification]
-    transform-process: []
+    transform-process: [normalization-and-enrichment]
     investigate-reconcile-verify: []
     monitor-detect-triage: []
     plan-coordinate-schedule: []
