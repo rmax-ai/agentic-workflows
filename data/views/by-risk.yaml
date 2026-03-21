@@ -76,7 +76,7 @@ risk_levels:
     investigate-reconcile-verify: [critical-authoritative-state-restoration]
     monitor-detect-triage: [critical-signal-corroboration-triage]
     plan-coordinate-schedule: [critical-command-window-resequencing]
-    recommend-decide-escalate: []
+    recommend-decide-escalate: [critical-escalation-authority-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: []
     human-agent-collaborative-work: []

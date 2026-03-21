@@ -1,0 +1,279 @@
+id: critical-escalation-authority-recommendation
+slug: critical-escalation-authority-recommendation
+name: Critical escalation authority recommendation
+summary: Determine which human crisis authority should decide a severe time-sensitive case, narrow the governed option set, and assemble a decision-support packet without declaring the crisis, coordinating the command timeline, or executing the chosen action.
+pattern_family:
+  id: recommend-decide-escalate
+  label: Recommend / Decide / Escalate
+problem_structure:
+  id: recommendation-and-decision-support
+  label: Recommendation and decision support
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+workflow_goal: Determine the right human authority lane and bounded option set for a declared severe case, then deliver an audit-ready critical decision packet that makes blocked local paths, governing constraints, and unresolved uncertainty explicit while staying bounded at recommendation and handoff.
+inputs:
+  - name: Declared critical decision question and scope
+    description: A human-declared severe case, exception, or emergency decision request that defines the in-scope decision, affected assets or obligations, time window, and the consequence boundaries that make local handling unsafe.
+    kind: case
+    required: true
+    examples:
+      - Security command asks who should decide whether a production signing-key compromise warrants immediate revocation, artifact freeze, or customer-impact disclosure preparation
+      - Treasury bridge asks which authority should decide whether liquidity stress can stay inside desk limits or must move to executive contingency-funding review
+      - Compliance command asks who must decide whether a sanctions-screening outage permits any narrow release path or requires enterprise legal and regulator-response escalation
+  - name: Crisis authority matrix and emergency delegation rules
+    description: The current authority hierarchy, emergency delegation map, protected approval lanes, materiality thresholds, and non-waivable triggers that determine which humans may decide each class of severe action.
+    kind: policy
+    required: true
+    examples:
+      - Incident command rules showing when platform security leads must escalate to executive risk or legal review
+      - Treasury contingency-funding charter defining desk, CFO, and board-risk authority boundaries
+      - Regulator-notification and payment-restriction policy showing when regional compliance cannot decide alone
+  - name: Evidence, impact, and constraint packet
+    description: Cross-system facts, current impact estimates, reversibility limits, policy citations, and decision-relevant evidence needed to compare authority paths and narrow the option set safely.
+    kind: evidence-set
+    required: true
+    examples:
+      - Key-custody logs, package-signing lineage, affected release inventory, customer blast-radius estimates, and disclosure constraints
+      - Intraday cash-state evidence, collateral availability, facility prerequisites, and payment-obligation timing
+      - Screening outage scope, blocked-payment backlog state, regional override records, and legal interpretation notes
+  - name: Active holds, prior escalations, and downstream commitment state
+    description: Existing command holds, superseded recommendations, pending approvals, protected communications boundaries, and any downstream commitments that affect whether the case can remain local or must move immediately to a higher authority.
+    kind: case-state
+    required: false
+    examples:
+      - Existing shipment, publication, or release hold already approved for one product line but not the newly affected estate
+      - Draft lender or regulator communication that cannot be sent without a named executive owner
+      - Earlier escalation packet rejected because one delegated signer lacked current authority during the critical window
+outputs:
+  - name: Ranked authority recommendation
+    description: Ordered authority paths showing the preferred human decision owner, the policy basis for that lane, blocked lower-authority paths, and the uncertainty that still matters before the decision is taken.
+    kind: recommendation
+    required: true
+    examples:
+      - Recommend direct escalation from platform security to executive cyber command because customer-trust impact and revocation scope exceed local service authority
+      - Recommend treasury crisis committee rather than desk-level handling because contingency-funding thresholds and market-open timing are both implicated
+  - name: Governed option narrowing set
+    description: Bounded option menu prepared for the chosen authority, including viable options, disallowed options, reversibility notes, and explicit assumptions that must not be hidden.
+    kind: option-set
+    required: true
+    examples:
+      - Narrow to revoke key now, freeze artifact publication, or hold for one short verification window while blocking broader customer messaging until executive review
+      - Narrow to maintain payment hold, allow a tightly scoped release class, or escalate to full regulator-response posture while blocking unsupported local exceptions
+  - name: Critical decision-support packet
+    description: Audit-ready packet linking the authority recommendation and narrowed options to evidence, policy triggers, time pressure, privacy constraints, and the exact point where the workflow stopped.
+    kind: case-packet
+    required: true
+    examples:
+      - Executive cyber packet with evidence lineage, option trade-offs, trust-impact assumptions, and protected annex references
+      - Treasury contingency packet with funding thresholds, facility prerequisites, deadline pressure, and unresolved cash-state caveats
+  - name: Escalation decision log
+    description: Durable log of authority checks, blocked routes, packet revisions, human redirects, and acceptance timestamps for the severe recommendation workflow.
+    kind: audit-log
+    required: true
+    examples:
+      - Record showing why a regional authority path was rejected and which executive lane accepted the packet
+      - Log of option-set revisions after one key evidence item or legal interpretation changed during the critical window
+environment:
+  summary: Operates in severe governance-sensitive situations where a case is already serious enough that the main question is who should decide, under which protected authority lane, and with what tightly bounded option set before any irreversible step or public commitment occurs.
+  systems:
+    - Command, bridge, or critical-case workspaces
+    - Policy, delegation, and authority-matrix repositories
+    - Evidence stores, ledgers, or incident and case systems holding current state
+    - Audit, approval, and restricted-distribution tooling
+  actors:
+    - Critical-case owner or incident commander requesting authority guidance
+    - Domain specialist assembling or validating decision-relevant evidence
+    - Risk, legal, compliance, or executive reviewer who may own the next decision
+    - Human authority receiving the packet and deciding the next step
+  constraints:
+    - Start only after a human or governed upstream workflow has already declared the severe case or explicitly requested critical decision-authority guidance.
+    - Stop at authority recommendation, governed option narrowing, and decision-support packet assembly rather than declaring the crisis state, coordinating the response plan, or executing any chosen option.
+    - Keep blocked lower-authority lanes, protected approval requirements, reversibility limits, and unresolved uncertainty visible instead of compressing them into one confident answer.
+    - Minimize copied sensitive details so the packet exposes only what the receiving authority needs to decide under the approved review channel.
+  assumptions:
+    - Authority matrices, delegation rules, and non-waivable escalation triggers are documented strongly enough to compare plausible human decision lanes.
+    - Human authorities remain accountable for accepting, rejecting, redirecting, or deferring the recommendation before any consequential step is taken.
+    - Adjacent workflows can supply bounded current-state evidence or crisis brief context without forcing this pattern to recreate those artifacts itself.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow must gather policy text, delegation state, current case evidence, and prior escalation history before it can justify a critical authority recommendation.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Useful authority guidance depends on combining severe-case facts, reversibility limits, and decision-rights context into one packet rather than leaving them scattered across systems.
+  - capability:
+      id: recommendation
+      label: Recommendation
+      source_vocabulary: capabilities
+    necessity: The central output is a ranked authority path and bounded option set, not a completed decision or executed response.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Critical escalation quality depends on enforcing emergency delegation rules, protected review channels, disclosure limits, and non-waivable approval triggers.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Severe authority recommendations must confirm current delegation status, evidence freshness, and option preconditions before the packet reaches a decision-maker.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Policy interpretation, evidence review, option narrowing, and packet assembly often span several specialist roles that need one shared critical-case state.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow must preserve superseded recommendations, changed authority assumptions, and human redirects as the critical case evolves.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Missing delegation proof, conflicting authority claims, or unsafe option assumptions should force higher escalation or explicit uncertainty rather than an invented decisive route.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Severe authority selection often benefits from explicit roles for evidence intake, delegation checking, option comparison, and packet assembly so the recommendation path stays fast, inspectable, and policy-bounded under pressure.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Humans remain embedded because accepting the authority lane, overriding the narrowed option set, or redirecting the packet is itself a governed decision with critical consequences.
+autonomy_profile:
+  level:
+    id: human-directed
+    label: Human directed
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the declared critical decision question, eligible authority lanes, and non-delegable boundaries before live recommendations influence response.
+    - Review the ranked authority path, governed option set, and critical decision packet before any executive declaration, regulator notification, service restriction, funding action, or other irreversible step is approved.
+    - Approve changes to emergency delegation rules, option templates, materiality thresholds, or protected-channel logic before they affect future critical recommendations.
+  reversibility: Recommendation packets and option narrowing can be recomputed as evidence changes, but routing a severe case to the wrong authority or letting a lower authority act prematurely can create harm that is expensive or impossible to unwind once markets move, customers are notified, regulators are engaged, or trust is damaged.
+  escalation: Escalate whenever no defensible authority lane fits the current case, emergency delegation is stale or disputed, protected review channels are required, critical evidence is materially uncertain, or the next requested step would push the workflow into planning, declaration, collaboration adjudication, or execution.
+risk_governance:
+  level:
+    id: critical
+    label: Critical
+    source_vocabulary: risk-levels
+  failure_impact: Misidentifying who should decide a severe case, hiding blocked local lanes, or narrowing options unsafely can trigger unauthorized action, delayed protective measures, irreversible disclosures, financial loss, regulatory harm, or operational damage precisely when decision windows are shortest.
+  approval_requirements:
+    - Human acceptance is required before the recommended authority path changes ownership of the critical decision, broadens access to sensitive evidence, or is used to justify any irreversible downstream action.
+    - Governance owners must approve changes to emergency delegation rules, protected review channels, option-blocking logic, and materiality thresholds used by future critical recommendation runs.
+  auditability: Preserve authority-matrix versions, evidence references, blocked-route rationale, option-set revisions, human redirects, packet recipients, and acceptance timestamps so reviewers can reconstruct exactly how the severe authority recommendation was formed and used.
+  privacy:
+    - Limit copied customer, employee, market, security, and regulated detail to the minimum needed for the receiving authority to decide.
+    - Use restricted annexes or hashed references when the main packet can preserve decision meaning without exposing raw sensitive evidence broadly.
+  security:
+    - Restrict packet assembly and routing permissions so the workflow cannot silently alter delegation sources, approval records, or downstream decision systems.
+    - Log privileged overrides, emergency delegation changes, restricted annex access, and manual reroutes in durable reviewable records.
+  notes: Critical-risk governance fits because the workflow determines which humans may decide severe consequential actions and what bounded options they see, while still remaining cleanly bounded at recommendation, option narrowing, and packet handoff rather than declaration or execution.
+why_agentic:
+  - Critical authority selection requires adaptive comparison of delegation rules, reversibility limits, and current-case facts rather than one static escalation table applied blindly.
+  - The workflow benefits from specialized evidence, policy, and packet-assembly roles that maintain one coherent case state while the decision window is shrinking.
+  - Safe performance depends on recognizing when uncertainty, protected handling, or conflicting delegation itself is grounds for higher escalation instead of false confidence.
+failure_modes:
+  - mode: The workflow recommends a lower authority path even though the case exceeds delegated decision bounds
+    impact: A severe decision is made or delayed by someone who lacks jurisdiction, creating unauthorized action or harmful hesitation during a critical window.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Encode non-waivable escalation triggers and blocked lower-authority lanes as explicit constraints rather than weighted preferences.
+      - Recheck delegation freshness and protected-lane requirements immediately before surfacing the recommendation.
+  - mode: Option narrowing hides a materially safer or required path
+    impact: Human decision-makers receive an incomplete menu and may choose from options that already violate policy, reversibility, or disclosure constraints.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Preserve disallowed and deferred options with explicit reasons instead of dropping them silently.
+      - Require packet review to show why each remaining option is still inside the family boundary and decision scope.
+  - mode: Sensitive evidence is copied too broadly during packet assembly
+    impact: A severe escalation creates avoidable privacy, security, legal, or market exposure on top of the original case.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Separate restricted annexes from broader decision packets and log every broadened distribution.
+      - Minimize copied raw evidence when cited references or summarized constraints are sufficient for the authority lane.
+  - mode: The workflow drifts into command planning, collaboration adjudication, or execution
+    impact: Family boundaries blur and the recommendation artifact is mistaken for an approved action plan or live operational instruction.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Limit outputs to authority recommendations, option sets, decision packets, and escalation logs.
+      - Route response-timeline updates, debate-heavy approval loops, and execution steps to adjacent planning, collaboration, or execution patterns.
+evaluation:
+  success_metrics:
+    - Time from critical decision request to delivery of a human-reviewable packet naming the correct authority lane and bounded option set.
+    - Agreement between the workflow's recommended authority path and the final human-accepted decision owner for the severe case.
+    - Frequency with which blocked lower-authority paths and non-waivable escalation triggers remain visible before consequential action is taken.
+  quality_criteria:
+    - Each recommendation explains why the chosen authority lane fits current policy and why lower-authority handling is insufficient.
+    - The option set preserves reversibility limits, disallowed paths, and unresolved uncertainty instead of presenting one flattened answer.
+    - Outputs stay bounded at authority recommendation and packet handoff rather than implying that a decision has been made or acted on.
+  robustness_checks:
+    - Test stale emergency delegation state and ensure the workflow escalates uncertainty instead of assuming the last known owner is still valid.
+    - Test conflicting legal, compliance, and operational constraints and confirm the packet preserves blocked paths and protected review channels.
+    - Test rapidly changing impact estimates and verify the authority recommendation and option set update without losing lineage to prior packets.
+  benchmark_notes: Evaluate authority accuracy, uncertainty discipline, and packet usefulness together; a faster packet is not a success if it invites the wrong humans to decide or hides critical option constraints.
+implementation_notes:
+  orchestration_notes:
+    - Keep evidence intake, delegation checking, option comparison, packet composition, and handoff logging as explicit coordinated stages over shared critical-case state.
+    - Preserve a clean stop point so downstream declaration, response planning, collaboration, communication, and execution tooling remain outside this workflow.
+  integration_notes:
+    - Common implementations integrate command workspaces, policy and delegation repositories, evidence systems, and audit or approval tooling.
+    - Keep the pattern neutral about specific incident command, treasury bridge, compliance case, or governance platforms.
+  deployment_notes:
+    - Start with severe case classes where authority matrices and emergency delegation paths already exist but human routing still creates delay or ambiguity.
+    - Monitor redirect rates, blocked-path frequency, and human overrides closely because policy drift or outdated delegation maps can quickly erode trust.
+  references:
+    - docs/patterns/recommend-decide-escalate.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: policy-constrained-escalation-routing
+    relationship: variant-of
+    notes: This is a critical-risk, human-directed variant focused on severe authority selection and governed option narrowing after a case is already serious enough for command-level review.
+  - id: crisis-briefing-evidence-synthesis
+    relationship: follows
+    notes: A crisis brief or equivalent evidence summary may feed this pattern once the next question becomes who should decide among severe options rather than how to summarize the current situation.
+  - id: critical-command-window-resequencing
+    relationship: adjacent-to
+    notes: Use the planning pattern when the main artifact is the live command timeline; use this pattern when the main artifact is authority recommendation and decision-support packet assembly.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Recommend whether a production signing-key compromise should route to platform security leadership, executive cyber command, or legal and trust review, while narrowing the allowable revocation and release-hold options before any key action is taken.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Recommend which authority should decide contingency-funding or payment-restriction posture during a severe intraday liquidity event, with bounded options and blocked local paths made explicit before any draw or market commitment occurs.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Recommend whether a sanctions-screening outage should route to regional compliance, enterprise legal, or regulator-response leadership while narrowing any safe release or hold options before a regulated decision is made.
+maturity: draft
+tags:
+  - recommend-decide-escalate
+  - recommendation-and-decision-support
+  - critical-risk
+  - authority-selection
+  - decision-support-packet
+  - human-directed

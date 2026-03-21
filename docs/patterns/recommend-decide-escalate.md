@@ -37,6 +37,8 @@ This family ends when a decision is supported, selected, or escalated.
 
 The family becomes agentic when the system must weigh trade-offs, apply policy or risk constraints, expose rationale, and recognize when confidence or authority is insufficient for automatic progression. It is not just scoring; it is governed judgment support.
 
+Current canonical anchors now span low-, moderate-, high-, and critical-risk slices. The new critical edge should stay focused on severe authority selection, governed option narrowing, and decision-support packet assembly rather than collapsing into crisis briefing, collaboration-heavy adjudication, command planning, or execution.
+
 ## Governance and evaluation concerns
 
 Future patterns should identify decision rights, escalation triggers, rationale requirements, and the cost of bad recommendations. Evaluation should emphasize calibration, policy alignment, explanation quality, and whether escalation behavior is appropriately conservative.
@@ -49,6 +51,7 @@ A strong canonical pattern in this family should state:
 - what policy, evidence, or goals shape the ranking,
 - who owns the final decision,
 - when the output should hand off to execution, monitoring, or collaborative review.
+- when a critical case should shift from ordinary escalation routing to human-directed authority recommendation with tightly bounded options and explicit irreversibility notes.
 
 ## See also
 

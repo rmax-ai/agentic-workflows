@@ -35,7 +35,7 @@ autonomy_levels:
     investigate-reconcile-verify: [critical-authoritative-state-restoration]
     monitor-detect-triage: []
     plan-coordinate-schedule: [critical-command-window-resequencing]
-    recommend-decide-escalate: []
+    recommend-decide-escalate: [critical-escalation-authority-recommendation]
     execute-automate: []
     optimize-adapt: []
     human-agent-collaborative-work: [analyst-copilot-loop]
