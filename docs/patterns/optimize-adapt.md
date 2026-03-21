@@ -60,11 +60,12 @@ The current optimize/adapt anchors show the family across several governance lev
 - `adaptive-review-sampling-rate-tuning` covers low-risk autonomous tuning of internal QA, audit, or spot-check sampling rates inside pre-approved bounds with strong logging, rollback, and ex post oversight.
 - `queue-prioritization-optimization` covers moderate-risk learning loops that reorder existing work under explicit fairness and service guardrails.
 - `governed-optimization-bundle-retuning` covers high-risk recommendation-only retuning of shared optimization state across coupled review surfaces.
+- `approval-gated-optimization-state-release` covers high-risk human-approved live release of one exact optimization-state revision with explicit version binding, expiry discipline, rollback readiness, and audit lineage.
 - `critical-protected-priority-adaptation` anchors the critical slice with time-bounded severe-state optimization recommendations that protect scarce capacity, expiry discipline, and rollback readiness without drifting into authority selection, command planning, collaboration ownership, or direct execution.
 
-This family can safely reach `autonomous-with-audit` when the live change is a reversible internal tuning artifact such as a bounded sampling or calibration policy, not a case disposition, scheduling command, or direct operational action.
+This family can safely reach `autonomous-with-audit` when the live change is a reversible internal tuning artifact such as a bounded sampling or calibration policy, and it can also safely reach `approval-gated-execution` when one exact versioned optimization-state revision is released into bounded live use only after human approval, expiry control, and rollback preparation. Neither case should drift into case disposition, scheduling commands, or direct operational action.
 
-Critical optimize/adapt work should remain centered on temporary optimization-state changes, protected-priority lane protection, or governed retuning packages. If the output starts naming who decides, sequencing the response, assigning specific reviewers, or triggering the live change directly, it belongs in an adjacent family instead.
+Approval-gated optimize/adapt work should remain centered on one exact released tuning artifact with explicit validity, fallback, and lineage state rather than a vague permission to keep optimizing. Critical optimize/adapt work should remain centered on temporary optimization-state changes, protected-priority lane protection, or governed retuning packages. If the output starts naming who decides, sequencing the response, assigning specific reviewers, or triggering downstream operational action rather than bounded optimization-state release, it belongs in an adjacent family instead.
 
 ## See also
 

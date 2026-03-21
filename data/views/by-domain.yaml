@@ -37,7 +37,7 @@ domains:
     plan-coordinate-schedule: [schedule-adjustment-and-replanning, authoritative-change-coordination-refresh]
     recommend-decide-escalate: [readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation, critical-escalation-authority-recommendation]
     execute-automate: [human-directed-task-orchestration, staged-change-execution-with-rollback-holds, exception-aware-task-execution, workflow-hand-off-and-completion]
-    optimize-adapt: [adaptive-threshold-calibration, critical-protected-priority-adaptation]
+    optimize-adapt: [adaptive-threshold-calibration, approval-gated-optimization-state-release, critical-protected-priority-adaptation]
     human-agent-collaborative-work: [approval-centered-collaboration, approval-gated-collaborative-artifact-release, critical-protected-artifact-collaboration]
 - domain:
     id: finance
@@ -51,7 +51,7 @@ domains:
     plan-coordinate-schedule: [authoritative-change-coordination-refresh, contingency-plan-activation-gate]
     recommend-decide-escalate: [deal-desk-recommendation-support, delegated-authority-option-ranking, readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation, critical-escalation-authority-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates, staged-change-execution-with-rollback-holds]
-    optimize-adapt: [governed-optimization-bundle-retuning, critical-protected-priority-adaptation]
+    optimize-adapt: [governed-optimization-bundle-retuning, approval-gated-optimization-state-release, critical-protected-priority-adaptation]
     human-agent-collaborative-work: [approval-centered-collaboration, approval-gated-collaborative-artifact-release, critical-protected-artifact-collaboration]
 - domain:
     id: compliance
@@ -79,7 +79,7 @@ domains:
     plan-coordinate-schedule: [calendar-conflict-coordination, contingency-plan-activation-gate]
     recommend-decide-escalate: [deal-desk-recommendation-support, delegated-authority-option-ranking, policy-constrained-escalation-routing]
     execute-automate: [human-directed-task-orchestration, staged-change-execution-with-rollback-holds, exception-aware-task-execution]
-    optimize-adapt: [adaptive-threshold-calibration, adaptive-review-sampling-rate-tuning, queue-prioritization-optimization, critical-protected-priority-adaptation]
+    optimize-adapt: [adaptive-threshold-calibration, adaptive-review-sampling-rate-tuning, queue-prioritization-optimization, approval-gated-optimization-state-release, critical-protected-priority-adaptation]
     human-agent-collaborative-work: [approval-centered-collaboration, shared-workbench-orchestration]
 - domain:
     id: research

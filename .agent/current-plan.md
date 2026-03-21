@@ -2,31 +2,31 @@
 
 ## Iteration focus
 
-Iteration `20260321-112439` is now scoped: inspect the remaining `approval-gated-execution` gaps and close only the cleanest one. Current analysis points to `optimize-adapt` as the most family-safe target because the primary artifact remains a bounded optimization-state adjustment package whose deployment can be explicitly held behind human approval without collapsing into recommendation, planning, or live execution.
+Iteration `20260321-112439` is now complete: `optimize-adapt` gained the clean approval-gated slice through `approval-gated-optimization-state-release`, plus linked engineering, finance, and operations examples. The remaining obviously clean `approval-gated-execution` candidates are now the narrower gaps in `gather-retrieve-synthesize` and `recommend-decide-escalate`.
 
 ## Current phase
 
 - Phase 2: controlled vocabularies are complete and stable enough for bounded Phase 7 refinement.
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
-- Phase 5: canonical coverage now spans forty-six patterns across all nine top-level pattern families. `recommend-decide-escalate` and `transform-process` now each sit at six canonical patterns; `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, `optimize-adapt`, and `human-agent-collaborative-work` now each sit at five; and `gather-retrieve-synthesize` remains at four. Future additions should remain narrow and land only where a remaining autonomy or architecture gap maps to a genuinely reusable workflow shape.
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred fifty-two instance files now committed.
-- Phase 7: coverage refinement remains active, all nine top-level families span the full tracked `low` / `moderate` / `high` / `critical` risk ladder, and `transform-process`, `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` now span all tracked architecture types.
+- Phase 5: canonical coverage now spans forty-seven patterns across all nine top-level pattern families. `recommend-decide-escalate`, `transform-process`, and `optimize-adapt` now each sit at six canonical patterns; `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` now each sit at five; and `gather-retrieve-synthesize` remains at four. Future additions should remain narrow and land only where a remaining autonomy or architecture gap maps to a genuinely reusable workflow shape.
+- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred fifty-five instance files now committed.
+- Phase 7: coverage refinement remains active, all nine top-level families span the full tracked `low` / `moderate` / `high` / `critical` risk ladder, and `transform-process`, `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, `optimize-adapt`, and `human-agent-collaborative-work` now span all tracked architecture types.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: the remaining obvious structural holes are the still-empty `approval-gated-execution` cells in `gather-retrieve-synthesize`, `recommend-decide-escalate`, and `optimize-adapt`; this iteration should target `optimize-adapt` specifically, because approval-gating a recommendation artifact blurs `recommend-decide-escalate` and approval-gating a gathered context bundle is less structurally distinct than gating the live release of one exact optimization-state revision.
+- Current refinement target: the remaining obvious structural holes are now the still-empty `approval-gated-execution` cells in `gather-retrieve-synthesize` and `recommend-decide-escalate`; the optimize-family slice is now covered by gating the live release of one exact optimization-state revision instead of broad permission to keep tuning.
 
 ## Ordered tasks
 
-1. Add one `optimize-adapt` canonical pattern for human-approved release of a bounded optimization-state or tuning revision into live use, while keeping the family boundary centered on adaptive policy state rather than recommendation or operational execution.
-2. Ground the new pattern with two or three linked instances in domains where temporary optimization-state deployment is realistic and governance-sensitive, such as finance, engineering, and operations.
-3. Update only the directly affected family doc, derived browse views, and `.agent/` execution memory, then validate repository YAML with `uv run python scripts/python/validate_yaml.py`.
+1. Inspect whether `gather-retrieve-synthesize` or `recommend-decide-escalate` contains the next cleanest remaining `approval-gated-execution` gap without blurring family boundaries.
+2. Keep any follow-on batch as narrow as the completed optimize-family release slice: one canonical pattern, a few grounded instances, and only the directly required derived-view and `.agent/` updates.
+3. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each bounded batch.
 
 ## Iteration checkpoint
 
 - Timestamp: `20260321-112439`
-- Previous completed scope: added `approval-gated-collaborative-artifact-release` under `human-agent-collaborative-work`, linked engineering, finance, and compliance approval-bound artifact-release instances, updated the collaboration family doc, and refreshed the derived index, domain, architecture, autonomy, and risk views.
-- Current working hypothesis: the next clean approval-gated addition is an `optimize-adapt` pattern that packages one exact optimization-state revision, fallback plan, and expiry discipline for human approval before the approved revision becomes live.
+- Previous completed scope: added `approval-gated-optimization-state-release` under `optimize-adapt`, linked engineering, finance, and operations approval-bound optimization-revision release instances, updated the optimize/adapt family doc, and refreshed the derived index, domain, architecture, autonomy, and risk views.
+- Current working hypothesis: the next clean approval-gated addition, if any, should come from `gather-retrieve-synthesize` or `recommend-decide-escalate` only if it preserves an equally clear primary artifact boundary.
 - Boundary reminder: the new pattern must stop at governed release of the optimization-state artifact and must not drift into authority recommendation, command planning, or downstream execution.
 
 ## Constraints

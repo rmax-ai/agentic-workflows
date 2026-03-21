@@ -1,0 +1,290 @@
+id: approval-gated-optimization-state-release
+slug: approval-gated-optimization-state-release
+name: Approval-gated optimization-state release
+summary: Release one exact optimization-state or tuning revision into bounded live use only after explicit human approval, with revision binding, expiry discipline, rollback readiness, and audit lineage preserved so the workflow stays centered on governed adaptive state rather than recommendation adjudication or downstream operational execution.
+pattern_family:
+  id: optimize-adapt
+  label: Optimize / Adapt
+problem_structure:
+  id: feedback-driven-optimization
+  label: Feedback-driven optimization
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+workflow_goal: Make one exact versioned optimization-state revision live in a bounded scope only after a human approves that specific revision, while keeping fallback state, validity timing, rollout constraints, and lineage explicit so the workflow does not collapse into recommendation-only retuning or downstream business execution.
+inputs:
+  - name: Current live optimization state
+    description: The currently active tuning, weighting, threshold, sampling, or prioritization state that governs future system behavior and that can be restored if the new revision is rolled back.
+    kind: optimization-state
+    required: true
+    examples:
+      - Active release-risk scoring profile used by an engineering release-review service
+      - Current quarter-close control bundle governing evidence-weighting and queue-balance parameters
+      - Live maintenance-assurance sampling policy used to select documentation spot checks
+  - name: Candidate optimization revision
+    description: The exact proposed optimization-state revision prepared for release, including version identifier, bounded deployment scope, supported activation mechanism, and the fields that differ from the live state.
+    kind: optimization-state
+    required: true
+    examples:
+      - Candidate alert-threshold revision with new blast-radius weighting and service-tier sensitivity values for one release-review cohort
+      - Revised close-control bundle with updated materiality weighting, entity-aging buffers, and fairness-cap values for the current quarter
+      - New assurance sampling-policy revision with adjusted rates, protected-cohort floors, and cooldown metadata
+  - name: Release evidence and guardrail checks
+    description: Validation evidence showing how the candidate revision behaved in simulation, shadow mode, replay, or bounded staging, plus the guardrail checks that must remain true for live release to stay within approved limits.
+    kind: validation-evidence
+    required: true
+    examples:
+      - Replay showing lower false-positive escalation noise without rising missed-release regressions during the past two sprints
+      - Quarter-close simulation showing fewer controller overrides while covenant-sensitive entities remain protected
+      - Spot-check backtest showing higher documentation-defect yield without dropping below safety-critical sampling floors
+  - name: Approval, validity, and rollback policy
+    description: The policy that names who may approve release, what live scope is allowed, how long the revision remains valid before expiry review, what metrics force rollback, and which prior trusted state must remain recoverable.
+    kind: policy
+    required: true
+    examples:
+      - Engineering governance rule limiting release of a new review-scoring revision to one product cohort for forty-eight hours with mandatory rollback if protected-signoff misses rise
+      - Controllership policy requiring controller approval for any close-control bundle revision and automatic expiry at quarter-close if not renewed
+      - Operations assurance rule allowing one sampling-policy revision to run for one maintenance cycle while preserving backfill and restore triggers
+  - name: Prior release lineage and held-state history
+    description: Previous approved revisions, superseded manifests, earlier rollback events, and any currently held release attempts used to prove the candidate revision is the exact one under review.
+    kind: release-history
+    required: false
+    examples:
+      - Prior approved scoring revision that was restored after a false-negative spike in release reviews
+      - Earlier close-control bundle held because one fairness-cap change required separate governance approval
+      - Superseded maintenance-assurance sampling revision replaced after outage-season reviewer capacity changed
+outputs:
+  - name: Released optimization-state revision
+    description: The exact approved optimization-state version that becomes live for the bounded scope, annotated with version identity, validity window, prior-state reference, and release boundary.
+    kind: optimization-state
+    required: true
+    examples:
+      - Activated release-review scoring revision approved for one service family and one review window
+      - Live quarter-close control bundle revision bound to the current close cycle and controller sign-off
+      - Active maintenance-assurance sampling-policy version approved for one review program and one governance period
+  - name: Optimization release manifest
+    description: Manifest binding human approval to one exact revision, one allowed live scope, one validity period, required signer identities, and the point where the workflow stops before any downstream operational acts occur.
+    kind: manifest
+    required: true
+    examples:
+      - Manifest proving that scoring revision hash 7f3a is approved only for release-review intake and not for deployment execution
+      - Close-control bundle manifest showing controller approval, quarter-end expiry, and the prior trusted bundle id for rollback
+      - Sampling-policy release manifest showing approved program scope, start and end times, and the safety-review signer
+  - name: Expiry and rollback control packet
+    description: Structured release-control record describing when the live revision must be revalidated, which metrics force immediate rollback, what previous state should be restored, and whether the revision should expire automatically if no human extension occurs.
+    kind: rollback-plan
+    required: true
+    examples:
+      - Packet requiring rollback if protected-signoff aging worsens or if service-tier misses exceed the approved threshold during the first day
+      - Expiry plan restoring the previous close-control bundle when quarter-close completes unless controller leadership renews the revision explicitly
+      - Control packet triggering backfill review and restoration of the prior sampling policy if safety-critical defect escapes rise
+  - name: Optimization release audit trace
+    description: Durable history of evidence reviewed, version hashes compared, approval and hold decisions, validity-window changes, rollback events, and superseded revisions across the release loop.
+    kind: audit-log
+    required: true
+    examples:
+      - Trace linking the approved engineering scoring revision to replay data, signer approvals, and later rollback-or-extend decisions
+      - Audit record showing which fairness checks blocked one finance bundle revision while another was released
+      - History showing when an operations sampling revision expired, who approved the release, and which prior version was restored
+environment:
+  summary: Operates in governed adaptive systems where the reusable problem is not inventing a new optimization recommendation but releasing one exact versioned tuning artifact into bounded live use with explicit approval, expiry, rollback, and lineage controls.
+  systems:
+    - Versioned optimization-state registry or parameter store
+    - Replay, simulation, or shadow-evaluation workspace
+    - Approval, signer-capture, and manifest tooling
+    - Audit, rollback, and configuration-history systems
+    - Domain workflow surfaces that consume the live optimization state
+  actors:
+    - Optimization steward or release owner
+    - Human approver accountable for live release of the revision
+    - Governance or policy owner maintaining release and rollback rules
+    - Domain analyst or operator reviewing validation evidence
+  constraints:
+    - Bind approval to one exact optimization-state revision, one bounded live scope, and one validity window so later revisions cannot inherit stale permission.
+    - Keep fallback state, expiry timing, and rollback triggers explicit and machine-readable before any revision becomes live.
+    - Stop at releasing the optimization-state artifact itself; do not use this workflow to decide case outcomes, schedule human work, execute business actions, or adjudicate downstream recommendations.
+    - Preserve lineage between the live revision, its supporting evidence, prior trusted state, and any superseded or rolled-back revisions so release history remains reconstructable.
+  assumptions:
+    - Candidate revisions can be versioned, compared against the live state, and activated or restored without rebuilding the surrounding operational system manually.
+    - Human approvers remain accountable for accepting the specific live-scope trade-off of the release and for authorizing expiry extension when needed.
+    - Adjacent monitoring or execution workflows can observe or consume the released state without this pattern taking over those responsibilities.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: Release gating depends on current replay, shadow, or early-live guardrail signals and on explicit rollback triggers rather than a one-time file handoff.
+  - capability:
+      id: optimization
+      label: Optimization
+      source_vocabulary: capabilities
+    necessity: The workflow must reason about bounded changes to weights, thresholds, quotas, or other adaptive controls and preserve the intended optimization-state semantics during release.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: The exact revision under approval, its evidence, and its rollback target must be verified before live activation so stale or mismatched tuning does not slip through.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Approver identity, scope limits, validity windows, protected metrics, rollback requirements, and extension rules determine whether the release may proceed.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Safe release requires durable tracking of active and prior revisions, supersession state, expiry timing, approval lineage, and rollback history.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow must read evidence and state stores, write manifests and audit records, and activate or restore optimization revisions through governed tools rather than prose alone.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Missing rollback targets, expired evidence, scope drift, or post-release guardrail breaches must hold or reverse release instead of forcing the candidate revision live.
+execution_architecture:
+  - architecture:
+      id: approval-gated-execution
+      label: Approval-gated execution
+      source_vocabulary: architectures
+    fit: The candidate optimization revision can be technically ready for activation, but the exact live-state transition remains blocked until explicit human approval unlocks release of that specific version.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Humans remain in the normal path because approving live use of one exact tuning revision, accepting its trade-offs, and extending or rejecting its validity window cannot be delegated away safely.
+autonomy_profile:
+  level:
+    id: approval-gated
+    label: Approval gated
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Approve the release class, bounded live scope, validity-window rules, and rollback expectations before routine optimization-state release begins.
+    - Review the exact candidate revision, release manifest, and expiry-and-rollback packet before authorizing that revision to become the live state.
+    - Approve changes to signer rules, protected metrics, extension logic, or activation tooling before those changes affect future releases.
+  reversibility: The live revision can usually be reversed by restoring the prior trusted state referenced in the release packet, but temporary harm caused by a bad tuning release can persist until downstream queues, alerts, or reviews restabilize after rollback.
+  escalation: Escalate whenever the revision under approval does not match the evidence package, the requested live scope broadens beyond policy, rollback readiness is missing, validity timing becomes ambiguous, or the requested next step would amount to downstream execution rather than bounded optimization-state release.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Releasing the wrong optimization revision or allowing it to persist beyond its approved validity window can distort live prioritization, review coverage, or scoring behavior across consequential workflows, creating meaningful operational, financial, or quality harm even though the workflow remains bounded to adaptive-state release.
+  approval_requirements:
+    - A named human approver must explicitly authorize every live release of an optimization-state revision that changes bounded production, review, or control behavior.
+    - Governance owners must approve changes to release-policy rules, validity windows, rollback criteria, protected metrics, and signer requirements used by future optimization-state releases.
+  auditability: Preserve the current and released revision identifiers, evidence windows reviewed, approval lineage, live scope, validity metadata, rollback packet, hold reasons, superseded revisions, and rollback-or-expiry outcomes for every release cycle.
+  privacy:
+    - Release packets should use aggregated or minimally necessary supporting evidence so the optimization rationale can be reviewed without broadly exposing sensitive engineering, financial, or worker detail.
+    - Restricted annexes should carry any sensitive cohort, customer, or facility detail that is not required in the general release manifest or audit log.
+  security:
+    - Restrict who can activate optimization revisions, edit rollback criteria, or change validity-window rules because silent tuning changes can reshape live behavior across sensitive workflows.
+    - Log manual overrides, expired-but-extended revisions, rollback suppressions, and signer changes so hidden bypass of the approval gate remains detectable.
+  notes: High risk fits because the pattern releases one live optimization-state revision that can immediately influence future handling of consequential work, while still staying distinct from direct task execution because the primary released artifact remains the governed adaptive policy state itself.
+why_agentic:
+  - Safe release requires continuous comparison of exact revision identity, approval state, guardrail evidence, expiry timing, and rollback readiness rather than a one-time manual toggle.
+  - The workflow must detect when a technically ready tuning revision is no longer the one actually reviewed or when surrounding context makes live release unsafe, and that stateful judgment is more than static configuration publishing.
+  - Durable memory across releases matters because superseded revisions, past rollback triggers, and current validity windows all shape whether the next candidate should go live or stay held.
+failure_modes:
+  - mode: Approval is attached to the wrong optimization revision or scope
+    impact: A stale or broader tuning revision becomes live even though the reviewed evidence and human approval applied to a different version or cohort.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Bind the release manifest to explicit revision identifiers, hashes, live-scope metadata, and evidence-package references.
+      - Block activation whenever the candidate revision changes after approval review starts or when scope metadata is incomplete.
+  - mode: The released revision outlives its approved validity window
+    impact: Temporary or cycle-specific tuning silently becomes a de facto baseline and continues shaping live behavior after the justification for it has expired.
+    severity: high
+    detectability: high
+    mitigations:
+      - Attach explicit expiry metadata and mandatory review times to every live revision.
+      - Restore the prior trusted state automatically unless a human approver explicitly extends the revision within policy.
+  - mode: Rollback readiness is nominal but not actually restorable
+    impact: The workflow appears governed, but a harmful release cannot be reversed quickly because the prior state, migration assumptions, or activation path were not validated.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Require the rollback target, activation path, and restoration procedure to be checked before release approval is finalized.
+      - Run bounded rollback drills or replay validations for release classes whose state transitions are known to be fragile.
+  - mode: Optimization-state release drifts into downstream execution or case handling
+    impact: The workflow begins triggering business actions, reviewer assignments, or operational moves directly, blurring family boundaries and weakening governance.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Limit outputs to the released revision, manifest, rollback packet, and audit trace.
+      - Hand off operational decisions, scheduling, and direct execution to adjacent recommendation, planning, monitoring, or execution patterns.
+evaluation:
+  success_metrics:
+    - Percentage of released optimization revisions whose manifest, validity window, and rollback target match the exact approved version without later lineage correction.
+    - Time required for authorized humans to review, approve, and, when needed, extend or roll back a bounded optimization-state release with clear evidence and control metadata.
+    - Rate at which released revisions expire or roll back on schedule when guardrails are breached or the approved validity window ends.
+  quality_criteria:
+    - Every live release is traceable to one exact revision, one approval action, one bounded scope, and one fallback state.
+    - Expiry, rollback, and supersession logic remain explicit and inspectable rather than being hidden inside general configuration-management activity.
+    - The workflow remains centered on governed adaptive-state release and does not absorb downstream execution, recommendation adjudication, or schedule control.
+  robustness_checks:
+    - Test a candidate revision change after approval review begins and confirm the old approval cannot be reused silently.
+    - Test expiry without extension and confirm the prior trusted state is restored automatically or the release is held as policy requires.
+    - Test a guardrail breach immediately after activation and verify rollback logic restores the exact prior revision with a durable audit entry.
+  benchmark_notes: Evaluate this pattern on revision-binding integrity, expiry discipline, and rollback readiness together; faster activation is not success if reviewers cannot prove which tuning revision was approved or reverse it safely.
+implementation_notes:
+  orchestration_notes:
+    - Keep candidate-state preparation, evidence verification, approval capture, live activation, and expiry-or-rollback handling as explicit stages over one shared revision identity.
+    - Prefer append-only manifest and audit records so reviewers can reconstruct superseded and restored optimization states without diffing opaque configuration blobs.
+  integration_notes:
+    - Common implementations connect parameter registries, replay or shadow-analysis systems, approval tooling, and audit services that can reference exact version ids.
+    - Keep the pattern neutral about whether the live revision changes thresholds, weights, quotas, buffers, or sampling rates; the core reusable shape is governed release of one exact optimization-state artifact.
+  deployment_notes:
+    - Start with one narrowly bounded release class and a short validity window so approvers can gain confidence in manifest binding, expiry, and rollback behavior.
+    - Review early held-release and rollback cases closely because they reveal whether the workflow is drifting into recommendation-only retuning on one side or downstream execution on the other.
+  references:
+    - docs/patterns/optimize-adapt.md
+    - data/vocabularies/problem-structures.yaml
+    - data/vocabularies/autonomy-levels.yaml
+    - data/vocabularies/risk-levels.yaml
+related_patterns:
+  - id: governed-optimization-bundle-retuning
+    relationship: often-precedes
+    notes: Governed retuning may produce the candidate shared-state bundle that this pattern later binds to one exact approved live release.
+  - id: critical-protected-priority-adaptation
+    relationship: can-feed
+    notes: Critical adaptation can generate a temporary emergency optimization state, but this pattern is the narrower slice that governs release of one exact approved revision into bounded live use.
+  - id: staged-change-execution-with-rollback-holds
+    relationship: adjacent
+    notes: Both patterns use approval, staged safety, and rollback discipline, but this pattern releases optimization state rather than executing downstream operational steps.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Release one exact production release-review scoring revision into live use for a bounded product cohort after a release manager approves the manifest, validity window, and rollback target tied to replayed regression evidence.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Activate one approved quarter-close control-bundle revision for the current close cycle, with controller sign-off, explicit expiry at cycle end, and the prior trusted bundle reserved for rollback.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Release one reviewed maintenance-assurance sampling-policy revision into live spot-check selection for the next maintenance window while keeping safety-critical floors, expiry timing, and restore controls explicit.
+maturity: draft
+tags:
+  - optimize-adapt
+  - feedback-driven-optimization
+  - approval-gated
+  - approval-gated-execution
+  - optimization-state
+  - rollback-ready
+  - high-risk

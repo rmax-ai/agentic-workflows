@@ -65,7 +65,7 @@ autonomy_levels:
     plan-coordinate-schedule: [contingency-plan-activation-gate]
     recommend-decide-escalate: []
     execute-automate: [browser-based-form-completion-with-approval-gates]
-    optimize-adapt: []
+    optimize-adapt: [approval-gated-optimization-state-release]
     human-agent-collaborative-work: [approval-gated-collaborative-artifact-release]
 - autonomy_level:
     id: bounded-delegation

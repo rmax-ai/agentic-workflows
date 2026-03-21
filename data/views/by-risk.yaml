@@ -64,7 +64,7 @@ risk_levels:
     plan-coordinate-schedule: [authoritative-change-coordination-refresh]
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
     execute-automate: [staged-change-execution-with-rollback-holds]
-    optimize-adapt: [governed-optimization-bundle-retuning]
+    optimize-adapt: [governed-optimization-bundle-retuning, approval-gated-optimization-state-release]
     human-agent-collaborative-work: [approval-centered-collaboration, approval-gated-collaborative-artifact-release]
 - risk_level:
     id: critical

@@ -110,7 +110,7 @@ families:
   - id: feedback-driven-optimization
     label: Feedback-driven optimization
     source_vocabulary: problem-structures
-  pattern_ids: [adaptive-threshold-calibration, adaptive-review-sampling-rate-tuning, queue-prioritization-optimization, governed-optimization-bundle-retuning, critical-protected-priority-adaptation]
+  pattern_ids: [adaptive-threshold-calibration, adaptive-review-sampling-rate-tuning, queue-prioritization-optimization, governed-optimization-bundle-retuning, approval-gated-optimization-state-release, critical-protected-priority-adaptation]
 - family:
     id: human-agent-collaborative-work
   path: patterns/human-agent-collaborative-work
