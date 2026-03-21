@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-103612` is now complete: `execute-automate` gained `human-directed-task-orchestration`, closing the family's empty `human-directed` autonomy slice with a live-action execution pattern plus linked engineering, operations, and compliance instances and the derived browse-view updates that follow from that canonical truth.
+Iteration `20260321-104838` is in progress: inspect the remaining family-safe architecture imbalances, choose one narrow `approval-gated-execution` gap only if it cleanly fits the family boundary, and land a single canonical pattern with a few linked instances plus the directly derived browse-view updates.
 
 ## Current phase
 
@@ -14,12 +14,12 @@ Iteration `20260321-103612` is now complete: `execute-automate` gained `human-di
 - Phase 7: coverage refinement remains active, and all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: the `execute-automate` human-directed gap is now closed, so the next batch should inspect the remaining narrow autonomy or architecture concentrations and only add another pattern if it is as family-safe as this guided-execution slice.
+- Current refinement target: inspect the remaining empty `approval-gated-execution` architecture cells and fill at most one more family-safe gap this iteration, only if the pattern can remain tightly bounded within its family's primary artifact and stop point.
 
 ## Ordered tasks
 
-1. Inspect the remaining empty autonomy and architecture concentrations, especially the families that still lack an obviously family-safe `approval-gated-execution` slice, before adding more canonical content.
-2. Prefer the next batch to stay similarly narrow: one reusable shape, modest grounded examples, and only the derived browse-view updates that follow directly from canonical truth.
+1. Select the single safest remaining `approval-gated-execution` architecture gap by re-checking family boundaries, neighboring patterns, and whether the stop point remains pre-execution or approval-gated within-family output.
+2. Use one scoped subagent batch to add that one reusable shape, two or three grounded instances, and only the derived browse-view updates that follow directly from canonical truth.
 3. Continue updating `.agent/` execution memory and validating repository YAML with `uv run python scripts/python/validate_yaml.py` for each committed refinement batch.
 
 ## Iteration checkpoint
