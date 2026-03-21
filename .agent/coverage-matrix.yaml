@@ -39,7 +39,7 @@ matrices:
     gather-retrieve-synthesize: {engineering: covered, finance: covered, compliance: covered, operations: covered, research: covered, support: covered, hr: covered}
     transform-process: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
     investigate-reconcile-verify: {engineering: covered, finance: covered, compliance: covered, operations: partial, research: none, support: partial, hr: none}
-    monitor-detect-triage: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
+    monitor-detect-triage: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: covered, hr: none}
     plan-coordinate-schedule: {engineering: none, finance: none, compliance: none, operations: covered, research: none, support: covered, hr: covered}
     recommend-decide-escalate: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
     execute-automate: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: covered, hr: covered}
@@ -49,7 +49,7 @@ matrices:
     gather-retrieve-synthesize: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
     transform-process: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
     investigate-reconcile-verify: {tool-using-single-agent: none, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
-    monitor-detect-triage: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: covered, approval-gated-execution: none}
+    monitor-detect-triage: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: covered, approval-gated-execution: none}
     plan-coordinate-schedule: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
     recommend-decide-escalate: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
     execute-automate: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: covered}
@@ -75,7 +75,8 @@ summary:
     - "`transform-process` now has covered finance, compliance, and operations cells after adding pharmacovigilance safety-case intake and facilities corrective-maintenance handoff examples."
     - "`optimize-adapt` now has covered support, operations, and compliance cells after adding a regulatory consumer-complaint response queue reprioritization example alongside the post-outage support and field-service dispatch cases."
     - "`plan-coordinate-schedule` now has covered operations, support, and HR cells after adding grounded customer-bridge and interview-panel coordination examples."
-    - "`monitor-detect-triage` now has covered finance, compliance, and operations cells after adding pharmacovigilance safety-signal triage and cold-chain temperature excursion triage examples alongside the suspicious-wire finance anchor."
+    - "`monitor-detect-triage` now has covered finance, compliance, operations, and support cells after adding a suspected account takeover support alert triage example alongside the suspicious-wire, pharmacovigilance, and cold-chain anchors."
+    - "`monitor-detect-triage` now also has representative `tool-using-single-agent` architecture coverage because the support alert-correlation workflow explicitly combines event scoring with evidence assembly before human-controlled routing."
     - "`investigate-reconcile-verify` now has covered engineering, finance, and compliance cells after adding treasury cash-position discrepancy and sanctions-screening-gap root-cause investigation examples alongside the engineering incident anchor."
     - "`gather-retrieve-synthesize` now has covered research, engineering, finance, compliance, operations, support, and HR cells after adding debt-covenant quarter-close, cross-border safeguard, conveyor-safety readiness, enterprise-support obligations, pay-transparency posting-obligation, and service-mesh migration-readiness synthesis examples."
-    - The highest-leverage next gap now looks like a support-domain example in `monitor-detect-triage`, because support already has adjacent planning, optimization, execution, synthesis, and collaboration grounding but still lacks a direct triage artifact.
+    - The highest-leverage next gap now looks like an engineering-domain example in `monitor-detect-triage`, because engineering already has adjacent investigation, synthesis, and collaboration grounding but still lacks a direct triage artifact.
