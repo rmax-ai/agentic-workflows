@@ -13,6 +13,9 @@ domain:
   - id: engineering
     label: Engineering
     source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
   - id: operations
     label: Operations
     source_vocabulary: domains
@@ -246,6 +249,11 @@ example_domains:
       label: Engineering
       source_vocabulary: domains
     example: Verify that an internal SDK publication claim is actually reflected in the approved package registry, checksum manifest, and release-note record before release coordinators rely on it.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Confirm that a claimed internal parental-leave guidance publication is actually live across the approved handbook repository, intranet surface, and mirror status endpoints before HR partners rely on the updated guidance link.
   - domain:
       id: operations
       label: Operations
