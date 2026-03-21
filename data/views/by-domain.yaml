@@ -94,7 +94,7 @@ domains:
     recommend-decide-escalate: [readiness-gate-disposition-recommendation, approval-gated-recommendation-release]
     execute-automate: [workflow-hand-off-and-completion]
     optimize-adapt: [adaptive-review-sampling-rate-tuning, governed-optimization-bundle-retuning]
-    human-agent-collaborative-work: [analyst-copilot-loop, shared-workbench-orchestration]
+    human-agent-collaborative-work: [analyst-copilot-loop, approval-gated-collaborative-artifact-release, shared-workbench-orchestration]
 - domain:
     id: support
     label: Support
@@ -108,7 +108,7 @@ domains:
     recommend-decide-escalate: [policy-constrained-escalation-routing, approval-gated-recommendation-release]
     execute-automate: [exception-aware-task-execution]
     optimize-adapt: [adaptive-review-sampling-rate-tuning, queue-prioritization-optimization]
-    human-agent-collaborative-work: [analyst-copilot-loop, shared-workbench-orchestration]
+    human-agent-collaborative-work: [analyst-copilot-loop, approval-gated-collaborative-artifact-release, shared-workbench-orchestration]
 - domain:
     id: hr
     label: HR
@@ -122,4 +122,4 @@ domains:
     recommend-decide-escalate: [policy-constrained-escalation-routing, approval-gated-recommendation-release]
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: [governed-optimization-bundle-retuning]
-    human-agent-collaborative-work: [approval-centered-collaboration]
+    human-agent-collaborative-work: [approval-centered-collaboration, approval-gated-collaborative-artifact-release]

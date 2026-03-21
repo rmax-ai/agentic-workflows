@@ -19,6 +19,15 @@ domain:
   - id: compliance
     label: Compliance
     source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
 workflow_goal: Keep one jointly prepared governed artifact current, preserve visible disagreement and release ownership across human-agent collaboration turns, and block its handoff until a human explicitly approves release of that exact artifact into one bounded downstream review or decision lane.
 inputs:
   - name: Shared artifact charter and collaboration scope
@@ -273,6 +282,21 @@ example_domains:
       label: Compliance
       source_vocabulary: domains
     example: Compliance and legal reviewers maintain one remediation or regulator-preparation artifact, then a named human owner approves its handoff into one bounded legal or oversight lane without triggering outreach or execution.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Research, reproducibility, and publication reviewers co-produce one benchmark claim-clarification packet, then a named human owner approves that exact revision for one publication-integrity intake lane without deciding publication or releasing the study externally.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Support, incident, and customer-review stakeholders collaborate on one outage disclosure packet, then release that exact revision into one executive customer-review lane while customer communication and remediation remain downstream.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Leave, employee-relations, and occupational-health reviewers maintain one protected leave return-to-work exception packet, then a named human owner approves its handoff into one bounded review lane without deciding the leave outcome or updating payroll.
 maturity: draft
 tags:
   - human-agent-collaborative-work
