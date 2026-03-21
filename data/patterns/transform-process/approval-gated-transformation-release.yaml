@@ -19,6 +19,9 @@ domain:
   - id: operations
     label: Operations
     source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
 workflow_goal: Convert authoritative inputs into a schema-aligned release package and approval manifest that downstream workflows can rely on only after explicit human sign-off, while keeping the transformation boundary separate from recommendation, evidence verdicts, publication, posting, or live execution.
 inputs:
   - name: Authoritative release-bound source bundle
@@ -272,6 +275,11 @@ example_domains:
       label: Operations
       source_vocabulary: domains
     example: Convert validated routing and fallback state into a shift-release package that can be approved for cutover handoff while keeping live activation out of scope.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Reshape protected-leave recertification materials into a restricted review-intake packet whose manifest authorizes one leave-program handoff lane without deciding eligibility or triggering downstream case action.
 maturity: draft
 tags:
   - transform-process
