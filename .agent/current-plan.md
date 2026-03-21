@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-045924` is complete: it added `approval-packet-generation` as a second canonical `gather-retrieve-synthesize` pattern, expanding that family into governed approval-packet assembly while covering the previously empty `orchestrated-multi-agent` architecture cell and a new `high` risk anchor for the family. The repository can now keep Phase 7 focused on structural balancing rather than family/domain breadth.
+Iteration `20260321-050550` is now scoped as a single Phase 7 canonical-pattern batch. The goal is to add one second `monitor-detect-triage` pattern that fills the thin `critical` risk cell while broadening `orchestrated-multi-agent` coverage beyond the current gather and investigation anchors without crossing into investigation or execution.
 
 ## Current phase
 
@@ -16,18 +16,18 @@ Iteration `20260321-045924` is complete: it added `approval-packet-generation` a
 
 ## Ordered tasks
 
-1. Re-read `.agent/coverage-matrix.yaml`, the family overview docs, and the canonical pattern set before selecting the next refinement batch.
-2. Prefer the next bounded batch to add one second canonical pattern in a family that still has only one entry and can legitimately expand `low` or `critical` risk coverage, or broaden `orchestrated-multi-agent` into another family.
-3. Prioritize patterns that stay cleanly within their family boundary while improving one thin structural cell rather than reopening already-balanced family/domain coverage.
+1. Author a second `monitor-detect-triage` canonical pattern that stays inside triage and routing boundaries while covering a `critical` risk posture.
+2. Use the pattern to broaden `orchestrated-multi-agent` coverage into the monitoring family by structuring corroboration, enrichment, and escalation packaging as distinct coordinated roles.
+3. Update only the directly derived browse artifacts needed to keep family, domain, autonomy, architecture, and risk navigation aligned with the new pattern.
 4. Keep terminology aligned with the existing vocabularies, and record any genuinely new concept in `.agent/decisions.md` before it spreads across schema-adjacent files.
-5. After the next content commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log so execution memory continues to match repository reality.
-6. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
+5. After the content commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log so execution memory continues to match repository reality.
+6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-045924`
-- Completed subagent scope: authored `data/patterns/gather-retrieve-synthesize/approval-packet-generation.yaml` and updated the linked browse views in one focused content commit.
-- Completed orchestrator follow-up: refreshed execution memory so the new canonical pattern inventory and structural coverage changes are reflected in status, coverage tracking, the repository map, the backlog, and the dated iteration log.
+- Timestamp: `20260321-050550`
+- In-flight subagent scope: author one new `monitor-detect-triage` canonical pattern plus the directly derived browse-view updates needed to keep navigation consistent.
+- Pending orchestrator follow-up: refresh execution memory so the new canonical pattern inventory and structural coverage changes are reflected in status, coverage tracking, the repository map, the backlog, and the dated iteration log.
 
 ## Constraints
 
@@ -40,4 +40,4 @@ Iteration `20260321-045924` is complete: it added `approval-packet-generation` a
 
 ## Expected outcome
 
-The next iteration should likely add one carefully chosen second canonical pattern that improves sparse `low` or `critical` risk coverage, or extends `orchestrated-multi-agent` into another family without diluting the current ontology boundaries.
+This iteration should produce one carefully chosen second canonical pattern in `monitor-detect-triage` that improves sparse `critical` risk coverage and extends `orchestrated-multi-agent` into another family without diluting the current ontology boundaries.
