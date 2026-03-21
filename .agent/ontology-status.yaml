@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-gather-synthesis-compliance-covered
+repository_stage: phase-6-grounding-gather-synthesis-hr-covered
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 30
+  instance_files: 31
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -59,7 +59,7 @@ instance_counts_by_domain:
   operations: 6
   research: 2
   support: 5
-  hr: 2
+  hr: 3
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -116,6 +116,7 @@ repo_reality:
     - instances/compliance/vendor-data-transfer-safeguard-obligation-synthesis-for-cross-border-review.md
     - instances/hr/approved-payroll-status-change-submission.md
     - instances/hr/interview-panel-availability-coordination.md
+    - instances/hr/pay-transparency-posting-obligation-synthesis-for-requisition-launch-review.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -131,12 +132,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and thirty grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and thirty-one grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
   - "`monitor-detect-triage` is now grounded across finance, compliance, and operations, leaving support, HR, engineering, and research as open domain slices only if broader monitoring coverage becomes worth pursuing later."
   - "`investigate-reconcile-verify` is now grounded across engineering, finance, and compliance, leaving support and operations as partial adjacent slices and research and HR still open only if broader investigation coverage becomes important later."
-  - "`gather-retrieve-synthesize` is now grounded across research, finance, compliance, operations, and support, leaving engineering as a still-partial adjacent slice and HR as the only fully open domain if retrieval/synthesis coverage remains the next priority."
+  - "`gather-retrieve-synthesize` is now grounded across research, finance, compliance, operations, support, and HR, leaving engineering as the only still-partial adjacent slice if retrieval/synthesis coverage remains the next priority."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
   id: phase-6-continue-gather-synthesis-grounding
-  summary: "Use the next small grounding batch to continue broadening `gather-retrieve-synthesize`, with preference for either an HR example that closes the last empty domain slice or an engineering example that strengthens the pattern's original domain anchors."
+  summary: "Use the next small grounding batch to continue broadening `gather-retrieve-synthesize`, now with preference for an engineering example that strengthens the pattern's original domain anchors and closes the last partial family/domain slice."
