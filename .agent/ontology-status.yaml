@@ -31,7 +31,7 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 16
+  pattern_files: 17
   instance_files: 63
   pattern_family_docs: 9
   glossary_files: 1
@@ -48,7 +48,7 @@ coverage_totals:
 pattern_counts_by_family:
   gather-retrieve-synthesize: 2
   transform-process: 2
-  investigate-reconcile-verify: 1
+  investigate-reconcile-verify: 2
   monitor-detect-triage: 2
   plan-coordinate-schedule: 2
   recommend-decide-escalate: 2
@@ -87,6 +87,7 @@ repo_reality:
     - data/patterns/transform-process/document-to-structured-data-handoff.yaml
     - data/patterns/transform-process/normalization-and-enrichment.yaml
     - data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml
+    - data/patterns/investigate-reconcile-verify/authoritative-record-reconciliation.yaml
     - data/patterns/monitor-detect-triage/risk-alert-triage.yaml
     - data/patterns/monitor-detect-triage/critical-signal-corroboration-triage.yaml
     - data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml
@@ -169,7 +170,7 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, sixteen canonical patterns across all nine top-level families, and sixty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, seventeen canonical patterns across all nine top-level families, and sixty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "All nine top-level families are now grounded across engineering, finance, compliance, operations, research, support, and HR after adding research-domain monitoring coverage."
     - "`policy-constrained-escalation-routing` now gives `recommend-decide-escalate` a second canonical pattern and representative `orchestrated-multi-agent` coverage while staying bounded at governed routing rather than downstream execution."
@@ -177,7 +178,8 @@ repo_reality:
     - "`adaptive-threshold-calibration` now gives `optimize-adapt` a second canonical pattern plus representative `low` risk and `human-in-the-loop` architecture coverage while keeping the family bounded at reversible parameter tuning rather than downstream triage or execution."
     - "`schedule-adjustment-and-replanning` now gives `plan-coordinate-schedule` a second canonical pattern plus representative `moderate` risk, `recommendation-only` autonomy, `human-in-the-loop`, and `orchestrated-multi-agent` architecture coverage while keeping the family bounded at revised plan handoff rather than recommendation or execution."
     - "`exception-aware-task-execution` now gives `execute-automate` a second canonical pattern plus representative `moderate` risk, `bounded-delegation`, and `orchestrated-multi-agent` coverage while keeping the family bounded at resilient task completion, bounded retries, and exception-driven escalation."
-    - "The remaining one-entry families are now `investigate-reconcile-verify` and `human-agent-collaborative-work`, with `investigate-reconcile-verify` the clearest next structural target because it still lacks separate `record-reconciliation` or `evidence-backed-verification` coverage."
+    - "`authoritative-record-reconciliation` now gives `investigate-reconcile-verify` a second canonical pattern plus representative `record-reconciliation`, `tool-using-single-agent`, `human-in-the-loop`, `bounded-delegation`, and `moderate` risk coverage while keeping the family bounded at authoritative-state restoration and correction packaging rather than causal diagnosis or downstream action."
+    - "The only remaining one-entry family is now `human-agent-collaborative-work`, making it the clearest next structural target for a second canonical collaboration pattern."
 next_action:
-  id: phase-7-expand-investigate-reconcile-verify
-  summary: "Use the next bounded batch to add a second `investigate-reconcile-verify` pattern, ideally covering `record-reconciliation` or `evidence-backed-verification` with a non-high-risk or non-orchestrated-multi-agent slice while preserving a crisp investigation boundary."
+  id: phase-7-expand-human-agent-collaborative-work
+  summary: "Use the next bounded batch to add a second `human-agent-collaborative-work` pattern with a collaboration shape distinct from `analyst-copilot-loop`, ideally covering explicit negotiated planning, review, or handoff control while preserving a crisp mixed-initiative boundary."

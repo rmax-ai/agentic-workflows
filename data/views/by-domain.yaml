@@ -88,7 +88,7 @@ domains:
   pattern_families:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification]
     transform-process: [normalization-and-enrichment]
-    investigate-reconcile-verify: [authoritative-record-reconciliation]
+    investigate-reconcile-verify: []
     monitor-detect-triage: []
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: []
@@ -116,7 +116,7 @@ domains:
   pattern_families:
     gather-retrieve-synthesize: []
     transform-process: []
-    investigate-reconcile-verify: []
+    investigate-reconcile-verify: [authoritative-record-reconciliation]
     monitor-detect-triage: []
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [policy-constrained-escalation-routing]
