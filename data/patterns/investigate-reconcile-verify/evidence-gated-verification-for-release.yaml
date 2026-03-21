@@ -19,6 +19,9 @@ domain:
   - id: operations
     label: Operations
     source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
 workflow_goal: Determine whether an in-scope release, posting, or controlled-use package remains sufficiently supported by current authoritative evidence and policy checks, then produce an inspectable verified, held, or insufficient verdict plus approval-gated handoff before any downstream publication, cutover, or reliance occurs.
 inputs:
   - name: Candidate release or posting package
@@ -259,6 +262,11 @@ example_domains:
       label: Operations
       source_vocabulary: domains
     example: Confirm that safety interlocks, fallback profile evidence, and current telemetry still support a routing-profile cutover packet before site leaders authorize live activation.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Reverify that the signed separation agreement, final-pay approvals, revocation-window status, and protected intake boundary still support one exact separation packet revision before HR leaders release it into the restricted separation-administration lane.
 maturity: draft
 tags:
   - investigate-reconcile-verify

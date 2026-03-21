@@ -116,7 +116,7 @@ domains:
   pattern_families:
     gather-retrieve-synthesize: [change-triggered-context-briefing, approval-gated-briefing-release]
     transform-process: [approval-gated-transformation-release]
-    investigate-reconcile-verify: [authoritative-record-reconciliation]
+    investigate-reconcile-verify: [authoritative-record-reconciliation, evidence-gated-verification-for-release]
     monitor-detect-triage: [anomaly-detection-review, approval-gated-triage-dispatch]
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [policy-constrained-escalation-routing, approval-gated-recommendation-release]
