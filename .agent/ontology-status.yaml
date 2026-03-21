@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 23
-  instance_files: 83
+  pattern_files: 24
+  instance_files: 87
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -48,7 +48,7 @@ coverage_totals:
 pattern_counts_by_family:
   gather-retrieve-synthesize: 3
   transform-process: 2
-  investigate-reconcile-verify: 2
+  investigate-reconcile-verify: 3
   monitor-detect-triage: 3
   plan-coordinate-schedule: 2
   recommend-decide-escalate: 4
@@ -56,12 +56,12 @@ pattern_counts_by_family:
   optimize-adapt: 2
   human-agent-collaborative-work: 2
 instance_counts_by_domain:
-  engineering: 13
+  engineering: 14
   finance: 12
   compliance: 11
-  operations: 11
-  research: 12
-  support: 12
+  operations: 12
+  research: 13
+  support: 13
   hr: 12
 repo_reality:
   available_ontology_assets:
@@ -89,6 +89,7 @@ repo_reality:
     - data/patterns/transform-process/normalization-and-enrichment.yaml
     - data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml
     - data/patterns/investigate-reconcile-verify/authoritative-record-reconciliation.yaml
+    - data/patterns/investigate-reconcile-verify/claimed-state-verification.yaml
     - data/patterns/monitor-detect-triage/risk-alert-triage.yaml
     - data/patterns/monitor-detect-triage/anomaly-detection-review.yaml
     - data/patterns/monitor-detect-triage/critical-signal-corroboration-triage.yaml
@@ -115,6 +116,7 @@ repo_reality:
     - instances/research/cross-lab-benchmark-replication-discrepancy-investigation.md
     - instances/research/approved-benchmark-study-review-disposition-closure.md
     - instances/research/benchmark-study-artifact-freeze-readiness-gate-disposition-recommendation.md
+    - instances/research/benchmark-study-artifact-freeze-completion-verification.md
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md
     - instances/engineering/deprecated-message-broker-client-migration-exception-copilot-loop.md
@@ -128,6 +130,7 @@ repo_reality:
     - instances/engineering/production-shared-credential-exception-review-board-readiness-loop.md
     - instances/engineering/approved-release-readiness-review-closure-and-tracker-completion.md
     - instances/engineering/payments-tokenization-cutover-readiness-gate-disposition-recommendation.md
+    - instances/engineering/internal-sdk-release-asset-publication-verification.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
     - instances/finance/invoice-packet-to-payables-record-handoff.md
     - instances/finance/dual-approved-vendor-bank-account-change-submission.md
@@ -150,6 +153,7 @@ repo_reality:
     - instances/operations/distribution-sorter-misroute-root-cause-investigation.md
     - instances/operations/supplier-labeling-deviation-remediation-brief-copilot-loop.md
     - instances/operations/network-fuel-system-test-deferral-exception-package-readiness-loop.md
+    - instances/operations/warehouse-slotting-reference-rollout-verification.md
     - instances/compliance/cross-border-deal-exception-review.md
     - instances/compliance/pharmacovigilance-safety-signal-alert-triage.md
     - instances/compliance/beneficial-ownership-registry-update-submission.md
@@ -167,6 +171,7 @@ repo_reality:
     - instances/support/enterprise-outage-evidence-packet-to-support-escalation-record-handoff.md
     - instances/support/enterprise-security-incident-remediation-credit-package-readiness-loop.md
     - instances/support/enterprise-support-severity-drift-anomaly-review.md
+    - instances/support/premium-support-workaround-article-publication-verification.md
     - instances/compliance/vendor-data-transfer-safeguard-obligation-synthesis-for-cross-border-review.md
     - instances/compliance/vendor-telemetry-safeguard-requirement-attestation-recommendation.md
     - instances/hr/approved-payroll-status-change-submission.md
@@ -196,13 +201,13 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty-three canonical patterns across all nine top-level families, and eighty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty-four canonical patterns across all nine top-level families, and eighty-seven grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`anomaly-detection-review` now gives `monitor-detect-triage` a third canonical pattern plus representative `moderate` risk, `tool-using-single-agent`, and `bounded-delegation` coverage while staying bounded at explainable anomaly packet assembly and governed routing rather than critical corroboration, investigation, or execution."
-    - "`monitor-detect-triage` now has canonical pattern coverage in research, support, and HR as well as engineering, finance, compliance, and operations, so the family no longer depends only on high- and critical-risk anchors."
-    - "`monitor-detect-triage` now has representative `tool-using-single-agent`, `orchestrated-multi-agent`, `human-in-the-loop`, and `event-driven-monitoring` architecture coverage, leaving `approval-gated-execution` correctly absent because the family stops before execution."
-    - "`policy-constrained-escalation-routing`, `readiness-gate-disposition-recommendation`, and `control-requirement-attestation-recommendation` collectively leave `recommend-decide-escalate` with representative low-, moderate-, and high-risk recommendation coverage while preserving family boundaries."
-    - "All nine top-level families still have at least two canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps are narrower family-specific governance slices such as low-risk `investigate-reconcile-verify` rather than missing global scaffolding."
+    - "`claimed-state-verification` now gives `investigate-reconcile-verify` a third canonical pattern plus representative `evidence-backed-verification`, `low` risk, and `event-driven-monitoring` coverage while staying bounded at confirming or disproving low-stakes claimed states rather than repairing records, diagnosing causes, or propagating downstream completion."
+    - "`investigate-reconcile-verify` now has canonical pattern coverage in engineering, finance, compliance, operations, research, support, and HR, and it now spans `tool-using-single-agent`, `orchestrated-multi-agent`, `human-in-the-loop`, and `event-driven-monitoring` architectures without drifting into approval-gated execution."
+    - "The derived autonomy and risk browse views are now realigned to canonical metadata for `anomaly-detection-review`, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
+    - "`human-agent-collaborative-work` still lacks a low-risk canonical anchor even though the family already spans moderate and high risk across all modeled domains, making that family a strong next refinement candidate."
+    - "All nine top-level families still have at least two canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps are narrower family-specific governance slices rather than missing global scaffolding."
 next_action:
-  id: phase-7-low-risk-investigate-refinement
-  summary: "Use the next iteration to add one low-risk `investigate-reconcile-verify` pattern that fills the family's still-open low-risk slice while staying bounded at verification or discrepancy confirmation rather than broad reconciliation, synthesis, or downstream action."
+  id: phase-7-low-risk-collaboration-refinement
+  summary: "Use the next iteration to add one low-risk `human-agent-collaborative-work` pattern that fills the family's open low-risk slice while staying bounded at shared artifact refinement or review collaboration rather than synthesis-only drafting, recommendation packaging, or approval adjudication."
