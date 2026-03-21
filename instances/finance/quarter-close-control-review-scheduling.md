@@ -12,6 +12,21 @@ Finance.
 
 A finance close coordinator needs to schedule a quarter-close control review before the controller signs off on the close package for a revolving-credit and liquidity reporting cycle. The meeting must include the assistant controller, the treasury accounting lead, the SEC reporting manager, the internal controls manager, and the finance systems owner because the review sits between the final consolidation refresh and the disclosure-support handoff. The workflow is about finding a viable slot inside the close calendar, placing reversible holds across New York, Chicago, and London calendars, and escalating quickly when no in-policy overlap exists rather than guessing at attendee substitutions or making the final meeting commitment without human confirmation.
 
+```mermaid
+flowchart TD
+    start["Quarter-close review request before<br>controller sign-off deadline"] --> gather["Check close-calendar window,<br>required finance roles, and scheduling rules"]
+    gather --> search["Search New York, Chicago, and London<br>calendar overlap for required attendees"]
+    search --> overlap{"In-policy overlap before<br>the disclosure-support handoff?"}
+    overlap -->|"Yes"| hold["Place reversible holds tied to<br>the quarter-close milestone"]
+    overlap -->|"No"| escalate["Hold scheduling and escalate<br>for finance-owner exception review"]
+    hold --> verify{"All required roles covered and<br>no authority-changing substitute needed?"}
+    verify -->|"Yes"| approve{"Close coordinator or assistant controller<br>confirms the selected slot?"}
+    verify -->|"No"| escalate
+    approve -->|"Yes"| finalize["Send final invite and log<br>confirmed control-review timing"]
+    approve -->|"No"| release["Release tentative holds and<br>return to slot search"]
+    release --> search
+```
+
 ## Target systems / source systems
 
 - Close-management tracker with the quarter-close milestone calendar, required review roles, and sign-off deadlines
