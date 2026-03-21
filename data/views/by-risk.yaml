@@ -61,7 +61,7 @@ risk_levels:
     transform-process: [batch-content-transformation]
     investigate-reconcile-verify: [incident-root-cause-analysis]
     monitor-detect-triage: [risk-alert-triage]
-    plan-coordinate-schedule: []
+    plan-coordinate-schedule: [authoritative-change-coordination-refresh]
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
     execute-automate: []
     optimize-adapt: []

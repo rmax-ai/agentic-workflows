@@ -50,7 +50,7 @@ families:
   - id: structured-representation-transformation
     label: Structured representation transformation
     source_vocabulary: problem-structures
-  pattern_ids: [document-to-structured-data-handoff, normalization-and-enrichment, batch-content-transformation]
+  pattern_ids: [document-to-structured-data-handoff, normalization-and-enrichment, batch-content-transformation, change-triggered-representation-refresh]
 - family:
     id: investigate-reconcile-verify
   path: patterns/investigate-reconcile-verify
@@ -83,7 +83,7 @@ families:
   - id: multi-party-coordination
     label: Multi-party coordination
     source_vocabulary: problem-structures
-  pattern_ids: [calendar-conflict-coordination, schedule-adjustment-and-replanning]
+  pattern_ids: [calendar-conflict-coordination, schedule-adjustment-and-replanning, authoritative-change-coordination-refresh]
 - family:
     id: recommend-decide-escalate
   path: patterns/recommend-decide-escalate

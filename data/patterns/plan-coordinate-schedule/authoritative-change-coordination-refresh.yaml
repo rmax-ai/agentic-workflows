@@ -1,0 +1,292 @@
+id: authoritative-change-coordination-refresh
+slug: authoritative-change-coordination-refresh
+name: Authoritative change coordination refresh
+summary: Detect an authoritative schedule-affecting change and refresh an existing coordination package so participants see current schedule state, required adoption checkpoints, and audit-ready lineage without reopening broad replanning, recommendation, or execution.
+pattern_family:
+  id: plan-coordinate-schedule
+  label: Plan / Coordinate / Schedule
+problem_structure:
+  id: multi-party-coordination
+  label: Multi-party coordination
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+workflow_goal: Refresh an already-issued coordination artifact when authoritative schedule conditions change so stakeholders receive current schedule state, participant deltas, and explicit adoption or exception checkpoints while the workflow stops short of broader plan recomputation, approval adjudication, or downstream execution.
+inputs:
+  - name: Authoritative coordination change signal
+    description: A trusted event, status transition, or source-of-truth update showing that an issued coordination package is now stale and should be refreshed.
+    kind: change-event
+    required: true
+    examples:
+      - A required approver's delegate status changes after the review was tentatively placed
+      - An evidence-ready milestone moves and changes the earliest valid review window
+      - A blackout period or regulator-committed submission cutoff is updated in the governing calendar
+  - name: Current coordination artifact and schedule state
+    description: The latest meeting packet, schedule entry, attendee list, pending adoption state, and prior refresh metadata currently being used for coordination.
+    kind: coordination-state
+    required: true
+    examples:
+      - Existing release-readiness review packet with tentative hold, required roles, and owner confirmation status
+      - Published quarter-close control review invite draft with current attendee commitments and close-calendar linkage
+      - Active remediation sign-off review packet tied to the current regulator-facing milestone window
+  - name: Current participant and constraint snapshot
+    description: Free-busy state, role assignments, dependency readiness, and policy windows needed to determine whether the coordination package can be refreshed in place.
+    kind: state-snapshot
+    required: true
+    examples:
+      - Reviewer calendars, delegate mappings, and evidence-freeze timing for a release review
+      - Close-calendar milestones, required finance owners, and final consolidation readiness timestamps
+      - Remediation validation completion status, review-board availability, and steering-committee submission cutoffs
+  - name: Coordination refresh policy and adoption rules
+    description: Guardrails defining what kinds of timing, attendee, or dependency changes can be refreshed automatically, which recipients should be notified, and when human adoption is mandatory.
+    kind: policy
+    required: true
+    examples:
+      - Move the review only within the approved pre-cutover window unless the release owner adopts a wider shift
+      - Reissue a finance review packet automatically when room or timezone details change, but require controller adoption for any required-attendee substitution
+      - Allow remediation review refresh after approved milestone movements while escalating changes that alter sign-off authority
+  - name: Prior responses and unresolved exceptions
+    description: Existing participant replies, objections, override history, and pending exceptions that shape whether the refreshed coordination state is safe to publish.
+    kind: response-set
+    required: false
+    examples:
+      - Release owner note that one security reviewer may delegate only to a named backup
+      - Controller objection to any meeting move beyond the locked close window
+      - Audit liaison exception requiring confirmation before any sign-off authority changes
+outputs:
+  - name: Refreshed coordination package
+    description: Updated schedule artifact with current timing, attendee expectations, dependency references, and status markers showing what remains tentative versus adopted.
+    kind: schedule-packet
+    required: true
+    examples:
+      - Revised release-review packet with updated start time, delegate metadata, and current evidence-ready checkpoint
+      - Refreshed quarter-close control review packet reflecting a narrowed review window and preserved required-attendee roles
+      - Updated remediation sign-off review package tied to the latest validation-complete date and submission cutoff
+  - name: Participant delta and adoption notice
+    description: Targeted change notice describing what changed, who must acknowledge or adopt the refresh, and which recipients are only informed.
+    kind: notification-packet
+    required: true
+    examples:
+      - Notice that the release review moved by two hours and still needs release-owner adoption before the invite becomes authoritative
+      - Delta summary showing the finance systems owner was replaced by an approved delegate pending controller confirmation
+      - Compliance coordination notice highlighting that the remediation review remains tentative because one required reviewer has not accepted the refresh
+  - name: Exception and adoption checkpoint queue
+    description: Structured list of changes that cannot become authoritative automatically because they cross policy, authority, or feasibility boundaries.
+    kind: review-queue
+    required: true
+    examples:
+      - Refresh attempt held because the only feasible slot now crosses a change-freeze boundary
+      - Required-attendee substitution awaiting controller adoption before the finance review packet can be reissued
+      - Remediation review refresh routed for exception handling because the updated milestone would miss the regulator-committed window
+  - name: Coordination change lineage log
+    description: Durable trace linking trigger events, prior and current schedule state, notifications issued, human adoption actions, and unresolved exceptions.
+    kind: audit-log
+    required: true
+    examples:
+      - Log connecting a release evidence-ready delay to the refreshed review hold and later owner adoption
+      - Versioned finance coordination trace showing each close-calendar update and the resulting packet reissue history
+      - Remediation review lineage record capturing which milestone change caused the latest coordination refresh and why one exception remained open
+environment:
+  summary: Operates in event-triggered coordination workflows where an already-issued review, meeting, or sign-off package must stay synchronized with authoritative schedule conditions, but the workflow remains bounded to refreshed coordination state, participant alignment, and explicit human adoption boundaries rather than broad replanning or downstream completion.
+  systems:
+    - Event feeds, workflow status updates, or milestone change logs
+    - Calendar and scheduling systems
+    - Coordination workspaces, ticketing systems, or review trackers
+    - Policy calendars, dependency trackers, and role-assignment records
+    - Audit logs and exception queues
+  actors:
+    - Coordination owner or scheduler
+    - Required participants or their approved delegates
+    - Human authority who adopts consequential schedule changes
+    - Auditor, program manager, or governance steward
+  constraints:
+    - Refresh only already-bounded coordination artifacts rather than reopening full program plans or issuing new policy recommendations.
+    - Preserve prior and current timing, attendee, dependency, and notification lineage so stakeholders can inspect exactly what changed.
+    - Keep recipient targeting explicit so only affected participants receive detailed deltas and sensitive context is not overshared.
+    - Stop at refreshed coordination state plus adoption or exception routing; downstream approval decisions, adjudication, and execution happen elsewhere.
+  assumptions:
+    - Trusted systems emit authoritative enough changes to distinguish real refresh triggers from conversational noise or draft edits.
+    - Current coordination state, participant roles, and prior exception history remain available for comparison and targeted notification.
+    - Human owners remain responsible for adopting materially changed schedule state before it becomes authoritative for sensitive reviews or checkpoints.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The workflow begins from authoritative schedule-affecting change detection rather than from a fresh manual scheduling request.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Safe refresh depends on keeping affected participants, delegates, and owners aligned as schedule state and required acknowledgements change.
+  - capability:
+      id: planning
+      label: Planning
+      source_vocabulary: capabilities
+    necessity: Even bounded refresh requires reasoning about current timing windows, dependency readiness, and whether the existing coordination package can remain viable.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: The workflow must distinguish refreshes allowed within delegated guardrails from changes that require human adoption or exception handling.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Trigger authority, attendee roles, dependency readiness, and schedule-state freshness must be checked before reissuing coordination artifacts.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Durable state is needed for prior-versus-current schedule comparison, duplicate-trigger suppression, participant response carry-forward, and lineage reconstruction.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow must read calendars, role systems, change trackers, and review workspaces while publishing refreshed coordination packets and notices.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Safe coordination refresh requires routing policy conflicts, missing acknowledgements, or infeasible refreshes instead of masking them as settled schedule state.
+execution_architecture:
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: Authoritative milestone, attendee, and policy-calendar updates naturally trigger coordination refresh so current schedule state can be reissued without waiting for manual polling or ad hoc rescheduling emails.
+autonomy_profile:
+  level:
+    id: exception-gated-autonomy
+    label: Exception-gated autonomy
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Define the authoritative triggers, refreshable fields, protected time windows, and required-attendee substitution rules before automatic coordination refresh is enabled.
+    - Adopt any materially changed meeting time, required participant substitution, or policy-sensitive dependency shift before the refreshed coordination state becomes authoritative.
+    - Review repeated exceptions, churn-heavy refresh loops, and new classes of trigger source before expanding automatic reissue scope.
+  reversibility: Refreshed coordination artifacts and notices can usually be corrected and reissued, but a weak refresh can still create missed attendance, deadline confusion, or governance breaches before the mistake is noticed.
+  escalation: Escalate whenever the trigger is not authoritative, the refreshed package would cross a protected timing or authority boundary, no in-policy refreshed schedule state exists, or participant alignment remains unresolved after allowed automated steps.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Incorrect coordination refresh can cause mandatory reviews to occur without the right people, miss regulator-visible or release-critical checkpoints, or propagate stale schedule state that downstream teams trust during sensitive windows.
+  approval_requirements:
+    - Case-by-case approval is not required to generate in-policy refreshed coordination drafts and targeted notices when triggers, recipients, and timing changes remain within approved guardrails.
+    - A human coordination owner must adopt any materially changed schedule state, required-attendee substitution, or timing shift that affects sensitive review authority, protected windows, or committed milestones before the refresh becomes authoritative.
+    - Governance owners must approve new trigger sources, expanded auto-notification scopes, or policy changes that allow automatic refresh across previously escalated timing or authority changes.
+  auditability: Preserve trigger ids, prior and current schedule versions, role and delegate state, notification recipients, acknowledgement status, human adoption actions, rejected refresh attempts, and unresolved exceptions so every coordination refresh can be reconstructed.
+  privacy:
+    - Limit refreshed notices to role-relevant timing, attendee, and dependency data rather than copying broad operational, finance, or remediation context into every message.
+    - Avoid exposing private calendar details or sensitive case commentary when a narrower delta notice is sufficient for participant alignment.
+  security:
+    - Use least-privilege access for event sources, calendars, role directories, and coordination workspaces involved in refresh.
+    - Log recipient targeting, delegate substitutions, and human adoption actions so unauthorized schedule changes or silent participant swaps are detectable.
+  notes: High-risk governance fits because the workflow can reshape coordination state around release, close, or remediation checkpoints that carry material operational or regulatory consequences even though it stops before executing the underlying work.
+why_agentic:
+  - Useful refresh requires reasoning over trigger authority, participant roles, dependency timing, and pending responses together rather than replaying one static reschedule template.
+  - The workflow must preserve continuity with the existing coordination package so affected participants can see what changed without reconstructing the full history manually.
+  - Safe performance depends on recognizing when an update is routine enough to refresh automatically and when it should remain a visible adoption or exception checkpoint for humans.
+failure_modes:
+  - mode: A draft or non-authoritative change signal triggers coordination refresh
+    impact: Participants receive a revised schedule state that conflicts with the real governing milestone or attendee plan, creating confusion and possible missed reviews.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Revalidate trigger provenance and source-of-truth version before reissuing the coordination package.
+      - Suppress refresh when the event conflicts with current authoritative schedule or role state.
+  - mode: Required-attendee or delegate changes are refreshed without the intended human adoption checkpoint
+    impact: A sensitive review may proceed with the wrong authority mix or without awareness that sign-off responsibility changed.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Encode protected role substitutions separately from routine attendee updates and block them from automatic adoption.
+      - Record acknowledgement and adoption status explicitly before publishing the refresh as authoritative.
+  - mode: Rapid successive trigger events create notification churn and inconsistent schedule state
+    impact: Participants cannot tell which coordination packet is current and may ignore or miss an important change.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Use idempotent refresh keys tied to authoritative schedule versions and batch low-impact updates when policy allows.
+      - Preserve append-only lineage so recipients and auditors can identify the latest valid refresh.
+  - mode: The workflow drifts into broader replanning or downstream completion
+    impact: Family boundaries blur and the coordination refresh loop starts making decisions about plan redesign, approval outcomes, or execution that belong elsewhere.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Keep outputs limited to refreshed coordination packages, delta notices, checkpoint queues, and lineage logs.
+      - Hand off broad feasibility redesign, adjudication, or operational completion to adjacent patterns instead of extending this workflow.
+evaluation:
+  success_metrics:
+    - Percentage of authoritative schedule-affecting changes that result in one current coordination package with complete lineage and clear adoption status.
+    - Time from trigger arrival to refreshed participant notice for in-policy updates that do not require deeper replanning.
+    - Rate of policy-sensitive timing or attendee changes correctly routed to human adoption or exception review before they become authoritative.
+  quality_criteria:
+    - Refreshed coordination artifacts make prior versus current schedule state, affected participants, and required acknowledgements easy to inspect.
+    - Participants receive targeted, comprehensible delta notices instead of noisy full-history resends or silent state changes.
+    - The workflow remains bounded to coordination refresh and does not morph into broad plan redesign, approval adjudication, or execution.
+  robustness_checks:
+    - Test out-of-order milestone changes, delegate updates, and blackout-calendar revisions to verify refresh remains current and lineage-complete.
+    - Test repeated small updates to ensure batching and deduplication prevent participant alert fatigue while still surfacing meaningful changes promptly.
+    - Test no-feasible-refresh cases and confirm the workflow emits a clear adoption or exception checkpoint instead of publishing misleading schedule state.
+  benchmark_notes: Evaluate freshness, participant trust, and checkpoint discipline together; a faster refresh loop is not successful if recipients cannot tell what changed or whether the new coordination state is truly authoritative.
+implementation_notes:
+  orchestration_notes:
+    - Keep trigger intake, state refresh, coordination comparison, targeted notification generation, and exception publication as explicit stages over shared durable state.
+    - Preserve append-only schedule and notification lineage so later refreshes can reference prior adoption actions and unresolved objections cleanly.
+  integration_notes:
+    - Common implementations combine event feeds, review trackers, calendar systems, role directories, and messaging or coordination workspaces.
+    - Keep the pattern neutral about any specific calendar vendor, queue, ticketing platform, or workflow suite.
+  deployment_notes:
+    - Start with one sensitive coordination loop whose schedule state already has clear trigger sources and human owners, then expand once notification churn and exception rates are understood.
+    - Monitor duplicate-trigger suppression, unacknowledged refreshes, and policy-boundary exceptions before broadening automatic refresh scope.
+  references:
+    - docs/patterns/plan-coordinate-schedule.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: calendar-conflict-coordination
+    relationship: can-follow
+    notes: Calendar conflict coordination builds the initial meeting slot, while this pattern refreshes an already-issued coordination package after authoritative schedule conditions change.
+  - id: schedule-adjustment-and-replanning
+    relationship: narrower-than
+    notes: This pattern updates bounded coordination state around an existing checkpoint, whereas schedule adjustment and replanning recomputes a broader feasible plan after material change.
+  - id: change-triggered-representation-refresh
+    relationship: contrasts-with
+    notes: Both respond to authoritative change events, but this pattern reissues coordination state and participant alignment artifacts rather than rematerializing structured representations.
+  - id: workflow-hand-off-and-completion
+    relationship: contrasts-with
+    notes: This pattern stops at refreshed schedule state and adoption routing, whereas workflow hand-off and completion applies a settled event to downstream closure and operational propagation.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Refresh a release-readiness review packet when a required approver's availability or evidence-ready checkpoint changes so the right attendees receive the updated review state and adoption requests.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Reissue a quarter-close control review packet after consolidation timing or delegate authority changes so finance owners see the current review window and required confirmations.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Refresh a remediation sign-off review package when validation completion or regulator-facing milestone timing moves, preserving lineage and explicit exception checkpoints.
+maturity: draft
+tags:
+  - plan-coordinate-schedule
+  - multi-party-coordination
+  - authoritative-change-coordination-refresh
+  - event-driven-monitoring
+  - exception-gated-autonomy
+  - high-risk
+  - coordination-lineage

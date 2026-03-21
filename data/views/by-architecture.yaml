@@ -77,7 +77,7 @@ architectures:
     transform-process: [change-triggered-representation-refresh]
     investigate-reconcile-verify: [claimed-state-verification]
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
-    plan-coordinate-schedule: []
+    plan-coordinate-schedule: [authoritative-change-coordination-refresh]
     recommend-decide-escalate: [readiness-gate-disposition-recommendation]
     execute-automate: [workflow-hand-off-and-completion]
     optimize-adapt: [queue-prioritization-optimization]

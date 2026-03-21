@@ -90,7 +90,7 @@ autonomy_levels:
     transform-process: [change-triggered-representation-refresh]
     investigate-reconcile-verify: []
     monitor-detect-triage: []
-    plan-coordinate-schedule: []
+    plan-coordinate-schedule: [authoritative-change-coordination-refresh]
     recommend-decide-escalate: []
     execute-automate: []
     optimize-adapt: [queue-prioritization-optimization]
