@@ -12,6 +12,20 @@ Finance.
 
 Treasury controllers prepare a morning liquidity publication that depends on cash balances, settlement obligations, central-bank facility usage, and a small set of controller-approved manual adjustments spread across multiple authoritative systems. The downstream posting workflow expects a structured posting bundle with entity coverage, currency breakdowns, approved adjustments, hold-state markers, and a manifest authorizing handoff into the controlled ledger publication channel. The transformation workflow must reshape that bounded source state into the posting-ready package, preserve lineage for every consequential field, and stop after the manifest is approved for downstream handoff rather than posting the balances or declaring the package evidentially sufficient for publication.
 
+```mermaid
+flowchart TD
+    start["Collect bounded morning liquidity inputs<br>from cash, settlement, facility, and approved adjustment sources"] --> assemble["Assemble posting-ready bundle with<br>entity coverage, currency breakdowns,<br>lineage, hold markers, and draft manifest"]
+    assemble --> verify{"Do balance, adjustment lineage,<br>entity coverage, and cutoff checks pass?"}
+    verify -- "No" --> hold["Place package in hold state for<br>conflicting balances, missing approval lineage,<br>or stale entity coverage"]
+    hold --> refresh["Clear held items, refresh authoritative inputs,<br>and rebuild the exact package revision"]
+    refresh --> assemble
+    verify -- "Yes" --> review["Controllers review the exact bundle revision,<br>held items, and downstream-use boundary"]
+    review --> approve{"Approve manifest for the controlled<br>ledger handoff channel?"}
+    approve -- "No" --> hold
+    approve -- "Yes" --> handoff["Release approved bundle and manifest<br>to the governed ledger handoff channel only"]
+    handoff --> stop["Stop before posting balances<br>or asserting publication sufficiency"]
+```
+
 ## Target systems / source systems
 
 - Treasury cash-position, settlement, collateral, and facility systems holding the authoritative morning state
