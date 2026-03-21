@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-123736` is now in progress: the next bounded refinement target is `approval-gated-briefing-release` in `hr`, where the slice remains family-safe only if approval governs one exact synthesized briefing revision, one explicit hold-and-release state, and one bounded HR visibility lane without drifting into recommendation, case adjudication, communication rollout, or downstream action.
+Iteration `20260321-123736` is now complete: `approval-gated-briefing-release` gained new `hr` grounding, and the canonical pattern metadata plus derived domain view now expose that gather-family approval-bound slice across four modeled domains without drifting past one exact synthesized briefing revision, one explicit hold-and-release state, or one bounded HR visibility lane.
 
 Iteration `20260321-123202` is now complete: `approval-gated-transformation-release` gained new `hr` grounding, and the canonical pattern metadata plus derived domain view now expose that transform-family approval-bound slice across four modeled domains without drifting past one exact transformed downstream-ready package revision, one explicit hold-and-manifest boundary, or one bounded HR intake lane.
 
@@ -24,15 +24,15 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
 - Phase 5: canonical coverage now spans forty-nine patterns across all nine top-level pattern families. `recommend-decide-escalate` now sits at seven canonical patterns; `transform-process` and `optimize-adapt` each sit at six; `gather-retrieve-synthesize` now sits at five; and `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` each remain at five. Future additions should remain narrow and land only where a genuinely reusable workflow shape deepens uneven grounded coverage rather than duplicating already-covered matrix cells.
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred seventy-three instance files now committed.
+- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred seventy-four instance files now committed.
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and governance-heavy approval-bound slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: rebalance the still-thinnest `hr` domain with one governance-heavy approval-bound gather slice in `approval-gated-briefing-release`, keeping the primary output as one exact synthesized briefing revision plus release state for one bounded HR visibility lane.
+- Current refinement target: continue rebalancing the still-thinnest `hr` domain with one governance-heavy approval-bound monitor slice, likely in `approval-gated-triage-dispatch`, if the workflow can stay centered on release of one exact already-triaged packet revision into one bounded HR dispatch lane.
 
 ## Ordered tasks
 
-1. Confirm the cleanest HR-heavy approval-bound gather slice for `approval-gated-briefing-release`, keeping the primary output as one exact synthesized briefing revision plus release state rather than a recommendation packet, transformed intake package, review verdict, or live HR action.
+1. Confirm the cleanest HR-heavy approval-bound monitor slice for `approval-gated-triage-dispatch`, keeping the primary output as one exact already-triaged packet revision plus dispatch release state rather than a recommendation packet, verification verdict, schedule, or live HR action.
 2. Add only one modest HR-grounded example plus the directly dependent canonical metadata and derived browse-view updates needed by that slice.
 3. Keep the next batch modest: one grounded example plus tightly scoped pattern/view updates.
 4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each bounded batch.
@@ -40,11 +40,11 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 ## Iteration checkpoint
 
 - Timestamp: `20260321-123736`
-- Previous completed scope: added the remaining support-grounded optimize-family approval-bound release instance for `approval-gated-optimization-state-release`, expanded the canonical pattern's domain and example metadata to include `support`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Completed scope: added one HR-grounded `approval-gated-transformation-release` example, expanded the canonical pattern's domain and example metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Current working hypothesis: approval-gated gather refinement remains family-safe only when the governed object is one exact synthesized briefing revision with explicit provenance, hold state, freshness boundary, and release manifest, while recommendation, case adjudication, employee communications, and downstream execution stay explicitly outside the workflow.
-- Current scoped follow-on: add one HR-heavy approval-bound `approval-gated-briefing-release` example plus the dependent canonical metadata and derived browse-view updates needed to expose that slice cleanly.
-- Boundary reminder: future transform-family approval-gated work should remain tied to one exact transformed package revision, one bounded downstream-use lane, and one explicit hold-and-manifest boundary rather than vague permission to decide, communicate, or act on the downstream case.
+- Previous completed scope: added one HR-grounded `approval-gated-transformation-release` example, expanded the canonical pattern's domain and example metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Completed scope: added one HR-grounded `approval-gated-briefing-release` example, expanded the canonical pattern's domain and example metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Current working hypothesis: approval-gated monitor refinement remains family-safe only when the governed object is one exact already-triaged packet revision with explicit dispatch hold state, audience or assignee lane, and release manifest, while recommendation, case adjudication, investigation, and downstream execution stay explicitly outside the workflow.
+- Current scoped follow-on: identify the next cleanest HR-heavy approval-bound monitor slice, likely `approval-gated-triage-dispatch`, so the next batch improves domain balance without reopening broad structural expansion.
+- Boundary reminder: future monitor-family approval-gated work should remain tied to one exact already-triaged packet revision, one bounded dispatch lane, and one explicit hold-and-release boundary rather than vague permission to investigate, decide, or act on the downstream case.
 
 ## Constraints
 
@@ -64,4 +64,4 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Expected outcome
 
-The next iteration should stay in depth-balancing mode: add one HR-grounded governance-heavy approval-bound example plus directly dependent metadata/view updates, likely in `approval-gated-briefing-release`, and keep the work bounded to one family-safe slice rather than opening a broader structural batch.
+The next iteration should stay in depth-balancing mode: add one HR-grounded governance-heavy approval-bound example plus directly dependent metadata/view updates, likely in `approval-gated-triage-dispatch`, and keep the work bounded to one family-safe slice rather than opening a broader structural batch.
