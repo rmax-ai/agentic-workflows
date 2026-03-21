@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 172
+  instance_files: 173
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ instance_counts_by_domain:
   operations: 29
   research: 21
   support: 23
-  hr: 17
+  hr: 18
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -284,6 +284,7 @@ repo_reality:
     - instances/hr/workplace-accommodation-exception-memo-copilot-loop.md
     - instances/hr/protected-leave-return-to-work-exception-packet-approved-for-occupational-health-review-intake.md
     - instances/hr/medical-leave-certification-packet-to-leave-case-record-handoff.md
+    - instances/hr/protected-leave-recertification-packet-approved-for-restricted-leave-review-intake.md
     - instances/hr/protected-leave-case-review-queue-reprioritization.md
     - instances/hr/protected-leave-return-to-work-status-drift-root-cause-investigation.md
     - instances/hr/work-authorization-expiry-risk-alert-triage.md
@@ -308,11 +309,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred seventy-two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred seventy-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "`approval-gated-optimization-state-release` now spans engineering, finance, compliance, operations, research, support, and HR through explicit grounded examples, so that approval-bound optimize slice no longer has an obvious remaining domain hole."
     - "The optimize-family by-domain browse view is back in sync with canonical pattern truth after extending `approval-gated-optimization-state-release` into support."
-    - "The next refinement step should likely rebalance the still-thinnest HR domain with one governance-heavy approval-bound example, ideally in `approval-gated-transformation-release` if the family boundary holds, rather than open a broader structural batch."
+    - "`approval-gated-transformation-release` now spans engineering, finance, operations, and HR through explicit grounded examples, so that transform-family approval-bound slice no longer has an HR domain hole."
+    - "The next refinement step should likely keep rebalancing the still-thinnest HR domain with one governance-heavy approval-bound example, likely in `approval-gated-briefing-release` if the family boundary holds, rather than open a broader structural batch."
   next_action:
-    id: phase-7-next-hr-approval-bound-depth
-    summary: "Use the next iteration to rebalance the thin HR domain with one governance-heavy approval-bound example plus the directly dependent canonical and browse-view updates needed by that slice, with `approval-gated-transformation-release` as the leading candidate if fit holds."
+    id: phase-7-next-hr-approval-bound-briefing-depth
+    summary: "Use the next iteration to rebalance the thin HR domain with one governance-heavy approval-bound example plus the directly dependent canonical and browse-view updates needed by that slice, with `approval-gated-briefing-release` as the leading candidate if fit holds."
