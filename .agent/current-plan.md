@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-The last iteration filled the empty support cell for `gather-retrieve-synthesize` with an enterprise-support obligations synthesis example. The next modest batch should continue broadening that family in compliance, where the cell is still only partial and can still benefit from a materially different evidence-synthesis scenario.
+This iteration will continue broadening `gather-retrieve-synthesize` in compliance with one evidence-first scenario that stays upstream of recommendation, investigation, and execution. The target shape is a governed compliance obligations synthesis brief that adds materially different source types and review concerns than the current research, finance, operations, and support examples.
 
 ## Current phase
 
@@ -16,9 +16,9 @@ The last iteration filled the empty support cell for `gather-retrieve-synthesize
 ## Ordered tasks
 
 1. Re-read `research-synthesis-with-citation-verification` plus the current research, finance, operations, and support gather/synthesis instances so the next example stays inside evidence retrieval and synthesis boundaries rather than drifting into recommendation, investigation, or collaboration.
-2. Author exactly one compliance-domain instance linked to `research-synthesis-with-citation-verification`, preferably around a governed obligation, evidence, or policy synthesis scenario that differs from the current support entitlement and finance covenant examples.
-3. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the required iteration log after the grounding batch so repository memory reflects broader gather/synthesis coverage.
-4. Continue validating repository YAML with the existing uv-managed helper before closing each iteration.
+2. Author exactly one compliance-domain instance linked to `research-synthesis-with-citation-verification`, centered on a current-state obligations synthesis artifact such as policy, control, or regulatory-response evidence assembly.
+3. Review the new instance for family-boundary discipline, then update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the required iteration log so repository memory reflects the new compliance grounding.
+4. Validate repository YAML with the existing uv-managed helper before closing the iteration.
 
 ## Constraints
 
@@ -26,9 +26,9 @@ The last iteration filled the empty support cell for `gather-retrieve-synthesize
 - Treat `data/views/` as derived browse artifacts and keep any future updates aligned with stable vocabulary and pattern ids.
 - Ensure every subagent task ends with exactly one git commit.
 - Prefer modest grounding batches that improve coverage balance inside one thin family/domain slice rather than forcing a broad cross-family sweep.
-- Keep the next iteration scoped to one compliance-centered gather/synthesis grounding batch plus required `.agent/` memory updates; do not expand the canonical pattern set unless dependency order changes.
+- Keep the iteration scoped to one compliance-centered gather/synthesis grounding batch plus required `.agent/` memory updates; do not expand the canonical pattern set unless dependency order changes.
 - Keep governance, reversibility, privacy, and auditability explicit in grounded examples.
 
 ## Expected outcome
 
-The next iteration should leave `gather-retrieve-synthesize` with a stronger compliance grounding example while preserving the repository's pattern-first structure and modest-batch discipline.
+The iteration should leave `gather-retrieve-synthesize` with a stronger compliance grounding example while preserving the repository's pattern-first structure and modest-batch discipline.
