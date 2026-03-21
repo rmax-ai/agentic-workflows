@@ -19,6 +19,9 @@ domain:
   - id: compliance
     label: Compliance
     source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
 workflow_goal: Determine whether a bounded attestation packet sufficiently satisfies a known control or requirement set for human approval, whether targeted remediation is needed, or whether the case should escalate because gaps or ambiguity exceed delegated review bounds, while staying bounded at recommendation and evidence-gap visibility.
 inputs:
   - name: Attestation scope and requirement set
@@ -264,6 +267,11 @@ example_domains:
       label: Compliance
       source_vocabulary: domains
     example: Recommend whether a vendor telemetry safeguard packet satisfies internal privacy requirements before the annual review is signed or escalated.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Recommend whether a refrigerated distribution hub cold-chain safeguard packet is complete enough for quarterly quality attestation or requires targeted remediation or escalation.
 maturity: draft
 tags:
   - recommend-decide-escalate
