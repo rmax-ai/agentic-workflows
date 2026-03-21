@@ -12,6 +12,21 @@ Engineering.
 
 A payments-platform release has already entered a declared overnight cutover command window with an approved checkpoint sequence for rollback validation, database replication confirmation, security approval, traffic-shift readiness, and executive release communication. Mid-window, authoritative conditions change: rollback validation finishes later than expected, the security approver's delegate mapping changes because of a concurrent incident bridge, and the final replication confirmation can only occur inside a narrower maintenance boundary. The workflow must rebuild one authoritative checkpoint timeline, preserve explicit holds where protected checkpoints cannot yet move safely, and hand release leadership one current command packet rather than letting separate teams coordinate from stale war-room notes.
 
+```mermaid
+flowchart TD
+    A["Declared cutover command window<br>and active checkpoint sequence"] --> B["Verify authoritative updates for<br>rollback completion, replication timing,<br>and approved security delegate changes"]
+    B --> C{"Protected checkpoints can be<br>re-sequenced inside the narrower<br>maintenance boundary?"}
+    C -->|"No"| D["Place affected checkpoints on hold<br>and record protected-window conflicts<br>in the command ledger"]
+    D --> E["Bounded escalation to release leadership<br>for timing or authority resolution"]
+    E --> F{"Release leadership approves<br>an exception or revised handling?"}
+    F -->|"No"| G["Keep the hold state active<br>and wait for new authoritative input"]
+    F -->|"Yes"| H["Assemble one updated command packet<br>covering rollback, security approval,<br>replication, traffic shift, and executive notice"]
+    C -->|"Yes"| H
+    H --> I{"Release leadership approves<br>the resequenced packet?"}
+    I -->|"No"| G
+    I -->|"Yes"| J["Publish the authoritative checkpoint ledger<br>and send targeted timeline delta notices"]
+```
+
 ## Target systems / source systems
 
 - Change-management record holding the declared cutover scope, protected milestones, and rollback guardrails
