@@ -32,7 +32,7 @@ domains:
   pattern_families:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation, crisis-briefing-evidence-synthesis]
     transform-process: [normalization-and-enrichment, change-triggered-representation-refresh]
-    investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification]
+    investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification, evidence-gated-verification-for-release]
     monitor-detect-triage: [explainable-watchlist-maintenance, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning, authoritative-change-coordination-refresh]
     recommend-decide-escalate: [readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation, critical-escalation-authority-recommendation]
@@ -46,7 +46,7 @@ domains:
   pattern_families:
     gather-retrieve-synthesize: [approval-packet-generation]
     transform-process: [document-to-structured-data-handoff, change-triggered-representation-refresh, critical-channel-safe-state-packaging]
-    investigate-reconcile-verify: [authoritative-record-reconciliation, critical-authoritative-state-restoration]
+    investigate-reconcile-verify: [authoritative-record-reconciliation, evidence-gated-verification-for-release, critical-authoritative-state-restoration]
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [authoritative-change-coordination-refresh]
     recommend-decide-escalate: [deal-desk-recommendation-support, readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation, critical-escalation-authority-recommendation]
@@ -74,7 +74,7 @@ domains:
   pattern_families:
     gather-retrieve-synthesize: [change-triggered-context-briefing, crisis-briefing-evidence-synthesis]
     transform-process: [document-to-structured-data-handoff, normalization-and-enrichment, critical-channel-safe-state-packaging]
-    investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification, critical-authoritative-state-restoration]
+    investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification, evidence-gated-verification-for-release, critical-authoritative-state-restoration]
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]

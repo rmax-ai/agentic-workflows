@@ -61,7 +61,7 @@ architectures:
   pattern_families:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation, crisis-briefing-evidence-synthesis]
     transform-process: [batch-content-transformation, critical-channel-safe-state-packaging]
-    investigate-reconcile-verify: [incident-root-cause-analysis, authoritative-record-reconciliation, critical-authoritative-state-restoration]
+    investigate-reconcile-verify: [incident-root-cause-analysis, authoritative-record-reconciliation, evidence-gated-verification-for-release, critical-authoritative-state-restoration]
     monitor-detect-triage: [risk-alert-triage, anomaly-detection-review, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning, critical-command-window-resequencing]
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing, readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation, critical-escalation-authority-recommendation]
@@ -89,7 +89,7 @@ architectures:
   pattern_families:
     gather-retrieve-synthesize: []
     transform-process: []
-    investigate-reconcile-verify: []
+    investigate-reconcile-verify: [evidence-gated-verification-for-release]
     monitor-detect-triage: []
     plan-coordinate-schedule: []
     recommend-decide-escalate: []

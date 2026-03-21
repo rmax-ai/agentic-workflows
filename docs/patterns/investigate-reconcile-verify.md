@@ -30,6 +30,8 @@ This family maps directly to three existing `problem_structure` terms:
 
 Future canonical patterns in this family should choose the single primary term that best reflects whether the workflow is centered on explanation, alignment, or proof.
 
+`evidence-gated-verification-for-release` adds a higher-risk approval-gated verification variant for cases where a release, posting, or controlled-use package must be proven evidence-sufficient before humans allow downstream reliance or controlled publication. It stays in-family only when the workflow ends at an inspectable verdict, held-state register, and approval-ready handoff packet rather than deciding a release strategy, repairing records, or carrying out the downstream step.
+
 `critical-authoritative-state-restoration` now gives this family a critical-risk anchor for time-sensitive workflows where the hard problem is determining trusted current state under severe consequences. It stays in-family only when the system is reconciling authoritative discrepancy, surfacing unresolved truth gaps, and handing off a bounded trusted-state package rather than triaging incoming signals, explaining why the discrepancy arose, recommending a response, or executing downstream changes.
 
 ## Family boundary
@@ -41,6 +43,8 @@ This family starts once the workflow's hard part becomes trust restoration or co
 - If the workflow mainly **proposes a next-best action after verification**, see [recommend-decide-escalate](./recommend-decide-escalate.md).
 
 Critical variants still belong here only when the core deliverable is an authoritative current-state determination with explicit holds and evidence lineage. If the main value is severe-signal routing, crisis briefing, response recommendation, or operational action, the workflow belongs in an adjacent family even if some reconciliation occurs on the way.
+
+Approval-gated variants still belong here only when the workflow verifies evidence sufficiency and produces a trust gate for downstream reliance, publication, or execution handoff. If the workflow chooses rollout scope, approves a disposition, repairs the underlying state, or performs the release itself, it has crossed into recommendation, reconciliation, or execution territory instead.
 
 ## Why this family is meaningfully agentic
 
