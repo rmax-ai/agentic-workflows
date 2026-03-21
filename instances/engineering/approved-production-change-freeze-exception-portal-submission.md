@@ -12,6 +12,21 @@ Engineering.
 
 A release engineering operator needs to submit an already approved production change-freeze exception for an urgent database-connection pool fix on a customer-facing checkout service during a year-end commerce blackout. The target change-governance portal is browser-only, spreads the exception across service identity, customer-impact justification, rollback readiness, deployment window, approver attestations, and evidence-attachment tabs, and final submission may proceed only after the service owner, incident commander, and production change authority have all signed off in the engineering change record. Because the portal action can authorize production work during a freeze period and may trigger downstream paging, compliance logging, and deployment-window reservations, the workflow must recheck approvals, confirm the exception packet still matches the approved remediation scope, and halt safely if the live portal, freeze calendar state, or confirmation path becomes ambiguous.
 
+```mermaid
+flowchart TD
+    start["Approved freeze-exception packet<br>ready for portal submission"] -->|"recheck"| gate1{"Service owner, incident commander,<br>and change authority approvals<br>still current in the change record?"}
+    gate1 -->|"No"| hold["Save draft or abandon session,<br>preserve evidence and page state,<br>and hand off to release leadership"]
+    gate1 -->|"Yes"| portal["Open the browser-only portal and populate<br>service identity, justification, rollback,<br>window, attestations, and attachments"]
+    portal -->|"verify"| reconcile{"Live freeze window, existing exception state,<br>and entered packet still match<br>the approved remediation scope?"}
+    reconcile -->|"No"| hold
+    reconcile -->|"Yes"| finalgate{"Approvals and deployment window<br>still valid immediately before submit?"}
+    finalgate -->|"No"| hold
+    finalgate -->|"Yes"| submit["Submit the freeze exception and capture<br>masked screenshots and portal artifacts"]
+    submit -->|"confirm"| confirm{"Clear confirmation number and<br>reservation outcome received<br>without ambiguity?"}
+    confirm -->|"No"| hold
+    confirm -->|"Yes"| done["Store the evidence bundle and record<br>the submitted freeze exception"]
+```
+
 ## Target systems / source systems
 
 - Engineering change-management system holding the freeze-exception request, required approvals, and segregation-of-duties record
