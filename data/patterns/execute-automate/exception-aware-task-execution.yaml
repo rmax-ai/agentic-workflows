@@ -1,0 +1,254 @@
+id: exception-aware-task-execution
+slug: exception-aware-task-execution
+name: Exception-aware task execution
+summary: Carry routine operational tasks through completion under bounded delegation by tracking checkpoints, retrying recoverable failures, and escalating only true exceptions or out-of-policy conditions.
+pattern_family:
+  id: execute-automate
+  label: Execute / Automate
+problem_structure:
+  id: exception-aware-orchestration
+  label: Exception-aware orchestration
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+workflow_goal: Complete preapproved routine tasks across operational systems while preserving durable execution state, applying bounded retries, confirming end-state correctness, and escalating non-routine exceptions with actionable context.
+inputs:
+  - name: Delegated task request
+    description: A queued task, ticket, or work order that identifies the routine action to perform, its scope, target systems, and expected completion criteria.
+    kind: task-request
+    required: true
+    examples:
+      - Restart a degraded service component and verify healthy status in the owning environment
+      - Execute a standard customer-support entitlement fix from an approved runbook
+  - name: Execution policy and runbook
+    description: The preapproved procedure, retry bounds, escalation thresholds, idempotency rules, and disallowed branches that define what the delegated workflow may do.
+    kind: policy
+    required: true
+    examples:
+      - Service-recovery runbook with two bounded retries before on-call escalation
+      - Support operations playbook that permits routine account remediations but blocks pricing or contract changes
+  - name: Live system and task state
+    description: Current system observations, ticket metadata, prior checkpoints, and partial completion state needed to decide the next safe action.
+    kind: execution-state
+    required: true
+    examples:
+      - Current health checks, deployment status, and recent command results for an affected service
+      - Ticket status, recent customer-facing actions, and linked workflow checkpoints for an entitlement fix
+  - name: Exception history and prior attempts
+    description: Retry counts, previous failures, transient error details, and earlier escalation notes that inform whether continued execution remains in bounds.
+    kind: attempt-history
+    required: false
+    examples:
+      - Prior API timeout records showing one retry already consumed
+      - Earlier remediation attempt that stopped after a dependency health check failed
+outputs:
+  - name: Completion state record
+    description: Durable record of whether the task completed, partially completed, rolled back, or stopped pending escalation, including the final observed state.
+    kind: execution-result
+    required: true
+    examples:
+      - Work order marked complete with confirmation that the restarted service returned to healthy status
+      - Support task marked partially complete with the safe subset finished and the remaining step escalated
+  - name: Execution trace and retry ledger
+    description: Ordered log of checkpoints reached, actions attempted, retries consumed, verification steps performed, and state transitions observed during the run.
+    kind: audit-log
+    required: true
+    examples:
+      - Timeline of health checks, restart attempts, and post-action validation results
+      - Ledger showing which entitlement update call succeeded after one transient retry
+  - name: Exception escalation packet
+    description: Structured handoff bundle for humans or downstream routing workflows when the task leaves delegated scope or cannot be completed safely.
+    kind: escalation-packet
+    required: true
+    examples:
+      - Escalation summary attaching failed dependency checks, retry history, and the next recommended human action
+      - Packet describing why a support fix halted after encountering an account state mismatch outside the runbook
+environment:
+  summary: Operates in recurring operational workflows where routine task classes can be delegated safely, but reliable completion depends on stateful execution, bounded retries, and timely escalation when the workflow hits unexpected conditions.
+  systems:
+    - Ticketing or work-order systems
+    - Orchestration and job execution platforms
+    - Service, account, or operational APIs
+    - Logging, monitoring, and audit stores
+  actors:
+    - Workflow owner
+    - Operations, engineering, or support operator
+    - On-call or escalation responder
+    - System or service owner
+  constraints:
+    - Act only within preapproved task classes, step boundaries, and retry budgets.
+    - Persist checkpoint state before and after consequential actions so interrupted work can resume or be reviewed safely.
+    - Treat unclear system state, conflicting observations, or out-of-policy branches as escalation triggers rather than opportunities for improvisation.
+    - Confirm end-state conditions explicitly before marking a task complete.
+  assumptions:
+    - Routine tasks have runbooks or operating policies detailed enough to support delegated execution.
+    - Target systems expose confirmation signals that can distinguish success, partial completion, and ambiguous outcomes.
+    - Human responders are available when the workflow exhausts retries, encounters policy boundaries, or needs off-runbook judgment.
+capability_requirements:
+  - capability:
+      id: action-execution
+      label: Action execution
+      source_vocabulary: capabilities
+    necessity: The workflow must perform real operational steps that change system or task state, not just recommend them.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: Completing routine tasks requires interacting with orchestration systems, APIs, tickets, and verification tools.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Durable checkpoints, retry counts, partial completion markers, and handoff context must persist across a multi-step run.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The pattern is defined by deciding when to retry, when to stop, and how to package off-nominal cases for escalation.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: The workflow must confirm the post-action state rather than inferring completion from an attempted command or API call alone.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Delegated execution remains safe only when the workflow enforces in-scope task classes, retry budgets, and escalation thresholds.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Specialized roles often need to share execution state so verification, retries, and escalation packaging stay aligned during a run.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: An orchestrator can route routine steps among specialized execution, verification, and escalation roles while maintaining one durable task state and one authoritative retry policy.
+autonomy_profile:
+  level:
+    id: bounded-delegation
+    label: Bounded delegation
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Define the delegated task classes, retry limits, rollback expectations, and escalation thresholds before routine execution is handed off.
+    - Review escalated tasks that exceed retry budgets, enter ambiguous state, or would require an off-runbook action to finish.
+    - Audit sampled completion records and exception packets to confirm delegated execution remains inside scope and produces useful handoff context.
+  reversibility: Many routine actions can be retried, rolled back, or corrected quickly, but duplicate execution, partial state changes, or delayed recovery can still create material operational rework.
+  escalation: Escalate when confirmation signals conflict, retries are exhausted, a required prerequisite fails repeatedly, or the next step would cross a policy, system, or impact boundary outside delegated scope.
+risk_governance:
+  level:
+    id: moderate
+    label: Moderate
+    source_vocabulary: risk-levels
+  failure_impact: Failures can create service disruption, customer-impacting delay, duplicate work, or localized control issues, but harm is usually containable when the workflow preserves state and escalates exceptions promptly.
+  approval_requirements:
+    - Case-by-case approval is not required for routine in-policy tasks that remain within the delegated runbook and retry bounds.
+    - Workflow owners should approve changes to delegated task classes, retry budgets, rollback rules, or escalation thresholds that materially expand execution authority.
+  auditability: Preserve task identity, input state, checkpoint transitions, actions attempted, retries consumed, verification evidence, and escalation outcomes so each delegated run can be reconstructed and reviewed.
+  privacy:
+    - Limit copied ticket, account, or system detail to the fields needed for execution, verification, and escalation context.
+    - Keep exception packets focused on operationally relevant evidence rather than broad replication of sensitive source data.
+  security:
+    - Use least-privilege credentials and scoped run permissions for every execution role in the workflow.
+    - Record which agent or role performed each operational action so unauthorized or duplicate changes are detectable.
+  notes: Moderate-risk governance fits because the workflow performs real operational actions, yet the delegated scope is intentionally bounded to routine, recoverable task classes with explicit escalation at the edges.
+why_agentic:
+  - The workflow must choose among continue, retry, verify, roll back, or escalate paths based on live state rather than blindly replaying a fixed script.
+  - Reliable completion depends on carrying forward durable task memory across retries, partial successes, and handoffs between execution and verification roles.
+  - Exception handling is central because the normal path is only valuable if the system can stop safely and package enough context when the environment diverges from the runbook.
+failure_modes:
+  - mode: A retry replays a non-idempotent action after partial success
+    impact: The workflow creates duplicate or conflicting state changes while appearing to recover from a transient failure.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Verify checkpoint state before each retry and require idempotency keys or equivalent guards for repeatable actions.
+      - Bound retries tightly and escalate when post-action confirmation is ambiguous.
+  - mode: Stale or incomplete task state leads the workflow to execute the wrong next step
+    impact: The task may skip a prerequisite, repeat a completed action, or mark the wrong system state as current.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Refresh critical state from authoritative systems before consequential transitions.
+      - Persist explicit preconditions and completed checkpoints so resumption logic is inspectable.
+  - mode: Exception signals are suppressed or classified as routine noise
+    impact: The workflow keeps operating past delegated limits and delays the human intervention needed to contain the issue.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Treat repeated failures, policy mismatches, and conflicting confirmations as hard escalation conditions.
+      - Monitor exception-rate drift and sample suppressed cases for missed boundary crossings.
+  - mode: The task is marked complete without sufficient end-state verification
+    impact: Downstream teams assume operational recovery or fulfillment occurred when the target system never reached the intended state.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Require explicit post-action verification before completion status changes.
+      - Route ambiguous completion states into exception escalation rather than auto-closing the task.
+evaluation:
+  success_metrics:
+    - Percentage of delegated routine tasks completed within policy without manual intervention beyond defined exception checkpoints.
+    - Percentage of exception cases escalated with enough context for a responder to continue without redoing discovery work.
+    - Rate of duplicate or partial actions avoided through checkpoint validation and bounded retry handling.
+  quality_criteria:
+    - Completion records distinguish clearly between successful completion, safe partial completion, rollback, and escalation states.
+    - The workflow retries only recoverable failures and stops promptly on ambiguous or out-of-scope conditions.
+    - Exception packets give responders the state, evidence, and prior attempts needed for efficient takeover.
+  robustness_checks:
+    - Test transient API or job failures to confirm retries stay bounded and do not replay already completed steps.
+    - Test stale checkpoint recovery and verify the workflow refreshes authoritative state before resuming.
+    - Test policy-boundary and low-confidence scenarios to ensure the task escalates rather than improvising a new execution path.
+  benchmark_notes: Evaluate resilient completion and safe exception containment together; fast task closure is not success if hidden duplicates, silent partial failures, or weak escalations increase downstream operational cost.
+implementation_notes:
+  orchestration_notes:
+    - Separate task intake, state hydration, execution, verification, and escalation packaging into explicit stages over shared durable task state.
+    - Make retry policy and checkpoint updates first-class workflow data so recovery behavior is inspectable instead of implicit in tool logs.
+  integration_notes:
+    - Common implementations integrate ticketing systems, orchestration engines, APIs, monitoring signals, and audit storage.
+    - Keep the pattern neutral about specific job runners, incident tools, or ITSM vendors.
+  deployment_notes:
+    - Start with repetitive, well-instrumented task classes that already have clear runbooks and objective completion signals.
+    - Review retry exhaustion patterns and exception packet quality early so bounded delegation stays trustworthy as volume grows.
+  references:
+    - docs/patterns/execute-automate.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: policy-constrained-escalation-routing
+    relationship: hands-off-to
+    notes: When delegated execution cannot continue safely, the resulting exception packet can feed governed routing and escalation selection.
+  - id: browser-based-form-completion-with-approval-gates
+    relationship: adjacent-to
+    notes: Both patterns execute work to completion, but this one is centered on bounded routine delegation and exception recovery rather than formal approval checkpoints before commit.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Execute a standard service-recovery runbook that restarts a component, verifies health, and escalates if dependency checks or bounded retries fail.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Complete a repetitive work-order fulfillment sequence across operational tools while preserving step state and escalating asset or inventory mismatches.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Carry a routine entitlement-remediation task through confirmation, retrying transient failures and escalating only when the customer account state falls outside the approved playbook.
+maturity: draft
+tags:
+  - execute-automate
+  - exception-aware-orchestration
+  - resilient-execution
+  - bounded-delegation
+  - retry-and-escalation

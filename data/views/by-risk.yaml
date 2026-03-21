@@ -49,7 +49,7 @@ risk_levels:
     monitor-detect-triage: []
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: []
-    execute-automate: []
+    execute-automate: [exception-aware-task-execution]
     optimize-adapt: [queue-prioritization-optimization]
     human-agent-collaborative-work: [analyst-copilot-loop]
 - risk_level:

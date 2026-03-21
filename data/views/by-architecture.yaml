@@ -50,7 +50,7 @@ architectures:
     monitor-detect-triage: [critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: [policy-constrained-escalation-routing]
-    execute-automate: []
+    execute-automate: [exception-aware-task-execution]
     optimize-adapt: []
     human-agent-collaborative-work: []
 - architecture:

@@ -78,7 +78,7 @@ autonomy_levels:
     monitor-detect-triage: []
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: []
-    execute-automate: []
+    execute-automate: [exception-aware-task-execution]
     optimize-adapt: [adaptive-threshold-calibration]
     human-agent-collaborative-work: []
 - autonomy_level:
