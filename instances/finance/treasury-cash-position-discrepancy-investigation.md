@@ -12,6 +12,29 @@ Finance.
 
 At quarter close, the corporate treasury team finds that the prior-day ending cash position in the treasury management system does not reconcile to the bank balance summary and the ERP cash ledger for three operating currencies. The discrepancy could stem from a missed bank statement import, a duplicate intercompany funding journal, a late FX sweep confirmation, or a cutoff-time mismatch introduced during a recent connectivity change. The workflow investigates the break by reconciling bank evidence, internal postings, and operator notes into an evidence-backed explanation of what failed and what remains uncertain.
 
+```mermaid
+flowchart TD
+    start["Quarter-close cash position<br>does not reconcile"]
+    gather["Gather bank statements,<br>ERP postings, FX confirmations,<br>and operator notes"]
+    timeline["Normalize timestamps and<br>reconcile the cross-system timeline"]
+    completeness{"All expected statements,<br>journals, and confirmations<br>present?"}
+    verify["Test missed import, duplicate journal,<br>late FX sweep, and cutoff-change hypotheses<br>against independent evidence"]
+    explained{"One evidence-backed explanation<br>sufficiently explains the break?"}
+    package["Document reconciled root cause,<br>remaining uncertainty, and<br>recommended follow-up checks"]
+    hold["Hold quarter-close signoff and keep<br>the discrepancy open with cited evidence gaps"]
+    escalate["Escalate to treasury leadership and controllership<br>for bounded manual review or close decision"]
+
+    start --> gather
+    gather --> timeline
+    timeline --> completeness
+    completeness -->|"Yes"| verify
+    completeness -->|"No"| hold
+    verify --> explained
+    explained -->|"Yes"| package
+    explained -->|"No"| hold
+    hold --> escalate
+```
+
 ## Target systems / source systems
 
 - Treasury management system cash-position snapshots and reconciliation workspace
