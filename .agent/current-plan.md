@@ -2,7 +2,9 @@
 
 ## Iteration focus
 
-Next iteration focus: continue the tied-domain refinement track with one instance-only slice in one of the now-thinnest domains under an already-mapped pattern/domain pair so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears. The selected batch for iteration `20260321-190416` is a second `compliance` grounding for `workflow-hand-off-and-completion`, because that execute-family slice already has clean compliance browse exposure, proven low-risk boundary control, and room for one more materially different post-decision closure example.
+Next iteration focus: continue the tied-domain refinement track with one instance-only slice in one of the now-thinnest domains under an already-mapped pattern/domain pair so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears. Iteration `20260321-190416` is now complete: `workflow-hand-off-and-completion` gained a second `compliance` grounding through one finalized trade-surveillance no-action disposition closure and case-register synchronization scenario, so the next batch should favor one of the remaining tied thinnest domains (`research` or `hr`).
+
+Iteration `20260321-190416` is now complete: `workflow-hand-off-and-completion` gained a second `compliance` grounding example through one finalized trade-surveillance no-action disposition closure and case-register synchronization scenario, and the bounded instance-only batch validated cleanly through YAML validation plus the derived MkDocs publication build.
 
 Iteration `20260321-185858` is now complete: `workflow-hand-off-and-completion` gained a second `support` grounding example through one finalized enterprise support quality-audit exception closure and review-ledger synchronization scenario, and the bounded instance-only batch validated cleanly through YAML validation plus the derived MkDocs publication build.
 
@@ -88,19 +90,23 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path, and the repository now also supports derived static-site publication through `uv run python scripts/python/build_site_docs.py`, `uv run mkdocs serve`, `uv run mkdocs build`, and GitHub Pages deployment through `.github/workflows/publish-site.yml`.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: `compliance`, `research`, and `hr` are now tied as the thinnest modeled domains at twenty-seven grounded examples each, while `support` has moved to twenty-eight. Iteration `20260321-190416` should therefore deepen `compliance` through one additional `workflow-hand-off-and-completion` grounding without expanding structural inventory or derived views.
+- Current refinement target: `research` and `hr` are now tied as the thinnest modeled domains at twenty-seven grounded examples each, while `compliance` and `support` each sit at twenty-eight. The next iteration should pick one equally bounded already-canonical slice in either `research` or `hr` without expanding structural inventory or derived views.
 
 ## Ordered tasks
 
-1. Author one new `instances/compliance/*.md` file linked to `workflow-hand-off-and-completion`, keeping the scope bounded to authoritative post-decision closure, queue cleanup, ledger or registry synchronization, archive linkage, and internal notification rather than renewed review, recommendation, filing, or execution.
-2. Prefer an instance-only refinement batch, and avoid canonical pattern or derived-view edits unless the new compliance grounding exposes genuine drift from repository truth.
-3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded content batch, then refresh execution memory on top of the verified canonical baseline.
+1. Reassess the remaining tied thinnest domains through `instances/{research,hr}/*.md` plus the already-mapped pattern/domain pairs in `data/views/by-domain.yaml`, then choose one equally bounded instance-only refinement slice. Favor a cleanly bounded already-canonical pairing in one of those two domains before revisiting broader structural work.
+2. Prefer another instance-only refinement batch, and avoid canonical pattern or derived-view edits unless the next grounding exposes genuine drift from repository truth.
+3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the next bounded content batch, then refresh execution memory on top of the verified canonical baseline.
 4. Re-run `uv run python scripts/python/build_site_docs.py` and `uv run mkdocs build` whenever publication-facing docs, patterns, views, vocabularies, instances, or schema change.
 5. Keep `.github/workflows/publish-site.yml` aligned with the local publication pipeline whenever helper tooling, Python version, or build outputs change.
 6. If Mermaid workflow illustrations are added across pattern and instance Markdown files, keep the new orchestrator prompt aligned with repository family boundaries, Mermaid validation practice, and static-site rendering constraints.
 
 ## Iteration checkpoint
 
+- Timestamp: `20260321-190416`
+- Completed scope: added `instances/compliance/finalized-trade-surveillance-no-action-disposition-closure-and-case-register-synchronization.md` as a second compliance grounding for `workflow-hand-off-and-completion`, keeping the batch instance-only and bounded at authoritative post-decision closure, queue cleanup, case-register synchronization, archive linkage, audit recording, and internal coordinator notification.
+- Current working hypothesis: low-risk execute-family closure patterns continue to deepen cleanly when the source decision is already final, the remaining steps are replay-safe bookkeeping only, and each new domain example adds distinct operational texture without forcing canonical pattern or browse-view changes.
+- Current scoped follow-on: pick one equally bounded instance-only slice next in one of the now-tied thinnest domains (`research` or `hr`) so balancing continues without reopening structural ontology work.
 - Timestamp: `20260321-185858`
 - Completed scope: added `instances/support/finalized-enterprise-support-quality-audit-exception-closure-and-review-ledger-synchronization.md` as a second support grounding for `workflow-hand-off-and-completion`, keeping the batch instance-only and bounded at authoritative post-decision closure, queue cleanup, review-ledger synchronization, archive linkage, audit recording, and internal coordinator notification.
 - Current working hypothesis: low-risk execute-family closure patterns continue to deepen cleanly when the source decision is already final and each new example adds different internal operating texture without pushing beyond replay-safe bookkeeping or forcing canonical pattern and view edits.

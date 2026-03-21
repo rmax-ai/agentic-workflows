@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 199
+  instance_files: 200
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -58,7 +58,7 @@ pattern_counts_by_family:
 instance_counts_by_domain:
   engineering: 30
   finance: 31
-  compliance: 27
+  compliance: 28
   operations: 29
   research: 27
   support: 28
@@ -78,6 +78,7 @@ consistency_notes:
   - "`workflow-hand-off-and-completion` now has additional `research` grounding through an approved human-subjects continuing-review closure and protocol-registry synchronization example, deepening that low-risk execute-family closure slice beyond benchmark-governance-only context while preserving a clean boundary at authoritative post-decision closure, queue cleanup, registry synchronization, archive linkage, and internal coordinator notification rather than protocol amendment, participant communication, or study execution."
   - "`workflow-hand-off-and-completion` now has additional `hr` grounding through an accepted work-authorization review closure and compliance-tracker synchronization example, deepening that low-risk execute-family closure slice beyond protected-leave review context while preserving a clean boundary at authoritative post-decision closure, queue cleanup, compliance-tracker synchronization, archive linkage, and internal coordinator notification rather than worker outreach, employment action, filing, or legal strategy."
   - "`workflow-hand-off-and-completion` now has additional `support` grounding through a finalized enterprise support quality-audit exception closure and review-ledger synchronization example, deepening that low-risk execute-family closure slice beyond live escalation review context while preserving a clean boundary at authoritative post-decision closure, queue cleanup, review-ledger synchronization, archive linkage, and internal coordinator notification rather than customer communication, refunds or credits, coaching directives, or renewed review execution."
+  - "`workflow-hand-off-and-completion` now has additional `compliance` grounding through a finalized trade-surveillance no-action disposition closure and case-register synchronization example, deepening that low-risk execute-family closure slice beyond sanctions-alert closure while preserving a clean boundary at authoritative post-decision closure, queue cleanup, case-register synchronization, archive linkage, and internal coordinator notification rather than employee outreach, supervisory action, regulator communication, or renewed investigation."
 repo_reality:
   available_ontology_assets:
     - .github/workflows/publish-site.yml
