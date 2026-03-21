@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-`recommend-decide-escalate` is now grounded across finance, compliance, and operations after the new multi-site service-package feasibility example. The next modest batch should likely rebalance a thinner domain and family, with `human-agent-collaborative-work` in engineering looking like the cleanest adjacent target.
+This iteration should rebalance the still-thin engineering domain by grounding `human-agent-collaborative-work` with exactly one engineering-domain instance linked to `analyst-copilot-loop`. The instance should stay centered on mixed-initiative co-production around a shared artifact, with explicit handoffs and human-owned judgment, rather than drifting into pure synthesis, recommendation, investigation, or execution.
 
 ## Current phase
 
@@ -16,20 +16,21 @@
 ## Ordered tasks
 
 1. Re-read `analyst-copilot-loop`, the current collaboration-oriented instances, and at least one engineering instance so the next grounding batch stays inside the mixed-initiative family boundary.
-2. Author exactly one engineering-domain instance linked to `analyst-copilot-loop`, framed as shared human-agent work around an artifact rather than pure synthesis, recommendation, or execution.
-3. Keep the next batch limited to this single collaboration example so engineering-domain balance improves without widening the scope into multiple families.
-4. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next dated iteration log after that grounding batch so execution memory stays current.
-5. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
+2. Author exactly one engineering-domain instance linked to `analyst-copilot-loop`, framed as shared human-agent work around an engineering artifact rather than pure evidence synthesis, recommendation ranking, incident investigation, or browser execution.
+3. Prefer a governance-aware engineering scenario where the shared artifact evolves across visible turns and the human retains responsibility for consequential interpretations, approvals, or external commitments.
+4. Keep the batch limited to this single collaboration example so engineering-domain balance improves without widening the scope into multiple families.
+5. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the iteration log after that grounding batch so execution memory stays current.
+6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
 
 ## Constraints
 
 - Keep the ontology pattern-first: add grounded instances only against existing canonical patterns rather than inventing more seed patterns immediately.
 - Treat `data/views/` as derived browse artifacts and keep any future updates aligned with stable vocabulary and pattern ids.
 - Ensure every subagent task ends with exactly one git commit.
-- Prefer modest grounding batches that improve coverage balance inside one thin family/domain slice rather than forcing a broad cross-family sweep.
-- Keep the next iteration scoped to one small grounding batch plus required `.agent/` memory updates; do not expand the canonical pattern set unless dependency order changes.
-- Keep governance, reversibility, privacy, and auditability explicit in grounded examples.
+- Prefer a modest grounding batch that improves one thin family/domain slice instead of forcing a broad cross-family sweep.
+- Keep governance, reversibility, privacy, and auditability explicit in the new grounded example.
+- Do not leave uncommitted changes before handing off to the authoring subagent.
 
 ## Expected outcome
 
-The next iteration should improve engineering-domain balance by adding one mixed-initiative collaboration example without widening the repository beyond a single grounded Markdown artifact plus required memory updates.
+The iteration should add one engineering-domain mixed-initiative collaboration example, improve `human-agent-collaborative-work` coverage, and leave the repository ready for another small grounding batch after the `.agent/` memory refresh.
