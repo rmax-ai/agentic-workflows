@@ -12,6 +12,20 @@ Compliance.
 
 A drug-safety operations team receives a continuous stream of potential safety signals from spontaneous adverse-event intake, literature surveillance, patient-support programs, and protocol-deviation feeds tied to marketed and late-stage investigational products. The workflow must de-duplicate near-identical alerts, enrich each signal with product, seriousness, geography, expectedness, and prior-case context, and then prioritize which items should move first into human safety review. The goal is not to determine causality or write the final safety assessment, but to convert noisy inbound signals into an explainable reviewer queue with explicit escalation triggers for medically significant, regulator-sensitive, or time-bound cases.
 
+```mermaid
+flowchart TD
+    A["Continuous safety signal intake<br>from cases, literature, support programs, and deviations"] --> B["De-duplicate and enrich<br>product, seriousness, geography,<br>expectedness, and prior-case context"]
+    B --> C{"Duplicate or near-duplicate?"}
+    C -- "Yes" --> D["Hold or merge alert<br>record linkage rationale for audit"]
+    C -- "No" --> E["Score and rank signal<br>attach reporting-clock context"]
+    E --> F{"Medically significant,<br>regulator-sensitive, or time-bound?"}
+    F -- "No" --> I["Prioritized reviewer queue<br>with rationale and countdowns"]
+    F -- "Yes" --> G["Human safety review verifies<br>evidence, urgency, and routing basis"]
+    G --> H{"Escalation approved?"}
+    H -- "Yes" --> J["Escalated review path<br>safety scientist, medical reviewer, or compliance lead"]
+    H -- "No" --> I
+```
+
 ## Target systems / source systems
 
 - Pharmacovigilance safety database with incoming adverse-event cases, follow-up status, seriousness coding, and prior signal history
