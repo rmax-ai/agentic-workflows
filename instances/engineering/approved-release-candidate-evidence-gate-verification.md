@@ -12,6 +12,18 @@ Engineering.
 
 A release board has an approved production packet for a payments-platform release candidate, but the packet cannot be handed into the cutover workflow until current evidence still proves the release is safe to rely on. The workflow rechecks signed artifact hashes, dependency-health snapshots, rollback credential validity, and protected cohort scope against the approved package, then emits an inspectable verified, held, or insufficient verdict for human release approval. It must not narrow the rollout plan, republish artifacts, or start the deployment itself.
 
+```mermaid
+flowchart TD
+    start["Approved release-candidate<br>packet"]
+    start -->|"recheck"| verify["Recheck signed artifact hashes,<br>dependency-health snapshots,<br>rollback credentials, and<br>protected cohort scope"]
+    verify --> ok{"Evidence current and<br>scope still aligned?"}
+    ok -->|"no"| hold["Emit held or insufficient verdict<br>with hold reasons and blocked<br>cutover state"]
+    hold -->|"route"| review["Send packet for bounded<br>manual release review"]
+    ok -->|"yes"| verdict["Emit verified verdict<br>with evidence lineage"]
+    verdict -->|"present"| gate["Present verified packet at the<br>human release approval gate"]
+    gate -->|"stop"| stop["Stop before cutover handoff<br>or deployment"]
+```
+
 ## Target systems / source systems
 
 - Release packet store holding the approved component versions, protected service scope, and rollback plan for the candidate
