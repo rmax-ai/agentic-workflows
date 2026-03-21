@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-110310` is now complete: `monitor-detect-triage` gained `approval-gated-triage-dispatch`, closing the family's `approval-gated-execution` architecture gap with a governed dispatch-release pattern plus linked finance, compliance, and operations instances and the derived browse-view updates that follow from that canonical truth.
+Iteration `20260321-111432` is now scoped: inspect the remaining `approval-gated-execution` gaps and fill only the cleanest one. The current target is `human-agent-collaborative-work`, where an explicit human approval can release one jointly prepared protected artifact into a downstream review lane without collapsing the family into recommendation, planning, or live execution.
 
 ## Current phase
 
@@ -14,20 +14,20 @@ Iteration `20260321-110310` is now complete: `monitor-detect-triage` gained `app
 - Phase 7: coverage refinement remains active, all nine top-level families span the full tracked `low` / `moderate` / `high` / `critical` risk ladder, and `transform-process`, `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, and `execute-automate` now span all tracked architecture types.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: the remaining obvious structural holes are the still-empty `approval-gated-execution` cells in `gather-retrieve-synthesize`, `recommend-decide-escalate`, `optimize-adapt`, and `human-agent-collaborative-work`; fill at most one more only if it cleanly fits that family's primary artifact and stop point.
+- Current refinement target: the remaining obvious structural holes are the still-empty `approval-gated-execution` cells in `gather-retrieve-synthesize`, `recommend-decide-escalate`, `optimize-adapt`, and `human-agent-collaborative-work`; this iteration should attempt only the collaboration-family gap because explicit approval-bound release of one shared artifact is the clearest next family-safe stop point.
 
 ## Ordered tasks
 
-1. Re-check the remaining `approval-gated-execution` architecture gaps in `gather-retrieve-synthesize`, `recommend-decide-escalate`, `optimize-adapt`, and `human-agent-collaborative-work` against family docs, neighboring canonical patterns, and existing instances before adding anything new.
-2. Prefer the next batch to stay similarly narrow: one reusable shape, two or three grounded instances, and only the derived browse-view updates that follow directly from canonical truth.
-3. Continue updating `.agent/` execution memory and validating repository YAML with `uv run python scripts/python/validate_yaml.py` for each committed refinement batch.
+1. Add one `human-agent-collaborative-work` canonical pattern only if it keeps the family centered on shared artifact co-production plus explicit human approval to release that artifact onward, stopping short of downstream recommendation, scheduling, or execution.
+2. Ground the collaboration pattern with a small cross-domain instance batch that shows approval-bound artifact release in protected engineering, finance, and compliance workflows.
+3. Refresh only the derived browse views and `.agent/` memory that must change from that new canonical truth, then validate repository YAML with `uv run python scripts/python/validate_yaml.py`.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-110310`
-- Completed scope: added `approval-gated-triage-dispatch` under `monitor-detect-triage`, linked finance, compliance, and operations approval-bound dispatch instances, updated the monitor family doc, and refreshed the derived index, domain, architecture, autonomy, and risk views.
-- Working result: `monitor-detect-triage` now spans all tracked architecture types while keeping the family boundary centered on triaged packet release, explicit hold state, queue-boundary discipline, and dispatch manifests rather than authority choice, recommendation, investigation, or downstream response execution.
-- Reflection: the cleanest way to add an approval-gated monitor slice was to anchor the pattern on exact triage-packet version binding, protected-lane release boundaries, and visible dispatch holds so approval governs one bounded routing handoff rather than implicitly authorizing later response work.
+- Timestamp: `20260321-111432`
+- Scoped scope: test whether `human-agent-collaborative-work` admits an approval-gated-release variant built around one protected shared artifact, explicit human release ownership, and downstream-ready handoff packaging.
+- Working hypothesis: the new pattern is valid only if approval governs release of a jointly prepared artifact into a bounded next-review lane while keeping disagreement visibility, annex boundaries, and collaboration trace inside the family's own artifact surface.
+- Reflection-in-progress: the collaboration family already names human ownership of downstream release, so the architecture gap should close only if approval is modeled as release control over the shared artifact rather than as decision adjudication or live action authorization.
 
 ## Constraints
 
@@ -41,8 +41,8 @@ Iteration `20260321-110310` is now complete: `monitor-detect-triage` gained `app
 - Treat future recommendation-family additions as in-family only if the output remains a bounded recommendation or narrowed option set inside delegated authority limits; anything that resolves the approval itself or commits the downstream change belongs in an adjacent family.
 - Treat future optimize-family batches as in-family only if the main output remains an adaptive optimization-state change, sampled-policy adjustment, or bounded self-tuning artifact rather than alert triage, recommendation, scheduling, or executed operational change.
 - Treat future monitor-family additions as in-family only if the output remains watchlisting, anomaly packet assembly, or triage routing; anything that binds approval to downstream action or settles truth should stay in an adjacent family.
-- Treat this iteration's monitor-family addition as valid only if approval governs the release of a triaged packet into a downstream queue or command channel while leaving response selection, authority choice, and operational action to adjacent patterns.
+- Treat this iteration's collaboration-family addition as valid only if approval governs release of a protected shared artifact into a downstream review or decision lane while leaving authority choice, command sequencing, and operational action to adjacent patterns.
 
 ## Expected outcome
 
-The next iteration should leave the repository with one more family-safe structural slice covered only if the added pattern is as clean and reusable as `approval-gated-triage-dispatch`, with browse views and `.agent/` memory synchronized to that canonical truth.
+The iteration should leave the repository with one more family-safe structural slice covered only if the added collaboration pattern is as clean and reusable as the recent approval-gated additions, with browse views and `.agent/` memory synchronized to that canonical truth.
