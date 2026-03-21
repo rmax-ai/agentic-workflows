@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 219
+  instance_files: 220
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -61,11 +61,12 @@ instance_counts_by_domain:
   compliance: 31
   operations: 31
   research: 32
-  support: 31
+  support: 32
   hr: 32
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
+  - "`anomaly-detection-review` now has additional `support` grounding through an enterprise support response-obligation drift anomaly-review example, deepening that moderate-risk monitor-family slice within support beyond severity-drift review while preserving a clean boundary at explainable anomaly packet assembly, duplicate suppression, prioritization, and governed routing rather than contract interpretation, customer communication, service-credit decisions, incident declaration, live case reassignment, or root-cause investigation."
   - "`anomaly-detection-review` now has additional `hr` grounding through a benefits eligibility and deduction drift anomaly-review example, deepening that moderate-risk monitor-family slice within HR beyond worker-lifecycle churn while preserving a clean boundary at explainable anomaly packet assembly, duplicate suppression, queueing, and governed routing rather than eligibility adjudication, payroll correction, carrier outreach, employee communication, or formal investigation."
   - "`approval-packet-generation` now has additional `compliance` grounding through an electronic-communications legal-hold capture-gap packet assembled for records-governance committee review, deepening that high-risk gather-family slice within compliance beyond vendor biometric retention deviation while preserving a clean boundary at packet assembly, provenance indexing, explicit exception visibility, and governed handoff rather than legal-sufficiency adjudication, counsel or regulator notification, remediation execution, or matter closure."
   - "`delegated-authority-option-ranking` now has additional `operations` grounding through a warehouse dock-door outage fallback recommendation example, deepening that moderate-risk recommend-family slice within operations beyond sorter throughput recovery while preserving a clean boundary at ranked in-band options, blocked-option visibility, and escalation packaging rather than schedule ownership, approval adjudication, or live warehouse action."
