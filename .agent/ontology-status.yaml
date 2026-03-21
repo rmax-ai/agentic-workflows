@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 18
-  instance_files: 69
+  pattern_files: 19
+  instance_files: 71
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -43,7 +43,7 @@ coverage_totals:
   architectures_mapped: 5
   autonomy_levels_mapped: 6
   risk_levels_mapped: 4
-  autonomy_levels_with_patterns: 5
+  autonomy_levels_with_patterns: 6
   risk_levels_with_patterns: 4
 pattern_counts_by_family:
   gather-retrieve-synthesize: 2
@@ -52,15 +52,15 @@ pattern_counts_by_family:
   monitor-detect-triage: 2
   plan-coordinate-schedule: 2
   recommend-decide-escalate: 2
-  execute-automate: 2
+  execute-automate: 3
   optimize-adapt: 2
   human-agent-collaborative-work: 2
 instance_counts_by_domain:
-  engineering: 10
+  engineering: 11
   finance: 10
   compliance: 10
   operations: 10
-  research: 9
+  research: 10
   support: 10
   hr: 10
 repo_reality:
@@ -96,6 +96,7 @@ repo_reality:
     - data/patterns/recommend-decide-escalate/policy-constrained-escalation-routing.yaml
     - data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml
     - data/patterns/execute-automate/exception-aware-task-execution.yaml
+    - data/patterns/execute-automate/workflow-hand-off-and-completion.yaml
     - data/patterns/optimize-adapt/queue-prioritization-optimization.yaml
     - data/patterns/optimize-adapt/adaptive-threshold-calibration.yaml
     - data/patterns/human-agent-collaborative-work/analyst-copilot-loop.yaml
@@ -107,6 +108,7 @@ repo_reality:
     - instances/research/approved-human-subjects-ethics-amendment-portal-submission.md
     - instances/research/benchmark-study-disclosure-risk-alert-triage.md
     - instances/research/cross-lab-benchmark-replication-discrepancy-investigation.md
+    - instances/research/approved-benchmark-study-review-disposition-closure.md
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md
     - instances/engineering/deprecated-message-broker-client-migration-exception-copilot-loop.md
@@ -117,6 +119,7 @@ repo_reality:
     - instances/engineering/managed-database-major-version-upgrade-exception-recommendation.md
     - instances/engineering/ci-pipeline-failure-review-queue-reprioritization.md
     - instances/engineering/production-shared-credential-exception-review-board-readiness-loop.md
+    - instances/engineering/approved-release-readiness-review-closure-and-tracker-completion.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
     - instances/finance/invoice-packet-to-payables-record-handoff.md
     - instances/finance/dual-approved-vendor-bank-account-change-submission.md
@@ -177,7 +180,7 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, eighteen canonical patterns across all nine top-level families, and sixty-nine grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nineteen canonical patterns across all nine top-level families, and seventy-one grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "All nine top-level families are now grounded across engineering, finance, compliance, operations, research, support, and HR after adding research-domain monitoring coverage."
     - "`policy-constrained-escalation-routing` now gives `recommend-decide-escalate` a second canonical pattern and representative `orchestrated-multi-agent` coverage while staying bounded at governed routing rather than downstream execution."
@@ -185,9 +188,10 @@ repo_reality:
     - "`adaptive-threshold-calibration` now gives `optimize-adapt` a second canonical pattern plus representative `low` risk and `human-in-the-loop` architecture coverage while keeping the family bounded at reversible parameter tuning rather than downstream triage or execution."
     - "`schedule-adjustment-and-replanning` now gives `plan-coordinate-schedule` a second canonical pattern plus representative `moderate` risk, `recommendation-only` autonomy, `human-in-the-loop`, and `orchestrated-multi-agent` architecture coverage while keeping the family bounded at revised plan handoff rather than recommendation or execution."
     - "`exception-aware-task-execution` now gives `execute-automate` a second canonical pattern plus representative `moderate` risk, `bounded-delegation`, and `orchestrated-multi-agent` coverage while keeping the family bounded at resilient task completion, bounded retries, and exception-driven escalation."
+    - "`workflow-hand-off-and-completion` now gives `execute-automate` a third canonical pattern plus representative `low` risk, `event-driven-monitoring`, and `autonomous-with-audit` coverage while keeping the family bounded at post-decision closure, archival, and low-risk state propagation rather than new consequential execution."
     - "`authoritative-record-reconciliation` now gives `investigate-reconcile-verify` a second canonical pattern plus representative `record-reconciliation`, `tool-using-single-agent`, `human-in-the-loop`, `bounded-delegation`, and `moderate` risk coverage while keeping the family bounded at authoritative-state restoration and correction packaging rather than causal diagnosis or downstream action."
     - "`approval-centered-collaboration` now also has grounded compliance, operations, and support instances through regulator reporting-timeline exception, network fuel-system test deferral exception, and enterprise security incident remediation-credit readiness loops, extending the pattern's approval-readiness collaboration coverage across six governance-heavy domains without drifting into adjudication."
-    - "Every top-level family still has at least two canonical patterns and full family/domain grounding, so the next highest-leverage gap is no longer domain spread but narrower architecture and risk-slice balancing across families."
+    - "Every top-level family still has at least two canonical patterns and full family/domain grounding, and all six autonomy levels now have at least one canonical pattern, so the next highest-leverage gaps are narrower family-specific architecture and risk slices rather than missing global scaffolding."
 next_action:
-  id: phase-7-rebalance-architecture-and-risk-slices
-  summary: "Use the next bounded batch to close one clearly documented architecture or risk-slice gap now that approval-centered collaboration has broader grounding across compliance, operations, support, engineering, finance, and HR."
+  id: phase-7-balance-recommendation-slices
+  summary: "Use the next bounded batch to add one non-high-risk `recommend-decide-escalate` pattern, ideally covering a low- or moderate-risk slice without duplicating monitoring triage or downstream execution."
