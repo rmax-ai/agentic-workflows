@@ -19,6 +19,9 @@ domain:
   - id: operations
     label: Operations
     source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
   - id: hr
     label: HR
     source_vocabulary: domains
@@ -262,6 +265,11 @@ example_domains:
       label: Operations
       source_vocabulary: domains
     example: Confirm that safety interlocks, fallback profile evidence, and current telemetry still support a routing-profile cutover packet before site leaders authorize live activation.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Reverify that rerun-manifest lineage, dataset-rights clearance, disclosure review state, and restricted reviewer scope still support one exact approved publication-integrity packet revision before research governance releases it into the protected integrity-review lane.
   - domain:
       id: hr
       label: HR
