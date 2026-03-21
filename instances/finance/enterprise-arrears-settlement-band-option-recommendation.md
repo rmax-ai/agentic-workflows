@@ -12,6 +12,21 @@ Finance.
 
 An accounts-receivable operations team is reviewing a ninety-day-overdue enterprise invoice for a strategic customer that wants temporary relief while it completes an internal budget transfer. The collector can recommend only a narrow set of local options that sit inside a documented authority band, such as a capped late-fee waiver, a short installment plan, or a continued standard collections posture, but the customer is also asking for principal reduction and an extended payment holiday that would exceed delegated limits. The workflow must rank the in-band settlement options, show which requested terms are blocked by the collector authority matrix, and package escalation only if no locally permissible path remains appropriate before anyone changes billing records or sends a customer commitment.
 
+```mermaid
+flowchart TD
+    A["Review overdue invoice case<br>and retrieve authority matrix, account history, and requested terms"] --> B["Check requested concessions against<br>delegated limits and hard guardrails"]
+    B --> C{"Any requested term outside<br>collector authority?"}
+    C -- "Yes" --> D["Record blocked terms and keep only<br>locally permissible settlement options"]
+    C -- "No" --> E["Assemble the in-band option set<br>for local comparison"]
+    D --> F{"Is account evidence current enough<br>for bounded review?"}
+    E --> F
+    F -- "No" --> G["Hold for refreshed payment, dispute,<br>or exposure evidence"]
+    F -- "Yes" --> H["Rank the permissible options and<br>prepare a preferred recommendation"]
+    H --> I{"Any defensible in-band<br>recommendation remains?"}
+    I -- "Yes" --> J["Send the recommendation packet for<br>collector or finance lead review"]
+    I -- "No" --> K["Package escalation for treasury/controller<br>before any billing or customer commitment change"]
+```
+
 ## Target systems / source systems
 
 - AR aging dashboard, invoice record, dispute notes, and collector work queue
