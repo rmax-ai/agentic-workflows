@@ -2,32 +2,32 @@
 
 ## Iteration focus
 
-Iteration `20260321-051941` is in progress: target a bounded Phase 7 refinement by adding `normalization-and-enrichment` as a second `transform-process` pattern so low-risk coverage expands outside `plan-coordinate-schedule` without introducing a vocabulary or schema change.
+Iteration `20260321-051941` is complete: it added `normalization-and-enrichment` as a second `transform-process` pattern, giving that family a low-risk canonical anchor while keeping the boundary at reversible representation cleanup and downstream-safe handoff.
 
 ## Current phase
 
 - Phase 2: controlled vocabularies are complete, including the `transform-process` mapping term `structured-representation-transformation`
 - Phase 3: navigation views are complete and reference canonical patterns in all nine top-level families
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
-- Phase 5: canonical coverage now spans twelve patterns across all nine top-level pattern families, with `recommend-decide-escalate` now holding a second canonical anchor and `transform-process` remaining a strong candidate for a second low-risk canonical entry
+- Phase 5: canonical coverage now spans thirteen patterns across all nine top-level pattern families, with `transform-process`, `monitor-detect-triage`, `gather-retrieve-synthesize`, and `recommend-decide-escalate` each holding more than one canonical anchor
 - Phase 6: grounded instances still cover all nine families across all seven currently modeled domains
-- Phase 7: coverage refinement remains active, with the highest-leverage gaps now centered on sparse `low` risk cells outside `plan-coordinate-schedule`; the cleanest current target is `transform-process`
+- Phase 7: coverage refinement remains active, with `transform-process` now covering both `low` and `moderate` risk while several other families still have only one canonical pattern and sparse low-risk anchors
 - Tooling baseline: uv-managed Python 3.14 helper workflow remains the validation path
 
 ## Ordered tasks
 
-1. Use `transform-process` as the next bounded refinement target because its family doc already names `normalization-and-enrichment` as a valid second anchor and the current risk matrix shows no low-risk coverage in that family.
-2. Keep the new canonical pattern tightly bounded at representation cleanup, normalization, and safe enrichment for downstream reuse, stopping before verification, recommendation, or execution.
-3. Update the derived browse views in the same content batch so family, domain, autonomy, architecture, and risk navigation stay aligned with the new canonical pattern.
-4. Keep terminology aligned with the existing vocabularies, and avoid schema or vocabulary edits unless a dependency issue is discovered.
-5. After the content commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log so execution memory matches repository reality.
-6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
+1. Re-read `.agent/coverage-matrix.yaml`, the one-entry family docs, and the canonical pattern set before selecting the next thin structural cell.
+2. Prefer the next bounded batch to add one second canonical pattern in a family that still has only one entry, ideally broadening low-risk or otherwise sparse coverage without reopening already-balanced families.
+3. Prioritize patterns that stay cleanly within their family boundary while improving one thin architecture, autonomy, or risk slice rather than duplicating domain coverage that is already well grounded through instances.
+4. Keep terminology aligned with the existing vocabularies, and record any genuinely new concept in `.agent/decisions.md` before it spreads across schema-adjacent files.
+5. After the next content commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log so execution memory continues to match repository reality.
+6. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
 
 ## Iteration checkpoint
 
 - Timestamp: `20260321-051941`
-- In-progress scope: author `data/patterns/transform-process/normalization-and-enrichment.yaml` plus the required derived view updates in one focused content commit.
-- Pending orchestrator follow-up: validate repository YAML and refresh execution memory so pattern inventory, coverage tracking, the repository map, and the dated iteration log reflect the new low-risk transform anchor.
+- Completed subagent scope: authored `data/patterns/transform-process/normalization-and-enrichment.yaml` and updated the linked browse views in one focused content commit.
+- Completed orchestrator follow-up: validated repository YAML and refreshed execution memory so pattern inventory, coverage tracking, the repository map, and the dated iteration log reflect the new low-risk transform anchor.
 
 ## Constraints
 
@@ -40,4 +40,4 @@ Iteration `20260321-051941` is in progress: target a bounded Phase 7 refinement 
 
 ## Expected outcome
 
-This iteration should add one carefully chosen low-risk canonical pattern outside `plan-coordinate-schedule`, specifically a second `transform-process` anchor centered on normalization and enrichment, while keeping the family boundary at representation change rather than downstream judgment or action.
+The next iteration should likely add one carefully chosen second canonical pattern in another still-thin family, with a preference for filling a sparse low-risk or otherwise underrepresented structural cell without weakening family boundaries.

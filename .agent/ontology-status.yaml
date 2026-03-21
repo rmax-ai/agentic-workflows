@@ -31,7 +31,7 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 12
+  pattern_files: 13
   instance_files: 63
   pattern_family_docs: 9
   glossary_files: 1
@@ -47,7 +47,7 @@ coverage_totals:
   risk_levels_with_patterns: 4
 pattern_counts_by_family:
   gather-retrieve-synthesize: 2
-  transform-process: 1
+  transform-process: 2
   investigate-reconcile-verify: 1
   monitor-detect-triage: 2
   plan-coordinate-schedule: 1
@@ -85,6 +85,7 @@ repo_reality:
     - data/patterns/gather-retrieve-synthesize/research-synthesis-with-citation-verification.yaml
     - data/patterns/gather-retrieve-synthesize/approval-packet-generation.yaml
     - data/patterns/transform-process/document-to-structured-data-handoff.yaml
+    - data/patterns/transform-process/normalization-and-enrichment.yaml
     - data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml
     - data/patterns/monitor-detect-triage/risk-alert-triage.yaml
     - data/patterns/monitor-detect-triage/critical-signal-corroboration-triage.yaml
@@ -165,12 +166,13 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twelve canonical patterns across all nine top-level families, and sixty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, thirteen canonical patterns across all nine top-level families, and sixty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "All nine top-level families are now grounded across engineering, finance, compliance, operations, research, support, and HR after adding research-domain monitoring coverage."
     - "`policy-constrained-escalation-routing` now gives `recommend-decide-escalate` a second canonical pattern and representative `orchestrated-multi-agent` coverage while staying bounded at governed routing rather than downstream execution."
-    - "Most families outside `gather-retrieve-synthesize`, `monitor-detect-triage`, and `recommend-decide-escalate` still have only one canonical pattern, and low-risk anchors remain concentrated in `plan-coordinate-schedule`."
+    - "`normalization-and-enrichment` now gives `transform-process` a second canonical pattern and representative `low` risk coverage while staying bounded at reversible canonicalization and approved enrichment rather than downstream judgment or action."
+    - "Most families outside `gather-retrieve-synthesize`, `transform-process`, `monitor-detect-triage`, and `recommend-decide-escalate` still have only one canonical pattern, and low-risk anchors remain sparse outside planning and transform."
     - "`orchestrated-multi-agent` now spans `gather-retrieve-synthesize`, `investigate-reconcile-verify`, `monitor-detect-triage`, and `recommend-decide-escalate`, while critical-risk anchors remain sparse outside `monitor-detect-triage` and `execute-automate`."
 next_action:
   id: phase-7-balance-architecture-and-risk-cells
-  summary: "Use the next bounded batch to add one second canonical pattern that fills a thin `low` risk cell outside `plan-coordinate-schedule`, ideally in a family that still has only one canonical entry."
+  summary: "Use the next bounded batch to add one second canonical pattern in another still-thin family, preferably filling a sparse low-risk or otherwise underrepresented structural cell without weakening family boundaries."
