@@ -37,7 +37,7 @@ dimensions:
 matrices:
   pattern_family_x_domain:
     gather-retrieve-synthesize: {engineering: partial, finance: none, compliance: partial, operations: none, research: covered, support: none, hr: none}
-    transform-process: {engineering: none, finance: covered, compliance: partial, operations: partial, research: none, support: none, hr: none}
+    transform-process: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
     investigate-reconcile-verify: {engineering: covered, finance: none, compliance: none, operations: partial, research: none, support: partial, hr: none}
     monitor-detect-triage: {engineering: none, finance: covered, compliance: partial, operations: partial, research: none, support: none, hr: none}
     plan-coordinate-schedule: {engineering: none, finance: none, compliance: none, operations: covered, research: none, support: partial, hr: partial}
@@ -68,8 +68,9 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Nine canonical pattern entries now populate all nine top-level families, and thirteen grounded examples extend across all seven currently modeled domains with deeper finance, compliance, support, and research coverage.
+    - Nine canonical pattern entries now populate all nine top-level families, and fifteen grounded examples extend across all seven currently modeled domains with deeper transform, compliance, and operations coverage.
     - "`recommend-decide-escalate` now has covered finance and compliance cells after adding a second governed recommendation instance for renewal pricing and payment-structure review."
     - "`execute-automate` now has covered compliance and HR cells after adding a regulated beneficial-ownership filing example alongside the existing HR payroll submission case."
     - "`human-agent-collaborative-work` now has covered support, research, and compliance cells after adding a regulator-response copilot loop for sanctions-alert closure review."
-    - The highest-leverage next gaps are now the partial transform, execution, optimize, and schedule domain slices rather than collaboration coverage.
+    - "`transform-process` now has covered finance, compliance, and operations cells after adding pharmacovigilance safety-case intake and facilities corrective-maintenance handoff examples."
+    - The highest-leverage next gaps are now the partial scheduling, execution, and optimization domain slices rather than transform or collaboration coverage.

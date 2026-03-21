@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-collaboration-complete
+repository_stage: phase-6-grounding-transform-expanded
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 13
+  instance_files: 15
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -55,8 +55,8 @@ pattern_counts_by_family:
 instance_counts_by_domain:
   engineering: 1
   finance: 3
-  compliance: 3
-  operations: 1
+  compliance: 4
+  operations: 2
   research: 2
   support: 2
   hr: 1
@@ -101,6 +101,8 @@ repo_reality:
     - instances/finance/multi-year-renewal-pricing-and-payment-structure-recommendation.md
     - instances/compliance/beneficial-ownership-registry-update-submission.md
     - instances/compliance/sanctions-alert-closure-regulator-response-copilot-loop.md
+    - instances/compliance/pharmacovigilance-follow-up-packet-to-safety-case-record-handoff.md
+    - instances/operations/site-inspection-packet-to-corrective-maintenance-work-order-handoff.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -116,11 +118,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and thirteen grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and fifteen grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
-  - "`transform-process`, `execute-automate`, and `optimize-adapt` still have only one covered domain cell each, leaving several practical domain slices partial despite representative seed coverage."
   - "`plan-coordinate-schedule` still has just one grounded operations example, while support and HR remain only partial cells for that family."
+  - "`execute-automate` still concentrates its grounded coverage in compliance and HR, leaving other practical domain slices thin despite representative seed coverage."
+  - "`optimize-adapt` still has only one covered support cell, with compliance and operations remaining partial opportunities for grounding."
   - "Most families still have only one or two domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-rebalance-transform-execute-optimize-slices
-  summary: "Use the next small grounding batch to deepen a thin partial slice in `transform-process`, `execute-automate`, or `optimize-adapt`, with preference for a concrete compliance or operations workflow that materially differs from existing finance, HR, and support examples."
+  id: phase-6-rebalance-schedule-execute-optimize-slices
+  summary: "Use the next small grounding batch to deepen a thin partial slice in `plan-coordinate-schedule`, `execute-automate`, or `optimize-adapt`, with preference for a concrete support, HR, compliance, or operations workflow that materially differs from the current transform and collaboration examples."
