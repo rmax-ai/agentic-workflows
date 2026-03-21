@@ -38,8 +38,7 @@ architectures:
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [deal-desk-recommendation-support]
     execute-automate: [browser-based-form-completion-with-approval-gates]
-    optimize-adapt: [queue-prioritization-optimization]
-    human-agent-collaborative-work: [analyst-copilot-loop]
+    optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration]
 - architecture:
     id: orchestrated-multi-agent
     label: Orchestrated multi-agent
@@ -66,10 +65,7 @@ architectures:
     plan-coordinate-schedule: []
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
     execute-automate: [browser-based-form-completion-with-approval-gates]
-    optimize-adapt: []
-    human-agent-collaborative-work: [analyst-copilot-loop]
-- architecture:
-    id: event-driven-monitoring
+    optimize-adapt: [adaptive-threshold-calibration]
     label: Event-driven monitoring
     source_vocabulary: architectures
   pattern_families:

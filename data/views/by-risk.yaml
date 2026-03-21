@@ -36,10 +36,7 @@ risk_levels:
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: []
     execute-automate: []
-    optimize-adapt: []
-    human-agent-collaborative-work: []
-- risk_level:
-    id: moderate
+    optimize-adapt: [adaptive-threshold-calibration]
     label: Moderate
     source_vocabulary: risk-levels
   pattern_families:

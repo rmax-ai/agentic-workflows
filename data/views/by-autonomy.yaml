@@ -79,10 +79,7 @@ autonomy_levels:
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: []
     execute-automate: []
-    optimize-adapt: []
-    human-agent-collaborative-work: []
-- autonomy_level:
-    id: exception-gated-autonomy
+    optimize-adapt: [adaptive-threshold-calibration]
     label: Exception-gated autonomy
     source_vocabulary: autonomy-levels
   pattern_families:

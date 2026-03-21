@@ -1,0 +1,252 @@
+id: adaptive-threshold-calibration
+slug: adaptive-threshold-calibration
+name: Adaptive threshold calibration
+summary: Continuously refine detection, scoring, or alert thresholds using observed false-positive and false-negative rates so signal quality improves over time without crossing pre-approved sensitivity bounds.
+pattern_family:
+  id: optimize-adapt
+  label: Optimize / Adapt
+problem_structure:
+  id: feedback-driven-optimization
+  label: Feedback-driven optimization
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+workflow_goal: Improve detection quality and reduce alert fatigue by calibrating sensitivity parameters within approved bounds, guided by operator feedback and outcome data, while preserving auditability and the ability to roll back any parameter change.
+inputs:
+  - name: Active threshold configuration
+    description: The current set of detection cutoffs, scoring weights, or sensitivity parameters governing which signals are surfaced, scored above a given level, or suppressed.
+    kind: configuration
+    required: true
+    examples:
+      - Alert score cutoff currently set to 0.75 in an anomaly-detection pipeline
+      - False-positive suppression window of 5 minutes applied to a sensor feed
+  - name: Outcome and operator feedback
+    description: Observed false-positive and false-negative rates, operator override or dismiss actions, acknowledged miss reports, and any explicit quality ratings given to surfaced signals.
+    kind: outcome-history
+    required: true
+    examples:
+      - 40 percent of alerts marked as not actionable in the past two weeks by on-call engineers
+      - Three confirmed missed detections reported after post-incident review
+  - name: Pre-approved calibration bounds
+    description: The explicitly authorized range within which each parameter may be moved without additional sign-off, along with any absolute limits that must never be crossed regardless of feedback.
+    kind: policy
+    required: true
+    examples:
+      - Sensitivity cutoff may be adjusted within plus-or-minus 0.10 of its baseline without supervisor approval
+      - Regulatory signals must not be suppressed regardless of false-positive rate
+  - name: Signal distribution statistics
+    description: Recent volume, variance, and distribution characteristics of incoming signals used to assess whether a proposed threshold shift is justified by changing input conditions or is chasing noise.
+    kind: operating-context
+    required: false
+    examples:
+      - Sudden spike in infrastructure events that temporarily elevates false-positive rates
+      - Seasonal quiet period during which low-volume thresholds need downward recalibration
+outputs:
+  - name: Updated threshold configuration
+    description: The revised parameter set reflecting the calibrated values, remaining within approved bounds and accompanied by change rationale.
+    kind: configuration
+    required: true
+    examples:
+      - Alert score cutoff moved from 0.75 to 0.82 to reduce confirmed non-actionable noise
+      - Suppression window shortened after a missed-detection cluster was traced to over-aggressive filtering
+  - name: Calibration change record
+    description: A structured description of each parameter change, the feedback signals that justified it, the bounds checked, and any parameters that were candidates for change but held at their current values.
+    kind: audit-log
+    required: true
+    examples:
+      - Change record noting which override-dismiss pattern drove the cutoff increase and that the regulatory floor was not approached
+      - Record of a proposed suppression-window extension that was blocked because it would have crossed a minimum-sensitivity bound
+  - name: Pending review package
+    description: Optional package assembled for human review when a proposed change approaches a bound, requires crossing a protected parameter floor, or involves an unusually large shift in sensitivity.
+    kind: review-package
+    required: false
+    examples:
+      - Package presenting a threshold proposal that would reduce sensitivity by more than the delegated bound allows
+      - Brief explaining why a missed-detection cluster justifies a review of the current floor definition
+environment:
+  summary: Operates in signal-generating workflows where threshold-based filtering, scoring, or classification affects downstream operator workload and coverage quality, and where parameter history and change rationale must remain inspectable.
+  systems:
+    - Monitoring or anomaly-detection platforms
+    - Alerting and on-call management systems
+    - Scoring pipelines or rule engines
+    - Configuration management or parameter stores
+    - Audit and change-log infrastructure
+  actors:
+    - Detection or alerting engineer
+    - Operations or on-call analyst
+    - Compliance or risk analyst
+    - Governance or system owner
+  constraints:
+    - Calibration changes must stay within pre-approved parameter bounds and never modify protected-floor values without explicit sign-off.
+    - Every parameter change must be recorded with the feedback signals and rationale that motivated it.
+    - The workflow must be able to roll back any calibration change quickly if downstream coverage degrades.
+    - Proposed changes that approach bounds or affect protected signals must be routed to human review before taking effect.
+  assumptions:
+    - Feedback data such as dismiss rates and override actions are available with enough volume to distinguish systematic bias from short-term noise.
+    - Parameter bounds and protected floors are maintained in a structured, versioned policy source that the calibration loop can read.
+    - The system surfacing signals can apply updated thresholds without a full redeployment cycle.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The pattern requires ongoing observation of signal quality metrics and operator feedback rather than one-time analysis.
+  - capability:
+      id: optimization
+      label: Optimization
+      source_vocabulary: capabilities
+    necessity: The core behavior is adjusting threshold parameters against competing goals such as false-positive reduction and coverage preservation.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Every proposed change must be validated against pre-approved bounds and protected floors before it can be applied.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Tracking parameter history, recent feedback trends, and prior calibration decisions is essential to avoid oscillation and maintain inspectability.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The loop needs safe fallback behavior when feedback data is sparse, contradictory, or when a proposed change would cross a bound that triggers human review.
+execution_architecture:
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: A single calibration agent can read outcome metrics, evaluate parameter candidates against bounds, apply within-bounds changes, and write the change record without requiring multi-agent coordination.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Changes that approach parameter bounds or affect protected floors are held pending human review, making human judgment a normal part of the calibration loop rather than a rare exception path.
+autonomy_profile:
+  level:
+    id: bounded-delegation
+    label: Bounded delegation
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Define and periodically review the pre-approved calibration bounds, protected floors, and the feedback-quality thresholds that must be met before any parameter move is allowed.
+    - Review pending packages assembled when a proposed change approaches or would cross an approved bound, and decide whether to extend the bound, accept the proposal within a narrower move, or hold the current setting.
+    - Audit the calibration change log on a regular cadence to confirm that parameter drift is improving coverage quality rather than gaming a local metric.
+  reversibility: Individual threshold changes can be rolled back quickly by restoring the previous configuration entry, making calibration changes highly reversible. Downstream signal fatigue or missed-detection patterns that accumulated while a miscalibrated threshold was active may take longer to recover.
+  escalation: Escalate when a proposed change would move a parameter outside its pre-approved bound, when feedback data quality is too low to justify any change, when rolling back a recent calibration does not restore expected coverage, or when protected-floor parameters are candidates for change.
+risk_governance:
+  level:
+    id: low
+    label: Low
+    source_vocabulary: risk-levels
+  failure_impact: Miscalibrated thresholds raise false-positive rates or reduce signal coverage, causing operator fatigue or delayed detection, but harm is usually localized, detectable through routine quality metrics, and correctable by reverting to a prior configuration.
+  approval_requirements:
+    - Parameter changes within pre-approved bounds can be applied by the calibration agent without additional sign-off.
+    - Changes that would move a parameter outside its approved range, lower a protected floor, or shift sensitivity by more than a defined maximum step require explicit human approval before taking effect.
+  auditability: Retain the outcome signals consulted, the parameter values considered and applied or deferred, the bounds checked, rollback events, and any escalation decisions so every calibration cycle is fully traceable.
+  privacy:
+    - Calibration feedback should be aggregated at the signal-class level and should not expose individual operator identities or case-specific content unless directly necessary for governance review.
+    - Avoid persisting raw alert content or operator notes in calibration history beyond what is needed to audit the parameter decision.
+  security:
+    - Restrict who can modify parameter bounds and protected floors; changes to the policy source that governs calibration scope must require privileged access and produce their own audit trail.
+    - Log all calibration changes and rollback actions so unauthorized threshold manipulation is detectable.
+  notes: Low-risk posture is appropriate because calibration changes are reversible configuration updates that do not trigger external actions, and failures degrade signal quality gradually rather than causing immediate irreversible harm.
+why_agentic:
+  - Effective calibration requires interpreting noisy, lagged feedback across many signal classes simultaneously rather than manually tuning one threshold at a time.
+  - The loop must decide whether observed dismiss rates reflect a true calibration need or transient conditions, and that judgment is more reliably made by a system that tracks recent context than by periodic human review alone.
+  - An agentic calibration loop can enforce bounds and route out-of-bounds proposals to human review consistently, reducing the risk of manual threshold drift between review cycles.
+failure_modes:
+  - mode: Calibration chases dismiss rate without checking coverage preservation
+    impact: False-positive rate falls but real signals begin to be missed, creating a coverage gap that is harder to detect than excessive noise.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Require the calibration loop to verify that missed-detection rates and signal volume remain stable before applying any sensitivity-reducing change.
+      - Alert governance owners when both dismiss rate and total surfaced signal volume fall together, which may indicate over-suppression.
+  - mode: Feedback data is too thin or too noisy to justify a parameter move
+    impact: The loop applies an unjustified change based on a short feedback window, causing threshold oscillation that erodes operator trust.
+    severity: low
+    detectability: high
+    mitigations:
+      - Require a minimum feedback sample size before any calibration change is considered.
+      - Fall back to the current configuration and queue a review request when evidence quality is below the minimum threshold.
+  - mode: A protected floor is inadvertently approached due to cumulative small moves
+    impact: A series of within-bounds incremental changes collectively push a threshold to near a protected limit, increasing the risk of a future bounds violation.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Track cumulative drift from the baseline configuration in addition to individual step size.
+      - Trigger a review when cumulative movement in one direction reaches a configurable fraction of the total allowed range.
+  - mode: Calibration bounds or protected floors are outdated after a system or policy change
+    impact: The loop continues calibrating against stale boundaries that no longer reflect current operational or regulatory requirements.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Version the policy source that defines bounds and floors with explicit effective dates.
+      - Trigger a policy-source review whenever the underlying detection system, scoring model, or governing regulation changes materially.
+evaluation:
+  success_metrics:
+    - Reduction in operator dismiss rate for surfaced signals without a corresponding increase in confirmed missed detections.
+    - Stability of threshold parameters over time, with calibration changes becoming smaller and less frequent as the system converges on well-calibrated values.
+    - Percentage of proposed calibration changes that remain within approved bounds and are applied without requiring human review.
+  quality_criteria:
+    - Each calibration change is traceable to specific outcome signals and is explainable in terms of feedback trends and bounds checked.
+    - Protected floors and approved bounds are never crossed autonomously, and all proposed violations are routed to human review correctly.
+    - Rollback from any miscalibration restores expected coverage within one calibration cycle.
+  robustness_checks:
+    - Simulate a sudden spike in unrelated infrastructure noise and verify the loop does not over-suppress sensitive signal classes.
+    - Test feedback data that is below the minimum sample threshold and confirm the loop holds the current configuration rather than making a speculative move.
+    - Introduce a cumulative drift scenario where many small moves approach a bound and confirm the review trigger fires correctly.
+  benchmark_notes: Evaluate calibration quality on both noise reduction and coverage preservation together; lower dismiss rates achieved by silencing real signal classes represent a failure mode, not improvement.
+implementation_notes:
+  orchestration_notes:
+    - Separate feedback collection, bound validation, change application, and audit-log writing so each stage can be inspected, replayed, or replaced independently.
+    - Keep the pending-review package and the applied-change record in the same audit store so governance owners see the full calibration history in one place.
+  integration_notes:
+    - Common implementations integrate alerting or detection platforms, configuration management systems, operator feedback stores, and a policy source that owns parameter bounds.
+    - Keep the pattern neutral about whether thresholds are numeric cutoffs, rule weights, or model operating points; the feedback-and-bounds loop applies across all of these.
+  deployment_notes:
+    - Start in recommendation-only mode with a human approving all proposed changes before moving to within-bounds autonomous application.
+    - Monitor both dismiss rates and confirmed-miss rates closely during the initial autonomous calibration period before relaxing review thresholds.
+  references:
+    - docs/patterns/optimize-adapt.md
+    - data/vocabularies/problem-structures.yaml
+    - data/vocabularies/risk-levels.yaml
+related_patterns:
+  - id: queue-prioritization-optimization
+    relationship: adjacent
+    notes: Queue ordering and threshold calibration are both feedback-driven adaptation loops, but one optimizes work sequence while the other optimizes detection sensitivity.
+  - id: risk-alert-triage
+    relationship: complement
+    notes: Downstream triage quality feeds back into threshold calibration; patterns that triage alerts well also generate the operator feedback this pattern relies on.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Calibrate anomaly-detection alert thresholds for a production monitoring pipeline using weekly on-call dismiss and escalation data, keeping sensitivity cutoffs within approved engineering-team bounds.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Adjust sensor-excursion detection thresholds for a cold-chain monitoring system using confirmed-alarm and false-positive history, bounded by regulatory minimum-sensitivity floors.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Tune risk-score cutoffs for a transaction-screening pipeline using analyst override patterns and confirmed-miss reports, with protected floors for regulated screening categories that cannot be lowered without legal sign-off.
+maturity: draft
+tags:
+  - optimize-adapt
+  - feedback-driven-optimization
+  - threshold-calibration
+  - bounded-delegation
+  - low-risk
+  - signal-quality

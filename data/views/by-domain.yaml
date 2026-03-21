@@ -37,10 +37,7 @@ domains:
     plan-coordinate-schedule: []
     recommend-decide-escalate: []
     execute-automate: []
-    optimize-adapt: []
-    human-agent-collaborative-work: []
-- domain:
-    id: finance
+    optimize-adapt: [adaptive-threshold-calibration]
     label: Finance
     source_vocabulary: domains
   pattern_families:
@@ -65,7 +62,7 @@ domains:
     plan-coordinate-schedule: []
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
     execute-automate: [browser-based-form-completion-with-approval-gates]
-    optimize-adapt: [queue-prioritization-optimization]
+    optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration]
     human-agent-collaborative-work: [analyst-copilot-loop]
 - domain:
     id: operations
@@ -79,7 +76,7 @@ domains:
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
     execute-automate: []
-    optimize-adapt: [queue-prioritization-optimization]
+    optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration]
     human-agent-collaborative-work: []
 - domain:
     id: research
