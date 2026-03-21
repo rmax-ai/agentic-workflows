@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-035456` is now in progress. The batch remains inside Phase 6 and is scoped to one compliance-domain `plan-coordinate-schedule` grounding linked to `calendar-conflict-coordination` so the family can close its last open domain slice without widening into new pattern, vocabulary, or schema work.
+Iteration `20260321-035456` is complete: it added one compliance-domain `plan-coordinate-schedule` instance linked to `calendar-conflict-coordination` via `control-remediation-sign-off-review-scheduling`. The next modest batch should stay inside Phase 6 and likely rebalance the still-thin research domain with one `execute-automate` grounding linked to `browser-based-form-completion-with-approval-gates`.
 
 ## Current phase
 
@@ -10,24 +10,24 @@ Iteration `20260321-035456` is now in progress. The batch remains inside Phase 6
 - Phase 3: navigation views are complete and reference canonical patterns in all nine top-level families
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
 - Phase 5: canonical seed coverage spans all nine top-level pattern families
-- Phase 6: grounded instances now cover fifty scenarios, with `transform-process` grounded across engineering, finance, compliance, operations, support, HR, and research, `investigate-reconcile-verify` grounded across engineering, finance, compliance, operations, and support, `monitor-detect-triage` grounded across engineering, finance, compliance, operations, and support, `recommend-decide-escalate` grounded across finance, compliance, operations, support, and HR, `execute-automate` grounded across finance, compliance, HR, operations, and support, `optimize-adapt` grounded across support, operations, and compliance, `human-agent-collaborative-work` grounded across engineering, research, compliance, support, operations, finance, and HR, and `plan-coordinate-schedule` now grounded across engineering, finance, operations, research, support, and HR
+- Phase 6: grounded instances now cover fifty-one scenarios, with `transform-process` grounded across engineering, finance, compliance, operations, support, HR, and research, `investigate-reconcile-verify` grounded across engineering, finance, compliance, operations, and support, `monitor-detect-triage` grounded across engineering, finance, compliance, operations, and support, `recommend-decide-escalate` grounded across finance, compliance, operations, support, and HR, `execute-automate` grounded across finance, compliance, HR, operations, and support, `optimize-adapt` grounded across support, operations, and compliance, `human-agent-collaborative-work` grounded across engineering, research, compliance, support, operations, finance, and HR, and `plan-coordinate-schedule` now grounded across engineering, finance, compliance, operations, research, support, and HR
 - Tooling baseline: uv-managed Python 3.14 helper workflow remains the validation path
 
 ## Ordered tasks
 
-1. Re-read `calendar-conflict-coordination`, the existing scheduling instances, and compliance-domain artifacts before authoring the next grounding.
-2. Author exactly one new compliance-domain instance linked to `calendar-conflict-coordination` so the next batch broadens `plan-coordinate-schedule`, which now spans engineering, finance, operations, research, support, and HR only.
-3. Keep the scenario anchored on bounded-delegation coordination with explicit stakeholder constraints, review-window limits, exception handling, and human-owned final commitments rather than drifting into recommendation, synthesis, or execution work.
-4. Prefer a compliance workflow such as regulatory response review scheduling, control-remediation sign-off coordination, policy exception board alignment, or audit evidence review planning where the main value is schedule construction across multiple stakeholders.
-5. Keep the content batch limited to this single scheduling example so coverage improves in a controlled, dependency-aware way.
+1. Re-read `browser-based-form-completion-with-approval-gates`, the existing execution instances, and research-domain artifacts before authoring the next grounding.
+2. Author exactly one new research-domain instance linked to `browser-based-form-completion-with-approval-gates` so the next batch broadens `execute-automate`, which still has open engineering and research slices.
+3. Keep the scenario anchored on approval-gated portal or browser execution with explicit prerequisites, human sign-off, reversible or auditable actions, and exception handling rather than drifting into planning, synthesis, or recommendation work.
+4. Prefer a research workflow such as an ethics amendment submission, benchmark dataset access request, export-controlled artifact registration, or publication-compliance portal filing where the main value is reliable form completion under approval constraints.
+5. Keep the content batch limited to this single research execution example so coverage improves in a controlled, dependency-aware way.
 6. After the next instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next dated iteration log so execution memory matches repository reality.
 7. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
 
 ## Iteration checkpoint
 
 - Timestamp: `20260321-035456`
-- Planned subagent scope: author one compliance-domain `calendar-conflict-coordination` grounding as the only content change in this iteration and commit it separately.
-- Planned orchestrator follow-up: refresh execution memory so the new compliance scheduling coverage is reflected in status, coverage tracking, the repository map, and the dated iteration log.
+- Completed subagent scope: authored `instances/compliance/control-remediation-sign-off-review-scheduling.md` as one compliance-domain `calendar-conflict-coordination` grounding change and committed it separately.
+- Completed orchestrator follow-up: refresh execution memory so the new compliance scheduling coverage is reflected in status, coverage tracking, the repository map, and the dated iteration log.
 
 ## Constraints
 
@@ -40,4 +40,4 @@ Iteration `20260321-035456` is now in progress. The batch remains inside Phase 6
 
 ## Expected outcome
 
-This iteration should add one compliance-domain `plan-coordinate-schedule` example, complete cross-domain grounding for one of the sparsest families, and leave the repository better balanced across low-risk coordination coverage after the `.agent/` memory refresh.
+The next iteration should add one research-domain `execute-automate` example, rebalance one of the thinnest domains with approval-gated execution coverage, and leave the repository better balanced after the `.agent/` memory refresh.

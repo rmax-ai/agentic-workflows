@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-plan-coordinate-schedule-research-complete
+repository_stage: phase-6-grounding-plan-coordinate-schedule-compliance-complete
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 50
+  instance_files: 51
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -55,7 +55,7 @@ pattern_counts_by_family:
 instance_counts_by_domain:
   engineering: 6
   finance: 8
-  compliance: 8
+  compliance: 9
   operations: 9
   research: 4
   support: 9
@@ -119,6 +119,7 @@ repo_reality:
     - instances/compliance/pharmacovigilance-follow-up-packet-to-safety-case-record-handoff.md
     - instances/compliance/regulatory-consumer-complaint-response-queue-reprioritization.md
     - instances/compliance/sanctions-screening-gap-root-cause-investigation.md
+    - instances/compliance/control-remediation-sign-off-review-scheduling.md
     - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
     - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
     - instances/support/customer-escalation-bridge-scheduling.md
@@ -146,14 +147,13 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and fifty grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and fifty-one grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
   - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open domain slices only if further cross-domain investigation coverage becomes worthwhile."
   - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open monitoring slices only if deeper cross-domain triage coverage becomes worthwhile."
   - "`recommend-decide-escalate` is now grounded across finance, compliance, operations, support, and HR, leaving engineering and research as the remaining open slices only if broader cross-domain recommendation depth becomes more valuable than shoring up coordination coverage."
-  - "`plan-coordinate-schedule` is now grounded across engineering, finance, operations, research, support, and HR, leaving compliance as the remaining open slice if broader coordination coverage remains the next rebalance priority."
   - "`execute-automate` is grounded across finance, compliance, HR, operations, and support, leaving engineering and research open if new approval-gated browser or portal execution cases become more valuable than coordination coverage."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-expand-plan-coordinate-schedule-compliance-grounding
-  summary: "Use the next small grounding batch to add one grounded `calendar-conflict-coordination` example in compliance, completing cross-domain grounding for the still-sparse `plan-coordinate-schedule` family without widening scope."
+  id: phase-6-expand-execute-automate-research-grounding
+  summary: "Use the next small grounding batch to add one grounded `browser-based-form-completion-with-approval-gates` example in research so a still-thin domain gains approval-gated execution coverage without widening scope."
