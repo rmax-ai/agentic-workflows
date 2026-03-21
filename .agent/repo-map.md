@@ -84,6 +84,7 @@
 - `instances/compliance/pharmacovigilance-follow-up-packet-to-safety-case-record-handoff.md` — grounded compliance transform case for turning regulated drug-safety follow-up packets into reviewable ICSR staging records with provenance and exception routing.
 - `instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md` — grounded support escalation case for mixed-initiative diagnosis, customer messaging, and explicit engineering/security handoff ownership.
 - `instances/support/customer-escalation-bridge-scheduling.md` — grounded support scheduling case for same-day customer escalation bridge coordination across support, engineering, customer success, and incident leadership.
+- `instances/support/enterprise-support-obligation-synthesis-for-severity-one-review.md` — grounded support synthesis case for assembling cited premium-support obligations and entitlement evidence before customer-facing Sev1 commitments or concession discussions.
 - `instances/hr/approved-payroll-status-change-submission.md` — grounded HR execution case for approval-gated payroll status changes in a browser-only portal.
 - `instances/hr/interview-panel-availability-coordination.md` — grounded HR scheduling case for recruiter-led final-round interview panel coordination under timezone, fairness, and SLA constraints.
 - `instances/finance/invoice-packet-to-payables-record-handoff.md` — grounded finance transformation case for converting heterogeneous invoice packets into ERP-ready payable records with provenance and exception routing.
