@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-035121` is complete: it added one research-domain `plan-coordinate-schedule` instance linked to `calendar-conflict-coordination` via `benchmark-study-publication-readiness-review-scheduling`. The next modest batch should stay inside Phase 6 and likely continue rebalancing that still-sparse family with one compliance-domain scheduling example.
+Iteration `20260321-035456` is now in progress. The batch remains inside Phase 6 and is scoped to one compliance-domain `plan-coordinate-schedule` grounding linked to `calendar-conflict-coordination` so the family can close its last open domain slice without widening into new pattern, vocabulary, or schema work.
 
 ## Current phase
 
@@ -25,9 +25,9 @@ Iteration `20260321-035121` is complete: it added one research-domain `plan-coor
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-035121`
-- Completed subagent scope: authored `instances/research/benchmark-study-publication-readiness-review-scheduling.md` as one research-domain `calendar-conflict-coordination` grounding change and committed it separately.
-- Completed orchestrator follow-up: refresh execution memory so the added research scheduling coverage is reflected in status, coverage tracking, and the repository map.
+- Timestamp: `20260321-035456`
+- Planned subagent scope: author one compliance-domain `calendar-conflict-coordination` grounding as the only content change in this iteration and commit it separately.
+- Planned orchestrator follow-up: refresh execution memory so the new compliance scheduling coverage is reflected in status, coverage tracking, the repository map, and the dated iteration log.
 
 ## Constraints
 
@@ -40,4 +40,4 @@ Iteration `20260321-035121` is complete: it added one research-domain `plan-coor
 
 ## Expected outcome
 
-The next iteration should add one compliance-domain `plan-coordinate-schedule` example, complete cross-domain grounding for one of the sparsest families, and leave the repository better balanced across low-risk coordination coverage after the `.agent/` memory refresh.
+This iteration should add one compliance-domain `plan-coordinate-schedule` example, complete cross-domain grounding for one of the sparsest families, and leave the repository better balanced across low-risk coordination coverage after the `.agent/` memory refresh.
