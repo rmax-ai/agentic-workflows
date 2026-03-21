@@ -36,7 +36,7 @@ dimensions:
     - critical
 matrices:
   pattern_family_x_domain:
-    gather-retrieve-synthesize: {engineering: partial, finance: covered, compliance: partial, operations: covered, research: covered, support: covered, hr: none}
+    gather-retrieve-synthesize: {engineering: partial, finance: covered, compliance: covered, operations: covered, research: covered, support: covered, hr: none}
     transform-process: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
     investigate-reconcile-verify: {engineering: covered, finance: covered, compliance: covered, operations: partial, research: none, support: partial, hr: none}
     monitor-detect-triage: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
@@ -77,5 +77,5 @@ summary:
     - "`plan-coordinate-schedule` now has covered operations, support, and HR cells after adding grounded customer-bridge and interview-panel coordination examples."
     - "`monitor-detect-triage` now has covered finance, compliance, and operations cells after adding pharmacovigilance safety-signal triage and cold-chain temperature excursion triage examples alongside the suspicious-wire finance anchor."
     - "`investigate-reconcile-verify` now has covered engineering, finance, and compliance cells after adding treasury cash-position discrepancy and sanctions-screening-gap root-cause investigation examples alongside the engineering incident anchor."
-    - "`gather-retrieve-synthesize` now has covered research, finance, operations, and support cells after adding debt-covenant quarter-close, conveyor-safety readiness, and enterprise-support obligations synthesis examples, but compliance remains only partial and HR remains open."
-    - The highest-leverage next gaps still look more like additional gather/synthesize slices than more investigation or monitoring coverage, because that family remains thinner and less evenly distributed than the now-broadened investigation and monitoring families, with compliance the clearest adjacent next step.
+    - "`gather-retrieve-synthesize` now has covered research, finance, compliance, operations, and support cells after adding debt-covenant quarter-close, conveyor-safety readiness, enterprise-support obligations, and cross-border data-transfer safeguard synthesis examples, leaving engineering partial and HR open."
+    - The highest-leverage next gaps still look more like one additional gather/synthesize slice than more investigation or monitoring coverage, because that family remains thinner and less evenly distributed than the now-broadened investigation and monitoring families, with HR and engineering the clearest adjacent next steps.
