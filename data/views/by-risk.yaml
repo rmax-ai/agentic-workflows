@@ -47,7 +47,7 @@ risk_levels:
     transform-process: [document-to-structured-data-handoff]
     investigate-reconcile-verify: []
     monitor-detect-triage: []
-    plan-coordinate-schedule: []
+    plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: []
     execute-automate: []
     optimize-adapt: [queue-prioritization-optimization]

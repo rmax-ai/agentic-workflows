@@ -83,7 +83,7 @@ families:
   - id: multi-party-coordination
     label: Multi-party coordination
     source_vocabulary: problem-structures
-  pattern_ids: [calendar-conflict-coordination]
+  pattern_ids: [calendar-conflict-coordination, schedule-adjustment-and-replanning]
 - family:
     id: recommend-decide-escalate
   path: patterns/recommend-decide-escalate

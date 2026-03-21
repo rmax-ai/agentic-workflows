@@ -48,7 +48,7 @@ autonomy_levels:
     transform-process: []
     investigate-reconcile-verify: [incident-root-cause-analysis]
     monitor-detect-triage: [critical-signal-corroboration-triage]
-    plan-coordinate-schedule: []
+    plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
     execute-automate: []
     optimize-adapt: []

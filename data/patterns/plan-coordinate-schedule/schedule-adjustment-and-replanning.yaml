@@ -1,0 +1,269 @@
+id: schedule-adjustment-and-replanning
+slug: schedule-adjustment-and-replanning
+name: Schedule adjustment and replanning
+summary: Recompute a governed schedule when dependencies, deadlines, or resource constraints shift so stakeholders receive an actionable revised plan without the workflow deciding policy outcomes or executing the work itself.
+pattern_family:
+  id: plan-coordinate-schedule
+  label: Plan / Coordinate / Schedule
+problem_structure:
+  id: constraint-aware-planning
+  label: Constraint-aware planning
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
+workflow_goal: Produce a revised schedule, dependency-aware sequencing rationale, and coordination-ready replanning packet after material changes invalidate the current plan, while stopping at plan handoff rather than recommendation, escalation, or execution.
+inputs:
+  - name: Baseline plan and schedule
+    description: The current approved plan, milestone sequence, dependency map, and committed schedule that may now require adjustment.
+    kind: plan-state
+    required: true
+    examples:
+      - Existing release-readiness review plan with milestone owners and due dates
+      - Published control-remediation review calendar with dependency-linked sign-off steps
+      - Benchmark publication schedule spanning analysis, review, and disclosure checkpoints
+  - name: Change triggers and updated constraints
+    description: New facts that force replanning, including deadline shifts, resource losses, dependency delays, policy constraints, or newly discovered blockers.
+    kind: change-set
+    required: true
+    examples:
+      - A required reviewer becomes unavailable during the planned sign-off window
+      - Upstream evidence generation slips and compresses the remaining schedule
+      - A policy freeze window or publication embargo narrows feasible dates
+  - name: Dependency and capacity state
+    description: Current task readiness, resource capacity, handoff status, and prerequisite completion signals needed to test revised schedule feasibility.
+    kind: state-snapshot
+    required: true
+    examples:
+      - Open engineering work items, release gates, and team capacity allocations
+      - Remediation tasks awaiting evidence before compliance review can begin
+      - Research analysis milestones still pending before publication-readiness review
+  - name: Planning priorities and guardrails
+    description: Hard constraints, soft preferences, service-level expectations, and replanning authority limits that govern what changes are acceptable.
+    kind: policy
+    required: true
+    examples:
+      - Do not move mandatory control reviews past quarter-close without explicit owner approval
+      - Prefer preserving external commitment dates over internal convenience when feasible
+      - Replanning may reorder review preparation tasks but may not launch downstream execution
+  - name: Stakeholder feedback and exception notes
+    description: Optional comments, approvals, or objections from coordinators and owners that shape which revised schedule is acceptable.
+    kind: response-set
+    required: false
+    examples:
+      - Engineering leads identify one milestone that can absorb delay without impacting release scope
+      - Compliance owners note a review window that cannot move because of filing obligations
+outputs:
+  - name: Revised schedule proposal
+    description: Updated milestone sequence, dates, and ownership plan showing how the workflow restored feasibility under current constraints.
+    kind: plan
+    required: true
+    examples:
+      - Rebased release-review calendar with new critical path and preserved decision checkpoints
+      - Adjusted remediation sign-off timeline that sequences evidence collection before approval review
+  - name: Replanning rationale and impact ledger
+    description: Structured explanation of constraint changes, trade-offs taken, blocked alternatives, and downstream dependencies affected by the revision.
+    kind: change-log
+    required: true
+    examples:
+      - Record showing which milestones moved, which remained fixed, and why
+      - Impact table identifying deadlines placed at risk by the new schedule
+  - name: Coordination-ready replanning packet
+    description: Handoff packet for human owners containing the revised plan, unresolved blockers, required approvals, and communication points for aligned rollout.
+    kind: schedule-packet
+    required: true
+    examples:
+      - Review packet for release managers and approvers summarizing the replanned readiness path
+      - Updated publication timeline packet prepared for study leads and disclosure reviewers
+  - name: Replanning audit log
+    description: Durable record of trigger events, schedule versions, human checkpoints, and constraint evaluations performed during replanning.
+    kind: audit-log
+    required: true
+    examples:
+      - Versioned log of replanning iterations and accepted schedule changes
+      - Record of who approved deadline exceptions or rejected alternative plans
+environment:
+  summary: Operates in coordination-heavy planning environments where published schedules can become invalid as dependencies shift, but teams still need a bounded, auditable replanning loop before any downstream commitments change.
+  systems:
+    - Project planning and milestone tracking systems
+    - Calendar and scheduling systems
+    - Workflow or ticketing systems
+    - Document or evidence repositories
+  actors:
+    - Planning owner or coordinator
+    - Domain leads and dependency owners
+    - Human approver or schedule authority
+    - Cross-functional stakeholders consuming the revised plan
+  constraints:
+    - Keep hard deadlines, required review checkpoints, and non-waivable policy windows explicit during replanning.
+    - Preserve lineage from the baseline plan to the revised schedule so stakeholders can inspect what changed and why.
+    - Stop at producing the revised plan and coordination packet; do not choose downstream policy outcomes or execute schedule changes automatically.
+    - Surface unresolved blockers and infeasible constraint combinations instead of hiding them inside an optimistic plan.
+  assumptions:
+    - The current plan, dependency state, and change triggers are available with enough fidelity to recompute feasibility.
+    - Human owners remain responsible for accepting the revised schedule and communicating consequential changes.
+    - Downstream execution systems treat the replanning packet as input rather than as authorization to act.
+capability_requirements:
+  - capability:
+      id: planning
+      label: Planning
+      source_vocabulary: capabilities
+    necessity: The core task is to rebuild a viable schedule that respects dependencies, deadlines, and ownership constraints after the original plan becomes stale.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Multiple teams, reviewers, and dependency owners must stay aligned as the schedule is revised and handed off.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Replanning quality depends on honoring non-waivable timing rules, authority boundaries, and priority guardrails while distinguishing them from softer preferences.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Dependency readiness, milestone status, and change-trigger accuracy must be checked so the revised schedule is not built on stale assumptions.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow must preserve baseline plans, changed constraints, rejected alternatives, and versioned replanning decisions across iterative updates.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow needs to read planning systems, calendars, and evidence stores while packaging the revised schedule for stakeholder review.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Separate dependency-refresh, constraint-checking, schedule-generation, and impact-packaging roles are often worth orchestrating so revised plans remain explainable under changing conditions.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human planning owners remain embedded in the normal loop because adopting the revised schedule and accepting trade-offs is a governed coordination step.
+autonomy_profile:
+  level:
+    id: recommendation-only
+    label: Recommendation only
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the replanning trigger, protected milestones, and acceptable trade-off rules before the workflow publishes a revised schedule proposal.
+    - Review the revised schedule, impact ledger, and unresolved blockers before adopting any consequential date or sequencing change.
+    - Approve material changes to priority rules, deadline exceptions, or replanning authority boundaries before they affect live coordination.
+  reversibility: Revised plans can be recalculated and communication can be corrected, but publishing a weak replanning result can still create avoidable rework, missed checkpoints, or downstream churn before errors are caught.
+  escalation: Escalate whenever no feasible in-policy schedule exists, deadline trade-offs would cross delegated boundaries, stakeholder conflict remains unresolved, or uncertainty about dependency readiness would make the revised plan misleading.
+risk_governance:
+  level:
+    id: moderate
+    label: Moderate
+    source_vocabulary: risk-levels
+  failure_impact: Poor replanning can cause missed commitments, localized control slippage, repeated coordination churn, or costly team rework, but harm is usually containable when changes stay within visible governance boundaries.
+  approval_requirements:
+    - A human planning owner must accept the revised schedule before consequential dates, milestone sequencing, or stakeholder commitments change.
+    - Policy or program owners must approve any deadline exception, frozen-window override, or replanning rule change that expands normal authority.
+  auditability: Preserve baseline and revised schedules, trigger events, dependency snapshots, trade-off rationale, rejected alternatives, and human approvals so teams can reconstruct why the plan changed and when the revised schedule became authoritative.
+  privacy:
+    - Limit exposed schedule details to role-relevant timing, dependency, and readiness information rather than broad copies of sensitive notes.
+    - Avoid placing confidential project or personnel context into widely distributed replanning summaries when narrower audience targeting is sufficient.
+  security:
+    - Use least-privilege access when reading planning systems, calendars, and supporting repositories.
+    - Log schedule-version changes, human overrides, and constraint exceptions so unauthorized replanning or hidden scope drift can be detected.
+  notes: Moderate-risk governance fits because the workflow shapes real cross-team commitments and control timing, yet it remains bounded at planning and coordination rather than downstream decision execution.
+why_agentic:
+  - The workflow must adapt the schedule as dependencies, availability, and policy windows change rather than applying one static project template.
+  - Effective replanning benefits from specialized roles that refresh state, test feasibility, and package impacts while preserving one coherent planning record.
+  - Safe performance depends on recognizing when uncertainty or infeasibility should remain visible in the plan instead of being hidden behind an apparently clean schedule.
+failure_modes:
+  - mode: The revised schedule is built on stale dependency or readiness data
+    impact: Teams commit to dates that are already infeasible, leading to avoidable churn and follow-on replanning.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Revalidate dependency status and milestone readiness immediately before publishing the revised plan.
+      - Preserve freshness timestamps for the state used in each replanning run.
+  - mode: Soft preferences override hard deadlines or policy windows
+    impact: The workflow produces a schedule that appears coordinated but violates a non-waivable commitment or review requirement.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Encode hard constraints separately from optimizable preferences and block plans that fail them.
+      - Require human review for any candidate plan that depends on deadline exceptions or policy overrides.
+  - mode: Frequent small changes create destabilizing schedule churn
+    impact: Stakeholders lose trust in the planning loop and spend more time reacting to updates than executing against a stable plan.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Track change thresholds and prefer batching low-impact adjustments when policy allows.
+      - Include stability and communication cost in plan-quality evaluation, not just nominal feasibility.
+  - mode: The workflow drifts into recommendation or execution beyond the planning boundary
+    impact: Family boundaries blur and downstream commitments may change without the intended human checkpoint.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Keep outputs limited to revised schedules, impact ledgers, replanning packets, and audit records.
+      - Separate downstream approval, escalation, and execution tooling from the replanning workflow.
+evaluation:
+  success_metrics:
+    - Percentage of replanning events resolved with an accepted revised schedule without full manual rebuild.
+    - Time from material change trigger to delivery of a coordination-ready revised plan.
+    - Rate of adopted revised schedules that do not require immediate corrective replanning because of missed hard constraints.
+  quality_criteria:
+    - The revised plan clearly identifies what changed, what stayed fixed, and which constraints or trade-offs drove the new schedule.
+    - Unresolved blockers, deadline risks, and authority limits remain visible enough for human owners to judge whether adoption is appropriate.
+    - The replanning packet stays bounded at plan handoff and coordination, not policy selection or operational execution.
+  robustness_checks:
+    - Test with simultaneous dependency slips and reviewer unavailability to verify the workflow recomputes feasibility rather than patching one conflict at a time.
+    - Test infeasible schedules and ensure the workflow returns an explicit escalation condition instead of a cosmetically complete plan.
+    - Test repeated small trigger events to confirm the workflow balances responsiveness against avoidable schedule churn.
+  benchmark_notes: Evaluate schedule quality together with stability, transparency, and stakeholder trust; a faster replanning loop is not a success if it routinely produces fragile plans.
+implementation_notes:
+  orchestration_notes:
+    - Keep trigger intake, state refresh, feasibility analysis, schedule generation, and human review as explicit stages over shared replanning state.
+    - Preserve a clean handoff boundary so downstream approval, escalation, or execution workflows only begin after humans accept the revised plan.
+  integration_notes:
+    - Common implementations integrate project trackers, calendars, dependency management tools, workflow systems, and evidence repositories.
+    - Keep the pattern neutral about specific PM suites, calendar vendors, or program-management platforms.
+  deployment_notes:
+    - Start with planning loops where schedule drift is common and current replanning is manually expensive but still human-governed.
+    - Monitor override rates, infeasible-plan frequency, and replanning churn to ensure the workflow improves coordination rather than amplifying instability.
+  references:
+    - docs/patterns/plan-coordinate-schedule.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: calendar-conflict-coordination
+    relationship: broader-than
+    notes: Calendar conflict coordination handles narrower meeting-slot alignment, while this pattern addresses broader dependency-aware schedule revision after plans materially change.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Replan a release-readiness review sequence after upstream testing slips and key approver availability changes compress the original schedule.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Adjust a control-remediation sign-off schedule when evidence collection delays threaten quarter-close review checkpoints.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Rebase a benchmark-study publication-readiness schedule when analysis dependencies and disclosure-review windows shift.
+maturity: draft
+tags:
+  - plan-coordinate-schedule
+  - replanning
+  - dependency-aware-scheduling
+  - moderate-risk
+  - orchestrated-multi-agent
