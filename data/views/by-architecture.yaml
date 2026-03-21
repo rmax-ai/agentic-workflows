@@ -39,6 +39,7 @@ architectures:
     recommend-decide-escalate: [deal-desk-recommendation-support, control-requirement-attestation-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration]
+    human-agent-collaborative-work: [analyst-copilot-loop, shared-workbench-orchestration]
 - architecture:
     id: orchestrated-multi-agent
     label: Orchestrated multi-agent
@@ -66,7 +67,7 @@ architectures:
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing, readiness-gate-disposition-recommendation, control-requirement-attestation-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: [adaptive-threshold-calibration]
-    human-agent-collaborative-work: [analyst-copilot-loop, approval-centered-collaboration]
+    human-agent-collaborative-work: [analyst-copilot-loop, approval-centered-collaboration, shared-workbench-orchestration]
 - architecture:
     id: event-driven-monitoring
     label: Event-driven monitoring
@@ -80,7 +81,7 @@ architectures:
     recommend-decide-escalate: [readiness-gate-disposition-recommendation]
     execute-automate: [workflow-hand-off-and-completion]
     optimize-adapt: [queue-prioritization-optimization]
-    human-agent-collaborative-work: []
+    human-agent-collaborative-work: [shared-workbench-orchestration]
 - architecture:
     id: approval-gated-execution
     label: Approval-gated execution

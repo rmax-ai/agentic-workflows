@@ -1,0 +1,269 @@
+id: shared-workbench-orchestration
+slug: shared-workbench-orchestration
+name: Shared workbench orchestration
+summary: Structure low-risk human-agent collaboration around proactive upkeep of a bounded internal workbench so routine edits, source refreshes, and unresolved questions stay synchronized without turning the loop into broad drafting, recommendation, approval, or execution.
+pattern_family:
+  id: human-agent-collaborative-work
+  label: Human-agent collaborative work
+problem_structure:
+  id: human-agent-collaboration
+  label: Human-agent collaboration
+  source_vocabulary: problem-structures
+domain:
+  - id: research
+    label: Research
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+workflow_goal: Keep a bounded internal artifact current, inspectable, and easy to resume as humans and agents co-maintain notes, evidence links, status fields, and open questions across many small updates, while stopping short of recommendation, approval adjudication, or outward execution.
+inputs:
+  - name: Shared workbench artifact and template
+    description: The internal worksheet, tracker, note board, or staging artifact whose structure, allowed fields, and expected sections define what upkeep is in scope.
+    kind: workbench
+    required: true
+    examples:
+      - Benchmark evidence matrix with section owners, run links, caveat flags, and open methodology questions
+      - Support workaround staging board with draft steps, product notes, reviewer comments, and publication blockers
+  - name: Source updates and collaborator edits
+    description: New comments, linked records, source revisions, field changes, and lightweight human edits that should be folded into the shared workbench without losing provenance or ownership.
+    kind: update-stream
+    required: true
+    examples:
+      - Reviewer note adds one missing benchmark run id and marks a caveat as still unresolved
+      - Product support engineer updates one workaround step and attaches a new diagnostic screenshot
+  - name: Upkeep rules and boundary policies
+    description: The rules describing which sections the agent may normalize or refresh automatically, what confidence checks are required, and which changes must stay pending for human review.
+    kind: policy
+    required: true
+    examples:
+      - The agent may reorder checklist items, refresh linked evidence metadata, and summarize duplicate comments, but cannot invent new conclusions
+      - Internal staging notes may be updated automatically, but anything that looks like a publishable customer statement must remain marked for human approval
+  - name: Prior workbench state
+    description: Existing section status, unresolved questions, accepted wording, and prior change history used to preserve continuity across repeated upkeep cycles.
+    kind: workbench-state
+    required: false
+    examples:
+      - Earlier evidence matrix revision with one accepted benchmark caveat and two still-open reviewer questions
+      - Previous article-staging snapshot showing which draft steps were human-approved and which comments were deferred
+outputs:
+  - name: Maintained shared workbench artifact
+    description: The updated internal artifact with normalized structure, refreshed source links, preserved ownership markers, and clearly bounded edits that keep the workspace usable.
+    kind: workbench
+    required: true
+    examples:
+      - Benchmark evidence board refreshed with current run links, deduplicated reviewer notes, and explicit unresolved methodology questions
+      - Support article staging board updated with normalized troubleshooting steps, linked diagnostics, and section-level reviewer ownership
+  - name: Upkeep and provenance ledger
+    description: Structured record of what changed, which source or human edit caused each update, what was left untouched, and where the workflow paused for review.
+    kind: audit-log
+    required: true
+    examples:
+      - Ledger showing one stale benchmark citation was replaced, two duplicate comments were merged, and one interpretation-heavy note was held for analyst review
+      - Change trace linking article-step edits to product comments, screenshot updates, and a held publication-risk note
+  - name: Open-questions and hold-state register
+    description: Explicit list of unresolved conflicts, missing sources, blocked sections, or boundary-triggering edits that require human follow-up before the workbench can advance.
+    kind: handoff-record
+    required: true
+    examples:
+      - Register showing one benchmark anomaly still needs human interpretation before it can move from caveat to accepted note
+      - Hold-state list marking a customer-facing wording suggestion as out of scope for automatic workbench upkeep
+environment:
+  summary: Operates in low-risk internal collaboration surfaces where the reusable problem is keeping a shared working artifact synchronized and inspectable as people and agents make many small changes, not producing a final external deliverable or adjudicating decisions.
+  systems:
+    - Shared workbench, board, or staged-draft interface with version history
+    - Source systems or document stores linked from the workbench
+    - Comment, annotation, or review channels feeding lightweight updates into the artifact
+    - Audit and revision history storage for workbench changes
+  actors:
+    - Workbench owner or coordinator
+    - Human collaborators supplying edits, notes, or source links
+    - Agent maintaining bounded artifact structure and state
+  constraints:
+    - Keep the workflow bounded at internal workbench upkeep rather than broad drafting, recommendation packaging, approval readiness, or downstream execution.
+    - Preserve accepted human wording, ownership markers, and unresolved disagreements instead of silently rewriting them into cleaner but less faithful content.
+    - Revalidate linked sources, status markers, and section placement before updating the artifact so stale or mismatched context is not carried forward.
+    - Make boundary-triggering changes explicit when the next requested edit would turn the internal workbench into an external communication, formal recommendation, or approval packet.
+  assumptions:
+    - The shared artifact is internal and reversible enough that most upkeep mistakes create localized rework rather than major external harm.
+    - Source links, comments, and prior revisions expose enough metadata to let the agent refresh the workbench without guessing hidden context.
+    - Humans remain available to resolve ambiguous merges, interpretation-heavy content, and any request to promote the artifact into a more consequential downstream workflow.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: Useful upkeep often begins when comments, source links, or workbench fields change, so the workflow needs to notice bounded updates instead of waiting for a full manual restart.
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The agent must fetch linked records, prior revisions, and referenced artifacts before it can refresh fields or reconcile small edits in the workbench.
+  - capability:
+      id: transformation
+      label: Transformation
+      source_vocabulary: capabilities
+    necessity: The core task is normalizing notes, field values, section structure, and lightweight artifacts into a cleaner shared workbench without inventing new substantive conclusions.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Shared workbench upkeep depends on keeping ownership, open questions, blocked sections, and handoff expectations synchronized across people and agent actions.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Repeated upkeep cycles need durable state about accepted wording, prior holds, unresolved conflicts, and what changed last time so the artifact remains resumable.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: The workflow must check source freshness, comment applicability, and section placement before refreshing the workbench so stale or misthreaded edits do not silently persist.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The pattern commonly reads and updates shared boards, note systems, document stores, and comment surfaces through tools rather than text-only reasoning.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Upkeep rules define which edits can be applied automatically, which content must remain internal, and which changes should stop for human review.
+execution_architecture:
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: Shared workbench upkeep is often triggered by comments, linked-source changes, or section-state updates that should prompt a refresh cycle as they arrive.
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: One bounded agent can usually reconcile lightweight edits, refresh source links, normalize structure, and update the ledger without requiring multi-agent specialization.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Humans remain a normal part of the workflow because ambiguous merges, interpretation-heavy notes, and any promotion beyond internal upkeep require accountable review.
+autonomy_profile:
+  level:
+    id: bounded-delegation
+    label: Bounded delegation
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Define the allowed workbench fields, source boundaries, automatic normalization rules, and hold conditions before delegated upkeep begins.
+    - Review conflicts, interpretation-heavy notes, or edits that would move the artifact toward external communication, recommendation, or approval packaging.
+    - Periodically sample the upkeep ledger and accepted-versus-held changes to confirm the workflow still preserves human intent and stays inside its low-risk boundary.
+  reversibility: Most workbench updates are easy to revise, replay, or roll back because the artifact remains internal and the workflow records what changed. Poor upkeep can still waste collaborator time, hide nuance, or propagate stale internal context until someone corrects the board.
+  escalation: Escalate when sources conflict materially, accepted human wording would be overwritten, the workbench starts requiring substantive interpretation instead of upkeep, or a requested change would publish, recommend, approve, or execute something beyond the internal artifact.
+risk_governance:
+  level:
+    id: low
+    label: Low
+    source_vocabulary: risk-levels
+  failure_impact: Mistakes usually create localized confusion, stale notes, duplicated cleanup work, or reduced trust in the workbench, but harm is generally reversible and inexpensive to correct because the pattern stays inside internal artifact upkeep rather than external or decision-bearing action.
+  approval_requirements:
+    - Case-by-case approval is not required for in-scope workbench refreshes that stay within approved templates, source boundaries, and hold rules.
+    - Human approval is required before the maintained artifact is promoted into a publishable brief, recommendation, approval packet, external message, or any downstream action workflow.
+  auditability: Preserve triggering updates, source versions, accepted and held edits, ownership changes, section moves, policy version, and human overrides so reviewers can reconstruct how the workbench evolved.
+  privacy:
+    - Keep copied content to the minimum needed for internal upkeep and prefer links or narrow excerpts over wholesale duplication of sensitive source material.
+    - Respect role-based access and workspace-retention rules so internal artifacts do not become a shadow archive of customer, employee, or operational data.
+  security:
+    - Limit agent write access to the bounded internal workbench and its ledger rather than allowing publication or system-of-record updates.
+    - Log rule changes, human overrides, and repeated hold conditions so covert expansion of the upkeep workflow is detectable.
+  notes: Low risk fits because the pattern focuses on reversible internal artifact maintenance, uses explicit hold points at boundary crossings, and does not by itself create recommendations, approvals, or external commitments.
+why_agentic:
+  - Useful upkeep requires deciding which new comments, source changes, and field updates actually warrant refreshing the shared artifact and how they should be incorporated without losing prior context.
+  - The workflow must preserve evolving state about accepted wording, unresolved issues, ownership, and held edits across many small human and source-driven changes.
+  - Safe performance depends on recognizing when a requested update is still internal workbench maintenance and when it should stop for human handling or hand off to a more consequential pattern.
+failure_modes:
+  - mode: The agent overwrites accepted human wording or collapses nuanced notes into a cleaner but less faithful update
+    impact: Collaborators lose trust in the workbench and may act on an internal artifact that no longer reflects the intended nuance or ownership boundaries.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Preserve accepted text and ownership labels separately from proposed normalization edits.
+      - Require held-review state for updates that materially rewrite interpretation-heavy or externally sensitive language.
+  - mode: Stale or mismatched source links are carried forward into the refreshed artifact
+    impact: The workbench appears current even though linked evidence, screenshots, or source identifiers no longer support the maintained notes.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Revalidate linked source identifiers, timestamps, and section mappings before updating the artifact.
+      - Record unresolved source mismatches in the hold-state register rather than keeping optimistic placeholders.
+  - mode: Automatic upkeep expands into unbounded drafting or recommendation behavior
+    impact: A low-risk maintenance loop starts behaving like a broader copilot or decision-support workflow without the right controls.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Keep outputs limited to maintained internal artifacts, change ledgers, and explicit hold-state records.
+      - Escalate when edits would add new conclusions, ranked options, approval posture, or outbound messaging.
+  - mode: Internal workbench content is mistaken for approved external or decision-ready material
+    impact: Downstream users may over-trust a staging artifact whose contents were only meant to keep internal collaboration synchronized.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Mark the artifact clearly as internal working state and preserve visible hold markers on non-approved sections.
+      - Require explicit human promotion before any workbench content feeds publication, recommendation, approval, or execution workflows.
+evaluation:
+  success_metrics:
+    - Percentage of in-scope workbench updates that keep source links, ownership markers, and unresolved questions synchronized without manual reconstruction.
+    - Reviewer correction rate for automatically maintained sections, status fields, or deduplicated comments in sampled workbench revisions.
+    - Rate at which boundary-triggering edits are held for human review instead of being silently folded into the internal artifact.
+  quality_criteria:
+    - The maintained workbench remains easy to inspect, resume, and audit because accepted text, proposed edits, source provenance, and open questions stay explicit.
+    - Automatic upkeep improves freshness and readability without inventing new conclusions or flattening unresolved disagreement.
+    - The workflow remains bounded at internal artifact refinement and does not blur into recommendation, approval, publication, or execution.
+  robustness_checks:
+    - Test conflicting human edits and verify the workflow preserves a hold state instead of pretending the conflict is resolved.
+    - Test stale linked evidence and confirm the workbench records a blocked section or open question rather than carrying forward unsupported content.
+    - Test a request for external-ready wording and ensure the workflow stops at a marked hold boundary rather than promoting the artifact automatically.
+  benchmark_notes: Evaluate the pattern on freshness, resume-ability, and boundary discipline together; faster cleanup is not a win if the maintained workbench obscures authorship, provenance, or unresolved questions.
+implementation_notes:
+  orchestration_notes:
+    - Keep change detection, source refresh, structure normalization, hold-state evaluation, and ledger writing as explicit stages over one durable workbench record.
+    - Preserve accepted content, held edits, and section ownership as first-class state instead of burying them in freeform revision chatter.
+  integration_notes:
+    - Common implementations connect shared workbench tools to comment streams, document stores, trackers, and internal knowledge sources.
+    - Keep the pattern neutral about specific note-taking apps, collaborative docs, issue trackers, or knowledge-work surfaces.
+  deployment_notes:
+    - Start with narrow internal artifacts where structure drift and stale links waste time but mistakes remain cheap to correct.
+    - Review repeated hold reasons and manual workarounds early because they often reveal either scope creep or missing template rules.
+  references:
+    - docs/patterns/human-agent-collaborative-work.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: analyst-copilot-loop
+    relationship: more-bounded-variant-of
+    notes: Both patterns rely on mixed-initiative collaboration around a shared artifact, but this one stays narrowly focused on internal workbench upkeep rather than broader drafting, interpretation, and human-agent co-analysis.
+  - id: change-triggered-context-briefing
+    relationship: contrasts-with
+    notes: Both may react to source changes, but this pattern keeps a mutable internal workspace synchronized over time instead of producing a one-shot informational digest.
+example_domains:
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Keep a benchmark evidence matrix current as analysts, reviewers, and experiment systems add new run links, caveat notes, and unresolved methodology questions before any board-facing memo is assembled.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Maintain a shared rollout caveat board for a warehouse rules change so site leads, operations owners, and the agent can keep waivers, blocked sections, and source references synchronized without assigning work.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Keep a workaround-article staging board aligned as support leads, product engineers, and the agent refine internal steps, screenshots, and reviewer notes before publication is even considered.
+maturity: draft
+tags:
+  - human-agent-collaborative-work
+  - human-agent-collaboration
+  - shared-workbench
+  - bounded-delegation
+  - low-risk
+  - event-driven-collaboration

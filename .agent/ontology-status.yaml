@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 24
-  instance_files: 87
+  pattern_files: 25
+  instance_files: 90
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -54,14 +54,14 @@ pattern_counts_by_family:
   recommend-decide-escalate: 4
   execute-automate: 3
   optimize-adapt: 2
-  human-agent-collaborative-work: 2
+  human-agent-collaborative-work: 3
 instance_counts_by_domain:
   engineering: 14
   finance: 12
   compliance: 11
-  operations: 12
-  research: 13
-  support: 13
+  operations: 13
+  research: 14
+  support: 14
   hr: 12
 repo_reality:
   available_ontology_assets:
@@ -106,8 +106,10 @@ repo_reality:
     - data/patterns/optimize-adapt/adaptive-threshold-calibration.yaml
     - data/patterns/human-agent-collaborative-work/analyst-copilot-loop.yaml
     - data/patterns/human-agent-collaborative-work/approval-centered-collaboration.yaml
+    - data/patterns/human-agent-collaborative-work/shared-workbench-orchestration.yaml
     - instances/research/regulatory-obligation-synthesis-for-data-retention-review.md
     - instances/research/model-serving-platform-benchmark-briefing-copilot-loop.md
+    - instances/research/model-serving-benchmark-evidence-matrix-shared-workbench-upkeep.md
     - instances/research/benchmark-study-artifact-packet-to-research-review-intake-record-handoff.md
     - instances/research/benchmark-study-publication-readiness-review-scheduling.md
     - instances/research/approved-human-subjects-ethics-amendment-portal-submission.md
@@ -150,6 +152,7 @@ repo_reality:
     - instances/operations/field-service-dispatch-queue-reprioritization.md
     - instances/operations/conveyor-safety-bulletin-synthesis-for-network-readiness-review.md
     - instances/operations/warehouse-slotting-rule-change-digest-for-shift-supervisor-briefing.md
+    - instances/operations/warehouse-slotting-rollout-caveat-board-shared-workbench-upkeep.md
     - instances/operations/distribution-sorter-misroute-root-cause-investigation.md
     - instances/operations/supplier-labeling-deviation-remediation-brief-copilot-loop.md
     - instances/operations/network-fuel-system-test-deferral-exception-package-readiness-loop.md
@@ -168,6 +171,7 @@ repo_reality:
     - instances/support/customer-escalation-bridge-scheduling.md
     - instances/support/enterprise-support-obligation-synthesis-for-severity-one-review.md
     - instances/support/premium-support-escalation-runbook-change-digest-for-duty-manager-briefing.md
+    - instances/support/premium-support-workaround-article-staging-board-shared-workbench-upkeep.md
     - instances/support/enterprise-outage-evidence-packet-to-support-escalation-record-handoff.md
     - instances/support/enterprise-security-incident-remediation-credit-package-readiness-loop.md
     - instances/support/enterprise-support-severity-drift-anomaly-review.md
@@ -201,13 +205,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty-four canonical patterns across all nine top-level families, and eighty-seven grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty-five canonical patterns across all nine top-level families, and ninety grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`claimed-state-verification` now gives `investigate-reconcile-verify` a third canonical pattern plus representative `evidence-backed-verification`, `low` risk, and `event-driven-monitoring` coverage while staying bounded at confirming or disproving low-stakes claimed states rather than repairing records, diagnosing causes, or propagating downstream completion."
-    - "`investigate-reconcile-verify` now has canonical pattern coverage in engineering, finance, compliance, operations, research, support, and HR, and it now spans `tool-using-single-agent`, `orchestrated-multi-agent`, `human-in-the-loop`, and `event-driven-monitoring` architectures without drifting into approval-gated execution."
-    - "The derived autonomy and risk browse views are now realigned to canonical metadata for `anomaly-detection-review`, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
-    - "`human-agent-collaborative-work` still lacks a low-risk canonical anchor even though the family already spans moderate and high risk across all modeled domains, making that family a strong next refinement candidate."
+    - "`shared-workbench-orchestration` now gives `human-agent-collaborative-work` a third canonical pattern plus representative `low` risk, `bounded-delegation`, and `event-driven-monitoring` coverage while staying bounded at internal workbench upkeep rather than synthesis-only drafting, approval readiness, or downstream execution."
+    - "`human-agent-collaborative-work` now has canonical pattern coverage in engineering, finance, compliance, operations, research, support, and HR, and it now spans `tool-using-single-agent`, `orchestrated-multi-agent`, `human-in-the-loop`, and `event-driven-monitoring` architectures without drifting into approval-gated execution."
+    - "The derived architecture, autonomy, and risk browse views are now realigned to canonical collaboration metadata, including the existing `analyst-copilot-loop` tool-using slice and the new low-risk shared-workbench anchor, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
     - "All nine top-level families still have at least two canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps are narrower family-specific governance slices rather than missing global scaffolding."
 next_action:
-  id: phase-7-low-risk-collaboration-refinement
-  summary: "Use the next iteration to add one low-risk `human-agent-collaborative-work` pattern that fills the family's open low-risk slice while staying bounded at shared artifact refinement or review collaboration rather than synthesis-only drafting, recommendation packaging, or approval adjudication."
+  id: phase-7-high-risk-transform-refinement
+  summary: "Use the next iteration to add one more governance-sensitive `transform-process` pattern that extends the family beyond low- and moderate-risk representation change while staying bounded at structured handoff, governed lossiness, or sensitive normalization rather than recommendation, approval, or execution."

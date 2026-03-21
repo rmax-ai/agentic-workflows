@@ -37,7 +37,7 @@ risk_levels:
     recommend-decide-escalate: [control-requirement-attestation-recommendation]
     execute-automate: [workflow-hand-off-and-completion]
     optimize-adapt: [adaptive-threshold-calibration]
-    human-agent-collaborative-work: []
+    human-agent-collaborative-work: [shared-workbench-orchestration]
 - risk_level:
     id: moderate
     label: Moderate

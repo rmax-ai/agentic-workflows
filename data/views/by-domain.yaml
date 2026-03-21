@@ -80,7 +80,7 @@ domains:
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
     execute-automate: [exception-aware-task-execution]
     optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration]
-    human-agent-collaborative-work: [approval-centered-collaboration]
+    human-agent-collaborative-work: [approval-centered-collaboration, shared-workbench-orchestration]
 - domain:
     id: research
     label: Research
@@ -94,7 +94,7 @@ domains:
     recommend-decide-escalate: [readiness-gate-disposition-recommendation]
     execute-automate: [workflow-hand-off-and-completion]
     optimize-adapt: []
-    human-agent-collaborative-work: [analyst-copilot-loop]
+    human-agent-collaborative-work: [analyst-copilot-loop, shared-workbench-orchestration]
 - domain:
     id: support
     label: Support
@@ -108,7 +108,7 @@ domains:
     recommend-decide-escalate: [policy-constrained-escalation-routing]
     execute-automate: [exception-aware-task-execution]
     optimize-adapt: [queue-prioritization-optimization]
-    human-agent-collaborative-work: [analyst-copilot-loop]
+    human-agent-collaborative-work: [analyst-copilot-loop, shared-workbench-orchestration]
 - domain:
     id: hr
     label: HR
