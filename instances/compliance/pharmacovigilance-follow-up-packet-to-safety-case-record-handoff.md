@@ -12,6 +12,25 @@ Compliance.
 
 A drug safety operations team receives a follow-up packet for a serious adverse event involving a hospital patient who was re-admitted after using an infusion therapy. The source packet includes a faxed MedWatch form, an email from the treating physician, scanned discharge notes, product lot photographs, and an internal follow-up questionnaire completed by the field safety specialist. Before any regulator gateway submission can be prepared, the intake workflow must transform the packet into a structured safety case record with the required ICSR staging fields for reporter type, suspect product, event terms, onset dates, seriousness criteria, patient attributes, lot references, and expectedness flags while preserving provenance, uncertainty, and unresolved contradictions.
 
+```mermaid
+flowchart TD
+    A["Receive follow-up packet<br>MedWatch fax, physician email, discharge notes, lot photos, and follow-up questionnaire"]
+    B["Run OCR and document parsing<br>capture source spans for consequential safety facts"]
+    C["Populate staged ICSR fields<br>reporter, product, event terms, onset, seriousness, patient, lot, and expectedness"]
+    D{"Any minimum-case, channel, or contradiction issue detected<br>or would completion require unsupported inference?"}
+    E["Place case on safety exception hold<br>for medical review, coding review, or data-entry correction"]
+    F{"Do schema-required fields, provenance, and uncertainty markers<br>support a reviewable handoff package?"}
+    G["Create structured safety case record<br>with transformation trace and reference-data versions"]
+    H["Stop at staged case handoff<br>submission readiness stays with downstream human reviewers"]
+
+    A --> B --> C --> D
+    D --> E
+    E --> B
+    D --> F
+    F --> E
+    F --> G --> H
+```
+
 ## Target systems / source systems
 
 - Pharmacovigilance case-management or ICSR staging system with a versioned intake schema for required safety fields
