@@ -12,6 +12,18 @@ Engineering.
 
 A platform engineering review workflow has already prepared one exact recommendation packet revision for a managed database major-version upgrade exception. The packet narrows the bounded options to defer the upgrade, approve one time-boxed waiver with compensating controls, or escalate to executive risk review, and it records why broader rollout paths are blocked. Before that exact packet revision can enter the restricted architecture board decision lane, a named release-governance owner must approve the lane scope, expiry window, and manifest binding so board members receive the reviewed recommendation artifact rather than a stale or broadened copy. The workflow stops at governed release of that packet revision; it does not decide whether the waiver is granted, schedule the upgrade, or execute any production change.
 
+```mermaid
+flowchart TD
+    start["Exact database-upgrade<br>recommendation packet revision ready"] --> verify{"Packet hash, bounded options,<br>and blocked rollout paths<br>still match?"}
+    verify -->|"No"| hold["Hold packet revision<br>for manual follow-up<br>or supersession"]
+    verify -->|"Yes"| scope{"Board lane scope, expiry window,<br>and manifest binding<br>still valid?"}
+    scope -->|"No"| hold
+    scope -->|"Yes"| approve{"Named release-governance owner<br>approves bounded board release?"}
+    approve -->|"No"| hold
+    approve -->|"Yes"| release["Release exact packet revision<br>to architecture board lane<br>with defer / waiver / escalate options"]
+    release --> record["Record handoff and block forwarding<br>outside approved board audience"]
+```
+
 ## Target systems / source systems
 
 - Architecture-exception workspace holding the current recommendation packet revision, bounded option set, blocked-path notes, and superseded drafts
