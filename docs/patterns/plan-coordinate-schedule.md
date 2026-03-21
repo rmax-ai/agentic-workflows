@@ -4,6 +4,25 @@
 
 This family covers workflows that construct viable plans, maintain coordination across actors, or keep schedules aligned as conditions change. It is the main home for structured sequencing under constraints and dependency management.
 
+```mermaid
+flowchart TD
+    start["Change, dependency,<br>or coordination need"]
+    collect["Collect constraints,<br>dependencies, and timing"]
+    compose["Build or refresh<br>plan and schedule"]
+    align{"Conflicts or changes<br>need coordination?"}
+    sync["Coordinate actors,<br>holds, and checkpoints"]
+    output["Produce workable<br>plan or schedule"]
+    stop["Stop before recommendation<br>or execution"]
+
+    start --> collect
+    collect --> compose
+    compose --> align
+    align -->|"Yes"| sync
+    align -->|"No"| output
+    sync --> output
+    output --> stop
+```
+
 ## What belongs in this family
 
 Use this family for patterns that:

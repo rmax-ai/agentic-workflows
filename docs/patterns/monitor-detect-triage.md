@@ -4,6 +4,27 @@
 
 This family covers workflows that watch streams of events, identify notable conditions, and decide what deserves attention first. Its focus is continuous awareness, prioritization, and bounded visibility management rather than deep root-cause analysis or final resolution.
 
+```mermaid
+flowchart TD
+    stream["Event or signal<br>stream"]
+    detect["Detect notable<br>conditions"]
+    classify["Assess severity,<br>recurrence, and context"]
+    route{"Low-stakes recurring<br>signal?"}
+    watch["Maintain explainable<br>watchlist entry"]
+    triage["Create triaged packet<br>or queue item"]
+    dispatch["Dispatch to bounded<br>downstream lane"]
+    stop["Stop at visibility,<br>routing, or dispatch"]
+
+    stream --> detect
+    detect --> classify
+    classify --> route
+    route -->|"Yes"| watch
+    route -->|"No"| triage
+    watch --> stop
+    triage --> dispatch
+    dispatch --> stop
+```
+
 ## What belongs in this family
 
 Use this family for patterns that:

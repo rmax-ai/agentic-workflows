@@ -4,6 +4,24 @@
 
 This family covers workflows whose main value comes from assembling the right context before any downstream decision, verification, or action happens. The agentic challenge is not merely fetching data; it is deciding what evidence matters, pulling it from multiple sources, and compressing it into a usable artifact without losing grounding.
 
+```mermaid
+flowchart TD
+	start["Trigger for<br>context assembly"]
+	retrieve["Retrieve evidence<br>from sources"]
+	assess["Assess relevance,<br>trust, and gaps"]
+	synth["Synthesize grounded<br>context artifact"]
+	uncertainty["Surface uncertainty,<br>provenance, and freshness"]
+	handoff["Handoff briefing,<br>dossier, or packet"]
+	stop["Stop before investigation,<br>recommendation,<br>planning, or execution"]
+
+	start --> retrieve
+	retrieve --> assess
+	assess --> synth
+	synth --> uncertainty
+	uncertainty --> handoff
+	handoff --> stop
+```
+
 ## What belongs in this family
 
 Use this family for patterns that:

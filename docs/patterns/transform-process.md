@@ -4,6 +4,25 @@
 
 This family covers workflows that turn inputs into more usable forms through conversion, normalization, enrichment, extraction, or batch reshaping. The core value is structural transformation: making content or records operationally usable for later retrieval, analysis, reconciliation, execution, or reporting.
 
+```mermaid
+flowchart TD
+	start["Source content<br>or records"]
+	transform["Transform into<br>target representation"]
+	enrich["Normalize, enrich,<br>or repackage"]
+	review{"Ambiguity or hold<br>state?"}
+	human["Route for bounded<br>human review"]
+	handoff["Handoff transformed<br>representation"]
+	stop["Stop before verification,<br>decision, or execution"]
+
+	start --> transform
+	transform --> enrich
+	enrich --> review
+	review -->|"Yes"| human
+	review -->|"No"| handoff
+	human --> handoff
+	handoff --> stop
+```
+
 ## What belongs in this family
 
 Use this family for patterns that:

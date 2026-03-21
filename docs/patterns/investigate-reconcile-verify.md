@@ -4,6 +4,25 @@
 
 This family covers workflows that explain mismatches, restore trusted state, or confirm whether a claim, output, or condition is actually correct. It is the repository's main home for evidence-driven checking and discrepancy resolution.
 
+```mermaid
+flowchart TD
+	start["Mismatch, claim,<br>or trust question"]
+	inspect["Gather and inspect<br>evidence"]
+	compare["Reconcile records<br>or test the claim"]
+	verdict{"Trusted conclusion<br>available?"}
+	outcome["Produce inspectable<br>verdict or trusted state"]
+	handoff["Escalate with explicit<br>ambiguity and evidence gaps"]
+	stop["Stop before recommendation<br>or execution"]
+
+	start --> inspect
+	inspect --> compare
+	compare --> verdict
+	verdict -->|"Yes"| outcome
+	verdict -->|"No"| handoff
+	outcome --> stop
+	handoff --> stop
+```
+
 ## What belongs in this family
 
 Use this family for patterns that:
