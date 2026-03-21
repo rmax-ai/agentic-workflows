@@ -63,6 +63,8 @@ instance_counts_by_domain:
   research: 24
   support: 25
   hr: 24
+consistency_notes:
+  - "`approval-centered-collaboration` canonical domain/example metadata plus `data/views/by-domain.yaml` are now realigned with the already-committed `support` and `compliance` readiness-loop instances, restoring browse consistency before further refinement work."
 repo_reality:
   available_ontology_assets:
     - README.md

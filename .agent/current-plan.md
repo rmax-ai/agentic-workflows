@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Normalization note for iteration `20260321-140641`: repository inspection surfaced drift in `approval-centered-collaboration` where existing `support` and `compliance` instance grounding is not reflected in the canonical pattern domain/example metadata or the derived `data/views/by-domain.yaml` browse artifact. This iteration should correct that inconsistency before any further domain-depth expansion.
+Iteration `20260321-140641` is now complete: `approval-centered-collaboration` has been normalized so the canonical pattern domain/example metadata and the derived `data/views/by-domain.yaml` browse artifact now reflect the already-committed `support` and `compliance` readiness-loop instances, restoring browse consistency before any further domain-depth expansion.
 
 Iteration `20260321-140121` is now complete: `shared-workbench-orchestration` gained new `compliance` grounding through one internal control-library caveat-board upkeep example, and the directly dependent canonical pattern metadata plus derived domain view now expose that low-risk collaboration slice without drifting past internal artifact upkeep, source refresh, ownership preservation, and explicit hold-state management.
 
@@ -56,17 +56,17 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: before adding another tied-thinnest-domain example, normalize the discovered `approval-centered-collaboration` drift so canonical metadata and the derived domain browse view accurately reflect the already-committed `support` and `compliance` grounding.
+- Current refinement target: after this normalization pass, `research` and `hr` remain the tied-thinnest domains at twenty-four grounded examples each. The next slice should stay inside one already-canonical pattern where either domain still trails engineering, finance, operations, compliance, and support in grounded depth without reopening structural expansion.
 
 ## Ordered tasks
 
-1. Normalize the discovered `approval-centered-collaboration` canonical/domain-view drift so the pattern metadata matches the already-committed `support` and `compliance` instances.
-2. Revalidate the derived browse state and then rerun YAML validation with `uv run python scripts/python/validate_yaml.py`.
-3. Refresh execution memory immediately afterward so the next tied-thinnest-domain refinement target is recorded on top of a consistent canonical baseline.
+1. Reassess the now tied-thinnest `research` and `hr` domains and pick one narrow already-canonical slice where grounded depth still trails engineering, finance, operations, compliance, and support without requiring new vocabulary or schema work.
+2. Prefer a family-safe grounding batch that adds one Markdown instance plus directly dependent canonical metadata and derived view updates only when the chosen pairing is not yet represented canonically.
+3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded pattern/view/instance batch, then refresh execution memory on top of the corrected canonical baseline.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-140121`
+- Timestamp: `20260321-140641`
 - Previous completed scope: added one compliance-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Previous completed scope: added one research-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern metadata to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Previous completed scope: added one HR-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
@@ -75,6 +75,7 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Completed scope: added one research-grounded `approved-benchmark-study-publication-integrity-packet-evidence-gate-verification` example, expanded `evidence-gated-verification-for-release` to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added one support-grounded `finalized-enterprise-support-case-review-closure-and-escalation-tracker-synchronization` example, expanded `workflow-hand-off-and-completion` to include `support`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added one compliance-grounded `control-library-caveat-board-shared-workbench-upkeep` example, expanded `shared-workbench-orchestration` to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Completed scope: normalized `approval-centered-collaboration` so the canonical pattern metadata and the derived `support` and `compliance` by-domain browse buckets now match the already-committed readiness-loop instances, and confirmed YAML validation still passes.
 - Current working hypothesis: execute-family completion refinement remains family-safe only when the primary output is one authoritative post-decision closure state carried through bounded queue cleanup, archive linkage, tracker synchronization, and internal notification, while recommendation, adjudication, verification gating, and live people-action execution stay explicitly outside the workflow.
 - Current working hypothesis: collaboration-family upkeep refinement remains family-safe only when the primary output is one bounded internal artifact carried through source refresh, note normalization, ownership preservation, and explicit hold-state management, while recommendation packaging, approval adjudication, planning, and live people-action execution stay explicitly outside the workflow.
 - Current scoped follow-on: reassess whether `research` or `hr` now offers the clearest next tied-thinnest domain target for another similarly bounded instance-plus-metadata refinement.
