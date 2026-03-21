@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-101942` is now complete: `recommend-decide-escalate` gained `delegated-authority-option-ranking` to close the remaining family-safe `bounded-delegation` autonomy gap, along with two linked instances and the derived browse-view updates required by the new canonical pattern.
+Iteration `20260321-101259` is now complete: `recommend-decide-escalate` gained `delegated-authority-option-ranking` to close the remaining family-safe `bounded-delegation` autonomy gap, along with two linked instances and the derived browse-view updates required by the new canonical pattern.
 
 ## Current phase
 
@@ -24,7 +24,7 @@ Iteration `20260321-101942` is now complete: `recommend-decide-escalate` gained 
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-101942`
+- Timestamp: `20260321-101259`
 - Completed scope: added `delegated-authority-option-ranking`, linked finance and operations instances, and refreshed the derived index, architecture, autonomy, risk, and domain views plus `.agent/` execution memory.
 - Working result: the family now covers delegated-authority recommendation cleanly by keeping the output to a bounded in-band option set, boundary register, and escalation packet rather than approval adjudication, scheduling, or execution.
 - Reflection: this batch confirmed that the cleanest way to add `bounded-delegation` to `recommend-decide-escalate` is a guardrail-constrained option-ranking shape rather than escalation routing, collaboration, or delegated action.
