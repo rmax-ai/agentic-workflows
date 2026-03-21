@@ -12,6 +12,17 @@ Finance.
 
 A controllership and treasury accounting team is preparing quarter-close support for a syndicated credit facility and a set of private placement notes. Before anyone finalizes covenant calculations, disclosure drafting, or lender reporting, the workflow needs a grounded synthesis of the currently effective leverage-ratio definitions, EBITDA add-back constraints, minimum-liquidity clauses, reporting deadlines, waiver conditions, and amendment precedence across executed agreements and internal close evidence. The value comes from retrieving the right source set, reconciling which documents are binding for the current quarter, and producing a cited brief that separates verified obligations from interpretation questions that still need legal or controller review.
 
+```mermaid
+flowchart TD
+    A["Start quarter-close covenant synthesis<br>for the current reporting period"] --> B["Retrieve approved source set<br>executed agreements, amendments, waivers,<br>lender notices, and close evidence"]
+    B --> C{"Verify the current effective source set<br>including dates, supersession, and waiver expiration"}
+    C --> D["Hold for legal or controller review<br>when binding document precedence is unclear"]
+    C --> E["Extract verified obligations<br>leverage ratio terms, EBITDA add-back limits,<br>minimum liquidity clauses, and reporting deadlines"]
+    E --> F{"Check each material claim against citations<br>and current-quarter calculation support"}
+    F --> G["Hold with explicit open questions<br>for ambiguous carve-outs, missing waivers,<br>or incomplete workpapers"]
+    F --> H["Hand off cited synthesis brief and evidence trace<br>to controller, treasury, and disclosure reviewers"]
+```
+
 ## Target systems / source systems
 
 - Controlled finance review workspace or close-management repository where the cited synthesis brief and evidence trace are stored
