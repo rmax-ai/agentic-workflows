@@ -120,6 +120,6 @@ domains:
     monitor-detect-triage: [anomaly-detection-review, approval-gated-triage-dispatch]
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [policy-constrained-escalation-routing, approval-gated-recommendation-release]
-    execute-automate: [browser-based-form-completion-with-approval-gates]
+    execute-automate: [browser-based-form-completion-with-approval-gates, workflow-hand-off-and-completion]
     optimize-adapt: [governed-optimization-bundle-retuning, approval-gated-optimization-state-release]
     human-agent-collaborative-work: [approval-centered-collaboration, approval-gated-collaborative-artifact-release]
