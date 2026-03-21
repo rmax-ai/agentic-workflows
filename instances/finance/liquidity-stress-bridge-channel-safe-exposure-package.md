@@ -12,6 +12,19 @@ Finance.
 
 A treasury command bridge has been activated after a severe payment-rail disruption and rapidly tightening collateral conditions create concern that the firm could miss time-sensitive settlement obligations if liquidity buffers continue to erode. Authoritative state is spread across cash-position systems, settlement ledgers, collateral management tooling, central-bank facility trackers, and manually verified treasury adjustments that not every bridge participant is allowed to inspect directly. Before executive, board, and selected funding-partner channels can align on one current picture, the workflow must transform that bounded authoritative state into a channel-safe structured exposure package with entity and currency buckets, liquidity-runway fields, secured-versus-unsecured funding indicators, counterparty concentration bands, held-detail placeholders for restricted account or named exposure lines, and explicit lineage showing which values remain provisional or withheld.
 
+```mermaid
+flowchart TD
+    A["Retrieve bounded liquidity state<br>cash, settlement, collateral, facility, and manual adjustment records"] --> B["Render channel-safe exposure package<br>entity and currency buckets, runway, funding mix, and concentration bands"]
+    B --> C{"Source timestamps aligned and<br>manual adjustments source-verified?"}
+    C -->|"No"| D["Hold provisional fields<br>mark restricted or unresolved values as withheld with lineage"]
+    D --> E["Route held details to treasury control,<br>risk, or legal review queue"]
+    C -->|"Yes"| F["Assemble audience-specific package<br>with placeholders, lineage, and supersession history"]
+    E --> G{"Audience scope approved and<br>named exposures still bounded to narrow channels?"}
+    F --> G
+    G -->|"No"| D
+    G -->|"Yes"| H["Release approved package only<br>to executive bridge, board, or selected funding-partner channels"]
+```
+
 ## Target systems / source systems
 
 - Treasury liquidity, settlement, and collateral systems holding authoritative cash, obligation, margin, and facility state
