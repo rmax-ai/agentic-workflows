@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-073210` is complete: `batch-content-transformation` now extends `transform-process` with a high-risk, approval-gated release-safe handoff pattern for sensitive batch reshaping, plus new research, HR, and support grounding.
+Iteration `20260321-074055` will target the next narrow `transform-process` gap by adding one event-driven representation-refresh pattern plus a small set of grounded instances. The goal is to cover trigger-based reshaping without drifting into recommendation, approval adjudication, or downstream execution.
 
 ## Current phase
 
@@ -16,17 +16,17 @@ Iteration `20260321-073210` is complete: `batch-content-transformation` now exte
 
 ## Ordered tasks
 
-1. Re-read `.agent/coverage-matrix.yaml`, `.agent/ontology-status.yaml`, and the `transform-process` family materials to confirm which narrow gap is now highest-leverage after `batch-content-transformation`.
-2. Prefer the next iteration to add one event-driven `transform-process` slice or similarly narrow architecture-sensitive refinement that keeps the family centered on representation change, trigger-driven refresh, and reviewed handoff rather than recommendation, approval adjudication, or execution.
-3. Keep any follow-on transform work distinct from `batch-content-transformation`, `document-to-structured-data-handoff`, `normalization-and-enrichment`, and adjacent execution patterns by centering it on how changed source state alters a structured representation.
-4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log after the next content batch so execution memory stays synchronized.
-5. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` before closing each iteration.
+1. Add a trigger-driven `transform-process` pattern centered on refreshing or re-materializing a staged structured representation when upstream source state changes.
+2. Keep the new pattern distinct from `document-to-structured-data-handoff`, `normalization-and-enrichment`, and `batch-content-transformation` by making source-change detection the entry condition and reviewed downstream-safe representation refresh the terminal state.
+3. Ground the new pattern with a few instances in domains where source changes regularly invalidate previously staged representations.
+4. Update derived browse views touched by the new canonical metadata so architecture, risk, autonomy, and domain indexes stay aligned.
+5. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log after the content batch, then validate repository YAML with `uv run python scripts/python/validate_yaml.py`.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-073210`
-- Baseline context: iteration `20260321-072052` closed the low-risk collaboration upkeep gap and left a higher-risk `transform-process` refinement as the cleanest remaining family-specific governance slice.
-- Completed subagent scope: added `batch-content-transformation`, updated the affected transform-adjacent derived views, and grounded the pattern with research, HR, and support release-safe dataset examples.
+- Timestamp: `20260321-074055`
+- Baseline context: iteration `20260321-073210` closed the high-risk governed batch transformation gap and left event-driven `transform-process` coverage as the clearest remaining family-specific architecture slice.
+- Planned subagent scope: add one event-driven transform pattern, wire it into the derived browse views, and ground it with a small set of change-triggered staged-representation examples.
 - Planned orchestrator follow-up: record the new transform coverage shape, refresh status and matrix counts, validate YAML, and queue the next narrow refinement based on the remaining uncovered family/architecture combinations.
 
 ## Constraints
@@ -40,4 +40,4 @@ Iteration `20260321-073210` is complete: `batch-content-transformation` now exte
 
 ## Expected outcome
 
-The next iteration should pick another narrow architecture- or governance-sensitive gap, with event-driven `transform-process` refinement now a plausible leading candidate because the family has representative low-, moderate-, and high-risk coverage plus approval-gated review without yet covering trigger-driven reshaping flows.
+This iteration should close the event-driven `transform-process` gap with one clearly bounded refresh-oriented pattern and a few grounded examples, leaving the repository with stronger architecture and autonomy coverage without reopening broad family expansion.
