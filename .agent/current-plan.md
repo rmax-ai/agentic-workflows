@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Ground the newly seeded `transform-process` family with its first linked instance, then use a small instance batch to reduce partial coverage in other lightly grounded families.
+Add the first grounded `transform-process` example, then pair it with one `optimize-adapt` instance so this iteration improves both the last ungrounded family and one other lightly grounded family without expanding scope beyond Phase 6.
 
 ## Current phase
 
@@ -15,20 +15,20 @@ Ground the newly seeded `transform-process` family with its first linked instanc
 
 ## Ordered tasks
 
-1. Re-read the new `data/patterns/transform-process/document-to-structured-data-handoff.yaml` pattern plus neighboring weakly grounded pattern files to choose a modest instance batch.
-2. Author the first `transform-process` Markdown instance in either finance, compliance, or operations so the new family is grounded before further pattern expansion.
-3. Add one or two additional grounded instances for families that still have only one example, prioritizing partial cells in `optimize-adapt`, `recommend-decide-escalate`, `execute-automate`, or `human-agent-collaborative-work`.
-4. Keep new instances tightly linked to existing canonical YAML patterns and focused on concrete target systems, workflows, and governance choices rather than generic domain overviews.
-5. Validate repository YAML after any memory or canonical-data updates that accompany the instance batch.
+1. Re-read the `document-to-structured-data-handoff` and `queue-prioritization-optimization` canonical patterns plus neighboring instance files to keep the new grounding aligned with established instance structure.
+2. Author the first `transform-process` Markdown instance in a finance, compliance, or operations scenario where schema fidelity, provenance, and exception routing are concrete and inspectable.
+3. Add one additional `optimize-adapt` instance in support, operations, or compliance so a second newer family gains grounded coverage in the same iteration.
+4. Keep both instances tightly linked to existing canonical YAML patterns and focused on specific systems, workflows, governance choices, and evaluation hooks rather than generic domain summaries.
+5. Validate repository YAML after the follow-on `.agent/` memory updates that record the new instance coverage.
 
 ## Constraints
 
 - Keep the ontology pattern-first: add grounded instances only against existing canonical patterns rather than inventing more seed patterns immediately.
 - Treat `data/views/` as derived browse artifacts and keep any future updates aligned with stable vocabulary and pattern ids.
 - Ensure every subagent task ends with exactly one git commit.
-- Prefer modest instance batches that improve coverage balance across families, domains, architectures, and risk levels.
+- Prefer modest instance batches that improve coverage balance across families and domains without forcing a large cross-family sweep.
 - Keep governance, reversibility, privacy, and auditability explicit in grounded examples.
 
 ## Expected outcome
 
-The next iteration should leave the repository with the first grounded `transform-process` example and a more balanced coverage matrix across the newer families that currently have only one instance each.
+This iteration should leave the repository with the first grounded `transform-process` example and one additional grounded `optimize-adapt` example, plus updated memory that records the new coverage state and next Phase 6 target.
