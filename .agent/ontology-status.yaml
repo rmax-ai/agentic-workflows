@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 187
+  instance_files: 188
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -58,7 +58,7 @@ pattern_counts_by_family:
 instance_counts_by_domain:
   engineering: 30
   finance: 31
-  compliance: 24
+  compliance: 25
   operations: 29
   research: 24
   support: 25
@@ -260,6 +260,7 @@ repo_reality:
     - instances/compliance/privacy-attestation-disposition-packet-revision-approved-for-council-sign-off-lane.md
     - instances/compliance/cross-border-transfer-assessment-review-record-refresh-after-annex-update.md
     - instances/compliance/finalized-sanctions-alert-false-positive-disposition-closure-and-case-ledger-synchronization.md
+    - instances/compliance/control-library-caveat-board-shared-workbench-upkeep.md
     - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
     - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
     - instances/support/customer-escalation-bridge-scheduling.md
@@ -322,11 +323,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred eighty-six grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred eighty-eight grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "`evidence-gated-verification-for-release` now also has explicit research grounding through an approved benchmark-study publication-integrity packet verification example, so the investigate-family approval-bound slice now spans engineering, finance, operations, research, and HR while preserving a clean boundary at evidence sufficiency, release-hold state, and human-approved downstream reliance rather than publication recommendation, packet refresh, or execution."
-    - "Research now rises to twenty-four grounded instances, tying compliance, support, and HR for the thinnest modeled domain count, so refinement should keep prioritizing narrow family-safe depth work in that tied tier instead of broader structural expansion."
-    - "The next refinement step should reassess the tied-thinnest compliance, research, support, and HR domains for one already-canonical slice where grounded depth still trails engineering, finance, and operations but the family boundary can stay explicit and bounded."
+    - "`shared-workbench-orchestration` now also has explicit compliance grounding through an internal control-library caveat-board upkeep example, extending the low-risk collaboration-upkeep slice beyond research, operations, support, and HR while preserving a clean boundary at internal artifact refresh, source revalidation, ownership preservation, and explicit hold-state management rather than legal advice, adjudication, regulator communication, or execution."
+    - "Research and HR now tie for the thinnest modeled domain count at twenty-four grounded instances each, so refinement should keep prioritizing narrow family-safe depth work in that tied tier instead of broader structural expansion."
+    - "The next refinement step should reassess the tied-thinnest research and HR domains for one already-canonical slice where grounded depth still trails engineering, finance, operations, compliance, and support but the family boundary can stay explicit and bounded."
   next_action:
     id: phase-7-next-tied-domain-depth-balance
-    summary: "Use the next iteration to rebalance one of the tied-thinnest domains with one already-canonical, family-safe grounding slice plus the directly dependent canonical and browse-view updates needed by that pairing."
+    summary: "Use the next iteration to rebalance either research or HR with one already-canonical, family-safe grounding slice plus the directly dependent canonical and browse-view updates needed by that pairing."
