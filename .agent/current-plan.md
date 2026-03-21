@@ -4,6 +4,8 @@
 
 Iteration `20260321-114951` is now complete: `recommend-decide-escalate` gained the new `approval-gated-recommendation-release` slice plus linked engineering, finance, and compliance examples. The family boundary held because approval governs release of one exact recommendation packet revision into one bounded human decision lane, while the actual choice remains explicitly human-owned.
 
+Iteration `20260321-115928` is scoped as a grounded-depth follow-on for that same slice: add a small batch of approval-gated recommendation-release instances in thinner domains, and update only the directly dependent canonical pattern metadata and derived domain view needed to keep the new grounding visible.
+
 ## Current phase
 
 - Phase 2: controlled vocabularies are complete and stable enough for bounded Phase 7 refinement.
@@ -14,14 +16,15 @@ Iteration `20260321-114951` is now complete: `recommend-decide-escalate` gained 
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should shift from matrix closure to balancing grounded depth across underrepresented domains and governance-heavy approval-bound slices.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: rebalance grounded coverage in thinner domains such as HR, research, and compliance, especially where newly completed approval-bound pattern slices still have only one or two representative instance clusters.
+- Current refinement target: rebalance grounded coverage in thinner domains such as HR, research, and support by extending the newly added `approval-gated-recommendation-release` slice beyond engineering, finance, and compliance while keeping the family bounded at packet release rather than decision adjudication.
 
 ## Ordered tasks
 
-1. Rebalance grounded depth in underrepresented domains, starting with a modest batch in one or two families where approval-bound or high-governance slices still have thin instance coverage.
-2. Prefer new instances or small normalization passes over new canonical patterns unless a genuinely missing structural shape appears.
-3. Keep future batches at the same scale as this one: one bounded family target, a few grounded examples, and only directly dependent memory or view updates.
-4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each bounded batch.
+1. Extend `approval-gated-recommendation-release` with a modest set of new grounded instances in thinner domains such as research, support, and HR.
+2. Update only the directly dependent canonical pattern metadata and `data/views/by-domain.yaml` entries required to reflect the new domain grounding.
+3. Prefer new instances or small normalization passes over new canonical patterns unless a genuinely missing structural shape appears.
+4. Keep future batches at the same scale as this one: one bounded family target, a few grounded examples, and only directly dependent memory or view updates.
+5. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each bounded batch.
 
 ## Iteration checkpoint
 
@@ -29,6 +32,7 @@ Iteration `20260321-114951` is now complete: `recommend-decide-escalate` gained 
 - Previous completed scope: added `approval-gated-briefing-release`, linked engineering, operations, and finance approval-bound briefing-release instances, updated the gather/retrieve/synthesize family doc, refreshed the derived index, domain, architecture, autonomy, and risk views, and confirmed YAML validation still passes.
 - Completed scope: added `approval-gated-recommendation-release`, linked engineering, finance, and compliance approval-bound recommendation-packet release instances, updated the recommend/decide/escalate family doc, refreshed the derived index, domain, architecture, autonomy, and risk views, and confirmed YAML validation still passes.
 - Current working hypothesis: approval-gated refinement is family-safe only when the governed object is one exact artifact revision and one bounded downstream lane; for the recommend family, that means packet release must stay distinct from the actual human decision.
+- Current scoped follow-on: deepen the new recommend-family approval-gated slice with research, support, and HR instances while updating only the dependent canonical domain/example metadata and by-domain browse entries needed for consistency.
 - Boundary reminder: future approval-gated work should remain tied to one exact artifact revision and one bounded handoff lane rather than broad permission to keep recommending, coordinating, or executing.
 
 ## Constraints
