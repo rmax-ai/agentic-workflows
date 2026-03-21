@@ -123,7 +123,8 @@ items:
       - "`monitor-detect-triage` is now grounded in support through a suspected account takeover alert triage scenario, so the family now has representative monitoring coverage across finance, compliance, operations, and support."
       - "`monitor-detect-triage` is now also grounded in engineering through a production release regression alert triage scenario, extending the family into a domain that already had adjacent investigation, synthesis, and collaboration coverage."
       - "`investigate-reconcile-verify` is now grounded in operations through a distribution-sorter misroute root-cause investigation scenario, so the family now spans engineering, finance, compliance, and operations."
-      - "The next small grounding batch should likely rebalance another thin family/domain slice, with support now the cleanest adjacent target for `investigate-reconcile-verify` because support already has monitoring, scheduling, synthesis, optimization, execution, and collaboration grounding but still lacks a direct investigation anchor."
+      - "`investigate-reconcile-verify` is now also grounded in support through an enterprise admin entitlement drift root-cause investigation scenario, so the family now spans engineering, finance, compliance, operations, and support."
+      - "The next small grounding batch should likely rebalance another thin family/domain slice, with support recommendation coverage now a plausible adjacent target because the domain has strong grounding across most families but still lacks an explicit governed recommendation artifact."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement

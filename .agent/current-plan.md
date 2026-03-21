@@ -2,41 +2,41 @@
 
 ## Iteration focus
 
-Iteration `20260321-025122` is complete: it added a single operations-domain grounding batch for `investigate-reconcile-verify` via `distribution-sorter-misroute-root-cause-investigation`. The next modest batch should deepen another thin family/domain slice without widening back into schema, vocabulary, or pattern-authoring work. Support is now the cleanest adjacent target for `investigate-reconcile-verify`, because the domain already has monitoring, scheduling, synthesis, optimization, execution, and collaboration grounding but still lacks a direct investigation anchor.
+Iteration `20260321-025554` is complete: it added a single support-domain grounding batch for `investigate-reconcile-verify` via `enterprise-admin-entitlement-drift-root-cause-investigation`. The next modest batch should rebalance another thin family/domain slice without widening back into schema, vocabulary, or pattern-authoring work. Support recommendation coverage is now a plausible adjacent target because support has broad grounding across other families but still lacks a governed recommendation artifact.
 
 ## Current phase
 
 - Phase 2: controlled vocabularies are complete, including the `transform-process` mapping term `structured-representation-transformation`
-- Phase 3: navigation views are complete and now reference canonical patterns in all nine top-level families
+- Phase 3: navigation views are complete and reference canonical patterns in all nine top-level families
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
-- Phase 5: canonical seed coverage now spans all nine top-level pattern families
-- Phase 6: grounded instances now cover thirty-six total scenarios, with `gather-retrieve-synthesize` grounded across research, engineering, finance, compliance, operations, support, and HR, `investigate-reconcile-verify` grounded across engineering, finance, and compliance, `monitor-detect-triage` grounded across engineering, finance, compliance, operations, and support, `recommend-decide-escalate` grounded across finance, compliance, and operations, `execute-automate` grounded across finance, compliance, HR, operations, and support, `optimize-adapt` grounded across support, operations, and compliance, and `human-agent-collaborative-work` grounded across engineering, research, compliance, and support
+- Phase 5: canonical seed coverage spans all nine top-level pattern families
+- Phase 6: grounded instances now cover thirty-eight scenarios, with `investigate-reconcile-verify` grounded across engineering, finance, compliance, operations, and support, `monitor-detect-triage` grounded across engineering, finance, compliance, operations, and support, `recommend-decide-escalate` grounded across finance, compliance, and operations, `execute-automate` grounded across finance, compliance, HR, operations, and support, `optimize-adapt` grounded across support, operations, and compliance, and `human-agent-collaborative-work` grounded across engineering, research, compliance, and support
 - Tooling baseline: uv-managed Python 3.14 helper workflow remains the validation path
 
 ## Ordered tasks
 
-1. Re-read `incident-root-cause-analysis`, the current investigation-oriented instances, and the existing support-domain artifacts so the next grounding batch stays inside the investigation family boundary.
-2. Author exactly one support-domain instance linked to `incident-root-cause-analysis`, framed as governed issue or incident investigation rather than triage, execution, optimization, synthesis, scheduling, or collaboration.
-3. Prefer a support scenario where evidence reconciliation, competing hypotheses, and escalation thresholds are explicit, with human control over remediation promises, security actions, or customer commitments.
-4. Keep the next batch limited to this single investigation example so coverage improves without widening the scope into multiple families.
+1. Re-read `deal-desk-recommendation-support`, the current recommendation-oriented instances, and the existing support-domain artifacts so the next grounding batch stays inside the governed recommendation family boundary.
+2. Author exactly one support-domain instance linked to `deal-desk-recommendation-support`, framed as recommendation support for a governed concession, service-credit, or recovery path rather than investigation, execution, synthesis, scheduling, optimization, or mixed-initiative drafting.
+3. Prefer a scenario where policy thresholds, customer context, historical precedent, and stakeholder inputs must be weighed before anyone makes a customer commitment or approves an exception path.
+4. Keep the next batch limited to this single recommendation example so coverage improves without widening scope.
 5. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next dated iteration log after that grounding batch so execution memory stays current.
-6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
+6. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-025122`
-- Completed subagent scope: authored `instances/operations/distribution-sorter-misroute-root-cause-investigation.md` as one operations-domain `incident-root-cause-analysis` grounding change and committed it separately.
-- Completed orchestrator follow-up: refreshed `.agent/` memory, wrote the dated iteration log, and re-ran YAML validation before the closing memory commit.
+- Timestamp: `20260321-025554`
+- Completed subagent scope: authored `instances/support/enterprise-admin-entitlement-drift-root-cause-investigation.md` as one support-domain `incident-root-cause-analysis` grounding change and committed it separately.
+- Pending orchestrator follow-up: refresh `.agent/` memory, write the dated iteration log, validate YAML, and commit those memory updates.
 
 ## Constraints
 
-- Keep the ontology pattern-first: add grounded instances only against existing canonical patterns rather than inventing more seed patterns immediately.
+- Keep the ontology pattern-first: add grounded instances only against existing canonical patterns rather than inventing new seed patterns.
 - Treat `data/views/` as derived browse artifacts and keep any future updates aligned with stable vocabulary and pattern ids.
 - Ensure every subagent task ends with exactly one git commit.
-- Prefer modest grounding batches that improve coverage balance inside one thin family/domain slice rather than forcing a broad cross-family sweep.
+- Prefer modest grounding batches that improve one thin family/domain slice rather than forcing a broad cross-family sweep.
 - Keep governance, reversibility, privacy, and auditability explicit in grounded examples.
-- Do not widen the next iteration into pattern, vocabulary, or schema changes unless dependency order clearly demands it.
+- Do not widen the next iteration into pattern, vocabulary, or schema changes unless a dependency issue makes that unavoidable.
 
 ## Expected outcome
 
-The next iteration should add one support-domain investigation example, improve `investigate-reconcile-verify` coverage, and leave the repository ready for another small grounding batch after the `.agent/` memory refresh.
+The next iteration should add one support-domain recommendation example, deepen `recommend-decide-escalate`, and leave the repository ready for another small grounding batch after the `.agent/` memory refresh.
