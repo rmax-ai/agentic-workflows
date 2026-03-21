@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 62
+  instance_files: 63
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -60,7 +60,7 @@ instance_counts_by_domain:
   finance: 9
   compliance: 9
   operations: 9
-  research: 8
+  research: 9
   support: 9
   hr: 9
 repo_reality:
@@ -96,6 +96,7 @@ repo_reality:
     - instances/research/benchmark-study-artifact-packet-to-research-review-intake-record-handoff.md
     - instances/research/benchmark-study-publication-readiness-review-scheduling.md
     - instances/research/approved-human-subjects-ethics-amendment-portal-submission.md
+    - instances/research/benchmark-study-disclosure-risk-alert-triage.md
     - instances/research/cross-lab-benchmark-replication-discrepancy-investigation.md
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md
@@ -161,12 +162,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and sixty-two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and sixty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, support, research, and HR after adding a protected-leave return-to-work status drift root-cause investigation example, so no family/domain gaps remain there at the current domain set."
-    - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, support, and HR after adding a work-authorization expiry risk triage example, leaving research as the final open domain slice in that family."
-    - "Research now has eight grounded instances, leaving it one example behind engineering, finance, compliance, operations, support, and HR."
-    - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
+    - "All nine top-level families are now grounded across engineering, finance, compliance, operations, research, support, and HR after adding research-domain monitoring coverage."
+    - "Most families still have only one canonical pattern, leaving many architecture and risk cells partial even though the family/domain matrix is now fully grounded."
+    - "`orchestrated-multi-agent` remains concentrated in `investigate-reconcile-verify`, while sparse `low` and `critical` risk anchors remain concentrated in `plan-coordinate-schedule` and `execute-automate`."
 next_action:
-  id: phase-7-close-monitoring-research-gap
-  summary: "Use the next small grounding batch to add one grounded `risk-alert-triage` example in research so `monitor-detect-triage` closes its last open domain slice before broader coverage balancing resumes."
+  id: phase-7-balance-architecture-and-risk-cells
+  summary: "Use the next bounded batch to add one second canonical pattern that fills a thin architecture or risk cell, prioritizing uncovered `orchestrated-multi-agent` or sparse `low` / `critical` combinations."
