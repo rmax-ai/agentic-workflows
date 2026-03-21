@@ -99,7 +99,7 @@ items:
   - id: phase-6-grounded-instances
     phase: 6
     priority: P2
-    status: in_progress
+    status: done
     title: Add Markdown instances linked to mature patterns
     depends_on:
       - phase-5-seed-patterns
@@ -139,12 +139,13 @@ items:
       - "`execute-automate` is now also grounded in research through an approved human-subjects ethics amendment portal submission, so the family now spans finance, compliance, HR, operations, research, and support while leaving engineering as the only open domain slice."
       - "`execute-automate` is now grounded across all seven currently modeled domains after adding an engineering production change-freeze exception portal submission."
       - "`recommend-decide-escalate` is now grounded across engineering, finance, compliance, operations, support, and HR after adding a managed-database major-version upgrade exception recommendation scenario, leaving research as the remaining open domain slice in that family."
-      - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
+      - "`recommend-decide-escalate` is now grounded across all seven currently modeled domains after adding a benchmark-study publication go/no-go recommendation scenario in research."
+      - Phase 6 now has at least one grounded instance in every family and every currently modeled domain, so broader balancing work can move into Phase 7 coverage refinement.
 
   - id: phase-7-coverage-refinement
     phase: 7
     priority: P2
-    status: pending
+    status: in_progress
     title: Expand weak combinations in the coverage matrix
     depends_on:
       - phase-6-grounded-instances
@@ -153,4 +154,5 @@ items:
     notes:
       - The last empty family gap is closed at the canonical pattern layer and `transform-process` now has its first grounded example.
       - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.
-      - With `recommend-decide-escalate` now grounded across engineering, finance, compliance, operations, support, and HR, the next small grounding batch should likely target that family's remaining research slice before widening to secondary architecture or risk refinements.
+      - With `recommend-decide-escalate` now grounded across all seven domains, the thinnest remaining family-level grounding is `optimize-adapt`, which still covers only support, operations, and compliance.
+      - The next small grounding batch should likely start Phase 7 by adding one `optimize-adapt` example in a currently uncovered domain such as research, engineering, finance, or HR.

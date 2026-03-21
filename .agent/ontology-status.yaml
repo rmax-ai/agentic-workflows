@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-recommend-decide-escalate-engineering-complete
+repository_stage: phase-7-coverage-refinement-ready
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -22,6 +22,9 @@ phase_status:
     status: complete
   phase_6:
     name: grounded instances
+    status: complete
+  phase_7:
+    name: coverage refinement
     status: in_progress
 inventory:
   foundational_docs: 4
@@ -29,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 54
+  instance_files: 55
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -57,7 +60,7 @@ instance_counts_by_domain:
   finance: 8
   compliance: 9
   operations: 9
-  research: 5
+  research: 6
   support: 9
   hr: 6
 repo_reality:
@@ -152,12 +155,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and fifty-four grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and fifty-five grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
   - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open domain slices only if further cross-domain investigation coverage becomes worthwhile."
   - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open monitoring slices only if deeper cross-domain triage coverage becomes worthwhile."
-  - "`recommend-decide-escalate` is now grounded across engineering, finance, compliance, operations, support, and HR, leaving research as the remaining open slice and making it the clearest next family/domain grounding target."
+  - "`optimize-adapt` remains the thinnest family-level grounding area because it currently covers support, operations, and compliance only, leaving engineering, finance, research, and HR open."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-expand-recommend-decide-escalate-research-grounding
-  summary: "Use the next small grounding batch to add one grounded `deal-desk-recommendation-support` example in research so `recommend-decide-escalate` closes its last open domain slice before broader coverage refinement."
+  id: phase-7-expand-optimize-adapt-into-uncovered-domain
+  summary: "Use the next small grounding batch to add one grounded `queue-prioritization-optimization` example in an uncovered domain, preferably research, so Phase 7 begins by strengthening the thinnest family."
