@@ -12,6 +12,21 @@ Finance.
 
 A quarter-close control review already has a published coordination packet tying together the locked close calendar, required attendees, tentative meeting hold, and handoff expectations for controllership, treasury accounting, SEC reporting, internal controls, and finance systems. Then an authoritative consolidation timing shift lands late in the cycle: a final entity true-up moves the earliest valid review window, one required attendee changes to an approved delegate because of board-material review overlap, and the close calendar adds a protected blackout interval for lender materials. The workflow should refresh the existing review packet, reissue targeted delta notices, and queue controller adoption for the materially changed state rather than recomputing the full close plan, recommending accounting treatment, or advancing downstream certification work.
 
+```mermaid
+flowchart TD
+    A["Authoritative consolidation shift<br>updates the close calendar"] --> B["Compare the new timing against the<br>published control review packet"]
+    B --> C{"Trigger provenance and current<br>packet lineage verified?"}
+    C -- "No" --> H["Hold refresh and route<br>exception review"]
+    C -- "Yes" --> D["Refresh only bounded coordination deltas:<br>review window, delegate, blackout impact"]
+    D --> E{"Revised slot stays inside locked<br>close guardrails and avoids blackout?"}
+    E -- "No" --> H
+    E -- "Yes" --> F["Reissue the review packet and send<br>role-targeted delta notices"]
+    F --> G{"Material time shift or required<br>delegate substitution present?"}
+    G -- "No" --> J["Publish refreshed packet, notices,<br>and lineage as current coordination state"]
+    G -- "Yes" --> I["Hold authoritative status and queue<br>controller adoption for the changed state"]
+    I -- "Adopted" --> J
+```
+
 ## Target systems / source systems
 
 - Close-management tracker with the authoritative milestone calendar, required review roles, and prior coordination status
