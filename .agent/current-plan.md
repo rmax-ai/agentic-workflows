@@ -8,6 +8,8 @@ Iteration `20260321-115928` is now complete: `approval-gated-recommendation-rele
 
 Iteration `20260321-120725` is now complete: `approval-gated-recommendation-release` gained its last missing operations-grounded example, and the canonical pattern metadata plus derived domain view now expose that approval-bound recommend slice across all seven modeled domains without drifting past packet release into decision adjudication or execution.
 
+Iteration `20260321-121314` is now in progress: the next bounded refinement target is `approval-gated-collaborative-artifact-release`, chosen over the equally thin optimize-family release slice because collaboration can deepen the currently lighter `hr`, `research`, and `support` domains without widening the family boundary past one jointly prepared artifact revision and one bounded downstream handoff lane.
+
 ## Current phase
 
 - Phase 2: controlled vocabularies are complete and stable enough for bounded Phase 7 refinement.
@@ -18,22 +20,22 @@ Iteration `20260321-120725` is now complete: `approval-gated-recommendation-rele
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and governance-heavy approval-bound slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: compare the next thinnest approval-bound neighboring slices, especially `approval-gated-collaborative-artifact-release` and `approval-gated-optimization-state-release`, now that the recommend-family release slice spans all seven modeled domains.
+- Current refinement target: deepen `approval-gated-collaborative-artifact-release` across underrepresented domains, using the fully cross-domain recommend-family release slice as the comparison baseline and leaving `approval-gated-optimization-state-release` as the next neighboring candidate afterward.
 
 ## Ordered tasks
 
-1. Compare thin approval-bound neighboring slices, starting with `approval-gated-collaborative-artifact-release` and `approval-gated-optimization-state-release`, and choose the next one that can gain grounded depth without widening family boundaries.
-2. Prefer new instances or small metadata normalization over new canonical patterns unless a genuinely missing reusable shape appears.
-3. Keep the next batch modest: one bounded family target, a few grounded examples, and only directly dependent memory or derived-view updates.
+1. Add a modest `approval-gated-collaborative-artifact-release` depth batch in the thinnest currently modeled domains, prioritizing `hr`, `research`, and `support` if the scenarios stay bounded to one jointly prepared artifact revision and one explicit release lane.
+2. Update only directly dependent artifacts for that slice: canonical pattern domain/example metadata and the derived domain view if new grounded domains are added.
+3. Prefer new instances or small metadata normalization over new canonical patterns unless a genuinely missing reusable shape appears.
 4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each bounded batch.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-120725`
+- Timestamp: `20260321-121314`
 - Previous completed scope: added research, support, and HR approval-bound recommendation-packet release instances for `approval-gated-recommendation-release`, expanded the canonical pattern's domain and example metadata, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added the operations approval-bound recommendation-packet release instance for `approval-gated-recommendation-release`, expanded the canonical pattern's domain and example metadata to include operations, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Current working hypothesis: approval-gated refinement is family-safe only when the governed object is one exact artifact revision and one bounded downstream lane; for the recommend family, that means packet release must stay distinct from the actual human decision.
-- Current scoped follow-on: use the now fully cross-domain recommend-family approval-gated slice as a reference when comparing whether the next depth-balancing batch belongs in collaboration or optimize rather than continuing to deepen recommendation release itself.
+- Current working hypothesis: approval-gated refinement remains family-safe only when the governed object is one exact artifact revision and one bounded downstream lane; for the collaboration family, that means the shared artifact and its visible disagreement ledger stay primary, while any downstream decision or action remains explicitly outside the workflow.
+- Current scoped follow-on: add a small collaboration-family release batch in underrepresented domains, then use the resulting cross-domain depth to decide whether the next neighboring approval-bound slice should return to optimize-family live-state release.
 - Boundary reminder: future approval-gated work should remain tied to one exact artifact revision and one bounded handoff lane rather than broad permission to keep recommending, coordinating, or executing.
 
 ## Constraints
@@ -54,4 +56,4 @@ Iteration `20260321-120725` is now complete: `approval-gated-recommendation-rele
 
 ## Expected outcome
 
-The next iteration should stay in depth-balancing mode: choose one still-thin approval-bound neighboring slice, add a small number of grounded examples or normalization updates, and keep the work bounded to directly dependent artifacts rather than opening a new structural pattern batch.
+This iteration should stay in depth-balancing mode: deepen the collaboration-family approval-bound release slice with a few grounded examples plus directly dependent metadata/view updates, and keep the work bounded to one shared-artifact release pattern rather than opening a new structural batch.
