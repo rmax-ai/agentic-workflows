@@ -12,6 +12,19 @@ Finance.
 
 A finance deal desk team is reviewing a proposed three-year software renewal for a hospital network that wants stepped pricing, an increased first-year discount to absorb migration costs, and nonstandard net-120 payment terms tied to its annual budgeting cycle. The workflow must recommend whether finance should support the requested structure, counter with a safer mix of discount and upfront commitment, or escalate because margin floors, revenue-recognition treatment, and customer credit exposure move outside delegated approval thresholds.
 
+```mermaid
+flowchart TD
+    A["Review proposed<br>three-year renewal"] --> B["Gather pricing, margin,<br>payment history, and policy inputs"]
+    B --> C{"Requested structure stays within<br>margin, payment-term, and<br>delegated authority thresholds?"}
+    C -->|"Yes"| D["Recommend support for stepped pricing<br>with documented rationale"]
+    C -->|"No"| E{"Can finance counter with a safer mix of<br>discount, upfront commitment,<br>and invoicing cadence?"}
+    E -->|"Yes"| F["Recommend counterproposal and<br>hold quote pending finance review"]
+    E -->|"No"| G["Escalate to higher finance authority<br>for revenue-recognition, margin,<br>or credit exposure review"]
+    D --> H["Human finance lead reviews packet<br>before customer commitment"]
+    F --> H
+    G --> I["Hold until escalated review<br>returns a decision path"]
+```
+
 ## Target systems / source systems
 
 - CRM opportunity record, renewal quote drafts, and customer negotiation notes
