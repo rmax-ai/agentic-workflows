@@ -12,6 +12,22 @@ Compliance.
 
 A retail-bank compliance operations manager is overseeing a backlog of open consumer complaints that require regulator-facing response packages, remediation recommendations, or formal closure review before statutory and consent-order deadlines expire. The queue mixes allegations about unauthorized fees, credit-reporting disputes, fair-lending concerns, servicing errors, and complaints routed in from a consumer-protection regulator portal. Recent handling data shows that analysts have been pulling easier documentation-only complaints forward while complex cases involving vulnerable customers, discrimination allegations, or regulator-referred matters age dangerously close to deadline. The optimization workflow must reprioritize the review queue within bounded limits so imminent deadlines, potential consumer harm, and protected-priority complaint classes rise appropriately without allowing low-balance customers, non-English submissions, or harder-to-investigate allegations to be systematically pushed back.
 
+```mermaid
+flowchart TD
+    A["Queue aging, regulator referrals, or override patterns<br>trigger reprioritization review"] --> B["Agent recomputes bounded queue ranking<br>using deadlines, harm indicators, protected classes,<br>outcome trends, and override history"]
+    B --> C["Verification checks test deadline exposure,<br>fairness drift, and reviewer-load impact"]
+    C --> D{"All guardrails pass and<br>changes stay within preapproved bounds?"}
+    D -->|"Yes"| E["Publish revised queue order with<br>case-level rationale and audit log"]
+    D -->|"No"| F["Escalate tuning packet for<br>supervisory review"]
+    F --> G{"Supervisor approves<br>material reprioritization?"}
+    G -->|"Yes"| E
+    G -->|"No"| H["Freeze updates and keep<br>last trusted policy active"]
+    E --> I{"Missed deadlines, QA defects, or<br>supervisor rejection rate rising?"}
+    I -->|"No"| J["Continue monitored execution<br>until next trigger"]
+    I -->|"Yes"| K["Rollback to last trusted policy and<br>escalate bounded retuning review"]
+    K --> H
+```
+
 ## Target systems / source systems
 
 - Compliance case-management system with complaint intake records, due dates, allegation tags, case owner assignments, and current queue order
