@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 189
+  instance_files: 190
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,8 +62,9 @@ instance_counts_by_domain:
   operations: 29
   research: 25
   support: 25
-  hr: 24
+  hr: 25
 consistency_notes:
+  - "`claimed-state-verification` now has explicit `hr` grounding through an internal parental-leave guidance publication-state verification example, extending that low-risk investigate-family slice beyond engineering, operations, research, and support while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting rather than policy interpretation, communication, or record mutation."
   - "`approval-gated-triage-dispatch` now has explicit `research` grounding through a benchmark-study disclosure-risk packet approved for restricted disclosure-governance review dispatch, extending that monitor-family approval-bound slice beyond finance, compliance, operations, and HR while preserving a clean boundary at governed packet release rather than disclosure adjudication or publication action."
   - "`approval-centered-collaboration` canonical domain/example metadata plus `data/views/by-domain.yaml` are now realigned with the already-committed `support` and `compliance` readiness-loop instances, restoring browse consistency before further refinement work."
 repo_reality:
@@ -311,6 +312,7 @@ repo_reality:
     - instances/hr/work-authorization-lapse-triage-packet-approved-for-restricted-immigration-compliance-review-dispatch.md
     - instances/hr/accepted-protected-leave-review-closure-and-case-tracker-synchronization.md
     - instances/hr/open-enrollment-faq-caveat-board-shared-workbench-upkeep.md
+    - instances/hr/internal-parental-leave-guidance-publication-verification.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
