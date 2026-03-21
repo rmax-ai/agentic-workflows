@@ -72,7 +72,7 @@ autonomy_levels:
     label: Bounded delegation
     source_vocabulary: autonomy-levels
   pattern_families:
-    gather-retrieve-synthesize: []
+    gather-retrieve-synthesize: [change-triggered-context-briefing]
     transform-process: [document-to-structured-data-handoff, normalization-and-enrichment]
     investigate-reconcile-verify: [authoritative-record-reconciliation]
     monitor-detect-triage: []

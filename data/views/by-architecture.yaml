@@ -31,7 +31,7 @@ architectures:
     label: Tool-using single agent
     source_vocabulary: architectures
   pattern_families:
-    gather-retrieve-synthesize: [research-synthesis-with-citation-verification]
+    gather-retrieve-synthesize: [research-synthesis-with-citation-verification, change-triggered-context-briefing]
     transform-process: [document-to-structured-data-handoff, normalization-and-enrichment]
     investigate-reconcile-verify: [authoritative-record-reconciliation]
     monitor-detect-triage: []
@@ -72,7 +72,7 @@ architectures:
     label: Event-driven monitoring
     source_vocabulary: architectures
   pattern_families:
-    gather-retrieve-synthesize: []
+    gather-retrieve-synthesize: [change-triggered-context-briefing]
     transform-process: []
     investigate-reconcile-verify: []
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]

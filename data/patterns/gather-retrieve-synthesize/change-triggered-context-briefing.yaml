@@ -1,0 +1,262 @@
+id: change-triggered-context-briefing
+slug: change-triggered-context-briefing
+name: Change-triggered context briefing
+summary: Detect a bounded authoritative source change and assemble a grounded digest of what changed, what surrounding context still matters, and what remains unresolved before any downstream recommendation, triage, or execution begins.
+pattern_family:
+  id: gather-retrieve-synthesize
+  label: Gather / Retrieve / Synthesize
+problem_structure:
+  id: context-gathering-and-synthesis
+  label: Context gathering and synthesis
+  source_vocabulary: problem-structures
+domain:
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
+workflow_goal: Produce a bounded change-context brief after an approved source update so downstream humans can understand what changed, which adjacent facts still matter, and which questions remain open, while stopping at informational handoff rather than alert triage, recommendation, approval preparation, or execution.
+inputs:
+  - name: Authoritative change signal
+    description: A trusted event, revision notice, or version change indicating that one bounded source artifact or source bundle was updated and should trigger a refreshed briefing.
+    kind: change-event
+    required: true
+    examples:
+      - Approved runbook revision published for a premium support escalation path
+      - HR leave intake policy package updated with a new template version
+      - Warehouse slotting rule bundle changed for an upcoming shift window
+  - name: Approved source boundary and current baseline
+    description: The controlled repositories, current versions, and prior baseline materials that define which sources may be compared and what historical context should anchor the digest.
+    kind: source-boundary
+    required: true
+    examples:
+      - Current standard operating procedure, prior published revision, and approved exception register
+      - Active support runbook, entitlement notes, and linked known-issue bulletin set
+      - Current HR policy package, prior digest, and approved legal guidance archive
+  - name: Briefing audience and scope rules
+    description: The target audience, summary template, sensitivity rules, and inclusion limits that define how much surrounding context should be assembled for the digest.
+    kind: briefing-config
+    required: true
+    examples:
+      - Shift-supervisor digest template limited to changed constraints, open questions, and source links
+      - Duty-manager handoff brief that highlights changed escalation steps without recommending customer concessions
+      - People-operations briefing format that separates verified policy updates from pending counsel clarification
+  - name: Prior digest state
+    description: Optional previous briefing artifacts, acknowledgment records, or unresolved questions used to show what is newly changed versus already known.
+    kind: digest-state
+    required: false
+    examples:
+      - Last published operations digest and unresolved exception notes
+      - Prior weekend support handoff brief with open follow-up items
+      - Earlier HR policy-change summary awaiting one counsel answer
+outputs:
+  - name: Change-context brief
+    description: A concise digest describing the authoritative changes, retained surrounding context, and clearly separated open questions for the intended audience.
+    kind: brief
+    required: true
+    examples:
+      - Shift briefing showing which warehouse slotting constraints changed, which still apply, and which local exceptions remain unresolved
+      - Duty-manager digest summarizing a revised escalation runbook, unchanged entitlement assumptions, and pending ownership clarifications
+  - name: Delta and provenance trace
+    description: Structured mapping from each material statement in the digest to the changed sources, prior baseline, and any adjacent records used to establish continuity.
+    kind: trace
+    required: true
+    examples:
+      - Section-to-source mapping linking each changed step to the new runbook revision and superseded version
+      - Ledger showing which HR intake guidance statements came from the new policy package versus the prior baseline
+  - name: Out-of-scope and follow-up register
+    description: Explicit list of missing inputs, ambiguous changes, or downstream questions that the briefing surfaced but did not resolve.
+    kind: issue-list
+    required: true
+    examples:
+      - Register noting one site exception still lacks confirmation in the updated operations bundle
+      - List of support runbook changes that require product-owner clarification before any customer-facing commitment
+environment:
+  summary: Operates in low-risk change-communication workflows where a bounded source update should trigger a refreshed digest for human teams, and the main challenge is assembling the right surrounding context without drifting into anomaly triage, open-ended research, or downstream decision support.
+  systems:
+    - Versioned document repositories or policy libraries
+    - Event feeds, change logs, or revision notification systems
+    - Search or retrieval tools for adjacent context
+    - Team briefing workspaces or handoff channels
+  actors:
+    - Process or policy owner who defines the trigger boundary
+    - Team lead, duty manager, or coordinator consuming the digest
+    - Source custodians responsible for authoritative updates
+    - Auditor or governance steward reviewing change communication quality
+  constraints:
+    - Restrict retrieval to the approved source boundary connected to the triggering change rather than reopening broad research.
+    - Separate observed changes, unchanged carry-forward context, and unresolved questions so the digest does not imply a recommendation or completed analysis.
+    - Stop at informational briefing handoff; do not prioritize alerts, propose response actions, prepare approval packets, or execute downstream changes.
+    - Preserve timestamps, version identifiers, and source provenance so recipients can inspect what actually changed and what did not.
+  assumptions:
+    - The relevant source systems emit stable revision signals or expose enough metadata to detect the authoritative change.
+    - Human consumers remain responsible for deciding whether the digest requires deeper review, triage, planning, or execution.
+    - The bounded source set is small enough that conservative context assembly is preferable to open-ended retrieval.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The workflow starts from detecting a trusted source change event or revision signal rather than waiting for a manual research prompt.
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The digest must gather the changed artifact, prior baseline, and a narrow set of adjacent context records before a useful briefing can be assembled.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Recipients need a concise change digest that explains what changed and what remains relevant instead of a raw document diff or source dump.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Version identifiers, source precedence, and carry-forward statements need checking so the brief does not mix stale and current context.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow has to compare against prior digests, preserve unresolved items, and remember what was already communicated across revisions.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Inclusion rules, source boundaries, and sensitivity constraints determine which adjacent context can be pulled into the digest and what must remain out of scope.
+execution_architecture:
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: The pattern is naturally triggered by an approved document, policy, runbook, or ruleset revision that should automatically prompt a refreshed briefing.
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: One bounded agent can usually compare versions, gather nearby context, and emit a digest with provenance without requiring multi-agent specialization.
+autonomy_profile:
+  level:
+    id: bounded-delegation
+    label: Bounded delegation
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Define which source changes are authoritative triggers, which repositories stay in scope, and which audience templates the workflow may populate before delegated briefing begins.
+    - Review escalated cases when the changed source is ambiguous, the revision is incomplete, or the digest would need to infer downstream recommendations or policy interpretation.
+    - Audit sampled digests and change-trace quality when templates, source precedence rules, or revision taxonomies change.
+  reversibility: Published digests can usually be corrected, regenerated, or superseded quickly because the workflow only assembles contextual briefing artifacts and does not itself trigger consequential downstream action.
+  escalation: Escalate whenever the source event is not authoritative, the baseline is missing, the change touches a broader policy or operational question than the delegated digest scope allows, or the workflow would otherwise need to rank actions instead of reporting context.
+risk_governance:
+  level:
+    id: low
+    label: Low
+    source_vocabulary: risk-levels
+  failure_impact: Mistakes usually create localized briefing confusion, duplicated follow-up, or temporary reliance on stale context, but material harm is limited because the workflow stops at informational handoff and humans still own any downstream decisions or actions.
+  approval_requirements:
+    - Case-by-case approval is not required for in-scope digest generation triggered by approved source changes within established templates and source boundaries.
+    - Process owners must approve changes to trigger sources, audience templates, provenance rules, or any scope expansion that would move the workflow toward recommendation, triage, or execution.
+  auditability: Preserve the triggering event id, changed and baseline source versions, digest revision history, unresolved follow-up items, and any human overrides so reviewers can reconstruct what context was assembled and why.
+  privacy:
+    - Include only the excerpts, identifiers, and context needed for the target digest rather than copying whole sensitive documents into broad team channels.
+    - Keep personnel, customer, contract, or operational details aligned to need-to-know access when change digests reference protected source material.
+  security:
+    - Use least-privilege read access to source repositories, revision feeds, and briefing channels involved in digest generation.
+    - Log digest publication, source-version checks, and manual overrides so unexpected scope growth or stale-source reuse is visible.
+  notes: Low-risk governance fits because the pattern is limited to bounded context assembly after an authoritative source change, remains reversible, and keeps downstream judgment explicitly outside the workflow boundary.
+why_agentic:
+  - Useful change briefings require deciding which adjacent context still matters around the trigger instead of forwarding a raw diff or single-source notification.
+  - The workflow must track prior digests, compare changed and unchanged material, and preserve open questions across revisions.
+  - Safe performance depends on recognizing when a trigger implies a broader issue that should hand off to research, triage, recommendation, or human review rather than forcing an overconfident digest.
+failure_modes:
+  - mode: The digest omits a relevant changed source or carries forward stale adjacent context
+    impact: Recipients act on an incomplete picture and may miss a material update until someone reconstructs the source set manually.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Revalidate the triggering version and required adjacent sources before publishing the digest.
+      - Preserve baseline and changed-source identifiers in the provenance trace so omissions are reviewable.
+  - mode: The workflow treats a noisy or unauthorized revision notice as authoritative
+    impact: Teams receive distracting or misleading digest updates based on draft or superseded source material.
+    severity: low
+    detectability: high
+    mitigations:
+      - Trigger only from approved revision channels or trusted source-state checks.
+      - Escalate when the signal conflicts with repository state or publication status.
+  - mode: The digest drifts into triage, recommendation, or approval-preparation language
+    impact: Consumers may mistake a context brief for an action recommendation or governed review artifact.
+    severity: low
+    detectability: high
+    mitigations:
+      - Keep templates focused on what changed, what remains in force, and what is unresolved.
+      - Route downstream action questions to adjacent patterns instead of answering them inside the digest.
+  - mode: Sensitive details are copied too broadly into briefing channels
+    impact: Low-risk communication work creates avoidable privacy or confidentiality exposure.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Prefer citations, references, and narrow excerpts over wholesale document copying.
+      - Apply audience-specific masking and need-to-know limits before publication.
+evaluation:
+  success_metrics:
+    - Percentage of in-scope authoritative source changes that produce a digest with complete version and provenance trace.
+    - Reviewer correction rate for change summaries, carry-forward context, or source precedence in sampled briefs.
+    - Rate at which out-of-scope or unresolved questions are surfaced explicitly rather than being implied away.
+  quality_criteria:
+    - The brief clearly distinguishes new changes, unchanged contextual carry-forward, and open questions.
+    - Every material statement in the digest is traceable to the triggering change, a baseline source, or an explicitly linked adjacent record.
+    - The workflow remains bounded at contextual briefing and does not collapse into alert ranking, recommendation, or approval preparation.
+  robustness_checks:
+    - Test with duplicate revision events and verify the digest reuses or supersedes prior state cleanly instead of publishing conflicting summaries.
+    - Test with a missing baseline and ensure the workflow emits an explicit follow-up item or escalation instead of inventing a comparison.
+    - Test with a broad policy package change and confirm the workflow narrows the digest or escalates rather than pretending the bounded template fully covers the impact.
+  benchmark_notes: Evaluate digest usefulness together with provenance quality, scope discipline, and carry-forward accuracy; fast publication is not success if the briefing blurs what changed or implies downstream judgment.
+implementation_notes:
+  orchestration_notes:
+    - Keep trigger detection, version comparison, adjacent-context retrieval, digest assembly, and publication as explicit stages over shared revision state.
+    - Preserve stable identifiers for prior digests and unresolved items so successive briefings can show continuity without reconstructing history from scratch.
+  integration_notes:
+    - Common implementations integrate revision feeds, document repositories, search tools, and team handoff channels or briefing workspaces.
+    - Keep the pattern neutral about specific ticketing, wiki, knowledge-base, or messaging platforms.
+  deployment_notes:
+    - Start with narrow source bundles where authoritative revisions are already well controlled and digest consumers want fast context, not prescriptive action.
+    - Monitor duplicate-trigger behavior, stale-baseline incidence, and scope-expansion requests before broadening the catalog of source-change digests.
+  references:
+    - docs/patterns/gather-retrieve-synthesize.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: research-synthesis-with-citation-verification
+    relationship: contrasts-with
+    notes: Both patterns assemble grounded briefs, but this pattern is triggered by bounded source revisions and stays narrower than open-ended question-driven research synthesis.
+  - id: risk-alert-triage
+    relationship: contrasts-with
+    notes: This pattern reacts to authoritative source changes in order to refresh context, while risk-alert triage reacts to operational signals and packages priority or escalation decisions.
+  - id: approval-packet-generation
+    relationship: contrasts-with
+    notes: Change-triggered briefing stops at an informational digest, whereas approval packet generation assembles a decision-ready evidence bundle for governed human review.
+example_domains:
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Publish a revised shift-supervisor digest after a warehouse slotting rule package changes, showing the new constraints, unchanged guardrails, and open exception questions without reprioritizing work.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Refresh a duty-manager handoff brief when a premium support escalation runbook changes, summarizing the revised steps, still-applicable account context, and pending clarifications without recommending concessions.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Reissue a people-operations digest when leave intake policy artifacts change, showing what the new guidance says, which prior requirements still stand, and which counsel questions remain open.
+maturity: draft
+tags:
+  - gather-retrieve-synthesize
+  - context-gathering-and-synthesis
+  - change-digest
+  - event-driven-monitoring
+  - bounded-delegation
+  - low-risk

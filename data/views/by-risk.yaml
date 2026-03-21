@@ -29,7 +29,7 @@ risk_levels:
     label: Low
     source_vocabulary: risk-levels
   pattern_families:
-    gather-retrieve-synthesize: []
+    gather-retrieve-synthesize: [change-triggered-context-briefing]
     transform-process: [normalization-and-enrichment]
     investigate-reconcile-verify: []
     monitor-detect-triage: []
