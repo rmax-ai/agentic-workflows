@@ -25,6 +25,9 @@ domain:
   - id: research
     label: Research
     source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
   - id: hr
     label: HR
     source_vocabulary: domains
@@ -298,6 +301,11 @@ example_domains:
       label: Research
       source_vocabulary: domains
     example: Release one reviewed benchmark replication-review scoring revision into live integrity review for a bounded publication program after a named research owner approves the manifest, validity window, and rollback target.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Release one reviewed enterprise support case-quality review scoring revision into live oversight use for a bounded quality program after a named support owner approves the manifest, validity window, and rollback target.
   - domain:
       id: hr
       label: HR

@@ -107,7 +107,7 @@ domains:
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [policy-constrained-escalation-routing, approval-gated-recommendation-release]
     execute-automate: [exception-aware-task-execution]
-    optimize-adapt: [adaptive-review-sampling-rate-tuning, queue-prioritization-optimization]
+    optimize-adapt: [adaptive-review-sampling-rate-tuning, queue-prioritization-optimization, approval-gated-optimization-state-release]
     human-agent-collaborative-work: [analyst-copilot-loop, approval-gated-collaborative-artifact-release, shared-workbench-orchestration]
 - domain:
     id: hr
