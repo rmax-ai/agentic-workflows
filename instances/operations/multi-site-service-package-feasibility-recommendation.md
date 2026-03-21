@@ -12,6 +12,19 @@ Operations.
 
 An operations services desk is reviewing a proposed support package for a retail chain that wants accelerated rollout across forty locations, weekend installation windows, tighter onsite response SLAs for its busiest sites, and dedicated spare-parts staging before quarter end. The workflow must recommend whether operations should support the package as scoped, counter with a phased or narrower service mix, or escalate because field capacity, subcontractor spend, inventory commitments, and exception thresholds move outside normal approval bands.
 
+```mermaid
+flowchart TD
+    A["Review proposed multi-site<br>service package"] --> B["Gather rollout assumptions, capacity forecasts,<br>subcontractor spend, inventory position,<br>and prior exception evidence"]
+    B --> C{"Does the package stay within<br>field capacity, subcontractor spend,<br>inventory, SLA, and approval bands?"}
+    C -->|"Yes"| D["Recommend support as scoped<br>with documented assumptions<br>and rationale"]
+    C -->|"No"| E{"Would a phased rollout or narrower<br>service mix bring the package back<br>inside normal approval bands?"}
+    E -->|"Yes"| F["Recommend phased or narrower package<br>and hold customer commitment pending<br>operations review"]
+    E -->|"No"| G["Escalate exception package for bounded<br>operations leadership review because<br>thresholds remain out of band"]
+    D --> H["Authorized operations reviewers inspect<br>the recommendation packet before any<br>service commitment is approved"]
+    F --> H
+    G --> I["Hold local approval path until escalated<br>review returns a decision path"]
+```
+
 ## Target systems / source systems
 
 - CRM opportunity record, draft services package, and customer rollout assumptions
