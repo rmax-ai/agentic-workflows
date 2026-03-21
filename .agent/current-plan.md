@@ -4,7 +4,7 @@
 
 Next iteration focus: reassess the now tied thinnest domains (`research` and `hr`) for one equally bounded already-canonical grounding slice whose canonical metadata and derived domain view already align, again preferring an instance-only refinement batch.
 
-Iteration `20260321-150301` is now complete: `approval-packet-generation` gained new `compliance` grounding through one vendor biometric retention control deviation approval-packet assembly example, while the canonical pattern metadata and derived `data/views/by-domain.yaml` already correctly exposed that gather-family slice.
+Iteration `20260321-145952` is now complete: `approval-packet-generation` gained new `compliance` grounding through one vendor biometric retention control deviation approval-packet assembly example, while the canonical pattern metadata and derived `data/views/by-domain.yaml` already correctly exposed that gather-family slice.
 
 Iteration `20260321-145355` is now complete: `claimed-state-verification` gained additional `support` grounding through one internal premium-support advisory-macro publication verification example, while the canonical pattern metadata and derived `data/views/by-domain.yaml` already correctly exposed that low-risk investigate-family slice.
 
@@ -84,7 +84,7 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-150301`
+- Timestamp: `20260321-145952`
 - Completed scope: added one compliance-grounded `vendor-biometric-retention-control-deviation-approval-packet-for-privacy-council-review` example under `approval-packet-generation`, confirmed the canonical pattern metadata and derived domain view already exposed the compliance slice correctly, and confirmed YAML validation still passes.
 - Current working hypothesis: the completed compliance gather-family refinement remains valid only because the primary outputs stayed one decision-ready approval packet, one evidence-and-provenance index, one explicit exception register, and one handoff record, while recommendation, adjudication, vendor instruction, and regulator or data-subject communication remained explicitly outside the workflow.
 - Current scoped follow-on: reassess the now tied thinnest domains (`research` and `hr`) for one equally bounded already-canonical grounding slice whose canonical metadata and derived domain view ideally already align.
