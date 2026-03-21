@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Iteration `20260321-131341` is now scoped: deepen the still-thinnest `hr` domain with one family-safe `change-triggered-representation-refresh` example, plus only the directly dependent canonical metadata and derived browse-view updates needed to expose that moderate-risk transform-refresh slice without drifting into recommendation, verification, collaboration, or execution.
+
 Iteration `20260321-130630` is now complete: `approval-gated-transformation-release` gained new `support` grounding, and the canonical pattern metadata plus derived domain view now expose that transform-family approval-bound slice across all seven modeled domains without drifting past one exact vendor-escalation intake packet revision, one explicit hold-and-manifest state, or one bounded restricted downstream lane.
 
 Iteration `20260321-130011` is now complete: `approval-gated-transformation-release` gained new `research` grounding, and the canonical pattern metadata plus derived domain view now expose that transform-family approval-bound slice across six modeled domains without drifting past one exact publication-integrity intake packet revision, one explicit hold-and-manifest state, or one bounded restricted review lane.
@@ -50,11 +52,11 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 ## Iteration checkpoint
 
 - Timestamp: `20260321-130630`
-- Previous completed scope: added one research-grounded `approval-gated-transformation-release` example, expanded the canonical pattern's domain and example metadata to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Completed scope: added one support-grounded `approval-gated-transformation-release` example, expanded the canonical pattern's domain and example metadata to include `support`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Current working hypothesis: transform-family approval-gated refinement remains family-safe only when the governed object is one exact transformed package revision with explicit hold state, lineage trace, and one bounded downstream intake or handoff lane, while collaborative drafting, publication recommendation, legal adjudication, evidence verdicts, and live action stay explicitly outside the workflow.
-- Current scoped follow-on: identify the cleanest HR-grounded change-refresh slice in `change-triggered-representation-refresh` so the next batch can deepen transform-family coverage in the thinnest domain without reopening broader structural expansion.
-- Boundary reminder: future transform-family approval-gated work should remain tied to one exact transformed package revision, one explicit hold or release manifest state, and one bounded downstream reliance lane rather than vague permission to decide, verify, or execute the underlying case.
+- Timestamp: `20260321-131341`
+- Previous completed scope: added one support-grounded `approval-gated-transformation-release` example, expanded the canonical pattern's domain and example metadata to include `support`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Current scoped work: add one HR-grounded `change-triggered-representation-refresh` example, expand the canonical pattern metadata to include `hr`, refresh the derived domain view, and keep the transform-family boundary centered on one already-issued staged packet revision with delta lineage and supersession state.
+- Current working hypothesis: transform-family change-refresh refinement remains family-safe only when the primary output is one current staged representation rebuilt after authoritative source changes, with explicit delta lineage, superseded-value traceability, and reviewable exceptions, while recommendation, verification verdicts, collaborative drafting, and live action stay explicitly outside the workflow.
+- Boundary reminder: future transform-family refresh work should remain tied to one already-issued staged package or record revision, one explicit current-versus-superseded state boundary, and one bounded downstream reliance lane rather than a recommendation packet, evidence verdict, approval artifact, or operational action.
 
 ## Constraints
 
