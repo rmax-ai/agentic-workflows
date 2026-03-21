@@ -122,11 +122,12 @@ items:
       - "`investigate-reconcile-verify` is now grounded in engineering, finance, and compliance after adding treasury cash-position discrepancy and sanctions-screening-gap root-cause investigation examples."
       - "`gather-retrieve-synthesize` is now grounded in every currently modeled domain after adding compliance, HR, and engineering synthesis examples alongside the earlier research, finance, operations, and support anchors."
       - "`human-agent-collaborative-work` is now grounded across support, research, compliance, and engineering after adding a deprecated message-broker client migration exception copilot loop."
+      - "`human-agent-collaborative-work` is now also grounded in operations through a supplier labeling deviation remediation brief copilot loop, so the family now spans support, research, compliance, engineering, and operations."
       - "`monitor-detect-triage` is now grounded in support through a suspected account takeover alert triage scenario, so the family now has representative monitoring coverage across finance, compliance, operations, and support."
       - "`monitor-detect-triage` is now also grounded in engineering through a production release regression alert triage scenario, extending the family into a domain that already had adjacent investigation, synthesis, and collaboration coverage."
       - "`investigate-reconcile-verify` is now grounded in operations through a distribution-sorter misroute root-cause investigation scenario, so the family now spans engineering, finance, compliance, and operations."
       - "`investigate-reconcile-verify` is now also grounded in support through an enterprise admin entitlement drift root-cause investigation scenario, so the family now spans engineering, finance, compliance, operations, and support."
-      - "The next small grounding batch should likely rebalance another thin family/domain slice, with operations collaboration coverage now a plausible adjacent target because operations has broad grounding across other families but still lacks an explicit mixed-initiative collaboration artifact."
+      - "The next small grounding batch should likely rebalance another thin family/domain slice, with finance collaboration coverage now a plausible adjacent target because finance has broad grounding across neighboring families but still lacks an explicit mixed-initiative collaboration artifact."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement
