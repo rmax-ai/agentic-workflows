@@ -22,6 +22,9 @@ domain:
   - id: hr
     label: HR
     source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
   - id: support
     label: Support
     source_vocabulary: domains
@@ -291,6 +294,11 @@ example_domains:
       label: HR
       source_vocabulary: domains
     example: Refresh a restricted leave-review staging record after authoritative recertification evidence or case-source corrections land so reviewers see the current privacy-scoped package with superseded values and delta lineage intact.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Refresh a benchmark-study research-review intake record after authoritative rerun manifests, methods annexes, or dataset-version corrections land so reviewers see the current staged packet with superseded values, delta lineage, and exception-held conflicts intact.
   - domain:
       id: support
       label: Support
