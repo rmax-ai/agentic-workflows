@@ -143,4 +143,4 @@ items:
     notes:
       - The last empty family gap is closed at the canonical pattern layer and `transform-process` now has its first grounded example.
       - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.
-      - The next small grounding batch should likely target `transform-process`, which still has grounded examples only in finance, compliance, and operations.
+      - The next small grounding batch should target `transform-process` in support, which still has grounded examples only in finance, compliance, and operations and can deepen an uncovered domain without widening ontology scope.

@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-032009` is complete: it added a single HR-domain collaboration instance for `analyst-copilot-loop` via `workplace-accommodation-exception-memo-copilot-loop`. The next modest batch should stay inside Phase 6 and rebalance the next thinnest grounded family without widening into schema, vocabulary, view, or new pattern authoring work. `transform-process` is now the strongest adjacent target because it still has grounded examples only in finance, compliance, and operations.
+Iteration `20260321-032458` will stay inside Phase 6 and rebalance the next thinnest grounded family without widening into schema, vocabulary, view, or new pattern authoring work. `transform-process` remains the strongest adjacent target because it still has grounded examples only in finance, compliance, and operations, so this batch should add exactly one support-domain instance linked to `document-to-structured-data-handoff`.
 
 ## Current phase
 
@@ -15,18 +15,18 @@ Iteration `20260321-032009` is complete: it added a single HR-domain collaborati
 
 ## Ordered tasks
 
-1. Re-read `document-to-structured-data-handoff`, the existing transform-process instances, and adjacent domain artifacts before adding another grounded handoff scenario.
-2. Author exactly one new uncovered-domain instance linked to `document-to-structured-data-handoff`, preferably in HR or support, so the next batch deepens a thin family rather than opening a new front.
+1. Re-read `document-to-structured-data-handoff`, the existing transform-process instances, and adjacent support-domain artifacts before adding another grounded handoff scenario.
+2. Author exactly one new support-domain instance linked to `document-to-structured-data-handoff` so the next batch deepens a thin family rather than opening a new front.
 3. Keep the scenario anchored on governed document-to-record or packet-to-staging transformation with provenance, exception routing, and human review boundaries rather than drifting into recommendation, execution, or investigation.
 4. Keep the content batch limited to this single transform-process example so coverage improves without widening scope.
-5. After the next instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next dated iteration log so execution memory matches repository reality.
-6. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
+5. After the next instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and `.agent/iterations/2026/20260321-032458.md` so execution memory matches repository reality.
+6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-032009`
-- Completed subagent scope: authored `instances/hr/workplace-accommodation-exception-memo-copilot-loop.md` as one HR-domain `analyst-copilot-loop` grounding change and committed it separately.
-- Completed orchestrator follow-up: refreshed execution memory so the collaboration-family domain coverage closure is reflected in status and coverage tracking.
+- Timestamp: `20260321-032458`
+- Planned subagent scope: author one support-domain `document-to-structured-data-handoff` grounding change and commit it separately.
+- Planned orchestrator follow-up: refresh execution memory so transform-family support coverage is reflected in status and coverage tracking.
 
 ## Constraints
 
@@ -39,4 +39,4 @@ Iteration `20260321-032009` is complete: it added a single HR-domain collaborati
 
 ## Expected outcome
 
-The next iteration should add one uncovered-domain `transform-process` example, deepen one of the thinnest grounded families, and leave the repository ready for another small Phase 6 grounding batch after the `.agent/` memory refresh.
+The current iteration should add one support-domain `transform-process` example, deepen one of the thinnest grounded families, and leave the repository ready for another small Phase 6 grounding batch after the `.agent/` memory refresh.
