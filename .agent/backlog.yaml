@@ -129,6 +129,7 @@ items:
       - "`investigate-reconcile-verify` is now grounded in operations through a distribution-sorter misroute root-cause investigation scenario, so the family now spans engineering, finance, compliance, and operations."
       - "`investigate-reconcile-verify` is now also grounded in support through an enterprise admin entitlement drift root-cause investigation scenario, so the family now spans engineering, finance, compliance, operations, and support."
       - "`human-agent-collaborative-work` is now grounded across support, research, compliance, engineering, operations, finance, and HR after adding a workplace accommodation exception memo copilot loop."
+      - "`transform-process` is now also grounded in HR through a medical leave certification packet to leave-case record handoff, so the family now spans finance, compliance, operations, support, and HR."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement
@@ -143,4 +144,4 @@ items:
     notes:
       - The last empty family gap is closed at the canonical pattern layer and `transform-process` now has its first grounded example.
       - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.
-      - The next small grounding batch should target `transform-process` in HR, which after support coverage still lacks engineering, research, and HR grounding and can deepen a governance-sensitive uncovered domain without widening ontology scope.
+      - The next small grounding batch should target either research or engineering in `transform-process`; after the new HR leave-intake example, the family still lacks only research and engineering grounding, and research is currently the sparsest overall domain.
