@@ -2,31 +2,32 @@
 
 ## Iteration focus
 
-Iteration `20260321-093716` is now scoped to close the remaining `critical` risk gap in `human-agent-collaborative-work` with one family-clean severe collaboration pattern plus a few grounded instances. The batch must stay centered on a protected shared artifact, explicit human ownership, contested edits, and bounded handoff readiness rather than drifting into authority recommendation, crisis planning, briefing synthesis, or execution.
+Iteration `20260321-093716` is complete: it closed the remaining `critical` risk gap in `human-agent-collaborative-work` with `critical-protected-artifact-collaboration`, three linked protected-room collaboration instances, and synchronized family and browse-view artifacts. The next highest-leverage refinement is no longer risk-ladder completion, but a narrow autonomy or architecture balancing pass that preserves the same family-boundary discipline.
 
 ## Current phase
 
 - Phase 2: controlled vocabularies are complete and stable enough for bounded Phase 7 refinement.
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
-- Phase 5: canonical coverage spans thirty-seven patterns across all nine top-level pattern families, and every top-level family now has at least three canonical patterns while `transform-process` and `recommend-decide-escalate` sit at five; `gather-retrieve-synthesize`, `investigate-reconcile-verify`, `monitor-detect-triage`, `plan-coordinate-schedule`, `execute-automate`, and `optimize-adapt` sit at four; and `human-agent-collaborative-work` sits at three.
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred twenty-six instance files now committed.
-- Phase 7: coverage refinement remains active, and `optimize-adapt` now joins `gather-retrieve-synthesize`, `transform-process`, `investigate-reconcile-verify`, `monitor-detect-triage`, `plan-coordinate-schedule`, `recommend-decide-escalate`, and `execute-automate` in spanning the full tracked risk ladder.
+- Phase 5: canonical coverage spans thirty-eight patterns across all nine top-level pattern families, and every top-level family now has at least four canonical patterns while `transform-process` and `recommend-decide-escalate` sit at five; `gather-retrieve-synthesize`, `investigate-reconcile-verify`, `monitor-detect-triage`, `plan-coordinate-schedule`, `execute-automate`, `optimize-adapt`, and `human-agent-collaborative-work` sit at four.
+- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred twenty-nine instance files now committed.
+- Phase 7: coverage refinement remains active, and all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 
 ## Ordered tasks
 
-1. Add one canonical `human-agent-collaborative-work` pattern at `critical` risk that anchors on severe shared-artifact collaboration, protected work surfaces, explicit ownership, and visible disagreement.
-2. Ground that pattern with a small set of linked instances in domains where severe shared-work is clearly primary and still family-clean.
-3. Synchronize the collaboration family doc and the directly affected derived browse views so they reflect the new canonical inventory without drift.
-4. Validate repository YAML with `uv run python scripts/python/validate_yaml.py`, then update `.agent/` execution memory, coverage tracking, and this plan before closing the iteration.
+1. Re-evaluate the remaining narrow gaps after full risk-ladder completion and identify the next modest Phase 7 batch through autonomy or architecture balance rather than another risk-level fill.
+2. Favor a family-clean refinement where the missing autonomy or architecture slice reflects a real reusable workflow shape rather than a forced matrix exercise.
+3. Keep future batches modest and synchronized across canonical patterns, grounded instances, browse views, and `.agent/` execution memory.
+4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each content batch before closing the iteration.
 
 ## Iteration checkpoint
 
 - Timestamp: `20260321-093716`
-- Planned scope: add one critical collaboration anchor in `human-agent-collaborative-work`, a few linked severe shared-work instances, and the directly affected family/view synchronization in one feature commit.
-- Coverage target: fill the final uncovered `pattern_family_x_risk` cell by giving `human-agent-collaborative-work` explicit `critical` representation while preserving clean separation from recommendation, planning, synthesis, and execution families.
-- Planned orchestrator follow-up: validate YAML, update status and coverage memory, record this iteration, and queue the next narrow refinement only after the collaboration family cleanly spans the full tracked risk ladder.
+- Completed scope: added `critical-protected-artifact-collaboration`, three linked grounded protected-room collaboration instances in engineering, finance, and compliance, and synchronized the collaboration family doc plus the directly affected browse views in one feature commit.
+- Updated coverage context: `human-agent-collaborative-work` now spans `low`, `moderate`, `high`, and `critical` risk slices, which means every top-level family now spans the full tracked risk ladder.
+- Reflection outcome: no new `.agent/proposals/` entry is needed because the iteration reinforced existing guidance about family boundaries, derived views, and modest dependency-aware batching without surfacing a new durable process or tooling gap.
+- Planned orchestrator follow-up: validate the refreshed repository state, keep execution memory synchronized, and shift the next candidate search from risk completion toward a narrow autonomy or architecture refinement.
 
 ## Constraints
 
@@ -40,4 +41,4 @@ Iteration `20260321-093716` is now scoped to close the remaining `critical` risk
 
 ## Expected outcome
 
-This iteration should leave `human-agent-collaborative-work` with representative `critical` risk coverage through one bounded severe shared-work pattern and a small linked instance set, while keeping the ontology family boundaries clean and the derived browse artifacts synchronized to canonical truth.
+This repository state now leaves all nine top-level families with representative coverage across the full tracked risk ladder while preserving clean family boundaries. The next iteration should target a similarly bounded autonomy or architecture refinement rather than broad expansion.

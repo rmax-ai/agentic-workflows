@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 37
-  instance_files: 126
+  pattern_files: 38
+  instance_files: 129
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -54,11 +54,11 @@ pattern_counts_by_family:
   recommend-decide-escalate: 5
   execute-automate: 4
   optimize-adapt: 4
-  human-agent-collaborative-work: 3
+  human-agent-collaborative-work: 4
 instance_counts_by_domain:
-  engineering: 22
-  finance: 21
-  compliance: 14
+  engineering: 23
+  finance: 22
+  compliance: 15
   operations: 19
   research: 17
   support: 19
@@ -119,6 +119,7 @@ repo_reality:
     - data/patterns/human-agent-collaborative-work/analyst-copilot-loop.yaml
     - data/patterns/human-agent-collaborative-work/approval-centered-collaboration.yaml
     - data/patterns/human-agent-collaborative-work/shared-workbench-orchestration.yaml
+    - data/patterns/human-agent-collaborative-work/critical-protected-artifact-collaboration.yaml
     - instances/research/regulatory-obligation-synthesis-for-data-retention-review.md
     - instances/research/model-serving-platform-benchmark-briefing-copilot-loop.md
     - instances/research/model-serving-benchmark-evidence-matrix-shared-workbench-upkeep.md
@@ -151,6 +152,7 @@ repo_reality:
     - instances/engineering/privileged-service-account-quarterly-control-attestation-recommendation.md
     - instances/engineering/ci-pipeline-failure-review-queue-reprioritization.md
     - instances/engineering/production-shared-credential-exception-review-board-readiness-loop.md
+    - instances/engineering/production-signing-key-compromise-protected-review-packet-collaboration-room.md
     - instances/engineering/approved-release-readiness-review-closure-and-tracker-completion.md
     - instances/engineering/payments-tokenization-cutover-readiness-gate-disposition-recommendation.md
     - instances/engineering/internal-sdk-release-asset-publication-verification.md
@@ -177,6 +179,7 @@ repo_reality:
     - instances/finance/intraday-liquidity-command-window-checkpoint-resequencing.md
     - instances/finance/intraday-liquidity-facility-draw-authority-recommendation.md
     - instances/finance/intraday-liquidity-protection-priority-adaptation.md
+    - instances/finance/intraday-liquidity-stress-protected-funding-review-packet-collaboration-room.md
     - instances/operations/cross-functional-maintenance-review-scheduling.md
     - instances/operations/cold-chain-temperature-excursion-alert-triage.md
     - instances/operations/multi-site-service-package-feasibility-recommendation.md
@@ -207,6 +210,7 @@ repo_reality:
     - instances/compliance/regulator-reporting-timeline-exception-package-readiness-loop.md
     - instances/compliance/sanctions-hold-state-truth-restoration.md
     - instances/compliance/sanctions-screening-outage-authority-recommendation.md
+    - instances/compliance/sanctions-screening-outage-protected-regulator-position-packet-collaboration-room.md
     - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
     - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
     - instances/support/customer-escalation-bridge-scheduling.md
@@ -253,12 +257,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, thirty-seven canonical patterns across all nine top-level families, and one hundred twenty-six grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, thirty-eight canonical patterns across all nine top-level families, and one hundred twenty-nine grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`critical-protected-priority-adaptation` now gives `optimize-adapt` a fourth canonical pattern plus representative `critical` risk, `human-directed`, and additional `orchestrated-multi-agent` plus `human-in-the-loop` coverage while staying bounded at severe-state optimization-state recommendation, expiry discipline, and rollback preparation rather than authority choice, command planning, collaboration ownership, or execution."
-    - "`optimize-adapt` now spans `low`, `moderate`, `high`, and `critical` risk slices, making it the eighth family after `gather-retrieve-synthesize`, `transform-process`, `investigate-reconcile-verify`, `monitor-detect-triage`, `plan-coordinate-schedule`, `recommend-decide-escalate`, and `execute-automate` to fill the full tracked risk ladder."
-    - "The derived optimize family doc, index tree, and alternate browse views are now realigned to canonical pattern inventory, including the new critical optimization anchor and its engineering, finance, operations, autonomy, architecture, and risk placements, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
-    - "All nine top-level families still have at least three canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gap now moves to the remaining narrow family-specific `critical` risk slice in `human-agent-collaborative-work` rather than missing global scaffolding."
+    - "`critical-protected-artifact-collaboration` now gives `human-agent-collaborative-work` a fourth canonical pattern plus representative `critical` risk, `orchestrated-multi-agent`, `human-in-the-loop`, and `human-directed` coverage while staying bounded at protected shared-artifact collaboration, disagreement preservation, annex control, and human-owned handoff readiness rather than authority selection, command sequencing, or execution."
+    - "`human-agent-collaborative-work` now spans `low`, `moderate`, `high`, and `critical` risk slices, making it the ninth family and completing full tracked risk-ladder coverage across all nine top-level families."
+    - "The derived collaboration family doc, index tree, and alternate browse views are now realigned to canonical pattern inventory, including the new critical collaboration anchor and its engineering, finance, compliance, autonomy, architecture, and risk placements, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
+    - "Now that all families span the tracked risk ladder, the next refinement step should likely target a narrow autonomy or architecture imbalance rather than another risk-completion batch."
   next_action:
-    id: phase-7-critical-collaboration-refinement
-    summary: "Use the next iteration to evaluate whether `human-agent-collaborative-work` should gain one critical-risk pattern that stays bounded at severe shared-work or approval-ownership collaboration without drifting into authority recommendation, crisis planning, or execution."
+    id: phase-7-autonomy-architecture-balance
+    summary: "Use the next iteration to inspect narrow autonomy and architecture imbalances now that all families span the tracked risk ladder, and only add a new family-clean pattern if it represents a real reusable workflow shape."
