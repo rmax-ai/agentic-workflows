@@ -108,9 +108,10 @@ items:
     notes:
       - The first three grounded examples now exist for research, engineering, and finance, each tied directly to one of the initial canonical patterns.
       - A follow-on instance batch now grounds the planning, recommendation, and execution patterns in operations, compliance, and HR scenarios.
-      - Support is now grounded through a collaboration-oriented escalation example linked to `analyst-copilot-loop`, so every currently modeled domain has at least one instance.
-      - The new `transform-process` seed pattern is still ungrounded, making the first instance for that family the highest-leverage next Phase 6 task.
-      - Several families still have only one grounded example, so future Phase 6 work should deepen representative coverage without turning instances into generic domain overviews.
+      - "Support is now grounded through a collaboration-oriented escalation example linked to `analyst-copilot-loop`, so every currently modeled domain has at least one instance."
+      - "`transform-process` is now grounded through a finance AP handoff example linked to `document-to-structured-data-handoff`."
+      - "`optimize-adapt` is now grounded through a support queue reprioritization example linked to `queue-prioritization-optimization`."
+      - "Several families still have only one grounded example, so future Phase 6 work should deepen representative coverage in `recommend-decide-escalate`, `execute-automate`, and `human-agent-collaborative-work` without turning instances into generic domain overviews."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement
@@ -123,5 +124,5 @@ items:
     deliverables:
       - Balanced coverage across families, domains, architectures, and governance profiles
     notes:
-      - The last empty family gap is now closed at the canonical pattern layer.
-      - After the first `transform-process` instance lands, rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.
+      - The last empty family gap is closed at the canonical pattern layer and `transform-process` now has its first grounded example.
+      - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.

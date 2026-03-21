@@ -79,6 +79,8 @@
 - `instances/compliance/cross-border-deal-exception-review.md` — grounded compliance review case for governed recommendation support on cross-border commercial exceptions.
 - `instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md` — grounded support escalation case for mixed-initiative diagnosis, customer messaging, and explicit engineering/security handoff ownership.
 - `instances/hr/approved-payroll-status-change-submission.md` — grounded HR execution case for approval-gated payroll status changes in a browser-only portal.
+- `instances/finance/invoice-packet-to-payables-record-handoff.md` — grounded finance transformation case for converting heterogeneous invoice packets into ERP-ready payable records with provenance and exception routing.
+- `instances/support/post-outage-enterprise-ticket-queue-reprioritization.md` — grounded support optimization case for bounded queue retuning after an outage using reopen feedback, SLA pressure, and fairness guardrails.
 
 ## Not yet present but planned
 

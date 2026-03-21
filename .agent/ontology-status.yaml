@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: transform-family-seeded
+repository_stage: phase-6-grounding-expanded
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 7
+  instance_files: 9
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -54,11 +54,11 @@ pattern_counts_by_family:
   human-agent-collaborative-work: 1
 instance_counts_by_domain:
   engineering: 1
-  finance: 1
+  finance: 2
   compliance: 1
   operations: 1
   research: 1
-  support: 1
+  support: 2
   hr: 1
 repo_reality:
   available_ontology_assets:
@@ -95,6 +95,8 @@ repo_reality:
     - instances/compliance/cross-border-deal-exception-review.md
     - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
     - instances/hr/approved-payroll-status-change-submission.md
+    - instances/finance/invoice-packet-to-payables-record-handoff.md
+    - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -110,10 +112,10 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and seven grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and nine grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
-  - "`transform-process` now has canonical seed coverage but still lacks a first grounded instance."
-  - "Several canonical domain cells remain partial because the transform, planning, recommendation, execution, optimize/adapt, and human-agent collaboration families still have only one grounded example each."
+  - "`recommend-decide-escalate`, `execute-automate`, and `human-agent-collaborative-work` still each rely on a single grounded instance, so representative coverage remains thin."
+  - "Most families still have only one or two domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-transform-grounding
-  summary: "Add the first grounded `transform-process` instance and a small follow-on instance batch that reduces partial coverage in other lightly grounded families."
+  id: phase-6-balance-lightly-grounded-families
+  summary: "Add another small instance batch for lightly grounded families such as recommendation, execution, or human-agent collaboration to reduce remaining partial coverage without expanding the canonical pattern set yet."

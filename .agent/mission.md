@@ -11,7 +11,7 @@ Build `agentic-workflows` into a pattern-first ontology of agentic work that sta
 
 ## Current operating constraints
 
-The repository now has execution memory, foundational docs, the canonical pattern schema, and the first six controlled vocabularies. The main ontology-specific assets are:
+The repository now has execution memory, foundational docs, the canonical pattern schema, controlled vocabularies, derived browse views, nine top-level family docs, canonical seed patterns across every top-level family, and the first grounded instance batches. The main ontology-specific assets are:
 
 - `README.md`
 - `docs/ontology.md`
@@ -25,13 +25,20 @@ The repository now has execution memory, foundational docs, the canonical patter
 - `data/vocabularies/capabilities.yaml`
 - `data/vocabularies/autonomy-levels.yaml`
 - `data/vocabularies/risk-levels.yaml`
+- `data/views/index-tree.yaml`
+- `data/views/by-domain.yaml`
+- `data/views/by-architecture.yaml`
+- `data/views/by-autonomy.yaml`
+- `data/views/by-risk.yaml`
+- `data/patterns/`
+- `instances/`
 - `.agent/current-plan.md`
 - `.agent/prompts/mega-prompt.txt`
 - `.agent/prompts/operator-prompt.txt`
 - `scripts/run-agentic-workflows-loop.sh`
 - `scripts/run-agentic-workflows-forever.sh`
 
-Navigation views, pattern family docs, canonical patterns, and grounded instances do not exist yet.
+Grounded coverage is still intentionally thin, so current work should keep expanding instances and representative pattern/domain combinations in small, dependency-aware batches instead of generating large shallow sets.
 
 ## Curation rules
 

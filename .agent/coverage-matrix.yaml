@@ -37,17 +37,17 @@ dimensions:
 matrices:
   pattern_family_x_domain:
     gather-retrieve-synthesize: {engineering: partial, finance: none, compliance: partial, operations: none, research: covered, support: none, hr: none}
-    transform-process: {engineering: none, finance: partial, compliance: partial, operations: partial, research: none, support: none, hr: none}
+    transform-process: {engineering: none, finance: covered, compliance: partial, operations: partial, research: none, support: none, hr: none}
     investigate-reconcile-verify: {engineering: covered, finance: none, compliance: none, operations: partial, research: none, support: partial, hr: none}
     monitor-detect-triage: {engineering: none, finance: covered, compliance: partial, operations: partial, research: none, support: none, hr: none}
     plan-coordinate-schedule: {engineering: none, finance: none, compliance: none, operations: covered, research: none, support: partial, hr: partial}
     recommend-decide-escalate: {engineering: none, finance: partial, compliance: covered, operations: partial, research: none, support: none, hr: none}
     execute-automate: {engineering: none, finance: partial, compliance: partial, operations: none, research: none, support: none, hr: covered}
-    optimize-adapt: {engineering: none, finance: none, compliance: partial, operations: partial, research: none, support: partial, hr: none}
+    optimize-adapt: {engineering: none, finance: none, compliance: partial, operations: partial, research: none, support: covered, hr: none}
     human-agent-collaborative-work: {engineering: none, finance: none, compliance: partial, operations: none, research: partial, support: covered, hr: none}
   pattern_family_x_architecture:
     gather-retrieve-synthesize: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
-    transform-process: {tool-using-single-agent: partial, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
+    transform-process: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
     investigate-reconcile-verify: {tool-using-single-agent: none, orchestrated-multi-agent: covered, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
     monitor-detect-triage: {tool-using-single-agent: none, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: covered, approval-gated-execution: none}
     plan-coordinate-schedule: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
@@ -57,7 +57,7 @@ matrices:
     human-agent-collaborative-work: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
   pattern_family_x_risk:
     gather-retrieve-synthesize: {low: none, moderate: covered, high: none, critical: none}
-    transform-process: {low: none, moderate: partial, high: none, critical: none}
+    transform-process: {low: none, moderate: covered, high: none, critical: none}
     investigate-reconcile-verify: {low: none, moderate: none, high: covered, critical: none}
     monitor-detect-triage: {low: none, moderate: none, high: covered, critical: none}
     plan-coordinate-schedule: {low: covered, moderate: none, high: none, critical: none}
@@ -68,6 +68,7 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Nine canonical pattern entries now populate all nine top-level families, and grounded examples still extend across all seven currently modeled domains.
-    - The new `document-to-structured-data-handoff` seed converts `transform-process` from an empty family into a set of partial coverage cells in finance, compliance, operations, tool-using-single-agent architecture, and moderate risk.
-    - The highest-leverage next gaps are now the ungrounded `transform-process` family slices and the many partial cells in newer families that still have only one grounded example each.
+    - Nine canonical pattern entries now populate all nine top-level families, and grounded examples extend across all seven currently modeled domains with deeper finance and support coverage.
+    - "`transform-process` is now grounded through a finance AP handoff instance, converting its finance, tool-using-single-agent, and moderate-risk cells from partial to covered."
+    - "`optimize-adapt` is now grounded through a support queue reprioritization instance, reducing one of the newer families that previously had only canonical coverage and no linked example."
+    - The highest-leverage next gaps are now the lightly grounded recommendation, execution, and human-agent collaboration families plus the remaining uncovered transform and optimize domain slices.
