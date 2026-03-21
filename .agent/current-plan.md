@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-081148` is complete: `staged-change-execution-with-rollback-holds` now gives `execute-automate` a high-risk staged-execution anchor, three grounded examples, and synchronized derived views, leaving `monitor-detect-triage`'s missing `low` risk slice as a plausible next narrow refinement.
+Iteration `20260321-082538` is now scoped: the highest-leverage narrow gap is still `monitor-detect-triage`'s missing `low` risk slice, so this iteration should add one bounded low-stakes monitoring pattern plus a few grounded examples without drifting into briefing, recommendation, investigation, or execution.
 
 ## Current phase
 
@@ -16,18 +16,19 @@ Iteration `20260321-081148` is complete: `staged-change-execution-with-rollback-
 
 ## Ordered tasks
 
-1. Re-read `.agent/coverage-matrix.yaml`, `.agent/ontology-status.yaml`, and the `monitor-detect-triage` family materials to confirm whether a low-risk monitoring refinement is now the highest-leverage narrow gap after closing `execute-automate`'s high-risk slice.
-2. Prefer the next iteration to add one `monitor-detect-triage` pattern that fills the family's uncovered `low` risk cell without duplicating `risk-alert-triage`, `anomaly-detection-review`, or `critical-signal-corroboration-triage`.
-3. Keep any follow-on monitoring work distinct from synthesis, recommendation, and investigation by centering it on low-stakes event review, explainable watchlisting, or bounded noise suppression rather than downstream decisions, deep diagnosis, or execution.
-4. Refresh `.agent/current-plan.md`, `.agent/backlog.yaml`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log after the next content batch so execution memory stays synchronized.
-5. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` before closing each iteration.
+1. Add one new `monitor-detect-triage` canonical pattern that fills the family's uncovered `low` risk cell without duplicating `risk-alert-triage`, `anomaly-detection-review`, or `critical-signal-corroboration-triage`.
+2. Keep the new monitoring pattern bounded at explainable watchlisting, low-stakes signal review, or noise suppression rather than contextual briefing, recommendation, verification, investigation, or execution.
+3. Ground the new pattern with a small cross-domain set of Markdown instances that show low-stakes monitoring value in routine but still stateful environments.
+4. Update the coupled family doc and derived browse views so the new pattern appears consistently across family, index, architecture, autonomy, domain, and risk navigation.
+5. Refresh `.agent/current-plan.md`, `.agent/backlog.yaml`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log after the content batch so execution memory stays synchronized.
+6. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` before closing each iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-081148`
-- Baseline context: iteration `20260321-080057` closed the highest-leverage `optimize-adapt` architecture gap and shifted the next narrow refinement target to `execute-automate`'s uncovered `high` risk slice.
-- Completed subagent scope: added `staged-change-execution-with-rollback-holds`, grounded it with engineering, finance, and operations staged-execution examples, and updated the coupled derived views plus `docs/patterns/execute-automate.md`.
-- Planned orchestrator follow-up: record the new execution coverage shape, refresh status and matrix counts, validate YAML, and queue the next family-specific refinement based on the remaining uncovered risk and architecture cells.
+- Timestamp: `20260321-082538`
+- Baseline context: iteration `20260321-081148` closed `execute-automate`'s uncovered `high` risk slice, leaving `monitor-detect-triage` as the clearest remaining family-specific risk gap.
+- Scoped subagent objective: add one low-risk monitoring pattern with a few grounded instances and synchronize the family doc plus derived views in the same commit-sized batch.
+- Planned orchestrator follow-up: record the new monitoring coverage shape, refresh status and matrix counts, validate YAML, and queue the next highest-leverage narrow gap after this low-risk monitoring slice is filled.
 
 ## Constraints
 
@@ -35,10 +36,10 @@ Iteration `20260321-081148` is complete: `staged-change-execution-with-rollback-
 - Ensure every subagent task ends with exactly one git commit and leaves no unrelated file churn behind.
 - Prefer a modest, dependency-aware batch that strengthens one family with one new pattern and a few instances rather than reopening broad expansion.
 - Keep governance, reversibility, privacy, and auditability explicit in every new instance.
-- Keep any follow-on `monitor-detect-triage` work distinct from `change-triggered-context-briefing`, `policy-constrained-escalation-routing`, `claimed-state-verification`, and `risk-alert-triage` by centering it on bounded low-stakes signal review or explainable watchlisting rather than contextual briefing, route recommendation, deep verification, or urgent high-risk triage.
+- Keep any follow-on `monitor-detect-triage` work distinct from `change-triggered-context-briefing`, `policy-constrained-escalation-routing`, `claimed-state-verification`, and `risk-alert-triage` by centering it on bounded low-stakes signal review, explainable watchlisting, or noise suppression rather than contextual briefing, route recommendation, deep verification, or urgent high-risk triage.
 - Treat monitoring work as in-family only when it ends at queueing, watchlisting, or attention routing rather than recommendation adjudication, collaborative drafting, or downstream execution.
 - Prefer one modest batch with one new canonical pattern and a few instances over broad family expansion.
 
 ## Expected outcome
 
-The next iteration should likely target another narrow risk-sensitive gap outside `execute-automate`, with `monitor-detect-triage` now a plausible leading candidate because it still lacks representative `low` risk coverage even though the family already spans moderate, high, and critical slices.
+This iteration should leave `monitor-detect-triage` with representative low-risk coverage through one cleanly bounded monitoring pattern and a few linked instances, reducing the remaining global gaps to narrower architecture or critical-risk slices in other families.
