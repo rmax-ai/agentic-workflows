@@ -4,6 +4,18 @@
 
 This family covers workflows where shared work between people and agents is itself the primary pattern, not just a minor approval step. The center of gravity is deliberate partnership: iterative refinement, visible handoffs, mixed initiative, and joint ownership of outcomes.
 
+```mermaid
+flowchart TD
+    H["Human<br>frames or revises<br>the shared task"] -->|"Provides goals, constraints,<br>or corrections"| W["Shared artifact or workbench<br>under active collaboration"]
+    W -->|"Visible turn"| A["Agent<br>drafts, retrieves,<br>or transforms within bounds"]
+    A -->|"Returns updates, rationale,<br>or evidence"| W
+    W -->|"Review checkpoint"| R["Human review and release decision<br>with explicit ownership"]
+    R -->|"Approve bounded handoff"| D["Downstream workflow receives<br>the exact approved artifact"]
+    R -->|"Revise and continue collaboration"| H
+    R -->|"Hold or disagreement remains visible"| O["Hold / dissent / protected issues<br>stay attached to the shared artifact"]
+    O -->|"Resolve or restate ownership"| H
+```
+
 ## What belongs in this family
 
 Use this family for patterns that:
