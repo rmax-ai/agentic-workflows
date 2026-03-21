@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 195
+  instance_files: 196
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -58,12 +58,13 @@ pattern_counts_by_family:
 instance_counts_by_domain:
   engineering: 30
   finance: 31
-  compliance: 26
+  compliance: 27
   operations: 29
   research: 26
   support: 27
   hr: 26
 consistency_notes:
+  - "`approval-packet-generation` now has explicit `compliance` grounding through a vendor biometric retention control deviation approval-packet assembly example, deepening that high-risk gather-family slice while preserving a clean boundary at packet assembly, evidence indexing, exception visibility, and human handoff rather than recommendation, adjudication, vendor instruction, or regulator communication."
   - "`claimed-state-verification` now has additional `support` grounding through an internal premium-support advisory-macro publication verification example, deepening that low-risk investigate-family slice while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative evidence traceability rather than macro editing, republishing, customer communication, or downstream execution."
   - "`schedule-adjustment-and-replanning` now has explicit `compliance` grounding through a control-remediation sign-off timeline replanning example after evidence-collection delay or reviewer-window compression threatened a fixed regulator-facing checkpoint, extending that moderate-risk plan-family replanning slice beyond engineering and research while preserving a clean boundary at revised schedule production, impact ledgering, and coordination-ready handoff rather than remediation sufficiency adjudication, control waiver, regulator filing, or execution."
   - "`schedule-adjustment-and-replanning` now has explicit `research` grounding through a benchmark-study publication timeline replanning example after evidence-analysis or data-governance clearance delay compressed the original publication-review window, extending that moderate-risk plan-family replanning slice beyond engineering and compliance while preserving a clean boundary at revised schedule production, impact ledgering, and coordination-ready handoff rather than governance recommendation, publication adjudication, or submission execution."
@@ -296,6 +297,7 @@ repo_reality:
     - instances/support/enterprise-identity-outage-vendor-escalation-packet-approved-for-restricted-vendor-intake.md
     - instances/compliance/cross-border-transfer-assessment-packet-approved-for-restricted-privacy-counsel-intake.md
     - instances/compliance/vendor-data-transfer-safeguard-obligation-synthesis-for-cross-border-review.md
+    - instances/compliance/vendor-biometric-retention-control-deviation-approval-packet-for-privacy-council-review.md
     - instances/compliance/vendor-telemetry-safeguard-requirement-attestation-recommendation.md
     - instances/hr/approved-payroll-status-change-submission.md
     - instances/hr/interview-panel-availability-coordination.md
