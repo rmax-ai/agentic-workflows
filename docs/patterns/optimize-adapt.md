@@ -57,11 +57,14 @@ A strong canonical pattern in this family should state:
 The current optimize/adapt anchors show the family across several governance levels:
 
 - `adaptive-threshold-calibration` covers low-risk reversible tuning of sensitivity parameters inside pre-approved bounds.
+- `adaptive-review-sampling-rate-tuning` covers low-risk autonomous tuning of internal QA, audit, or spot-check sampling rates inside pre-approved bounds with strong logging, rollback, and ex post oversight.
 - `queue-prioritization-optimization` covers moderate-risk learning loops that reorder existing work under explicit fairness and service guardrails.
 - `governed-optimization-bundle-retuning` covers high-risk recommendation-only retuning of shared optimization state across coupled review surfaces.
 - `critical-protected-priority-adaptation` anchors the critical slice with time-bounded severe-state optimization recommendations that protect scarce capacity, expiry discipline, and rollback readiness without drifting into authority selection, command planning, collaboration ownership, or direct execution.
 
-Critical optimize/adapt work should remain centered on temporary optimization-state changes, protected-priority lane protection, or governed retuning packages. If the output starts naming who decides, sequencing the response, or triggering the live change directly, it belongs in an adjacent family instead.
+This family can safely reach `autonomous-with-audit` when the live change is a reversible internal tuning artifact such as a bounded sampling or calibration policy, not a case disposition, scheduling command, or direct operational action.
+
+Critical optimize/adapt work should remain centered on temporary optimization-state changes, protected-priority lane protection, or governed retuning packages. If the output starts naming who decides, sequencing the response, assigning specific reviewers, or triggering the live change directly, it belongs in an adjacent family instead.
 
 ## See also
 

@@ -65,7 +65,7 @@ autonomy_levels:
     plan-coordinate-schedule: []
     recommend-decide-escalate: []
     execute-automate: [browser-based-form-completion-with-approval-gates]
-    optimize-adapt: []
+    optimize-adapt: [adaptive-review-sampling-rate-tuning]
     human-agent-collaborative-work: []
 - autonomy_level:
     id: bounded-delegation

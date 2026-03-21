@@ -38,7 +38,7 @@ architectures:
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [deal-desk-recommendation-support, control-requirement-attestation-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates]
-    optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration]
+    optimize-adapt: [adaptive-threshold-calibration, adaptive-review-sampling-rate-tuning, queue-prioritization-optimization]
     human-agent-collaborative-work: [analyst-copilot-loop, shared-workbench-orchestration]
 - architecture:
     id: orchestrated-multi-agent
@@ -80,7 +80,7 @@ architectures:
     plan-coordinate-schedule: [authoritative-change-coordination-refresh]
     recommend-decide-escalate: [readiness-gate-disposition-recommendation]
     execute-automate: [workflow-hand-off-and-completion]
-    optimize-adapt: [queue-prioritization-optimization]
+    optimize-adapt: [adaptive-review-sampling-rate-tuning, queue-prioritization-optimization]
     human-agent-collaborative-work: [shared-workbench-orchestration]
 - architecture:
     id: approval-gated-execution

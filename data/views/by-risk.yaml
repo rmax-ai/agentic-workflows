@@ -36,7 +36,7 @@ risk_levels:
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [control-requirement-attestation-recommendation]
     execute-automate: [workflow-hand-off-and-completion]
-    optimize-adapt: [adaptive-threshold-calibration]
+    optimize-adapt: [adaptive-threshold-calibration, adaptive-review-sampling-rate-tuning]
     human-agent-collaborative-work: [shared-workbench-orchestration]
 - risk_level:
     id: moderate

@@ -79,7 +79,7 @@ domains:
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
     execute-automate: [staged-change-execution-with-rollback-holds, exception-aware-task-execution]
-    optimize-adapt: [queue-prioritization-optimization, adaptive-threshold-calibration, critical-protected-priority-adaptation]
+    optimize-adapt: [adaptive-threshold-calibration, adaptive-review-sampling-rate-tuning, queue-prioritization-optimization, critical-protected-priority-adaptation]
     human-agent-collaborative-work: [approval-centered-collaboration, shared-workbench-orchestration]
 - domain:
     id: research
@@ -93,7 +93,7 @@ domains:
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: [readiness-gate-disposition-recommendation]
     execute-automate: [workflow-hand-off-and-completion]
-    optimize-adapt: [governed-optimization-bundle-retuning]
+    optimize-adapt: [adaptive-review-sampling-rate-tuning, governed-optimization-bundle-retuning]
     human-agent-collaborative-work: [analyst-copilot-loop, shared-workbench-orchestration]
 - domain:
     id: support
@@ -107,7 +107,7 @@ domains:
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [policy-constrained-escalation-routing]
     execute-automate: [exception-aware-task-execution]
-    optimize-adapt: [queue-prioritization-optimization]
+    optimize-adapt: [adaptive-review-sampling-rate-tuning, queue-prioritization-optimization]
     human-agent-collaborative-work: [analyst-copilot-loop, shared-workbench-orchestration]
 - domain:
     id: hr

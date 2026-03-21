@@ -1,0 +1,265 @@
+id: adaptive-review-sampling-rate-tuning
+slug: adaptive-review-sampling-rate-tuning
+name: Adaptive review sampling-rate tuning
+summary: Autonomously retune bounded QA, audit, or spot-check sampling rates using review yield and miss signals so oversight coverage stays efficient without changing case disposition, queue order, or live operational execution.
+pattern_family:
+  id: optimize-adapt
+  label: Optimize / Adapt
+problem_structure:
+  id: feedback-driven-optimization
+  label: Feedback-driven optimization
+  source_vocabulary: problem-structures
+domain:
+  - id: support
+    label: Support
+    source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+workflow_goal: Continuously adjust internal quality-review, audit, or spot-check sampling rates within preapproved bounds so oversight effort tracks observed defect yield, escaped-issue risk, and reviewer capacity while keeping protected cohorts, rollback, privacy, and auditability explicit.
+inputs:
+  - name: Current review sampling policy
+    description: The active sampling configuration covering baseline rates, stratified review quotas, protected-cohort floors, cooldown windows, and any currently frozen review classes.
+    kind: sampling-policy
+    required: true
+    examples:
+      - Support QA policy with distinct sample rates for severity-one escalations, routine closures, and outage follow-ups
+      - Research artifact spot-check policy with separate rates for embargoed studies, rerun-failure cohorts, and routine replication packets
+  - name: Review outcome and escape history
+    description: Historical findings, miss signals, reviewer overrides, reopened quality concerns, and backfilled audit discoveries showing where the current sampling policy is over- or under-covering risk.
+    kind: outcome-history
+    required: true
+    examples:
+      - Quality-review findings showing that identity-recovery tickets reopened after low-sample weeks
+      - Spot-check results showing that low-volume benchmark artifacts with disclosure-sensitive annexes produced defects at a higher rate than the default sample assumed
+  - name: Sampling guardrails and delegated bounds
+    description: The approved minimum and maximum sampling rates, protected strata, maximum step size, reviewer-load ceilings, and freeze conditions that constrain autonomous tuning.
+    kind: policy
+    required: true
+    examples:
+      - Policy requiring a nonzero sample floor for executive escalations and security-adjacent support cases
+      - Governance rule limiting any one tuning cycle to a five-point sampling-rate shift unless a human owner approves more
+  - name: Review operating context
+    description: Current reviewer capacity, workflow mix, recent process changes, and policy updates that may justify a temporary sampling adjustment or invalidate older outcome windows.
+    kind: operating-context
+    required: false
+    examples:
+      - Temporary loss of senior QA reviewers after a major support migration
+      - New artifact-packaging rules that make prior benchmark-review yield no longer comparable
+outputs:
+  - name: Updated review sampling policy
+    description: The applied configuration artifact with revised rates, protected-cohort floors, and any temporary hold or cooldown metadata, kept inside approved bounds.
+    kind: sampling-policy
+    required: true
+    examples:
+      - Increased sample rate for outage-related identity recoveries while holding routine low-risk closure reviews at baseline
+      - Raised spot-check coverage for embargoed benchmark studies with rerun instability while leaving standard internal baselines unchanged
+  - name: Sampling change record
+    description: Structured audit record of the signals examined, bounds checked, prior and new rates, reviewer-load impact estimate, and rollback trigger status for each tuning cycle.
+    kind: audit-log
+    required: true
+    examples:
+      - Log showing that a support QA sample increase was driven by reopen clusters and remained below the delegated reviewer-capacity ceiling
+      - Record explaining why one proposed decrease in benchmark spot checks was blocked because a protected annex cohort floor would have been crossed
+  - name: Sampling freeze or escalation packet
+    description: Optional packet emitted when evidence is sparse, the proposed change would cross a protected bound, or recent misses suggest the workflow should stop autonomous tuning until human review occurs.
+    kind: review-packet
+    required: false
+    examples:
+      - Freeze notice generated after maintenance-documentation defects rise despite several downward sample-rate moves
+      - Escalation packet requesting governance review because new privacy rules changed which transcript features may be used for sampling strata
+environment:
+  summary: Operates in governed internal oversight workflows where the main artifact being changed is a review-sampling policy rather than the underlying operational queue, case disposition, or remedial action.
+  systems:
+    - QA, audit, or spot-check configuration store
+    - Case, artifact, or work-record system that supplies sample candidates
+    - Review findings and escaped-issue history store
+    - Governance dashboard for freeze, rollback, and sampled audit review
+    - Audit log or policy versioning system
+  actors:
+    - Quality or audit owner
+    - Reviewer or assurance analyst
+    - Operations or program lead responsible for oversight coverage
+    - Auditor or governance steward
+  constraints:
+    - Autonomous tuning may change only bounded sampling rates, stratified quotas, or protected-cohort floors that were preapproved for delegated adjustment.
+    - The workflow must stop at updating the sampling policy and its audit trace; it must not adjudicate reviewed items, reprioritize live work, assign specific reviewers, or trigger remediation.
+    - Sampling changes must remain quickly reversible, and any evidence of hidden miss growth or protected-cohort undercoverage must force rollback or freeze.
+    - Audit packets and configuration history must remain explainable enough for ex post oversight without exposing unnecessary sensitive case detail.
+  assumptions:
+    - Review findings and escaped-issue signals are available with enough fidelity to distinguish persistent drift from short-term noise.
+    - Protected strata, reviewer-load ceilings, and maximum autonomous step sizes are versioned in a policy source the tuning loop can read and enforce.
+    - The surrounding review program can backfill or temporarily increase sample coverage if a later audit shows that a recent autonomous decrease was too aggressive.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The workflow depends on continuous observation of review yield, escape signals, override rates, and reviewer capacity rather than one-off calibration.
+  - capability:
+      id: optimization
+      label: Optimization
+      source_vocabulary: capabilities
+    necessity: The core task is retuning future oversight coverage so review effort follows the highest-yield or highest-risk strata within explicit limits.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Every proposed rate change must be checked against protected-cohort floors, step-size limits, reviewer-load caps, and freeze conditions before it is applied.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: The loop must validate that apparent changes in review yield are supported by trusted findings and not explained only by stale policy, tiny samples, or data quality defects.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Durable state is needed to compare current and prior sampling policies, track cumulative drift, and preserve rollback lineage across tuning cycles.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow must update configuration stores and append audit records rather than merely suggest a rate change in prose.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Sparse evidence, protected-floor conflicts, unexpected reviewer saturation, or repeated escaped defects must trigger freeze or escalation instead of forced tuning.
+execution_architecture:
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: New review findings, escaped defects, override clusters, or reviewer-capacity shifts naturally trigger bounded reevaluation of the active sampling policy.
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: One governed agent can usually inspect review telemetry, compare candidate sampling moves against bounds, update the approved policy artifact, and write the audit record in one loop.
+autonomy_profile:
+  level:
+    id: autonomous-with-audit
+    label: Autonomous with audit
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Humans define the protected strata, minimum and maximum rates, reviewer-load ceilings, and freeze conditions that bound autonomous tuning.
+    - Governance owners review sampled tuning runs and periodic drift summaries to confirm that escaped defects, fairness posture, privacy handling, and reviewer burden remain acceptable.
+    - Humans take over when policy changes, repeated misses, or protected-cohort concerns make the delegated bounds no longer trustworthy.
+  reversibility: Sampling-rate changes are usually easy to roll back by restoring the previous configuration version. Harm from a temporary undersampling period may be only partially reversible because some quality issues can escape review until the next audit or backfill sweep detects them.
+  escalation: Escalate when a proposed move would cross a protected floor or reviewer-load ceiling, when evidence quality is too sparse or contradictory to justify a change, when cumulative drift approaches a delegated bound, or when escaped-issue patterns rise after a recent decrease in coverage.
+risk_governance:
+  level:
+    id: low
+    label: Low
+    source_vocabulary: risk-levels
+  failure_impact: Mis-tuned sampling changes oversight efficiency and may delay detection of quality issues, but it does not alter underlying case outcomes or execute external actions, and it can usually be corrected by restoring prior rates and backfilling spot checks.
+  approval_requirements:
+    - Autonomous tuning may apply only within preapproved rate bands, protected-stratum floors, and maximum step sizes defined by the oversight owner.
+    - Human approval is required for any change that would alter protected cohort definitions, materially increase reviewer-load ceilings, or reduce coverage below the delegated minimum for a monitored class.
+  auditability: Preserve the current and updated sampling-policy versions, findings windows analyzed, reviewer-capacity assumptions, blocked proposals, freeze events, rollback actions, and sampled human-audit results for each tuning cycle.
+  privacy:
+    - Use aggregated findings and minimally necessary review metadata when computing sampling changes so audit packets do not expose unnecessary customer, participant, or worker detail.
+    - Keep any sensitive case excerpts or artifact references in restricted annexes instead of general tuning logs when authorized reviewers need supporting detail.
+  security:
+    - Restrict who can edit protected-stratum rules, rate limits, and service accounts that apply sampling updates.
+    - Log every autonomous configuration change, rollback, and manual freeze so unauthorized manipulation of oversight coverage is detectable.
+  notes: Low-risk posture is appropriate because the workflow changes only bounded internal oversight coverage and remains reversible, audit-ready, and separate from the primary operational or adjudicative workflow being sampled.
+why_agentic:
+  - Useful tuning requires interpreting delayed review yield and escape signals across multiple strata rather than relying on one static sample rate.
+  - The workflow must decide whether observed defect changes reflect true drift, temporary regime change, or noisy sample windows and then adapt or freeze accordingly.
+  - Durable memory, constraint checking, and rollback awareness matter because repeated small sampling moves can create hidden undercoverage even when each individual change seems harmless.
+failure_modes:
+  - mode: The workflow lowers coverage after a short quiet period and misses a latent quality drift
+    impact: Escaped defects or audit failures rise because the loop treated temporary calm as evidence that a risky cohort needed less review.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Require minimum evidence windows and backstop protected-floor rates for cohorts with historically severe misses.
+      - Trigger rollback or freeze when escaped-issue indicators rise after a downward tuning move.
+  - mode: Reviewer-load optimization crowds out protected cohorts
+    impact: The system preserves reviewer capacity by reducing sampling in lower-volume or less visible strata that still need consistent oversight.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Encode protected-cohort floors as hard constraints rather than soft preferences.
+      - Report separate fairness or coverage checks for protected cohorts before each autonomous update is applied.
+  - mode: Sampling rates oscillate because the workflow chases noisy short-term findings
+    impact: Reviewers experience unstable workload and the audit trail becomes hard to interpret because rates move up and down without converging.
+    severity: low
+    detectability: high
+    mitigations:
+      - Limit step size and require cooldown periods before revisiting the same stratum.
+      - Compare candidate moves against longer baseline windows and cumulative drift, not only the latest batch.
+  - mode: Policy or privacy changes invalidate the current strata definition
+    impact: The workflow continues tuning on outdated cohort definitions or features that should no longer influence sampling.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Version strata definitions and freeze autonomous tuning when the governing policy source changes materially.
+      - Route policy-adjacent changes to human review instead of silently reusing stale grouping logic.
+evaluation:
+  success_metrics:
+    - Increased defect yield or meaningful finding rate per review hour without a corresponding rise in escaped issues for protected cohorts.
+    - Percentage of autonomous tuning cycles applied within delegated bounds without later rollback for preventable reasons.
+    - Reduction in reviewer overload or idle review effort caused by static sampling that no longer matches current risk.
+  quality_criteria:
+    - Sampling-policy changes remain explainable in terms of findings, protected floors, workload limits, and recent drift rather than opaque score shifts.
+    - The workflow never expands into case adjudication, reviewer assignment, queue management, or remedial execution.
+    - Prior policy versions, freeze events, and rollback lineage remain reconstructable for every autonomous change.
+  robustness_checks:
+    - Test a quiet-period scenario followed by a hidden quality regression and confirm protected-floor coverage prevents dangerous undersampling.
+    - Simulate reviewer-capacity loss and verify the workflow reduces discretionary sampling before touching protected cohorts.
+    - Introduce a policy change that invalidates the existing strata map and ensure autonomous tuning freezes pending human review.
+  benchmark_notes: Evaluate review-sampling quality on oversight effectiveness, boundary discipline, and rollback readiness together; lower review volume is not success if meaningful misses or protected-cohort blind spots rise.
+implementation_notes:
+  orchestration_notes:
+    - Separate telemetry intake, candidate-rate generation, guardrail checking, configuration update, and audit-log writing so each stage is inspectable and replayable.
+    - Preserve cumulative drift and post-change outcome markers in the same state history used for later sampled human audits.
+  integration_notes:
+    - Common implementations integrate QA or audit tools, case or artifact repositories, findings stores, policy registries, and versioned configuration services.
+    - Keep the pattern neutral about whether the sampled items are tickets, benchmark artifacts, maintenance records, or another governed review substrate.
+  deployment_notes:
+    - Start with narrow strata and conservative delegated ranges until oversight owners trust the loop's freeze and rollback behavior.
+    - Review early autonomous decreases especially closely because hidden undercoverage often appears later than reviewer-load savings.
+  references:
+    - docs/patterns/optimize-adapt.md
+    - data/vocabularies/problem-structures.yaml
+    - data/vocabularies/autonomy-levels.yaml
+related_patterns:
+  - id: adaptive-threshold-calibration
+    relationship: adjacent
+    notes: Both patterns make bounded feedback-driven adjustments autonomously, but this one tunes oversight sampling coverage rather than detection sensitivity thresholds.
+  - id: queue-prioritization-optimization
+    relationship: contrasts-with
+    notes: Queue optimization changes the order of live work, while this pattern changes only how much review coverage future work receives.
+  - id: anomaly-detection-review
+    relationship: can-monitor
+    notes: Drift or miss signals surfaced by anomaly review can become feedback inputs for future review-sampling adjustments.
+example_domains:
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Raise the spot-check rate for outage-related enterprise support closures after reopened identity incidents spike, while preserving fixed minimum coverage for security-sensitive escalations.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Increase artifact spot-check coverage for embargoed benchmark studies with rerun instability and disclosure-sensitive annexes while leaving routine internal baselines at the default rate.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Retune maintenance-documentation review sampling toward assets, sites, or vendors with rising documentation escapes without changing dispatch schedules or maintenance execution itself.
+maturity: draft
+tags:
+  - optimize-adapt
+  - feedback-driven-optimization
+  - review-sampling
+  - audit-sampling
+  - autonomous-with-audit
+  - low-risk
