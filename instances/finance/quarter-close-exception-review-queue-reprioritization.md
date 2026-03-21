@@ -12,6 +12,20 @@ Finance.
 
 A finance close operations manager is overseeing an existing queue of quarter-close exceptions that need controller review before consolidation, disclosure drafting, and lender-covenant certification can proceed. The backlog mixes unreconciled intercompany breaks, revenue cutoff questions, lease-accounting adjustments, late accrual packages, inventory reserve exceptions, and subsidiary submissions returned for incomplete support. Recent handling data shows that reviewers have been pulling forward straightforward low-documentation exceptions while harder items with filing-deadline proximity, covenant sensitivity, or repeated reopen history are aging until they disrupt downstream sign-off windows. The optimization workflow must reprioritize the review queue within bounded limits so imminent close deadlines, materiality risk, and protected-priority exception classes rise appropriately without letting smaller entities, lower-visibility business units, or slower-documenting regions be systematically pushed to the back.
 
+```mermaid
+flowchart TD
+    A["Close checkpoint, protected-priority arrival,<br>or override spike triggers reevaluation"] --> B["Collect open exceptions, deadline pressure,<br>materiality, reopen history, and reviewer capacity"]
+    B --> C["Recompute bounded queue ranking<br>with exception-level rationale"]
+    C --> D{"Protected-priority, filing, covenant,<br>or sign-off guardrail crossed?"}
+    D -- "Yes" --> E["Hold change and escalate to<br>controller or close lead review"]
+    D -- "No" --> F{"Fairness check or evidence quality<br>shows repeated deferral or weak feedback?"}
+    F -- "Yes" --> G["Freeze tuning, restore last trusted policy,<br>and send rollback packet for review"]
+    F -- "No" --> H["Publish revised exception queue<br>and log guardrail results"]
+    H --> I{"Late-close aging or supervisor<br>overrides worsen after release?"}
+    I -- "Yes" --> G
+    I -- "No" --> J["Continue bounded monitoring until<br>the next close event triggers reevaluation"]
+```
+
 ## Target systems / source systems
 
 - Close-management tracker with open exceptions, close-calendar checkpoints, owner assignments, aging, and current queue order
