@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 235
+  instance_files: 236
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -61,12 +61,13 @@ instance_counts_by_domain:
   compliance: 34
   operations: 34
   research: 33
-  support: 33
+  support: 34
   hr: 34
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred thirty-five grounded examples across all seven currently modeled domains; finance, compliance, HR, and operations now lead at thirty-four instances while engineering, research, and support remain at thirty-three."
+  - "The repository now has two hundred thirty-six grounded examples across all seven currently modeled domains; finance, compliance, HR, operations, and support now lead at thirty-four instances while engineering and research remain at thirty-three."
+  - "`approval-gated-recommendation-release` now has additional `support` grounding through a regulated customer audit-export remedy recommendation packet revision approved for a restricted account-governance board decision lane, deepening that high-risk recommend-family release-control slice within support beyond outage-recovery package review while preserving a clean boundary at governed release of one exact recommendation artifact rather than board adjudication, export execution, contract amendment, or customer communication."
   - "`policy-constrained-escalation-routing` now has explicit `operations` grounding through a regional cold-chain compressor failure escalation-routing example, deepening that high-risk recommend-family escalation slice within operations while preserving a clean boundary at governed authority routing, blocked-option visibility, and audit-ready packet assembly rather than business-continuity declaration, emergency-spend approval, inventory rerouting, or live response execution."
   - "`shared-workbench-orchestration` now has additional `hr` grounding through a manager leave playbook caveat-board upkeep example, deepening that low-risk collaboration-upkeep slice within HR beyond benefits FAQ maintenance and hiring-panel guide upkeep while preserving a clean boundary at source refresh, note normalization, ownership visibility, and explicit hold-state management rather than leave-policy interpretation, manager communication, approval adjudication, or live case administration."
   - "`shared-workbench-orchestration` now has a third `research` grounding through a longitudinal survey methodology caveat-board upkeep example, deepening that low-risk collaboration-upkeep slice within research beyond benchmark evidence maintenance and data-use restriction tracking while preserving a clean boundary at source refresh, note normalization, ownership visibility, and explicit hold-state management rather than analysis recommendation, protocol adjudication, publication drafting, or study execution."
