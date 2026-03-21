@@ -12,6 +12,21 @@ Engineering.
 
 A payments platform experiences a sustained increase in checkout authorization latency during peak traffic after a routine infrastructure rollout. Alerts show elevated p95 response times and queue growth, but the immediate cause is unclear because the incident may involve gateway configuration drift, database pool saturation, or a dependency timeout introduced by a feature-flag change.
 
+```mermaid
+flowchart TD
+    start["Latency incident declared<br>after rollout and queue growth"] --> gather["Collect gateway logs, traces,<br>change history, database pool metrics,<br>and responder notes"]
+    gather --> align["Normalize timestamps and build<br>a shared incident timeline"]
+    align --> evidence{"Evidence complete enough<br>to test competing causes?"}
+    evidence -->|"No"| hold["Hold root-cause declaration and request<br>missing telemetry or timeline clarification"]
+    hold --> gather
+    evidence -->|"Yes"| compare["Compare gateway drift, database saturation,<br>and feature-flag timeout hypotheses"]
+    compare --> verify{"Verification checks isolate one<br>primary cause and bounded scope?"}
+    verify -->|"No"| escalate["Escalate unresolved or conflicting evidence<br>for bounded specialist investigation"]
+    verify -->|"Yes"| approve{"Incident lead approves<br>the root-cause narrative?"}
+    approve -->|"No"| hold
+    approve -->|"Yes"| handoff["Publish reconciled timeline,<br>ranked hypotheses, and follow-up packet<br>for human-approved remediation"]
+```
+
 ## Target systems / source systems
 
 - API gateway logs and service-level latency dashboards
