@@ -12,6 +12,28 @@ Compliance.
 
 A sanctions-screening control-remediation sign-off review already has an issued coordination packet, required attendee set, regulator-committed milestone link, and tentative steering-committee review hold. After issuance, authoritative validation state changes: evidence validation completes later than expected, the internal audit liaison must hand off attendance to an approved alternate, and the remediation calendar updates the last acceptable review window before steering-committee materials lock. The workflow should refresh the existing sign-off coordination package, send targeted participant delta notices, and hold the changed state at explicit remediation-owner adoption or exception checkpoints rather than rebuilding the entire remediation plan, adjudicating whether remediation is sufficient, or submitting the attestation.
 
+```mermaid
+flowchart TD
+    A["Authoritative validation, delegate,<br>or review-window change lands"]
+    B["Verify the new validation timestamp,<br>approved alternate, and latest acceptable<br>review window against remediation records"]
+    C{"Updated review state stays inside the<br>committed milestone and sign-off authority rules?"}
+    D["Refresh the existing sign-off packet,<br>tentative hold, and lineage log"]
+    E["Send targeted delta notices to affected<br>reviewers, delegate owners, and coordinators"]
+    F{"Remediation owner adopts the materially<br>changed coordination state?"}
+    G["Publish the refreshed packet as the<br>current authoritative review state"]
+    H["Keep the refreshed packet tentative at<br>the adoption checkpoint"]
+    I["Route a bounded exception for milestone-risk,<br>unsupported authority change, or other<br>out-of-policy refresh conditions"]
+
+    A -->|"Detect authoritative change"| B
+    B -->|"Check policy and schedule boundary"| C
+    C -->|"Yes"| D
+    C -->|"No"| I
+    D -->|"Reissue current package"| E
+    E -->|"Present changed state for adoption"| F
+    F -->|"Yes"| G
+    F -->|"No"| H
+```
+
 ## Target systems / source systems
 
 - Remediation tracker with the committed milestone, required review roles, and prior coordination state
