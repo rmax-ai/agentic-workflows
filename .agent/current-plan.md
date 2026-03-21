@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-024040` is complete: it added a single support-domain grounding batch for `monitor-detect-triage`. The next modest batch should keep rebalancing thin family/domain slices rather than widening back into schema or vocabulary work. The cleanest adjacent target is now `monitor-detect-triage` in engineering, where the domain already has investigation, synthesis, and collaboration grounding but still lacks a direct triage anchor.
+Iteration `20260321-024600` is now scoped as a single engineering-domain grounding batch for `monitor-detect-triage`. The goal is to keep rebalancing thin family/domain slices without widening back into schema, vocabulary, or pattern-authoring work. Engineering is the cleanest adjacent target because it already has investigation, synthesis, and collaboration grounding but still lacks a direct triage anchor.
 
 ## Current phase
 
@@ -15,18 +15,18 @@ Iteration `20260321-024040` is complete: it added a single support-domain ground
 
 ## Ordered tasks
 
-1. Re-read `risk-alert-triage`, the current monitor-oriented instances, and the existing engineering-domain artifacts so the next grounding batch stays inside the triage family boundary.
+1. Re-read `risk-alert-triage`, the current monitor-oriented instances, and the existing engineering-domain artifacts so this grounding batch stays inside the triage family boundary.
 2. Author exactly one engineering-domain instance linked to `risk-alert-triage`, framed as governed alert or queue triage rather than investigation, incident execution, synthesis, or collaboration.
-3. Prefer an engineering scenario where prioritization, evidence packaging, and escalation thresholds are explicit, with human control over any release, customer, or incident-command commitments.
-4. Keep the next batch limited to this single triage example so coverage improves without widening the scope into multiple families.
-5. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next dated iteration log after that grounding batch so execution memory stays current.
+3. Prefer an engineering scenario where prioritization, evidence packaging, and escalation thresholds are explicit, with human control over release, customer, or incident-command commitments.
+4. Keep the batch limited to this single triage example so coverage improves without widening the scope into multiple families.
+5. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the required iteration log after that grounding batch so execution memory stays current.
 6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-024040`
-- Completed subagent scope: authored `instances/support/suspected-account-takeover-support-alert-triage.md` as one support-domain `risk-alert-triage` grounding change and committed it separately.
-- Planned orchestrator follow-up: refresh `.agent/` memory, write `.agent/iterations/2026/20260321-024040.md`, run YAML validation, and commit the memory updates separately.
+- Timestamp: `20260321-024600`
+- Planned subagent scope: author one engineering-domain `risk-alert-triage` grounding instance and commit it separately.
+- Planned orchestrator follow-up: refresh `.agent/` memory, write `.agent/iterations/2026/20260321-024600.md`, run YAML validation, and commit the memory updates separately.
 
 ## Constraints
 
@@ -39,4 +39,4 @@ Iteration `20260321-024040` is complete: it added a single support-domain ground
 
 ## Expected outcome
 
-The next iteration should add one support-domain triage example, improve `monitor-detect-triage` coverage, and leave the repository ready for another small grounding batch after the `.agent/` memory refresh.
+This iteration should add one engineering-domain triage example, improve `monitor-detect-triage` coverage, and leave the repository ready for another small grounding batch after the `.agent/` memory refresh.
