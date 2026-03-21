@@ -12,6 +12,19 @@ Engineering.
 
 A platform security lead, a payments architect, and release engineering reviewers are co-producing one governed exception packet because a tokenization cutover needs a temporary deviation from the standard rollback-control policy for one release train. Agents help reconcile test evidence, rollback caveats, architecture comments, and residual-risk wording into the shared packet while preserving which objections remain unresolved and which edits the human artifact owner accepted. The workflow ends only when the named release owner approves that exact packet revision for one bounded architecture-review intake lane, where downstream reviewers may decide whether to grant or reject the exception. It does not choose the review outcome, resequence the change window, or execute the cutover.
 
+```mermaid
+flowchart TD
+    A["Tokenization cutover exception<br>opens one governed packet"] --> B["Agents and reviewers reconcile<br>test evidence, rollback caveats,<br>architecture comments, and residual-risk wording"]
+    B --> C{"Exact packet revision, objection ledger,<br>and current rehearsal evidence<br>still complete and current?"}
+    C -->|"No"| H["Hold release for evidence refresh,<br>comment resolution, or packet supersession"]
+    C -->|"Yes"| D{"Release manifest binds the exact revision,<br>one architecture-review intake lane,<br>and required signers?"}
+    D -->|"No"| H
+    D -->|"Yes"| E{"Named release owner approves<br>that exact revision for bounded<br>architecture-review intake?"}
+    E -->|"No"| H
+    E -->|"Yes"| F["Release exact packet revision<br>to the bounded architecture-review<br>intake lane"]
+    F --> G["Record handoff, accepted residual objections,<br>and block cutover resequencing<br>or exception adjudication"]
+```
+
 ## Target systems / source systems
 
 - Governed collaboration workspace holding the shared exception packet, comment threads, objection state, and release-manifest draft
