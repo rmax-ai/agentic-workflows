@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-`human-agent-collaborative-work` is now grounded in engineering through a governance-aware copilot-loop example, so the next modest batch should rebalance another thin family/domain slice rather than adding more collaboration variants immediately. The cleanest adjacent target is `monitor-detect-triage` in support, where the domain already has planning, execution, optimization, synthesis, and collaboration grounding but still lacks a direct triage anchor.
+Iteration `20260321-024040` is scoped to a single support-domain grounding batch. `human-agent-collaborative-work` is now grounded in engineering through a governance-aware copilot-loop example, so the next modest batch should rebalance another thin family/domain slice rather than adding more collaboration variants immediately. The cleanest adjacent target is `monitor-detect-triage` in support, where the domain already has planning, execution, optimization, synthesis, and collaboration grounding but still lacks a direct triage anchor.
 
 ## Current phase
 
@@ -21,6 +21,12 @@
 4. Keep the next batch limited to this single triage example so coverage improves without widening the scope into multiple families.
 5. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next dated iteration log after that grounding batch so execution memory stays current.
 6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
+
+## Iteration checkpoint
+
+- Timestamp: `20260321-024040`
+- Planned subagent scope: author one support-domain `risk-alert-triage` instance and commit it as a narrow grounding change.
+- Planned orchestrator follow-up: refresh `.agent/` memory, write `.agent/iterations/2026/20260321-024040.md`, run YAML validation, and commit the memory updates separately.
 
 ## Constraints
 
