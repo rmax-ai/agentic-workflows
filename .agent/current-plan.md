@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Iteration `20260321-142419` is now scoped: target one new `hr` grounding for `critical-authoritative-state-restoration` through a protected-leave authoritative state-restoration scenario, with edits intentionally limited to the new instance, the directly dependent canonical pattern metadata, the derived `data/views/by-domain.yaml` browse artifact, and the post-validation `.agent/` memory refresh.
+
 Iteration `20260321-141858` is now complete: `claimed-state-verification` gained new `hr` grounding through one bounded internal parental-leave guidance publication-state verification example, and the directly dependent canonical pattern metadata plus derived `data/views/by-domain.yaml` view now expose that low-risk investigate-family slice without drifting past confirmed, disproved, or inconclusive verdicting, authoritative evidence traceability, and explicit follow-up state.
 
 Iteration `20260321-141156` is now complete: `approval-gated-triage-dispatch` gained new `research` grounding through one benchmark-study disclosure-risk packet approved for restricted disclosure-governance review dispatch, and the directly dependent canonical pattern metadata plus derived `data/views/by-domain.yaml` view now expose that monitor-family approval-bound slice without drifting past release of one exact already-triaged packet revision into one bounded downstream review lane.
@@ -60,18 +62,17 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: `compliance`, `research`, `support`, and `hr` are now tied as the thinnest modeled domains at twenty-five grounded examples each. The next slice should stay inside one already-canonical pattern where one of those four domains still trails engineering, finance, and operations in grounded depth without reopening structural expansion.
+- Current refinement target: `compliance`, `research`, `support`, and `hr` remain the thinnest modeled domains. This iteration should deepen `hr` inside the already-canonical `critical-authoritative-state-restoration` slice so investigate-family critical-state coverage expands without reopening structural expansion.
 
 ## Ordered tasks
 
-1. Reassess the now-tied thinnest domains (`compliance`, `research`, `support`, `hr`) and pick one narrow already-canonical slice where grounded depth still trails engineering, finance, and operations without requiring new vocabulary or schema work.
-2. Prefer another family-safe grounding batch that adds one Markdown instance plus directly dependent canonical metadata and derived view updates only when the chosen domain-pattern pairing is not yet represented canonically.
+1. Add one `hr`-grounded instance for `critical-authoritative-state-restoration`, keeping the scenario bounded at authoritative protected-leave state restoration across occupational-health, leave, and benefits records rather than accommodation adjudication, payroll action, or employee communication.
+2. Update the directly dependent canonical pattern metadata and the derived `data/views/by-domain.yaml` artifact only as needed to expose the new `hr` slice without broadening the family boundary.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded pattern/view/instance batch, then refresh execution memory on top of the corrected canonical baseline.
 
 ## Iteration checkpoint
 
 - Timestamp: `20260321-141858`
-- Previous completed scope: added one compliance-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Previous completed scope: added one research-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern metadata to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Previous completed scope: added one HR-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added one compliance-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
@@ -82,10 +83,9 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Completed scope: normalized `approval-centered-collaboration` so the canonical pattern metadata and the derived `support` and `compliance` by-domain browse buckets now match the already-committed readiness-loop instances, and confirmed YAML validation still passes.
 - Completed scope: added one research-grounded `benchmark-study-disclosure-risk-triage-packet-approved-for-restricted-disclosure-governance-review-dispatch` instance, expanded `approval-gated-triage-dispatch` to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added one HR-grounded `internal-parental-leave-guidance-publication-verification` instance, expanded `claimed-state-verification` to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Current working hypothesis: execute-family completion refinement remains family-safe only when the primary output is one authoritative post-decision closure state carried through bounded queue cleanup, archive linkage, tracker synchronization, and internal notification, while recommendation, adjudication, verification gating, and live people-action execution stay explicitly outside the workflow.
-- Current working hypothesis: collaboration-family upkeep refinement remains family-safe only when the primary output is one bounded internal artifact carried through source refresh, note normalization, ownership preservation, and explicit hold-state management, while recommendation packaging, approval adjudication, planning, and live people-action execution stay explicitly outside the workflow.
-- Current scoped follow-on: reassess the tied thinnest domains and choose the next already-canonical slice where one of `compliance`, `research`, `support`, or `hr` still lacks a clean family-safe grounding.
-- Boundary reminder: the completed investigate-family approval-gated slice remains valid only because the primary output stayed one exact approved research packet revision plus explicit verified, held, or insufficient verdicting, evidence lineage, and release-hold state rather than publication recommendation, evidence repair, or downstream adoption execution.
+- Current working hypothesis: critical-state restoration remains family-safe only when the primary output is one trusted current-state ledger plus one unresolved hold register and one state-restoration handoff packet, while causal diagnosis, accommodation adjudication, payroll or access changes, employee messaging, and live execution stay explicitly outside the workflow.
+- Current scoped follow-on: add one `hr` protected-leave authoritative-state restoration example so the critical investigate-family slice no longer skips HR while keeping the pattern centered on truth restoration under severe governance consequences.
+- Boundary reminder: the planned HR investigate-family refinement remains valid only if occupational-health, leave, benefits, and related case records are reconciled into a human-reviewed current-state picture with explicit unresolved holds, rather than using the workflow to settle eligibility, return-to-work timing, or downstream action.
 
 ## Constraints
 
