@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-135545` is now scoped: extend `workflow-hand-off-and-completion` with one new `support` grounding so the execute-family low-risk closure slice reaches a thinner domain without adding new ontology structure, while keeping the workflow bounded to authoritative post-decision closure, archive linkage, tracker synchronization, and internal notification rather than recommendation, adjudication, or customer-facing execution.
+Iteration `20260321-135545` is now complete: `workflow-hand-off-and-completion` gained new `support` grounding through one finalized enterprise support case-review closure example, and the directly dependent canonical pattern metadata plus derived domain view now expose that execute-family low-risk closure slice without drifting past authoritative post-decision closure, archive linkage, tracker synchronization, and internal notification.
 
 Iteration `20260321-134630` is now complete: `evidence-gated-verification-for-release` gained new `research` grounding through one approved benchmark-study publication-integrity packet verification example, and the directly dependent canonical pattern metadata plus derived domain view now expose that investigate-family approval-bound slice without drifting past one exact approved packet revision, explicit verified/held/insufficient verdicting, evidence lineage, and release-hold state.
 
@@ -48,16 +48,16 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
 - Phase 5: canonical coverage now spans forty-nine patterns across all nine top-level pattern families. `recommend-decide-escalate` now sits at seven canonical patterns; `transform-process` and `optimize-adapt` each sit at six; `gather-retrieve-synthesize` now sits at five; and `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` each remain at five. Future additions should remain narrow and land only where a genuinely reusable workflow shape deepens uneven grounded coverage rather than duplicating already-covered matrix cells.
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred eighty-six instance files now committed.
+- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred eighty-seven instance files now committed.
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: `support` remains one of the tied-thinnest domains, and `workflow-hand-off-and-completion` is the current family-safe execute slice because it can deepen post-decision closure coverage without reopening recommendation, verification, or external execution boundaries.
+- Current refinement target: after support moved ahead, `compliance`, `research`, and `hr` are now the tied-thinnest domains. The next slice should stay inside an already-canonical pattern where one of those domains still trails engineering, finance, operations, and now support in grounded depth.
 
 ## Ordered tasks
 
-1. Add one `support`-grounded Markdown instance for `workflow-hand-off-and-completion` that stays strictly within authoritative post-decision closure, queue cleanup, archive linkage, tracker synchronization, and internal notification.
-2. Update the canonical pattern metadata plus `data/views/by-domain.yaml` so the new support execute-family slice is visible from both pattern truth and derived browse navigation.
+1. Reassess the now tied-thinnest `compliance`, `research`, and `hr` domains and pick one narrow already-canonical slice where grounded depth still trails engineering, finance, operations, and support without requiring new vocabulary or schema work.
+2. Prefer a family-safe grounding batch that adds one Markdown instance plus directly dependent canonical metadata and derived view updates only when the chosen pairing is not yet represented canonically.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded pattern/view/instance batch.
 4. Refresh execution memory immediately afterward so the next depth-balancing target becomes the recorded baseline rather than an implied change.
 
@@ -70,10 +70,10 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Completed scope: added one compliance-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added one HR-grounded `shared-workbench-orchestration` example, expanded the canonical pattern metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added one research-grounded `approved-benchmark-study-publication-integrity-packet-evidence-gate-verification` example, expanded `evidence-gated-verification-for-release` to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Current scoped work: add one support-grounded `workflow-hand-off-and-completion` example, expand that canonical pattern metadata to include `support`, and refresh the derived domain view while preserving the execute-family boundary at low-risk post-decision closure only.
+- Completed scope: added one support-grounded `finalized-enterprise-support-case-review-closure-and-escalation-tracker-synchronization` example, expanded `workflow-hand-off-and-completion` to include `support`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Current working hypothesis: execute-family completion refinement remains family-safe only when the primary output is one authoritative post-decision closure state carried through bounded queue cleanup, archive linkage, tracker synchronization, and internal notification, while recommendation, adjudication, verification gating, and live people-action execution stay explicitly outside the workflow.
 - Current working hypothesis: collaboration-family upkeep refinement remains family-safe only when the primary output is one bounded internal artifact carried through source refresh, note normalization, ownership preservation, and explicit hold-state management, while recommendation packaging, approval adjudication, planning, and live people-action execution stay explicitly outside the workflow.
-- Current scoped follow-on: after the support execute-family closure slice lands, reassess the remaining tied-thinnest domains and move next to one similarly narrow grounding slice in an already-canonical pattern area so depth-balancing continues without reopening broader structural expansion.
+- Current scoped follow-on: reassess the now tied-thinnest `compliance`, `research`, and `hr` domains and move next to one similarly narrow grounding slice in an already-canonical pattern area so depth-balancing continues without reopening broader structural expansion.
 - Boundary reminder: the completed investigate-family approval-gated slice remains valid only because the primary output stayed one exact approved research packet revision plus explicit verified, held, or insufficient verdicting, evidence lineage, and release-hold state rather than publication recommendation, evidence repair, or downstream adoption execution.
 
 ## Constraints
@@ -100,4 +100,4 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Expected outcome
 
-This iteration should stay in depth-balancing mode: land one support-grounded execute-family closure example plus directly dependent metadata/view updates in an already-canonical pattern area, and keep the work bounded to one slice rather than opening a broader structural batch.
+The next iteration should stay in depth-balancing mode: pick one of the now tied-thinnest domains for one family-safe example plus directly dependent metadata/view updates in an already-canonical pattern area, and keep the work bounded to one slice rather than opening a broader structural batch.

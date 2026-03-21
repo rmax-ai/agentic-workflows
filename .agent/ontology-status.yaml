@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 186
+  instance_files: 187
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -61,7 +61,7 @@ instance_counts_by_domain:
   compliance: 24
   operations: 29
   research: 24
-  support: 24
+  support: 25
   hr: 24
 repo_reality:
   available_ontology_assets:
@@ -275,6 +275,7 @@ repo_reality:
     - instances/support/enterprise-support-case-quality-review-scoring-revision-approved-for-live-use.md
     - instances/support/self-serve-article-confusion-watchlist-upkeep.md
     - instances/support/premium-support-workaround-article-publication-verification.md
+    - instances/support/finalized-enterprise-support-case-review-closure-and-escalation-tracker-synchronization.md
     - instances/support/privacy-screened-support-transcript-batch-to-quality-review-dataset.md
     - instances/support/premium-support-escalation-record-refresh-after-diagnostic-bundle-change.md
     - instances/support/severity-one-customer-bridge-channel-safe-service-state-package.md
