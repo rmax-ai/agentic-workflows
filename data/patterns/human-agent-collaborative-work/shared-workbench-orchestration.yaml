@@ -19,6 +19,9 @@ domain:
   - id: support
     label: Support
     source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
 workflow_goal: Keep a bounded internal artifact current, inspectable, and easy to resume as humans and agents co-maintain notes, evidence links, status fields, and open questions across many small updates, while stopping short of recommendation, approval adjudication, or outward execution.
 inputs:
   - name: Shared workbench artifact and template
@@ -259,6 +262,11 @@ example_domains:
       label: Support
       source_vocabulary: domains
     example: Keep a workaround-article staging board aligned as support leads, product engineers, and the agent refine internal steps, screenshots, and reviewer notes before publication is even considered.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Maintain an internal open-enrollment FAQ caveat board so benefits specialists, regional HR partners, and the agent can keep policy references, caveat notes, and unresolved wording questions synchronized before any employee-facing guidance is drafted for release.
 maturity: draft
 tags:
   - human-agent-collaborative-work
