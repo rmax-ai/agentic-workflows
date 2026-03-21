@@ -12,6 +12,19 @@ Finance.
 
 Treasury, controllership, and finance-policy reviewers are jointly maintaining one covenant position packet because a late quarter-close adjustment changed leverage calculations and could alter how one lending covenant exception is framed for committee review. Agents help merge updated ledgers, policy excerpts, committee comments, and disputed wording about adjustment treatment into the shared artifact while keeping objections and release scope explicit. The workflow stops when the named controller release owner approves that exact packet revision for one bounded controller-committee intake lane, where the downstream committee can decide how to interpret or act on the position. It does not decide the committee outcome, initiate funding moves, or post any accounting change.
 
+```mermaid
+flowchart TD
+    A["Late quarter-close adjustment changes leverage<br>and opens one governed covenant packet"] --> B["Agents and finance reviewers reconcile<br>updated ledgers, policy excerpts,<br>committee comments, and disputed wording"]
+    B --> C{"Leverage calculations, adjustment treatment,<br>and objection state still current and inspectable?"}
+    C -->|"No"| H["Hold release for ledger refresh,<br>policy clarification, or packet supersession"]
+    C -->|"Yes"| D{"Release manifest binds the exact revision,<br>one controller-committee intake lane,<br>and required signers?"}
+    D -->|"No"| H
+    D -->|"Yes"| E{"Named controller release owner approves<br>that exact revision and accepted residual disagreement<br>for bounded committee intake?"}
+    E -->|"No"| H
+    E -->|"Yes"| F["Release exact packet revision<br>to the bounded controller-committee<br>intake lane"]
+    F --> G["Record handoff and residual disagreement,<br>then stop before committee interpretation,<br>funding moves, or accounting changes"]
+```
+
 ## Target systems / source systems
 
 - Governed finance collaboration workspace with the covenant position packet, comment history, objection ledger, and release-manifest state
