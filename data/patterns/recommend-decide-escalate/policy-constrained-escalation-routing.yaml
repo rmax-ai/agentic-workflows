@@ -1,0 +1,276 @@
+id: policy-constrained-escalation-routing
+slug: policy-constrained-escalation-routing
+name: Policy-constrained escalation routing
+summary: Evaluate authority boundaries, policy triggers, and case context to recommend the right escalation path and package the supporting rationale without executing the escalated action.
+pattern_family:
+  id: recommend-decide-escalate
+  label: Recommend / Decide / Escalate
+problem_structure:
+  id: recommendation-and-decision-support
+  label: Recommendation and decision support
+  source_vocabulary: problem-structures
+domain:
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
+workflow_goal: Determine whether a case can remain in its current queue or must be escalated, recommend the most appropriate governed route, and assemble an audit-ready packet so the authorized human decision-maker can act with clear context.
+inputs:
+  - name: Candidate case or exception
+    description: The request, alert-derived case, exception, or unresolved issue that may require escalation beyond the current handler's authority.
+    kind: case
+    required: true
+    examples:
+      - Customer support dispute requesting credits beyond frontline approval limits
+      - Workplace concern requiring escalation from local HR to an employee-relations specialist
+      - Operational exception that may require regional duty-manager review
+  - name: Escalation policy and authority matrix
+    description: Routing rules, approval thresholds, segregation-of-duties requirements, and non-waivable constraints that define who may decide each class of case.
+    kind: policy
+    required: true
+    examples:
+      - Complaint classes that require compliance review within a defined SLA
+      - Authority matrix showing when site leaders must escalate to corporate operations
+      - HR policy identifying cases that must bypass line management and route to protected channels
+  - name: Supporting evidence and case context
+    description: Facts, prior interactions, supporting records, precedent cases, and risk indicators needed to justify the recommended route.
+    kind: evidence-set
+    required: true
+    examples:
+      - Ticket history, entitlement records, and promised service terms
+      - Prior remediation attempts, local manager notes, and documented employee requests
+      - Timeline of control exceptions and linked operating impacts
+  - name: Current workflow state
+    description: Ownership, pending approvals, existing escalations, timers, and duplicate-case state that affect whether the case should be rerouted or held.
+    kind: case-state
+    required: false
+    examples:
+      - Existing escalation already open with a specialist queue
+      - SLA timer nearing breach for a regulated complaint
+      - Pending local review that would become invalid if a protected category is confirmed
+outputs:
+  - name: Ranked escalation route recommendation
+    description: Ordered routing options showing the preferred escalation destination, confidence, policy basis, and conditions that block lower-authority handling.
+    kind: recommendation
+    required: true
+    examples:
+      - Recommend immediate routing to compliance counsel because complaint content triggers mandatory review
+      - Recommend escalation to employee-relations leadership instead of local HR because retaliation risk is present
+  - name: Escalation packet
+    description: Governed case bundle containing evidence, unresolved uncertainty, policy citations, and the minimum information the receiving authority needs to decide the next step.
+    kind: case-packet
+    required: true
+    examples:
+      - Specialist-support handoff packet with contract terms, prior commitments, and requested exception
+      - Operations escalation brief with site impact, prior mitigations, and authority-threshold rationale
+  - name: Routing decision log
+    description: Durable log of policy checks, route comparisons, confidence limits, and human handoff events for each escalation recommendation.
+    kind: audit-log
+    required: true
+    examples:
+      - Record showing why a case bypassed local review and who accepted the escalated handoff
+      - Log of competing routes considered and why one authority path was preferred
+environment:
+  summary: Operates in governance-sensitive service, people, compliance, and operating workflows where the core problem is choosing the right escalation authority quickly and defensibly before a case is mishandled or delayed.
+  systems:
+    - Case management and ticketing platforms
+    - Policy, procedure, and authority-matrix repositories
+    - Evidence stores and communication history systems
+    - Workflow routing and queue-management tools
+  actors:
+    - Frontline analyst or case owner
+    - Escalation coordinator or specialist reviewer
+    - Compliance, HR, support, or operations authority
+    - Human decision-maker receiving the escalation packet
+  constraints:
+    - The workflow must stop at recommendation, routing, and escalation packaging rather than executing the receiving authority's next action.
+    - Non-waivable policy triggers must remain explicit and must not be softened by contextual heuristics.
+    - Sensitive case details should be minimized to what the receiving authority needs for a governed decision.
+    - Duplicate or concurrent escalations must preserve lineage so ownership confusion is auditable later.
+  assumptions:
+    - Policies and authority mappings are accessible in a form that can be checked against current case facts.
+    - Human authorities remain accountable for accepting, rejecting, or redirecting the escalation recommendation.
+    - Case systems can preserve routing history and evidence references across handoffs.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow needs policy text, case history, prior escalations, and supporting records before it can justify a route recommendation.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Escalation routing depends on combining case facts, authority boundaries, and unresolved questions into one decision-ready packet.
+  - capability:
+      id: recommendation
+      label: Recommendation
+      source_vocabulary: capabilities
+    necessity: The central output is a ranked escalation path with rationale, not a completed downstream action.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Routing quality depends on enforcing mandatory escalation triggers, approval limits, privacy constraints, and segregation-of-duties rules.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Case facts, protected attributes, threshold calculations, and precedent fit must be checked before the workflow recommends bypassing or invoking a higher authority.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Specialized intake, evidence review, policy interpretation, and packet assembly roles need shared state so the receiving authority sees one coherent escalation story.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow must remember prior routing decisions, active escalations, reviewer feedback, and SLA timers across iterative case updates.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Missing evidence, conflicting policies, and ambiguous authority boundaries must lead to explicit uncertainty or higher escalation rather than silent local handling.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Separate intake, evidence-review, policy-checking, and escalation-packaging roles are often worth orchestrating explicitly so routing stays explainable, policy-bounded, and fast under case volume.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human authorities remain embedded in the normal loop because accepting an escalation path, overriding it, or sending the packet onward is itself a governed decision.
+autonomy_profile:
+  level:
+    id: recommendation-only
+    label: Recommendation only
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm whether the recommended authority path should be accepted, redirected, or rejected before any downstream action or commitment occurs.
+    - Review cases with conflicting policy signals, protected attributes, or incomplete evidence before the workflow may recommend local handling.
+    - Approve material changes to routing thresholds, mandatory-escalation triggers, or packet contents before they affect live cases.
+  reversibility: Routing scores and packet contents can be recomputed, but misrouting or delaying a sensitive escalation may only be partially reversible after SLA breaches, employee harm, customer dissatisfaction, or control failures occur.
+  escalation: Escalate whenever authority is ambiguous, non-waivable policy triggers are implicated, confidence in the receiving route is low, protected channels may be required, or the next step would create material operational, compliance, customer, or people consequences.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Misrouting, delaying, or under-escalating a case can create meaningful compliance exposure, employee-relations harm, customer-impact escalation, or operational breakdown, while over-escalation can overwhelm specialist queues and degrade trust in governance controls.
+  approval_requirements:
+    - Human acceptance is required before the recommended route changes case ownership, exposes sensitive details to a new authority, or triggers consequential downstream handling.
+    - Policy owners must approve material changes to authority matrices, mandatory-escalation rules, and protected-channel logic.
+  auditability: Preserve source case facts, policy versions, route comparisons, threshold checks, packet contents, human overrides, and handoff timestamps for every escalation recommendation.
+  privacy:
+    - Minimize personal, customer, and sensitive operational details in escalation packets to the least information needed for the receiving authority to decide.
+    - Apply retention, access, and redaction controls that match the case class and governing obligations.
+  security:
+    - Restrict routing and packet-assembly permissions so the workflow cannot silently alter policy sources or downstream authority records.
+    - Log privileged overrides, manual reroutes, and policy exceptions in durable reviewable records.
+  notes: High-risk governance fits because the workflow shapes who sees and decides sensitive cases, even though it remains bounded at recommendation and governed routing rather than execution.
+why_agentic:
+  - Good escalation routing requires comparing policy triggers, case context, and authority boundaries instead of applying one static decision tree.
+  - The workflow benefits from specialized agents coordinating evidence review, policy interpretation, and packet assembly while preserving one auditable case state.
+  - Safe performance depends on recognizing when uncertainty itself is grounds for higher escalation instead of forcing a brittle local answer.
+failure_modes:
+  - mode: A case that requires mandatory escalation is recommended for local handling
+    impact: Sensitive or regulated matters remain with an unauthorized handler, causing delayed response, control failure, or harm to affected people.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Encode non-waivable escalation triggers as explicit blocking conditions rather than weighted preferences.
+      - Replay historical mandatory-escalation cases to verify they still route upward under current policy versions.
+  - mode: The workflow recommends the wrong escalation authority
+    impact: The case reaches a team that lacks jurisdiction or context, creating delay, repeated handoffs, and audit confusion.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Compare recommended routes against the current authority matrix and active ownership state before surfacing them.
+      - Preserve alternate-route rationale so human reviewers can detect misfit before accepting the handoff.
+  - mode: Over-escalation floods specialist queues
+    impact: High-value review channels are saturated, slowing truly urgent cases and eroding trust in the routing logic.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Measure false-escalation patterns by case class and tune thresholds conservatively.
+      - Require explicit rationale when weak signals are treated as sufficient for higher-channel routing.
+  - mode: The workflow drifts into collaboration or execution beyond the routing boundary
+    impact: Family boundaries blur, human authority weakens, and downstream actions occur without the intended decision checkpoint.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Keep outputs limited to route recommendations, escalation packets, and routing logs.
+      - Separate downstream investigation, response, and remediation tooling from the escalation-routing workflow.
+evaluation:
+  success_metrics:
+    - Rate at which accepted recommendations match the ultimately correct authority path without avoidable rerouting.
+    - Time from case qualification to delivery of a complete escalation packet to the authorized reviewer.
+    - Frequency with which mandatory-escalation triggers are caught before local handling or SLA breach.
+  quality_criteria:
+    - Each recommendation shows why the preferred route fits policy, why lower-authority handling is insufficient, and what uncertainty remains.
+    - Packet contents remain bounded to the information needed for downstream human decision-making rather than operational execution.
+    - Routing history and human overrides stay visible enough to reconstruct who decided what and when.
+  robustness_checks:
+    - Test conflicting policy clauses and ensure the workflow surfaces uncertainty or higher escalation instead of inventing a confident local answer.
+    - Test stale ownership state, duplicate cases, and concurrent escalations to verify routing lineage remains coherent.
+    - Test sensitive-case classes that require protected channels and confirm packet minimization and authority checks still hold.
+  benchmark_notes: Evaluate both under-escalation harm and specialist-queue burden; a quieter system is not better if policy-bound escalations become easier to miss or delay.
+implementation_notes:
+  orchestration_notes:
+    - Keep case intake, evidence review, policy interpretation, route comparison, and packet assembly as explicit coordinated stages over shared case state.
+    - Preserve a clean handoff boundary so receiving authorities own any later investigation, remediation, or external communication.
+  integration_notes:
+    - Common implementations integrate ticketing, case management, policy repositories, communication history, and governed routing queues.
+    - Keep the pattern neutral about specific ITSM, HR case-management, or compliance workflow products.
+  deployment_notes:
+    - Start with case classes where misrouting is costly and authority matrices are already well defined enough to audit.
+    - Monitor reroute rates, mandatory-escalation misses, and reviewer overrides continuously because policy drift can quickly degrade trust.
+  references:
+    - docs/patterns/recommend-decide-escalate.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: deal-desk-recommendation-support
+    relationship: adjacent-to
+    notes: Both patterns support governed choice, but this one centers on routing the case to the right authority rather than structuring a commercial recommendation.
+  - id: browser-based-form-completion-with-approval-gates
+    relationship: hands-off-to
+    notes: Once a human accepts the escalation path, downstream systems may use approval-gated execution patterns to submit or record the authorized next step.
+example_domains:
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Recommend whether a complaint or control exception should route to compliance counsel, a regulator-response team, or remain with local reviewers based on mandatory triggers.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Route a site-level service failure exception to regional operations leadership when local managers lack authority to accept the customer or safety impact.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Escalate a frontline case to a specialized recovery, billing, or executive-support queue when contract terms or customer-impact thresholds exceed local authority.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Recommend protected escalation of an employee-relations case away from local management when policy requires a confidential review path.
+maturity: draft
+tags:
+  - recommend-decide-escalate
+  - policy-constrained-routing
+  - governed-escalation
+  - authority-matrix
+  - multi-agent-routing

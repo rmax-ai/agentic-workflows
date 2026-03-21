@@ -49,7 +49,7 @@ autonomy_levels:
     investigate-reconcile-verify: [incident-root-cause-analysis]
     monitor-detect-triage: [critical-signal-corroboration-triage]
     plan-coordinate-schedule: []
-    recommend-decide-escalate: [deal-desk-recommendation-support]
+    recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
     execute-automate: []
     optimize-adapt: []
     human-agent-collaborative-work: []

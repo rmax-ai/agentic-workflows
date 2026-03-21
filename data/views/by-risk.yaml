@@ -62,7 +62,7 @@ risk_levels:
     investigate-reconcile-verify: [incident-root-cause-analysis]
     monitor-detect-triage: [risk-alert-triage]
     plan-coordinate-schedule: []
-    recommend-decide-escalate: [deal-desk-recommendation-support]
+    recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
     execute-automate: []
     optimize-adapt: []
     human-agent-collaborative-work: []
