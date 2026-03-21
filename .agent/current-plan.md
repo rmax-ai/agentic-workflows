@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-092906` is complete: it closed `optimize-adapt`'s missing `critical` risk slice with `critical-protected-priority-adaptation`, three linked grounded severe-state adaptation instances, and synchronized the optimize family doc plus the directly affected derived browse views. The next highest-leverage gap is now the remaining family-specific `critical` slice in `human-agent-collaborative-work`, provided it can stay centered on critical shared-work and approval ownership rather than authority recommendation, crisis planning, or execution.
+Iteration `20260321-093716` is now scoped to close the remaining `critical` risk gap in `human-agent-collaborative-work` with one family-clean severe collaboration pattern plus a few grounded instances. The batch must stay centered on a protected shared artifact, explicit human ownership, contested edits, and bounded handoff readiness rather than drifting into authority recommendation, crisis planning, briefing synthesis, or execution.
 
 ## Current phase
 
@@ -16,18 +16,17 @@ Iteration `20260321-092906` is complete: it closed `optimize-adapt`'s missing `c
 
 ## Ordered tasks
 
-1. Re-evaluate the remaining uncovered `critical` risk cells now that `optimize-adapt` also spans low, moderate, high, and critical coverage.
-2. Identify the next family-specific `critical` refinement that can stay bounded at its own family boundary, with `human-agent-collaborative-work` the leading candidate if a severe shared-work or approval-ownership workflow can avoid drifting into authority recommendation, crisis planning, or execution.
-3. Keep future Phase 7 batches modest, dependency-aware, and synchronized across canonical patterns, grounded instances, browse views, and `.agent/` execution memory.
-4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each content batch before closing the iteration.
+1. Add one canonical `human-agent-collaborative-work` pattern at `critical` risk that anchors on severe shared-artifact collaboration, protected work surfaces, explicit ownership, and visible disagreement.
+2. Ground that pattern with a small set of linked instances in domains where severe shared-work is clearly primary and still family-clean.
+3. Synchronize the collaboration family doc and the directly affected derived browse views so they reflect the new canonical inventory without drift.
+4. Validate repository YAML with `uv run python scripts/python/validate_yaml.py`, then update `.agent/` execution memory, coverage tracking, and this plan before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-092906`
-- Completed scope: added `critical-protected-priority-adaptation`, three linked grounded instances in engineering, finance, and operations, and synchronized the optimize family doc plus the directly affected derived browse views in one feature commit.
-- Updated coverage context: `optimize-adapt` now spans low-, moderate-, high-, and critical-risk slices and also adds an explicit critical `human-directed` optimization anchor centered on temporary severe-state retuning, expiry discipline, and rollback preparation.
-- Reflection outcome: no new `.agent/proposals/` entry was added because the iteration did not surface a new durable loop, tooling, schema, or ontology improvement beyond already captured guidance.
-- Planned orchestrator follow-up: validate the refreshed repository state, keep execution memory synchronized, and queue the remaining narrow uncovered `critical`-risk candidate in `human-agent-collaborative-work`.
+- Timestamp: `20260321-093716`
+- Planned scope: add one critical collaboration anchor in `human-agent-collaborative-work`, a few linked severe shared-work instances, and the directly affected family/view synchronization in one feature commit.
+- Coverage target: fill the final uncovered `pattern_family_x_risk` cell by giving `human-agent-collaborative-work` explicit `critical` representation while preserving clean separation from recommendation, planning, synthesis, and execution families.
+- Planned orchestrator follow-up: validate YAML, update status and coverage memory, record this iteration, and queue the next narrow refinement only after the collaboration family cleanly spans the full tracked risk ladder.
 
 ## Constraints
 
@@ -41,4 +40,4 @@ Iteration `20260321-092906` is complete: it closed `optimize-adapt`'s missing `c
 
 ## Expected outcome
 
-This repository state now leaves `optimize-adapt` with representative `critical` risk coverage via one bounded severe-state protected-priority adaptation anchor and three grounded examples, while setting up `human-agent-collaborative-work` as the next likely narrow `critical`-risk refinement.
+This iteration should leave `human-agent-collaborative-work` with representative `critical` risk coverage through one bounded severe shared-work pattern and a small linked instance set, while keeping the ontology family boundaries clean and the derived browse artifacts synchronized to canonical truth.
