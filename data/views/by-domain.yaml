@@ -92,7 +92,7 @@ domains:
     monitor-detect-triage: []
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: []
-    execute-automate: [exception-aware-task-execution]
+    execute-automate: []
     optimize-adapt: []
     human-agent-collaborative-work: [analyst-copilot-loop]
 - domain:
@@ -106,7 +106,7 @@ domains:
     monitor-detect-triage: []
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [policy-constrained-escalation-routing]
-    execute-automate: []
+    execute-automate: [exception-aware-task-execution]
     optimize-adapt: [queue-prioritization-optimization]
     human-agent-collaborative-work: [analyst-copilot-loop]
 - domain:
