@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Iteration `20260321-124822` is now in progress: scope one HR-grounded `investigate-reconcile-verify` refinement around `evidence-gated-verification-for-release`, keeping the governed artifact to one exact evidence packet revision plus explicit sufficiency verdict and release-hold state before any recommendation, scheduling, or downstream HR action.
+
 Iteration `20260321-124248` is now complete: `approval-gated-triage-dispatch` gained new `hr` grounding, and the canonical pattern metadata plus derived domain view now expose that monitor-family approval-bound slice across four modeled domains without drifting past one exact already-triaged packet revision, one explicit hold-and-release state, or one bounded HR dispatch lane.
 
 Iteration `20260321-123736` is now complete: `approval-gated-briefing-release` gained new `hr` grounding, and the canonical pattern metadata plus derived domain view now expose that gather-family approval-bound slice across four modeled domains without drifting past one exact synthesized briefing revision, one explicit hold-and-release state, or one bounded HR visibility lane.
