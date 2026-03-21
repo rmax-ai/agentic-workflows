@@ -91,6 +91,7 @@
 - `instances/support/post-outage-enterprise-ticket-queue-reprioritization.md` — grounded support optimization case for bounded queue retuning after an outage using reopen feedback, SLA pressure, and fairness guardrails.
 - `instances/finance/multi-year-renewal-pricing-and-payment-structure-recommendation.md` — grounded finance recommendation case for governed renewal pricing and payment-structure review under margin, credit, and accounting constraints.
 - `instances/compliance/beneficial-ownership-registry-update-submission.md` — grounded compliance execution case for approval-gated browser submission of a regulated beneficial-ownership filing.
+- `instances/compliance/regulatory-consumer-complaint-response-queue-reprioritization.md` — grounded compliance optimization case for statutory complaint-review backlog reprioritization under deadline, fairness, supervisory-review, and rollback guardrails.
 
 ## Not yet present but planned
 

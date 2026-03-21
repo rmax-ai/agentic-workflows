@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-execution-optimization-rebalanced
+repository_stage: phase-6-grounding-compliance-optimization-covered
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 19
+  instance_files: 20
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -55,7 +55,7 @@ pattern_counts_by_family:
 instance_counts_by_domain:
   engineering: 1
   finance: 4
-  compliance: 4
+  compliance: 5
   operations: 3
   research: 2
   support: 3
@@ -92,19 +92,22 @@ repo_reality:
     - instances/research/model-serving-platform-benchmark-briefing-copilot-loop.md
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
-    - instances/operations/cross-functional-maintenance-review-scheduling.md
-    - instances/compliance/cross-border-deal-exception-review.md
-    - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
-    - instances/hr/approved-payroll-status-change-submission.md
-    - instances/hr/interview-panel-availability-coordination.md
     - instances/finance/invoice-packet-to-payables-record-handoff.md
-    - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
-    - instances/support/customer-escalation-bridge-scheduling.md
+    - instances/finance/dual-approved-vendor-bank-account-change-submission.md
     - instances/finance/multi-year-renewal-pricing-and-payment-structure-recommendation.md
+    - instances/operations/cross-functional-maintenance-review-scheduling.md
+    - instances/operations/site-inspection-packet-to-corrective-maintenance-work-order-handoff.md
+    - instances/operations/field-service-dispatch-queue-reprioritization.md
+    - instances/compliance/cross-border-deal-exception-review.md
     - instances/compliance/beneficial-ownership-registry-update-submission.md
     - instances/compliance/sanctions-alert-closure-regulator-response-copilot-loop.md
     - instances/compliance/pharmacovigilance-follow-up-packet-to-safety-case-record-handoff.md
-    - instances/operations/site-inspection-packet-to-corrective-maintenance-work-order-handoff.md
+    - instances/compliance/regulatory-consumer-complaint-response-queue-reprioritization.md
+    - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
+    - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
+    - instances/support/customer-escalation-bridge-scheduling.md
+    - instances/hr/approved-payroll-status-change-submission.md
+    - instances/hr/interview-panel-availability-coordination.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -120,12 +123,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and nineteen grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and twenty grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
   - "`execute-automate` is now grounded in finance, compliance, and HR, but operations, support, engineering, and research remain open domain slices for approval-gated execution."
-  - "`optimize-adapt` is now grounded in support and operations, but compliance remains a useful governed optimization opportunity and other domains are still largely unmodeled."
+  - "`optimize-adapt` is now grounded in support, operations, and compliance, but engineering, finance, research, and HR remain open domain slices if broader optimization coverage becomes worthwhile later."
   - "`plan-coordinate-schedule` is now stronger across operations, support, and HR, but the family still lacks grounded finance, compliance, engineering, and research examples if broader scheduling coverage becomes important later."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-deepen-governed-execution-or-optimization
-  summary: "Use the next small grounding batch to deepen another thin Phase 6 slice, with preference for a governed compliance optimization example or an operations/support execution example that materially differs from the current finance, compliance, HR, support, and operations anchors."
+  id: phase-6-deepen-approval-gated-execution
+  summary: "Use the next small grounding batch to deepen `execute-automate`, with preference for an operations or support approval-gated execution example that materially differs from the current finance, compliance, and HR anchors."

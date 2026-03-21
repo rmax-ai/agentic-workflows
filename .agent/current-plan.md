@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-This iteration will deepen the governed `optimize-adapt` slice by adding one compliance-grounded instance linked to `queue-prioritization-optimization`. The goal is to turn the current compliance optimization cell from a planned opportunity into a concrete, audit-heavy example without broadening the batch into multiple families.
+The last iteration closed the governed compliance slice for `optimize-adapt` by grounding `queue-prioritization-optimization` in a regulatory consumer-complaint review backlog. The next batch should stay modest and target the clearest remaining thin slice, with approval-gated execution in operations or support now standing out most.
 
 ## Current phase
 
@@ -15,10 +15,10 @@ This iteration will deepen the governed `optimize-adapt` slice by adding one com
 
 ## Ordered tasks
 
-1. Author one new compliance instance for `queue-prioritization-optimization` that emphasizes bounded reprioritization, deadline pressure, fairness, rollback, and supervisory review.
-2. Keep the batch modest: do not expand the pattern set or add unrelated instances unless the chosen compliance example proves structurally insufficient.
-3. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the iteration log after the instance lands so repository memory reflects the newly grounded optimization slice.
-4. Continue validating repository YAML with the existing uv-managed helper before closing the iteration.
+1. Re-read `browser-based-form-completion-with-approval-gates` and the current operations and support instances to identify whether an approval-gated submission example in one of those domains would add more structural value next.
+2. Keep the next grounding batch modest: prefer one or two execution-oriented instances that materially differ from the current finance, compliance, and HR anchors rather than reopening optimization coverage immediately.
+3. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next iteration log after the next batch so repository memory reflects whichever execution slice is chosen.
+4. Continue validating repository YAML with the existing uv-managed helper before closing each iteration.
 
 ## Constraints
 
@@ -26,9 +26,9 @@ This iteration will deepen the governed `optimize-adapt` slice by adding one com
 - Treat `data/views/` as derived browse artifacts and keep any future updates aligned with stable vocabulary and pattern ids.
 - Ensure every subagent task ends with exactly one git commit.
 - Prefer modest grounding batches that improve coverage balance inside one thin family/domain slice rather than forcing a broad cross-family sweep.
-- Keep the iteration scoped to one modest compliance-grounding batch plus required `.agent/` memory updates; do not expand the canonical pattern set unless dependency order changes.
+- Keep the next iteration scoped to one modest execution-grounding batch plus required `.agent/` memory updates; do not expand the canonical pattern set unless dependency order changes.
 - Keep governance, reversibility, privacy, and auditability explicit in grounded examples.
 
 ## Expected outcome
 
-The iteration should close the compliance cell for `optimize-adapt` with one grounded, governance-aware instance while preserving the repository's pattern-first structure and modest-batch discipline.
+The next iteration should deepen `execute-automate` in operations or support with one grounded, governance-aware instance while preserving the repository's pattern-first structure and modest-batch discipline.
