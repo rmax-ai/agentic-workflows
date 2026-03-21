@@ -12,6 +12,20 @@ Finance.
 
 Late in quarter close, the lead treasury analyst receives follow-up questions from the administrative agent on the company's revolving credit facility before the lender group will accept the draft compliance certificate. The lender wants clearer support for a restructuring add-back in EBITDA, confirmation that a recent asset sale did not trigger a mandatory prepayment, and a tighter explanation of why minimum-liquidity calculations exclude a ring-fenced foreign account. The analyst uses a copilot inside a controlled finance workspace to iteratively assemble the lender-response package, pull the governing agreement excerpts and amendment history, reconcile the calculation bridge to close workpapers, rewrite the narrative as controllership, legal, and treasury reviewers narrow acceptable wording, and maintain an open-items log for unresolved interpretation questions. The human analyst and treasury leadership remain responsible for deciding which interpretations are supportable, whether any waiver or external counsel review is required, what commitments the company will make to the lender group, and approving every outbound statement before anything is transmitted.
 
+```mermaid
+flowchart TD
+    A["Lead treasury analyst opens<br>the clarification package workspace"] --> B["Copilot gathers agreement excerpts,<br>amendment history, close workpapers,<br>and cash-support records"]
+    B --> C{"Verification check:<br>does each lender-facing claim tie to current<br>agreement text, calculations, and cash evidence?"}
+    C -->|"No"| H["Hold state:<br>trim unsupported wording, refresh sources,<br>and update open interpretation questions"]
+    H --> B
+    C -->|"Yes"| D["Treasury, controllership, and legal reviewers<br>narrow acceptable wording and commitments"]
+    D --> E{"Bounded escalation:<br>do unresolved facts or interpretations require<br>waiver analysis or external counsel review?"}
+    E -->|"Yes"| I["Pause package finalization and route<br>to treasury leadership, waiver analysis,<br>or external counsel review"]
+    E -->|"No"| F{"Human approval gate:<br>does the lead analyst or treasury leadership approve<br>every outbound statement and lender commitment?"}
+    F -->|"Revise"| H
+    F -->|"Approve"| G["Transmit the final human-approved<br>clarification package through the secure<br>lender correspondence channel"]
+```
+
 ## Target systems / source systems
 
 - Controlled treasury workbench with the draft clarification memo, reviewer comments, approval routing, and handoff status
