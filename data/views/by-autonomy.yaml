@@ -89,7 +89,7 @@ autonomy_levels:
     gather-retrieve-synthesize: []
     transform-process: [change-triggered-representation-refresh]
     investigate-reconcile-verify: []
-    monitor-detect-triage: []
+    monitor-detect-triage: [explainable-watchlist-maintenance]
     plan-coordinate-schedule: [authoritative-change-coordination-refresh]
     recommend-decide-escalate: []
     execute-automate: [staged-change-execution-with-rollback-holds]

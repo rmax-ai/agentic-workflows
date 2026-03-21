@@ -1,0 +1,279 @@
+id: explainable-watchlist-maintenance
+slug: explainable-watchlist-maintenance
+name: Explainable watchlist maintenance
+summary: Continuously monitor low-stakes recurring signals, suppress bounded noise, and maintain an explainable watchlist plus routine attention queue without drifting into anomaly review, recommendation, investigation, or execution.
+pattern_family:
+  id: monitor-detect-triage
+  label: Monitor / Detect / Triage
+problem_structure:
+  id: continuous-monitoring-and-triage
+  label: Continuous monitoring and triage
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
+workflow_goal: Keep low-stakes recurring signals visible through an explainable watchlist and routine attention queue, while suppressing expected noise and escalating only the exceptions that begin to exceed delegated low-risk monitoring scope.
+inputs:
+  - name: Recurring low-stakes signal stream
+    description: Ongoing low-severity events, warning patterns, or hygiene indicators that rarely justify immediate review on their own but may merit continued visibility if they recur or cluster over time.
+    kind: event-stream
+    required: true
+    examples:
+      - Repeated non-blocking CI warning signatures across several repositories in one release train
+      - Clusters of self-serve support searches that end with repeated article exits and low feedback scores
+      - Benchmark-run metadata gaps such as missing annotations or stale dataset-card links that recur across one study portfolio
+  - name: Watchlist and suppression policy
+    description: Approved rules defining which signal classes are eligible for autonomous watchlisting, how long they stay visible, when duplicates should merge, and which cases must escalate instead of remaining in low-risk scope.
+    kind: policy
+    required: true
+    examples:
+      - Keep repeated low-severity build-warning signatures on the weekly release-hygiene watchlist until two clean runs occur
+      - Merge article-confusion signals by help topic and locale unless protected-account or outage indicators are present
+      - Retain metadata-hygiene signals for one benchmark cycle unless a study owner confirms the issue is resolved
+  - name: Bounded contextual records
+    description: Narrow supporting context used to explain why a signal remains on the watchlist or can be safely suppressed without expanding into full investigation.
+    kind: context-bundle
+    required: true
+    examples:
+      - Repository ownership, release window, prior suppressions, and known deprecation exceptions
+      - Knowledge-article metadata, search phrases, article revision history, and prior content-ops notes
+      - Study identifiers, benchmark catalog metadata, annotation history, and approved review windows
+  - name: Prior watchlist state and reviewer feedback
+    description: Historical watchlist entries, suppression decisions, aging state, and occasional human feedback used to avoid duplicate churn and to remove stale entries safely.
+    kind: watchlist-state
+    required: false
+    examples:
+      - Existing release-hygiene watchlist items with the last seen run and prior owner notes
+      - Previous article-confusion watchlist entries marked as resolved after a documentation refresh
+      - Earlier benchmark metadata reminders that were deferred until the next methods review window
+outputs:
+  - name: Explainable watchlist
+    description: Curated list of recurring low-stakes signals with recurrence history, bounded context, aging state, and explicit reasons they remain visible.
+    kind: watchlist
+    required: true
+    examples:
+      - Release-hygiene watchlist grouped by warning signature, owning repository, and unresolved recurrence count
+      - Knowledge-ops watchlist showing help-topic confusion clusters by locale, article family, and persistence window
+      - Research methods watchlist of repeated metadata gaps by benchmark suite and upcoming review milestone
+  - name: Routine attention queue
+    description: Low-urgency queue or digest-ready backlog that surfaces watchlist items for periodic human attention without implying that immediate review or escalation is required.
+    kind: queue
+    required: true
+    examples:
+      - Weekly engineering hygiene queue ordered by recurrence trend and breadth of repository impact
+      - Content-ops backlog sorted by repeated customer confusion signals and article coverage gaps
+      - Research metadata upkeep queue grouped by upcoming benchmark-review cadence and unresolved age
+  - name: Suppression and watchlist change log
+    description: Audit trail of merges, suppressions, aging updates, removals, and exception escalations applied while maintaining the watchlist.
+    kind: audit-log
+    required: true
+    examples:
+      - Record showing why duplicate warning signatures were merged into one watchlist entry
+      - Log of article-confusion clusters removed after two healthy feedback cycles
+      - History of a metadata-hygiene item escalated because the same gap persisted beyond the delegated review window
+environment:
+  summary: Operates in continuous low-risk monitoring environments where repeated weak signals are worth keeping visible for routine upkeep, but the workflow must stay bounded at explainable watchlisting, bounded suppression, and low-urgency attention routing rather than case review, recommendation, investigation, or action.
+  systems:
+    - Event and telemetry feeds
+    - Search, lookup, or catalog tools for bounded context retrieval
+    - Internal watchlist or backlog systems
+    - Policy and retention configuration stores
+  actors:
+    - Routine queue owner such as a release-hygiene lead, knowledge-ops manager, or research methods steward
+    - Governance owner responsible for watchlist policy, suppression limits, and escalation boundaries
+    - Human reviewer who periodically audits watchlist usefulness and exception handling
+  constraints:
+    - Keep the workflow limited to watchlist upkeep, bounded suppression, and routine queueing; do not generate anomaly review packets, recommend remediation, or start downstream work.
+    - Make every retained or suppressed item explainable enough that a human can see why it stayed on the watchlist or why it was removed.
+    - Restrict context gathering to the approved low-risk boundary so recurring hygiene signals do not expand into open-ended research or diagnosis.
+    - Preserve recurrence history, suppression rationale, and item aging so watchlist drift remains auditable.
+  assumptions:
+    - The monitored systems expose stable identifiers and enough lightweight context to group recurring signals without deep investigation.
+    - Humans remain available for periodic queue review, policy tuning, and exception handling even though most routine watchlist upkeep is autonomous.
+    - Low-stakes signal classes and escalation boundaries can be approved in advance so the normal path does not require case-by-case review.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The workflow depends on continuous observation of recurring weak signals and changes in their recurrence over time.
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: Useful watchlist upkeep requires pulling bounded ownership, history, and prior-disposition context before retaining or suppressing an item.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Humans need concise watchlist explanations and recurrence summaries rather than raw warning streams and lookup output.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Duplicate, resolved, or known-benign signals should be checked against current bounded context before they remain visible or are removed.
+  - capability:
+      id: triage
+      label: Triage
+      source_vocabulary: capabilities
+    necessity: The workflow still has to classify which low-stakes signals deserve continued watchlist presence and which can be safely suppressed or aged out.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: Maintaining the watchlist depends on reading signal sources, looking up context, updating queue systems, and writing audit logs through tools.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Recurrence counts, stale-item aging, prior suppressions, and periodic feedback all require durable state across monitoring cycles.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Signal eligibility, retention windows, protected-data limits, and escalation boundaries determine which items can stay inside delegated low-risk monitoring.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The workflow needs safe fallbacks when recurrence grows unexpectedly, context is missing, or a signal begins to resemble a moderate-risk anomaly instead of a low-stakes hygiene issue.
+execution_architecture:
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: The pattern is naturally driven by incoming low-severity events, repeated weak signals, and periodic re-evaluation as recurrence or resolution state changes.
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: One bounded agent can usually group recurring signals, fetch narrow context, maintain the watchlist, and publish a routine queue without needing multi-agent specialization.
+autonomy_profile:
+  level:
+    id: exception-gated-autonomy
+    label: Exception-gated autonomy
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Approve which low-stakes signal classes, watchlist retention windows, suppression rules, and routine queue destinations the workflow may manage autonomously.
+    - Review exceptions when recurrence, ambiguity, protected-data exposure, or cross-system spread suggests the item may no longer belong in low-risk watchlisting.
+    - Audit sampled watchlist entries, removals, and suppression behavior when policy changes or reviewer trust signals indicate drift.
+  reversibility: Watchlist entries, queue placement, suppressions, and aging decisions can usually be recomputed or reversed from the underlying signal history, making routine upkeep highly reversible so long as escalation-worthy signals are surfaced promptly.
+  escalation: Escalate whenever a signal persists beyond approved watchlist windows, begins to show material impact, crosses protected-data or policy boundaries, lacks enough context for safe suppression, or would require anomaly review, recommendation, investigation, or execution to proceed.
+risk_governance:
+  level:
+    id: low
+    label: Low
+    source_vocabulary: risk-levels
+  failure_impact: Poor watchlist upkeep usually creates localized noise, missed routine hygiene work, or stale backlog visibility rather than immediate consequential harm, because the workflow only manages low-stakes attention routing and keeps higher-risk escalation outside delegated scope.
+  approval_requirements:
+    - Case-by-case approval is not required for in-policy watchlist maintenance, duplicate suppression, and routine queue publication for approved low-stakes signal classes.
+    - Human approval is required before changing watchlist policy, broadening signal classes, exposing protected context more widely, or allowing any output to trigger anomaly review, external communication, or operational action automatically.
+  auditability: Preserve source signal references, grouping and suppression rationale, watchlist aging changes, queue publication history, policy versions, and exception escalations for every maintained item.
+  privacy:
+    - Keep broad watchlist views limited to the minimum identifiers and bounded context needed for routine upkeep, with protected details retained only in restricted source systems.
+    - Avoid retaining stale personal, customer, or unpublished research details in long-lived watchlist entries once a low-stakes signal has been resolved or aged out.
+  security:
+    - Protect signal sources, watchlist stores, and policy configuration against tampering that could hide recurring items or create misleading noise.
+    - Log privileged overrides, manual removals, and policy changes so autonomous watchlist behavior remains inspectable.
+  notes: Low-risk governance fits because the pattern only shapes routine visibility for recurring weak signals, keeps changes reversible, and escalates any case that starts to influence consequential review or action.
+why_agentic:
+  - Useful watchlist upkeep requires adapting to noisy recurrence, stale items, and shifting context instead of treating every weak signal as a fresh alert.
+  - The workflow must compare current signals to prior state, merge duplicates, age entries, and write concise explanations across multiple systems rather than simply forwarding events.
+  - Safe operation depends on recognizing when a routine weak signal remains a watchlist item and when it has crossed the boundary into anomaly review or governed alert triage.
+failure_modes:
+  - mode: Emerging meaningful patterns are over-suppressed as routine noise
+    impact: A signal that should have graduated into anomaly review remains buried in low-stakes watchlist upkeep until the situation worsens.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Define explicit recurrence, age, and spread thresholds that force escalation out of low-risk watchlisting.
+      - Sample aged-out items against later outcomes to detect hidden missed-escalation patterns.
+  - mode: Benign churn stays visible too long and bloats the watchlist
+    impact: Routine queue owners lose trust in the watchlist because low-value items crowd out the small set of genuinely useful upkeep signals.
+    severity: low
+    detectability: high
+    mitigations:
+      - Track watchlist aging, periodic owner dismissals, and stale-item ratios to identify weak suppression logic.
+      - Require each retained item to show a concrete recurrence or unresolved-context reason for continued visibility.
+  - mode: Resolved items are not cleared when healthy signals return
+    impact: Humans waste time reviewing stale watchlist entries and cannot tell which items still need low-urgency attention.
+    severity: low
+    detectability: high
+    mitigations:
+      - Recheck retained items against fresh healthy-state windows before republishing the queue.
+      - Preserve explicit removal and resolution criteria in watchlist policy rather than relying on manual cleanup.
+  - mode: The workflow drifts into anomaly review or recommendation behavior
+    impact: Family boundaries blur and a low-risk watchlist starts packaging cases or suggesting actions that belong in adjacent higher-governance workflows.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Limit outputs to watchlists, low-urgency queues, and audit logs.
+      - Route emerging case narratives, prioritization for immediate review, and action-oriented outputs into adjacent patterns instead of handling them inline.
+evaluation:
+  success_metrics:
+    - Percentage of recurring low-stakes signals that remain visible long enough for routine owners to address them without producing avoidable alert fatigue.
+    - Median time from a recurring weak-signal pattern emerging to an explainable watchlist entry or justified suppression decision.
+    - Rate at which watchlist items that later exceeded low-risk scope were escalated before they became stale or invisible.
+  quality_criteria:
+    - Each watchlist item includes recurrence evidence, bounded context, aging state, and the reason it remains visible or was recently suppressed.
+    - Suppression, merge, and removal decisions remain reconstructable after the fact.
+    - The workflow stays bounded at low-stakes watchlisting and routine attention routing rather than producing review packets, recommendations, or actions.
+  robustness_checks:
+    - Replay noisy recurring-signal bursts and verify the workflow merges duplicates and suppresses expected chatter without hiding persistent cross-entity patterns.
+    - Test missing-context scenarios and confirm the workflow escalates uncertainty or keeps the item visible rather than silently dropping it.
+    - Test signals that cross recurrence or policy thresholds and confirm they move into anomaly review or alert triage instead of remaining on the low-risk watchlist.
+  benchmark_notes: Evaluate watchlist usefulness together with scope discipline and missed-escalation control; a smaller watchlist is not a success if recurring weak signals disappear before humans can judge whether they are worsening.
+implementation_notes:
+  orchestration_notes:
+    - Keep signal grouping, bounded-context retrieval, watchlist state updates, suppression checks, and queue publication as explicit stages over shared watchlist state.
+    - Preserve stable identifiers for recurring signal clusters so owner feedback and aging state survive across repeated runs.
+  integration_notes:
+    - Common implementations integrate event streams, search or catalog tools, internal backlog systems, and policy stores governing watchlist scope.
+    - Keep the pattern neutral about specific CI, support-knowledge, or research-catalog platforms so the reusable structure stays domain-agnostic.
+  deployment_notes:
+    - Start with clearly low-stakes signal classes where routine visibility is more valuable than immediate review or escalation.
+    - Monitor stale-item ratios, manual removals, and later escalation outcomes because low-risk watchlists can quietly drift into either noise or under-attention.
+  references:
+    - docs/patterns/monitor-detect-triage.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: anomaly-detection-review
+    relationship: can-escalate-to
+    notes: Recurring watchlist items that accumulate enough unexplained significance should graduate into bounded anomaly review rather than remain on a low-risk upkeep list.
+  - id: risk-alert-triage
+    relationship: can-escalate-to
+    notes: Signals that reveal material risk, urgent timing, or policy-relevant consequence should leave watchlist maintenance and enter governed alert triage.
+  - id: adaptive-threshold-calibration
+    relationship: complement
+    notes: Threshold calibration tunes which weak signals appear in the first place, while this pattern governs how recurring low-stakes signals stay visible or get suppressed over time.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Maintain a release-hygiene watchlist of recurring non-blocking CI warnings and flaky-test signatures so platform owners see persistent weak signals without opening incidents automatically.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Keep repeated self-serve article-confusion signals on a knowledge-ops watchlist so content owners can address recurring low-severity friction without routing every cluster to live escalation review.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Maintain a benchmark metadata-hygiene watchlist of recurring annotation and catalog gaps so methods stewards can clear low-stakes upkeep items before they become publication or integrity concerns.
+maturity: draft
+tags:
+  - monitor-detect-triage
+  - explainable-watchlist-maintenance
+  - low-risk-monitoring
+  - bounded-noise-suppression
+  - event-driven-monitoring
+  - exception-gated-autonomy

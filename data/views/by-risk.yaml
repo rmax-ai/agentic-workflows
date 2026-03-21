@@ -32,7 +32,7 @@ risk_levels:
     gather-retrieve-synthesize: [change-triggered-context-briefing]
     transform-process: [normalization-and-enrichment]
     investigate-reconcile-verify: [claimed-state-verification]
-    monitor-detect-triage: []
+    monitor-detect-triage: [explainable-watchlist-maintenance]
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [control-requirement-attestation-recommendation]
     execute-automate: [workflow-hand-off-and-completion]
