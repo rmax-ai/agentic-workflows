@@ -12,6 +12,21 @@ Compliance.
 
 A pharmacovigilance operations team has already triaged a serious safety-signal packet that groups related adverse-event alerts, seriousness coding, product context, reporting-clock references, and unresolved questions about expectedness. Before the packet may enter the expedited medical-review lane, a qualified safety reviewer must confirm that the exact packet revision, protected routing scope, and open holds are acceptable for downstream intake. The dispatch workflow therefore monitors packet freshness, follow-up completeness, reviewer sign-off, and protected lane metadata, then releases the packet into expedited medical review only when those approval conditions are satisfied. It stops at the governed handoff boundary rather than deciding causality, drafting regulator communication, or executing case-processing actions.
 
+```mermaid
+flowchart TD
+    A["Already-triaged serious safety-signal packet<br>awaiting expedited medical-review dispatch"] --> B["Monitor packet freshness, follow-up completeness,<br>duplicate linkage, and protected lane metadata"]
+    B --> C{"Packet revision current and<br>follow-up / hold checks clear?"}
+    C -->|"No"| H["Hold state:<br>stale packet, missing follow-up,<br>or unresolved duplicate / expectedness issue"]
+    H --> B
+    C -->|"Yes"| D["Qualified safety reviewer checks<br>exact packet revision, routing scope,<br>and visible holds"]
+    D --> E{"Reviewer sign-off and protected<br>lane scope confirmed?"}
+    E -->|"No"| I["Hold state:<br>approval missing, scope mismatch,<br>or protected-detail exposure risk"]
+    I --> B
+    E -->|"Yes"| F["Create dispatch manifest binding<br>packet version, reviewer identity,<br>lane id, and visible holds"]
+    F --> G["Dispatch one approved packet revision<br>to the expedited medical-review lane"]
+    G --> J["Stop at governed handoff boundary:<br>no causality decision, regulator drafting,<br>or case-processing action"]
+```
+
 ## Target systems / source systems
 
 - Pharmacovigilance case and signal-triage systems storing the already-triaged safety packet, duplicate linkage, seriousness coding, and reporting-clock context
