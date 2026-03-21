@@ -12,6 +12,29 @@ Engineering.
 
 A platform engineering review group is evaluating whether to support an accelerated production upgrade of the managed PostgreSQL version used by the checkout and order-history services after the cloud provider shortens support for the current major version. The requesting team wants approval to compress the normal compatibility window, accept a shorter rollback checkpoint, and combine the database engine upgrade with a required driver update before the seasonal release freeze begins. The workflow must recommend whether engineering should support the exception as scoped, counter with a narrower staged path, or escalate because rollback uncertainty, dependency compatibility, customer-impact risk, and change-governance thresholds move outside delegated approval limits before any production change is committed.
 
+```mermaid
+flowchart TD
+    A["Review group receives<br>accelerated upgrade request"]
+    B["Verify support deadline,<br>service exposure, and proposed scope"]
+    C{"Rollback checkpoint,<br>driver compatibility, and migration evidence verified?"}
+    D["Hold request until stronger rollback proof,<br>staging results, or narrower scope is provided"]
+    E{"Delegated approval gate:<br>freeze policy and authority limits still in band?"}
+    F["Recommend narrower staged path with<br>separated driver change or longer soak"]
+    G{"Residual customer-impact risk<br>and rollback uncertainty acceptable?"}
+    H["Recommend support for the<br>scoped exception with controls"]
+    I["Escalate to higher change authority<br>before any production commitment"]
+
+    A --> B
+    B --> C
+    C -- "No" --> D
+    D --> B
+    C -- "Yes" --> E
+    E -- "No" --> I
+    E -- "Yes" --> G
+    G -- "No" --> F
+    G -- "Yes" --> H
+```
+
 ## Target systems / source systems
 
 - Engineering change record, architecture exception request, and service-owner rationale for the proposed accelerated upgrade
