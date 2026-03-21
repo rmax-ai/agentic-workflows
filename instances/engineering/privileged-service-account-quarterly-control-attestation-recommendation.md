@@ -12,6 +12,19 @@ Engineering.
 
 A platform security control owner is preparing the quarterly internal attestation for a small set of privileged production service accounts used by build-signing, secret replication, and release-approval automation. The evidence packet already exists, but one account family has stale owner-review evidence, another relies on a soon-to-expire compensating-control exception, and a recent service split changed whether two identities still fall inside the same least-privilege scope. The workflow must recommend whether the attestation package is supportable as submitted, should pause for targeted remediation, or should escalate to platform security governance because the current requirement fit is ambiguous before any human signs the quarter's control record or changes live access.
 
+```mermaid
+flowchart TD
+    A["Review quarterly privileged service-account evidence packet<br>for build-signing, secret replication, and release-approval automation"] --> B["Verify each account family against current controls:<br>owner-review freshness, rotation evidence, and least-privilege scope"]
+    B --> C{"Any stale proof or expiring<br>compensating-control exception?"}
+    C -->|"Yes"| D["Hold attestation for targeted remediation<br>until refreshed evidence or exception action is supplied"]
+    C -->|"No"| E{"Did the service split create ambiguous scope<br>or exceed delegated review bounds?"}
+    E -->|"Yes"| F["Escalate to platform security governance<br>for requirement-fit interpretation before sign-off"]
+    E -->|"No"| G["Recommend supportable as submitted<br>with requirement-to-evidence rationale packet"]
+    D --> H["Human security owner decides next step;<br>workflow does not sign attestation or change access"]
+    F --> H
+    G --> H
+```
+
 ## Target systems / source systems
 
 - IAM inventory and privileged-access review workspace with service-account scope, owners, approval history, and prior quarterly outcomes
