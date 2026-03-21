@@ -131,6 +131,7 @@ items:
       - "`human-agent-collaborative-work` is now grounded across support, research, compliance, engineering, operations, finance, and HR after adding a workplace accommodation exception memo copilot loop."
       - "`transform-process` is now also grounded in HR through a medical leave certification packet to leave-case record handoff, so the family now spans finance, compliance, operations, support, and HR."
       - "`transform-process` is now also grounded in research through a benchmark study artifact packet to research review intake record handoff, so the family now spans finance, compliance, operations, support, HR, and research."
+      - "`transform-process` is now grounded across all seven currently modeled domains after adding an engineering release-candidate evidence packet to deployment-review staging record handoff."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement
@@ -145,4 +146,4 @@ items:
     notes:
       - The last empty family gap is closed at the canonical pattern layer and `transform-process` now has its first grounded example.
       - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.
-      - The next small grounding batch should likely target engineering in `transform-process`; after the new research review-intake example, the family still lacks only engineering grounding and completing that family would close the last domain gap for one of the thinnest grounded patterns.
+      - After closing the last `transform-process` domain gap, the next small grounding batch should likely target `plan-coordinate-schedule` with one engineering-domain example because that family still spans only operations, support, and HR.
