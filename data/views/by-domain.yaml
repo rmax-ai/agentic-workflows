@@ -59,7 +59,7 @@ domains:
     source_vocabulary: domains
   pattern_families:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation]
-    transform-process: [document-to-structured-data-handoff, approval-gated-transformation-release]
+    transform-process: [document-to-structured-data-handoff, change-triggered-representation-refresh, approval-gated-transformation-release]
     investigate-reconcile-verify: [authoritative-record-reconciliation, critical-authoritative-state-restoration]
     monitor-detect-triage: [risk-alert-triage, approval-gated-triage-dispatch, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning, authoritative-change-coordination-refresh, contingency-plan-activation-gate]

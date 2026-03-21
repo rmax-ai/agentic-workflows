@@ -16,6 +16,9 @@ domain:
   - id: finance
     label: Finance
     source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
   - id: hr
     label: HR
     source_vocabulary: domains
@@ -31,6 +34,7 @@ inputs:
     examples:
       - New test evidence or dependency manifest attached to a release-candidate review packet
       - Journal adjustment or covenant-support workbook revision posted during quarter close
+      - Signed transfer annex, subprocess scope, or jurisdiction-tag correction applied to a restricted cross-border transfer assessment
       - Updated diagnostic bundle or entitlement snapshot added to a premium support escalation case
   - name: Current source state bundle
     description: The current authoritative records, documents, attachments, and metadata that should be re-read to rebuild the staged representation.
@@ -39,6 +43,7 @@ inputs:
     examples:
       - Active release evidence set, ticket links, and environment metadata for a candidate build
       - Current ledger extracts, debt schedule notes, and treasury support documents for covenant staging
+      - Current subprocess inventory, approved transfer annexes, jurisdiction mappings, and exception notes for a restricted transfer assessment review record
       - Latest ticket timeline, logs, incident links, and customer-environment metadata for an escalation record
   - name: Prior staged representation and lineage state
     description: The last emitted structured package, lineage metadata, and refresh status used to detect deltas, preserve continuity, and suppress duplicate rematerialization.
@@ -47,6 +52,7 @@ inputs:
     examples:
       - Prior deployment-review staging record with artifact hashes and field-level provenance
       - Previous covenant review package snapshot and trace ledger from earlier close-cycle refreshes
+      - Prior transfer-assessment review record revision with superseded annex references, data-category mappings, and exception lineage
       - Existing escalation record version with source pointers and unresolved data-quality exceptions
   - name: Target schema and refresh policy
     description: The schema contract, field precedence rules, allowed recalculation logic, and thresholds that define when a source change can refresh in place versus requiring exception review.
@@ -55,6 +61,7 @@ inputs:
     examples:
       - Release-review intake schema with rules for replacing flaky-test summaries only after authoritative reruns land
       - Quarter-close covenant staging policy defining which adjusted balances supersede draft workbook values
+      - Transfer-assessment review schema defining annex precedence, jurisdiction overwrite rules, and restricted audience markers for refreshed packets
       - Support escalation record contract requiring entitlement and severity fields to remain source-verifiable after refresh
   - name: Approved reference data and exception rules
     description: Controlled mappings, version catalogs, and escalation rules that help reconcile changed source values without inventing unsupported structure.
@@ -63,6 +70,7 @@ inputs:
     examples:
       - Service catalog aliases and artifact-type registry for release evidence packaging
       - Entity hierarchy and covenant-definition tables used to map updated finance inputs consistently
+      - Jurisdiction taxonomy, approved transfer mechanism registry, and exception-routing rules for transfer assessment refresh
       - Product, entitlement, and incident-taxonomy registries for support escalation packaging
 outputs:
   - name: Refreshed staged representation
@@ -72,6 +80,7 @@ outputs:
     examples:
       - Updated deployment-review staging record with current test, rollback, and dependency evidence
       - Refreshed covenant review package reflecting late ledger adjustments and revised supporting notes
+      - Current cross-border transfer assessment review record with refreshed annex lineage, jurisdiction scope, and superseded packet fields
       - Current premium support escalation record with refreshed diagnostic package and environment fields
   - name: Delta and lineage trace
     description: Record of which source changes caused the refresh, how each affected field was recalculated or preserved, and which prior values were superseded.
@@ -80,6 +89,7 @@ outputs:
     examples:
       - Field ledger showing a failed-test status cleared after an authoritative rerun and linking both evidence snapshots
       - Change map from prior covenant ratios to refreshed values after approved journal entries posted
+      - Trace showing which annex, subprocess, and jurisdiction updates superseded fields in the transfer-assessment review record
       - Trace showing which ticket, log, and entitlement changes altered the staged escalation package
   - name: Exception review queue
     description: Refresh attempts, fields, or source deltas that could not be incorporated safely because of schema conflicts, ambiguous precedence, policy violations, or missing lineage.
@@ -88,6 +98,7 @@ outputs:
     examples:
       - Release evidence fields blocked because two artifact manifests disagree about the shipped dependency version
       - Finance refresh exceptions where adjusted balances arrive without the approved workbook lineage needed for covenant staging
+      - Transfer-assessment fields held for review when annex lineage, jurisdiction tags, or subprocess scope updates conflict
       - Support escalation updates routed for review when account entitlement and incident-severity sources conflict
 environment:
   summary: Operates in event-triggered staging workflows where a previously structured handoff must stay synchronized with authoritative upstream state changes, but the workflow remains bounded to representation refresh rather than recommendation, adjudication, alert triage, or downstream execution.
@@ -100,7 +111,7 @@ environment:
   actors:
     - Workflow or data product owner
     - Domain reviewer consuming the staged package
-    - Operations, finance, engineering, or support analyst resolving exceptions
+    - Operations, finance, engineering, support, or compliance analyst resolving exceptions
     - Auditor or governance steward
   constraints:
     - Refresh only bounded staged representations tied to approved trigger sources rather than reopening broad research or downstream action flows.
@@ -270,6 +281,11 @@ example_domains:
       label: Finance
       source_vocabulary: domains
     example: Rebuild a quarter-close covenant review package after approved journal adjustments change the underlying balances, preserving prior ratios and refreshed lineage for controller review.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Refresh a restricted cross-border transfer-assessment review record after signed annex, subprocess scope, or jurisdiction mapping changes land so privacy reviewers see current staged transfer facts with superseded values and delta lineage intact.
   - domain:
       id: hr
       label: HR
