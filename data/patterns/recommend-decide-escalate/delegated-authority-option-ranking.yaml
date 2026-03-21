@@ -16,6 +16,9 @@ domain:
   - id: operations
     label: Operations
     source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
 workflow_goal: Narrow a case to the safest viable options that remain inside a documented delegated authority envelope, surface why blocked options are out of bounds, and package escalation only when no in-band recommendation remains defensible.
 inputs:
   - name: Candidate request or variance
@@ -256,6 +259,11 @@ example_domains:
       label: Operations
       source_vocabulary: domains
     example: Rank local recovery options for a regional throughput variance, such as capped overtime or overflow transfer, while escalating any path that would exceed spend, safety, or service guardrails.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Recommend whether a premium-support case should use a tenant-scoped diagnostic logging extension, one-time secure artifact collection, or standard evidence gathering inside support authority bands before escalating broader data-access or retention requests.
 maturity: draft
 tags:
   - recommend-decide-escalate

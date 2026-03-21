@@ -105,7 +105,7 @@ domains:
     investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification]
     monitor-detect-triage: [explainable-watchlist-maintenance, anomaly-detection-review]
     plan-coordinate-schedule: [calendar-conflict-coordination]
-    recommend-decide-escalate: [policy-constrained-escalation-routing, approval-gated-recommendation-release]
+    recommend-decide-escalate: [delegated-authority-option-ranking, policy-constrained-escalation-routing, approval-gated-recommendation-release]
     execute-automate: [exception-aware-task-execution, workflow-hand-off-and-completion]
     optimize-adapt: [adaptive-review-sampling-rate-tuning, queue-prioritization-optimization, approval-gated-optimization-state-release]
     human-agent-collaborative-work: [analyst-copilot-loop, approval-centered-collaboration, approval-gated-collaborative-artifact-release, shared-workbench-orchestration]
