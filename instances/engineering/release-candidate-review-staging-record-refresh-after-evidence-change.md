@@ -12,6 +12,20 @@ Engineering.
 
 A platform release review program keeps a structured staging record for each release candidate so architecture, security, and operations reviewers can inspect one current package instead of chasing artifacts across CI, ticketing, and deployment planning systems. After the first record is created, upstream state keeps moving: flaky tests are rerun, rollout notes are revised, dependency manifests are regenerated, rollback evidence is attached, and change-ticket metadata is corrected. When one of those authoritative source changes lands, the workflow should refresh the staged release-review record, update the field-level lineage and delta trace, and route exceptions whenever conflicting manifests, missing evidence links, or schema-breaking changes would make the refreshed package misleading.
 
+```mermaid
+flowchart TD
+    A["Authoritative evidence change<br>lands for a release candidate"] --> B{"Trigger is authoritative<br>and build lineage is current?"}
+    B -- "No" --> H["Hold refresh<br>route exception for reviewer follow-up"]
+    B -- "Yes" --> C["Re-read changed CI results, manifests,<br>rollback evidence, and ticket metadata"]
+    C --> D{"Evidence links complete,<br>hashes consistent, and schema compatible?"}
+    D -- "No" --> H
+    D -- "Yes" --> E["Refresh the staged<br>release-review record"]
+    E --> F["Update field-level lineage<br>and delta trace"]
+    F --> G{"Still bounded to staging refresh<br>without release decision or deployment action?"}
+    G -- "No" --> H
+    G -- "Yes" --> I["Publish one current staged<br>review package for governance reviewers"]
+```
+
 ## Target systems / source systems
 
 - Release-review staging system holding the structured record consumed by governance reviewers
