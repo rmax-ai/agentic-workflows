@@ -12,6 +12,19 @@ Compliance.
 
 Compliance operations, privacy counsel, and vendor-governance reviewers are co-producing one remediation packet after a vendor data-transfer control gap is identified and needs formal legal review before any external communication or remediation commitment is made. Agents help reconcile control evidence, contract-language comments, jurisdiction-specific objections, and remediation wording into the shared packet while preserving which issues remain contested and what audience boundary is allowed. The workflow ends only when the named compliance release owner approves that exact packet revision for one bounded privacy-counsel intake lane, where downstream legal reviewers can decide what action or communication should follow. It does not decide the legal outcome, contact the vendor, or execute remediation steps.
 
+```mermaid
+flowchart TD
+    A["Vendor transfer control gap<br>opens one governed remediation packet"] --> B["Agents and reviewers reconcile control evidence,<br>contract-language comments, jurisdiction objections,<br>and remediation wording"]
+    B --> C{"Exact packet revision, objection ledger,<br>and privileged audience boundary<br>still complete and current?"}
+    C -->|"No"| H["Hold release for evidence refresh,<br>boundary correction, or packet supersession"]
+    C -->|"Yes"| D{"Release manifest binds the exact revision,<br>privacy-counsel intake lane,<br>and required signers?"}
+    D -->|"No"| H
+    D -->|"Yes"| E{"Named compliance release owner<br>approves this exact revision<br>for bounded counsel intake?"}
+    E -->|"No"| H
+    E -->|"Yes"| F["Release exact packet revision<br>to the bounded privacy-counsel intake lane"]
+    F --> G["Record handoff, accepted residual objections,<br>and block vendor contact or remediation execution"]
+```
+
 ## Target systems / source systems
 
 - Governed compliance collaboration workspace storing the remediation packet, objection ledger, release-manifest draft, and revision history
