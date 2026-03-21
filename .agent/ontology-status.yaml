@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 184
+  instance_files: 185
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ instance_counts_by_domain:
   operations: 29
   research: 23
   support: 24
-  hr: 23
+  hr: 24
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -304,6 +304,7 @@ repo_reality:
     - instances/hr/bereavement-leave-compliance-briefing-revision-approved-for-people-policy-council-circulation.md
     - instances/hr/work-authorization-lapse-triage-packet-approved-for-restricted-immigration-compliance-review-dispatch.md
     - instances/hr/accepted-protected-leave-review-closure-and-case-tracker-synchronization.md
+    - instances/hr/open-enrollment-faq-caveat-board-shared-workbench-upkeep.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -319,12 +320,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred eighty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred eighty-five grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`change-triggered-representation-refresh` now spans engineering, finance, support, HR, compliance, and research through explicit grounded examples, so moderate-risk transform refresh now reaches another previously thin governance-heavy slice while preserving a clean boundary at one already-issued staged record revision, delta lineage, and supersession state."
-    - "`workflow-hand-off-and-completion` now also has explicit HR grounding through an accepted protected-leave review closure and case-tracker synchronization example, so the low-risk execute-closure slice now spans research, engineering, and HR while preserving a clean boundary at authoritative post-decision closure, queue cleanup, archive linkage, tracker propagation, and internal notification rather than adjudication or live people-action execution."
-    - "HR now rises to twenty-three grounded instances, tying compliance and research as the thinnest modeled domains while support remains at twenty-four, so refinement should keep prioritizing narrow family-safe slices instead of broader structural expansion."
-    - "The next refinement step should likely target compliance through one `workflow-hand-off-and-completion` example if the execute-family boundary can stay centered on one already-decided compliance case moving through authoritative closure, archive, and propagation updates."
+    - "`shared-workbench-orchestration` now also has explicit HR grounding through an internal open-enrollment FAQ caveat-board upkeep example, so the low-risk collaboration-upkeep slice now spans research, operations, support, and HR while preserving a clean boundary at internal artifact refresh, ownership preservation, and explicit hold-state management rather than policy adjudication, communications approval, or execution."
+    - "HR now rises to twenty-four grounded instances, tying compliance and support while leaving research as the sole thinnest modeled domain at twenty-three, so refinement should keep prioritizing narrow family-safe research slices instead of broader structural expansion."
+    - "The next refinement step should likely target research through one already-canonical pattern where grounded depth still trails engineering, finance, and operations but the family boundary can stay explicit and bounded."
   next_action:
-    id: phase-7-next-compliance-execute-closure-depth
-    summary: "Use the next iteration to deepen compliance with one `workflow-hand-off-and-completion` example plus the directly dependent canonical and browse-view updates needed by that slice."
+    id: phase-7-next-research-depth-balance
+    summary: "Use the next iteration to deepen research with one already-canonical, family-safe grounding slice plus the directly dependent canonical and browse-view updates needed by that pairing."
