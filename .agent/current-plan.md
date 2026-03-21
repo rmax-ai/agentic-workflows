@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-035456` is complete: it added one compliance-domain `plan-coordinate-schedule` instance linked to `calendar-conflict-coordination` via `control-remediation-sign-off-review-scheduling`. The next modest batch should stay inside Phase 6 and likely rebalance the still-thin research domain with one `execute-automate` grounding linked to `browser-based-form-completion-with-approval-gates`.
+Iteration `20260321-035959` is now scoped as a narrow Phase 6 grounding batch: add exactly one research-domain instance linked to `browser-based-form-completion-with-approval-gates` so the repository closes one of the remaining `execute-automate` domain gaps without widening into new pattern, vocabulary, or schema work.
 
 ## Current phase
 
@@ -15,19 +15,19 @@ Iteration `20260321-035456` is complete: it added one compliance-domain `plan-co
 
 ## Ordered tasks
 
-1. Re-read `browser-based-form-completion-with-approval-gates`, the existing execution instances, and research-domain artifacts before authoring the next grounding.
-2. Author exactly one new research-domain instance linked to `browser-based-form-completion-with-approval-gates` so the next batch broadens `execute-automate`, which still has open engineering and research slices.
+1. Re-read `browser-based-form-completion-with-approval-gates`, the existing execution instances, and nearby research-domain artifacts before authoring the next grounding.
+2. Author exactly one new research-domain instance linked to `browser-based-form-completion-with-approval-gates` so this iteration broadens `execute-automate`, which still has open engineering and research slices.
 3. Keep the scenario anchored on approval-gated portal or browser execution with explicit prerequisites, human sign-off, reversible or auditable actions, and exception handling rather than drifting into planning, synthesis, or recommendation work.
 4. Prefer a research workflow such as an ethics amendment submission, benchmark dataset access request, export-controlled artifact registration, or publication-compliance portal filing where the main value is reliable form completion under approval constraints.
 5. Keep the content batch limited to this single research execution example so coverage improves in a controlled, dependency-aware way.
-6. After the next instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next dated iteration log so execution memory matches repository reality.
-7. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
+6. After the instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and `.agent/iterations/2026/20260321-035959.md` so execution memory matches repository reality.
+7. Validate repository YAML with the existing uv-managed helper before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-035456`
-- Completed subagent scope: authored `instances/compliance/control-remediation-sign-off-review-scheduling.md` as one compliance-domain `calendar-conflict-coordination` grounding change and committed it separately.
-- Completed orchestrator follow-up: refresh execution memory so the new compliance scheduling coverage is reflected in status, coverage tracking, the repository map, and the dated iteration log.
+- Timestamp: `20260321-035959`
+- Planned subagent scope: author one research-domain `execute-automate` instance against `browser-based-form-completion-with-approval-gates` and commit that change separately.
+- Planned orchestrator follow-up: refresh execution memory so the new research execution coverage is reflected in status, coverage tracking, the repository map, and the dated iteration log.
 
 ## Constraints
 
@@ -40,4 +40,4 @@ Iteration `20260321-035456` is complete: it added one compliance-domain `plan-co
 
 ## Expected outcome
 
-The next iteration should add one research-domain `execute-automate` example, rebalance one of the thinnest domains with approval-gated execution coverage, and leave the repository better balanced after the `.agent/` memory refresh.
+This iteration should add one research-domain `execute-automate` example, rebalance one of the thinnest domains with approval-gated execution coverage, and leave the repository better balanced after the `.agent/` memory refresh.
