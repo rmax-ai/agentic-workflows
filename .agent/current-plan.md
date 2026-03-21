@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Iteration `20260321-143747` is now scoped: the next bounded refinement will add a first grounded `research` instance for the already-canonical `schedule-adjustment-and-replanning` pattern, using a benchmark publication timeline replan scenario that stays inside dependency-aware replanning and coordination handoff rather than dataset-governance recommendation, publication authority choice, or external submission execution.
+
 Iteration `20260321-143048` is now complete: `exception-aware-task-execution` gained new `support` grounding through one enterprise admin entitlement resynchronization runbook execution example, preserving the execute-family boundary at delegated routine completion, bounded retries, explicit verification, and exception-only escalation without drifting into customer communication, contract interpretation, or discretionary entitlement redesign.
 
 Iteration `20260321-142419` is now complete: `critical-authoritative-state-restoration` gained new `hr` grounding through one protected-leave occupational-health and benefits state-truth restoration example, and the directly dependent canonical pattern metadata plus derived `data/views/by-domain.yaml` view now expose that critical investigate-family slice without drifting past authoritative current-state restoration, unresolved holds, and human-reviewed handoff.
@@ -64,17 +66,17 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: `compliance` and `research` are now tied as the thinnest modeled domains at twenty-five grounded examples each. The next slice should stay inside one already-canonical pattern where one of those two domains still trails engineering, finance, operations, support, and `hr` in grounded depth without reopening structural expansion.
+- Current refinement target: `compliance` and `research` had been tied as the thinnest modeled domains at twenty-five grounded examples each; this iteration is intentionally breaking that tie by giving `research` a first grounded example for the already-canonical `schedule-adjustment-and-replanning` slice, because the pattern is already exposed canonically and in the derived domain view but still lacks any grounded instance.
 
 ## Ordered tasks
 
-1. Reassess the now-tied thinnest domains (`compliance` and `research`) and pick one narrow already-canonical slice where grounded depth still trails engineering, finance, operations, support, and HR without requiring new vocabulary or schema work.
-2. Prefer another family-safe grounding batch that adds one Markdown instance plus directly dependent canonical metadata and derived view updates only when the chosen domain-pattern pairing is not yet represented canonically.
-3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded pattern/view/instance batch, then refresh execution memory on top of the corrected canonical baseline.
+1. Add one `research`-grounded Markdown instance for `schedule-adjustment-and-replanning`, using a benchmark publication timeline replan after evidence-analysis or data-governance delay scenario that preserves the plan-family boundary at revised schedule production, impact ledgering, and coordination-ready handoff.
+2. Confirm whether the canonical pattern metadata and derived `data/views/by-domain.yaml` bucket already expose the `research` slice correctly; avoid editing either file unless the new instance reveals drift from canonical truth.
+3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded content batch, then refresh execution memory on top of the verified canonical baseline.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-143048`
+- Timestamp: `20260321-143747`
 - Previous completed scope: added one research-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern metadata to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Previous completed scope: added one HR-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added one compliance-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
@@ -88,8 +90,8 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Completed scope: added one HR-grounded `protected-leave-occupational-health-and-benefits-state-truth-restoration` instance, expanded `critical-authoritative-state-restoration` to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added one support-grounded `enterprise-admin-entitlement-resynchronization-runbook-execution` example under `exception-aware-task-execution`, confirmed the canonical pattern metadata and derived domain view already exposed the support slice correctly, and confirmed YAML validation still passes.
 - Current working hypothesis: the completed support execute-family refinement remains valid only because the primary output stayed one durable completion-state record plus one retry-and-checkpoint ledger and one exception escalation packet, while customer communication, entitlement policy interpretation, commercial concessions, and off-runbook account action remained explicitly outside the workflow.
-- Current scoped follow-on: reassess the tied thinnest domains and choose the next already-canonical slice where either `compliance` or `research` still lacks a clean family-safe grounding.
-- Boundary reminder: the completed support execute slice is valid only because it executed one approved remediation runbook to completion with explicit verification and bounded retries; any branch that would have required contract interpretation, customer messaging, new entitlement policy, or discretionary live-state change halted for human escalation instead of improvising.
+- Current scoped follow-on: add one first grounded `research` instance for `schedule-adjustment-and-replanning`; canonical metadata and the derived domain view already expose the slice, so the content batch should only touch them if inspection after authoring reveals drift.
+- Boundary reminder: the planned research replanning slice is valid only if the primary outputs remain a revised publication timeline, a dependency-and-impact ledger, and a coordination-ready replanning packet; any branch that would choose dataset-governance policy, approve skipped review steps, override required publication checkpoints, or submit anything externally must halt for human escalation instead of improvising.
 
 ## Constraints
 
