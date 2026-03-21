@@ -27,6 +27,12 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Recent checkpoints
 
+- `20260322-000318`: completed the `.agent`
+  memory-structure cleanup by sharding `.agent/repo-map.md`
+  into a compact index plus four on-demand detail files,
+  recording D-0015, and aligning AGENTS plus `.agent`
+  prompts/docs around index-first reading for both
+  decisions and repo-map.
 - `20260321-231804`: `policy-constrained-escalation-routing` gained a first support grounding through `instances/support/sovereign-cloud-storage-corruption-restricted-artifact-escalation-routing.md`, staying bounded at authority-route recommendation and escalation-packet assembly.
 - `20260321-231247`: `approval-gated-briefing-release` gained additional finance grounding through `instances/finance/quarter-close-earnings-sensitivity-briefing-revision-approved-for-disclosure-committee-circulation.md`, staying bounded at governed release of one exact briefing revision into one named visibility lane.
 - `20260321-230743`: `approval-gated-recommendation-release` gained additional engineering grounding through `instances/engineering/build-provenance-exception-recommendation-packet-revision-approved-for-release-integrity-council-decision-lane.md`, staying bounded at governed release of one exact recommendation packet revision into one named decision lane.
