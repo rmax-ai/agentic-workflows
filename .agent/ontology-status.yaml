@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 239
+  instance_files: 241
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -66,13 +66,14 @@ instance_counts_by_domain:
   finance: 35
   compliance: 34
   operations: 34
-  research: 34
+  research: 35
   support: 35
   hr: 34
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred forty grounded examples across all seven currently modeled domains, with finance and support now at thirty-five grounded instances each and engineering, compliance, HR, operations, and research at thirty-four each."
+  - "The repository now has two hundred forty-one grounded examples across all seven currently modeled domains, with finance, research, and support now at thirty-five grounded instances each and engineering, compliance, HR, and operations at thirty-four each."
+  - "`approval-gated-collaborative-artifact-release` now has additional `research` grounding through a participant consent-language variance clarification packet approved for a human-subjects ethics pre-review intake lane, deepening that high-governance collaboration release slice within research beyond benchmark claim clarification while preserving a clean boundary at governed release of one exact collaborative artifact revision rather than ethics adjudication, participant communication, protocol amendment submission, or downstream review execution."
   - "`approval-gated-briefing-release` now has additional `finance` grounding through a quarter-close earnings sensitivity briefing revision approved for a disclosure committee circulation lane, deepening that high-risk gather-family release-control slice within finance beyond the existing intraday-liquidity committee example while preserving a clean boundary at governed release of one exact briefing artifact rather than disclosure adjudication, earnings guidance choice, filing preparation, investor communications, or downstream execution."
   - "`approval-gated-recommendation-release` now has additional `engineering` grounding through a build-provenance exception recommendation packet revision approved for a release integrity council decision lane, deepening that high-risk recommend-family release-control slice within engineering beyond the existing database-upgrade exception example while preserving a clean boundary at governed release of one exact recommendation artifact rather than exception adjudication, artifact rebuild work, signing-key changes, shipment scheduling, or downstream deployment."
   - "`approval-gated-recommendation-release` now has additional `research` grounding through a sensitive cohort dataset access recommendation packet revision approved for a data access committee decision lane, deepening that high-risk recommend-family release-control slice within research beyond benchmark-study publication council review while preserving a clean boundary at governed release of one exact recommendation artifact rather than access adjudication, enclave provisioning, protocol amendment, or downstream data sharing."
