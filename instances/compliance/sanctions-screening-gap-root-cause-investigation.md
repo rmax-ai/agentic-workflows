@@ -12,6 +12,20 @@ Compliance.
 
 After a regulator inquiry, a financial-crime compliance team must investigate why several cross-border payments involving high-risk counterparties were not queued for manual sanctions review during a two-day window. The likely causes include a watchlist vendor update that changed name-normalization behavior, a screening-rule deployment mismatch across regions, a case-routing configuration error, or analyst-applied suppressions that propagated too broadly. The workflow reconciles alert logs, list-update history, routing decisions, and human case activity into a defensible explanation of the control gap and its contributing conditions.
 
+```mermaid
+flowchart TD
+    start["Regulator inquiry triggers<br>screening-gap investigation"] --> gather["Collect affected payments, screening logs,<br>list updates, routing records, and case activity"]
+    gather --> align["Normalize timestamps and build<br>a reconciled payment-by-payment timeline"]
+    align --> evidence{"Evidence provenance and<br>timeline alignment complete?"}
+    evidence -->|"No"| hold["Hold causal conclusion and request<br>missing or conflicting evidence"]
+    hold --> gather
+    evidence -->|"Yes"| compare["Compare vendor normalization, regional rule,<br>routing, and suppression hypotheses"]
+    compare --> verify["Run explicit verification checks against<br>match explanations, release approvals, and analyst actions"]
+    verify --> cause{"Primary cause and contributing<br>conditions verified?"}
+    cause -->|"Yes"| narrative["Produce auditable gap explanation,<br>scope ledger, and residual-uncertainty notes"]
+    cause -->|"No"| escalate["Escalate unresolved scope or competing causes<br>to compliance and engineering leads"]
+```
+
 ## Target systems / source systems
 
 - Sanctions-screening engine logs, rule versions, and match-explanation records
