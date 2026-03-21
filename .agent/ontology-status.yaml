@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 22
-  instance_files: 80
+  pattern_files: 23
+  instance_files: 83
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -49,7 +49,7 @@ pattern_counts_by_family:
   gather-retrieve-synthesize: 3
   transform-process: 2
   investigate-reconcile-verify: 2
-  monitor-detect-triage: 2
+  monitor-detect-triage: 3
   plan-coordinate-schedule: 2
   recommend-decide-escalate: 4
   execute-automate: 3
@@ -60,9 +60,9 @@ instance_counts_by_domain:
   finance: 12
   compliance: 11
   operations: 11
-  research: 11
-  support: 11
-  hr: 11
+  research: 12
+  support: 12
+  hr: 12
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -90,6 +90,7 @@ repo_reality:
     - data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml
     - data/patterns/investigate-reconcile-verify/authoritative-record-reconciliation.yaml
     - data/patterns/monitor-detect-triage/risk-alert-triage.yaml
+    - data/patterns/monitor-detect-triage/anomaly-detection-review.yaml
     - data/patterns/monitor-detect-triage/critical-signal-corroboration-triage.yaml
     - data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml
     - data/patterns/plan-coordinate-schedule/schedule-adjustment-and-replanning.yaml
@@ -110,6 +111,7 @@ repo_reality:
     - instances/research/benchmark-study-publication-readiness-review-scheduling.md
     - instances/research/approved-human-subjects-ethics-amendment-portal-submission.md
     - instances/research/benchmark-study-disclosure-risk-alert-triage.md
+    - instances/research/benchmark-study-metric-drift-anomaly-review.md
     - instances/research/cross-lab-benchmark-replication-discrepancy-investigation.md
     - instances/research/approved-benchmark-study-review-disposition-closure.md
     - instances/research/benchmark-study-artifact-freeze-readiness-gate-disposition-recommendation.md
@@ -164,6 +166,7 @@ repo_reality:
     - instances/support/premium-support-escalation-runbook-change-digest-for-duty-manager-briefing.md
     - instances/support/enterprise-outage-evidence-packet-to-support-escalation-record-handoff.md
     - instances/support/enterprise-security-incident-remediation-credit-package-readiness-loop.md
+    - instances/support/enterprise-support-severity-drift-anomaly-review.md
     - instances/compliance/vendor-data-transfer-safeguard-obligation-synthesis-for-cross-border-review.md
     - instances/compliance/vendor-telemetry-safeguard-requirement-attestation-recommendation.md
     - instances/hr/approved-payroll-status-change-submission.md
@@ -177,6 +180,7 @@ repo_reality:
     - instances/hr/protected-leave-return-to-work-status-drift-root-cause-investigation.md
     - instances/hr/work-authorization-expiry-risk-alert-triage.md
     - instances/hr/critical-backfill-headcount-freeze-exception-package-readiness-loop.md
+    - instances/hr/worker-lifecycle-change-anomaly-review.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -192,13 +196,13 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty-two canonical patterns across all nine top-level families, and eighty grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty-three canonical patterns across all nine top-level families, and eighty-three grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`change-triggered-context-briefing` now gives `gather-retrieve-synthesize` a third canonical pattern plus representative `low` risk, `event-driven-monitoring`, and `bounded-delegation` coverage while staying bounded at contextual revision digests rather than alert triage, open-ended research, or downstream action."
-    - "`gather-retrieve-synthesize` now has canonical pattern coverage in operations, support, and HR as well as research, engineering, finance, and compliance, so the family no longer depends on moderate- and high-risk anchors alone."
+    - "`anomaly-detection-review` now gives `monitor-detect-triage` a third canonical pattern plus representative `moderate` risk, `tool-using-single-agent`, and `bounded-delegation` coverage while staying bounded at explainable anomaly packet assembly and governed routing rather than critical corroboration, investigation, or execution."
+    - "`monitor-detect-triage` now has canonical pattern coverage in research, support, and HR as well as engineering, finance, compliance, and operations, so the family no longer depends only on high- and critical-risk anchors."
+    - "`monitor-detect-triage` now has representative `tool-using-single-agent`, `orchestrated-multi-agent`, `human-in-the-loop`, and `event-driven-monitoring` architecture coverage, leaving `approval-gated-execution` correctly absent because the family stops before execution."
     - "`policy-constrained-escalation-routing`, `readiness-gate-disposition-recommendation`, and `control-requirement-attestation-recommendation` collectively leave `recommend-decide-escalate` with representative low-, moderate-, and high-risk recommendation coverage while preserving family boundaries."
-    - "`workflow-hand-off-and-completion` and `change-triggered-context-briefing` now extend event-driven coverage outside pure monitoring families while keeping their outputs bounded at closure or contextual briefing rather than new operational action."
-    - "All nine top-level families still have at least two canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps are narrower family-specific architecture and governance slices rather than missing global scaffolding."
+    - "All nine top-level families still have at least two canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps are narrower family-specific governance slices such as low-risk `investigate-reconcile-verify` rather than missing global scaffolding."
 next_action:
-  id: phase-7-moderate-monitor-refinement
-  summary: "Use the next iteration to add one moderate-risk `monitor-detect-triage` pattern that fills the family's remaining mid-risk gap while staying bounded at explainable monitoring and governed routing rather than investigation or execution."
+  id: phase-7-low-risk-investigate-refinement
+  summary: "Use the next iteration to add one low-risk `investigate-reconcile-verify` pattern that fills the family's still-open low-risk slice while staying bounded at verification or discrepancy confirmation rather than broad reconciliation, synthesis, or downstream action."
