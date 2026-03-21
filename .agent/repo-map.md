@@ -77,6 +77,7 @@
 - `data/patterns/optimize-adapt/queue-prioritization-optimization.yaml` — canonical optimization pattern for tuning queue ordering from outcome feedback under explicit service, fairness, and policy guardrails.
 - `data/patterns/optimize-adapt/adaptive-threshold-calibration.yaml` — canonical optimization pattern for reversible threshold and sensitivity calibration from operator feedback and observed signal quality under pre-approved bounds and review triggers.
 - `data/patterns/human-agent-collaborative-work/analyst-copilot-loop.yaml` — canonical human-agent collaboration pattern for mixed-initiative co-working around a shared artifact, explicit handoffs, and visible responsibility boundaries.
+- `data/patterns/human-agent-collaborative-work/approval-centered-collaboration.yaml` — canonical human-agent collaboration pattern for governed approval-loop collaboration, negotiated evidence, approval-readiness recommendation, and explicit handoff ownership without collapsing into the approval decision itself.
 
 ### Current grounded examples
 
