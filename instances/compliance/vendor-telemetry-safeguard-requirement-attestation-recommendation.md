@@ -12,6 +12,19 @@ Compliance.
 
 A privacy compliance manager is reviewing the annual internal attestation for an observability vendor that stores pseudonymized customer-support telemetry used for service analytics and uptime investigations. The requirement set is fixed: encryption coverage, regional storage commitments, retention enforcement, subcontractor notice handling, access logging, and breach-notification language must all map cleanly to current evidence before the annual review can be signed. The evidence packet is close, but one retention screenshot predates a recent configuration migration, the vendor's latest subprocess list changes whether one regional notice clause still fits, and an earlier compensating-control note for limited debug exports may no longer match how the service is used. The workflow must recommend whether the packet is approvable as-is, needs targeted remediation, or should escalate to privacy counsel because requirement fit is no longer routine before any human signs the annual internal review or changes vendor status.
 
+```mermaid
+flowchart TD
+    A["Start annual vendor safeguard review"] --> B["Map fixed safeguard requirements<br>to current contract terms, subprocess records,<br>retention evidence, and exception history"]
+    B --> C{"Any stale or missing evidence<br>against the requirement set?"}
+    C -- "Yes" --> D["Hold for targeted remediation<br>refresh retention proof and update packet"]
+    C -- "No" --> E{"Any ambiguous clause fit,<br>subprocess-scope change,<br>or unsupported compensating control?"}
+    E -- "Yes" --> F["Hold for privacy counsel escalation<br>bounded legal/privacy interpretation path"]
+    E -- "No" --> G["Recommend attestation packet<br>approvable as-is"]
+    D --> H["Human privacy leadership review<br>for remediation follow-up or later re-review<br>before sign-off"]
+    F --> H
+    G --> H
+```
+
 ## Target systems / source systems
 
 - Vendor-risk or privacy-review workspace containing the annual attestation checklist, prior review outcomes, and reviewer notes
