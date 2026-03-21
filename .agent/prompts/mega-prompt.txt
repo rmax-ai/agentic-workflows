@@ -136,8 +136,8 @@ Phase 4 — create top-level pattern family docs
 Phase 5 — create seed pattern YAML entries
 Phase 6 — create Markdown instances tied to existing patterns
 Phase 7 — expand domain coverage
-Phase 8 — deepen architecture and governance coverage
-Phase 9 — refine coverage gaps, cross-links, and consistency
+Phase 8 — expand patterns, domains, and linked instances
+Phase 9 — deepen architecture, governance, and consistency coverage
 
 ==================================================
 PHASE DETAILS
@@ -235,12 +235,18 @@ Example instance types:
 Each instance Markdown file must point back to one or more canonical YAML pattern entries.
 
 Phase 7 onward
-Expand coverage systematically by:
-- unfilled domains
-- underrepresented pattern structures
-- missing architecture types
-- missing autonomy/risk combinations
-- missing governance-sensitive examples
+- Phase 7 focuses on refinement inside the current modeled surface:
+  close weak family/domain/architecture/risk combinations without
+  opening broad new ontology branches unless refinement exposes a
+  real structural gap.
+- Phase 8 expands repository breadth in dependency order:
+  add genuinely new reusable patterns, add newly justified domains,
+  and add linked grounded instances that make that broader surface
+  real and navigable.
+- Phase 9 deepens the expanded surface:
+  strengthen architecture, autonomy, risk, and governance coverage,
+  then tighten cross-links, browse exposure, and consistency once
+  the broadened ontology is stable enough to avoid repeated churn.
 
 ==================================================
 SCHEMA PRINCIPLES

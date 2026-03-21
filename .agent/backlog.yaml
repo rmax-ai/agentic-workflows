@@ -1,5 +1,5 @@
 version: 1
-last_updated: 2026-03-21
+last_updated: 2026-03-22
 principle: Build the ontology in dependency order and do not skip prerequisites.
 items:
   - id: phase-0-memory-bootstrap
@@ -211,3 +211,36 @@ items:
       - "`change-triggered-representation-refresh` now also has explicit research grounding through a benchmark-study research-review intake-record refresh example, so moderate-risk transform refresh now spans engineering, finance, support, HR, compliance, and research while staying bounded at one already-issued staged record revision, explicit delta lineage, and supersession state."
       - "Research now rises to twenty-three grounded instances, leaving HR alone as the thinnest modeled domain at twenty-two, so the next refinement step should likely target one similarly narrow HR-grounded slice rather than reopen broader transform expansion."
       - "A low-risk `workflow-hand-off-and-completion` example is now a leading next candidate for HR if the output stays at authoritative post-decision closure, archive, and tracker propagation rather than new approval, recommendation, or live people-action execution."
+
+  - id: phase-8-pattern-domain-instance-expansion
+    phase: 8
+    priority: P3
+    status: planned
+    title: Expand patterns, domains, and linked instances
+    depends_on:
+      - phase-7-coverage-refinement
+    deliverables:
+      - Additional canonical patterns where genuinely new reusable structure appears
+      - Controlled domain expansion only when repeated grounded evidence justifies a new modeled domain
+      - Linked grounded instances for any newly added pattern or domain breadth
+    notes:
+      - Treat Phase 8 as ontology breadth expansion after Phase 7 closes the highest-leverage refinement pressure inside the current matrix.
+      - Add new patterns only when they represent reusable workflow structure that existing families and slugs cannot absorb cleanly.
+      - Add new domains only when multiple grounded scenarios justify a durable new contextual leaf; do not create a domain just to host one anecdotal example.
+      - When a new domain is introduced, update controlled vocabularies, browse views, family or contribution docs, coverage memory, and representative linked instances in dependency order.
+      - Prefer small pattern-domain-instance clusters that expand repository breadth without weakening family boundaries or introducing implementation-first drift.
+
+  - id: phase-9-architecture-governance-consistency-deepening
+    phase: 9
+    priority: P3
+    status: planned
+    title: Deepen architecture, governance, and consistency coverage
+    depends_on:
+      - phase-8-pattern-domain-instance-expansion
+    deliverables:
+      - Stronger architecture, autonomy, risk, and governance depth across the expanded ontology
+      - Consistent cross-links, browse exposure, and memory alignment after breadth expansion
+    notes:
+      - Use this phase to deepen the expanded ontology rather than to open broad new structural branches again.
+      - Prioritize architecture-sensitive and governance-sensitive gaps that remain after Phase 8 adds new patterns, domains, or representative instances.
+      - Tighten cross-links and consistency only after the broader pattern and domain surface is stable enough to avoid repeated churn.

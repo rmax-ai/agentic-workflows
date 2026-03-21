@@ -19,3 +19,4 @@ rationale matters for the current task.
 - [D-0013 — Keep current-plan as a rolling control document](decisions/D-0013-keep-current-plan-as-a-rolling-control-document.md)
 - [D-0014 — Shard decisions into an index and detail files](decisions/D-0014-shard-decisions-into-an-index-and-detail-files.md)
 - [D-0015 — Shard repo-map into an index and detail files](decisions/D-0015-shard-repo-map-into-an-index-and-detail-files.md)
+- [D-0016 — Define Phase 8 as breadth expansion after coverage refinement](decisions/D-0016-define-phase-8-as-breadth-expansion-after-coverage-refinement.md)

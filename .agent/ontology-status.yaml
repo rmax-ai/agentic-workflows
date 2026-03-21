@@ -1,5 +1,5 @@
 version: 1
-last_updated: 2026-03-21
+last_updated: 2026-03-22
 repository_stage: phase-7-coverage-refinement-ready
 phase_status:
   phase_0:
@@ -26,6 +26,12 @@ phase_status:
   phase_7:
     name: coverage refinement
     status: in_progress
+  phase_8:
+    name: pattern, domain, and linked-instance expansion
+    status: planned
+  phase_9:
+    name: architecture, governance, and consistency deepening
+    status: planned
 inventory:
   foundational_docs: 4
   schema_files: 1

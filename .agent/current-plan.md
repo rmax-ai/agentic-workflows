@@ -12,6 +12,11 @@ This file is the rolling control document for the next bounded batch. Detailed e
 ## Current phase
 
 - Phase 2 through Phase 6 are complete; Phase 7 coverage refinement is active.
+- Phase 8 is now defined as the next breadth-expansion
+  stage: add new patterns, newly justified domains, and
+  their linked grounded instances only after Phase 7 closes
+  the highest-leverage refinement pressure inside the current
+  matrix.
 - Canonical pattern coverage spans all nine pattern families, all tracked architecture types, and the full `low` / `moderate` / `high` / `critical` risk ladder.
 - Grounded coverage spans all seven modeled domains; current balancing pressure is on the trailing domains rather than on opening new structural work.
 - Browse artifacts remain derived from canonical pattern truth and should only change when a new grounding exposes genuine drift.
@@ -27,6 +32,12 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Recent checkpoints
 
+- `20260322-000846`: defined Phase 8 as pattern,
+  domain, and linked-instance breadth expansion after
+  Phase 7, added Phase 9 as the follow-on
+  architecture/governance/consistency deepening stage,
+  and aligned backlog, ontology status, prompt guidance,
+  and decisions memory with that sequencing.
 - `20260322-000318`: completed the `.agent`
   memory-structure cleanup by sharding `.agent/repo-map.md`
   into a compact index plus four on-demand detail files,
