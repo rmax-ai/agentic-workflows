@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 43
-  instance_files: 143
+  pattern_files: 44
+  instance_files: 146
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -47,7 +47,7 @@ coverage_totals:
   risk_levels_with_patterns: 4
 pattern_counts_by_family:
   gather-retrieve-synthesize: 4
-  transform-process: 5
+  transform-process: 6
   investigate-reconcile-verify: 5
   monitor-detect-triage: 4
   plan-coordinate-schedule: 5
@@ -56,10 +56,10 @@ pattern_counts_by_family:
   optimize-adapt: 5
   human-agent-collaborative-work: 4
 instance_counts_by_domain:
-  engineering: 25
-  finance: 25
+  engineering: 26
+  finance: 26
   compliance: 17
-  operations: 24
+  operations: 25
   research: 18
   support: 20
   hr: 14
@@ -91,6 +91,7 @@ repo_reality:
     - data/patterns/transform-process/batch-content-transformation.yaml
     - data/patterns/transform-process/change-triggered-representation-refresh.yaml
     - data/patterns/transform-process/critical-channel-safe-state-packaging.yaml
+    - data/patterns/transform-process/approval-gated-transformation-release.yaml
     - data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml
     - data/patterns/investigate-reconcile-verify/authoritative-record-reconciliation.yaml
     - data/patterns/investigate-reconcile-verify/claimed-state-verification.yaml
@@ -142,6 +143,7 @@ repo_reality:
     - instances/research/embargoed-benchmark-artifact-spot-check-sampling-rate-tuning.md
     - instances/research/benchmark-portfolio-bundle-retuning.md
     - instances/engineering/release-candidate-review-staging-record-refresh-after-evidence-change.md
+    - instances/engineering/release-candidate-cutover-bundle-approved-for-change-window-handoff.md
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md
     - instances/engineering/multi-region-payments-outage-crisis-briefing-evidence-synthesis.md
@@ -184,6 +186,7 @@ repo_reality:
     - instances/finance/procurement-card-segregation-of-duties-attestation-recommendation.md
     - instances/finance/cash-forecast-primary-cutover-readiness-gate-disposition-recommendation.md
     - instances/finance/quarter-close-covenant-review-package-refresh-after-ledger-adjustment.md
+    - instances/finance/morning-liquidity-posting-bundle-approved-for-ledger-handoff.md
     - instances/finance/liquidity-stress-bridge-channel-safe-exposure-package.md
     - instances/finance/intraday-liquidity-state-truth-restoration.md
     - instances/finance/intraday-liquidity-command-window-checkpoint-resequencing.md
@@ -197,6 +200,7 @@ repo_reality:
     - instances/operations/distribution-sorter-throughput-fallback-option-recommendation.md
     - instances/operations/multi-site-service-package-feasibility-recommendation.md
     - instances/operations/site-inspection-packet-to-corrective-maintenance-work-order-handoff.md
+    - instances/operations/sorter-routing-package-approved-for-shift-cutover-handoff.md
     - instances/operations/field-service-dispatch-queue-reprioritization.md
     - instances/operations/conveyor-safety-bulletin-synthesis-for-network-readiness-review.md
     - instances/operations/network-cold-chain-excursion-command-crisis-briefing-evidence-synthesis.md
