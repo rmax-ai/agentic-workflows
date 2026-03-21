@@ -2,7 +2,11 @@
 
 ## Iteration focus
 
-Next iteration focus: reassess the now tied thinnest domains (`research` and `hr`) for one equally bounded already-canonical grounding slice whose canonical metadata and derived domain view already align, again preferring an instance-only refinement batch.
+Next iteration focus: resume the tied-domain (`research` and `hr`) grounding refinement track with one equally bounded already-canonical slice, unless later publication or deployment work uncovers a bounded documentation-generation gap that needs follow-up.
+
+Iteration `20260321-164514` is now complete: the repository gained a GitHub Pages deployment workflow at `.github/workflows/publish-site.yml`, plus README and `.agent/` updates that keep deployment tied to the existing derived MkDocs build path rather than a separate publishing flow.
+
+Iteration `20260321-154112` is now complete: the repository gained a derived MkDocs publication layer through checked-in `mkdocs.yml`, a Python generator at `scripts/python/build_site_docs.py`, generated-site commands in `README.md`, and refreshed `.agent/` memory that records website publication as derived from canonical repository truth rather than as a second authoring surface.
 
 Iteration `20260321-145952` is now complete: `approval-packet-generation` gained new `compliance` grounding through one vendor biometric retention control deviation approval-packet assembly example, while the canonical pattern metadata and derived `data/views/by-domain.yaml` already correctly exposed that gather-family slice.
 
@@ -72,7 +76,7 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 5: canonical coverage now spans forty-nine patterns across all nine top-level pattern families. `recommend-decide-escalate` now sits at seven canonical patterns; `transform-process` and `optimize-adapt` each sit at six; `gather-retrieve-synthesize` now sits at five; and `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` each remain at five. Future additions should remain narrow and land only where a genuinely reusable workflow shape deepens uneven grounded coverage rather than duplicating already-covered matrix cells.
 - Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred ninety-six instance files now committed.
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
-- Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
+- Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path, and the repository now also supports derived static-site publication through `uv run python scripts/python/build_site_docs.py`, `uv run mkdocs serve`, `uv run mkdocs build`, and GitHub Pages deployment through `.github/workflows/publish-site.yml`.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
 - Current refinement target: `research` and `hr` are now tied as the thinnest modeled domains at twenty-six grounded examples each, while `compliance` and `support` have moved to twenty-seven. The next iteration should pick one equally bounded already-canonical slice in either tied domain without expanding structural inventory or derived views.
 
@@ -81,9 +85,19 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 1. Reassess the tied thinnest domains (`research` and `hr`) for one equally bounded already-canonical grounding slice whose canonical metadata and derived domain view already align.
 2. Prefer an instance-only refinement batch again, and avoid canonical pattern or derived-view edits unless the next grounding uncovers genuine drift from repository truth.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the next bounded content batch, then refresh execution memory on top of the verified canonical baseline.
+4. Re-run `uv run python scripts/python/build_site_docs.py` and `uv run mkdocs build` when publication-facing docs, patterns, views, vocabularies, instances, or schema change.
+5. Keep `.github/workflows/publish-site.yml` aligned with the local publication pipeline whenever helper tooling, Python version, or build outputs change.
 
 ## Iteration checkpoint
 
+- Timestamp: `20260321-164514`
+- Completed scope: added `.github/workflows/publish-site.yml` to validate YAML, regenerate the derived documentation tree, build the MkDocs site, and deploy `build/site` through GitHub Pages on `main` or manual dispatch; also updated `README.md`, `.agent/decisions.md`, `.agent/ontology-status.yaml`, and `.agent/repo-map.md` so deployment automation is treated as part of the same derived publication layer.
+- Current working hypothesis: deployment remains safe only if the workflow continues to publish exactly the same generated outputs produced by the local `uv`-based pipeline and does not grow separate build-only content or hosting-specific source files.
+- Current scoped follow-on: enable GitHub Pages to use GitHub Actions in the repository settings, then resume the tied-domain refinement track unless a real deployment failure exposes a bounded CI gap.
+- Timestamp: `20260321-154112`
+- Completed scope: added a checked-in MkDocs publication configuration, implemented `scripts/python/build_site_docs.py` to regenerate `build/site-docs` from canonical Markdown, YAML, instances, and schema assets, updated `README.md` with the publication commands, and refreshed `.agent/decisions.md`, `.agent/ontology-status.yaml`, and `.agent/repo-map.md` so repository memory now treats the website as a derived publishing layer.
+- Current working hypothesis: the publication layer remains safe only if it stays fully derived from canonical sources, keeps reader-facing navigation distinct from repository storage layout, and never becomes a hand-maintained parallel content tree.
+- Current scoped follow-on: resume the tied-domain refinement track, and only reopen publication work if later ontology changes expose a genuine generator, cross-linking, or navigation gap.
 - Timestamp: `20260321-145952`
 - Completed scope: added one compliance-grounded `vendor-biometric-retention-control-deviation-approval-packet-for-privacy-council-review` example under `approval-packet-generation`, confirmed the canonical pattern metadata and derived domain view already exposed the compliance slice correctly, and confirmed YAML validation still passes.
 - Current working hypothesis: the completed compliance gather-family refinement remains valid only because the primary outputs stayed one decision-ready approval packet, one evidence-and-provenance index, one explicit exception register, and one handoff record, while recommendation, adjudication, vendor instruction, and regulator or data-subject communication remained explicitly outside the workflow.

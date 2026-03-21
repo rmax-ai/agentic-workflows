@@ -1,0 +1,64 @@
+site_name: Agentic Workflows
+site_description: Pattern-first ontology of agentic workflows
+docs_dir: build/site-docs
+site_dir: build/site
+
+theme:
+  name: material
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+
+  palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+
+validation:
+  nav:
+    omitted_files: ignore
+
+nav:
+  - Home: index.md
+  - Ontology:
+      - ontology/index.md
+      - ontology/ontology.md
+      - ontology/schema.md
+      - ontology/index-tree.md
+      - ontology/contribution-guide.md
+  - Pattern Families: pattern-families/index.md
+  - Patterns: patterns/index.md
+  - Browse: browse/index.md
+  - Instances: instances/index.md
+  - Vocabularies: vocabularies/index.md
+  - Schema: schema/index.md

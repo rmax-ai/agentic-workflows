@@ -64,6 +64,8 @@ instance_counts_by_domain:
   support: 27
   hr: 26
 consistency_notes:
+  - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
+  - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
   - "`approval-packet-generation` now has explicit `compliance` grounding through a vendor biometric retention control deviation approval-packet assembly example, deepening that high-risk gather-family slice while preserving a clean boundary at packet assembly, evidence indexing, exception visibility, and human handoff rather than recommendation, adjudication, vendor instruction, or regulator communication."
   - "`claimed-state-verification` now has additional `support` grounding through an internal premium-support advisory-macro publication verification example, deepening that low-risk investigate-family slice while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative evidence traceability rather than macro editing, republishing, customer communication, or downstream execution."
   - "`schedule-adjustment-and-replanning` now has explicit `compliance` grounding through a control-remediation sign-off timeline replanning example after evidence-collection delay or reviewer-window compression threatened a fixed regulator-facing checkpoint, extending that moderate-risk plan-family replanning slice beyond engineering and research while preserving a clean boundary at revised schedule production, impact ledgering, and coordination-ready handoff rather than remediation sufficiency adjudication, control waiver, regulator filing, or execution."
@@ -75,12 +77,15 @@ consistency_notes:
   - "`exception-aware-task-execution` now has explicit `support` grounding through an enterprise admin entitlement resynchronization runbook execution example, extending that bounded-delegation execute-family slice beyond engineering and operations while preserving a clean boundary at delegated routine completion, durable checkpointing, explicit verification, and exception-only escalation rather than customer communication, contract interpretation, or discretionary entitlement redesign."
 repo_reality:
   available_ontology_assets:
+    - .github/workflows/publish-site.yml
+    - mkdocs.yml
     - README.md
     - docs/ontology.md
     - docs/schema.md
     - docs/index-tree.md
     - docs/contribution-guide.md
     - schema/pattern.schema.json
+    - scripts/python/build_site_docs.py
     - data/vocabularies/problem-structures.yaml
     - data/vocabularies/domains.yaml
     - data/vocabularies/architectures.yaml

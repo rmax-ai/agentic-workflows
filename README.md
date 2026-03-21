@@ -1,5 +1,7 @@
 # agentic-workflows
 
+[![Publish Site](https://github.com/rmax-ai/agentic-workflows/actions/workflows/publish-site.yml/badge.svg)](https://github.com/rmax-ai/agentic-workflows/actions/workflows/publish-site.yml)
+
 A pattern-first ontology of agentic workflows.
 
 This repository treats reusable workflow **patterns** as the primary organizing spine, with **domains** as context and **implementations/examples** as downstream grounding.
@@ -92,6 +94,20 @@ Typical setup:
 1. `uv python install 3.14`
 2. `uv sync`
 3. `uv run python scripts/python/validate_yaml.py`
+
+Static site publication:
+
+1. `uv run python scripts/python/build_site_docs.py`
+2. `uv run mkdocs serve`
+3. `uv run mkdocs build`
+
+The published documentation tree is generated into `build/site-docs`, and MkDocs renders the static site into `build/site`.
+
+GitHub Pages deployment:
+
+1. Enable GitHub Pages in the repository and set the source to GitHub Actions.
+2. Push to `main` or run the `Publish Site` workflow manually.
+3. The workflow at `.github/workflows/publish-site.yml` validates YAML, regenerates `build/site-docs`, builds the site, and deploys `build/site`.
 
 Keep shell entrypoints thin and put reusable repository logic in checked-in Python helpers instead of ad hoc interpreter snippets.
 
