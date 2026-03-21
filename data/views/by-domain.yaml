@@ -36,7 +36,7 @@ domains:
     monitor-detect-triage: [critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: []
-    execute-automate: [exception-aware-task-execution]
+    execute-automate: [exception-aware-task-execution, workflow-hand-off-and-completion]
     optimize-adapt: [adaptive-threshold-calibration]
     human-agent-collaborative-work: [approval-centered-collaboration]
 - domain:
@@ -92,7 +92,7 @@ domains:
     monitor-detect-triage: []
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: []
-    execute-automate: []
+    execute-automate: [workflow-hand-off-and-completion]
     optimize-adapt: []
     human-agent-collaborative-work: [analyst-copilot-loop]
 - domain:

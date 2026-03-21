@@ -1,0 +1,242 @@
+id: workflow-hand-off-and-completion
+slug: workflow-hand-off-and-completion
+name: Workflow hand-off and completion
+summary: Detect an authoritative approval or state-change event and carry low-risk downstream closure work through to completion with idempotent updates, verification, and audit-ready traces.
+pattern_family:
+  id: execute-automate
+  label: Execute / Automate
+problem_structure:
+  id: approval-gated-execution
+  label: Approval-gated execution
+  source_vocabulary: problem-structures
+domain:
+  - id: research
+    label: Research
+    source_vocabulary: domains
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+workflow_goal: Observe a trusted upstream approval, disposition, or completion-state transition and finish the allowed downstream closure steps across operational systems without reopening the decision itself or crossing into higher-risk execution.
+inputs:
+  - name: Authoritative upstream state-change record
+    description: A trusted event or record showing that an approval, accepted disposition, or completion decision has already been made in the source-of-truth system.
+    kind: decision-record
+    required: true
+    examples:
+      - Publication-review board marks a benchmark study approved for internal catalog closure
+      - Release-readiness review marks a version accepted and ready for scheduler handoff
+  - name: Downstream completion policy and mapping
+    description: Rules that define which low-risk completion actions are allowed, which systems should be updated, and which conditions require manual follow-up instead of automatic propagation.
+    kind: policy
+    required: true
+    examples:
+      - Rule mapping an approved review disposition to tracker closure, evidence archiving, and notification steps
+      - Idempotent completion policy that forbids any action beyond status sync, archive linkage, and queue cleanup
+  - name: Linked workflow context
+    description: Case identifiers, record links, evidence references, ownership metadata, and target-system pointers needed to propagate the approved state correctly.
+    kind: workflow-context
+    required: true
+    examples:
+      - Study identifier, review packet hash, catalog record id, and owner list
+      - Release checklist id, change record link, milestone id, and evidence bundle location
+  - name: Prior downstream completion state
+    description: Existing target-state markers that show whether some or all completion steps already ran and therefore must be resumed idempotently or skipped.
+    kind: completion-state
+    required: false
+    examples:
+      - Existing archive link already written to the review record
+      - Tracker task previously closed while notification delivery remained pending
+outputs:
+  - name: Completed downstream records
+    description: Updated low-risk system records showing that the approved workflow moved into its intended closed, archived, or handed-off state.
+    kind: completion-record
+    required: true
+    examples:
+      - Research review item marked closed with approved-catalog status and archived evidence references
+      - Release-readiness checklist closed with scheduler-handoff link and final evidence location
+  - name: Completion audit trail
+    description: Ordered trace of the triggering event, policy version, verification checks, downstream updates, skipped idempotent actions, and final state confirmations.
+    kind: audit-log
+    required: true
+    examples:
+      - Log showing approval event receipt, state recheck, registry update, archive write, and notification dispatch
+      - Replay-safe trace proving that duplicate events did not create duplicate closure actions
+  - name: Manual follow-up packet
+    description: Structured handoff when the trigger is stale, the target state is ambiguous, or the requested completion path would exceed low-risk bookkeeping scope.
+    kind: follow-up-record
+    required: false
+    examples:
+      - Packet noting that the study disposition changed after the event fired and needs human reconciliation
+      - Follow-up record for a missing release milestone mapping that prevented safe completion
+environment:
+  summary: Operates in governed workflows where consequential approval or decision making already happened upstream, and the remaining work is low-risk downstream closure, state synchronization, evidence archiving, or notification across a small set of operational systems.
+  systems:
+    - Workflow, review, or case-management system that emits authoritative state changes
+    - Tracker, registry, or system-of-record updated during downstream closure
+    - Document archive or evidence store
+    - Notification or queueing system for completion follow-through
+  actors:
+    - Workflow owner
+    - Reviewing or approving body that created the upstream state change
+    - Operations or program coordinator who maintains closure rules
+    - Auditor or process steward
+  constraints:
+    - Perform only low-risk, reversible downstream updates that do not reopen or reinterpret the upstream decision.
+    - Recheck the authoritative source state before writing to target systems so stale or revoked approvals are not propagated.
+    - Keep completion idempotent across duplicate events, retries, or partial reruns.
+    - Stop when required target mappings, archive references, or closure conditions are ambiguous enough to need human interpretation.
+  assumptions:
+    - An authoritative source system publishes or exposes the approval or completion state that should trigger downstream work.
+    - Downstream actions are limited to bookkeeping, handoff, closure, archival, or notification steps that are inexpensive to correct.
+    - Humans remain available to resolve stale state, mapping drift, or any request to extend the workflow into new consequential actions.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The workflow must watch for authoritative approval or completion-state changes and react quickly when the relevant event arrives.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: Completing the handoff requires writing to trackers, archives, registries, and notification systems rather than merely reporting that an event occurred.
+  - capability:
+      id: action-execution
+      label: Action execution
+      source_vocabulary: capabilities
+    necessity: The pattern creates real downstream state changes by closing records, attaching approved evidence, or advancing the work into its final low-risk completion state.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: The workflow must confirm that the trigger is still authoritative and that each target system reflects the intended end state before marking completion done.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Durable state is required to handle duplicate events, partial completion, replay-safe recovery, and audit-ready reconstruction of what happened.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Guardrails determine which downstream actions are allowed to run automatically and which mismatches must be routed to manual follow-up.
+execution_architecture:
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: The workflow is naturally triggered by an approval, accepted disposition, or state-change event and then performs a bounded closure sequence only when that signal is detected and revalidated.
+autonomy_profile:
+  level:
+    id: autonomous-with-audit
+    label: Autonomous with audit
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Humans define which upstream states authorize automatic completion and which downstream targets stay in scope for low-risk propagation.
+    - Process owners review sampled completion runs, rule changes, and drift between source and target systems to confirm the workflow remains bounded and trustworthy.
+    - Humans take over when approvals are revoked, mappings are missing, or the requested next step would extend beyond bookkeeping and handoff into new consequential execution.
+  reversibility: Most actions in this pattern are lightweight status syncs, archive links, queue cleanups, and notifications that can be corrected or replayed without material external consequence.
+  escalation: Escalate when the authoritative source state is stale or conflicting, a duplicate event creates ambiguous target status, required target mappings are missing, or any requested action would cross from low-risk completion into a new operational commitment.
+risk_governance:
+  level:
+    id: low
+    label: Low
+    source_vocabulary: risk-levels
+  failure_impact: Failures usually create localized record drift, delayed notifications, or incomplete closure bookkeeping that is visible and straightforward to correct before broader harm accumulates.
+  approval_requirements:
+    - Automatic completion may run only after an authoritative upstream approval, accepted disposition, or completion-state transition is recorded and revalidated from the source-of-truth system.
+    - Expanding the workflow to new target systems or less reversible actions requires human owner approval even if individual in-scope completion runs do not need case-by-case review.
+  auditability: Preserve the triggering event id and timestamp, source-state snapshot, policy version, target records touched, idempotency decisions, archive references, notifications sent, and any manual overrides so each completion run can be reconstructed.
+  privacy:
+    - Propagate only the identifiers, status fields, and evidence references needed for downstream completion rather than copying whole review packets or sensitive narrative notes.
+    - Keep notifications and logs focused on closure metadata so downstream bookkeeping does not leak unnecessary draft, participant, customer, or employee detail.
+  security:
+    - Use least-privilege service accounts limited to approved closure targets and append-only audit stores where possible.
+    - Require idempotent writes or conflict checks so duplicate events cannot silently create inconsistent completion state across systems.
+  notes: Low-risk posture fits because the workflow acts only after an upstream decision already exists and is constrained to reversible downstream completion rather than new external commitments or sensitive submissions.
+why_agentic:
+  - The workflow must detect and interpret live state transitions instead of running only on manual demand.
+  - Safe completion depends on verifying authoritative state, applying bounded mappings, and choosing whether to continue or stop when targets do not align.
+  - Durable memory and idempotent reasoning matter because duplicate events, partial completion, and replay are normal operational conditions.
+failure_modes:
+  - mode: Duplicate trigger events replay the same completion path twice
+    impact: Downstream systems receive conflicting closure timestamps, repeated notifications, or duplicate archive links that need cleanup.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Use idempotency keys tied to the authoritative source event and target record.
+      - Re-read downstream state before each write and skip already completed steps explicitly.
+  - mode: A stale or superseded approval event is propagated after the source disposition changed
+    impact: Records are closed or handed off using an outdated decision state and must be reopened manually.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Revalidate the source-of-truth disposition immediately before downstream updates.
+      - Stop and emit a manual follow-up packet when the current source state differs from the triggering event.
+  - mode: Target-system mapping drift routes the approved state to the wrong record or milestone
+    impact: Closure bookkeeping lands in the wrong place, creating localized confusion and manual rework.
+    severity: low
+    detectability: medium
+    mitigations:
+      - Validate target identifiers against current workflow context before writing.
+      - Route unmapped or conflicting identifiers to manual follow-up rather than guessing.
+  - mode: Completion is marked done before archive or notification side effects are confirmed
+    impact: The workflow appears closed even though downstream stakeholders or evidence stores never received the expected handoff artifacts.
+    severity: low
+    detectability: medium
+    mitigations:
+      - Require explicit confirmation for each downstream target before final completion status is emitted.
+      - Store partial-completion state and resume only the unfinished steps on replay.
+evaluation:
+  success_metrics:
+    - Percentage of approved workflow state changes propagated to all in-scope downstream systems without manual cleanup.
+    - Rate of duplicate, stale, or unmapped trigger events safely suppressed or routed to follow-up before incorrect closure occurs.
+    - Percentage of completion runs with full audit traces linking the source event to every downstream update.
+  quality_criteria:
+    - The workflow never reinterprets the upstream decision and stays bounded to low-risk closure, archival, and handoff actions.
+    - Completion records distinguish clearly between fully completed, partially completed, skipped-as-idempotent, and manual-follow-up outcomes.
+    - Replay or duplicate delivery does not create conflicting downstream closure state.
+  robustness_checks:
+    - Test duplicate event delivery and verify the workflow produces one coherent completion result without duplicate writes.
+    - Test revoked or superseded approval states and ensure downstream updates stop after source revalidation fails.
+    - Test missing archive links, stale milestone mappings, and partial target outages to confirm the workflow records partial state and escalates cleanly.
+  benchmark_notes: Evaluate correctness of source-to-target state propagation and replay safety together; fast closure is not valuable if the workflow hides stale approvals or creates drift across bookkeeping systems.
+implementation_notes:
+  orchestration_notes:
+    - Separate event intake, source revalidation, target update planning, execution, and completion confirmation into explicit stages over shared durable state.
+    - Make idempotency decisions and partial-completion markers inspectable workflow data rather than implicit side effects in tool logs.
+  integration_notes:
+    - Common implementations integrate workflow systems, registries, archives, and notification channels through event subscriptions or queue consumers.
+    - Keep the pattern neutral about specific workflow engines, ticketing tools, registries, or message buses.
+  deployment_notes:
+    - Start with narrow post-approval closure flows where the allowed target updates are already standardized and inexpensive to correct.
+    - Review mapping drift, duplicate-trigger behavior, and audit completeness early before widening the catalog of completion rules.
+  references:
+    - docs/patterns/execute-automate.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: browser-based-form-completion-with-approval-gates
+    relationship: contrasts-with
+    notes: Both patterns follow an approved workflow state, but this one is limited to low-risk downstream closure and bookkeeping rather than high-control browser submission.
+  - id: exception-aware-task-execution
+    relationship: adjacent-to
+    notes: This pattern handles event-triggered completion and idempotent handoff, while exception-aware task execution centers on resilient delegated operations with retries and escalations.
+example_domains:
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: After a benchmark-study review board records an approved disposition, update the internal study registry, archive the final review packet, and close the intake record automatically.
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: After a release-readiness decision is marked accepted, close the checklist, sync the release tracker, attach evidence links, and hand the package to the scheduler queue without deploying anything.
+maturity: draft
+tags:
+  - execute-automate
+  - approval-gated-execution
+  - workflow-completion
+  - event-driven-monitoring
+  - autonomous-with-audit
+  - low-risk

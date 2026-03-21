@@ -106,6 +106,6 @@ autonomy_levels:
     monitor-detect-triage: []
     plan-coordinate-schedule: []
     recommend-decide-escalate: []
-    execute-automate: []
+    execute-automate: [workflow-hand-off-and-completion]
     optimize-adapt: []
     human-agent-collaborative-work: []

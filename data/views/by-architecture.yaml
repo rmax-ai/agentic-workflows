@@ -78,7 +78,7 @@ architectures:
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: []
     recommend-decide-escalate: []
-    execute-automate: []
+    execute-automate: [workflow-hand-off-and-completion]
     optimize-adapt: [queue-prioritization-optimization]
     human-agent-collaborative-work: []
 - architecture:
