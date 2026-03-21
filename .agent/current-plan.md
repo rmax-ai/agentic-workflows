@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Active target: restore domain parity with one instance-only pass in a trailing domain, now specifically `operations`, and keep the batch outside `human-agent-collaborative-work`.
-- Selected slice: deepen `approval-gated-briefing-release` with a second operations-grounded example because both canonical metadata and `data/views/by-domain.yaml` already expose that domain/family combination.
-- Read-first set for this batch: this plan, `data/patterns/gather-retrieve-synthesize/approval-gated-briefing-release.yaml`, `instances/operations/network-cold-chain-command-briefing-revision-approved-for-regional-command-circulation.md`, `instances/finance/quarter-close-earnings-sensitivity-briefing-revision-approved-for-disclosure-committee-circulation.md`, and the latest relevant files in `.agent/iterations/2026/`.
-- Boundary rule: keep the new example centered on governed release of one exact synthesized briefing revision into one bounded visibility lane; stop before contingency selection, regulator communication, staffing moves, or downstream execution.
+- Active target: restore domain parity with one more instance-only pass in a remaining trailing domain (`engineering`, `compliance`, or `hr`) while preferring a different family than the just-used `gather-retrieve-synthesize` and the recently used `human-agent-collaborative-work`.
+- Selection rule: choose an already-canonical approval-bound or otherwise governance-heavy slice whose domain metadata and derived browse exposure already align so the batch can remain structurally neutral.
+- Read-first set: this plan, the selected canonical pattern, one same-domain neighboring instance, one cross-domain neighboring instance, and the most recent relevant files in `.agent/iterations/2026/`.
+- Boundary rule: keep the next example centered on the pattern's primary artifact boundary and stop before adjudication, downstream execution, external communication, or policy reinterpretation.
 
 ## Current phase
 
@@ -24,15 +24,15 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Author exactly one new operations-grounded instance for `approval-gated-briefing-release` and keep the batch instance-only unless the new example exposes real canonical or browse drift.
-2. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
-3. Refresh `.agent/current-plan.md`, the relevant status files, and one new `.agent/iterations/2026/<timestamp>.md` record after verification.
-4. Reassess the remaining trailing domains after the parity lift and keep the next batch on another already-canonical, structurally neutral slice.
+1. Reassess the remaining trailing domains and pick one equally bounded already-canonical slice whose metadata and derived browse mapping already align.
+2. Author exactly one new grounded instance and keep the batch instance-only unless the new example exposes real canonical or browse drift.
+3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
+4. Refresh `.agent/current-plan.md`, the relevant status files, and one new `.agent/iterations/2026/<timestamp>.md` record after verification.
 5. Keep publication tooling and deployment workflow aligned only when helper tooling or build outputs genuinely change.
 
 ## Recent checkpoints
 
-- `20260322-001611`: selected an operations-focused, instance-only refinement for `approval-gated-briefing-release`, using existing operations and finance neighboring examples plus the already-aligned canonical/view exposure as the batch baseline.
+- `20260322-001611`: `approval-gated-briefing-release` gained additional `operations` grounding through `instances/operations/gateway-port-berth-closure-impact-briefing-revision-approved-for-marine-continuity-cell-circulation.md`, restoring operations to thirty-five grounded examples through a structurally neutral, instance-only gather-family release-control refinement.
 - `20260322-001125`: `approval-gated-collaborative-artifact-release` gained additional `research` grounding through `instances/research/participant-consent-language-variance-clarification-packet-approved-for-human-subjects-ethics-pre-review-intake.md`, staying bounded at governed release of one exact collaborative artifact revision into one named ethics pre-review lane.
 - `20260322-000846`: defined Phase 8 as pattern,
   domain, and linked-instance breadth expansion after
