@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Iteration `20260321-123202` is now in progress: the next bounded refinement targets the still-thinnest `hr` domain through one governance-heavy transform-family approval-bound example. The leading candidate is `approval-gated-transformation-release`, provided the workflow remains centered on one exact transformed downstream-ready package revision, one explicit hold-and-manifest boundary, and one bounded HR intake or handoff lane rather than recommendation, adjudication, or execution.
+
 Iteration `20260321-114951` is now complete: `recommend-decide-escalate` gained the new `approval-gated-recommendation-release` slice plus linked engineering, finance, and compliance examples. The family boundary held because approval governs release of one exact recommendation packet revision into one bounded human decision lane, while the actual choice remains explicitly human-owned.
 
 Iteration `20260321-115928` is now complete: `approval-gated-recommendation-release` gained new research, support, and HR grounding, and the canonical pattern metadata plus derived domain view now expose that slice across six domains without drifting past packet release into decision adjudication or execution.
@@ -24,22 +26,22 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and governance-heavy approval-bound slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: rebalance the still-thinnest `hr` domain with one governance-heavy approval-bound example, ideally in a transform- or adjacent artifact-release slice if family fit remains clean.
+- Current refinement target: rebalance the still-thinnest `hr` domain with one governance-heavy approval-bound example in `approval-gated-transformation-release` if the slice can stay centered on one transformed package revision, explicit hold state, and one bounded downstream HR intake lane.
 
 ## Ordered tasks
 
-1. Evaluate the thinnest remaining domain imbalance (`hr`) and confirm the cleanest next governance-heavy approval-bound slice, with `approval-gated-transformation-release` as the leading candidate if the family boundary holds.
+1. Confirm the cleanest HR-heavy approval-bound transform slice for `approval-gated-transformation-release`, keeping the primary output as one transformed downstream-ready package plus manifest rather than a recommendation packet, review verdict, or live HR action.
 2. Add only one modest HR-grounded example plus the directly dependent canonical metadata and derived browse-view updates needed by that slice.
 3. Keep the next batch modest: one grounded example plus tightly scoped pattern/view updates.
 4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each bounded batch.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-122614`
+- Timestamp: `20260321-123202`
 - Previous completed scope: added new `compliance`, `research`, and `hr` approval-bound optimize-release instances for `approval-gated-optimization-state-release`, expanded the canonical pattern's domain and example metadata to include those domains, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added the remaining support-grounded optimize-family approval-bound release instance for `approval-gated-optimization-state-release`, expanded the canonical pattern's domain and example metadata to include `support`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Current working hypothesis: approval-gated optimize refinement remains family-safe only when the governed object is one exact scoring, weighting, threshold, or other optimization-state revision with explicit validity and rollback controls; downstream adjudication, staffing, scheduling, or operational action must remain explicitly outside the workflow.
-- Current scoped follow-on: identify the next cleanest HR-heavy approval-bound slice, likely `approval-gated-transformation-release`, so the next batch improves domain balance without reopening broad structural expansion.
+- Current scoped follow-on: add one HR-grounded `approval-gated-transformation-release` example and only the canonical metadata plus derived domain-view updates required to expose that slice cleanly.
 - Boundary reminder: future optimize-family approval-gated work should remain tied to one exact optimization-state revision, one bounded live scope, and one explicit approval-and-rollback boundary rather than vague permission to keep tuning or act on downstream cases.
 
 ## Constraints
@@ -60,4 +62,4 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Expected outcome
 
-The next iteration should stay in depth-balancing mode: add one HR-grounded governance-heavy approval-bound example plus directly dependent metadata/view updates, ideally in `approval-gated-transformation-release` if that fit holds cleanly, and keep the work bounded to one family-safe slice rather than opening a broader structural batch.
+This iteration should stay in depth-balancing mode: add one HR-grounded governance-heavy approval-bound transform example plus directly dependent metadata/view updates in `approval-gated-transformation-release`, and keep the work bounded to one family-safe slice rather than opening a broader structural batch.
