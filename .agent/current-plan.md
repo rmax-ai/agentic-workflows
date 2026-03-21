@@ -2,32 +2,32 @@
 
 ## Iteration focus
 
-Iteration `20260321-110310` is now in progress: target the remaining `approval-gated-execution` gap in `monitor-detect-triage` with one family-safe pattern that gates triage dispatch without drifting into downstream recommendation or response execution.
+Iteration `20260321-110310` is now complete: `monitor-detect-triage` gained `approval-gated-triage-dispatch`, closing the family's `approval-gated-execution` architecture gap with a governed dispatch-release pattern plus linked finance, compliance, and operations instances and the derived browse-view updates that follow from that canonical truth.
 
 ## Current phase
 
 - Phase 2: controlled vocabularies are complete and stable enough for bounded Phase 7 refinement.
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
-- Phase 5: canonical coverage now spans forty-four patterns across all nine top-level pattern families. `recommend-decide-escalate` and `transform-process` now each sit at six canonical patterns; `investigate-reconcile-verify`, `optimize-adapt`, `plan-coordinate-schedule`, and `execute-automate` remain at five; and `gather-retrieve-synthesize`, `monitor-detect-triage`, and `human-agent-collaborative-work` remain at four. Future additions should remain narrow and land only where a remaining autonomy or architecture gap maps to a genuinely reusable workflow shape.
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred forty-six instance files now committed.
-- Phase 7: coverage refinement remains active, all nine top-level families span the full tracked `low` / `moderate` / `high` / `critical` risk ladder, `transform-process` now spans all tracked architecture types, and `monitor-detect-triage` is the next candidate for closing its remaining architecture gap.
+- Phase 5: canonical coverage now spans forty-five patterns across all nine top-level pattern families. `recommend-decide-escalate` and `transform-process` now each sit at six canonical patterns; `monitor-detect-triage` now sits at five alongside `investigate-reconcile-verify`, `optimize-adapt`, `plan-coordinate-schedule`, and `execute-automate`; and `gather-retrieve-synthesize` and `human-agent-collaborative-work` remain at four. Future additions should remain narrow and land only where a remaining autonomy or architecture gap maps to a genuinely reusable workflow shape.
+- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred forty-nine instance files now committed.
+- Phase 7: coverage refinement remains active, all nine top-level families span the full tracked `low` / `moderate` / `high` / `critical` risk ladder, and `transform-process`, `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, and `execute-automate` now span all tracked architecture types.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: the remaining obvious structural holes are the still-empty `approval-gated-execution` cells in `gather-retrieve-synthesize`, `monitor-detect-triage`, `recommend-decide-escalate`, `optimize-adapt`, and `human-agent-collaborative-work`; this iteration is scoped only to `monitor-detect-triage` because approval-gated dispatch of a triaged packet appears to be the cleanest next reusable shape.
+- Current refinement target: the remaining obvious structural holes are the still-empty `approval-gated-execution` cells in `gather-retrieve-synthesize`, `recommend-decide-escalate`, `optimize-adapt`, and `human-agent-collaborative-work`; fill at most one more only if it cleanly fits that family's primary artifact and stop point.
 
 ## Ordered tasks
 
-1. Add one `monitor-detect-triage` canonical pattern for approval-gated dispatch of an already-triaged packet, keeping the family boundary at governed routing release rather than downstream recommendation or action.
-2. Ground that pattern with two or three linked instances in domains where severe triage dispatch routinely requires explicit approval before escalation queues or crisis channels activate.
-3. Update the family doc, derived browse views, and `.agent/` execution memory, then validate repository YAML with `uv run python scripts/python/validate_yaml.py`.
+1. Re-check the remaining `approval-gated-execution` architecture gaps in `gather-retrieve-synthesize`, `recommend-decide-escalate`, `optimize-adapt`, and `human-agent-collaborative-work` against family docs, neighboring canonical patterns, and existing instances before adding anything new.
+2. Prefer the next batch to stay similarly narrow: one reusable shape, two or three grounded instances, and only the derived browse-view updates that follow directly from canonical truth.
+3. Continue updating `.agent/` execution memory and validating repository YAML with `uv run python scripts/python/validate_yaml.py` for each committed refinement batch.
 
 ## Iteration checkpoint
 
 - Timestamp: `20260321-110310`
-- Planned scope: add one approval-gated routing pattern under `monitor-detect-triage`, link a small cross-domain instance batch, update the monitor family doc, and refresh the derived index, domain, architecture, autonomy, and risk views.
-- Working hypothesis: the clean family-safe stop point is a triage packet plus explicit approval gate and dispatch manifest, where approval releases downstream routing without auto-triggering the investigation, recommendation, or execution workflows that follow.
-- Reflection target: confirm that the new pattern remains about governed dispatch of already-triaged work, not about deciding the response or performing it.
+- Completed scope: added `approval-gated-triage-dispatch` under `monitor-detect-triage`, linked finance, compliance, and operations approval-bound dispatch instances, updated the monitor family doc, and refreshed the derived index, domain, architecture, autonomy, and risk views.
+- Working result: `monitor-detect-triage` now spans all tracked architecture types while keeping the family boundary centered on triaged packet release, explicit hold state, queue-boundary discipline, and dispatch manifests rather than authority choice, recommendation, investigation, or downstream response execution.
+- Reflection: the cleanest way to add an approval-gated monitor slice was to anchor the pattern on exact triage-packet version binding, protected-lane release boundaries, and visible dispatch holds so approval governs one bounded routing handoff rather than implicitly authorizing later response work.
 
 ## Constraints
 
@@ -45,4 +45,4 @@ Iteration `20260321-110310` is now in progress: target the remaining `approval-g
 
 ## Expected outcome
 
-This iteration should leave the repository with one more family-safe structural slice covered only if the added pattern is as clean and reusable as `approval-gated-transformation-release`, with browse views and `.agent/` memory synchronized to that canonical truth.
+The next iteration should leave the repository with one more family-safe structural slice covered only if the added pattern is as clean and reusable as `approval-gated-triage-dispatch`, with browse views and `.agent/` memory synchronized to that canonical truth.
