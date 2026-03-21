@@ -20,7 +20,7 @@ The browse order below follows `docs/index-tree.md` and `data/views/index-tree.y
 | Family | Primary role | Problem-structure linkage |
 | --- | --- | --- |
 | [gather-retrieve-synthesize](./gather-retrieve-synthesize.md) | Build grounded context from scattered sources | `context-gathering-and-synthesis` |
-| [transform-process](./transform-process.md) | Convert, normalize, or restructure inputs into more usable forms | Known gap: no direct `problem-structures` term yet |
+| [transform-process](./transform-process.md) | Convert, normalize, or restructure inputs into more usable forms | `structured-representation-transformation` |
 | [investigate-reconcile-verify](./investigate-reconcile-verify.md) | explain mismatches, restore consistency, or prove correctness | `discrepancy-investigation`, `record-reconciliation`, `evidence-backed-verification` |
 | [monitor-detect-triage](./monitor-detect-triage.md) | watch changing signals and route attention | `continuous-monitoring-and-triage` |
 | [plan-coordinate-schedule](./plan-coordinate-schedule.md) | sequence work under constraints and across actors | `constraint-aware-planning`, `multi-party-coordination` |
@@ -37,7 +37,7 @@ When these docs are used to seed canonical patterns:
 2. Reuse vocabulary ids where they fit cleanly instead of inventing near-duplicates.
 3. Treat domains as examples and usage context, not as the top-level organizing spine.
 4. Keep governance, reversibility, approval boundaries, and auditability explicit.
-5. Preserve the known `transform-process` vocabulary gap until a justified refinement is made upstream.
+5. Use `structured-representation-transformation` for transformation-first patterns and keep verification or execution concerns in adjacent families.
 
 ## Navigation notes
 

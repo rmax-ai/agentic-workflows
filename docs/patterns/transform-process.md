@@ -21,9 +21,9 @@ The conceptual seed patterns already named in the browse tree are:
 
 ## Problem-structure mapping status
 
-This family currently **does not have a direct mapping** to an existing term in `data/vocabularies/problem-structures.yaml`.
+This family now maps directly to `structured-representation-transformation` in `data/vocabularies/problem-structures.yaml`.
 
-That absence is a known ontology gap, not a license to invent a new local term inside these docs. Future canonical pattern entries in this family should keep the family boundary stable while leaving `problem_structure` refinement to a later, deliberate vocabulary update.
+Use that term when the primary deliverable is a normalized, enriched, or schema-aligned representation that can be handed off downstream without turning the workflow into synthesis, verification, or execution.
 
 ## Family boundary
 

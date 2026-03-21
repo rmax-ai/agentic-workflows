@@ -73,7 +73,7 @@ autonomy_levels:
     source_vocabulary: autonomy-levels
   pattern_families:
     gather-retrieve-synthesize: []
-    transform-process: []
+    transform-process: [document-to-structured-data-handoff]
     investigate-reconcile-verify: []
     monitor-detect-triage: []
     plan-coordinate-schedule: [calendar-conflict-coordination]

@@ -18,6 +18,15 @@ terms:
       - evidence-backed-verification
       - recommendation-and-decision-support
 
+  - id: structured-representation-transformation
+    label: Structured representation transformation
+    summary: Convert heterogeneous inputs into normalized, schema-aligned outputs that preserve operational meaning for downstream use.
+    definition: Use for workflows that transform documents, records, or mixed content into structured data through extraction, normalization, enrichment, or schema-preserving reshaping while keeping lossiness and uncertainty explicit.
+    selection_guidance: Choose this when the main deliverable is a downstream-usable representation or handoff package. Prefer context gathering and synthesis when the workflow ends in a brief, evidence-backed verification when correctness adjudication dominates, and approval-gated execution when the value comes from acting on the transformed result.
+    related_ids:
+      - context-gathering-and-synthesis
+      - evidence-backed-verification
+
   - id: discrepancy-investigation
     label: Discrepancy investigation
     summary: Identify why observed facts, records, or outcomes do not align.

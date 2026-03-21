@@ -1,0 +1,240 @@
+id: document-to-structured-data-handoff
+slug: document-to-structured-data-handoff
+name: Document to structured data handoff
+summary: Transform heterogeneous documents into schema-aligned structured records, preserving provenance, uncertainty, and lossiness signals so downstream systems can consume the output safely.
+pattern_family:
+  id: transform-process
+  label: Transform / Process
+problem_structure:
+  id: structured-representation-transformation
+  label: Structured representation transformation
+  source_vocabulary: problem-structures
+domain:
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+workflow_goal: Convert source documents into structured records that satisfy a target schema while preserving semantic meaning, uncertainty cues, and field-level traceability for downstream handoff.
+inputs:
+  - name: Source document packet
+    description: One or more documents, scans, forms, or semi-structured files that contain the facts to be transformed.
+    kind: document-collection
+    required: true
+    examples:
+      - Invoices, remittance notices, and supporting PDFs
+      - Intake forms and scanned compliance submissions
+  - name: Target schema and field contract
+    description: The destination schema, required fields, validation rules, and datatype expectations that define acceptable transformed output.
+    kind: schema
+    required: true
+    examples:
+      - Structured case intake schema with required control fields
+      - ERP import contract for invoice and payment metadata
+  - name: Transformation policy and lossiness thresholds
+    description: Rules describing allowed normalization, enrichment sources, confidence thresholds, and when ambiguous or lossy conversions must be escalated.
+    kind: policy
+    required: true
+    examples:
+      - Do not infer missing counterparty identifiers without approved reference data
+      - Route low-confidence date extraction to review instead of defaulting
+  - name: Reference data for normalization and enrichment
+    description: Optional lookup tables, master data, or controlled vocabularies used to standardize extracted values without changing the source meaning.
+    kind: reference-data
+    required: false
+    examples:
+      - Approved vendor master and currency code table
+      - Controlled obligation taxonomy for compliance intake
+outputs:
+  - name: Structured record package
+    description: Target-schema records populated from the source material, with field values ready for downstream ingestion or review.
+    kind: record-bundle
+    required: true
+    examples:
+      - Normalized invoice header and line-item records
+      - Structured compliance intake record with linked source fields
+  - name: Transformation trace
+    description: Field-level provenance, confidence, normalization actions, and lossiness notes explaining how each output value was produced.
+    kind: trace
+    required: true
+    examples:
+      - Mapping ledger from source spans to destination schema fields
+      - Audit record showing unit normalization and enrichment lookups
+  - name: Exception review queue
+    description: Structured cases that could not be transformed within policy because required fields, confidence, or schema fidelity thresholds were not met.
+    kind: review-queue
+    required: true
+    examples:
+      - Low-confidence OCR packet awaiting analyst correction
+      - Schema-mismatch case created after a destination field definition changed
+environment:
+  summary: Operates in document-heavy intake and back-office environments where the hard part is producing reliable structured data from variable source material without obscuring uncertainty, provenance, or downstream contract boundaries.
+  systems:
+    - Document repositories and intake channels
+    - OCR or parsing services
+    - Schema registry or data contract definitions
+    - Downstream case, ERP, or workflow systems
+  actors:
+    - Operations analyst
+    - Compliance reviewer
+    - Data or workflow owner
+  constraints:
+    - Preserve source references for every consequential output field.
+    - Do not silently coerce ambiguous values beyond the approved transformation policy.
+    - Keep lossy conversions and defaulted values explicit in the handoff package.
+    - Block or escalate outputs that fail required schema, confidence, or provenance thresholds.
+  assumptions:
+    - Target schemas and transformation policies are stable enough to version and enforce.
+    - Source documents are accessible within the approved trust boundary for the workflow.
+    - Downstream systems can ingest structured outputs separately from the raw source documents.
+capability_requirements:
+  - capability:
+      id: transformation
+      label: Transformation
+      source_vocabulary: capabilities
+    necessity: The core task is converting variable source material into normalized, schema-aligned structured output.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow depends on reading documents, applying parsers or OCR, consulting reference data, and writing structured payloads to downstream systems or staging areas.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Schema rules, confidence thresholds, and enrichment boundaries determine whether transformed output may be handed off or must be escalated.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Field mappings, provenance links, and unresolved ambiguities must persist across multi-step conversion and review.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The workflow needs safe fallbacks when source quality is poor, schema versions drift, or required values cannot be established within policy.
+execution_architecture:
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: A single transformation agent can usually manage document parsing, normalization, trace capture, and exception routing within one bounded control loop.
+autonomy_profile:
+  level:
+    id: bounded-delegation
+    label: Bounded delegation
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Define the target schema, approved enrichment sources, and acceptable lossiness thresholds before delegated transformation begins.
+    - Review exceptions where required fields are unresolved, confidence is below threshold, or the handoff would hide material source ambiguity.
+    - Approve changes to mapping rules, schema versions, or normalization policies that could alter downstream interpretation.
+  reversibility: Structured outputs can usually be regenerated or corrected while they remain in staging, but once downstream systems consume them the cleanup may require coordinated record repair.
+  escalation: Escalate whenever required fields cannot be populated within policy, enrichment would rely on unsupported inference, lossiness exceeds tolerance, or a schema change invalidates the current mapping.
+risk_governance:
+  level:
+    id: moderate
+    label: Moderate
+    source_vocabulary: risk-levels
+  failure_impact: Incorrect or overconfident transformation can propagate malformed records, missed obligations, or costly downstream rework, but harm is usually containable when staged handoff and exception routing remain intact.
+  approval_requirements:
+    - Case-by-case approval is not required for in-policy transformations that stay within the approved schema and confidence thresholds.
+    - Human review is required before publishing materially lossy, low-confidence, or schema-exception outputs to downstream consumers.
+  auditability: Preserve source references, extracted spans, normalization actions, enrichment lookups, schema versions, exception routing decisions, and final handoff status so downstream consumers can reconstruct how the structured output was formed.
+  privacy:
+    - Minimize retention of sensitive document content outside approved staging and trace systems.
+    - Limit copied excerpts to the fragments needed for provenance, review, and correction.
+  security:
+    - Restrict document access, parser services, and downstream write permissions to the minimum scope needed for the transformation loop.
+    - Log schema changes, enrichment-source usage, and downstream handoff events so unauthorized reshaping is detectable.
+  notes: Moderate-risk posture fits because the pattern reshapes records that may affect regulated or operational workflows, yet it normally stops before irreversible external action.
+why_agentic:
+  - The workflow must adapt extraction and normalization strategy to varying layouts, missing fields, and semi-structured evidence instead of following one brittle parser path.
+  - Safe transformation depends on deciding when to enrich, when to preserve raw ambiguity, and when lossiness requires escalation rather than silent completion.
+  - Maintaining field-level provenance, confidence, and schema-fit state across many source elements is hard to do reliably with static one-shot conversion scripts alone.
+failure_modes:
+  - mode: A field is mapped to the wrong semantic meaning while still passing schema validation
+    impact: Downstream systems accept a structurally valid record whose content misrepresents the source document.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Preserve source-span links and reviewer-visible field rationale for consequential values.
+      - Validate extracted values against schema semantics, not only datatype conformance.
+  - mode: Lossy normalization hides qualifiers, units, or uncertainty from the source
+    impact: Downstream consumers overtrust the transformed record and make decisions on incomplete meaning.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Record normalization and unit-conversion actions explicitly in the transformation trace.
+      - Escalate cases where required qualifiers cannot be represented cleanly in the target schema.
+  - mode: Enrichment fills a missing field using unsupported inference or stale reference data
+    impact: The output appears complete but introduces inaccurate or unauthorized values into the downstream record.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Allow enrichment only from approved reference sources with visible timestamps or versions.
+      - Mark enriched fields distinctly from directly extracted fields in the handoff package.
+  - mode: Schema drift causes required outputs to be dropped or misrouted
+    impact: Structured data arrives incomplete or incompatible, creating ingestion failures or hidden downstream gaps.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Version schemas and block handoff when the active mapping no longer satisfies required fields.
+      - Route schema-exception cases into review instead of emitting partial silent failures.
+evaluation:
+  success_metrics:
+    - Percentage of transformed record packages accepted downstream without manual remapping.
+    - Percentage of required output fields that carry provenance and uncertainty status.
+    - Rate of ambiguous or lossy cases routed to review before downstream publication.
+  quality_criteria:
+    - Structured outputs preserve source meaning, units, and key qualifiers needed by the target schema.
+    - Lossiness, defaulted fields, and confidence are explicit in the handoff package rather than hidden behind schema validity alone.
+    - Downstream consumers can trace each consequential field back to source evidence or approved enrichment.
+  robustness_checks:
+    - Test with low-quality scans, inconsistent layouts, and partially missing pages to verify the workflow escalates instead of fabricating structure.
+    - Test schema version changes and new required fields to ensure stale mappings are blocked before handoff.
+    - Test conflicting or missing reference data and confirm enrichment degrades into explicit exceptions rather than unsupported guesses.
+  benchmark_notes: Evaluate downstream usability, semantic fidelity, and exception discipline together; high field-fill rate is not success if provenance or lossiness signals disappear.
+implementation_notes:
+  orchestration_notes:
+    - Keep extraction, normalization, enrichment, schema validation, and exception routing as explicit stages with shared transformation state.
+    - Persist field-level trace data alongside the structured payload so review and downstream correction do not require re-parsing from scratch.
+  integration_notes:
+    - Common implementations integrate document intake systems, OCR or parser services, schema registries, and downstream workflow or record systems.
+    - Keep the pattern neutral about specific parser vendors, document AI products, or storage platforms.
+  deployment_notes:
+    - Start with staging-only handoff and measured exception thresholds before publishing directly into higher-consequence downstream workflows.
+    - Monitor schema drift, enrichment freshness, and exception backlog growth closely after rollout.
+  references:
+    - docs/patterns/transform-process.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: browser-based-form-completion-with-approval-gates
+    relationship: provides-input-to
+    notes: Transformation-first workflows often prepare the structured packet later consumed by an approval-gated execution pattern, but they should stop before any consequential submission or system action.
+example_domains:
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Convert incoming invoice packets into normalized payable records with field-level provenance and a review queue for ambiguous totals or vendor identifiers.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Transform scanned obligation intake forms into structured control records while preserving source excerpts and surfacing uncertain classifications.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Reshape operational intake documents into standardized case records that downstream teams can route, measure, and correct without re-reading the full packet.
+maturity: draft
+tags:
+  - transform-process
+  - structured-representation-transformation
+  - document-transformation
+  - schema-fidelity
+  - uncertainty-aware-handoff

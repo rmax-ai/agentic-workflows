@@ -20,8 +20,8 @@ usage_notes:
   exists.
 - Keep alternate views aligned to this family order so domain and governance navigation still reflects
   the pattern-first ontology.
-- The transform-process family has no direct problem-structure vocabulary term yet, so its related_problem_structures
-  list remains empty.
+- The transform-process family now maps to `structured-representation-transformation`; keep related links focused
+  on representation change rather than downstream judgment or execution.
 linkage:
   canonical_pattern_directory: data/patterns
   canonical_pattern_file_template: data/patterns/<pattern-id>.yaml
@@ -46,8 +46,11 @@ families:
 - family:
     id: transform-process
   path: patterns/transform-process
-  related_problem_structures: []
-  pattern_ids: []
+  related_problem_structures:
+  - id: structured-representation-transformation
+    label: Structured representation transformation
+    source_vocabulary: problem-structures
+  pattern_ids: [document-to-structured-data-handoff]
 - family:
     id: investigate-reconcile-verify
   path: patterns/investigate-reconcile-verify
