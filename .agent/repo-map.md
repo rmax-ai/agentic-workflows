@@ -95,9 +95,11 @@
 - `instances/support/approved-break-glass-admin-access-restoration-submission.md` — grounded support execution case for approval-gated browser submission of a high-impact tenant admin access restoration under incident, security, and customer-account controls.
 - `instances/finance/multi-year-renewal-pricing-and-payment-structure-recommendation.md` — grounded finance recommendation case for governed renewal pricing and payment-structure review under margin, credit, and accounting constraints.
 - `instances/finance/treasury-cash-position-discrepancy-investigation.md` — grounded finance investigation case for reconciling treasury, bank, and ERP evidence into a close-critical root-cause narrative.
+- `instances/finance/debt-covenant-obligation-synthesis-for-quarter-close-review.md` — grounded finance synthesis case for assembling binding debt-agreement obligations, waivers, and close support into a cited quarter-close briefing before disclosure or lender certification work begins.
 - `instances/compliance/beneficial-ownership-registry-update-submission.md` — grounded compliance execution case for approval-gated browser submission of a regulated beneficial-ownership filing.
 - `instances/compliance/regulatory-consumer-complaint-response-queue-reprioritization.md` — grounded compliance optimization case for statutory complaint-review backlog reprioritization under deadline, fairness, supervisory-review, and rollback guardrails.
 - `instances/compliance/sanctions-screening-gap-root-cause-investigation.md` — grounded compliance investigation case for reconstructing why governed sanctions-review controls were bypassed during a high-risk payment window.
+- `instances/operations/conveyor-safety-bulletin-synthesis-for-network-readiness-review.md` — grounded operations synthesis case for assembling OEM bulletins, inspection records, waivers, and asset context into a cited readiness brief before maintenance planning or site action.
 
 ## Not yet present but planned
 

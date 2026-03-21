@@ -117,7 +117,8 @@ items:
       - "`human-agent-collaborative-work` now has grounded support, research, and compliance examples after adding a regulator-response copilot loop for sanctions-alert closure review."
       - "`monitor-detect-triage` is now grounded in finance, compliance, and operations after adding pharmacovigilance safety-signal and cold-chain excursion triage examples."
       - "`investigate-reconcile-verify` is now grounded in engineering, finance, and compliance after adding treasury cash-position discrepancy and sanctions-screening-gap root-cause investigation examples."
-      - "With finance and compliance investigation grounding in place, the next small batch should likely rebalance `gather-retrieve-synthesize`, which remains much thinner than the now-broadened investigation family."
+      - "`gather-retrieve-synthesize` is now grounded in research, finance, and operations after adding debt-covenant quarter-close and conveyor-safety readiness synthesis examples."
+      - "The next small grounding batch should likely continue rebalancing `gather-retrieve-synthesize`, with compliance or support as the highest-leverage adjacent domains because compliance remains partial and support is still empty for that family."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement
