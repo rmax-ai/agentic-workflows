@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-102507` is now complete: `plan-coordinate-schedule` gained `contingency-plan-activation-gate` to cover a clean approval-gated contingency-planning slice, along with three linked critical-domain instances and the derived browse-view updates required by the new canonical pattern.
+Iteration `20260321-103612` is now scoped: close the remaining `execute-automate` autonomy gap by adding one human-directed execution pattern, grounding it with a modest cross-domain instance batch, and refreshing only the derived browse views and execution memory that should follow from that canonical addition.
 
 ## Current phase
 
@@ -14,20 +14,21 @@ Iteration `20260321-102507` is now complete: `plan-coordinate-schedule` gained `
 - Phase 7: coverage refinement remains active, and all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: the planning-family approval-gated gap is now closed, so the next refinement step should inspect the remaining family-safe autonomy or architecture concentrations rather than reopening planning-family scope immediately.
+- Current refinement target: `execute-automate` still lacks a clean `human-directed` autonomy slice even though the family already spans approval-gated, bounded-delegation, exception-gated autonomy, and autonomous-with-audit execution. The next batch should close that gap with an action-first pattern whose main artifact is completed operational work under explicit human step direction rather than a recommendation, plan, or shared collaboration surface.
 
 ## Ordered tasks
 
-1. Inspect the remaining autonomy and architecture concentrations for another genuinely family-safe refinement opportunity before adding more canonical content.
-2. Prefer the next batch to stay similarly narrow: one reusable shape, modest grounded examples, and only the derived browse-view updates that follow directly from canonical truth.
-3. Continue updating `.agent/` execution memory and validating repository YAML with `uv run python scripts/python/validate_yaml.py` for each committed refinement batch.
+1. Add one new `execute-automate` canonical pattern for human-directed multi-step execution under explicit operator control, keeping the family boundary centered on completed operational action rather than planning, recommendation, or collaboration.
+2. Ground the new pattern with 2-3 linked instances in domains where guided execution is structurally natural, starting with engineering, operations, and compliance.
+3. Refresh only the derived browse views (`index-tree`, `by-domain`, `by-architecture`, `by-autonomy`, `by-risk`) and `.agent/` execution memory that change as a direct consequence of the new canonical truth.
+4. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the content batch and again after the final memory refresh if those files change.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-102507`
-- Completed scope: added `contingency-plan-activation-gate`, linked finance, operations, and compliance instances, and refreshed the derived index, architecture, autonomy, risk, and domain views plus `.agent/` execution memory.
-- Working result: `plan-coordinate-schedule` now covers approval-gated contingency readiness cleanly by ending at a human-approved activation packet, readiness ledger, and hold register rather than authority recommendation, truth verification, or fallback execution.
-- Reflection: the cleanest way to extend planning into `approval-gated-execution` was to treat the gate as a coordination-readiness artifact for a declared contingency, not as a disguised decision or action workflow.
+- Timestamp: `20260321-103612`
+- Ready scope: add a human-directed execution pattern under `execute-automate`, link a small engineering/operations/compliance instance batch, and refresh the derived browse views that consume canonical pattern metadata.
+- Intended result: `execute-automate` should no longer have an empty `human-directed` autonomy bucket, while still preserving its family boundary at controlled operational action rather than recommendation, planning, or shared collaborative authorship.
+- Design guardrail: keep the new pattern centered on operator-directed step execution with durable state, explicit takeover points, and bounded agent assistance, not on approval gating, generic copilot work, or event-triggered closure.
 
 ## Constraints
 
@@ -42,7 +43,8 @@ Iteration `20260321-102507` is now complete: `plan-coordinate-schedule` gained `
 - Treat future recommendation-family batches as in-family only if the output remains a bounded recommendation or narrowed option set inside delegated authority limits; anything that resolves the approval itself or commits the downstream change belongs in an adjacent family.
 - Treat the new planning-family batch as in-family only if the output remains a contingency-activation readiness ledger, explicit hold state, and approval-gated coordination packet rather than a decision recommendation, verification verdict, or executed contingency step.
 - Treat future planning-family additions as in-family only if the primary artifact remains a plan, checkpoint ledger, readiness packet, or coordination-state update; once the workflow crosses into gate adjudication or live fallback action, it belongs elsewhere.
+- Treat the new execution-family batch as in-family only if the primary artifact remains real operational completion under explicit human step direction; if the work mainly narrows options, prepares a packet, or maintains a shared collaborative workspace, it belongs in an adjacent family instead.
 
 ## Expected outcome
 
-This iteration leaves the repository with one more family-safe planning slice covered: `plan-coordinate-schedule` now includes an approval-gated contingency-activation pattern grounded by linked critical-domain instances, and the browse views plus `.agent/` memory are synchronized with the new canonical truth.
+This iteration should leave the repository with one more family-safe execution slice covered: `execute-automate` gains a human-directed execution pattern grounded by linked engineering, operations, and compliance examples, and the browse views plus `.agent/` memory stay synchronized with that canonical truth.
