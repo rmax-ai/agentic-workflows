@@ -12,6 +12,33 @@ Engineering.
 
 Security leadership has already declared a severe incident after evidence suggests the production artifact-signing key used for desktop agents and internal service packages may have been exposed outside the approved hardware boundary. Platform engineering, product security, legal, and trust teams now need a governed recommendation about which human authority should decide the next step: limited revocation and release freeze inside platform security command, escalation to executive cyber command for customer-trust review, or immediate legal and trust-office ownership because contractual disclosure and broad package invalidation may be implicated. The workflow must narrow the decision-ready option set and assemble the authority packet without revoking keys, publishing notices, or coordinating the response timeline itself.
 
+```mermaid
+flowchart TD
+    A["Severe signing-key compromise<br>already declared"]
+    B["Collect key-custody evidence,<br>artifact lineage, release-hold state,<br>delegation rules, and disclosure constraints"]
+    C{"Does the case stay inside platform security<br>delegated authority for limited revocation<br>and release-freeze recommendation review?"}
+    D{"Do customer-trust, contractual disclosure,<br>or broad package invalidation triggers require<br>higher protected review?"}
+    E["Recommend platform security command<br>Limit options to bounded limited revocation<br>and release-freeze review"]
+    F["Recommend executive cyber command<br>Narrow options to executive customer-trust review<br>with local paths blocked"]
+    G["Recommend legal and trust-office ownership<br>Keep revocation and disclosure actions on hold<br>pending protected higher-authority review"]
+    H["Assemble authority packet with evidence,<br>blocked lower-authority paths,<br>bounded options, and annex references"]
+    I{"Named human authority accepts<br>the recommended lane and option menu?"}
+    J["Workflow stops at reviewed recommendation packet<br>No keys are revoked, no notices are published,<br>and no response timeline is coordinated"]
+    K["Hold state remains in effect, log the redirect,<br>and reroute only within the bounded<br>review path to the required authority"]
+
+    A --> B --> C
+    C -- "Yes" --> E
+    C -- "No" --> D
+    D -- "No" --> F
+    D -- "Yes" --> G
+    E --> H
+    F --> H
+    G --> H
+    H --> I
+    I -- "Yes" --> J
+    I -- "No" --> K
+```
+
 ## Target systems / source systems
 
 - Security incident command workspace with the declared critical scope, current containment notes, and prior packet revisions
