@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-031454` is complete: it added a single finance-domain collaboration instance for `analyst-copilot-loop` via `quarter-close-covenant-clarification-package-copilot-loop`. The next modest batch should stay inside Phase 6 and rebalance the next thin family/domain slice without widening into schema, vocabulary, or pattern-authoring work. HR collaboration is now the strongest adjacent target because `human-agent-collaborative-work` spans every other currently modeled domain.
+Iteration `20260321-032009` is now scoped as a single-instance Phase 6 grounding batch for `human-agent-collaborative-work`. The highest-leverage next step is to add one HR-domain collaboration example linked to `analyst-copilot-loop`, because that closes the last uncovered domain slice in the collaboration family without widening into schema, vocabulary, view, or new pattern authoring work.
 
 ## Current phase
 
@@ -24,9 +24,9 @@ Iteration `20260321-031454` is complete: it added a single finance-domain collab
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-031454`
-- Completed subagent scope: authored `instances/finance/quarter-close-covenant-clarification-package-copilot-loop.md` as one finance-domain `analyst-copilot-loop` grounding change and committed it separately.
-- Pending orchestrator follow-up for the next iteration: scope the HR collaboration batch before new substantive edits.
+- Timestamp: `20260321-032009`
+- Current subagent scope: author exactly one new HR-domain `analyst-copilot-loop` instance that keeps the shared-artifact collaboration boundary explicit.
+- Pending orchestrator follow-up after the instance commit: refresh execution memory so the closed collaboration-family gap is reflected in status and coverage tracking.
 
 ## Constraints
 
@@ -39,4 +39,4 @@ Iteration `20260321-031454` is complete: it added a single finance-domain collab
 
 ## Expected outcome
 
-The next iteration should add one HR-domain collaboration example, close the remaining domain gap in `human-agent-collaborative-work`, and leave the repository ready for another small grounding batch after the `.agent/` memory refresh.
+This iteration should add one HR-domain collaboration example, close the remaining domain gap in `human-agent-collaborative-work`, and leave the repository ready to pivot toward the next thinnest grounded family after the `.agent/` memory refresh.
