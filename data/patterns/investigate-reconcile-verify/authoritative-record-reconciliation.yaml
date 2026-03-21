@@ -1,0 +1,268 @@
+id: authoritative-record-reconciliation
+slug: authoritative-record-reconciliation
+name: Authoritative record reconciliation
+summary: Reconcile conflicting structured records across systems of record, determine the authoritative state under governed precedence rules, and stage auditable corrections that restore trust without turning the workflow into causal diagnosis or downstream business execution.
+pattern_family:
+  id: investigate-reconcile-verify
+  label: Investigate / Reconcile / Verify
+problem_structure:
+  id: record-reconciliation
+  label: Record reconciliation
+  source_vocabulary: problem-structures
+domain:
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
+workflow_goal: Restore a trusted authoritative record state by matching corresponding records, resolving field-level conflicts under source-of-truth rules, and producing a correction-ready reconciliation package with explicit exceptions and audit evidence.
+inputs:
+  - name: Record extracts from participating systems
+    description: Structured snapshots or query results representing the same entities, cases, or events across the systems that need to be reconciled.
+    kind: record-set
+    required: true
+    examples:
+      - ERP vendor master rows compared against treasury settlement instructions
+      - Compliance case records compared against a beneficial ownership registry export
+      - HRIS employment status records compared against payroll eligibility data
+  - name: Reconciliation rules and source-of-truth hierarchy
+    description: Matching logic, field-level precedence rules, tolerance thresholds, and publication limits that define how authoritative state is chosen.
+    kind: policy
+    required: true
+    examples:
+      - Use treasury-approved bank instructions over stale vendor portal values when approval timestamps are current
+      - Treat payroll eligibility as authoritative only after the HRIS leave-status effective date is confirmed
+      - Require human review when identity attributes disagree across regulated records
+  - name: Match keys and reference data
+    description: Approved identifiers, mapping tables, and reference sets used to link records and validate whether a proposed resolution stays within policy.
+    kind: reference-data
+    required: true
+    examples:
+      - Vendor identifiers, legal-entity mappings, and approved bank-account hashes
+      - Employee identifiers, leave-case numbers, and payroll-cycle calendars
+      - Registry identifiers and sanctioned-party screening aliases
+  - name: Prior adjudications and exception history
+    description: Optional prior reviewer decisions, override notes, or earlier exception cases that should influence how repeated discrepancies are handled.
+    kind: case-history
+    required: false
+    examples:
+      - Previously approved vendor master overrides
+      - Historical leave-status exception decisions
+outputs:
+  - name: Reconciled authoritative record set
+    description: The field-level authoritative state for each matched entity or case, annotated so downstream stewards know which values are now trusted.
+    kind: record-bundle
+    required: true
+    examples:
+      - Authoritative vendor payment profile with confirmed routing details and effective timestamp
+      - Reconciled employee status record with aligned leave and payroll eligibility fields
+  - name: Discrepancy and resolution ledger
+    description: Durable before-and-after ledger showing mismatched fields, applied precedence rules, confidence, and any human adjudication used to resolve them.
+    kind: ledger
+    required: true
+    examples:
+      - Field comparison ledger explaining why one bank account value superseded another
+      - Resolution log linking a leave-status override to the steward who approved it
+  - name: Exception review queue
+    description: Unresolved, low-confidence, or policy-sensitive discrepancies that must remain visible for human adjudication instead of being auto-resolved.
+    kind: review-queue
+    required: true
+    examples:
+      - Suspected duplicate vendor identities requiring steward review
+      - Payroll and leave records with conflicting effective dates that exceed delegated tolerance
+  - name: Correction-ready reconciliation package
+    description: Staged update instructions, rollback references, and publication metadata for approved systems that can accept the reconciled state through controlled write paths.
+    kind: change-set
+    required: true
+    examples:
+      - Batch of reversible vendor-master corrections awaiting steward publication
+      - Reconciliation payload for a payroll staging table with rollback snapshot identifiers
+environment:
+  summary: Operates in records-heavy administrative and regulated environments where multiple structured systems drift out of sync over time, and restoring trust depends on a defensible authoritative state plus audit-ready correction lineage.
+  systems:
+    - ERP, HRIS, registry, or case-management systems
+    - Master data or reference-data services
+    - Reconciliation workbenches or staging tables
+    - Audit logging and exception tracking systems
+  actors:
+    - Records operations analyst or reconciliation steward
+    - System owner or data steward
+    - Compliance, finance, or HR reviewer
+  constraints:
+    - Define source-of-truth precedence and field eligibility before delegated correction begins.
+    - Keep entity matching, suppressed discrepancies, and field-level overrides inspectable after publication.
+    - Restrict autonomous updates to reversible, in-policy corrections; unresolved or sensitive conflicts must remain in the exception queue.
+    - Stop at restoring authoritative record state and packaging corrections, not at explaining root cause or making downstream business decisions.
+  assumptions:
+    - Participating systems expose enough identifiers, timestamps, or reference keys to support defensible matching.
+    - Approved staging or rollback paths exist for any delegated correction publication.
+    - Human stewards are available for low-confidence, identity-merging, or policy-conflicted cases.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow must gather structured state from multiple systems of record before any reconciliation can begin.
+  - capability:
+      id: discrepancy-analysis
+      label: Discrepancy analysis
+      source_vocabulary: capabilities
+    necessity: Reconciliation depends on detecting and interpreting field-level conflicts, missing records, and entity-linkage mismatches.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Candidate resolutions must be checked against timestamps, approved reference data, and independent record evidence before publication.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Source precedence, field eligibility, tolerance limits, and human-review thresholds determine what may be reconciled automatically.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow reads system extracts, queries reference services, writes staged correction packages, and logs reconciliation outcomes through tools rather than text alone.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Durable case memory is needed to preserve match decisions, unresolved discrepancies, prior adjudications, and rollback references across runs.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Safe reconciliation requires explicit routing for low-confidence matches, policy conflicts, and non-reversible correction paths.
+execution_architecture:
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: One agent can usually fetch record extracts, apply precedence rules, build the discrepancy ledger, and stage reconciliation packages inside a single bounded control loop.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human stewards remain part of the normal loop for ambiguous matches, identity merges, and policy-sensitive publication decisions.
+autonomy_profile:
+  level:
+    id: bounded-delegation
+    label: Bounded delegation
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Approve the source hierarchy, match tolerances, delegated field scope, and rollback path before routine reconciliation runs begin.
+    - Review low-confidence matches, many-to-one merges, and policy-sensitive field resolutions before publishing reconciled state.
+    - Approve rule changes, bulk correction batches, or scope expansion that would affect regulated, payroll, or customer-impacting records.
+  reversibility: In-policy corrections can usually be replayed or rolled back from staged ledgers, but publishing the wrong authoritative state can still trigger downstream notices, payroll changes, or control follow-up that take longer to unwind.
+  escalation: Escalate whenever no authoritative source can be established, match confidence falls below threshold, conflicts imply possible fraud or control breach, or the proposed corrections exceed preapproved reversible scope.
+risk_governance:
+  level:
+    id: moderate
+    label: Moderate
+    source_vocabulary: risk-levels
+  failure_impact: Poor reconciliation can propagate incorrect master data, payroll status, or regulated record fields and create material rework or localized control issues, but harm is usually containable when publication stays reversible and exceptions remain visible.
+  approval_requirements:
+    - Case-by-case approval is not required for reversible in-policy reconciliations limited to preapproved fields, systems, and publication paths.
+    - Human steward review is required before publishing ambiguous, identity-merging, bulk, or policy-sensitive corrections to authoritative systems.
+  auditability: Preserve source extract versions, match keys, applied precedence rules, field-level before-and-after values, exception routing, human adjudications, publication events, and rollback references for every reconciled record set.
+  privacy:
+    - Minimize copied personal, payroll, or financial identifiers in working ledgers and retain only the fragments needed for reconciliation and review.
+    - Restrict access to record snapshots, discrepancy ledgers, and exception queues according to role and data sensitivity.
+  security:
+    - Use least-privilege read and staged-write access to systems of record and reconciliation workbenches.
+    - Log reconciliation package creation, publication, override, and rollback events so unauthorized data repair is detectable.
+  notes: Moderate-risk governance fits because the pattern repairs trusted state inside structured systems of record, yet it remains bounded by reversible correction scope, explicit exception handling, and routine human oversight.
+why_agentic:
+  - The workflow must adapt matching and field-resolution strategy to heterogeneous schemas, stale timestamps, and partial identifiers instead of relying on one brittle deterministic join.
+  - Effective reconciliation depends on iteratively consulting tools, reference data, and prior adjudications while keeping a durable discrepancy ledger.
+  - Safe operation requires recognizing when a conflict is routine enough for delegated repair and when uncertainty should remain visible for human adjudication.
+failure_modes:
+  - mode: Two distinct entities are incorrectly merged into one reconciled record
+    impact: The workflow corrupts authoritative state by applying one entity's values or history to another.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Require stricter thresholds and human review for many-to-one or identity-sensitive matches.
+      - Preserve before-and-after lineage so incorrect merges can be traced and reversed quickly.
+  - mode: Stale or misconfigured precedence rules overwrite the correct current value
+    impact: The reconciled record appears clean but republishes outdated or unauthorized data into the trusted system.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Version precedence rules and record the rule version applied to each published field.
+      - Compare source freshness and require review when authoritative ordering and timestamps disagree.
+  - mode: Unresolved discrepancies are silently marked as reconciled
+    impact: Teams trust a record that still contains hidden conflicts, causing downstream errors and control gaps.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Block publication when mandatory fields remain unresolved or match confidence is below threshold.
+      - Keep exception counts and unresolved fields visible in every reconciliation package.
+  - mode: Correction publication reaches systems or fields outside delegated reversible scope
+    impact: Record repair spreads beyond approved boundaries and becomes harder to undo or audit.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Enforce allowlists for writable systems, field classes, and batch sizes.
+      - Require human approval whenever a reconciliation package would cross a protected scope boundary.
+evaluation:
+  success_metrics:
+    - Percentage of reconciliation cases published from the staged package without full manual rebuild.
+    - Reduction in aged open record-drift exceptions for the covered systems of record.
+    - Percentage of published reconciliations that retain complete field-level lineage and rollback references.
+  quality_criteria:
+    - The authoritative source and resolution rationale for each consequential field remain explicit and inspectable.
+    - Unresolved ambiguity, identity risk, and policy conflicts stay visible in the exception queue rather than being hidden behind a superficially clean record.
+    - The workflow remains bounded at state restoration and controlled correction packaging rather than drifting into root-cause diagnosis or downstream business execution.
+  robustness_checks:
+    - Test with partial identifier overlap and alias collisions to verify the workflow escalates questionable merges instead of forcing a match.
+    - Test with stale extracts or out-of-order timestamps and confirm precedence logic degrades into explicit review when freshness cannot be established.
+    - Test repeated discrepancies with conflicting prior adjudications to ensure the latest approved decision is applied or re-opened transparently.
+  benchmark_notes: Evaluate reconciliation quality together with rollback readiness and exception discipline; a lower discrepancy count is not a success if mismatches are only being hidden faster.
+implementation_notes:
+  orchestration_notes:
+    - Keep record intake, entity matching, field comparison, exception routing, and publication-status tracking as explicit stages over shared reconciliation state.
+    - Separate staged reconciliation packages from live publication so humans can intervene cleanly when scope, confidence, or policy boundaries are crossed.
+  integration_notes:
+    - Common implementations integrate master-data platforms, structured record systems, staging tables, and audit or case-management tooling.
+    - Keep the pattern neutral about specific ERP, HRIS, registry, MDM, or reconciliation vendors.
+  deployment_notes:
+    - Start in record domains with clear source precedence, reversible publication paths, and measurable drift pain before expanding to higher-sensitivity fields.
+    - Monitor rollback frequency, exception backlog, and human override rates to ensure delegated reconciliation stays within the intended control envelope.
+  references:
+    - docs/patterns/investigate-reconcile-verify.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: incident-root-cause-analysis
+    relationship: contrasts-with
+    notes: Root-cause analysis explains why a discrepancy emerged, while this pattern focuses on restoring authoritative state and tracking any unresolved exceptions.
+  - id: document-to-structured-data-handoff
+    relationship: complements
+    notes: Structured handoff patterns often prepare one side of the record set that later enters governed reconciliation, but they should stop before authoritative conflict resolution.
+example_domains:
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Reconcile vendor payment details across ERP, treasury, and approval records so the next payment cycle uses one trusted bank profile.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Align registry, screening, and case-management records for a beneficial ownership review while routing unresolved identity conflicts to a steward.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Reconcile leave, employment status, and payroll eligibility records after asynchronous updates drift out of sync across HR systems.
+maturity: draft
+tags:
+  - investigate-reconcile-verify
+  - record-reconciliation
+  - authoritative-state
+  - moderate-risk
+  - tool-using-single-agent

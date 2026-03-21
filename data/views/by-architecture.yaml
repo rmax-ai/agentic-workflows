@@ -33,7 +33,7 @@ architectures:
   pattern_families:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification]
     transform-process: [document-to-structured-data-handoff, normalization-and-enrichment]
-    investigate-reconcile-verify: []
+    investigate-reconcile-verify: [authoritative-record-reconciliation]
     monitor-detect-triage: []
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [deal-desk-recommendation-support]
@@ -46,7 +46,7 @@ architectures:
   pattern_families:
     gather-retrieve-synthesize: [approval-packet-generation]
     transform-process: []
-    investigate-reconcile-verify: [incident-root-cause-analysis]
+    investigate-reconcile-verify: [incident-root-cause-analysis, authoritative-record-reconciliation]
     monitor-detect-triage: [critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
     recommend-decide-escalate: [policy-constrained-escalation-routing]
