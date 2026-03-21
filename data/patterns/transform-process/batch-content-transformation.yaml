@@ -1,0 +1,267 @@
+id: batch-content-transformation
+slug: batch-content-transformation
+name: Batch content transformation
+summary: Transform sensitive content batches into reviewed, release-safe structured outputs through governed de-identification, redaction, and policy-constrained lossiness that stop before publication or operational action.
+pattern_family:
+  id: transform-process
+  label: Transform / Process
+problem_structure:
+  id: structured-representation-transformation
+  label: Structured representation transformation
+  source_vocabulary: problem-structures
+domain:
+  - id: research
+    label: Research
+    source_vocabulary: domains
+  - id: hr
+    label: HR
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+workflow_goal: Convert batches of sensitive narrative, document, or transcript content into de-identified, redacted, and schema-aligned structured representations that can be reviewed and handed off safely without exposing restricted source material.
+inputs:
+  - name: Sensitive source content batch
+    description: A bounded batch of raw documents, transcripts, notes, attachments, or case narratives containing protected, confidential, or policy-constrained information.
+    kind: document-collection
+    required: true
+    examples:
+      - Interview transcripts with participant identifiers and free-text disclosures
+      - Employee relations case packets with medical, manager, and witness narratives
+      - Support transcripts and attachments that may contain secrets, personal data, or customer environment details
+  - name: Release policy and transformation profile
+    description: The approved de-identification, redaction, minimization, and allowed-lossiness rules that define what can be retained, generalized, masked, or removed for the target audience.
+    kind: policy
+    required: true
+    examples:
+      - Research disclosure-control policy for external review datasets
+      - HR restricted-data handling profile for workforce trend analysis
+      - Support privacy and secret-scrubbing rules for quality-review packages
+  - name: Target schema and packaging contract
+    description: The destination schema, required fields, allowed vocabularies, and package structure for the release-safe output.
+    kind: schema
+    required: true
+    examples:
+      - Release-safe case summary schema with approved coded fields and evidence links
+      - Structured transcript annotation schema with de-identified participant and issue tags
+  - name: Detection references and approved lookup resources
+    description: Controlled vocabularies, identifier dictionaries, secret-detection rules, and reviewer-maintained mappings used to recognize sensitive elements without inventing unsupported facts.
+    kind: reference-data
+    required: false
+    examples:
+      - Approved geography and organization-generalization tables
+      - Secret-pattern detectors and customer-environment token lists
+      - Workforce taxonomy for normalized case categories
+outputs:
+  - name: Release-safe structured batch package
+    description: Structured records or datasets that preserve the task-relevant meaning of the source batch while removing, masking, or generalizing restricted content according to policy.
+    kind: record-bundle
+    required: true
+    examples:
+      - De-identified interview-record dataset for a research methods review
+      - Redacted case-summary package for workforce governance review
+      - Privacy-screened transcript summary set for support quality analysis
+  - name: Transformation and redaction trace
+    description: Batch and record-level evidence of what was transformed, removed, generalized, or retained, including policy versions, detector outcomes, unresolved uncertainties, and reviewer actions.
+    kind: trace
+    required: true
+    examples:
+      - Mapping log from raw participant references to pseudonymous subject ids
+      - Audit trail showing which support transcript spans were masked as secrets, personal data, or customer-specific infrastructure details
+  - name: Reviewer exception queue
+    description: Items that could not be released safely because residual identifiers, policy conflicts, semantic loss, or low-confidence detections require human correction or sign-off.
+    kind: review-queue
+    required: true
+    examples:
+      - Transcript segments with ambiguous self-disclosures that may still identify a participant
+      - HR case notes where redaction would remove the facts needed for downstream review
+      - Support chats containing unclear token strings or screenshots that may reveal customer architecture
+  - name: Reviewed staging manifest
+    description: The batch-level handoff manifest that records package scope, approval status, intended downstream audience, and any restrictions on further use.
+    kind: manifest
+    required: true
+    examples:
+      - Approval record for a release-safe dataset shared with a limited research review board
+      - Restricted-use manifest for a support quality-review packet kept inside internal governance tooling
+environment:
+  summary: Operates in governance-sensitive environments where organizations must reshape large batches of sensitive content into usable structured forms while making privacy, redaction, de-identification, and lossiness decisions explicit before any broader sharing or downstream action.
+  systems:
+    - Restricted document or transcript repositories
+    - De-identification, redaction, and secret-detection tooling
+    - Controlled vocabulary, policy, and schema registries
+    - Review workbenches and staging stores for release-safe packages
+  actors:
+    - Privacy or compliance reviewer
+    - Domain analyst or operations specialist
+    - Data steward or governance owner
+    - Release manager for limited downstream sharing
+  constraints:
+    - Stop at a reviewed staging package or release-safe representation rather than publication, adjudication, or operational execution.
+    - Preserve enough semantic structure for downstream review without exposing restricted identifiers, secrets, or unnecessary sensitive detail.
+    - Make redaction, generalization, suppression, and other lossy transformations visible and attributable.
+    - Require formal human approval before a transformed batch is marked release-safe for downstream use.
+  assumptions:
+    - The organization can define audience-specific release profiles and acceptable residual-risk thresholds.
+    - Raw source content remains available within a restricted trust boundary for authorized re-review or regeneration.
+    - Downstream consumers can use staged structured outputs without requiring access to the full raw content batch.
+capability_requirements:
+  - capability:
+      id: transformation
+      label: Transformation
+      source_vocabulary: capabilities
+    necessity: The core task is reshaping raw sensitive content into structured, policy-constrained output representations.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow must read protected content, invoke redaction or detection tools, consult controlled references, and write reviewed packages into governed staging systems.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Release profiles, residual-risk limits, audience restrictions, and approved lossiness rules determine whether transformed output can be handed off safely.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Batch-level traceability, pseudonym mappings, unresolved exceptions, and reviewer actions must persist across multi-step transformation and review.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Safe transformation depends on halting or routing records when redaction confidence is low, semantic loss becomes material, or residual identifiers remain.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Specialized agents often divide the work across segmentation, sensitive-element detection, policy-constrained transformation, and release-package validation so separation of concerns remains explicit in high-risk workflows.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human reviewers are part of the normal operating model because ambiguous identifiers, borderline lossiness, and release approvals cannot be delegated away in high-risk privacy-sensitive batches.
+autonomy_profile:
+  level:
+    id: approval-gated
+    label: Approval gated
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Approve the batch-specific release profile, intended audience, and acceptable residual-risk threshold before transformation output can be marked release-safe.
+    - Review exceptions where de-identification confidence is low, semantic collapse is material, or policy conflicts prevent a clear release decision.
+    - Sign off on the reviewed staging manifest before the transformed batch is handed to any downstream analysis, review, or limited-distribution workflow.
+  reversibility: Structured outputs and redaction decisions can usually be regenerated while the raw batch remains inside the restricted boundary, but any external or broader internal sharing after release may be difficult to fully unwind if sensitive content slips through.
+  escalation: Escalate whenever residual identifiers or secrets may remain, required meaning would be lost by redaction, the target audience changes, policy versions conflict, or reviewers cannot determine whether the package is safe for the intended handoff.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Incorrect transformation can expose personal data, confidential business information, protected health details, or security-sensitive content in a supposedly release-safe package, creating material privacy, regulatory, contractual, or trust harm even though the workflow stops before execution.
+  approval_requirements:
+    - A qualified human reviewer must approve the release-safe package or staged dataset before it is handed to any downstream audience beyond the restricted transformation workspace.
+    - Changes to de-identification rules, redaction thresholds, audience profiles, or allowed generalization logic require governance-owner approval before future batches use them.
+  auditability: Preserve source-to-output lineage within the restricted boundary, pseudonym or suppression mappings, policy and detector versions, reviewer comments, approval decisions, and batch manifest state so every release-safe field can be explained without re-running the workflow blindly.
+  privacy:
+    - Minimize copied sensitive content and retain only the excerpts, coded values, or generalized fields needed to justify the transformed output.
+    - Separate restricted raw content access from release-safe package access so most downstream users never need the original batch.
+    - Treat residual re-identification risk, secret leakage risk, and linkage risk as explicit review criteria rather than implicit assumptions.
+  security:
+    - Restrict transformation tooling, intermediate storage, and approval actions to approved identities and audited environments.
+    - Log policy changes, detector overrides, pseudonym mapping access, and release-manifest approvals so improper disclosure paths are detectable.
+  notes: High risk is appropriate because the workflow intentionally reshapes sensitive content for broader use, and failure can create serious disclosure harm even though it stops before publication or operational execution.
+why_agentic:
+  - Sensitive batches vary widely in structure, disclosure patterns, and contextual clues, so the workflow must adapt transformation strategy instead of following one brittle redaction script.
+  - Safe de-identification requires deciding when to generalize, suppress, preserve coded meaning, or escalate for human review based on policy and context.
+  - Maintaining record-level lineage, pseudonym consistency, exception state, and approval context across large batches is difficult to do reliably with static one-pass tooling alone.
+failure_modes:
+  - mode: Residual identifiers or secrets survive transformation and appear in the release-safe package
+    impact: Downstream users receive content that can expose a person, customer, or restricted environment despite the supposed safety boundary.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Require reviewer-visible evidence for retained borderline content and block release on low-confidence detections.
+      - Run layered detection over text, metadata, attachments, and structured fields before manifest approval.
+  - mode: Over-redaction or aggressive generalization removes the meaning needed for downstream review
+    impact: The package becomes unusable or misleading because policy safety was achieved by hiding the very context the next workflow needs.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Track semantic-loss warnings and route records where redaction destroys material task meaning into exception review.
+      - Keep allowed generalization patterns explicit and audience-specific instead of using blanket suppression.
+  - mode: Pseudonym or record-linkage handling becomes inconsistent across the batch
+    impact: Related records cannot be analyzed correctly or, worse, cross-record linkage inadvertently reveals the original identity.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Use stable batch-scoped identity mapping with audited access and deterministic replay inside the restricted boundary.
+      - Validate one-to-one mapping consistency before reviewer sign-off.
+  - mode: A reviewer approves a package against the wrong release profile or stale policy version
+    impact: Content is shared under controls that do not match the intended audience or current governance requirements.
+    severity: high
+    detectability: high
+    mitigations:
+      - Bind approval records to explicit policy, schema, and audience versions in the staging manifest.
+      - Block handoff when policy provenance is incomplete or the requested audience differs from the approved profile.
+evaluation:
+  success_metrics:
+    - Percentage of transformed batch records accepted by downstream reviewers without requesting access to the original raw content.
+    - Rate of residual-identifier, secret-leakage, or prohibited-field findings discovered after approval.
+    - Rate of high-risk records correctly diverted to exception review instead of being released as safe.
+  quality_criteria:
+    - Release-safe outputs preserve the task-relevant structure and meaning needed by the intended audience.
+    - Redaction, generalization, suppression, and pseudonymization choices are explicit, reproducible, and tied to approved policy.
+    - Reviewers can understand why a batch was considered safe without expanding raw-content access beyond the restricted boundary.
+  robustness_checks:
+    - Test batches with mixed file formats, screenshots, free-text disclosures, and hidden metadata to verify detection and exception routing remain effective.
+    - Test adversarial linkage cases where combinations of harmless-looking fields could re-identify a subject or customer after transformation.
+    - Test policy-version changes and audience-profile swaps to ensure stale approvals cannot release a package under the wrong governance rules.
+  benchmark_notes: Evaluate privacy protection, semantic preservation, and reviewer efficiency together; a highly redacted package is not a success if it still leaks residual identifiers or becomes too lossy to support the intended downstream review.
+implementation_notes:
+  orchestration_notes:
+    - Keep segmentation, detection, transformation, validation, and manifest-approval stages explicit so reviewer handoffs and audit trails remain clear.
+    - Use restricted-boundary storage for pseudonym mappings and only emit release-safe identifiers into downstream packages.
+  integration_notes:
+    - Common implementations connect secure content repositories, detection services, policy registries, reviewer queues, and governed staging stores.
+    - Keep the pattern neutral about specific de-identification vendors, transcript platforms, or secret-scanning products.
+  deployment_notes:
+    - Start with narrow audience profiles and sampled reviewer calibration before broadening release-safe use cases.
+    - Monitor exception backlog, reviewer disagreement rates, and post-release residual-risk findings to adjust transformation profiles safely.
+  references:
+    - docs/patterns/transform-process.md
+    - docs/index-tree.md
+related_patterns:
+  - id: document-to-structured-data-handoff
+    relationship: adjacent
+    notes: Both patterns reshape content into structured handoff packages, but batch-content-transformation adds high-risk de-identification, redaction, and reviewed release-safe packaging constraints.
+  - id: normalization-and-enrichment
+    relationship: adjacent
+    notes: Normalization-and-enrichment covers lower-risk canonical cleanup, while this pattern centers governed lossiness and privacy-sensitive transformation of restricted content.
+example_domains:
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Transform participant interview transcripts into a de-identified structured dataset for a limited research review board without exposing direct or indirect identifiers.
+  - domain:
+      id: hr
+      label: HR
+      source_vocabulary: domains
+    example: Convert accommodation or employee-relations case batches into redacted structured summaries for workforce governance review while shielding medical and personally identifying details.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Reshape support transcript and attachment batches into privacy-screened quality-review records that preserve issue patterns without exposing secrets or customer-specific infrastructure.
+maturity: draft
+tags:
+  - transform-process
+  - structured-representation-transformation
+  - batch-content-transformation
+  - de-identification
+  - redaction
+  - governed-lossiness
+  - release-safe-handoff

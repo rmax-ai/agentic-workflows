@@ -59,7 +59,7 @@ autonomy_levels:
     source_vocabulary: autonomy-levels
   pattern_families:
     gather-retrieve-synthesize: []
-    transform-process: []
+    transform-process: [batch-content-transformation]
     investigate-reconcile-verify: []
     monitor-detect-triage: [risk-alert-triage]
     plan-coordinate-schedule: []

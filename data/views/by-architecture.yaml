@@ -46,7 +46,7 @@ architectures:
     source_vocabulary: architectures
   pattern_families:
     gather-retrieve-synthesize: [approval-packet-generation]
-    transform-process: []
+    transform-process: [batch-content-transformation]
     investigate-reconcile-verify: [incident-root-cause-analysis]
     monitor-detect-triage: [critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
@@ -60,7 +60,7 @@ architectures:
     source_vocabulary: architectures
   pattern_families:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation]
-    transform-process: []
+    transform-process: [batch-content-transformation]
     investigate-reconcile-verify: [incident-root-cause-analysis, authoritative-record-reconciliation]
     monitor-detect-triage: [risk-alert-triage, anomaly-detection-review, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning]
