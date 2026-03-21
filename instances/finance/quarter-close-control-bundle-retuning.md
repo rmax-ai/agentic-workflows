@@ -12,6 +12,24 @@ Finance.
 
 A controllership optimization steward is responsible for a shared quarter-close tuning bundle that influences several coupled review surfaces: exception scoring in the close tracker, evidence-sufficiency weighting for entity packages, reviewer-load balancing in the controller queue, and deadline-buffer logic used by covenant and disclosure support teams. Recent outcome data shows that the active bundle has reduced average queue age for routine exceptions, but controller overrides and late close adjustments are clustering around covenant-sensitive entities, repeatedly reopened disclosure packages, and smaller subsidiaries whose documentation arrives later in the cycle. The workflow must propose a governed retuning package that adjusts the shared bundle across those coupled surfaces so close-critical work is surfaced earlier and fairness drift is reduced, without letting the system decide accounting treatment, reschedule the close calendar, or push configuration changes live without controller adoption.
 
+```mermaid
+flowchart TD
+    A["Quarter-close telemetry shows override clusters,<br>late adjustments, and fairness drift across coupled review surfaces"] --> B["Agents consolidate close-tracker signals, entity criticality,<br>override history, prior rollback records, and the active shared bundle"]
+    B --> C["Guardrail checks confirm protected covenant-sensitive priorities,<br>disclosure buffers, smaller-entity fairness caps,<br>and policy-linked parameters that cannot move through ordinary retuning"]
+    C --> D{"Is the evidence sufficient and does the candidate stay inside<br>protected bounds, fairness limits, and shared-bundle governance?"}
+    D -- "No" --> G["Hold retuning, keep the last trusted bundle active,<br>defer policy-adjacent moves, and escalate evidence or boundary gaps<br>to controllership governance"]
+    D -- "Yes" --> E["Replay candidate bundle changes across prior quarter-close cycles<br>for exception scoring, evidence weighting, reviewer balancing,<br>and deadline-buffer logic"]
+    E --> F{"Do simulations surface close-critical work earlier<br>without worsening covenant-sensitive handling,<br>reopened disclosure risk, or smaller-subsidiary treatment?"}
+    F -- "No" --> G
+    F -- "Yes" --> H["Assemble the governed retuning packet with cross-surface winners and losers,<br>candidate bundle version, deferred changes, and rollback triggers"]
+    H --> I{"Do controller reviewers adopt the proposed bundle<br>for the next close cycle?"}
+    I -- "No" --> G
+    I -- "Yes" --> J["Activate the adopted bundle in the shared parameter registry<br>with audit trace and post-adoption monitoring"]
+    J --> K{"Do overrides, late close incidents, or fairness drift<br>breach rollback thresholds after adoption?"}
+    K -- "No" --> L["Keep the retuned bundle active under monitored review"]
+    K -- "Yes" --> M["Restore the last trusted bundle<br>and escalate the failed trade-off for review"]
+```
+
 ## Target systems / source systems
 
 - Close-management tracker with open exceptions, aging signals, entity criticality, and current scoring outputs across review surfaces
