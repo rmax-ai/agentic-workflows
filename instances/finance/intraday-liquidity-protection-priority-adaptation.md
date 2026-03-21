@@ -12,6 +12,22 @@ Finance.
 
 Treasury has already opened a severe liquidity bridge after settlement delays, collateral timing drift, and one counterparty funding shortfall sharply compress the firm's intraday runway before market close. Several existing review and routing surfaces now compete for the same limited specialist attention: same-day payment protection review, collateral exception analysis, facility-readiness evidence review, and lower-value operational exception handling. The normal prioritization state still favors routine exception cleanup and easy-to-clear reconciliation items while manual overrides keep pulling forward same-day funding-protection work and regulator-visible obligations. The workflow must recommend a temporary emergency optimization state that protects the highest-consequence liquidity-review lanes, reserves attention for market-close critical items, and includes explicit expiry and rollback rules without deciding whether a facility should be drawn, selecting the authority lane, restricting payments, or executing any funding action.
 
+```mermaid
+flowchart TD
+    A["Declared severe liquidity bridge<br>and competing review lanes trigger adaptation review"] --> B["Agents consolidate cash-position telemetry,<br>payment-obligation deadlines, collateral exceptions,<br>override history, and active hold state"]
+    B --> C["Guardrail checks confirm protected payment classes,<br>market-close buffers, reserve-capacity limits,<br>and explicit expiry / rollback rules"]
+    C --> D{"Is the evidence complete and does the candidate<br>stay inside emergency governance boundaries?"}
+    D -->|"Yes"| E["Build temporary severe-mode priority state that<br>reserves specialist capacity for same-day funding protection,<br>collateral-critical review, and regulator-visible obligations"]
+    D -->|"No"| F["Hold new adaptation, keep the last trusted prioritization state,<br>and escalate evidence or boundary gaps<br>to treasury and finance leaders"]
+    E --> G{"Do human reviewers adopt the emergency<br>optimization packet with expiry metadata?"}
+    G -->|"No"| F
+    G -->|"Yes"| H["Activate the temporary optimization state<br>with audit trace, market-close expiry review,<br>and rollback packet"]
+    H --> I{"Do protected items still age, overrides rise,<br>or expiry / rollback triggers fire?"}
+    I -->|"No"| J["Continue monitored severe-mode prioritization<br>until the scheduled expiry review"]
+    I -->|"Yes"| K["Rollback to the prior trusted prioritization state<br>and escalate severe-mode reassessment"]
+    K --> F
+```
+
 ## Target systems / source systems
 
 - Treasury bridge workspace with declared severe status, current queue state, and active payment or collateral holds
