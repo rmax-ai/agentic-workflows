@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Next iteration focus: deepen the already-canonical `compliance` slice under `shared-workbench-orchestration` with one materially different internal workbench example, because `compliance` remains tied for the thinnest modeled domain and this low-risk collaboration pattern already maps cleanly there without requiring schema, vocabulary, pattern, or derived-view edits unless drift appears. The selected candidate is a second `compliance` upkeep scenario centered on an internal policy-exception precedent board so the batch stays instance-only, clearly bounded, and structurally distinct from the existing control-library caveat board example.
+
 Next iteration focus: continue the thinnest-domain refinement track with one instance-only slice in one of the now-thinnest domains under an already-mapped pattern/domain pair so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears. Iteration `20260321-192716` is now complete: `shared-workbench-orchestration` gained a second `support` grounding through one internal premium-support diagnostic-runbook caveat-board upkeep scenario, so the next batch should reassess the newly tied thinnest-domain set (`compliance`, `research`, and `hr`) for the cleanest next slice. Iteration `20260321-192124` is now complete: `shared-workbench-orchestration` gained a second `hr` grounding through one internal hiring-panel interview-guide caveat-board upkeep scenario, so the next batch should reassess the newly tied thin-domain set (`compliance`, `research`, `support`, and `hr`) for the cleanest next slice.
 
 Iteration `20260321-191420` is now complete: `shared-workbench-orchestration` gained a second `research` grounding example through one internal study-dataset data-use restriction board upkeep scenario, and the bounded instance-only batch validated cleanly through YAML validation plus the derived MkDocs publication build.
@@ -92,14 +94,14 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path, and the repository now also supports derived static-site publication through `uv run python scripts/python/build_site_docs.py`, `uv run mkdocs serve`, `uv run mkdocs build`, and GitHub Pages deployment through `.github/workflows/publish-site.yml`.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: `hr`, `research`, and `compliance` are now tied as the thinnest modeled domains at twenty-eight grounded examples each. The next iteration should pick one equally bounded already-canonical slice in one of those domains without expanding structural inventory or derived views unless genuine drift appears.
+- Current refinement target: `hr`, `research`, and `compliance` are now tied as the thinnest modeled domains at twenty-eight grounded examples each. This iteration should deepen `compliance` specifically through one additional `shared-workbench-orchestration` instance around internal policy-exception precedent board upkeep, keeping the batch instance-only unless the new grounding exposes genuine ontology or browse drift.
 
 ## Ordered tasks
 
-1. Reassess the now tied thinnest domains through `instances/{compliance,research,hr}/*.md` plus the already-mapped pattern/domain pairs in `data/views/by-domain.yaml`, then choose one equally bounded instance-only refinement slice.
-2. Prefer another instance-only refinement batch, and avoid canonical pattern or derived-view edits unless the next grounding exposes genuine drift from repository truth.
+1. Add one new `instances/compliance/` example for `shared-workbench-orchestration` centered on internal policy-exception precedent board upkeep, keeping the workflow bounded at source refresh, caveat normalization, ownership preservation, and explicit hold-state management.
+2. Avoid canonical pattern or derived-view edits unless the new `compliance` grounding exposes genuine drift from repository truth.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded content batch, then refresh execution memory on top of the verified canonical baseline.
-4. Re-run `uv run python scripts/python/build_site_docs.py` and `uv run mkdocs build` whenever a new grounded instance changes publication-facing content.
+4. Re-run `uv run python scripts/python/build_site_docs.py` and `uv run mkdocs build` because the new grounded instance will change publication-facing content.
 5. Keep `.github/workflows/publish-site.yml` aligned with the local publication pipeline whenever helper tooling, Python version, or build outputs change.
 6. If Mermaid workflow illustrations are added across pattern and instance Markdown files, keep the new orchestrator prompt aligned with repository family boundaries, Mermaid validation practice, and static-site rendering constraints.
 
