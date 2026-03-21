@@ -12,6 +12,18 @@ Engineering.
 
 Release engineering has a signed release candidate for a payments platform update, but the downstream deployment workflow expects one controlled cutover bundle rather than raw artifacts scattered across CI, change management, feature-flag tooling, and rollback documentation. The transformation workflow collects the authoritative release assets, rollout cohort definitions, rollback hooks, dependency manifests, environment constraints, and hold-state placeholders into a structured change-window package, then binds that package to an approval manifest that specifies the exact deployment queue and time window it may enter. The workflow must stop once the transformed bundle and manifest are approved for downstream handoff, without issuing the go/no-go judgment itself or performing the actual deployment.
 
+```mermaid
+flowchart TD
+    start["Signed release candidate<br>and bounded cutover scope"] --> assemble["Assemble structured change-window bundle<br>from artifacts, cohorts, rollback hooks, and dependencies"]
+    assemble --> verify{"Lineage, schema, rollback references,<br>and environment constraints complete?"}
+    verify -- "No" --> hold["Place unresolved waivers, missing rollback evidence,<br>or scope conflicts in hold state"]
+    verify -- "Yes" --> manifest["Bind exact bundle revision<br>to change-window approval manifest"]
+    manifest --> approve{"Release engineering and operations<br>approve this package version and handoff boundary?"}
+    approve -- "No" --> hold["Place unresolved waivers, missing rollback evidence,<br>or scope conflicts in hold state"]
+    approve -- "Yes" --> handoff["Emit approved cutover bundle and manifest<br>for downstream deployment-queue handoff only"]
+    handoff --> stop["Stop before go/no-go judgment<br>or live deployment execution"]
+```
+
 ## Target systems / source systems
 
 - Artifact registry, provenance store, and CI systems containing the signed release assets and dependency manifests
