@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 58
+  instance_files: 59
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -56,7 +56,7 @@ pattern_counts_by_family:
   optimize-adapt: 1
   human-agent-collaborative-work: 1
 instance_counts_by_domain:
-  engineering: 8
+  engineering: 9
   finance: 9
   compliance: 9
   operations: 9
@@ -104,6 +104,7 @@ repo_reality:
     - instances/engineering/cross-team-release-readiness-review-scheduling.md
     - instances/engineering/approved-production-change-freeze-exception-portal-submission.md
     - instances/engineering/managed-database-major-version-upgrade-exception-recommendation.md
+    - instances/engineering/ci-pipeline-failure-review-queue-reprioritization.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
     - instances/finance/invoice-packet-to-payables-record-handoff.md
     - instances/finance/dual-approved-vendor-bank-account-change-submission.md
@@ -157,12 +158,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and fifty-eight grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and fifty-nine grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
   - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open domain slices only if further cross-domain investigation coverage becomes worthwhile."
   - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open monitoring slices only if deeper cross-domain triage coverage becomes worthwhile."
-  - "`optimize-adapt` remains the thinnest family-level grounding area because it now covers support, operations, compliance, research, HR, and finance, leaving engineering as the last open domain slice."
+  - "`investigate-reconcile-verify` is now the cleanest remaining domain-balancing target because it still leaves research and HR open even after `optimize-adapt` reached full seven-domain coverage."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-7-expand-optimize-adapt-into-uncovered-domain
-  summary: "Use the next small grounding batch to add one grounded `queue-prioritization-optimization` example in engineering so Phase 7 closes the last open domain slice in the thinnest family before shifting attention to research or HR gaps in investigation or monitoring."
+  id: phase-7-expand-investigation-into-research
+  summary: "Use the next small grounding batch to add one grounded `incident-root-cause-analysis` example in research so Phase 7 starts closing the remaining research and HR gaps in investigation before returning to monitoring coverage."

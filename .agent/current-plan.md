@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-043256` is in progress: it should add one engineering-domain `optimize-adapt` instance linked to `queue-prioritization-optimization`, closing the last open domain slice in the thinnest family before re-evaluating thinner research or HR gaps in `investigate-reconcile-verify` and `monitor-detect-triage`.
+Iteration `20260321-043256` is complete: it added one engineering-domain `optimize-adapt` instance linked to `queue-prioritization-optimization`, closing the last open domain slice in that family and shifting the next likely gap toward research or HR coverage in `investigate-reconcile-verify` and `monitor-detect-triage`.
 
 ## Current phase
 
@@ -10,24 +10,24 @@ Iteration `20260321-043256` is in progress: it should add one engineering-domain
 - Phase 3: navigation views are complete and reference canonical patterns in all nine top-level families
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`
 - Phase 5: canonical seed coverage spans all nine top-level pattern families
-- Phase 6: grounded instances now cover fifty-eight scenarios, and every top-level family now has at least one grounded instance while `recommend-decide-escalate`, `transform-process`, `execute-automate`, `human-agent-collaborative-work`, `plan-coordinate-schedule`, and `gather-retrieve-synthesize` are grounded across all seven currently modeled domains
-- Phase 7: coverage refinement is now the active phase, with `optimize-adapt`, `investigate-reconcile-verify`, and `monitor-detect-triage` remaining the most visibly uneven families by domain and architecture coverage; within that set, `optimize-adapt` is still the most direct next improvement because engineering is the only remaining open domain slice, while `investigate-reconcile-verify` and `monitor-detect-triage` still leave research and HR open if deeper cross-domain balancing becomes worthwhile
+- Phase 6: grounded instances now cover fifty-nine scenarios, and every top-level family now has at least one grounded instance while `recommend-decide-escalate`, `transform-process`, `execute-automate`, `human-agent-collaborative-work`, `plan-coordinate-schedule`, `gather-retrieve-synthesize`, and `optimize-adapt` are grounded across all seven currently modeled domains
+- Phase 7: coverage refinement is now the active phase, with `investigate-reconcile-verify` and `monitor-detect-triage` remaining the most visibly uneven families by domain coverage; within that set, a research-domain investigation example now looks like the cleanest next improvement because it would deepen one of the lowest-count domains while shrinking the remaining open slices in `investigate-reconcile-verify`
 - Tooling baseline: uv-managed Python 3.14 helper workflow remains the validation path
 
 ## Ordered tasks
 
-1. Re-read `queue-prioritization-optimization`, the six existing `optimize-adapt` instances, and adjacent engineering examples before authoring the next refinement batch.
-2. Author one narrowly scoped engineering-domain `optimize-adapt` instance so the family closes its last uncovered domain slice without widening into new canonical patterns.
-3. Keep the scenario squarely in optimize/adapt territory by focusing on bounded reprioritization of an existing engineering queue, not investigation, recommendation memo writing, scheduling, or direct execution.
-4. Preserve the pattern-first rule by grounding only against `queue-prioritization-optimization` unless a genuine dependency issue appears.
-5. After the instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log so execution memory continues to match repository reality.
-6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
+1. Re-read `incident-root-cause-analysis`, the existing investigation instances, and adjacent research examples before authoring the next refinement batch.
+2. Author one narrowly scoped research-domain `investigate-reconcile-verify` instance so the family starts closing its remaining open domain slices without widening into new canonical patterns.
+3. Keep the scenario squarely in investigate/reconcile/verify territory by focusing on bounded evidence reconciliation and defensible root-cause analysis, not recommendation memos, scheduling, execution, or monitoring-only triage.
+4. Preserve the pattern-first rule by grounding only against `incident-root-cause-analysis` unless a genuine dependency issue appears.
+5. After the next instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log so execution memory continues to match repository reality.
+6. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
 
 ## Iteration checkpoint
 
 - Timestamp: `20260321-043256`
-- Planned subagent scope: author one engineering-domain `optimize-adapt` instance grounded only in `queue-prioritization-optimization` and commit it separately.
-- Planned orchestrator follow-up: refresh execution memory so the completed engineering optimization coverage is reflected in status, coverage tracking, the repository map, the dated iteration log, and the next-step plan.
+- Completed subagent scope: authored `instances/engineering/ci-pipeline-failure-review-queue-reprioritization.md` as one engineering-domain `optimize-adapt` grounding change and committed it separately.
+- Completed orchestrator follow-up: refreshed execution memory so the completed engineering optimization coverage is reflected in status, coverage tracking, the repository map, the dated iteration log, and the next-step plan.
 
 ## Constraints
 
@@ -40,4 +40,4 @@ Iteration `20260321-043256` is in progress: it should add one engineering-domain
 
 ## Expected outcome
 
-This iteration should add one engineering-domain `optimize-adapt` grounding, finish domain coverage for the thinnest family without widening scope, and then reassess whether the next highest-leverage gap is the research or HR slice in `investigate-reconcile-verify` or `monitor-detect-triage`.
+The next iteration should likely add one research-domain `investigate-reconcile-verify` grounding, begin closing the remaining open investigation slices without widening scope, and then reassess whether HR investigation or research/HR monitoring is the highest-leverage follow-on gap.
