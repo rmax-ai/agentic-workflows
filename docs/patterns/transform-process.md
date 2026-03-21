@@ -13,12 +13,14 @@ Use this family for patterns that:
 - enrich records so downstream workflows can reason over them,
 - process content in batches where the main task is transformation rather than judgment.
 
-The conceptual seed patterns already named in the browse tree are:
+The canonical patterns currently in this family are:
 
-- `document-to-structured-data`
+- `document-to-structured-data-handoff`
 - `normalization-and-enrichment`
 - `batch-content-transformation`
+- `change-triggered-representation-refresh`
 - `critical-channel-safe-state-packaging`
+- `approval-gated-transformation-release`
 
 ## Problem-structure mapping status
 
@@ -27,6 +29,8 @@ This family now maps directly to `structured-representation-transformation` in `
 Use that term when the primary deliverable is a normalized, enriched, or schema-aligned representation that can be handed off downstream without turning the workflow into synthesis, verification, or execution.
 
 `critical-channel-safe-state-packaging` now gives this family a critical-risk anchor for workflows whose main output is a governed package or staged representation for high-consequence audiences. It stays in-family only when the system is transforming authoritative state into channel-safe structured artifacts with explicit lineage, hold states, and release manifests rather than composing a narrative crisis brief, recommending a course of action, or executing communications.
+
+`approval-gated-transformation-release` now covers the family's `approval-gated-execution` architecture slice for cases where the primary output is a transformed downstream-ready package plus an approval manifest. It stays in-family only when the gate is about releasing the transformed representation itself; if the workflow's main value is deciding whether the package is truly ready, recommending what to do with it, or performing the downstream action, it belongs in an adjacent verification, recommendation, or execution family.
 
 ## Family boundary
 
@@ -44,7 +48,7 @@ The family matters when transformation is not a single static mapping. Agentic b
 
 ## Governance and evaluation concerns
 
-Future patterns should be explicit about lossiness, schema fidelity, confidence signals, audience-specific minimization, hold-state behavior, and when transformed outputs require verification before reuse. Evaluation should focus on semantic preservation, completeness, consistency, downstream usability, and the ability to explain withheld or generalized fields rather than only throughput.
+Future patterns should be explicit about lossiness, schema fidelity, confidence signals, audience-specific minimization, hold-state behavior, and when transformed outputs require verification before reuse. Evaluation should focus on semantic preservation, completeness, consistency, downstream usability, approval-binding integrity, and the ability to explain withheld or generalized fields rather than only throughput.
 
 ## Guidance for future seed patterns
 

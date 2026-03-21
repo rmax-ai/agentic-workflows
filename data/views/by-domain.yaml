@@ -31,7 +31,7 @@ domains:
     source_vocabulary: domains
   pattern_families:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation, crisis-briefing-evidence-synthesis]
-    transform-process: [normalization-and-enrichment, change-triggered-representation-refresh]
+    transform-process: [normalization-and-enrichment, change-triggered-representation-refresh, approval-gated-transformation-release]
     investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification, evidence-gated-verification-for-release]
     monitor-detect-triage: [explainable-watchlist-maintenance, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning, authoritative-change-coordination-refresh]
@@ -45,7 +45,7 @@ domains:
     source_vocabulary: domains
   pattern_families:
     gather-retrieve-synthesize: [approval-packet-generation]
-    transform-process: [document-to-structured-data-handoff, change-triggered-representation-refresh, critical-channel-safe-state-packaging]
+    transform-process: [document-to-structured-data-handoff, change-triggered-representation-refresh, critical-channel-safe-state-packaging, approval-gated-transformation-release]
     investigate-reconcile-verify: [authoritative-record-reconciliation, evidence-gated-verification-for-release, critical-authoritative-state-restoration]
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [authoritative-change-coordination-refresh, contingency-plan-activation-gate]
@@ -73,7 +73,7 @@ domains:
     source_vocabulary: domains
   pattern_families:
     gather-retrieve-synthesize: [change-triggered-context-briefing, crisis-briefing-evidence-synthesis]
-    transform-process: [document-to-structured-data-handoff, normalization-and-enrichment, critical-channel-safe-state-packaging]
+    transform-process: [document-to-structured-data-handoff, normalization-and-enrichment, critical-channel-safe-state-packaging, approval-gated-transformation-release]
     investigate-reconcile-verify: [incident-root-cause-analysis, claimed-state-verification, evidence-gated-verification-for-release, critical-authoritative-state-restoration]
     monitor-detect-triage: [risk-alert-triage, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [calendar-conflict-coordination, contingency-plan-activation-gate]

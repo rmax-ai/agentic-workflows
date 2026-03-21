@@ -1,0 +1,282 @@
+id: approval-gated-transformation-release
+slug: approval-gated-transformation-release
+name: Approval-gated transformation release
+summary: Transform authoritative source material into a downstream-ready structured release package with explicit holds, lineage, and approval manifest so humans can authorize reuse without the workflow itself performing recommendation, verification, publication, or execution.
+pattern_family:
+  id: transform-process
+  label: Transform / Process
+problem_structure:
+  id: structured-representation-transformation
+  label: Structured representation transformation
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+workflow_goal: Convert authoritative inputs into a schema-aligned release package and approval manifest that downstream workflows can rely on only after explicit human sign-off, while keeping the transformation boundary separate from recommendation, evidence verdicts, publication, posting, or live execution.
+inputs:
+  - name: Authoritative release-bound source bundle
+    description: The bounded source records, files, manifests, or state extracts that must be transformed into the downstream release representation without crossing into the downstream action itself.
+    kind: source-bundle
+    required: true
+    examples:
+      - Signed release artifacts, rollout metadata, rollback hooks, and cohort definitions for one production change window
+      - Treasury balances, approved manual adjustments, and posting classifications for one morning liquidity publication package
+      - Routing tables, fallback profiles, and shift constraints for one controlled sorter-profile release
+  - name: Target release schema and packaging contract
+    description: The required fields, manifest structure, placeholders, annex model, and version rules that define what a releasable transformed package must contain.
+    kind: schema
+    required: true
+    examples:
+      - Deployment-window package schema with rollout cohort, dependency, rollback, and hold-state fields
+      - Treasury posting package contract with entity, currency, adjustment, and release-status fields
+      - Operations cutover package template with routing profile ids, shift-safe fallbacks, and staged release notes
+  - name: Approval policy and downstream-use boundary
+    description: The approved release criteria, signer roles, audience or target-system scope, and explicit statement of what downstream use becomes allowed after approval.
+    kind: policy
+    required: true
+    examples:
+      - Change-governance rule requiring release engineering and operations approval before a transformed cutover bundle may enter the deployment queue
+      - Treasury controller policy specifying which posting package classes may be released to the ledger handoff channel
+      - Operations governance rule limiting routing-package release to one facility cohort and one shift window
+  - name: Prior package versions and hold-state history
+    description: Existing transformed package revisions, prior approvals, supersession markers, and unresolved holds used to preserve continuity across repeated release attempts.
+    kind: release-state
+    required: false
+    examples:
+      - Earlier change-window package held because one rollback credential reference was missing
+      - Superseded treasury posting package version replaced after a manual adjustment was corrected
+      - Prior routing release packet whose fallback profile remained held pending safety review
+  - name: Approved reference data and rendering rules
+    description: Controlled mappings, code tables, profile aliases, and formatting rules used to normalize authoritative inputs into the release package without inventing unsupported structure.
+    kind: reference-data
+    required: false
+    examples:
+      - Service and dependency taxonomies used to render engineering release components consistently
+      - Treasury entity hierarchies and posting code tables
+      - Facility, lane, and routing-profile alias tables approved for operations release packets
+outputs:
+  - name: Release-ready transformed package
+    description: The schema-aligned structured package that captures the bounded source state in the exact form intended for downstream use once approval is granted.
+    kind: record-bundle
+    required: true
+    examples:
+      - Structured deployment-window bundle with release assets, rollout cohort, rollback references, and held fields
+      - Posting-ready treasury package with entity balances, approved adjustments, and downstream channel metadata
+      - Shift-release routing package with active profile, facility scope, fallback thresholds, and held exceptions
+  - name: Transformation and release trace
+    description: Field-level lineage and processing record showing which authoritative inputs populated each package element, which values were normalized or held, and which release profile and schema version were applied.
+    kind: trace
+    required: true
+    examples:
+      - Ledger linking deployment bundle fields to artifact manifests, change tickets, and rollback evidence
+      - Trace showing which balance sources and adjustment approvals populated each treasury posting field
+      - Routing-package history connecting profile values to source control, facility constraints, and fallback tables
+  - name: Hold and exception register
+    description: Explicit list of fields, records, or annexes that could not be released because source authority, schema fit, policy, or approval conditions remained unresolved.
+    kind: review-queue
+    required: true
+    examples:
+      - Deployment package fields held because one dependency waiver was not yet attached to the approved release scope
+      - Treasury adjustment lines held because lineage to the final controller approval was incomplete
+      - Routing release notes held because the fallback profile and safety console disagreed about one facility
+  - name: Approval manifest
+    description: The manifest recording package version, downstream-use boundary, signer identities, hold state, approval status, and where the transformation workflow stopped before any consequential downstream action.
+    kind: manifest
+    required: true
+    examples:
+      - Manifest showing the cutover package is approved for one change window but has not been deployed
+      - Manifest proving a treasury posting package is approved for handoff to the controlled publication queue but has not been posted
+      - Manifest showing an operations routing package is approved for one shift handoff while one annex remains held
+environment:
+  summary: Operates in high-consequence preparation workflows where the hard part is shaping authoritative source material into one controlled downstream-ready representation, then binding that representation to an explicit approval manifest before any other workflow may use it.
+  systems:
+    - Source-of-truth record systems, artifact stores, or operational configuration repositories
+    - Schema, package-contract, and reference-data registries
+    - Approval, manifest, and governance systems
+    - Staging stores or release-package workspaces
+    - Audit and exception-tracking systems
+  actors:
+    - Package preparer or domain operator
+    - Approving reviewer or release authority
+    - Governance owner maintaining package and hold rules
+    - Downstream consumer that receives the package only after approval
+  constraints:
+    - Derive every released field from authoritative source material or approved rendering rules rather than unsupported inference.
+    - Keep held, suppressed, or unresolved elements explicit in the package and manifest instead of hiding them behind an optimistic release state.
+    - Bind approval status to one exact package version and downstream-use boundary so later workflows cannot reuse stale or broader authority implicitly.
+    - Stop at the transformed package, trace, hold register, and approval manifest; do not recommend the next action, issue an evidence-backed verification verdict, or perform downstream publication, posting, cutover, or execution.
+  assumptions:
+    - The organization can define stable release package classes, signer roles, and downstream-use boundaries for the covered workflow.
+    - Authoritative source systems expose enough version, lineage, and scope information to reconstruct how a released package was formed.
+    - Downstream workflows can consume the transformed package and manifest without requiring direct access to all raw source material.
+capability_requirements:
+  - capability:
+      id: transformation
+      label: Transformation
+      source_vocabulary: capabilities
+    necessity: The core task is reshaping authoritative inputs into the exact downstream-ready representation defined by the release contract.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow reads source systems, consults schemas and reference data, writes staged packages, and records manifest and trace state through tools.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Release profiles, signer requirements, hold rules, and downstream-use boundaries determine whether the transformed package may be surfaced for approval or must remain blocked.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: The workflow must confirm package lineage, schema conformance, and manifest completeness before approval can be attached, even though it does not issue a broader evidence-sufficiency verdict for downstream action.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Package revisions, supersession history, hold-state changes, and approval lineage must persist across repeated release attempts.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Safe transformation release depends on blocking or routing packages when required fields, authority lineage, or approval prerequisites remain unresolved.
+execution_architecture:
+  - architecture:
+      id: approval-gated-execution
+      label: Approval-gated execution
+      source_vocabulary: architectures
+    fit: The workflow culminates in a technically ready transformed package whose downstream handoff remains concretely blocked until explicit approval unlocks the release manifest.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human reviewers are part of the normal path because package release authority, held-item adjudication, and downstream boundary confirmation cannot be delegated away safely.
+autonomy_profile:
+  level:
+    id: approval-gated
+    label: Approval gated
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Approve the package class, release profile, signer roles, and downstream-use boundary before routine transformation release begins.
+    - Review the transformed package, hold register, and manifest before marking any package approved for downstream use.
+    - Approve changes to schema versions, rendering rules, or hold-release logic before those changes affect future package releases.
+  reversibility: Transformed packages can usually be regenerated or superseded while they remain in staging, but once an approved package is consumed by downstream workflows it may be costly to retract the mistaken representation or unwind dependent actions.
+  escalation: Escalate whenever source authority is incomplete, required fields remain unresolved, package scope drifts, approval lineage is missing, or the next requested step would require recommendation, evidence-backed verification, or live execution rather than bounded transformation release.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: An incorrect or over-broad transformed package can authorize downstream reliance on the wrong representation of operational, financial, or release state, creating significant rework, disclosure, control, or operational harm even though this workflow stops before the downstream action itself.
+  approval_requirements:
+    - Human approval is required before any transformed package is marked releasable for downstream use, publication queue entry, posting handoff, cutover handoff, or equivalent consequential follow-on workflow.
+    - Governance-owner approval is required before changing release profiles, signer roles, package schemas, hold logic, or allowed rendering rules for future runs.
+  auditability: Preserve authoritative source references, package version and scope, transformation rules, held-item reasons, manifest status, signer identities, supersession history, and any overrides so reviewers can reconstruct exactly what was approved and why.
+  privacy:
+    - Carry forward only the fields and excerpts needed for the downstream-ready package, trace, and manifest rather than copying full raw source bundles broadly.
+    - Keep held annexes, sensitive identifiers, and approval evidence inside narrower trust boundaries than the releasable main package whenever possible.
+  security:
+    - Restrict package workspaces, manifest approvals, and source-system access because unauthorized reshaping or release of a high-consequence package can amplify downstream harm.
+    - Log profile changes, hold releases, signer actions, and package supersession so improper release authority or stale-package reuse is detectable.
+  notes: High risk fits because the pattern determines which transformed representation becomes approved for consequential downstream reliance, while still remaining distinct from evidence-backed verification or actual execution.
+why_agentic:
+  - Authoritative inputs, release contracts, and downstream boundaries vary enough that the workflow must adapt transformation strategy instead of emitting one fixed export for every case.
+  - Safe package release depends on deciding when to hold, normalize, generalize, or preserve exact structure so downstream consumers receive a usable representation without hidden uncertainty.
+  - Maintaining package versions, signer lineage, held-field continuity, and supersession state across repeated release attempts is difficult to manage with static one-shot transformations alone.
+failure_modes:
+  - mode: Approval is attached to the wrong package version or downstream-use boundary
+    impact: A stale or broader transformed package is treated as authorized, allowing downstream reliance on the wrong representation.
+    severity: high
+    detectability: high
+    mitigations:
+      - Bind manifest approval to explicit package hashes, version ids, and downstream boundary identifiers.
+      - Block release when the package changed after approval review began or when boundary metadata is incomplete.
+  - mode: The transformed package hides unresolved uncertainty behind seemingly complete fields
+    impact: Downstream users rely on a package that looks ready even though a held dependency, adjustment, or configuration conflict should have remained visible.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Represent held or provisional content explicitly with reason codes and reviewer-visible placeholders.
+      - Route materially unresolved fields into the hold register instead of forcing a complete-looking package.
+  - mode: Unsupported normalization or rendering rules distort the source meaning
+    impact: The approved package becomes easier to consume but no longer faithfully reflects the authoritative source state it was meant to release.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Allow transformations only from approved rendering rules and preserve field-level lineage back to source values.
+      - Escalate when schema fit would require unsupported inference, aggregation, or code remapping.
+  - mode: The workflow drifts into release recommendation, evidence verification, or execution
+    impact: Family boundaries blur and the transformation release path starts deciding whether the downstream action should happen or performing it directly.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Limit outputs to the transformed package, trace, hold register, and approval manifest.
+      - Route readiness judgments, evidence verdicts, and operational actions into adjacent recommendation, verification, or execution patterns.
+evaluation:
+  success_metrics:
+    - Percentage of transformed packages approved for downstream use without requiring raw-source reconstruction by the receiving workflow.
+    - Rate of package revisions or post-approval corrections caused by missing lineage, scope drift, or hidden hold conditions.
+    - Rate of materially unresolved fields correctly held before manifest approval instead of being released optimistically.
+  quality_criteria:
+    - The transformed package preserves the source meaning and structure needed by the exact downstream boundary it serves.
+    - Approval manifests make package version, signer lineage, hold state, and allowed downstream use explicit and inspectable.
+    - The workflow remains bounded to transformation release rather than sliding into evidence sufficiency judgments or the downstream action itself.
+  robustness_checks:
+    - Test package revisions that arrive during approval review and confirm the manifest cannot approve an outdated version silently.
+    - Test schema or release-profile changes and ensure the workflow holds the package until the new contract is acknowledged explicitly.
+    - Test conflicting source inputs, unresolved held items, and missing signer lineage to verify release stays blocked instead of producing a deceptively complete package.
+  benchmark_notes: Evaluate semantic fidelity, hold-state discipline, and approval-binding integrity together; rapid package assembly is not success if the released representation cannot be trusted or is easily detached from its approval context.
+implementation_notes:
+  orchestration_notes:
+    - Keep source intake, transformation, hold validation, manifest assembly, approval capture, and supersession publishing as explicit stages over shared package state.
+    - Prefer append-only manifest and trace records so reviewers can inspect successive release attempts without diffing opaque blobs.
+  integration_notes:
+    - Common implementations integrate source systems, schema registries, approval tooling, staging stores, and audit services.
+    - Keep the pattern neutral about specific release managers, treasury platforms, deployment systems, or operations vendors.
+  deployment_notes:
+    - Start with one tightly bounded package class and one downstream-use boundary before expanding approval-gated transformation release across more consequential workflows.
+    - Monitor repeated hold reasons, supersession frequency, and post-approval correction rates to calibrate release profiles safely.
+  references:
+    - docs/patterns/transform-process.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: document-to-structured-data-handoff
+    relationship: often-precedes
+    notes: Initial extraction or schema alignment often creates the raw structured substrate that this pattern later reshapes into an approval-bound release package.
+  - id: batch-content-transformation
+    relationship: adjacent
+    notes: Both patterns stop at transformed output plus manifest state, but batch-content-transformation centers release-safe de-identification of sensitive batches while this pattern centers approval-bound release of downstream-ready operational packages.
+  - id: evidence-gated-verification-for-release
+    relationship: provides-input-to
+    notes: Some organizations verify evidence sufficiency after or alongside package release preparation, but that downstream verdict remains a separate verification-family workflow.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Transform signed release artifacts, rollout cohorts, and rollback metadata into a change-window package that can be approved for deployment handoff without performing the deployment.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Reshape approved treasury balances and adjustments into a posting-ready package whose manifest authorizes controlled ledger handoff without posting the entries.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Convert validated routing and fallback state into a shift-release package that can be approved for cutover handoff while keeping live activation out of scope.
+maturity: draft
+tags:
+  - transform-process
+  - structured-representation-transformation
+  - approval-gated-transformation-release
+  - release-manifest
+  - hold-state
+  - downstream-ready-package

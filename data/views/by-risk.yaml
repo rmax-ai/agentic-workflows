@@ -58,7 +58,7 @@ risk_levels:
     source_vocabulary: risk-levels
   pattern_families:
     gather-retrieve-synthesize: [approval-packet-generation]
-    transform-process: [batch-content-transformation]
+    transform-process: [batch-content-transformation, approval-gated-transformation-release]
     investigate-reconcile-verify: [incident-root-cause-analysis, evidence-gated-verification-for-release]
     monitor-detect-triage: [risk-alert-triage]
     plan-coordinate-schedule: [authoritative-change-coordination-refresh]

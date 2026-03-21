@@ -60,7 +60,7 @@ architectures:
     source_vocabulary: architectures
   pattern_families:
     gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation, crisis-briefing-evidence-synthesis]
-    transform-process: [batch-content-transformation, critical-channel-safe-state-packaging]
+    transform-process: [batch-content-transformation, critical-channel-safe-state-packaging, approval-gated-transformation-release]
     investigate-reconcile-verify: [incident-root-cause-analysis, authoritative-record-reconciliation, evidence-gated-verification-for-release, critical-authoritative-state-restoration]
     monitor-detect-triage: [risk-alert-triage, anomaly-detection-review, critical-signal-corroboration-triage]
     plan-coordinate-schedule: [schedule-adjustment-and-replanning, critical-command-window-resequencing]
@@ -88,7 +88,7 @@ architectures:
     source_vocabulary: architectures
   pattern_families:
     gather-retrieve-synthesize: []
-    transform-process: []
+    transform-process: [approval-gated-transformation-release]
     investigate-reconcile-verify: [evidence-gated-verification-for-release]
     monitor-detect-triage: []
     plan-coordinate-schedule: [contingency-plan-activation-gate]
