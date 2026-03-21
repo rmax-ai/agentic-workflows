@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-044331` is complete: it added one HR-domain `investigate-reconcile-verify` instance linked to `incident-root-cause-analysis`, closing the last open domain slice in that family with a bounded protected-leave return-to-work status drift investigation. The repository can now return to the remaining research and HR gaps in `monitor-detect-triage`.
+Iteration `20260321-044901` will target one HR-domain `monitor-detect-triage` grounding linked to `risk-alert-triage`. The goal is to close the HR monitoring gap cleanly, bring HR instance coverage back in line with the more saturated domains, and leave research as the final open domain slice in that family.
 
 ## Current phase
 
@@ -18,16 +18,16 @@ Iteration `20260321-044331` is complete: it added one HR-domain `investigate-rec
 
 1. Re-read `risk-alert-triage`, the existing monitoring instances, and adjacent HR examples before authoring the next refinement batch.
 2. Author one narrowly scoped HR-domain `monitor-detect-triage` instance so the family narrows to a single remaining research gap without widening into new canonical patterns.
-3. Keep the scenario squarely in monitor/detect/triage territory by focusing on signal review, evidence assembly, prioritization, and human-routed escalation rather than recommendation memos, scheduling, execution, or retrospective investigation.
+3. Keep the scenario squarely in monitor/detect/triage territory by focusing on alert intake, context assembly, prioritization, and human-routed escalation rather than recommendation memos, scheduling, execution, or retrospective investigation.
 4. Preserve the pattern-first rule by grounding only against `risk-alert-triage` unless a genuine dependency issue appears.
-5. After the next instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log so execution memory continues to match repository reality.
-6. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
+5. After the instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the dated iteration log so execution memory continues to match repository reality.
+6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-044331`
-- Completed subagent scope: authored `instances/hr/protected-leave-return-to-work-status-drift-root-cause-investigation.md` as one HR-domain `incident-root-cause-analysis` grounding change and committed it separately.
-- Completed orchestrator follow-up: refreshed execution memory so the new investigation coverage is reflected in status, coverage tracking, the repository map, the dated iteration log, and the next-step plan.
+- Timestamp: `20260321-044901`
+- Planned subagent scope: author one HR-domain `risk-alert-triage` grounding change and commit it separately.
+- Planned orchestrator follow-up: refresh execution memory so the new monitoring coverage is reflected in status, coverage tracking, the repository map, the dated iteration log, and the next-step plan.
 
 ## Constraints
 
@@ -40,4 +40,4 @@ Iteration `20260321-044331` is complete: it added one HR-domain `investigate-rec
 
 ## Expected outcome
 
-The next iteration should likely add one HR-domain `monitor-detect-triage` grounding to narrow the remaining monitoring gaps before the repository turns to the final open research monitoring slice.
+This iteration should add one HR-domain `monitor-detect-triage` grounding to narrow the remaining monitoring gaps to a single research cell before the repository turns to that final open monitoring slice.
