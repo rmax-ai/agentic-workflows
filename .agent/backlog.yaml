@@ -121,7 +121,8 @@ items:
       - "`gather-retrieve-synthesize` is now grounded in every currently modeled domain after adding compliance, HR, and engineering synthesis examples alongside the earlier research, finance, operations, and support anchors."
       - "`human-agent-collaborative-work` is now grounded across support, research, compliance, and engineering after adding a deprecated message-broker client migration exception copilot loop."
       - "`monitor-detect-triage` is now grounded in support through a suspected account takeover alert triage scenario, so the family now has representative monitoring coverage across finance, compliance, operations, and support."
-      - "The next small grounding batch should likely rebalance another thin family/domain slice, with engineering now the cleanest adjacent target for `monitor-detect-triage` because engineering already has investigation, synthesis, and collaboration grounding but still lacks a direct triage anchor."
+      - "`monitor-detect-triage` is now also grounded in engineering through a production release regression alert triage scenario, extending the family into a domain that already had adjacent investigation, synthesis, and collaboration coverage."
+      - "The next small grounding batch should likely rebalance another thin family/domain slice, with operations now the cleanest adjacent target for `investigate-reconcile-verify` because the domain already has monitoring, scheduling, recommendation, execution, optimization, transformation, and synthesis grounding but still lacks a direct investigation anchor."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement

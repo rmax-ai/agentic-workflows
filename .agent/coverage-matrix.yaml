@@ -39,7 +39,7 @@ matrices:
     gather-retrieve-synthesize: {engineering: covered, finance: covered, compliance: covered, operations: covered, research: covered, support: covered, hr: covered}
     transform-process: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
     investigate-reconcile-verify: {engineering: covered, finance: covered, compliance: covered, operations: partial, research: none, support: partial, hr: none}
-    monitor-detect-triage: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: covered, hr: none}
+    monitor-detect-triage: {engineering: covered, finance: covered, compliance: covered, operations: covered, research: none, support: covered, hr: none}
     plan-coordinate-schedule: {engineering: none, finance: none, compliance: none, operations: covered, research: none, support: covered, hr: covered}
     recommend-decide-escalate: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
     execute-automate: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: covered, hr: covered}
@@ -68,15 +68,15 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Nine canonical pattern entries now populate all nine top-level families, and thirty-four grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, recommendation, collaboration, compliance, operations, support, and synthesis coverage.
+    - Nine canonical pattern entries now populate all nine top-level families, and thirty-six grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, recommendation, collaboration, compliance, operations, support, and synthesis coverage.
     - "`recommend-decide-escalate` now has covered finance, compliance, and operations cells after adding a governed multi-site service-package feasibility recommendation example."
     - "`execute-automate` now has covered finance, compliance, HR, operations, and support cells after adding approved emergency maintenance vendor-portal dispatch and break-glass admin access restoration submissions alongside the existing finance, compliance, and payroll examples."
     - "`human-agent-collaborative-work` now has covered support, research, compliance, and engineering cells after adding regulator-response, benchmark-briefing, support-escalation, and deprecated-message-broker migration exception copilot loops."
     - "`transform-process` now has covered finance, compliance, and operations cells after adding pharmacovigilance safety-case intake and facilities corrective-maintenance handoff examples."
     - "`optimize-adapt` now has covered support, operations, and compliance cells after adding a regulatory consumer-complaint response queue reprioritization example alongside the post-outage support and field-service dispatch cases."
     - "`plan-coordinate-schedule` now has covered operations, support, and HR cells after adding grounded customer-bridge and interview-panel coordination examples."
-    - "`monitor-detect-triage` now has covered finance, compliance, operations, and support cells after adding a suspected account takeover support alert triage example alongside the suspicious-wire, pharmacovigilance, and cold-chain anchors."
+    - "`monitor-detect-triage` now has covered engineering, finance, compliance, operations, and support cells after adding a production release regression engineering triage example alongside the suspected-account-takeover, suspicious-wire, pharmacovigilance, and cold-chain anchors."
     - "`monitor-detect-triage` now also has representative `tool-using-single-agent` architecture coverage because the support alert-correlation workflow explicitly combines event scoring with evidence assembly before human-controlled routing."
     - "`investigate-reconcile-verify` now has covered engineering, finance, and compliance cells after adding treasury cash-position discrepancy and sanctions-screening-gap root-cause investigation examples alongside the engineering incident anchor."
     - "`gather-retrieve-synthesize` now has covered research, engineering, finance, compliance, operations, support, and HR cells after adding debt-covenant quarter-close, cross-border safeguard, conveyor-safety readiness, enterprise-support obligations, pay-transparency posting-obligation, and service-mesh migration-readiness synthesis examples."
-    - The highest-leverage next gap now looks like an engineering-domain example in `monitor-detect-triage`, because engineering already has adjacent investigation, synthesis, and collaboration grounding but still lacks a direct triage artifact.
+    - The highest-leverage next gap now looks like an operations-domain example in `investigate-reconcile-verify`, because operations already has adjacent monitoring, transformation, scheduling, recommendation, execution, optimization, and synthesis grounding but still lacks a direct investigation artifact.

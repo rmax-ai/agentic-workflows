@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-support-triage-covered
+repository_stage: phase-6-grounding-engineering-triage-covered
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 35
+  instance_files: 36
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -53,7 +53,7 @@ pattern_counts_by_family:
   optimize-adapt: 1
   human-agent-collaborative-work: 1
 instance_counts_by_domain:
-  engineering: 3
+  engineering: 4
   finance: 6
   compliance: 8
   operations: 7
@@ -93,6 +93,7 @@ repo_reality:
     - instances/engineering/payments-api-latency-incident-investigation.md
     - instances/engineering/service-mesh-migration-readiness-evidence-synthesis-for-architecture-review.md
     - instances/engineering/deprecated-message-broker-client-migration-exception-copilot-loop.md
+    - instances/engineering/production-release-regression-alert-triage.md
     - instances/finance/suspicious-wire-transfer-alert-triage.md
     - instances/finance/invoice-packet-to-payables-record-handoff.md
     - instances/finance/dual-approved-vendor-bank-account-change-submission.md
@@ -135,13 +136,14 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and thirty-five grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and thirty-six grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
+  - "`investigate-reconcile-verify` is still grounded across engineering, finance, and compliance, leaving operations and support as the clearest adjacent investigation slices for near-term rebalancing."
+  - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open monitoring slices only if deeper cross-domain triage coverage becomes worthwhile."
   - "`recommend-decide-escalate` is now grounded across finance, compliance, and operations, leaving engineering, support, research, and HR as open slices only if broader recommendation coverage becomes worth pursuing later."
   - "`human-agent-collaborative-work` is now grounded across support, research, compliance, and engineering, leaving finance, operations, and HR as open collaboration slices only if broader family depth becomes worthwhile later."
   - "`plan-coordinate-schedule` is grounded across operations, support, and HR, leaving engineering and finance open only if broader coordination coverage becomes more valuable than deepening governance-sensitive collaboration or investigation families."
-  - "`monitor-detect-triage` is now grounded across finance, compliance, operations, and support, leaving engineering, research, and HR as the remaining open monitoring slices if deeper cross-domain triage coverage becomes worthwhile."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-expand-engineering-triage-grounding
-  summary: "Use the next small grounding batch to add one engineering-domain triage example for `risk-alert-triage`, extending `monitor-detect-triage` into a domain that already has adjacent investigation, synthesis, and collaboration grounding."
+  id: phase-6-expand-operations-investigation-grounding
+  summary: "Use the next small grounding batch to add one operations-domain investigation example for `incident-root-cause-analysis`, extending `investigate-reconcile-verify` into a domain that already has adjacent monitoring, scheduling, recommendation, execution, optimization, transformation, and synthesis grounding."
