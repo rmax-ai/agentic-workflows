@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Next iteration focus: rebalance one of the now thinnest remaining domains (`compliance`, `research`, or `hr`) with one already-canonical, family-safe grounded instance, again preferring a slice whose canonical metadata and derived domain view already align so the next batch can stay narrow and instance-first.
+Next iteration focus: add one `compliance`-grounded instance for the already-canonical `approval-packet-generation` pattern, because that gather-family slice is already exposed correctly in canonical metadata and `data/views/by-domain.yaml` but still lacks any grounded example.
 
 Iteration `20260321-145355` is now complete: `claimed-state-verification` gained additional `support` grounding through one internal premium-support advisory-macro publication verification example, while the canonical pattern metadata and derived `data/views/by-domain.yaml` already correctly exposed that low-risk investigate-family slice.
 
@@ -72,12 +72,12 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: `compliance`, `research`, and `hr` are now tied as the thinnest modeled domains at twenty-six grounded examples each, while `support` has moved to twenty-seven. The next refinement pass should reassess those three tied domains for one already-canonical, family-safe slice whose canonical metadata and derived browse view ideally already align.
+- Current refinement target: `compliance`, `research`, and `hr` are now tied as the thinnest modeled domains at twenty-six grounded examples each, while `support` has moved to twenty-seven. This iteration should use the `compliance` tie as the narrowest clean opportunity by grounding the already-canonical `approval-packet-generation` slice without expanding structural inventory or derived views.
 
 ## Ordered tasks
 
-1. Reassess the now tied thinnest domains (`compliance`, `research`, and `hr`) and choose one already-canonical, family-safe slice for one new grounded instance that deepens coverage without expanding structural inventory.
-2. Confirm whether the chosen canonical pattern metadata and the relevant bucket in `data/views/by-domain.yaml` already expose the targeted slice correctly; avoid editing either file unless the new instance reveals real drift from canonical truth.
+1. Add one `instances/compliance/` grounded example for `approval-packet-generation`, keeping the workflow bounded at packet assembly, evidence indexing, exception visibility, and handoff rather than recommendation, adjudication, or execution.
+2. Reconfirm that `data/patterns/gather-retrieve-synthesize/approval-packet-generation.yaml` and the `compliance` bucket in `data/views/by-domain.yaml` already expose the targeted slice correctly; avoid editing either file unless the new instance reveals real drift from canonical truth.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded content batch, then refresh execution memory on top of the verified canonical baseline.
 
 ## Iteration checkpoint
