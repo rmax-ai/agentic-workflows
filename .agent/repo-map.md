@@ -65,6 +65,7 @@
 - `data/patterns/transform-process/document-to-structured-data-handoff.yaml` — canonical transform/process pattern for turning heterogeneous documents into schema-aligned structured records with provenance, lossiness, and exception-aware handoff.
 - `data/patterns/investigate-reconcile-verify/incident-root-cause-analysis.yaml` — canonical investigation pattern for evidence-backed incident diagnosis and reconciled timelines.
 - `data/patterns/monitor-detect-triage/risk-alert-triage.yaml` — canonical monitoring pattern for governed alert prioritization and escalation packaging.
+- `data/patterns/monitor-detect-triage/critical-signal-corroboration-triage.yaml` — canonical monitoring pattern for corroborating severe signals across evidence sources and packaging governed critical escalations without drifting into response execution.
 - `data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml` — canonical planning and coordination pattern for low-risk multi-party scheduling under bounded delegation.
 - `data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml` — canonical recommendation pattern for governed commercial option ranking, approval guidance, and escalation packaging.
 - `data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml` — canonical execution pattern for sensitive browser-based submissions under explicit approval gates and exception handling.
