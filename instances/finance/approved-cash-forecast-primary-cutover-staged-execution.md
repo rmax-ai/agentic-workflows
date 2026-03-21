@@ -12,6 +12,27 @@ Finance.
 
 After treasury leadership, controllership, and platform operations approve promotion of a new cash forecasting workflow to become the authoritative source for same-day liquidity decisions, treasury operations must execute the cutover during quarter-close week. The workflow should enter from that prior approval and carry the change through explicit preflight on feed completeness, statement latency, tolerance bands, and legacy fallback health; then progress through a shadow period, limited desk activation, primary-source promotion, and a final hold before the old forecast path is retired. At each stage it should verify variance and downstream funding signals, preserve rollback readiness, and stop visibly if the new forecast begins to diverge from trusted liquidity views.
 
+```mermaid
+flowchart TD
+    A["Approved cutover window<br>thresholds, scope, and rollback plan in force"] --> B["Run preflight checks<br>feed completeness, statement latency, tolerance bands, fallback health"]
+    B --> C{"Preflight evidence within<br>approved limits?"}
+    C -- "No" --> D["Visible hold for treasury<br>controllership, and platform review"]
+    C -- "Yes" --> E["Run shadow period<br>and compare variance with trusted liquidity views"]
+    E --> F{"Shadow variance and downstream<br>funding signals remain acceptable?"}
+    F -- "No" --> D
+    F -- "Yes" --> G["Activate limited treasury desks<br>while preserving rollback readiness"]
+    G --> H{"Limited activation stays within<br>bands and consumer checks?"}
+    H -- "No" --> I["Restore legacy-only forecast path<br>and trigger bounded treasury escalation"]
+    H -- "Yes" --> J["Human release hold before<br>primary-source promotion"]
+    J -- "Held" --> D
+    J -- "Released" --> K["Promote new forecast as primary<br>and verify funding workbench alignment"]
+    K --> L{"Primary-source variance and<br>consumer state still stable?"}
+    L -- "No" --> I
+    L -- "Yes" --> M["Protected final hold before<br>retiring the legacy workflow"]
+    M -- "Hold" --> D
+    M -- "Release" --> N["Retire legacy forecast path<br>and record authoritative-state confirmation"]
+```
+
 ## Target systems / source systems
 
 - Treasury change-control record containing the approved cutover window, variance thresholds, protected business-unit scope, and rollback plan
