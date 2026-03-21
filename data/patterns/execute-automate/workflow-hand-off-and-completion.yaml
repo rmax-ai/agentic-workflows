@@ -19,6 +19,9 @@ domain:
   - id: hr
     label: HR
     source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
 workflow_goal: Observe a trusted upstream approval, disposition, or completion-state transition and finish the allowed downstream closure steps across operational systems without reopening the decision itself or crossing into higher-risk execution.
 inputs:
   - name: Authoritative upstream state-change record
@@ -240,6 +243,11 @@ example_domains:
       label: HR
       source_vocabulary: domains
     example: After an occupational-health or leave-program review records an accepted disposition, close the restricted review queue, sync the leave case tracker, attach archive references, and notify the internal HR coordinator that review closure is complete without taking any employee-facing action.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: After a sanctions review system records a final false-positive disposition, close the restricted closure queue, sync the case ledger, attach archive references, and notify the internal sanctions operations coordinator without changing any live controls or taking external action.
 maturity: draft
 tags:
   - execute-automate
