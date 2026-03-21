@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Iteration `20260321-130630` is now in progress: `approval-gated-transformation-release` should gain the last missing `support` grounding, with the work bounded to one exact transformed support packet revision, one explicit hold-and-manifest state, and one restricted downstream intake lane rather than collaboration, recommendation, adjudication, or downstream execution.
+
 Iteration `20260321-130011` is now complete: `approval-gated-transformation-release` gained new `research` grounding, and the canonical pattern metadata plus derived domain view now expose that transform-family approval-bound slice across six modeled domains without drifting past one exact publication-integrity intake packet revision, one explicit hold-and-manifest state, or one bounded restricted review lane.
 
 Iteration `20260321-125434` is now complete: `approval-gated-transformation-release` gained new `compliance` grounding, and the canonical pattern metadata plus derived domain view now expose that transform-family approval-bound slice across five modeled domains without drifting past one exact transformed packet revision, one explicit hold-and-manifest state, or one restricted privacy-counsel intake lane.
@@ -43,15 +45,14 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 1. Confirm the cleanest support-heavy approval-bound transform slice for `approval-gated-transformation-release`, keeping the primary output as one exact transformed package revision plus explicit hold-and-manifest state rather than a collaborative artifact, recommendation packet, case adjudication, or live action.
 2. Add only one modest support-grounded example plus the directly dependent canonical metadata and derived browse-view updates needed by that slice.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded pattern/view/instance batch.
-4. Refresh execution memory immediately afterward so the new research transform slice becomes the next recorded baseline rather than an implied change.
+4. Refresh execution memory immediately afterward so the new support transform slice becomes the next recorded baseline rather than an implied change.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-130011`
-- Previous completed scope: added one compliance-grounded `approval-gated-transformation-release` example, expanded the canonical pattern's domain and example metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
-- Completed scope: added one research-grounded `approval-gated-transformation-release` example, expanded the canonical pattern's domain and example metadata to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
+- Timestamp: `20260321-130630`
+- Previous completed scope: added one research-grounded `approval-gated-transformation-release` example, expanded the canonical pattern's domain and example metadata to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Current working hypothesis: transform-family approval-gated refinement remains family-safe only when the governed object is one exact transformed package revision with explicit hold state, lineage trace, and one bounded downstream intake or handoff lane, while collaborative drafting, publication recommendation, legal adjudication, evidence verdicts, and live action stay explicitly outside the workflow.
-- Current scoped follow-on: identify the remaining support-grounded approval-bound transform slice in `approval-gated-transformation-release` so the next batch can close the last open domain hole for that pattern without reopening broader structural expansion.
+- Current scoped follow-on: add the remaining support-grounded approval-bound transform slice in `approval-gated-transformation-release` so this batch can close the last open domain hole for that pattern without reopening broader structural expansion.
 - Boundary reminder: future transform-family approval-gated work should remain tied to one exact transformed package revision, one explicit hold or release manifest state, and one bounded downstream reliance lane rather than vague permission to decide, verify, or execute the underlying case.
 
 ## Constraints
@@ -77,4 +78,4 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Expected outcome
 
-The next iteration should stay in depth-balancing mode: add one support-grounded governance-heavy approval-bound transform example plus directly dependent metadata/view updates in `approval-gated-transformation-release`, and keep the work bounded to one family-safe slice rather than opening a broader structural batch.
+This iteration should stay in depth-balancing mode: add one support-grounded governance-heavy approval-bound transform example plus directly dependent metadata/view updates in `approval-gated-transformation-release`, and keep the work bounded to one family-safe slice rather than opening a broader structural batch.
