@@ -12,6 +12,18 @@ Engineering.
 
 A platform engineering architecture review board is preparing a gate review for migrating customer-facing microservices from legacy sidecar proxies to a managed service mesh control plane. Before anyone approves migration waves, updates production standards, or schedules cutovers, the workflow needs a cited readiness brief showing which reliability assumptions, dependency constraints, rollback prerequisites, security-control requirements, performance baselines, and unresolved adoption risks are actually supported by the current source set. The useful output is an evidence-backed synthesis that separates verified readiness facts from stale design assumptions, conflicting operational signals, and open questions that still require service-owner or security review.
 
+```mermaid
+flowchart TD
+    A["Scope the migration-readiness question<br>and approved engineering source boundary"] --> B["Gather current readiness evidence<br>RFCs, service catalog data, telemetry,<br>load tests, rollback drills, incidents,<br>and security standards"]
+    B --> C["Build the cited readiness synthesis<br>separate verified facts, stale assumptions,<br>conflicting signals, and open questions"]
+    C --> D{"Verification checks<br>citation validity, source precedence,<br>recency, service and dependency scope,<br>rollback evidence, and security-control coverage"}
+    D --> E["Publish the verified readiness brief<br>with evidence trace for architecture review"]
+    D --> F["Hold the workflow<br>for missing rollback proof, unresolved<br>traffic-policy dependencies, or source conflicts"]
+    F --> G["Bounded handoff for resolution<br>service owner, platform reviewer,<br>or security reviewer only"]
+    G --> B
+    E --> H["Bounded handoff to downstream review<br>migration-wave approval, standards updates,<br>or cutover scheduling"]
+```
+
 ## Target systems / source systems
 
 - Architecture decision record archive, platform RFC repository, and mesh adoption design docs
