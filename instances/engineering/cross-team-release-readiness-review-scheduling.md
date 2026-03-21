@@ -12,6 +12,21 @@ Engineering.
 
 A release engineering coordinator needs to schedule a release-readiness review for a customer-facing identity service before an approved Thursday evening production cutover. The meeting must include the release manager, the service owner, the on-call site reliability lead, the database migration owner, and a security reviewer because the release changes authentication flows and schema state together. The workflow is about constructing a viable meeting slot inside the evidence-freeze window, placing reversible holds across multiple calendars, and escalating quickly when a required attendee cannot make the allowed review window rather than guessing at substitutes or committing to the final meeting without human confirmation.
 
+```mermaid
+flowchart TD
+    start["Release review request before<br>approved Thursday cutover"] --> gather["Check evidence-freeze window,<br>required roles, and review rules"]
+    gather --> search["Search release, service, SRE,<br>database, and security calendars"]
+    search --> overlap{"In-policy overlap before<br>the review cutoff?"}
+    overlap -->|"Yes"| hold["Place reversible holds<br>for required attendees"]
+    overlap -->|"No"| escalate["Hold scheduling and escalate<br>to release owner for exception review"]
+    hold --> verify{"All required roles covered and<br>no unapproved substitute needed?"}
+    verify -->|"Yes"| approve{"Release owner approves<br>selected slot and any exception?"}
+    verify -->|"No"| escalate
+    approve -->|"Yes"| finalize["Send final invite and log<br>confirmed readiness review slot"]
+    approve -->|"No"| release["Release tentative holds and<br>return to slot search"]
+    release --> search
+```
+
 ## Target systems / source systems
 
 - Change-management ticket with the requested cutover window, rollback checkpoint, and required review roles
