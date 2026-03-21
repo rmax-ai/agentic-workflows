@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 34
-  instance_files: 117
+  pattern_files: 35
+  instance_files: 120
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -50,16 +50,16 @@ pattern_counts_by_family:
   transform-process: 5
   investigate-reconcile-verify: 4
   monitor-detect-triage: 4
-  plan-coordinate-schedule: 3
+  plan-coordinate-schedule: 4
   recommend-decide-escalate: 4
   execute-automate: 4
   optimize-adapt: 3
   human-agent-collaborative-work: 3
 instance_counts_by_domain:
-  engineering: 19
-  finance: 18
+  engineering: 20
+  finance: 19
   compliance: 13
-  operations: 17
+  operations: 18
   research: 17
   support: 19
   hr: 14
@@ -102,6 +102,7 @@ repo_reality:
     - data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml
     - data/patterns/plan-coordinate-schedule/schedule-adjustment-and-replanning.yaml
     - data/patterns/plan-coordinate-schedule/authoritative-change-coordination-refresh.yaml
+    - data/patterns/plan-coordinate-schedule/critical-command-window-resequencing.yaml
     - data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml
     - data/patterns/recommend-decide-escalate/policy-constrained-escalation-routing.yaml
     - data/patterns/recommend-decide-escalate/readiness-gate-disposition-recommendation.yaml
@@ -141,6 +142,7 @@ repo_reality:
     - instances/engineering/release-candidate-evidence-packet-to-deployment-review-staging-record-handoff.md
     - instances/engineering/cross-team-release-readiness-review-scheduling.md
     - instances/engineering/release-readiness-review-coordination-refresh-after-approver-window-change.md
+    - instances/engineering/payments-cutover-command-window-checkpoint-resequencing.md
     - instances/engineering/approved-production-change-freeze-exception-portal-submission.md
     - instances/engineering/approved-payments-tokenization-cutover-staged-execution.md
     - instances/engineering/managed-database-major-version-upgrade-exception-recommendation.md
@@ -168,6 +170,7 @@ repo_reality:
     - instances/finance/quarter-close-covenant-review-package-refresh-after-ledger-adjustment.md
     - instances/finance/liquidity-stress-bridge-channel-safe-exposure-package.md
     - instances/finance/intraday-liquidity-state-truth-restoration.md
+    - instances/finance/intraday-liquidity-command-window-checkpoint-resequencing.md
     - instances/operations/cross-functional-maintenance-review-scheduling.md
     - instances/operations/cold-chain-temperature-excursion-alert-triage.md
     - instances/operations/multi-site-service-package-feasibility-recommendation.md
@@ -184,6 +187,7 @@ repo_reality:
     - instances/operations/warehouse-slotting-reference-rollout-verification.md
     - instances/operations/suspected-contamination-command-center-channel-safe-lot-package.md
     - instances/operations/suspected-contamination-lot-hold-state-truth-restoration.md
+    - instances/operations/contamination-command-window-checkpoint-resequencing.md
     - instances/compliance/cross-border-deal-exception-review.md
     - instances/compliance/pharmacovigilance-safety-signal-alert-triage.md
     - instances/compliance/beneficial-ownership-registry-update-submission.md
@@ -241,12 +245,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, thirty-four canonical patterns across all nine top-level families, and one hundred seventeen grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, thirty-five canonical patterns across all nine top-level families, and one hundred twenty grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`critical-authoritative-state-restoration` now gives `investigate-reconcile-verify` a fourth canonical pattern plus representative `critical` risk, `orchestrated-multi-agent`, `human-in-the-loop`, and `human-directed` coverage while staying bounded at trusted current-state restoration, explicit hold-state preservation, and human-reviewed handoff rather than triage, recommendation, or execution."
-    - "`investigate-reconcile-verify` now spans `low`, `moderate`, `high`, and `critical` risk slices, making it the fifth family after `gather-retrieve-synthesize`, `transform-process`, `monitor-detect-triage`, and `execute-automate` to fill the full tracked risk ladder."
-    - "The derived family doc, index tree, and alternate browse views are now realigned to canonical pattern inventory, including the new critical investigation anchor and its finance, compliance, operations, autonomy, architecture, and risk placements, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
-    - "All nine top-level families still have at least three canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps now move toward another narrow family-specific `critical` risk slice such as `plan-coordinate-schedule` rather than missing global scaffolding."
+    - "`critical-command-window-resequencing` now gives `plan-coordinate-schedule` a fourth canonical pattern plus representative `critical` risk, `orchestrated-multi-agent`, `human-in-the-loop`, and `human-directed` coverage while staying bounded at checkpoint resequencing, explicit holds, and command-window coordination packets rather than triage, recommendation, or execution."
+    - "`plan-coordinate-schedule` now spans `low`, `moderate`, `high`, and `critical` risk slices, making it the sixth family after `gather-retrieve-synthesize`, `transform-process`, `investigate-reconcile-verify`, `monitor-detect-triage`, and `execute-automate` to fill the full tracked risk ladder."
+    - "The derived planning family doc, index tree, and alternate browse views are now realigned to canonical pattern inventory, including the new critical planning anchor and its engineering, finance, operations, autonomy, architecture, and risk placements, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
+    - "All nine top-level families still have at least three canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps now move toward another narrow family-specific `critical` risk slice such as `recommend-decide-escalate`, `optimize-adapt`, or `human-agent-collaborative-work` rather than missing global scaffolding."
   next_action:
-    id: phase-7-critical-planning-refinement
-    summary: "Use the next iteration to evaluate whether `plan-coordinate-schedule` should gain one critical-risk pattern that stays bounded at high-consequence coordination-state restoration or rescheduling control without drifting into triage, recommendation, or execution."
+    id: phase-7-critical-recommendation-refinement
+    summary: "Use the next iteration to evaluate whether `recommend-decide-escalate` should gain one critical-risk pattern that stays bounded at high-consequence escalation routing or decision-support packaging without drifting into collaboration-loop ownership, adjudication, or execution."
