@@ -16,8 +16,14 @@ domain:
   - id: finance
     label: Finance
     source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
   - id: operations
     label: Operations
+    source_vocabulary: domains
+  - id: support
+    label: Support
     source_vocabulary: domains
   - id: hr
     label: HR
@@ -260,10 +266,20 @@ example_domains:
       source_vocabulary: domains
     example: Finance reviewers and a compensation analyst use agents to reconcile benchmark data, controller comments, and delegation rules before a compensation exception moves to the approving VP.
   - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Compliance, legal, and control-testing reviewers iterate with agents on a regulator reporting timeline exception packet, keeping reviewer objections, evidence gaps, and the next approval owner explicit.
+  - domain:
       id: operations
       label: Operations
       source_vocabulary: domains
     example: Operations leaders and agents repeatedly revise a maintenance-change approval packet, preserving unresolved dependencies and the human owner of the next approval checkpoint.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Support, security, legal, and revenue reviewers use agents to refine an incident remediation and credit package while preserving contested commitments and explicit approval ownership.
   - domain:
       id: hr
       label: HR
