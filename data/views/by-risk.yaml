@@ -79,4 +79,4 @@ risk_levels:
     recommend-decide-escalate: [critical-escalation-authority-recommendation]
     execute-automate: [browser-based-form-completion-with-approval-gates]
     optimize-adapt: [critical-protected-priority-adaptation]
-    human-agent-collaborative-work: []
+    human-agent-collaborative-work: [critical-protected-artifact-collaboration]

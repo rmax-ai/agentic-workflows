@@ -118,4 +118,4 @@ families:
   - id: human-agent-collaboration
     label: Human-agent collaboration
     source_vocabulary: problem-structures
-  pattern_ids: [analyst-copilot-loop, approval-centered-collaboration, shared-workbench-orchestration]
+  pattern_ids: [analyst-copilot-loop, approval-centered-collaboration, shared-workbench-orchestration, critical-protected-artifact-collaboration]

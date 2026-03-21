@@ -18,6 +18,7 @@ The conceptual seed patterns already named in the browse tree are:
 - `analyst-copilot-loop`
 - `approval-centered-collaboration`
 - `shared-workbench-orchestration`
+- `critical-protected-artifact-collaboration`
 
 ## Problem-structure mapping
 
@@ -33,6 +34,8 @@ This family can wrap many other families, but it remains distinct when the share
 - If collaboration mainly exists to **review recommendations or escalate decisions**, see [recommend-decide-escalate](./recommend-decide-escalate.md).
 - If collaboration mainly exists to **supervise execution or adaptation**, see [execute-automate](./execute-automate.md) or [optimize-adapt](./optimize-adapt.md).
 
+At the critical end of the family, the collaboration artifact itself can become protected and governance-sensitive. Those patterns still belong here only when the main reusable shape is joint refinement of one severe shared artifact with explicit human ownership, visible dissent, restricted annex handling, and bounded handoff readiness. If the work instead centers on choosing the deciding authority, resequencing a command window, assembling a crisis brief, or carrying out the response, it belongs in an adjacent family.
+
 ## Why this family is meaningfully agentic
 
 The family becomes agentic when initiative is shared: the system can propose, transform, retrieve, or execute parts of the work, while the human steers interpretation, accepts or revises outputs, and governs progression. The pattern is not just human approval at the end; it is structured co-production throughout the workflow.
@@ -40,6 +43,13 @@ The family becomes agentic when initiative is shared: the system can propose, tr
 ## Governance and evaluation concerns
 
 Future patterns should specify handoff rules, visibility into agent reasoning or evidence, override authority, and what responsibility remains with the human actor. Evaluation should consider usability, trust calibration, handoff clarity, and whether the collaboration design improves outcomes without obscuring accountability.
+
+Critical collaboration variants should also state:
+
+- how protected-room membership and sensitive annex boundaries are enforced,
+- how unresolved disagreement remains visible instead of being normalized away,
+- who owns release of the shared artifact into the next workflow, and
+- which downstream family consumes the artifact once collaboration stops.
 
 ## Guidance for future seed patterns
 

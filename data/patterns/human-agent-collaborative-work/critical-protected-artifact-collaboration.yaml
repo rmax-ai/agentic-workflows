@@ -1,0 +1,287 @@
+id: critical-protected-artifact-collaboration
+slug: critical-protected-artifact-collaboration
+name: Critical protected artifact collaboration
+summary: Structure severe human-agent shared work around one protected collaborative artifact so humans and agents can refine objections, sensitive annexes, and bounded handoff readiness without collapsing into authority selection, command resequencing, or execution.
+pattern_family:
+  id: human-agent-collaborative-work
+  label: Human-agent collaborative work
+problem_structure:
+  id: human-agent-collaboration
+  label: Human-agent collaboration
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+workflow_goal: Keep one severe, protected shared artifact current and jointly reviewable as humans and agents refine contested content, preserve sensitive annex boundaries, and decide whether the artifact is ready for the next human-owned handoff without choosing the downstream decision, plan, or action.
+inputs:
+  - name: Declared critical collaboration scope and protected artifact charter
+    description: The human-declared severe case, named shared artifact, intended audience, room membership, and explicit statement that the workflow is for protected collaboration rather than live decision or execution.
+    kind: case
+    required: true
+    examples:
+      - Protected packet room opened for a signing-key compromise review artifact that will later be handed to named executives
+      - Restricted liquidity-stress review book created for treasury and finance owners before any contingency-funding decision
+      - Controlled regulator-position packet opened for sanctions-screening outage review before legal or regulator outreach
+  - name: Source evidence, objections, and annex materials
+    description: Current evidence, reviewer comments, dissenting positions, supporting references, and restricted annex content that must be preserved while the shared artifact is revised.
+    kind: evidence-set
+    required: true
+    examples:
+      - Security findings, rollback limits, customer-impact notes, and a restricted annex with key-custody details
+      - Cash-state evidence, covenant triggers, funding constraints, and a restricted annex with market-sensitive exposures
+      - Screening outage chronology, legal interpretations, remediation status, and a restricted annex with jurisdiction-specific watchlist data
+  - name: Protected collaboration rules and handoff boundaries
+    description: Rules governing who may see main-room content versus annexes, which edits require human acceptance, how disagreement must remain visible, and the exact downstream boundary where the workflow must stop.
+    kind: policy
+    required: true
+    examples:
+      - Keep unresolved objections in the artifact, keep sensitive evidence in annexes, and stop before authority recommendation or revocation execution
+      - Preserve named human ownership of the next handoff and block promotion if market-sensitive data leaves the restricted sections
+      - Allow agents to reconcile comments and version sections, but require human release approval before any regulator-facing packet leaves the room
+  - name: Current ownership and revision state
+    description: The latest artifact version, section owners, accepted edits, unresolved disputes, room access state, and prior readiness judgments that constrain the next collaboration cycle.
+    kind: case-state
+    required: false
+    examples:
+      - Current packet version shows platform security owns the main narrative while legal owns one restricted annex
+      - Revision ledger shows treasury accepted one control statement while finance still disputes the liquidity window wording
+      - Prior readiness check held the packet because a compliance objection and one annex access mismatch remained unresolved
+outputs:
+  - name: Protected shared artifact
+    description: The jointly refined severe-case artifact with visible section ownership, accepted edits, unresolved disagreement, and bounded references to restricted annexes.
+    kind: collaborative-draft
+    required: true
+    examples:
+      - Restricted compromise-review packet with main narrative, visible objections, and annex pointers for sensitive technical detail
+      - Protected funding-review book with accepted treasury edits, disputed exposure language, and linked restricted schedules
+      - Regulator-position packet showing agreed chronology, contested legal posture text, and annex references for sensitive counterparty detail
+  - name: Disagreement and annex ledger
+    description: Structured record of unresolved objections, annex locations, access boundaries, and which human owns each contested or sensitive section.
+    kind: handoff-record
+    required: true
+    examples:
+      - Ledger showing which compromise claims remain contested and which annex sections require executive-only access
+      - Register showing one treasury objection remains open and one exposure table stays restricted to the finance command subset
+      - Annex map showing which outage facts may appear in the main packet and which remain legal-only
+  - name: Human-owned handoff-readiness state
+    description: Explicit record of whether the artifact is ready for the next bounded handoff, what still blocks release, and which named human owns the decision to hand it onward.
+    kind: readiness-record
+    required: true
+    examples:
+      - Held state showing the packet is not ready for executive handoff until one legal objection is answered
+      - Ready-for-review mark signed by the human artifact owner with two accepted residual disagreements still visible
+      - Escalate-for-clarification state showing the room stopped because annex scope no longer matches the intended audience
+  - name: Protected collaboration trace
+    description: Durable history of edits, evidence refreshes, disagreement handling, annex access changes, and human release decisions across the critical collaboration loop.
+    kind: audit-log
+    required: true
+    examples:
+      - Trace showing when one claim moved from disputed to accepted and when a restricted annex was narrowed
+      - Version history linking updated exposure numbers to revised wording and a held handoff decision
+      - Audit trail showing repeated human redirects to keep the packet inside collaboration scope rather than planning response actions
+environment:
+  summary: Operates in declared severe situations where one protected collaborative artifact becomes the shared surface for human-agent co-work, and the reusable challenge is preserving ownership, disagreement, and sensitive-boundary discipline while driving toward a bounded human handoff rather than making the downstream decision or running the response.
+  systems:
+    - Protected collaboration room or restricted shared document workspace
+    - Evidence stores, case systems, or ledgers supplying live severe-case context
+    - Restricted annex repository with access controls and audit logging
+    - Policy, delegation, and governance repositories defining release and visibility rules
+    - Audit and version-control tooling for collaboration lineage
+  actors:
+    - Human artifact owner or severe-case lead
+    - Domain specialists and reviewers contributing objections or sensitive evidence
+    - Agent orchestration layer managing evidence refresh, revision support, and trace updates
+    - Downstream human authority, command lead, or review body receiving the next handoff
+  constraints:
+    - Keep one protected shared artifact authoritative so severe collaboration does not fragment across chats, drafts, or parallel unofficial notes.
+    - Preserve unresolved objections, dissenting edits, and annex boundaries as first-class state rather than compressing them into a falsely settled packet.
+    - Stop at bounded handoff readiness and artifact release control; do not choose the human decision authority, resequence the response timeline, or execute the underlying action.
+    - Minimize copied sensitive detail in the main artifact and use restricted annexes or references when full evidence does not need broad room visibility.
+  assumptions:
+    - A human or governed upstream workflow has already declared the severe case and authorized creation of the protected collaboration room.
+    - Human owners remain accountable for accepting revisions, adjudicating whether disagreement is tolerable for handoff, and releasing the artifact onward.
+    - Adjacent workflows can consume the finished artifact for authority recommendation, command coordination, or execution without this pattern taking those steps itself.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The room must pull fresh evidence, prior objections, and current annex materials from multiple restricted systems as the severe artifact evolves.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Productive collaboration requires recombining evidence, edits, dissent, and annex references into one inspectable artifact rather than leaving them scattered across channels.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Severe shared-work depends on explicit section ownership, disagreement routing, and handoff-state discipline across humans and agents.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow must preserve version lineage, accepted versus contested text, annex boundaries, and prior release decisions across rapid revisions.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Evidence freshness, annex access rules, and claimed issue resolution must be checked before any severe artifact is marked ready for handoff.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Protected-room membership, annex visibility, release rules, and downstream stop conditions define what the collaboration loop may safely do.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The pattern typically reads case systems and restricted repositories while writing artifact revisions, annex mappings, and audit state back into governed tools.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Conflicting objections, unsafe annex exposure, or no-defensible shared wording should trigger held state or human escalation rather than forced consensus.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Severe protected collaboration often benefits from distinct roles for evidence refresh, disagreement normalization, annex tracking, and trace maintenance so the shared artifact stays fast to update but still auditable.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Humans stay embedded throughout normal operation because only named human owners may accept contested framing, release the protected artifact, or decide whether a residual objection is tolerable for handoff.
+autonomy_profile:
+  level:
+    id: human-directed
+    label: Human directed
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the declared critical scope, protected artifact charter, room membership, and downstream stop boundary before collaboration begins.
+    - Review each materially revised artifact, disagreement ledger, and annex boundary update before the room signals handoff readiness.
+    - Approve the final readiness state and release of the artifact into the next authority, planning, or execution workflow while keeping the downstream choice explicitly human-owned.
+  reversibility: Artifact revisions can be superseded inside the room, but once a severe packet is handed onward with hidden disagreement, stale evidence, or over-broad disclosure the resulting decision bias, market or security exposure, or operational confusion may be expensive or impossible to unwind quickly.
+  escalation: Escalate whenever the room can no longer maintain one coherent protected artifact, unresolved disagreement changes the intended downstream scope materially, annex access rules become unsafe or ambiguous, or the next requested step would amount to authority selection, response planning, or execution.
+risk_governance:
+  level:
+    id: critical
+    label: Critical
+    source_vocabulary: risk-levels
+  failure_impact: A flawed critical collaboration room can hand downstream humans a packet that hides dispute, leaks restricted evidence, or falsely appears release-ready, leading to severe governance, security, financial, legal, or operational harm precisely when later workflows will treat the artifact as the shared basis for consequential action.
+  approval_requirements:
+    - A named human artifact owner must approve every readiness state that allows the protected artifact to move into a downstream authority, command, regulator, executive, or equivalent high-consequence review channel.
+    - Governance owners must approve changes to protected-room templates, annex access policy, disagreement-visibility rules, and release controls used by future critical collaboration runs.
+  auditability: Preserve artifact versions, section ownership, disagreement markers, annex mappings, access changes, evidence references, held states, human redirects, and handoff-release timestamps so reviewers can reconstruct how the severe shared artifact evolved.
+  privacy:
+    - Keep sensitive customer, employee, market, security, and regulated details in the narrowest visible scope consistent with productive collaboration.
+    - Prefer restricted annexes, citations, and hashed references over broad duplication of raw evidence when the main artifact can remain intelligible without full disclosure.
+  security:
+    - Restrict write and release permissions so agents cannot silently broaden room access, alter annex controls, or hand the artifact onward without explicit human acceptance.
+    - Log annex access, privileged overrides, manual release decisions, and repeated held-state causes so covert expansion of the room's power remains detectable.
+  notes: Critical-risk governance fits because the pattern shapes the shared severe-case artifact that downstream humans rely on for consequential decisions and coordination, while remaining cleanly bounded at collaboration, protected artifact maintenance, and human-owned handoff readiness.
+why_agentic:
+  - Severe collaboration requires adaptive handling of changing evidence, contested edits, and restricted annex boundaries rather than one static document workflow.
+  - The workflow benefits from specialized agent roles that can keep one shared artifact synchronized while preserving disagreement and access controls under time pressure.
+  - Safe performance depends on recognizing when ambiguity, dissent, or sensitivity is itself a reason to hold the handoff rather than smoothing the packet into false consensus.
+failure_modes:
+  - mode: Material disagreement is compressed away during revision
+    impact: Downstream humans receive a packet that appears more settled than reality and may make consequential decisions without seeing the true objection landscape.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Preserve unresolved objections and contested sections in a dedicated ledger tied to the current artifact version.
+      - Block release-ready status when major disagreements lose evidence linkage or ownership labels.
+  - mode: Sensitive annex content leaks into the broader collaboration surface
+    impact: A severe collaboration loop creates avoidable privacy, legal, market, or security exposure beyond the original case.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Enforce section-level access controls and keep annex references separate from main-room narrative content.
+      - Log every broadened access change and require human approval before restricted material is promoted into the main artifact.
+  - mode: Parallel edits or stale revision state fracture the shared artifact
+    impact: Reviewers work from different versions of the severe packet and can no longer tell which objections, annexes, or handoff conditions are current.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Maintain one authoritative artifact version with explicit supersession state for earlier drafts.
+      - Version the artifact, disagreement ledger, and readiness record together so they cannot drift independently.
+  - mode: The workflow drifts into authority recommendation, command planning, or execution
+    impact: Family boundaries blur and collaborators may mistake the protected artifact room for the place where downstream choices or actions should occur.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Limit outputs to the protected artifact, disagreement and annex ledger, readiness state, and collaboration trace.
+      - Route authority choice, schedule control, and operational action into adjacent recommendation, planning, or execution patterns.
+evaluation:
+  success_metrics:
+    - Time from severe-room activation to a human-reviewable artifact that preserves disagreement, annex boundaries, and explicit handoff ownership.
+    - Percentage of critical handoffs where downstream reviewers can identify current owners, unresolved objections, and restricted annex scope without reconstructing the room manually.
+    - Rate at which release-ready artifacts are later found to have hidden disagreement, stale evidence, or incorrect annex exposure.
+  quality_criteria:
+    - The protected artifact makes ownership, contested text, accepted edits, and annex references easy to inspect.
+    - Handoff readiness stays explicitly human-owned and bounded rather than masquerading as authority selection or command direction.
+    - The collaboration loop improves speed and coherence without flattening uncertainty, broadening disclosure, or blurring family boundaries.
+  robustness_checks:
+    - Test conflicting human instructions and verify the room preserves the conflict and held state rather than inventing consensus.
+    - Test annex-scope changes mid-cycle and confirm the workflow updates access boundaries before another readiness signal is produced.
+    - Test pressure to turn the artifact into a plan or decision memo and ensure the workflow stops at the documented collaboration boundary.
+  benchmark_notes: Evaluate collaboration quality, disagreement fidelity, and protected-handoff discipline together; a faster severe artifact cycle is not a success if it hides objection lineage or expands sensitive access unsafely.
+implementation_notes:
+  orchestration_notes:
+    - Keep evidence refresh, revision proposal, disagreement reconciliation, annex-boundary validation, and readiness-state update as explicit coordinated stages over one shared protected artifact.
+    - Preserve accepted text, contested sections, annex mappings, and release controls as structured state instead of burying them in chat history.
+  integration_notes:
+    - Common implementations connect restricted collaboration rooms to case systems, evidence repositories, annex stores, policy libraries, and audit tooling.
+    - Keep the pattern neutral about specific incident rooms, board portals, treasury books, or regulator-response platforms.
+  deployment_notes:
+    - Start where severe packets already exist but humans lose time reconciling disagreement, annex scope, and version state across multiple tools.
+    - Review held-state causes and manual bypass attempts early because they reveal where collaboration pressure is pushing toward adjacent authority, planning, or execution workflows.
+  references:
+    - docs/patterns/human-agent-collaborative-work.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: approval-centered-collaboration
+    relationship: more-severe-variant-of
+    notes: Both patterns center on human-owned collaborative artifacts, but this one adds protected-room controls, explicit annex boundaries, and critical-risk handoff discipline rather than approval-loop readiness alone.
+  - id: crisis-briefing-evidence-synthesis
+    relationship: can-consume-output-from
+    notes: A crisis brief may supply the initial grounded context, but this pattern begins once humans and agents must jointly refine one protected severe artifact with visible disagreement.
+  - id: critical-escalation-authority-recommendation
+    relationship: can-feed
+    notes: The finished protected artifact can be handed to an authority-recommendation workflow, but this collaboration pattern does not decide who should act.
+  - id: critical-command-window-resequencing
+    relationship: contrasts-with
+    notes: Both patterns can operate during severe events, but this one controls shared artifact collaboration rather than the authoritative checkpoint timeline.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: A restricted compromise-review room helps security, engineering, and legal collaborators keep one severe packet current with visible objections and executive-only annexes before any authority decision is taken.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Treasury and finance owners co-maintain one protected liquidity packet with disputed exposure language and sensitive annexes until a named human owner releases it into contingency review.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Legal and compliance reviewers work with agent support on one restricted regulator-position packet that preserves disagreement and annex scope without deciding the institution's final action.
+maturity: draft
+tags:
+  - human-agent-collaborative-work
+  - human-agent-collaboration
+  - critical-risk
+  - protected-artifact
+  - disagreement-preservation
+  - handoff-readiness
