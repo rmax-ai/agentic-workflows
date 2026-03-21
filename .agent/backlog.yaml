@@ -134,6 +134,7 @@ items:
       - "`transform-process` is now grounded across all seven currently modeled domains after adding an engineering release-candidate evidence packet to deployment-review staging record handoff."
       - "`plan-coordinate-schedule` is now also grounded in engineering through a cross-team release-readiness review scheduling scenario, so the family now spans engineering, operations, support, and HR."
       - "`plan-coordinate-schedule` is now also grounded in finance through a quarter-close control review scheduling scenario, so the family now spans engineering, finance, operations, support, and HR."
+      - "`plan-coordinate-schedule` is now also grounded in research through a benchmark-study publication-readiness review scheduling scenario, so the family now spans engineering, finance, operations, research, support, and HR."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement
@@ -148,4 +149,4 @@ items:
     notes:
       - The last empty family gap is closed at the canonical pattern layer and `transform-process` now has its first grounded example.
       - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.
-      - After adding the finance scheduling slice, the next small grounding batch should likely keep rebalancing `plan-coordinate-schedule` with one research-domain example because that family still spans engineering, finance, operations, support, and HR while research remains one of the thinnest overall domains.
+      - After adding the research scheduling slice, the next small grounding batch should likely keep rebalancing `plan-coordinate-schedule` with one compliance-domain example because that family now spans engineering, finance, operations, research, support, and HR and is one bounded step away from full cross-domain grounding.
