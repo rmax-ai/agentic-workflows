@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Iteration `20260321-134630` is now scoped: rebalance the still-thinnest `research` domain through one high-governance `evidence-gated-verification-for-release` grounding so the investigate family gains a second research slice without adding new structural inventory. The bounded artifact must stay one exact approved research packet revision moving through current evidence rechecks, explicit verified/held/insufficient verdicting, and approval-gated downstream handoff readiness rather than publication recommendation, evidence repair, or downstream adoption execution.
+
 Iteration `20260321-134042` is now complete: `shared-workbench-orchestration` gained new `hr` grounding through one internal open-enrollment FAQ caveat-board upkeep example, and the directly dependent canonical pattern metadata plus derived domain view now expose that low-risk collaboration slice without drifting past internal artifact upkeep, source refresh, ownership preservation, and explicit hold-state management.
 
 Iteration `20260321-133622` is now complete: `workflow-hand-off-and-completion` gained new `compliance` grounding through one finalized sanctions-alert false-positive disposition closure and case-ledger synchronization example, and the directly dependent canonical pattern metadata plus derived domain view now expose that low-risk execute-closure slice without drifting past authoritative post-decision closure, archive linkage, queue cleanup, and tracker propagation.
@@ -48,12 +50,12 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: rebalance the now sole-thinnest `research` domain through one similarly bounded family-safe grounding slice in an already-canonical pattern area, preferably where grounded depth still trails the thicker engineering, finance, and operations domains without requiring new vocabulary or schema work.
+- Current refinement target: rebalance the now sole-thinnest `research` domain through one bounded `evidence-gated-verification-for-release` grounding so `investigate-reconcile-verify` gains a second research slice in an already-canonical high-governance pattern area without requiring new vocabulary, schema, or pattern work.
 
 ## Ordered tasks
 
-1. Reassess the now sole-thinnest `research` domain after the HR collaboration grounding and pick one narrow already-canonical slice where research depth still trails adjacent domains without requiring new vocabulary or schema work.
-2. Prefer a family-safe grounding batch that only adds one Markdown instance plus directly dependent canonical metadata and derived view updates if the chosen research pairing is already represented canonically.
+1. Add one `research`-grounded `evidence-gated-verification-for-release` instance in a scenario where one exact approved research packet revision must be reverified against current evidence before any downstream reliance or controlled release.
+2. Update the directly dependent canonical pattern metadata and `data/views/by-domain.yaml` so the research investigate slice reflects the new grounding without widening family scope.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded pattern/view/instance batch.
 4. Refresh execution memory immediately afterward so the next depth-balancing target becomes the recorded baseline rather than an implied change.
 
@@ -67,8 +69,8 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Completed scope: added one HR-grounded `shared-workbench-orchestration` example, expanded the canonical pattern metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Current working hypothesis: execute-family completion refinement remains family-safe only when the primary output is one authoritative post-decision closure state carried through bounded queue cleanup, archive linkage, tracker synchronization, and internal notification, while recommendation, adjudication, verification gating, and live people-action execution stay explicitly outside the workflow.
 - Current working hypothesis: collaboration-family upkeep refinement remains family-safe only when the primary output is one bounded internal artifact carried through source refresh, note normalization, ownership preservation, and explicit hold-state management, while recommendation packaging, approval adjudication, planning, and live people-action execution stay explicitly outside the workflow.
-- Current scoped follow-on: move next to one similarly narrow `research` grounding slice in an already-canonical pattern area so depth-balancing continues without reopening broader structural expansion.
-- Boundary reminder: future collaboration-family upkeep work should remain tied to one bounded internal artifact moving through source refresh, note normalization, ownership preservation, and explicit hold-state management rather than recommendation packaging, approval adjudication, planning, or live people-action execution.
+- Current scoped follow-on: use `evidence-gated-verification-for-release` to add one research-grounded verification gate so depth-balancing continues in the still-thinnest domain without reopening broader structural expansion.
+- Boundary reminder: this investigate-family approval-gated slice remains valid only if the primary output is one exact approved research packet revision plus explicit verified, held, or insufficient verdicting, evidence lineage, and release-hold state rather than publication recommendation, evidence repair, or downstream adoption execution.
 
 ## Constraints
 
