@@ -12,6 +12,22 @@ Engineering.
 
 Security leadership has already declared a severe software-integrity event after evidence suggests the production artifact-signing key may have been exposed outside the approved hardware boundary. Several existing review surfaces are now competing for the same limited specialist capacity: artifact lineage inspection, package trust-impact review, release-freeze exception review, and customer-impact evidence validation. Normal review ordering keeps surfacing locally noisy build issues and lower-risk package checks while exposed-platform artifacts, high-blast-radius trust assessments, and restricted-annex evidence reviews are being pulled forward manually. The workflow must recommend a temporary emergency optimization state that protects the highest-consequence integrity review lanes, adds explicit expiry and rollback controls, and improves scarce-reviewer allocation without selecting the decision authority, sequencing the incident command timeline, revoking keys, or publishing any customer communication.
 
+```mermaid
+flowchart TD
+    A["Declared severe signing-key integrity event<br>and competing review backlogs trigger adaptation review"] --> B["Agents consolidate artifact lineage, signing telemetry,<br>package trust-impact, release-freeze exceptions,<br>and customer-impact evidence with override history"]
+    B --> C["Guardrail checks confirm protected review lanes,<br>restricted-annex handling, expiry requirements,<br>and rollback triggers remain explicit"]
+    C --> D{"Is evidence complete and does the candidate<br>stay inside emergency governance boundaries?"}
+    D -->|"Yes"| E["Build temporary severe-mode priority state that<br>reserves capacity for exposed artifacts,<br>high-blast-radius trust reviews, and protected evidence lanes"]
+    D -->|"No"| F["Hold new adaptation, keep the last trusted queue state,<br>and escalate boundary or evidence gaps<br>to platform security and release-engineering leaders"]
+    E --> G{"Do human reviewers adopt the emergency<br>optimization packet with expiry metadata?"}
+    G -->|"No"| F
+    G -->|"Yes"| H["Activate the temporary optimization state<br>with audit trace, review expiry, and rollback packet"]
+    H --> I{"Do protected items still age, overrides rise,<br>or expiry / rollback triggers fire?"}
+    I -->|"No"| J["Continue monitored severe-mode prioritization<br>until the scheduled expiry review"]
+    I -->|"Yes"| K["Rollback to the prior trusted prioritization state<br>and escalate severe-mode reassessment"]
+    K --> F
+```
+
 ## Target systems / source systems
 
 - Critical security workspace with the declared severe scope, active review backlogs, and current hold state
