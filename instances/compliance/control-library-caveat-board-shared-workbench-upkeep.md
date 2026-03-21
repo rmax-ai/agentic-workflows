@@ -12,6 +12,20 @@ Compliance.
 
 An internal compliance operations team maintains a shared control-library caveat board while policy owners, testing coordinators, and regional compliance liaisons continuously refine implementation notes tied to standard controls. Small updates arrive throughout the week: one owner links a superseding procedure reference, a testing coordinator flags a stale evidence note, a regional liaison adds one localized caveat, and another reviewer reassigns section ownership after a team change. The agent keeps that internal workbench usable by refreshing linked source references, normalizing duplicate caveat notes, preserving accepted owner assignments, and carrying unresolved applicability questions forward in an explicit hold register. Humans remain responsible for deciding what a control obligation means, whether any caveat changes compliance posture, whether an exception is acceptable, and when any material should move into separate attestation, remediation, legal review, regulator communication, or execution workflows.
 
+```mermaid
+flowchart TD
+start["Small board updates<br>arrive from collaborators"] --> scope{"Update stays inside approved<br>caveat-board upkeep boundary?"}
+scope -- "No" --> handoff["Stop and hand off to the appropriate<br>adjacent workflow"]
+scope -- "Yes" --> sync["Refresh linked control references,<br>evidence metadata, and owner context"]
+sync --> verify{"Control links, evidence dates,<br>and owner assignments revalidated?"}
+verify -- "No" --> hold["Record mismatch or applicability question<br>in the explicit hold register"]
+verify -- "Yes" --> review{"Would the change reinterpret a control,<br>clear an accepted hold, or imply advice?"}
+review -- "No" --> update["Normalize duplicate caveat notes and<br>update the shared board revision history"]
+review -- "Yes" --> human["Send the row to a human owner<br>for bounded review"]
+human -- "Approved" --> update
+human -- "Keep held" --> hold
+```
+
 ## Target systems / source systems
 
 - Shared control-library caveat board with control sections, owner fields, hold tags, and revision history
