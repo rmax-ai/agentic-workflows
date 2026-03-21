@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-The last iteration added two grounded `investigate-reconcile-verify` examples: a finance treasury cash-position discrepancy investigation and a compliance sanctions-screening gap root-cause investigation. With that family now grounded across engineering, finance, and compliance, the next modest batch should likely rebalance `gather-retrieve-synthesize`, which remains comparatively thin at the instance layer.
+This iteration should rebalance `gather-retrieve-synthesize`, which remains comparatively thin at the instance layer after recent monitoring and investigation grounding. The batch should stay small and add grounded evidence-synthesis examples in underrepresented non-research domains, with finance and operations as the preferred targets if suitable scenarios can stay clearly inside retrieval and synthesis boundaries.
 
 ## Current phase
 
@@ -15,8 +15,8 @@ The last iteration added two grounded `investigate-reconcile-verify` examples: a
 
 ## Ordered tasks
 
-1. Re-read `research-synthesis-with-citation-verification` plus the existing research gather/synthesis grounding and nearby compliance or finance instances so the next examples stay inside evidence retrieval and synthesis boundaries rather than drifting into recommendation or collaboration.
-2. Keep the next grounding batch modest: prefer one or two `gather-retrieve-synthesize` instances in underrepresented domains such as finance, compliance, or operations.
+1. Re-read `research-synthesis-with-citation-verification` plus the existing research gather/synthesis grounding and nearby finance, compliance, or operations instances so the next examples stay inside evidence retrieval and synthesis boundaries rather than drifting into recommendation, investigation, or collaboration.
+2. Keep the next grounding batch modest: prefer one or two `gather-retrieve-synthesize` instances in underrepresented domains, with finance and operations as the leading candidates for this iteration.
 3. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the required iteration log after the next grounding batch so repository memory reflects stronger gather/synthesis coverage.
 4. Continue validating repository YAML with the existing uv-managed helper before closing each iteration.
 
@@ -31,4 +31,4 @@ The last iteration added two grounded `investigate-reconcile-verify` examples: a
 
 ## Expected outcome
 
-The next iteration should deepen `gather-retrieve-synthesize` with one or two grounded, governance-aware instances in underrepresented domains while preserving the repository's pattern-first structure and modest-batch discipline.
+The next iteration should deepen `gather-retrieve-synthesize` with one or two grounded, governance-aware finance or operations instances while preserving the repository's pattern-first structure and modest-batch discipline.
