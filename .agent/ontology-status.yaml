@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 60
+  instance_files: 61
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ instance_counts_by_domain:
   operations: 9
   research: 8
   support: 9
-  hr: 7
+  hr: 8
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -144,6 +144,7 @@ repo_reality:
     - instances/hr/workplace-accommodation-exception-memo-copilot-loop.md
     - instances/hr/medical-leave-certification-packet-to-leave-case-record-handoff.md
     - instances/hr/protected-leave-case-review-queue-reprioritization.md
+    - instances/hr/protected-leave-return-to-work-status-drift-root-cause-investigation.md
     - docs/patterns/README.md
     - docs/patterns/gather-retrieve-synthesize.md
     - docs/patterns/transform-process.md
@@ -159,12 +160,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and sixty grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
-immediate_gaps:
-  - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, support, and research, leaving HR as the remaining open domain slice if further cross-domain investigation balancing is still worthwhile."
-  - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open monitoring slices only if deeper cross-domain triage coverage becomes worthwhile."
-  - "`investigate-reconcile-verify` remains the cleanest remaining domain-balancing target because it now leaves only HR open, making it a small, dependency-safe closing move before returning to monitoring coverage."
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and sixty-one grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  immediate_gaps:
+  - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, support, research, and HR after adding a protected-leave return-to-work status drift root-cause investigation example, so no family/domain gaps remain there at the current domain set."
+  - "`monitor-detect-triage` is now the thinnest domain-balancing family because it remains grounded across engineering, finance, compliance, operations, and support while research and HR are still open."
+  - "HR and research now each have eight grounded instances, leaving them one example behind engineering, finance, compliance, operations, and support."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-7-expand-investigation-into-hr
-  summary: "Use the next small grounding batch to add one grounded `incident-root-cause-analysis` example in HR so `investigate-reconcile-verify` closes its last open domain slice before Phase 7 returns to the open research and HR monitoring gaps."
+  id: phase-7-expand-monitoring-into-hr
+  summary: "Use the next small grounding batch to add one grounded `risk-alert-triage` example in HR so `monitor-detect-triage` narrows to a single remaining research gap while bringing HR coverage closer to the other mature domains."

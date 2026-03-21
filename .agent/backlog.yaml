@@ -155,5 +155,5 @@ items:
       - The last empty family gap is closed at the canonical pattern layer and `transform-process` now has its first grounded example.
       - Next refinement work should rebalance partial coverage across lightly grounded families and underrepresented architecture or risk combinations.
       - "`optimize-adapt` is now grounded across engineering, finance, compliance, operations, research, support, and HR after adding an engineering CI pipeline failure review queue reprioritization example."
-      - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, support, and research after adding a cross-lab benchmark replication discrepancy investigation example."
-      - "The next small grounding batch should likely add one HR-domain investigation example so `investigate-reconcile-verify` closes its last open domain slice before Phase 7 returns to the still-open research and HR monitoring gaps."
+      - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, support, research, and HR after adding a protected-leave return-to-work status drift root-cause investigation example."
+      - "The next small grounding batch should likely add one HR-domain monitoring example so `monitor-detect-triage` narrows to a single remaining research gap while bringing HR instance coverage closer to the other mature domains."
