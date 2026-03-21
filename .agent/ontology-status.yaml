@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 179
+  instance_files: 180
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ instance_counts_by_domain:
   operations: 29
   research: 22
   support: 24
-  hr: 21
+  hr: 22
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -287,6 +287,7 @@ repo_reality:
     - instances/hr/workplace-accommodation-exception-memo-copilot-loop.md
     - instances/hr/protected-leave-return-to-work-exception-packet-approved-for-occupational-health-review-intake.md
     - instances/hr/medical-leave-certification-packet-to-leave-case-record-handoff.md
+    - instances/hr/protected-leave-review-record-refresh-after-recertification-update.md
     - instances/hr/protected-leave-recertification-packet-approved-for-restricted-leave-review-intake.md
     - instances/hr/protected-leave-case-review-queue-reprioritization.md
     - instances/hr/protected-leave-return-to-work-status-drift-root-cause-investigation.md
@@ -314,12 +315,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred seventy-nine grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred eighty grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`approval-gated-transformation-release` now spans engineering, finance, compliance, operations, research, support, and HR through explicit grounded examples, so that approval-bound transform slice no longer has a remaining domain hole."
-    - "The support by-domain browse view is back in sync with canonical pattern truth after extending `approval-gated-transformation-release` into support."
-    - "Support now rises to twenty-four grounded instances while HR remains the thinnest modeled domain at twenty-one, with compliance and research tied at twenty-two, so refinement should keep prioritizing narrow family-safe slices instead of broader structural expansion."
-    - "The next refinement step should likely target the still-thinnest HR domain through one `change-triggered-representation-refresh` example if the transform-family boundary can stay centered on one already-issued staged packet revision plus delta lineage and supersession state."
+    - "`change-triggered-representation-refresh` now spans engineering, finance, support, and HR through explicit grounded examples, so that moderate-risk transform refresh now reaches a previously open people-operations slice while preserving a clean boundary at one already-issued staged record revision, delta lineage, and supersession state."
+    - "The HR by-domain browse view is back in sync with canonical pattern truth after extending `change-triggered-representation-refresh` into HR."
+    - "HR now rises to twenty-two grounded instances, tying compliance and research as the thinnest modeled domains while support remains at twenty-four, so refinement should keep prioritizing narrow family-safe slices instead of broader structural expansion."
+    - "The next refinement step should likely target compliance through one `change-triggered-representation-refresh` example if the transform-family boundary can stay centered on one already-issued staged packet or case-record revision plus delta lineage and supersession state."
   next_action:
-    id: phase-7-next-hr-transform-refresh-depth
-    summary: "Use the next iteration to deepen the still-thinnest HR domain with one `change-triggered-representation-refresh` example plus the directly dependent canonical and browse-view updates needed by that slice."
+    id: phase-7-next-compliance-transform-refresh-depth
+    summary: "Use the next iteration to deepen compliance with one `change-triggered-representation-refresh` example plus the directly dependent canonical and browse-view updates needed by that slice."
