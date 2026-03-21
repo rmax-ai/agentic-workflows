@@ -12,6 +12,33 @@ Compliance.
 
 A regional account team proposes a renewal for a multinational distributor that wants nonstandard pricing, extended payment terms through a reseller, and a contractual exception allowing customer data support from an additional jurisdiction. Compliance must review whether the combined commercial package should be recommended as-is, narrowed to a safer structure, or escalated because pricing concessions, contract language, and cross-border exposure interact in ways that exceed ordinary approval thresholds.
 
+```mermaid
+flowchart TD
+    start["Regional account team submits<br>cross-border exception package"]
+    gather["Collect pricing terms, reseller structure,<br>contract redlines, jurisdiction guidance,<br>and prior exception evidence"]
+    verify["Verify precedent fit, approval-matrix thresholds,<br>and whether privacy, export, sanctions,<br>and revenue-recognition checks are current"]
+    blocker{"Any non-waivable constraint or<br>material unresolved legal or compliance question?"}
+    threshold{"Is the requested package supportable<br>within ordinary approval thresholds?"}
+    narrowcheck{"Would a narrower structure keep pricing,<br>terms, and jurisdiction scope inside policy?"}
+    asis["Recommend the package as-is with<br>supporting evidence and trade-offs"]
+    narrow["Recommend a narrower structure with<br>safer pricing, terms, or jurisdiction scope"]
+    escalate["Hold the local approval path and prepare<br>an escalation packet with explicit blockers"]
+    review["Authorized reviewers inspect the packet<br>before any customer-facing approval signal"]
+
+    start -->|"Open compliance review"| gather
+    gather -->|"Build review packet"| verify
+    verify -->|"Checks complete"| blocker
+    blocker -->|"Yes"| escalate
+    blocker -->|"No"| threshold
+    threshold -->|"Yes"| asis
+    threshold -->|"No"| narrowcheck
+    narrowcheck -->|"Yes"| narrow
+    narrowcheck -->|"No"| escalate
+    asis -->|"Route for human review"| review
+    narrow -->|"Route for human review"| review
+    escalate -->|"Route for governed escalation"| review
+```
+
 ## Target systems / source systems
 
 - CRM opportunity record, quote drafts, and reseller structure details
