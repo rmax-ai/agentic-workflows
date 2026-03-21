@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 27
-  instance_files: 96
+  pattern_files: 28
+  instance_files: 99
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -50,15 +50,15 @@ pattern_counts_by_family:
   transform-process: 4
   investigate-reconcile-verify: 3
   monitor-detect-triage: 3
-  plan-coordinate-schedule: 2
+  plan-coordinate-schedule: 3
   recommend-decide-escalate: 4
   execute-automate: 3
   optimize-adapt: 2
   human-agent-collaborative-work: 3
 instance_counts_by_domain:
-  engineering: 15
-  finance: 13
-  compliance: 11
+  engineering: 16
+  finance: 14
+  compliance: 12
   operations: 13
   research: 15
   support: 16
@@ -97,6 +97,7 @@ repo_reality:
     - data/patterns/monitor-detect-triage/critical-signal-corroboration-triage.yaml
     - data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml
     - data/patterns/plan-coordinate-schedule/schedule-adjustment-and-replanning.yaml
+    - data/patterns/plan-coordinate-schedule/authoritative-change-coordination-refresh.yaml
     - data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml
     - data/patterns/recommend-decide-escalate/policy-constrained-escalation-routing.yaml
     - data/patterns/recommend-decide-escalate/readiness-gate-disposition-recommendation.yaml
@@ -129,6 +130,7 @@ repo_reality:
     - instances/engineering/production-release-regression-alert-triage.md
     - instances/engineering/release-candidate-evidence-packet-to-deployment-review-staging-record-handoff.md
     - instances/engineering/cross-team-release-readiness-review-scheduling.md
+    - instances/engineering/release-readiness-review-coordination-refresh-after-approver-window-change.md
     - instances/engineering/approved-production-change-freeze-exception-portal-submission.md
     - instances/engineering/managed-database-major-version-upgrade-exception-recommendation.md
     - instances/engineering/privileged-service-account-quarterly-control-attestation-recommendation.md
@@ -145,6 +147,7 @@ repo_reality:
     - instances/finance/debt-covenant-obligation-synthesis-for-quarter-close-review.md
     - instances/finance/quarter-close-covenant-clarification-package-copilot-loop.md
     - instances/finance/quarter-close-control-review-scheduling.md
+    - instances/finance/quarter-close-control-review-coordination-refresh-after-consolidation-shift.md
     - instances/finance/quarter-close-exception-review-queue-reprioritization.md
     - instances/finance/material-vendor-payment-control-exception-package-readiness-loop.md
     - instances/finance/procurement-card-segregation-of-duties-attestation-recommendation.md
@@ -170,6 +173,7 @@ repo_reality:
     - instances/compliance/regulatory-consumer-complaint-response-queue-reprioritization.md
     - instances/compliance/sanctions-screening-gap-root-cause-investigation.md
     - instances/compliance/control-remediation-sign-off-review-scheduling.md
+    - instances/compliance/control-remediation-sign-off-review-coordination-refresh-after-validation-slip.md
     - instances/compliance/regulator-reporting-timeline-exception-package-readiness-loop.md
     - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
     - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
@@ -213,12 +217,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty-seven canonical patterns across all nine top-level families, and ninety-six grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty-eight canonical patterns across all nine top-level families, and ninety-nine grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`change-triggered-representation-refresh` now gives `transform-process` a fourth canonical pattern plus representative `event-driven-monitoring` and `exception-gated-autonomy` coverage while staying bounded at refreshed staged representations rather than recommendation, adjudication, or execution."
-    - "`transform-process` now spans `tool-using-single-agent`, `orchestrated-multi-agent`, `human-in-the-loop`, and `event-driven-monitoring` architectures across low-, moderate-, and high-risk slices, leaving only approval-gated-execution uncovered in that family's architecture row."
-    - "The derived domain, architecture, autonomy, and risk browse views are now realigned to canonical transform metadata, including the new trigger-driven refresh anchor, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
-    - "All nine top-level families still have at least two canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps are now narrower non-transform family slices such as event-driven `plan-coordinate-schedule` rather than missing global scaffolding."
-next_action:
-  id: phase-7-event-driven-plan-refinement
-  summary: "Use the next iteration to evaluate whether `plan-coordinate-schedule` should gain one trigger-driven coordination or replanning pattern that reacts to authoritative changes while staying bounded at schedule package refresh and adoption handoff rather than recommendation or execution."
+    - "`authoritative-change-coordination-refresh` now gives `plan-coordinate-schedule` a third canonical pattern plus representative `event-driven-monitoring`, `exception-gated-autonomy`, and `high` risk coverage while staying bounded at refreshed coordination state, participant delta handling, and human adoption checkpoints rather than broad replanning, recommendation, or execution."
+    - "`plan-coordinate-schedule` now spans `tool-using-single-agent`, `orchestrated-multi-agent`, `human-in-the-loop`, and `event-driven-monitoring` architectures across low-, moderate-, and high-risk slices, leaving only approval-gated-execution uncovered in that family's architecture row and only critical risk uncovered in that family's risk row."
+    - "The derived index tree and alternate browse views are now realigned to canonical pattern inventory, including the newly added planning refresh anchor and the previously omitted `change-triggered-representation-refresh`, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
+    - "All nine top-level families still have at least two canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps are now narrower family-specific slices such as `optimize-adapt`'s missing `orchestrated-multi-agent` coverage rather than missing global scaffolding."
+  next_action:
+    id: phase-7-orchestrated-optimize-refinement
+    summary: "Use the next iteration to evaluate whether `optimize-adapt` should gain one orchestrated, governance-aware optimization refinement pattern that coordinates multi-signal tuning state without drifting into recommendation adjudication or execution."
