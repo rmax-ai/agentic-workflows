@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-024600` is complete: it added a single engineering-domain grounding batch for `monitor-detect-triage` via `production-release-regression-alert-triage`. The next modest batch should deepen another thin family/domain slice without widening back into schema, vocabulary, or pattern-authoring work. Operations is now the cleanest adjacent target for `investigate-reconcile-verify`, because the domain already has monitoring, scheduling, recommendation, execution, optimization, transformation, and synthesis grounding but still lacks a direct investigation anchor.
+Iteration `20260321-025122` is now scoped as a single-instance operations grounding batch for `investigate-reconcile-verify`. The goal is to add one operations-domain example linked to `incident-root-cause-analysis`, because operations already has monitoring, scheduling, recommendation, execution, optimization, transformation, and synthesis grounding but still lacks a direct investigation anchor. Keep the work tightly bounded to evidence reconciliation, competing hypotheses, and human-gated remediation or escalation decisions.
 
 ## Current phase
 
@@ -15,18 +15,18 @@ Iteration `20260321-024600` is complete: it added a single engineering-domain gr
 
 ## Ordered tasks
 
-1. Re-read `incident-root-cause-analysis`, the current investigation-oriented instances, and the existing operations-domain artifacts so the next grounding batch stays inside the investigation family boundary.
+1. Re-read `incident-root-cause-analysis`, the current investigation-oriented instances, and the existing operations-domain artifacts so the new grounding stays inside the investigation family boundary.
 2. Author exactly one operations-domain instance linked to `incident-root-cause-analysis`, framed as governed discrepancy or failure investigation rather than triage, execution, optimization, synthesis, or collaboration.
-3. Prefer an operations scenario where evidence reconciliation, competing hypotheses, and escalation thresholds are explicit, with human control over remediation, customer, or incident-command commitments.
-4. Keep the next batch limited to this single investigation example so coverage improves without widening the scope into multiple families.
-5. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next dated iteration log after that grounding batch so execution memory stays current.
+3. Prefer an operations scenario where evidence reconciliation, competing hypotheses, and escalation thresholds are explicit, with human control over remediation, customer, safety, or incident-command commitments.
+4. Keep the batch limited to this single investigation example so coverage improves without widening the scope into multiple families.
+5. After the subagent commit, update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and `.agent/iterations/2026/20260321-025122.md` so execution memory reflects the new grounding and the next gap.
 6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-024600`
-- Completed subagent scope: authored `instances/engineering/production-release-regression-alert-triage.md` as one engineering-domain `risk-alert-triage` grounding change and committed it separately.
-- Completed orchestrator follow-up: refreshed `.agent/` memory, wrote the dated iteration log, and re-ran YAML validation before the closing memory commit.
+- Timestamp: `20260321-025122`
+- Planned subagent scope: author one operations-domain `incident-root-cause-analysis` grounding file and commit it separately.
+- Planned orchestrator follow-up: refresh `.agent/` memory, write the dated iteration log, and re-run YAML validation before the closing memory commit.
 
 ## Constraints
 
@@ -39,4 +39,4 @@ Iteration `20260321-024600` is complete: it added a single engineering-domain gr
 
 ## Expected outcome
 
-The next iteration should add one operations-domain investigation example, improve `investigate-reconcile-verify` coverage, and leave the repository ready for another small grounding batch after the `.agent/` memory refresh.
+This iteration should add one operations-domain investigation example, improve `investigate-reconcile-verify` coverage, and leave the repository ready for another small grounding batch after the `.agent/` memory refresh.
