@@ -115,6 +115,7 @@ items:
       - "`optimize-adapt` now has a governed compliance grounding example through a regulatory consumer-complaint response queue reprioritization scenario, so the family is covered across support, operations, and compliance."
       - "`recommend-decide-escalate` now has a second grounded finance example and `execute-automate` now has a second grounded compliance example, but both families still have many partial domain slices."
       - "`recommend-decide-escalate` is now grounded across finance, compliance, and operations after adding a multi-site service-package feasibility recommendation example."
+      - "`recommend-decide-escalate` is now also grounded in support through a severity-one service-credit and recovery-package recommendation scenario, so the family now spans finance, compliance, operations, and support."
       - "`human-agent-collaborative-work` now has grounded support, research, and compliance examples after adding a regulator-response copilot loop for sanctions-alert closure review."
       - "`monitor-detect-triage` is now grounded in finance, compliance, and operations after adding pharmacovigilance safety-signal and cold-chain excursion triage examples."
       - "`investigate-reconcile-verify` is now grounded in engineering, finance, and compliance after adding treasury cash-position discrepancy and sanctions-screening-gap root-cause investigation examples."
@@ -124,7 +125,7 @@ items:
       - "`monitor-detect-triage` is now also grounded in engineering through a production release regression alert triage scenario, extending the family into a domain that already had adjacent investigation, synthesis, and collaboration coverage."
       - "`investigate-reconcile-verify` is now grounded in operations through a distribution-sorter misroute root-cause investigation scenario, so the family now spans engineering, finance, compliance, and operations."
       - "`investigate-reconcile-verify` is now also grounded in support through an enterprise admin entitlement drift root-cause investigation scenario, so the family now spans engineering, finance, compliance, operations, and support."
-      - "The next small grounding batch should likely rebalance another thin family/domain slice, with support recommendation coverage now a plausible adjacent target because the domain has strong grounding across most families but still lacks an explicit governed recommendation artifact."
+      - "The next small grounding batch should likely rebalance another thin family/domain slice, with HR recommendation coverage now a plausible adjacent target because HR has synthesis, scheduling, and execution grounding but still lacks an explicit governed recommendation artifact."
       - Continue Phase 6 in small batches that improve grounding coverage without turning instances into generic domain overviews.
 
   - id: phase-7-coverage-refinement
