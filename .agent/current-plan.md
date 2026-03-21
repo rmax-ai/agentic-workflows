@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-113520` is now complete: `gather-retrieve-synthesize` gained the new `approval-gated-briefing-release` slice plus linked engineering, operations, and finance examples. The exploratory comparison with `recommend-decide-escalate` held up in implementation: gating one exact synthesized briefing revision proved family-safe because the workflow begins after synthesis and ends at bounded visibility release rather than recommendation or action.
+Iteration `20260321-114951` is now in progress. The next bounded refinement target is `recommend-decide-escalate`: add an approval-gated release pattern only if the workflow can stay centered on one exact recommendation packet revision and one bounded decision lane, with the downstream choice remaining explicitly human-owned.
 
 ## Current phase
 
@@ -14,13 +14,13 @@ Iteration `20260321-113520` is now complete: `gather-retrieve-synthesize` gained
 - Phase 7: coverage refinement remains active, all nine top-level families span the full tracked `low` / `moderate` / `high` / `critical` risk ladder, and `gather-retrieve-synthesize`, `transform-process`, `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, `optimize-adapt`, and `human-agent-collaborative-work` now span all tracked architecture types. The only remaining empty `approval-gated-execution` cell is `recommend-decide-escalate`.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: inspect whether `recommend-decide-escalate` truly admits a family-safe approval-gated slice or whether the remaining empty cell should stay intentionally open until a cleaner structural need appears.
+- Current refinement target: fill the remaining `recommend-decide-escalate` `approval-gated-execution` gap with a release-bound recommendation pattern that governs one exact recommendation packet revision and one bounded decision lane without adjudicating the decision itself.
 
 ## Ordered tasks
 
-1. Review whether `recommend-decide-escalate` can support an approval-gated pattern without blurring into collaborative adjudication, authority choice, or downstream execution.
-2. If that gap is not clean, pivot to another narrow refinement target rather than forcing full matrix closure for its own sake.
-3. Keep future batches at the same scale as this one: one canonical pattern at most, a few grounded instances, and only directly dependent view and `.agent/` updates.
+1. Add one approval-gated `recommend-decide-escalate` pattern that releases a single recommendation packet revision into one bounded human decision lane without adjudicating the decision or triggering execution.
+2. Ground that pattern with a few approval-bound instances in domains that already use recommend-family decision packets so the new architecture slice is linked concretely.
+3. Refresh only directly dependent family docs, derived views, and `.agent/` memory after the batch.
 4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each bounded batch.
 
 ## Iteration checkpoint
@@ -28,7 +28,7 @@ Iteration `20260321-113520` is now complete: `gather-retrieve-synthesize` gained
 - Timestamp: `20260321-113520`
 - Previous completed scope: added `approval-gated-optimization-state-release` under `optimize-adapt`, linked engineering, finance, and operations approval-bound optimization-revision release instances, updated the optimize/adapt family doc, and refreshed the derived index, domain, architecture, autonomy, and risk views.
 - Completed scope: added `approval-gated-briefing-release`, linked engineering, operations, and finance approval-bound briefing-release instances, updated the gather/retrieve/synthesize family doc, refreshed the derived index, domain, architecture, autonomy, and risk views, and confirmed YAML validation still passes.
-- Current working hypothesis: the final open `approval-gated-execution` gap in `recommend-decide-escalate` should be filled only if a recommendation-release artifact can be kept as crisp as the new gather-family briefing-release boundary.
+- Current working hypothesis: a recommend-family approval-gated slice is valid when approval governs one exact recommendation packet revision, one bounded decision lane, and one explicit handoff boundary rather than approval of the decision itself.
 - Boundary reminder: future approval-gated work should remain tied to one exact artifact revision and one bounded handoff lane rather than broad permission to keep recommending, coordinating, or executing.
 
 ## Constraints
@@ -49,4 +49,4 @@ Iteration `20260321-113520` is now complete: `gather-retrieve-synthesize` gained
 
 ## Expected outcome
 
-The next iteration should either close the remaining `recommend-decide-escalate` architecture gap with an equally crisp bounded artifact or consciously leave that cell open and pursue the next cleanest refinement target without forcing a blurry pattern.
+This iteration should close the remaining `recommend-decide-escalate` architecture gap with a crisp approval-bound recommendation-packet release artifact, then refresh derived views and execution memory to reflect the fully covered architecture matrix.
