@@ -4,6 +4,8 @@
 
 Next iteration focus: resume the tied-domain (`research` and `hr`) grounding refinement track with one equally bounded already-canonical slice, unless later publication, deployment, or Mermaid-illustration prompt work uncovers a bounded documentation-generation gap that needs follow-up.
 
+Iteration `20260321-173800` is now complete: a bounded Mermaid pilot batch added one validated workflow diagram each to five eligible instance files in `compliance`, `engineering`, `hr`, `support`, and `research`, and the derived MkDocs publication build was regenerated successfully afterward.
+
 Iteration `20260321-170522` is now complete: the repository gained `.agent/prompts/mermaid-illustration-orchestrator-prompt.txt`, a dedicated orchestrator prompt for adding one validated Mermaid workflow diagram to eligible `docs/patterns/*.md` and `instances/**/*.md` files while skipping files that already contain Mermaid and enforcing label-formatting and boundary rules.
 
 Iteration `20260321-164514` is now complete: the repository gained a GitHub Pages deployment workflow at `.github/workflows/publish-site.yml`, plus README and `.agent/` updates that keep deployment tied to the existing derived MkDocs build path rather than a separate publishing flow.
@@ -93,6 +95,10 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Iteration checkpoint
 
+- Timestamp: `20260321-173800`
+- Completed scope: added one Mermaid workflow diagram each to five eligible instance files: `instances/compliance/control-remediation-sign-off-review-scheduling.md`, `instances/engineering/approved-release-readiness-review-closure-and-tracker-completion.md`, `instances/hr/internal-parental-leave-guidance-publication-verification.md`, `instances/support/enterprise-admin-entitlement-resynchronization-runbook-execution.md`, and `instances/research/benchmark-study-publication-timeline-replanning-after-evidence-analysis-or-clearance-delay.md`.
+- Current working hypothesis: Mermaid remains useful as a bounded explanatory layer for grounded scenarios when each file gets exactly one small workflow diagram placed near the opening orientation material, the diagram stops at the file's stated handoff boundary, and ambiguous or out-of-policy branches remain explicit rather than implied away.
+- Current scoped follow-on: if another Mermaid batch is requested, keep it similarly modest and continue validating both Mermaid rendering and the derived MkDocs build after every batch.
 - Timestamp: `20260321-170522`
 - Completed scope: added `.agent/prompts/mermaid-illustration-orchestrator-prompt.txt` so future runs can orchestrate one-subagent-per-file Mermaid diagram authoring across eligible pattern and instance Markdown files, with explicit skip rules for files that already contain Mermaid plus validation and formatting guidance.
 - Current working hypothesis: Mermaid diagrams remain useful only if they stay explanatory, validated, and bounded to the workflow semantics already present in each file rather than becoming a second source of invented process detail.

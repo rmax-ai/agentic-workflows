@@ -12,6 +12,19 @@ Engineering.
 
 A platform release review records that a service version is accepted and ready for scheduler handoff after change evidence, rollback notes, and dependency sign-offs have all been approved in the release-governance system. No deployment should occur yet. The downstream workflow is limited to low-risk completion work: detect the accepted-state event, verify that the release identifier and review version still match the source record, close the readiness checklist, sync the release tracker to the approved state, attach links to the archived evidence bundle, clear the review queue entry, and notify the release coordinator that the package is ready for the next scheduled step. If the milestone mapping, evidence bundle, or review version is inconsistent, the workflow should stop and route the case to manual follow-up rather than guessing.
 
+```mermaid
+flowchart TD
+	A["Accepted readiness<br>event detected"] -->|"revalidate"| B{"Source record still shows<br>accepted readiness state?"}
+	B -->|"no"| H["Create manual follow-up packet<br>and halt"]
+	B -->|"yes"| C{"Release id, review version,<br>milestone mapping, and evidence bundle align?"}
+	C -->|"no"| H
+	C -->|"yes"| D["Close readiness checklist"]
+	D -->|"sync"| E["Update release tracker<br>to approved state"]
+	E -->|"attach"| F["Attach archived evidence<br>bundle links"]
+	F -->|"clear"| G["Clear review queue entry"]
+	G -->|"notify"| I["Notify release coordinator<br>that package is ready<br>for the next scheduled step"]
+```
+
 ## Target systems / source systems
 
 - Release-governance or change-review system that records the accepted readiness decision

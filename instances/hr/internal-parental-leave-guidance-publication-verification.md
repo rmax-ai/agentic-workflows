@@ -12,6 +12,24 @@ HR.
 
 A people policy team marks an updated internal parental leave guidance page as published after the handbook content repository, employee intranet handbook service, and internal search-index job report success. HR business partners still need to know whether that claimed publication state is actually true across the approved internal handbook surfaces before they rely on the guidance link for routine employee-support coordination. The workflow verifies the claim against authoritative evidence and emits a bounded confirmed, disproved, or inconclusive verdict; it must not send employee communications, adjudicate leave eligibility, alter handbook records, or trigger downstream rollout work.
 
+```mermaid
+flowchart TD
+	claim["Publication-complete claim<br>recorded"] -->|"Start verification"| repo["Check approved handbook repository<br>revision and effective date"]
+	claim -->|"Check live handbook state"| surfaces["Check intranet, mirror, and<br>search-index publication state"]
+	claim -->|"Check claim lineage"| tracker["Check tracker event and<br>prior verification history"]
+	repo -->|"Repository evidence"| compare["Compare claimed publication state<br>against authoritative evidence"]
+	surfaces -->|"Surface evidence"| compare
+	tracker -->|"Claim context"| compare
+	compare -->|"Evaluate match and lag"| verdict{"Do approved handbook surfaces<br>support the claim?"}
+	verdict -->|"Yes"| confirmed["Emit confirmed verdict<br>with audit trace"]
+	verdict -->|"No"| lag{"Is any stale surface still<br>inside the allowed lag window?"}
+	lag -->|"Yes"| inconclusive["Emit inconclusive verdict<br>and bounded follow-up record"]
+	lag -->|"No"| disproved["Emit disproved verdict<br>and bounded follow-up record"]
+	confirmed -->|"Stop after recording"| stop["Verification boundary only<br>no republish or communication"]
+	inconclusive -->|"Stop after recording"| stop
+	disproved -->|"Stop after recording"| stop
+```
+
 ## Target systems / source systems
 
 - Internal handbook content repository containing the approved parental leave guidance revision, publication status, and effective-date metadata

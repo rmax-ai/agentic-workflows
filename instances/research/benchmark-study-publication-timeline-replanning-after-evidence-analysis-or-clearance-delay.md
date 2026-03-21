@@ -12,6 +12,29 @@ Research.
 
 An applied research program already has an internal benchmark-study publication timeline that sequences final evidence analysis, reproducibility review, data-governance clearance, publication-readiness review, abstract lock, and the external submission deadline. Then the baseline plan stops being feasible: a late evidence-analysis rerun delays one benchmark claim package, or data-governance clearance for a training-data subset takes longer than expected, compressing the original publication-review window and threatening the abstract submission path. The workflow should recompute a revised timeline, document which milestones can move or must stay fixed, and prepare a coordination-ready replanning packet for the study lead, governance coordinator, reproducibility reviewer, and communications partner rather than deciding whether review steps may be skipped, adjudicating publication integrity, or submitting anything externally.
 
+```mermaid
+flowchart TD
+	A["Delay detected<br>in evidence analysis<br>or clearance"]
+	B["Collect updated milestone,<br>reviewer, and clearance status"]
+	C["Recompute feasible<br>publication timeline options"]
+	D{"Any in-policy timeline preserves<br>required review steps and<br>the fixed deadline?"}
+	E["Build revised<br>publication timeline"]
+	F["Record moved milestones,<br>fixed checkpoints, and<br>residual risks"]
+	G["Assemble coordination-ready<br>replanning packet"]
+	H["Study lead, governance coordinator,<br>and reviewers review<br>the revised plan"]
+	I["Prepare exception-focused<br>replanning packet with blockers<br>and unmet constraints"]
+
+	A -->|"Refresh dependency state"| B
+	B -->|"Test hard constraints"| C
+	C -->|"Check policy-safe path"| D
+	D -->|"Yes"| E
+	E -->|"Document impacts"| F
+	F -->|"Prepare handoff"| G
+	G -->|"Route for adoption"| H
+	D -->|"No"| I
+	I -->|"Escalate for human decision"| H
+```
+
 ## Target systems / source systems
 
 - Publication-governance tracker with the approved baseline study timeline, embargo window, abstract deadline, required review checkpoints, and prior schedule versions

@@ -12,6 +12,19 @@ Compliance.
 
 A compliance program coordinator needs to schedule a control-remediation sign-off review before a regulator-committed remediation milestone closes for a high-priority sanctions-screening control gap. The meeting must include the compliance controls director, the remediation workstream owner, the model governance lead, the internal audit liaison, and the accountable technology risk manager because the review sits between evidence-pack completion and formal attestation submission to the remediation steering committee. The workflow is about constructing a viable slot inside the committed review window, placing reversible holds across New York, Toronto, and London calendars, and escalating quickly when no in-policy overlap exists rather than guessing at delegates, relaxing the remediation deadline, or making the final meeting commitment without human confirmation.
 
+```mermaid
+flowchart TD
+	start["Review request after<br>validation artifacts complete"] --> gather["Check milestone cutoff,<br>required roles, and calendar rules"]
+	gather --> search["Search New York, Toronto,<br>and London availability"]
+	search --> overlap{"In-policy overlap<br>before cutoff?"}
+	overlap -->|"Yes"| hold["Place reversible holds<br>and draft role-based invite"]
+	overlap -->|"No"| escalate["Escalate calendar conflict<br>for human resolution"]
+	hold --> confirm{"Compliance controls director<br>confirms slot?"}
+	confirm -->|"Yes"| finalize["Send final sign-off review invite<br>and record confirmation status"]
+	confirm -->|"No"| revise["Release holds or revise<br>candidate slots"]
+	revise --> search
+```
+
 ## Target systems / source systems
 
 - Remediation tracker with the committed milestone date, required sign-off roles, severity tier, and steering-committee submission cutoff
