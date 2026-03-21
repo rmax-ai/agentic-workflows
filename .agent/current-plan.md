@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-041537` is complete: it added one research-domain `recommend-decide-escalate` instance linked to `deal-desk-recommendation-support` via `benchmark-study-publication-go-no-go-recommendation`, closing the last open domain slice in that family and moving the repository into Phase 7 coverage refinement.
+Iteration `20260321-041918` is now in progress. It will add one research-domain `optimize-adapt` instance linked to `queue-prioritization-optimization` so Phase 7 starts by strengthening the thinnest family-level grounding area without widening scope into new canonical patterns, vocabularies, or schema work.
 
 ## Current phase
 
@@ -16,18 +16,18 @@ Iteration `20260321-041537` is complete: it added one research-domain `recommend
 
 ## Ordered tasks
 
-1. Re-read `queue-prioritization-optimization`, the existing `optimize-adapt` instances, and adjacent uncovered-domain examples before authoring the next refinement batch.
-2. Author one narrowly scoped `optimize-adapt` instance in an uncovered domain, preferably research, so Phase 7 starts by strengthening the currently thinnest family.
-3. Keep the next scenario anchored on adaptive prioritization under explicit service, fairness, and rollback guardrails rather than drifting into triage, planning, or execution automation.
-4. Preserve the pattern-first rule by grounding only against existing canonical patterns unless a genuine dependency issue appears.
-5. After the next instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next dated iteration log so execution memory continues to match repository reality.
-6. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
+1. Re-read `queue-prioritization-optimization`, the existing `optimize-adapt` instances, and nearby research examples before authoring the next refinement batch.
+2. Author one narrowly scoped `optimize-adapt` instance in research so the family no longer depends only on support, operations, and compliance grounding.
+3. Keep the scenario centered on feedback-driven queue reprioritization under explicit fairness, embargo, review-capacity, and rollback guardrails rather than drifting into recommendation, scheduling, or collaboration work.
+4. Preserve the pattern-first rule by grounding only against `queue-prioritization-optimization` unless a genuine dependency issue appears.
+5. After the instance commit, refresh `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and `.agent/iterations/2026/20260321-041918.md` so execution memory matches repository reality.
+6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-041537`
-- Completed subagent scope: authored `instances/research/benchmark-study-publication-go-no-go-recommendation.md` as one research-domain `recommend-decide-escalate` grounding change and committed it separately.
-- Completed orchestrator follow-up: refresh execution memory so the new research recommendation coverage is reflected in status, coverage tracking, the repository map, and the dated iteration log.
+- Timestamp: `20260321-041918`
+- Planned subagent scope: author one research-domain `optimize-adapt` grounding file tied to `queue-prioritization-optimization` and commit it separately.
+- Planned orchestrator follow-up: refresh execution memory so the new optimization coverage is reflected in status, coverage tracking, the repository map, and the dated iteration log.
 
 ## Constraints
 
@@ -40,4 +40,4 @@ Iteration `20260321-041537` is complete: it added one research-domain `recommend
 
 ## Expected outcome
 
-The next iteration should start Phase 7 by adding one `optimize-adapt` grounding in an uncovered domain, improve a visibly thin family without widening scope, and leave the repository more balanced after another modest `.agent/` memory refresh.
+This iteration should add one research `optimize-adapt` grounding, improve the most visibly thin family without widening scope, and leave the repository more balanced after another modest `.agent/` memory refresh.
