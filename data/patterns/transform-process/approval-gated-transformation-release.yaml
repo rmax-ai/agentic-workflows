@@ -22,6 +22,9 @@ domain:
   - id: operations
     label: Operations
     source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
   - id: hr
     label: HR
     source_vocabulary: domains
@@ -283,6 +286,11 @@ example_domains:
       label: Operations
       source_vocabulary: domains
     example: Convert validated routing and fallback state into a shift-release package that can be approved for cutover handoff while keeping live activation out of scope.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Transform benchmark-claim evidence, rerun lineage, and disclosure holds into a restricted publication-integrity intake packet whose manifest authorizes one bounded review lane without recommending publication or submitting the study.
   - domain:
       id: hr
       label: HR
