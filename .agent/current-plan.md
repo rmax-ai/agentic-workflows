@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Next iteration focus: continue the tied-domain refinement track with one instance-only `hr` slice under an already-mapped pattern/domain pair so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears.
+Next iteration focus: continue the tied-domain refinement track with one instance-only `hr` slice under the already-mapped `workflow-hand-off-and-completion` pattern so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears.
 
 Iteration `20260321-181842` is now complete: `workflow-hand-off-and-completion` gained a second `research` grounding example through one approved human-subjects continuing-review closure and protocol-registry synchronization scenario, and the bounded instance-only batch validated cleanly through YAML validation plus the derived MkDocs publication build.
 
@@ -88,7 +88,7 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Ordered tasks
 
-1. Reassess `instances/hr/*.md` plus the already-mapped HR patterns in `data/views/by-domain.yaml` and choose one equally bounded instance-only refinement slice that deepens an existing HR pattern/domain pair.
+1. Reassess `instances/hr/*.md` plus the already-mapped HR patterns in `data/views/by-domain.yaml` and deepen `workflow-hand-off-and-completion` with one equally bounded HR instance-only slice.
 2. Prefer another instance-only refinement batch, and avoid canonical pattern or derived-view edits unless the next grounding exposes genuine drift from repository truth.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the next bounded content batch, then refresh execution memory on top of the verified canonical baseline.
 4. Re-run `uv run python scripts/python/build_site_docs.py` and `uv run mkdocs build` whenever publication-facing docs, patterns, views, vocabularies, instances, or schema change.
@@ -100,7 +100,7 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Timestamp: `20260321-181842`
 - Completed scope: added `instances/research/approved-human-subjects-continuing-review-closure-and-protocol-registry-synchronization.md` as a second research grounding for `workflow-hand-off-and-completion`, keeping the batch instance-only and bounded at authoritative post-decision closure, queue cleanup, registry synchronization, archive linkage, audit recording, and coordinator notification.
 - Current working hypothesis: low-risk execute-family closure patterns deepen cleanly when the scenario stays explicitly downstream of an already-final decision and the grounded systems differ enough from earlier examples to add domain texture without changing canonical pattern metadata.
-- Current scoped follow-on: pick one equally bounded HR refinement slice next so the thinnest-domain balancing track continues without reopening structural ontology work.
+- Current scoped follow-on: add one equally bounded HR `workflow-hand-off-and-completion` grounding next so the thinnest-domain balancing track continues without reopening structural ontology work.
 - Timestamp: `20260321-173800`
 - Completed scope: added one Mermaid workflow diagram each to five eligible instance files: `instances/compliance/control-remediation-sign-off-review-scheduling.md`, `instances/engineering/approved-release-readiness-review-closure-and-tracker-completion.md`, `instances/hr/internal-parental-leave-guidance-publication-verification.md`, `instances/support/enterprise-admin-entitlement-resynchronization-runbook-execution.md`, and `instances/research/benchmark-study-publication-timeline-replanning-after-evidence-analysis-or-clearance-delay.md`.
 - Current working hypothesis: Mermaid remains useful as a bounded explanatory layer for grounded scenarios when each file gets exactly one small workflow diagram placed near the opening orientation material, the diagram stops at the file's stated handoff boundary, and ambiguous or out-of-policy branches remain explicit rather than implied away.
