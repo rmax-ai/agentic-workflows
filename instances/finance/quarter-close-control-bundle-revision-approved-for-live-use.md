@@ -12,6 +12,20 @@ Finance.
 
 A controllership optimization steward has prepared one exact quarter-close control-bundle revision covering exception-materiality weighting, entity-aging buffers, and reviewer-balance parameters used across the close-review surfaces. Simulation against the prior two closes suggests the revision reduces controller overrides and protects covenant-sensitive entities more consistently, but the bundle should not become live until a controller approves the exact revision id, bounded cycle scope, expiry at close completion, and rollback packet. The workflow therefore centers on governed release of one exact optimization-state revision into live close use, without deciding accounting treatment, rescheduling the close calendar, or executing journal postings.
 
+```mermaid
+flowchart TD
+    A["Candidate quarter-close control-bundle revision<br>is prepared for the current cycle"] --> B["Verify exact revision id,<br>simulation evidence, bounded scope,<br>expiry, and rollback packet"]
+    B --> C{"Verification and policy<br>checks pass?"}
+    C -- "No" --> H["Hold revision attempt<br>until evidence, scope, or rollback readiness is corrected"]
+    C -- "Yes" --> D["Controller reviews the release manifest<br>for the exact revision and close cycle"]
+    D --> E{"Controller approves the exact revision<br>for bounded live use?"}
+    E -- "No" --> H
+    E -- "Yes" --> F["Activate the approved bundle revision<br>in live close-review surfaces"]
+    F --> G{"Do override, protected-entity aging,<br>and fairness guardrails remain acceptable?"}
+    G -- "No" --> I["Rollback to the prior trusted bundle<br>and record the rollback action"]
+    G -- "Yes" --> J["Expire the revision at close completion<br>and restore the prior trusted bundle"]
+```
+
 ## Target systems / source systems
 
 - Shared close-control parameter registry with active and candidate bundle versions plus supersession lineage
