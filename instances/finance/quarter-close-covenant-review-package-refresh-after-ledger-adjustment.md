@@ -12,6 +12,17 @@ Finance.
 
 During quarter close, treasury and controllership teams maintain a structured covenant review package that downstream reviewers use to assess leverage, liquidity, and reporting completeness before any lender communication or board material is prepared. The first staged package may be built days before the books stabilize, and then authoritative source state changes continue to arrive through approved journal adjustments, intercompany true-ups, late debt schedule corrections, and updated cash restriction notes. Each such change should trigger refresh of the staged covenant package so ratio fields, supporting metadata, and exception flags remain current, while the workflow preserves a delta-and-lineage trace and routes conflicts whenever the revised balances cannot be tied cleanly to the approved source hierarchy.
 
+```mermaid
+flowchart TD
+    A["Approved ledger adjustment,<br>debt schedule correction, or cash-note update<br>arrives during quarter close"] --> B["Load current approved source bundle,<br>prior staged covenant package,<br>and refresh policy tables"]
+    B --> C{"Approved close-cycle trigger,<br>lineage, and entity-mapping<br>checks pass?"}
+    C -->|"No"| D["Hold staged package refresh<br>and route exception for treasury,<br>controllership, or accounting-policy follow-up"]
+    C -->|"Yes"| E["Recompute covenant ratios,<br>supporting metadata, and prior-versus-current<br>delta trace from approved source state"]
+    E --> F{"Revised balances tie cleanly<br>to the approved source hierarchy,<br>schema stays compatible, and refresh stays<br>bounded to staging only?"}
+    F -->|"No"| D
+    F -->|"Yes"| G["Publish one refreshed covenant<br>review package with updated lineage,<br>exception flags, and carried-forward values"]
+```
+
 ## Target systems / source systems
 
 - Quarter-close covenant review staging store used by treasury and controller reviewers
