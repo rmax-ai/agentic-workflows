@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Next iteration focus: continue the thinnest-domain refinement track with one instance-only slice in the now-clearest remaining thin domain under an already-mapped pattern/domain pair so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears. Iteration `20260321-191420` is now complete: `shared-workbench-orchestration` gained a second `research` grounding through one internal study-dataset data-use restriction board upkeep scenario, so the next batch should favor `hr`, which is now the sole thinnest modeled domain.
+Next iteration focus: continue the thinnest-domain refinement track with one instance-only slice in the now-clearest remaining thin domain under an already-mapped pattern/domain pair so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears. Iteration `20260321-192124` is now targeting `shared-workbench-orchestration` in `hr`, adding one second HR grounding for that already-mapped low-risk collaboration slice so domain depth improves without widening structural inventory.
 
 Iteration `20260321-191420` is now complete: `shared-workbench-orchestration` gained a second `research` grounding example through one internal study-dataset data-use restriction board upkeep scenario, and the bounded instance-only batch validated cleanly through YAML validation plus the derived MkDocs publication build.
 
@@ -92,14 +92,14 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path, and the repository now also supports derived static-site publication through `uv run python scripts/python/build_site_docs.py`, `uv run mkdocs serve`, `uv run mkdocs build`, and GitHub Pages deployment through `.github/workflows/publish-site.yml`.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: `hr` is now the thinnest modeled domain at twenty-seven grounded examples, while `research`, `compliance`, and `support` each sit at twenty-eight. The next iteration should pick one equally bounded already-canonical slice in `hr` without expanding structural inventory or derived views.
+- Current refinement target: `hr` is now the thinnest modeled domain at twenty-seven grounded examples, while `research`, `compliance`, and `support` each sit at twenty-eight. Iteration `20260321-192124` should deepen `shared-workbench-orchestration` with one second HR grounding example, keeping the batch instance-only unless genuine pattern/domain drift appears.
 
 ## Ordered tasks
 
-1. Reassess the remaining thinnest domain through `instances/hr/*.md` plus the already-mapped HR pattern/domain pairs in `data/views/by-domain.yaml`, then choose one equally bounded instance-only refinement slice. Favor a cleanly bounded already-canonical pairing in HR before revisiting broader structural work.
-2. Prefer another instance-only refinement batch, and avoid canonical pattern or derived-view edits unless the next grounding exposes genuine drift from repository truth.
-3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the next bounded content batch, then refresh execution memory on top of the verified canonical baseline.
-4. Re-run `uv run python scripts/python/build_site_docs.py` and `uv run mkdocs build` whenever publication-facing docs, patterns, views, vocabularies, instances, or schema change.
+1. Add one new `instances/hr/*.md` grounding example for `shared-workbench-orchestration`, keeping the scenario bounded at internal workbench upkeep, source refresh, ownership preservation, and explicit hold-state management rather than policy adjudication, communications release, or downstream execution.
+2. Prefer this instance-only refinement batch, and avoid canonical pattern or derived-view edits unless the new grounding exposes genuine drift from repository truth.
+3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded content batch, then refresh execution memory on top of the verified canonical baseline.
+4. Re-run `uv run python scripts/python/build_site_docs.py` and `uv run mkdocs build` because the new grounded instance changes publication-facing content.
 5. Keep `.github/workflows/publish-site.yml` aligned with the local publication pipeline whenever helper tooling, Python version, or build outputs change.
 6. If Mermaid workflow illustrations are added across pattern and instance Markdown files, keep the new orchestrator prompt aligned with repository family boundaries, Mermaid validation practice, and static-site rendering constraints.
 
