@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Active target: resume Phase 7 structural refinement now that domain counts are balanced, preferring one thinner approval-bound neighboring slice outside the recently used `execute-automate`, `transform-process`, `recommend-decide-escalate`, `gather-retrieve-synthesize`, and `human-agent-collaborative-work` families.
-- Selection rule: choose an already-canonical governance-heavy or approval-bound pattern whose domain metadata and derived browse exposure already align so the next batch can stay structurally neutral and instance-only unless real drift appears.
-- Read-first set: this plan, the selected canonical pattern, one same-family neighboring instance in the target domain, one cross-domain neighboring instance in the same family, the relevant coverage notes in `.agent/coverage-matrix.yaml`, and the newest relevant files in `.agent/iterations/2026/`.
-- Boundary rule: keep the next example centered on the selected pattern's primary governed artifact or bounded handoff and stop before adjudication, downstream execution, external communication, or policy reinterpretation.
+- Active target: deepen the thin `plan-coordinate-schedule` approval-bound slice by adding one more `contingency-plan-activation-gate` grounding in `compliance`, staying instance-only because canonical metadata and browse exposure already align.
+- Selection rule: use the already-canonical contingency-activation pattern and add a compliance scenario that is materially different from sanctions-screening fallback while preserving the same governed readiness-packet boundary.
+- Read-first set: this plan, `data/patterns/plan-coordinate-schedule/contingency-plan-activation-gate.yaml`, `instances/compliance/sanctions-screening-manual-fallback-activation-gate.md`, one cross-domain same-pattern neighbor in finance or operations, the relevant coverage notes in `.agent/coverage-matrix.yaml`, and the newest relevant files in `.agent/iterations/2026/`.
+- Boundary rule: keep the new example centered on an approval-gated contingency readiness packet, explicit holds, and activation-lineage logging; stop before fallback approval execution, regulator or customer communication, or live continuity operations.
 
 ## Current phase
 
@@ -24,11 +24,11 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Reassess the thinnest remaining approval-bound or governance-heavy neighboring slices in families that were not used in the last several instance-only passes, and pick one already-canonical target whose metadata and browse exposure already align.
-2. Author a modest, structurally neutral refinement batch for that target, defaulting to one new grounded instance unless the selected slice clearly justifies a slightly broader but still dependency-safe batch.
+1. Author one new compliance-grounded instance for `contingency-plan-activation-gate` that stays structurally distinct from the existing sanctions-screening fallback while remaining bounded at activation-readiness planning only.
+2. Keep the batch instance-only unless the new compliance grounding exposes real drift between canonical domain metadata, browse exposure, and the authored scenario.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
-4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and `.agent/iterations/2026/20260322-004005.md` after verification.
-5. Carry the next-step target forward toward Phase 7 closure by refining structurally thinner coverage notes rather than by chasing domain-count parity.
+4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and `.agent/iterations/2026/20260322-004621.md` after verification.
+5. Carry the next-step target forward toward Phase 7 closure by continuing to deepen thin approval-bound or governance-heavy slices in underused families rather than by chasing domain-count parity.
 
 ## Recent checkpoints
 
