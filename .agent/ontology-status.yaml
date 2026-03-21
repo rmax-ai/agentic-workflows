@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 41
-  instance_files: 137
+  pattern_files: 42
+  instance_files: 140
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -50,16 +50,16 @@ pattern_counts_by_family:
   transform-process: 5
   investigate-reconcile-verify: 5
   monitor-detect-triage: 4
-  plan-coordinate-schedule: 4
+  plan-coordinate-schedule: 5
   recommend-decide-escalate: 6
   execute-automate: 4
   optimize-adapt: 5
   human-agent-collaborative-work: 4
 instance_counts_by_domain:
   engineering: 24
-  finance: 24
-  compliance: 15
-  operations: 22
+  finance: 25
+  compliance: 16
+  operations: 23
   research: 18
   support: 20
   hr: 14
@@ -103,6 +103,7 @@ repo_reality:
     - data/patterns/plan-coordinate-schedule/calendar-conflict-coordination.yaml
     - data/patterns/plan-coordinate-schedule/schedule-adjustment-and-replanning.yaml
     - data/patterns/plan-coordinate-schedule/authoritative-change-coordination-refresh.yaml
+    - data/patterns/plan-coordinate-schedule/contingency-plan-activation-gate.yaml
     - data/patterns/plan-coordinate-schedule/critical-command-window-resequencing.yaml
     - data/patterns/recommend-decide-escalate/deal-desk-recommendation-support.yaml
     - data/patterns/recommend-decide-escalate/delegated-authority-option-ranking.yaml
@@ -185,6 +186,7 @@ repo_reality:
     - instances/finance/intraday-liquidity-state-truth-restoration.md
     - instances/finance/intraday-liquidity-command-window-checkpoint-resequencing.md
     - instances/finance/intraday-liquidity-facility-draw-authority-recommendation.md
+    - instances/finance/intraday-liquidity-contingency-funding-facility-activation-gate.md
     - instances/finance/intraday-liquidity-protection-priority-adaptation.md
     - instances/finance/intraday-liquidity-stress-protected-funding-review-packet-collaboration-room.md
     - instances/operations/cross-functional-maintenance-review-scheduling.md
@@ -195,6 +197,7 @@ repo_reality:
     - instances/operations/field-service-dispatch-queue-reprioritization.md
     - instances/operations/conveyor-safety-bulletin-synthesis-for-network-readiness-review.md
     - instances/operations/network-cold-chain-excursion-command-crisis-briefing-evidence-synthesis.md
+    - instances/operations/network-cold-chain-emergency-reroute-activation-gate.md
     - instances/operations/warehouse-slotting-rule-change-digest-for-shift-supervisor-briefing.md
     - instances/operations/warehouse-slotting-rollout-caveat-board-shared-workbench-upkeep.md
     - instances/operations/distribution-sorter-misroute-root-cause-investigation.md
@@ -220,6 +223,7 @@ repo_reality:
     - instances/compliance/regulator-reporting-timeline-exception-package-readiness-loop.md
     - instances/compliance/sanctions-hold-state-truth-restoration.md
     - instances/compliance/sanctions-screening-outage-authority-recommendation.md
+    - instances/compliance/sanctions-screening-manual-fallback-activation-gate.md
     - instances/compliance/sanctions-screening-outage-protected-regulator-position-packet-collaboration-room.md
     - instances/support/deprovisioned-contractor-access-escalation-copilot-loop.md
     - instances/support/post-outage-enterprise-ticket-queue-reprioritization.md
@@ -268,11 +272,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-one canonical patterns across all nine top-level families, and one hundred thirty-seven grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-two canonical patterns across all nine top-level families, and one hundred forty grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`recommend-decide-escalate` now has a natural `bounded-delegation` slice through `delegated-authority-option-ranking`, so the family no longer has an empty delegated-autonomy bucket in the derived browse view."
-    - "The derived index, domain, architecture, autonomy, and risk browse views are back in sync with canonical recommendation-family truth after adding the delegated-authority pattern and linked finance and operations examples."
-    - "The next refinement step should inspect the remaining architecture or autonomy concentrations rather than reopening recommendation-family balancing unless another structural gap proves cleaner."
+    - "`plan-coordinate-schedule` now has a natural `approval-gated` / `approval-gated-execution` slice through `contingency-plan-activation-gate`, so the family no longer has an empty planning-side approval-gated architecture bucket in the derived browse views."
+    - "The derived index, domain, architecture, autonomy, and risk browse views are back in sync with canonical planning-family truth after adding the contingency-activation pattern and linked finance, operations, and compliance examples."
+    - "The next refinement step should inspect the remaining architecture or autonomy concentrations rather than reopening planning-family balancing unless another structural gap proves cleaner."
   next_action:
     id: phase-7-next-autonomy-architecture-balance
-    summary: "Use the next iteration to inspect the remaining narrow architecture and autonomy concentrations now that `recommend-decide-escalate` also spans `bounded-delegation`, and only add another pattern if it is a comparably clean reusable shape."
+    summary: "Use the next iteration to inspect the remaining narrow architecture and autonomy concentrations now that `plan-coordinate-schedule` also spans `approval-gated-execution`, and only add another pattern if it is a comparably clean reusable shape."
