@@ -2,6 +2,8 @@
 
 ## Iteration focus
 
+Iteration `20260321-134042` is now in progress: `shared-workbench-orchestration` is the chosen depth-balancing slice because `hr` remains one of the tied-thinnest grounded domains and the pattern already exposes a low-risk, bounded collaboration shape that can gain one HR example without reopening schema, vocabulary, or family-boundary work. The scoped goal is one internal people-operations shared-workbench upkeep instance plus the directly dependent canonical pattern metadata and derived domain view updates.
+
 Iteration `20260321-133622` is now complete: `workflow-hand-off-and-completion` gained new `compliance` grounding through one finalized sanctions-alert false-positive disposition closure and case-ledger synchronization example, and the directly dependent canonical pattern metadata plus derived domain view now expose that low-risk execute-closure slice without drifting past authoritative post-decision closure, archive linkage, queue cleanup, and tracker propagation.
 
 Iteration `20260321-133112` is now complete: `workflow-hand-off-and-completion` gained new `hr` grounding through one accepted protected-leave review closure and case-tracker synchronization example, and the directly dependent canonical pattern metadata plus derived domain view now expose that low-risk execute-closure slice without drifting past authoritative post-decision closure, archive linkage, queue cleanup, and tracker propagation.
@@ -46,25 +48,25 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: rebalance the now tied-thinnest `research` and `hr` domains through one similarly bounded family-safe grounding slice, preferably where canonical metadata already exposes a reusable pattern but grounded depth still lags the thicker engineering, finance, and operations domains.
+- Current refinement target: rebalance the tied-thinnest `hr` domain through one similarly bounded family-safe grounding slice, specifically by adding `shared-workbench-orchestration` grounding in an internal people-operations workbench scenario where the maintained artifact stays clearly internal and reversible.
 
 ## Ordered tasks
 
-1. Reassess tied-thinnest domain counts after the new compliance execute-closure grounding and pick one narrow `research` or `hr` slice where instance depth still trails adjacent domains without requiring new vocabulary or schema work.
-2. Prefer a family-safe grounding batch that only adds one Markdown instance plus directly dependent canonical metadata and derived view updates if the chosen pattern/domain pairing is already represented canonically.
+1. Scope the iteration around one `hr`-grounded `shared-workbench-orchestration` example that keeps the collaboration family bounded at internal workbench upkeep rather than approval, recommendation, or execution.
+2. Add exactly one HR Markdown instance plus directly dependent canonical metadata and derived domain view updates for the chosen collaboration slice.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the bounded pattern/view/instance batch.
 4. Refresh execution memory immediately afterward so the next depth-balancing target becomes the recorded baseline rather than an implied change.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-133622`
+- Timestamp: `20260321-134042`
 - Previous completed scope: added one compliance-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Previous completed scope: added one research-grounded `change-triggered-representation-refresh` example, expanded the canonical pattern metadata to include `research`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Previous completed scope: added one HR-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `hr`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Completed scope: added one compliance-grounded `workflow-hand-off-and-completion` example, expanded the canonical pattern metadata to include `compliance`, refreshed the derived domain view, and confirmed YAML validation still passes.
 - Current working hypothesis: execute-family completion refinement remains family-safe only when the primary output is one authoritative post-decision closure state carried through bounded queue cleanup, archive linkage, tracker synchronization, and internal notification, while recommendation, adjudication, verification gating, and live people-action execution stay explicitly outside the workflow.
-- Current scoped follow-on: move next to one similarly narrow `research` or `hr` grounding slice in an already-canonical pattern area so depth-balancing continues across the tied-thinnest domains without reopening broader structural expansion.
-- Boundary reminder: future execute-family completion work should remain tied to one already-decided case moving through explicit closure, archive linkage, tracker propagation, idempotent completion state, and bounded notification rather than a recommendation packet, evidence verdict, approval artifact, or live external action.
+- Current scoped follow-on: add one `hr`-grounded `shared-workbench-orchestration` example so depth-balancing continues in an already-canonical pattern area without reopening broader structural expansion.
+- Boundary reminder: future collaboration-family upkeep work should remain tied to one bounded internal artifact moving through source refresh, note normalization, ownership preservation, and explicit hold-state management rather than recommendation packaging, approval adjudication, planning, or live people-action execution.
 
 ## Constraints
 
@@ -89,4 +91,4 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Expected outcome
 
-The next iteration should stay in depth-balancing mode: add one `research`- or `hr`-grounded family-safe example plus directly dependent metadata/view updates in an already-canonical pattern area, and keep the work bounded to one slice rather than opening a broader structural batch.
+The next iteration should stay in depth-balancing mode: add one `hr`-grounded family-safe example plus directly dependent metadata/view updates in an already-canonical pattern area, and keep the work bounded to one slice rather than opening a broader structural batch.
