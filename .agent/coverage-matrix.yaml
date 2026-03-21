@@ -44,7 +44,7 @@ matrices:
     recommend-decide-escalate: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: none, hr: none}
     execute-automate: {engineering: none, finance: covered, compliance: covered, operations: covered, research: none, support: covered, hr: covered}
     optimize-adapt: {engineering: none, finance: none, compliance: covered, operations: covered, research: none, support: covered, hr: none}
-    human-agent-collaborative-work: {engineering: none, finance: none, compliance: covered, operations: none, research: covered, support: covered, hr: none}
+    human-agent-collaborative-work: {engineering: covered, finance: none, compliance: covered, operations: none, research: covered, support: covered, hr: none}
   pattern_family_x_architecture:
     gather-retrieve-synthesize: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: covered, event-driven-monitoring: none, approval-gated-execution: none}
     transform-process: {tool-using-single-agent: covered, orchestrated-multi-agent: none, human-in-the-loop: none, event-driven-monitoring: none, approval-gated-execution: none}
@@ -68,14 +68,14 @@ matrices:
 summary:
   overall_status: partial
   notes:
-    - Nine canonical pattern entries now populate all nine top-level families, and thirty-three grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, recommendation, collaboration, compliance, operations, support, and synthesis coverage.
+    - Nine canonical pattern entries now populate all nine top-level families, and thirty-four grounded examples extend across all seven currently modeled domains with deeper investigation, monitoring, execution, optimization, scheduling, transform, recommendation, collaboration, compliance, operations, support, and synthesis coverage.
     - "`recommend-decide-escalate` now has covered finance, compliance, and operations cells after adding a governed multi-site service-package feasibility recommendation example."
     - "`execute-automate` now has covered finance, compliance, HR, operations, and support cells after adding approved emergency maintenance vendor-portal dispatch and break-glass admin access restoration submissions alongside the existing finance, compliance, and payroll examples."
-    - "`human-agent-collaborative-work` now has covered support, research, and compliance cells after adding a regulator-response copilot loop for sanctions-alert closure review."
+    - "`human-agent-collaborative-work` now has covered support, research, compliance, and engineering cells after adding regulator-response, benchmark-briefing, support-escalation, and deprecated-message-broker migration exception copilot loops."
     - "`transform-process` now has covered finance, compliance, and operations cells after adding pharmacovigilance safety-case intake and facilities corrective-maintenance handoff examples."
     - "`optimize-adapt` now has covered support, operations, and compliance cells after adding a regulatory consumer-complaint response queue reprioritization example alongside the post-outage support and field-service dispatch cases."
     - "`plan-coordinate-schedule` now has covered operations, support, and HR cells after adding grounded customer-bridge and interview-panel coordination examples."
     - "`monitor-detect-triage` now has covered finance, compliance, and operations cells after adding pharmacovigilance safety-signal triage and cold-chain temperature excursion triage examples alongside the suspicious-wire finance anchor."
     - "`investigate-reconcile-verify` now has covered engineering, finance, and compliance cells after adding treasury cash-position discrepancy and sanctions-screening-gap root-cause investigation examples alongside the engineering incident anchor."
     - "`gather-retrieve-synthesize` now has covered research, engineering, finance, compliance, operations, support, and HR cells after adding debt-covenant quarter-close, cross-border safeguard, conveyor-safety readiness, enterprise-support obligations, pay-transparency posting-obligation, and service-mesh migration-readiness synthesis examples."
-    - The highest-leverage next gap now looks like an engineering-domain example in `human-agent-collaborative-work`, because recommendation coverage is more balanced while engineering still has relatively few grounded collaboration-oriented artifacts.
+    - The highest-leverage next gap now looks like a support-domain example in `monitor-detect-triage`, because support already has adjacent planning, optimization, execution, synthesis, and collaboration grounding but still lacks a direct triage artifact.
