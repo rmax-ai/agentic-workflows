@@ -12,6 +12,21 @@ Compliance.
 
 After a regulator-sensitive escalation, the sanctions response team finds that payment-hold status has diverged across the screening engine, case-management queue, payment-rail release ledger, and regional override records. Some transactions appear blocked in one system and released in another, while a subset are marked as pending manual review even though the linked payment messages show contradictory routing outcomes. Before compliance leadership, treasury, and legal teams can make any declaration about exposure scope or release posture, the workflow must restore the trusted current state of which payments are actually blocked, released, or unresolved and preserve explicit holds for every conflict that cannot be settled inside governed truth-restoration rules.
 
+```mermaid
+flowchart TD
+    A["Divergent sanctions-hold state detected<br>across screening, case, payment, and override systems"] -->|"Collect in-scope records"| B["Assemble transaction evidence set<br>with identifiers, timestamps, and source lineage"]
+    B -->|"Verify scope and record linkage"| C{"Do identifiers, timestamps, and case links<br>match across the source records?"}
+    C -->|"No"| H["Keep affected payments in an explicit hold state<br>and route bounded escalation to compliance,<br>treasury, and legal reviewers"]
+    C -->|"Yes"| D["Reconcile screening, payment, and override records<br>under governed precedence and freshness rules"]
+    D -->|"Check current-state agreement"| E{"Do the authoritative records converge on<br>blocked, released, or pending-review state?"}
+    E -->|"No"| H
+    E -->|"Yes"| F{"Does an independent verification check confirm<br>current evidence freshness and complete lineage?"}
+    F -->|"No"| H
+    F -->|"Yes"| G{"Do accountable human reviewers accept the trusted<br>current-state ledger and unresolved hold register?"}
+    G -->|"No"| H
+    G -->|"Yes"| I["Issue the trusted current-state packet<br>for downstream human use without releasing funds<br>or making regulator declarations"]
+```
+
 ## Target systems / source systems
 
 - Sanctions-screening engine state, case queues, and match-explanation records for the affected transactions
@@ -44,4 +59,3 @@ This shows the family at critical risk in a compliance setting where the immedia
 - Agreement between the workflow's trusted blocked or released state and the final human-accepted current-state picture
 - Rate at which materially conflicting transactions remain visible in the hold register until human adjudication
 - Reliability of the workflow when regional overrides, payment-rail updates, or reviewer decisions arrive out of order during the critical window
-
