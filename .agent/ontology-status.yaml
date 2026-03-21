@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 213
+  instance_files: 214
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -59,7 +59,7 @@ instance_counts_by_domain:
   engineering: 31
   finance: 31
   compliance: 31
-  operations: 30
+  operations: 31
   research: 30
   support: 30
   hr: 30
@@ -67,6 +67,7 @@ consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
   - "`approval-packet-generation` now has additional `compliance` grounding through an electronic-communications legal-hold capture-gap packet assembled for records-governance committee review, deepening that high-risk gather-family slice within compliance beyond vendor biometric retention deviation while preserving a clean boundary at packet assembly, provenance indexing, explicit exception visibility, and governed handoff rather than legal-sufficiency adjudication, counsel or regulator notification, remediation execution, or matter closure."
+  - "`delegated-authority-option-ranking` now has additional `operations` grounding through a warehouse dock-door outage fallback recommendation example, deepening that moderate-risk recommend-family slice within operations beyond sorter throughput recovery while preserving a clean boundary at ranked in-band options, blocked-option visibility, and escalation packaging rather than schedule ownership, approval adjudication, or live warehouse action."
   - "`claimed-state-verification` now has additional `engineering` grounding through an internal container base image publication verification example, deepening that low-risk investigate-family slice within engineering beyond internal SDK asset publication while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative digest, signature, and propagation traceability rather than image republish, rollout approval, vulnerability adjudication, or downstream rebuild execution."
   - "`approval-packet-generation` now has explicit `compliance` grounding through a vendor biometric retention control deviation approval-packet assembly example, deepening that high-risk gather-family slice while preserving a clean boundary at packet assembly, evidence indexing, exception visibility, and human handoff rather than recommendation, adjudication, vendor instruction, or regulator communication."
   - "`claimed-state-verification` now has additional `support` grounding through an internal premium-support advisory-macro publication verification example, deepening that low-risk investigate-family slice while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative evidence traceability rather than macro editing, republishing, customer communication, or downstream execution."
