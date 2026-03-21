@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Active target: restore trailing-domain parity by adding one compliance grounding for the already-canonical `policy-constrained-escalation-routing` pattern in `recommend-decide-escalate`.
-- Selection rule: keep the batch instance-only because the canonical pattern metadata and derived browse exposure already align for compliance.
-- Read-first set: this plan, `data/patterns/recommend-decide-escalate/policy-constrained-escalation-routing.yaml`, `instances/operations/regional-cold-chain-compressor-failure-escalation-routing.md`, `instances/support/sovereign-cloud-storage-corruption-restricted-artifact-escalation-routing.md`, and the newest relevant iteration file under `.agent/iterations/2026/`.
-- Boundary rule: keep the new example centered on governed authority-route recommendation plus escalation-packet assembly and stop before adjudication, regulator notification, external communication, or incident-response execution.
+- Active target: restore trailing-domain parity with one more instance-only pass in a remaining trailing domain (`engineering` or `hr`) while preferring a different family than the just-used `recommend-decide-escalate`, the just-before-that `gather-retrieve-synthesize`, and the recently used `human-agent-collaborative-work`.
+- Selection rule: choose an already-canonical approval-bound or otherwise governance-heavy slice whose domain metadata and derived browse exposure already align so the next batch can stay structurally neutral.
+- Read-first set: this plan, the selected canonical pattern, one same-domain neighboring instance, one cross-domain neighboring instance, and the most recent relevant files in `.agent/iterations/2026/`.
+- Boundary rule: keep the next example centered on the pattern's primary artifact boundary and stop before adjudication, downstream execution, external communication, or policy reinterpretation.
 
 ## Current phase
 
@@ -24,13 +24,15 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Author exactly one new compliance-grounded instance for `policy-constrained-escalation-routing` and keep the batch instance-only unless the example exposes real canonical or browse drift.
+1. Reassess the remaining trailing domains and pick one equally bounded already-canonical slice whose metadata and derived browse mapping already align.
+2. Author exactly one new grounded instance and keep the batch instance-only unless the new example exposes real canonical or browse drift.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
 4. Refresh `.agent/current-plan.md`, the relevant status files, and one new `.agent/iterations/2026/<timestamp>.md` record after verification.
 5. Keep publication tooling and deployment workflow aligned only when helper tooling or build outputs genuinely change.
 
 ## Recent checkpoints
 
+- `20260322-002355`: `policy-constrained-escalation-routing` gained additional `compliance` grounding through `instances/compliance/regulatory-incident-breach-notification-escalation-routing.md`, restoring compliance to thirty-five grounded examples through a structurally neutral, instance-only recommend-family escalation-routing refinement.
 - `20260322-001611`: `approval-gated-briefing-release` gained additional `operations` grounding through `instances/operations/gateway-port-berth-closure-impact-briefing-revision-approved-for-marine-continuity-cell-circulation.md`, restoring operations to thirty-five grounded examples through a structurally neutral, instance-only gather-family release-control refinement.
 - `20260322-001125`: `approval-gated-collaborative-artifact-release` gained additional `research` grounding through `instances/research/participant-consent-language-variance-clarification-packet-approved-for-human-subjects-ethics-pre-review-intake.md`, staying bounded at governed release of one exact collaborative artifact revision into one named ethics pre-review lane.
 - `20260322-000846`: defined Phase 8 as pattern,
