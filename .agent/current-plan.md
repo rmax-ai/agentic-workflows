@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-The last iteration closed the final empty `gather-retrieve-synthesize` domain cell with an HR pay-transparency posting-obligations synthesis example. The next modest batch should decide whether to finish the family's remaining engineering partial slice or pivot to another thin family with only one or two grounded domains, while still preserving the repository's small-batch discipline.
+The last iteration closed the HR slice for `gather-retrieve-synthesize`, leaving engineering as that family's only remaining partial domain cell. This iteration should finish that family-balanced grounding move with exactly one engineering synthesis instance rather than broadening scope to a new family.
 
 ## Current phase
 
@@ -15,11 +15,11 @@ The last iteration closed the final empty `gather-retrieve-synthesize` domain ce
 
 ## Ordered tasks
 
-1. Re-read `research-synthesis-with-citation-verification` plus the current gather/synthesis instances and decide whether one engineering example is still the highest-leverage follow-on or whether another family now deserves the next balancing batch.
-2. If `gather-retrieve-synthesize` remains the best target, author exactly one engineering instance linked to `research-synthesis-with-citation-verification`, centered on a cited architecture, migration, or operational-evidence brief that remains upstream of implementation or incident response.
-3. Otherwise pick one equally thin family/domain slice and keep the batch to one or two tightly related grounded instances tied to existing canonical patterns only.
-4. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the required iteration log after the next grounding batch so repository memory reflects the chosen coverage move.
-5. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
+1. Author exactly one engineering instance linked to `research-synthesis-with-citation-verification`, centered on a cited architecture, migration, or reliability-evidence brief that remains upstream of implementation or incident response.
+2. Keep the grounding batch scoped to that single instance so the iteration closes the last partial engineering slice in `gather-retrieve-synthesize` without widening to additional families.
+3. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the required iteration log after the grounding batch so repository memory reflects the completed family/domain coverage move.
+4. Validate repository YAML with the existing uv-managed helper before closing the iteration.
+5. Set the next plan toward another thin family/domain combination after this gather/synthesis engineering gap is closed.
 
 ## Constraints
 
@@ -32,4 +32,4 @@ The last iteration closed the final empty `gather-retrieve-synthesize` domain ce
 
 ## Expected outcome
 
-The next iteration should either complete the remaining engineering gather/synthesis slice or make an equally disciplined coverage-balancing move in another thin family while preserving the repository's pattern-first structure and modest-batch discipline.
+This iteration should complete the remaining engineering gather/synthesis slice with one grounded instance, leaving the next iteration free to rebalance another thin family/domain area.
