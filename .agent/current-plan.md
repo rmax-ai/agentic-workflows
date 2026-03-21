@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-025554` is complete: it added a single support-domain grounding batch for `investigate-reconcile-verify` via `enterprise-admin-entitlement-drift-root-cause-investigation`. The next modest batch should rebalance another thin family/domain slice without widening back into schema, vocabulary, or pattern-authoring work. Support recommendation coverage is now a plausible adjacent target because support has broad grounding across other families but still lacks a governed recommendation artifact.
+Iteration `20260321-030151` is a single Phase 6 grounding batch focused on adding one support-domain instance for `recommend-decide-escalate`. The goal is to rebalance a thin family/domain slice by extending `deal-desk-recommendation-support` into support without widening back into schema, vocabulary, or pattern-authoring work.
 
 ## Current phase
 
@@ -15,18 +15,18 @@ Iteration `20260321-025554` is complete: it added a single support-domain ground
 
 ## Ordered tasks
 
-1. Re-read `deal-desk-recommendation-support`, the current recommendation-oriented instances, and the existing support-domain artifacts so the next grounding batch stays inside the governed recommendation family boundary.
+1. Re-read `deal-desk-recommendation-support`, the current recommendation-oriented instances, and the existing support-domain artifacts so the grounding batch stays inside the governed recommendation family boundary.
 2. Author exactly one support-domain instance linked to `deal-desk-recommendation-support`, framed as recommendation support for a governed concession, service-credit, or recovery path rather than investigation, execution, synthesis, scheduling, optimization, or mixed-initiative drafting.
 3. Prefer a scenario where policy thresholds, customer context, historical precedent, and stakeholder inputs must be weighed before anyone makes a customer commitment or approves an exception path.
-4. Keep the next batch limited to this single recommendation example so coverage improves without widening scope.
-5. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next dated iteration log after that grounding batch so execution memory stays current.
-6. Validate repository YAML with the existing uv-managed helper before closing the next iteration.
+4. Keep the batch limited to this single recommendation example so coverage improves without widening scope.
+5. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and `.agent/iterations/2026/20260321-030151.md` after that grounding batch so execution memory stays current.
+6. Validate repository YAML with the existing uv-managed helper before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-025554`
-- Completed subagent scope: authored `instances/support/enterprise-admin-entitlement-drift-root-cause-investigation.md` as one support-domain `incident-root-cause-analysis` grounding change and committed it separately.
-- Pending orchestrator follow-up: refresh `.agent/` memory, write the dated iteration log, validate YAML, and commit those memory updates.
+- Timestamp: `20260321-030151`
+- Planned subagent scope: author one support-domain `deal-desk-recommendation-support` grounding example and commit it separately.
+- Planned orchestrator follow-up: refresh `.agent/` memory, write the dated iteration log, validate YAML, and commit those memory updates.
 
 ## Constraints
 
@@ -39,4 +39,4 @@ Iteration `20260321-025554` is complete: it added a single support-domain ground
 
 ## Expected outcome
 
-The next iteration should add one support-domain recommendation example, deepen `recommend-decide-escalate`, and leave the repository ready for another small grounding batch after the `.agent/` memory refresh.
+This iteration should add one support-domain recommendation example, deepen `recommend-decide-escalate`, and leave the repository ready for another small grounding batch after the `.agent/` memory refresh.
