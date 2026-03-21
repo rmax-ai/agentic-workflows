@@ -62,7 +62,7 @@ risk_levels:
     investigate-reconcile-verify: [incident-root-cause-analysis, evidence-gated-verification-for-release]
     monitor-detect-triage: [risk-alert-triage, approval-gated-triage-dispatch]
     plan-coordinate-schedule: [authoritative-change-coordination-refresh]
-    recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing]
+    recommend-decide-escalate: [deal-desk-recommendation-support, policy-constrained-escalation-routing, approval-gated-recommendation-release]
     execute-automate: [staged-change-execution-with-rollback-holds]
     optimize-adapt: [governed-optimization-bundle-retuning, approval-gated-optimization-state-release]
     human-agent-collaborative-work: [approval-centered-collaboration, approval-gated-collaborative-artifact-release]

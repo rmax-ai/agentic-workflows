@@ -1,0 +1,297 @@
+id: approval-gated-recommendation-release
+slug: approval-gated-recommendation-release
+name: Approval-gated recommendation release
+summary: Release one exact recommendation packet revision and its bounded option set into one named human decision lane only after explicit human approval confirms revision identity, lane scope, expiry, and manifest linkage, without approving the decision itself, coordinating follow-through, or executing the chosen option.
+pattern_family:
+  id: recommend-decide-escalate
+  label: Recommend / Decide / Escalate
+problem_structure:
+  id: recommendation-and-decision-support
+  label: Recommendation and decision support
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+workflow_goal: Hold one already-prepared recommendation packet revision at a governed release boundary and release that exact packet plus its bounded option set into one named human decision lane only after a human approves the release terms, while keeping the workflow bounded at recommendation handoff rather than decision adjudication, planning, or execution.
+inputs:
+  - name: Recommendation packet revision
+    description: The already-prepared recommendation packet revision, including its bounded option set, rationale, blocked paths, and revision identifier, that is complete enough for human release review and must remain unchanged during approval.
+    kind: recommendation-package
+    required: true
+    examples:
+      - Architecture-exception recommendation packet revision for one database upgrade waiver decision lane
+      - Treasury concession packet revision summarizing bounded settlement options for one controller committee decision lane
+      - Privacy safeguard attestation disposition packet revision for one compliance council review lane
+  - name: Decision-lane charter and release policy
+    description: The human-owned rule set naming the single downstream decision lane, permitted audience, expiry window, approver identity, and explicit statement that release authority does not adjudicate the underlying recommendation.
+    kind: policy
+    required: true
+    examples:
+      - Release-governance rule allowing one architecture board lane to receive a named exception packet revision for one review meeting
+      - Treasury policy limiting a concession recommendation packet to one controller committee lane and one funding-day validity window
+      - Compliance governance rule restricting an attestation recommendation packet to one privacy council lane with no onward reuse
+  - name: Recommendation evidence and unresolved-assumption bundle
+    description: The supporting evidence, policy citations, blocked-option rationale, freshness markers, and unresolved assumptions attached to the recommendation packet so the approver can judge whether that exact revision is still safe to release.
+    kind: evidence-set
+    required: true
+    examples:
+      - Benchmark evidence, rollback caveats, and blocked waiver conditions cited by a release-exception recommendation
+      - Exposure calculations, prior concession history, and blocked principal-reduction rationale for a collections recommendation
+      - Requirement mappings, stale-evidence flags, and exception-history notes for a privacy attestation recommendation
+  - name: Release lineage and hold state
+    description: Prior release attempts, superseded recommendation revisions, pending holds, and any broader distribution requests that could invalidate the packet under review.
+    kind: case-state
+    required: false
+    examples:
+      - Older exception recommendation packet held after a new dependency risk changed the bounded option set
+      - Earlier settlement recommendation revision superseded because a refreshed exposure figure changed one option ranking
+      - Pending request to share a compliance packet outside the named council lane while release remains blocked
+outputs:
+  - name: Released recommendation packet revision
+    description: The exact recommendation packet revision delivered into the approved human decision lane with rationale, uncertainty, and blocked-option notes preserved.
+    kind: recommendation-package
+    required: true
+    examples:
+      - Architecture board packet revision released with upgrade-waiver rationale, blocked rollout paths, and residual caveats intact
+      - Controller committee concession packet released with bounded settlement options and blocked terms preserved for human review
+      - Privacy council attestation packet released with approve-remediate-escalate guidance and explicit evidence gaps
+  - name: Released bounded option set
+    description: The immutable option menu bound to the released packet revision, including viable, blocked, and escalation-only paths that the downstream decision lane may inspect but that this workflow does not choose among.
+    kind: option-set
+    required: true
+    examples:
+      - Option set limited to defer the upgrade, approve one guarded waiver, or escalate to executive review while blocking direct production rollout
+      - Option set limited to capped fee relief, short installment terms, or full escalation while blocking principal reduction
+      - Option set limited to approve with one current exception, remediate before sign-off, or escalate to counsel while blocking informal acceptance
+  - name: Recommendation release manifest
+    description: Structured approval record binding one exact recommendation packet revision, one named decision lane, one expiry window, approver identity, and the point where the workflow stopped before any decision or execution occurred.
+    kind: manifest
+    required: true
+    examples:
+      - Manifest authorizing one database-upgrade waiver packet revision for one architecture board decision lane and one review window
+      - Manifest recording controller approval to release one settlement recommendation revision to one concessions committee lane before market close
+      - Manifest proving one privacy attestation packet revision was released only to one council lane and not to vendor-management execution channels
+  - name: Decision-lane handoff record
+    description: Structured record of which downstream human decision lane received the packet, who acknowledged receipt, and where the workflow stopped short of decision adjudication and downstream execution.
+    kind: handoff-record
+    required: true
+    examples:
+      - Handoff record showing the architecture board received the packet for decision review only, not change approval or deployment
+      - Committee receipt record proving the finance recommendation ended at controller review and did not authorize billing changes
+      - Council handoff showing the compliance packet entered one sign-off lane without filing the attestation or launching remediation
+  - name: Recommendation release audit log
+    description: Durable history of revision checks, approval or hold events, blocked distribution attempts, supersession changes, and downstream receipt for the governed release loop.
+    kind: audit-log
+    required: true
+    examples:
+      - Log linking one engineering recommendation packet hash to approver identity, held revisions, and board receipt timestamp
+      - Audit trail showing one finance packet was superseded before release when exposure data changed materially
+      - Record of blocked attempt to forward a compliance recommendation packet outside the named council lane
+environment:
+  summary: Operates in governance-sensitive workflows where the reusable challenge is not generating a new recommendation, but releasing one exact recommendation artifact into one human decision lane with explicit approval, revision binding, expiry, and handoff controls before any downstream authority choice or action occurs.
+  systems:
+    - Recommendation workspaces or case-review systems holding packet revisions and bounded option sets
+    - Policy, authority, and release-rule repositories defining decision-lane scope and approver rights
+    - Approval, manifest, and restricted-routing tooling that records release state and recipients
+    - Evidence, rationale, and freshness ledgers linked to the recommendation packet
+    - Audit and supersession systems that block stale or broadened recommendation reuse
+  actors:
+    - Analyst, reviewer, or workflow owner responsible for the recommendation packet
+    - Human approver who controls release of one exact packet revision into one decision lane
+    - Human decision-maker or committee receiving the released recommendation packet
+    - Governance, risk, privacy, or security reviewer for sensitive release contexts
+  constraints:
+    - Start from an already-prepared recommendation packet revision rather than regenerating the recommendation or widening the option set during release review.
+    - Bind approval to one exact packet revision, one bounded human decision lane, and one expiry window so later revisions or broader audiences cannot inherit release authority.
+    - Keep blocked options, unresolved assumptions, freshness limits, and residual uncertainty visible rather than smoothing them away to make the packet look decision-ready.
+    - Stop at approved recommendation release, manifesting, and handoff; do not adjudicate the downstream choice, schedule follow-through, or execute any selected option.
+  assumptions:
+    - The underlying recommendation packet carries stable revision identifiers, rationale, and option-boundary metadata strong enough for governed release review.
+    - Human approvers remain accountable for whether the packet may enter the bounded downstream decision lane.
+    - Downstream decision lanes can consume the released packet without this workflow making or recording the final decision.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow must retrieve the exact recommendation packet revision, release policy, prior supersession state, and evidence bundle before a safe release decision can be staged.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Release readiness depends on compressing revision identity, lane scope, expiry, blocked-option state, and unresolved assumptions into one manifest and handoff package rather than forcing humans to reconstruct them from scattered metadata.
+  - capability:
+      id: recommendation
+      label: Recommendation
+      source_vocabulary: capabilities
+    necessity: Even though the packet already exists, the workflow must preserve the intended recommendation semantics and bounded option set so release control does not distort or broaden what humans are being asked to decide.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Decision-lane scope, audience limits, expiry rules, reuse prohibitions, and the boundary between packet release and decision approval determine whether release may proceed at all.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: The workflow must confirm packet revision identity, option-set integrity, freshness markers, and manifest completeness so the wrong recommendation version is not released.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Prior releases, blocked attempts, superseded revisions, and expiry state must persist so old recommendation packets cannot silently recirculate as if still approved.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Recommendation owners, approvers, and downstream decision lanes often need explicit release-state handoffs when a packet is held, superseded, or narrowed further before release.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Unsafe audience expansion, stale evidence, or requests to treat release approval as decision approval must halt the workflow instead of being normalized into routine packet circulation.
+execution_architecture:
+  - architecture:
+      id: approval-gated-execution
+      label: Approval-gated execution
+      source_vocabulary: architectures
+    fit: The recommendation packet can be technically ready for downstream review, but its release remains concretely blocked until a human approves distribution of that exact revision into one bounded decision lane.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human review is intrinsic because only accountable owners should confirm that release of a recommendation packet revision is safe without collapsing the boundary into approval of the decision itself.
+autonomy_profile:
+  level:
+    id: approval-gated
+    label: Approval gated
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the exact recommendation packet revision, named decision lane, expiry window, and bounded audience before release review proceeds.
+    - Approve, hold, or supersede the packet release after reviewing blocked options, residual uncertainty, freshness markers, and any broadened distribution request.
+    - Decide whether changed evidence, a revised option set, or a request for decision adjudication requires fresh recommendation work or handoff to another pattern instead of releasing the current packet.
+  reversibility: A released recommendation packet can be withdrawn, superseded, or expired, but once decision-makers read the wrong revision it can bias judgment, widen disclosure, or create governance churn that is only partially reversible.
+  escalation: Escalate whenever the packet revision changes after review begins, the downstream lane broadens beyond the approved boundary, freshness or rationale is incomplete, or release approval would be mistaken for decision authorization or downstream execution permission.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: Releasing the wrong or stale recommendation packet revision can bias consequential human decisions, expose sensitive commercial or governance detail to the wrong audience, and create false belief that a decision has already been approved even though this workflow stops before any decision or action occurs.
+  approval_requirements:
+    - A named human approver must authorize release of the exact recommendation packet revision, bounded decision lane, expiry window, and any attached restrictions on reuse or redistribution.
+    - Any attempt to reuse the packet outside the approved lane, after expiry, or after a material recommendation or option-set change requires fresh human approval rather than inherited permission.
+  auditability: Preserve packet revision ids, option-set hashes, approver identity, lane scope, expiry timing, blocked or held release attempts, supersession lineage, recipient acknowledgements, and any broadened-lane requests so later review can reconstruct exactly what recommendation was released and why.
+  privacy:
+    - Limit recommendation-packet circulation to the approved decision lane and minimize customer, employee, vendor, security, or financial detail to what that lane actually needs to decide.
+    - Keep sensitive annexes, blocked-option evidence, and redistribution prohibitions explicit when the packet references protected source material.
+  security:
+    - Enforce least-privilege access to recommendation workspaces, manifest tooling, and downstream decision lanes because release state itself can be sensitive and influential.
+    - Log release attempts, manifest edits, lane changes, expiry overrides, and supersession events so unauthorized recommendation circulation or stale-packet reuse is detectable.
+  notes: High-risk governance fits because the workflow governs release of consequential recommendation artifacts into human decision lanes where the wrong packet or wrong audience can materially bias outcomes, even though the workflow remains bounded at packet release rather than decision adjudication or execution.
+why_agentic:
+  - Safe release requires adapting to revision changes, blocked lanes, expiry boundaries, and broadened reuse requests instead of treating recommendation circulation as a static handoff.
+  - The workflow must coordinate state across packet versions, bounded option sets, manifests, superseded revisions, and downstream acknowledgements so one exact recommendation revision is released and nearby revisions remain held.
+  - It must recognize when a release request crosses the family boundary into collaborative drafting, transformed-package release, decision adjudication, planning, or execution and stop rather than improvise.
+failure_modes:
+  - mode: The wrong recommendation packet revision is released under a valid approval
+    impact: Decision-makers receive rationale or bounded options that the approver did not actually review, increasing the chance of a misinformed human decision.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Bind approval to immutable packet revision identifiers and option-set hashes and reject release when the manifest and packet do not match.
+      - Show supersession lineage and blocked older revisions prominently in the release tooling.
+  - mode: Release approval is mistaken for approval of the underlying decision
+    impact: Humans or downstream systems treat packet circulation as if the recommended option were already chosen, blurring accountability and weakening the required decision checkpoint.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Label the manifest and handoff record as recommendation release only and record explicitly that the downstream choice remains human-owned.
+      - Block downstream integrations from writing final decision state or execution triggers from the release workflow.
+  - mode: The packet is circulated beyond the approved decision lane
+    impact: Sensitive recommendation content reaches unintended reviewers or is treated as broadly approved guidance outside the bounded authority channel.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Encode lane restrictions and redistribution limits in the manifest and routing tooling.
+      - Log and block forwarding attempts outside the approved audience boundary.
+  - mode: A stale recommendation packet is released after evidence or option boundaries changed
+    impact: Decision-makers rely on expired or invalidated advice even though a newer packet or narrower option set should have superseded it.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Enforce expiry checks and freshness markers before every release or reuse attempt.
+      - Require fresh approval whenever evidence changes materially or the bounded option set is revised.
+evaluation:
+  success_metrics:
+    - Percentage of recommendation releases where the approved packet revision id, option-set hash, decision lane, and manifest metadata match exactly without later correction.
+    - Rate at which stale, superseded, or out-of-scope recommendation packets are blocked before human decision-makers receive them.
+    - Time from packet-ready status to human-approved bounded release when rationale, evidence, and expiry metadata are complete.
+  quality_criteria:
+    - The release manifest clearly binds one exact recommendation packet revision, one bounded option set, one decision lane, and one expiry window.
+    - Superseded, broadened-scope, or post-expiry release attempts are visible and blocked rather than implicitly reusing prior approval.
+    - The workflow remains bounded at recommendation release and does not reopen drafting, adjudicate the human decision, schedule downstream work, or trigger execution.
+  robustness_checks:
+    - Test with a newer recommendation packet revision arriving during approval review and ensure the older revision is held or superseded instead of being released accidentally.
+    - Test with an attempted lane expansion or reuse request and confirm the workflow blocks release until fresh approval or a different pattern handles the request.
+    - Test with incomplete rationale, stale evidence, or changed option boundaries and verify the workflow escalates instead of pushing the packet across the boundary.
+  benchmark_notes: Evaluate manifest binding, decision-lane discipline, and stale-packet prevention together; fast circulation is not success if the wrong recommendation revision or wrong audience receives the packet.
+implementation_notes:
+  orchestration_notes:
+    - Keep packet retrieval, manifest assembly, approval gating, release-state tracking, and supersession handling as explicit stages over shared recommendation state.
+    - Preserve immutable revision identifiers, option-set hashes, and lane metadata so downstream tooling can enforce the release boundary instead of relying on titles or filenames alone.
+  integration_notes:
+    - Common implementations integrate recommendation workspaces, evidence ledgers, approval systems, and restricted committee or reviewer channels.
+    - Keep the pattern neutral about specific architecture boards, finance committees, privacy councils, or enterprise decision portals.
+  deployment_notes:
+    - Start in workflows where recommendation packets already exist but stale reuse, audience drift, or confusion between packet release and decision approval creates risk.
+    - Tune expiry windows, lane scopes, and blocked-forwarding controls conservatively before broadening approval-gated release to more sensitive recommendation contexts.
+  references:
+    - docs/patterns/recommend-decide-escalate.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: deal-desk-recommendation-support
+    relationship: follows
+    notes: Deal-desk recommendation support can create a governed packet that this pattern later releases into one bounded human decision lane.
+  - id: control-requirement-attestation-recommendation
+    relationship: follows
+    notes: Requirement-fit recommendation workflows can produce the exact packet revision that this pattern later governs at the release boundary.
+  - id: approval-gated-briefing-release
+    relationship: contrasts-with
+    notes: If the primary artifact is context or briefing release rather than recommendation release into a decision lane, the gather-family pattern fits better.
+  - id: approval-gated-collaborative-artifact-release
+    relationship: contrasts-with
+    notes: If the artifact is still being jointly authored with live disagreement management, the collaborative-work family fits better; this pattern assumes the recommendation packet is already prepared.
+  - id: approval-gated-transformation-release
+    relationship: contrasts-with
+    notes: If the workflow centers on shaping a downstream-ready package rather than releasing a bounded recommendation artifact, the transform-family pattern is the cleaner fit.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Release one exact architecture-exception recommendation packet revision into a named review-board decision lane after a human confirms the bounded option set, residual caveats, and expiry window.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Approve one concessions recommendation packet revision for a controller committee lane while keeping settlement adjudication and billing changes outside the release workflow.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Release one privacy attestation disposition packet revision into a compliance council sign-off lane without approving the attestation itself or launching remediation.
+maturity: draft
+tags:
+  - recommend-decide-escalate
+  - approval-gated
+  - recommendation-release
+  - bounded-decision-lane
+  - exact-revision
