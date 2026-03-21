@@ -12,6 +12,19 @@ Compliance.
 
 A restricted sanctions review team has already recorded a final false-positive disposition for a screening alert in the authoritative case-management system after the investigative and adjudicative work is complete. That disposition is final for this workflow and must not be reopened, reinterpreted, or extended into any live payment, counterparty, or regulator-facing action. The remaining execute step is limited to low-risk closure bookkeeping: detect the final-disposition event, recheck that the alert identifier, disposition version, and approved archive references still match the source record, close the post-review queue item, sync the sanctions case ledger and alert tracker to the recorded closed-false-positive state, attach archive references for the final disposition memo and evidence bundle, record completion state in the audit store, and notify the internal sanctions operations coordinator that closure propagation is complete. If the alert was reopened, the disposition changed, or the target ledger points to a different alert episode, the workflow should stop and route manual follow-up instead of guessing.
 
+```mermaid
+flowchart TD
+	A["Final false-positive<br>disposition event detected"] -->|"revalidate"| B{"Source record still shows<br>final false-positive state?"}
+	B -->|"no"| H["Create manual follow-up record<br>and hold closure propagation"]
+	B -->|"yes"| C{"Alert id, disposition version,<br>archive references, and ledger episode align?"}
+	C -->|"no"| H
+	C -->|"yes"| D["Close restricted post-review<br>queue item"]
+	D -->|"sync"| E["Sync sanctions case ledger<br>and alert tracker to<br>closed-false-positive state"]
+	E -->|"attach"| F["Attach final disposition memo<br>and evidence bundle references"]
+	F -->|"record"| G["Record completion state<br>in the audit store"]
+	G -->|"notify"| I["Notify internal sanctions operations<br>coordinator that closure<br>propagation is complete"]
+```
+
 ## Target systems / source systems
 
 - Restricted sanctions alert case-management system that records the final disposition and emits the authoritative state-change event
