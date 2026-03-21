@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-091136` is complete: it closed `plan-coordinate-schedule`'s missing `critical` risk slice with `critical-command-window-resequencing`, three linked grounded command-window instances, and synchronized the family doc plus the directly affected derived browse views. The next highest-leverage gap now appears to be another narrow family-specific `critical` slice among `recommend-decide-escalate`, `optimize-adapt`, and `human-agent-collaborative-work`, with `recommend-decide-escalate` the leading candidate if it can stay bounded at severe escalation recommendation and packaging rather than adjudication or execution.
+Iteration `20260321-092058` is now scoped around `recommend-decide-escalate`'s missing `critical` risk slice. The target batch should add one bounded critical-risk recommendation pattern plus a few linked grounded instances, while keeping the family's primary artifact a severe escalation route or decision-support packet rather than a collaboration loop, command-window plan, or executed system change.
 
 ## Current phase
 
@@ -16,18 +16,18 @@ Iteration `20260321-091136` is complete: it closed `plan-coordinate-schedule`'s 
 
 ## Ordered tasks
 
-1. Re-evaluate the remaining uncovered `critical` risk cells now that `plan-coordinate-schedule` also spans low, moderate, high, and critical coverage.
-2. Identify the next family-specific `critical` refinement that can stay bounded at its own family boundary, with `recommend-decide-escalate` the leading candidate if a high-consequence escalation-routing or decision-support workflow can avoid adjudication or execution drift.
-3. Keep future Phase 7 batches modest, dependency-aware, and synchronized across canonical patterns, grounded instances, browse views, and `.agent/` execution memory.
-4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each content batch before closing the iteration.
+1. Add a single `recommend-decide-escalate` canonical pattern that fills the family's `critical` risk gap without collapsing into downstream adjudication, coordination, collaboration, or execution.
+2. Ground that critical recommendation pattern with a few domain-varied Markdown instances that keep the human decision owner explicit and stop at governed route recommendation or decision-support packaging.
+3. Synchronize only the directly affected family doc and derived browse views so navigation stays consistent with canonical pattern truth.
+4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after the content batch before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-091136`
-- Completed scope: added `critical-command-window-resequencing`, three linked grounded instances in engineering, finance, and operations, and synchronized the planning family doc plus the directly affected derived browse views in one feature commit.
-- Updated coverage context: `plan-coordinate-schedule` now spans low-, moderate-, high-, and critical-risk slices and also fills the family's previously empty `human-directed` autonomy slot via a bounded critical coordination anchor.
-- Reflection outcome: no new `.agent/proposals/` entry was added because the iteration did not surface a new durable loop, tooling, schema, or ontology improvement beyond already captured guidance.
-- Planned orchestrator follow-up: validate the refreshed repository state, keep execution memory synchronized, and queue the next narrow uncovered `critical`-risk candidate after this planning-family closure.
+- Timestamp: `20260321-092058`
+- Planned scope: author one critical-risk `recommend-decide-escalate` anchor, add a few linked grounded instances, and realign only the family doc plus directly affected browse views in one feature commit.
+- Coverage hypothesis: this batch should close the family's last missing risk-level cell while potentially adding `human-directed` autonomy coverage if the recommendation remains explicitly human-owned under severe consequence.
+- Reflection placeholder: evaluate after the content batch whether the new recommendation pattern stayed cleanly bounded at route recommendation and packet assembly rather than drifting into collaboration or execution.
+- Planned orchestrator follow-up: validate the new YAML state, synchronize `.agent/` memory, and then re-evaluate whether `optimize-adapt` or `human-agent-collaborative-work` is the next narrow uncovered `critical`-risk target.
 
 ## Constraints
 
@@ -41,4 +41,4 @@ Iteration `20260321-091136` is complete: it closed `plan-coordinate-schedule`'s 
 
 ## Expected outcome
 
-This repository state now leaves `plan-coordinate-schedule` with representative `critical` risk coverage via one bounded high-consequence coordination anchor and three grounded examples, while keeping the ontology pattern-first and the completed content batch modest.
+This iteration should leave `recommend-decide-escalate` with representative `critical` risk coverage through one bounded high-consequence recommendation anchor and a small set of grounded examples, while keeping the ontology pattern-first and the batch modest.
