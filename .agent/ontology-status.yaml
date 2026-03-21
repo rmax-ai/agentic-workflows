@@ -31,8 +31,8 @@ inventory:
   schema_files: 1
   vocabulary_files: 6
   view_files: 5
-  pattern_files: 29
-  instance_files: 102
+  pattern_files: 30
+  instance_files: 105
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -52,14 +52,14 @@ pattern_counts_by_family:
   monitor-detect-triage: 3
   plan-coordinate-schedule: 3
   recommend-decide-escalate: 4
-  execute-automate: 3
+  execute-automate: 4
   optimize-adapt: 3
   human-agent-collaborative-work: 3
 instance_counts_by_domain:
-  engineering: 16
-  finance: 15
+  engineering: 17
+  finance: 16
   compliance: 12
-  operations: 13
+  operations: 14
   research: 16
   support: 16
   hr: 14
@@ -103,6 +103,7 @@ repo_reality:
     - data/patterns/recommend-decide-escalate/readiness-gate-disposition-recommendation.yaml
     - data/patterns/recommend-decide-escalate/control-requirement-attestation-recommendation.yaml
     - data/patterns/execute-automate/browser-based-form-completion-with-approval-gates.yaml
+    - data/patterns/execute-automate/staged-change-execution-with-rollback-holds.yaml
     - data/patterns/execute-automate/exception-aware-task-execution.yaml
     - data/patterns/execute-automate/workflow-hand-off-and-completion.yaml
     - data/patterns/optimize-adapt/queue-prioritization-optimization.yaml
@@ -134,6 +135,7 @@ repo_reality:
     - instances/engineering/cross-team-release-readiness-review-scheduling.md
     - instances/engineering/release-readiness-review-coordination-refresh-after-approver-window-change.md
     - instances/engineering/approved-production-change-freeze-exception-portal-submission.md
+    - instances/engineering/approved-payments-tokenization-cutover-staged-execution.md
     - instances/engineering/managed-database-major-version-upgrade-exception-recommendation.md
     - instances/engineering/privileged-service-account-quarterly-control-attestation-recommendation.md
     - instances/engineering/ci-pipeline-failure-review-queue-reprioritization.md
@@ -152,6 +154,7 @@ repo_reality:
     - instances/finance/quarter-close-control-review-coordination-refresh-after-consolidation-shift.md
     - instances/finance/quarter-close-exception-review-queue-reprioritization.md
     - instances/finance/quarter-close-control-bundle-retuning.md
+    - instances/finance/approved-cash-forecast-primary-cutover-staged-execution.md
     - instances/finance/material-vendor-payment-control-exception-package-readiness-loop.md
     - instances/finance/procurement-card-segregation-of-duties-attestation-recommendation.md
     - instances/finance/cash-forecast-primary-cutover-readiness-gate-disposition-recommendation.md
@@ -165,6 +168,7 @@ repo_reality:
     - instances/operations/warehouse-slotting-rule-change-digest-for-shift-supervisor-briefing.md
     - instances/operations/warehouse-slotting-rollout-caveat-board-shared-workbench-upkeep.md
     - instances/operations/distribution-sorter-misroute-root-cause-investigation.md
+    - instances/operations/approved-distribution-sorter-routing-profile-cutover-staged-execution.md
     - instances/operations/supplier-labeling-deviation-remediation-brief-copilot-loop.md
     - instances/operations/network-fuel-system-test-deferral-exception-package-readiness-loop.md
     - instances/operations/warehouse-slotting-reference-rollout-verification.md
@@ -221,12 +225,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, twenty-nine canonical patterns across all nine top-level families, and one hundred two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, thirty canonical patterns across all nine top-level families, and one hundred five grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`governed-optimization-bundle-retuning` now gives `optimize-adapt` a third canonical pattern plus representative `orchestrated-multi-agent`, `recommendation-only`, and `high` risk coverage while staying bounded at governed shared-state retuning and human-adopted bundle updates rather than direct queue scoring, decision adjudication, or downstream execution."
-    - "`optimize-adapt` now spans `tool-using-single-agent`, `orchestrated-multi-agent`, `human-in-the-loop`, and `event-driven-monitoring` architectures across low-, moderate-, and high-risk slices, leaving only approval-gated-execution uncovered in that family's architecture row and only critical risk uncovered in that family's risk row."
-    - "The derived index tree and alternate browse views are now realigned to canonical pattern inventory, including the new optimize-adapt retuning anchor and its finance, research, and HR domain placements, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
-    - "All nine top-level families still have at least two canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps are now narrower family-specific slices such as `execute-automate`'s missing `high` risk coverage rather than missing global scaffolding."
+    - "`staged-change-execution-with-rollback-holds` now gives `execute-automate` a fourth canonical pattern plus representative `high` risk and `exception-gated-autonomy` coverage while staying bounded at staged live-state progression, checkpoint verification, and rollback-aware hold points rather than browser submission, routine delegated execution, or low-risk closure."
+    - "`execute-automate` now spans `tool-using-single-agent`, `orchestrated-multi-agent`, `human-in-the-loop`, `event-driven-monitoring`, and `approval-gated-execution` architectures across low-, moderate-, high-, and critical-risk slices, making it the first family with full coverage across both tracked architecture and risk dimensions."
+    - "The derived index tree and alternate browse views are now realigned to canonical pattern inventory, including the new staged execution anchor and its corrected `exception-gated-autonomy` placement, reinforcing that `data/views/` must stay reference-oriented and derived from pattern truth rather than hand-maintained drift."
+    - "All nine top-level families still have at least three canonical patterns, all seven modeled domains still have canonical and grounded coverage, and all six autonomy levels remain represented, so the next highest-leverage gaps are now narrower family-specific slices such as `monitor-detect-triage`'s missing `low` risk coverage rather than missing global scaffolding."
   next_action:
-    id: phase-7-high-risk-execution-refinement
-    summary: "Use the next iteration to evaluate whether `execute-automate` should gain one high-risk execution refinement pattern that stays bounded at governed task progression or reversible action without drifting into recommendation, approval adjudication, or planning."
+    id: phase-7-low-risk-monitoring-refinement
+    summary: "Use the next iteration to evaluate whether `monitor-detect-triage` should gain one low-risk monitoring refinement pattern that stays bounded at explainable watchlisting, low-stakes signal review, or noise suppression without drifting into synthesis, recommendation, investigation, or execution."

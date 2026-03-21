@@ -36,7 +36,7 @@ autonomy_levels:
     monitor-detect-triage: []
     plan-coordinate-schedule: []
     recommend-decide-escalate: []
-    execute-automate: [staged-change-execution-with-rollback-holds]
+    execute-automate: []
     optimize-adapt: []
     human-agent-collaborative-work: [analyst-copilot-loop]
 - autonomy_level:
@@ -92,7 +92,7 @@ autonomy_levels:
     monitor-detect-triage: []
     plan-coordinate-schedule: [authoritative-change-coordination-refresh]
     recommend-decide-escalate: []
-    execute-automate: []
+    execute-automate: [staged-change-execution-with-rollback-holds]
     optimize-adapt: [queue-prioritization-optimization]
     human-agent-collaborative-work: []
 - autonomy_level:
