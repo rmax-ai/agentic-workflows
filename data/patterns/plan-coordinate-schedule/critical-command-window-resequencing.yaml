@@ -1,0 +1,282 @@
+id: critical-command-window-resequencing
+slug: critical-command-window-resequencing
+name: Critical command-window resequencing
+summary: Re-sequence a live critical coordination timeline when authoritative readiness, dependency, or control-window changes invalidate the current command schedule, producing one human-directed checkpoint ledger, explicit holds, and a command-window packet without drifting into triage, recommendation, or execution.
+pattern_family:
+  id: plan-coordinate-schedule
+  label: Plan / Coordinate / Schedule
+problem_structure:
+  id: constraint-aware-planning
+  label: Constraint-aware planning
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+workflow_goal: Maintain one authoritative critical command timeline by re-sequencing checkpoints, participant windows, and hold states as readiness or control conditions change, then hand off a human-reviewed coordination artifact that keeps the live window synchronized without selecting a response strategy or executing the underlying work.
+inputs:
+  - name: Declared critical command scope and current timeline
+    description: The bounded severe event, cutover, or command-window declaration plus the currently active checkpoint sequence, target windows, required owners, and protected milestones already governing the coordination loop.
+    kind: case
+    required: true
+    examples:
+      - Approved production cutover command timeline with rollback hold points, approver windows, and evidence deadlines
+      - Treasury liquidity bridge timeline with bank-confirmation checkpoints, control reviews, and executive decision windows
+      - Contamination command-center checkpoint sequence for laboratory readiness, shipment-hold review, and partner-briefing preparation
+  - name: Authoritative readiness and dependency changes
+    description: Verified updates that change what can happen when, including shifted evidence-ready times, delayed prerequisites, newly unavailable checkpoint owners, or narrowed control windows.
+    kind: change-set
+    required: true
+    examples:
+      - Rollback validation completes later than planned and compresses the pre-cutover approval window
+      - Bank confirmation timing slips and pushes the earliest defensible liquidity review checkpoint
+      - Laboratory turnaround updates delay when containment review can begin while carrier hold confirmation arrives early
+  - name: Command-window authority and hold rules
+    description: Approved sequencing rules, protected checkpoints, minimum spacing requirements, freeze boundaries, and stop conditions that determine which timeline moves are allowed and when the workflow must hold rather than resequence automatically.
+    kind: policy
+    required: true
+    examples:
+      - Do not move executive go-live review ahead of rollback checkpoint completion or outside the declared freeze window
+      - Keep funding-decision checkpoints after verified cash-state review and before market-open communication windows
+      - Preserve legal-review hold before any partner-facing contamination checkpoint is treated as current
+  - name: Participant, delegate, and communication state
+    description: The latest role assignments, approved delegate mappings, acknowledgement status, and channel constraints for the humans who must own or consume each checkpoint.
+    kind: coordination-state
+    required: true
+    examples:
+      - Updated approver roster showing which release manager delegate is allowed to cover one checkpoint
+      - Current bridge participant list with treasury control, funding desk, and risk review attendance state
+      - Command-center roster with quality, operations, legal, and carrier-coordination checkpoint owners
+  - name: Prior timeline versions and active holds
+    description: Optional previous command-window packets, superseded sequences, pending acknowledgements, and unresolved hold states that should stay visible as the timeline is resequenced.
+    kind: case-state
+    required: false
+    examples:
+      - Earlier cutover timeline version with one unresolved rollback evidence checkpoint still on hold
+      - Prior liquidity bridge sequence showing a provisional executive review slot awaiting bank confirmation
+      - Existing contamination command packet with a held carrier checkpoint pending facility acknowledgment
+outputs:
+  - name: Authoritative checkpoint ledger
+    description: The current ordered list of checkpoints, owners, target windows, dependencies, and hold states that humans can treat as the live command timeline for the declared critical scope.
+    kind: plan
+    required: true
+    examples:
+      - Resequenced cutover ledger showing rollback verification, security approval, and production command checkpoints with updated windows
+      - Current liquidity bridge ledger showing cash review, control challenge, and executive coordination checkpoints in revised order
+      - Updated contamination command ledger showing lab review, containment confirmation, and legal-review checkpoints with explicit holds
+  - name: Command-window hold and exception register
+    description: Structured list of checkpoints, windows, acknowledgements, or dependencies that remain blocked, provisional, or outside delegated resequencing authority.
+    kind: review-queue
+    required: true
+    examples:
+      - Executive approval checkpoint held because no in-policy reviewer window exists before cutover
+      - Market-open communication checkpoint blocked because bank confirmation freshness is outside the allowed threshold
+      - Partner-briefing preparation checkpoint held pending legal clearance of the revised contamination window
+  - name: Resequenced command-window coordination packet
+    description: Human-reviewable packet containing the current checkpoint ledger, participant deltas, pending holds, and where the planning workflow stopped short of recommendation or execution.
+    kind: schedule-packet
+    required: true
+    examples:
+      - Updated cutover command packet for release leadership with revised checkpoint windows and required acknowledgements
+      - Liquidity bridge packet showing the current sequence for controls, treasury, and executive consumers
+      - Command-center packet showing the latest contamination review checkpoints and held partner-facing windows
+  - name: Timeline lineage log
+    description: Durable audit trail of trigger events, superseded timelines, hold reasons, human checkpoint actions, and packet version changes across the critical coordination window.
+    kind: audit-log
+    required: true
+    examples:
+      - Append-only log linking test evidence delay to the resequenced cutover approval timeline
+      - Bridge timeline history showing which authoritative bank update shifted the executive checkpoint
+      - Command-center timeline trace recording why one carrier checkpoint stayed held across successive updates
+environment:
+  summary: Operates in declared severe cutover, bridge, or command-center situations where a stale checkpoint order can cause humans to work from different timelines, yet the workflow must stay bounded at coordination-state control rather than incident triage, decision recommendation, or operational execution.
+  systems:
+    - Change, incident, or command-management systems holding the declared command-window scope
+    - Planning, milestone, or readiness systems publishing checkpoint dependency state
+    - Calendar, on-call, delegate, and notification systems for required checkpoint owners
+    - Coordination workspaces and audit tooling that preserve current packet lineage and hold state
+  actors:
+    - Command lead, release lead, or bridge owner who declares the critical coordination scope
+    - Coordination owner responsible for the current checkpoint ledger
+    - Dependency owners and required checkpoint approvers
+    - Human authority who adopts the resequenced command window for consequential use
+  constraints:
+    - Start only after a declared critical command window or equivalent governed coordination state exists.
+    - Preserve one authoritative checkpoint ledger with explicit provisional and held states rather than allowing parallel unofficial timelines to emerge.
+    - Keep protected milestones, freeze boundaries, and minimum review spacing visible during every resequencing step.
+    - Stop at the resequenced timeline, hold register, and coordination packet; do not recommend which business response to choose or execute the checkpoints themselves.
+  assumptions:
+    - Authoritative readiness, availability, and checkpoint ownership signals arrive with enough freshness to justify command-window updates.
+    - Human command owners remain available to adopt consequential timing changes and resolve blocked or cross-boundary checkpoints.
+    - Downstream decision, communication, and execution workflows can consume the resequenced packet without requiring this pattern to take those actions.
+capability_requirements:
+  - capability:
+      id: planning
+      label: Planning
+      source_vocabulary: capabilities
+    necessity: The core task is to rebuild one viable checkpoint sequence under severe time and dependency constraints while preserving command-window integrity.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Multiple checkpoint owners, approvers, and communication channels must stay synchronized around one current timeline as the critical window shifts.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Safe resequencing depends on checking that readiness, availability, and dependency changes are authoritative before they alter the live command ledger.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Protected milestones, minimum spacing rules, freeze boundaries, and authority limits determine when resequencing is allowed and when explicit holds are required.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Superseded timelines, active holds, acknowledgement state, and packet lineage must remain durable across repeated critical updates.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow must read planning, calendar, and readiness systems and write updated coordination packets and lineage records through governed tooling.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The workflow must isolate blocked checkpoints, impossible windows, and authority conflicts instead of flattening them into a falsely clean command schedule.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Critical command-window control often benefits from explicit roles for trigger verification, dependency refresh, checkpoint resequencing, and packet assembly so the live timeline remains inspectable under pressure.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Human command owners remain embedded because consequential checkpoint adoption, protected-window interpretation, and cross-boundary timing changes cannot be delegated away safely.
+autonomy_profile:
+  level:
+    id: human-directed
+    label: Human directed
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the declared critical scope, protected checkpoints, and command-window authority rules before resequencing begins.
+    - Review the updated checkpoint ledger and hold register before the resequenced packet is used to coordinate consequential live actions, declarations, or communications.
+    - Approve any change to freeze-boundary handling, checkpoint precedence, or delegate authority before those rules affect later command-window updates.
+  reversibility: The command timeline can be superseded as fresher state arrives, but once teams act from an incorrect critical sequence the resulting missed checkpoints, conflicting communications, or unsafe live actions may be difficult to unwind quickly.
+  escalation: Escalate whenever no defensible in-policy sequence exists, protected checkpoints lose required human ownership, prerequisite freshness is uncertain, or the next requested step would require triage, recommendation, declaration, or execution instead of bounded coordination control.
+risk_governance:
+  level:
+    id: critical
+    label: Critical
+    source_vocabulary: risk-levels
+  failure_impact: An incorrect critical command timeline can cause teams to miss control gates, act from conflicting schedules, communicate from stale checkpoint state, or advance severe-event work before prerequisite review windows are actually satisfied.
+  approval_requirements:
+    - A human command owner must approve use of the resequenced packet before it becomes the authoritative basis for live cutover, bridge, containment, funding, or equivalent high-consequence coordination.
+    - Governance approval is required before changing checkpoint precedence rules, hold-release criteria, or command-window boundary logic used by future critical resequencing runs.
+  auditability: Preserve every trigger event, readiness snapshot, participant or delegate change, checkpoint move, held window, superseded packet, and human adoption decision so reviewers can reconstruct exactly how the critical timeline changed.
+  privacy:
+    - Share only role-relevant timing, checkpoint, and ownership details in broad coordination packets rather than duplicating full incident, financial, or personnel context.
+    - Keep restricted notes and sensitive dependency evidence inside narrower workspaces when the main command packet can rely on generalized references.
+  security:
+    - Restrict access to command ledgers, delegate state, and hold registers because unauthorized edits can distort the live critical timeline.
+    - Log manual overrides, checkpoint-sequence changes, and repeated resequencing failures so unauthorized schedule shaping remains detectable.
+  notes: Critical-risk governance fits because the pattern controls which timeline humans treat as authoritative during a severe window, while remaining bounded at checkpoint sequencing, explicit holds, and coordination-state handoff rather than response choice or execution.
+why_agentic:
+  - Critical command windows shift as readiness, availability, and protected checkpoints change, so the workflow must adapt the live sequence instead of applying one static emergency runbook.
+  - Safe performance depends on preserving one shared timeline, explicit hold states, and versioned checkpoint lineage across successive updates that arrive from different systems and roles.
+  - The workflow must recognize when uncertainty or blocked ownership is itself materially important and should remain visible in the command packet rather than being hidden behind a cosmetically complete schedule.
+failure_modes:
+  - mode: A stale readiness or dependency signal is used to move a critical checkpoint
+    impact: Teams coordinate around a sequence that is already invalid and may advance work before prerequisites are truly met.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Revalidate authoritative readiness and dependency freshness before publishing each resequenced packet.
+      - Preserve timestamps and source lineage for every checkpoint move in the live ledger.
+  - mode: Protected checkpoints are reordered across authority or freeze boundaries
+    impact: The live command window appears coherent while violating a non-waivable control, review, or timing rule.
+    severity: critical
+    detectability: medium
+    mitigations:
+      - Encode protected milestones and minimum spacing rules separately from flexible timing preferences.
+      - Block resequencing that crosses protected boundaries unless a human owner explicitly approves the exception.
+  - mode: Parallel unofficial timelines persist after the command packet changes
+    impact: Different teams act from different versions of the schedule during a severe event, increasing coordination failure.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Maintain one authoritative packet version with explicit supersession state and recipient-targeted delta notices.
+      - Track outstanding acknowledgements for materially affected checkpoint owners before treating a new timeline as current.
+  - mode: The workflow drifts into recommendation or execution
+    impact: Family boundaries blur and the coordination workflow starts choosing responses or acting on checkpoints that should remain human-owned downstream.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Limit outputs to the checkpoint ledger, hold register, coordination packet, and lineage log.
+      - Keep downstream decision, declaration, communication, and execution tooling outside the resequencing loop.
+evaluation:
+  success_metrics:
+    - Time from authoritative trigger to a human-reviewable resequenced command packet with complete checkpoint lineage and hold status.
+    - Agreement between the workflow's checkpoint ledger and the final human-adopted critical timeline for the active window.
+    - Percentage of materially blocked checkpoints that remain visible in the hold register instead of being hidden inside the main timeline.
+  quality_criteria:
+    - Every checkpoint move clearly identifies the trigger, protected constraints considered, and who must adopt the change before consequential use.
+    - The workflow preserves explicit held and provisional states whenever authority, readiness, or dependency uncertainty remains.
+    - Outputs stay bounded at command-window coordination rather than severity assessment, response recommendation, or operational execution.
+  robustness_checks:
+    - Test with clustered readiness and owner-availability changes to verify the workflow supersedes prior timelines cleanly instead of mixing incompatible checkpoint versions.
+    - Test no-feasible-window cases and confirm the workflow returns explicit holds and escalation conditions rather than a misleading schedule.
+    - Test repeated packet revisions with partial acknowledgements to ensure the workflow preserves one authoritative current timeline and visible supersession history.
+  benchmark_notes: Evaluate both timeline quality and coordination trust; a faster resequencing loop is not a success if humans cannot tell which checkpoints are current, protected, or still held.
+implementation_notes:
+  orchestration_notes:
+    - Keep trigger verification, dependency refresh, checkpoint resequencing, hold classification, and packet assembly as explicit coordinated stages over shared command-window state.
+    - Separate resequencing from downstream recommendation, communication approval, and execution tooling so the family boundary remains intact.
+  integration_notes:
+    - Common implementations integrate change or incident systems, readiness trackers, calendars or on-call tools, and governed coordination workspaces.
+    - Keep the pattern neutral about specific incident-management, change-management, treasury-bridge, or command-center platforms.
+  deployment_notes:
+    - Start with critical workflows where command checkpoints are already explicit, human adoption paths are defined, and stale schedule state is known to create severe coordination harm.
+    - Monitor superseded-packet rates, blocked-checkpoint frequency, and human disagreement with resequenced ledgers to ensure the workflow is surfacing uncertainty instead of normalizing it away.
+  references:
+    - docs/patterns/plan-coordinate-schedule.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: schedule-adjustment-and-replanning
+    relationship: variant-of
+    notes: This pattern is a critical-risk, live-window variant focused on authoritative checkpoint resequencing under severe consequences rather than broader revised-plan handoff for normal replanning.
+  - id: authoritative-change-coordination-refresh
+    relationship: contrasts-with
+    notes: Coordination refresh updates an issued packet when individual schedule facts change, while this pattern re-sequences the command window itself when checkpoint order, hold state, or protected timing must be rebuilt.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Re-sequence a payments cutover command window after rollback validation slips, approver availability changes, and the final protected review order must be rebuilt before production coordination continues.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Re-sequence an intraday liquidity bridge timeline before market open when authoritative bank confirmation, control review, and executive coordination windows shift under severe pressure.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Re-sequence a contamination command-center checkpoint plan as laboratory readiness, containment confirmations, and legal-review windows move during an active safety event.
+maturity: draft
+tags:
+  - plan-coordinate-schedule
+  - critical-risk
+  - command-window
+  - checkpoint-resequencing
+  - human-directed

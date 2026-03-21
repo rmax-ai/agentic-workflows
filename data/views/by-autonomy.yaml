@@ -34,7 +34,7 @@ autonomy_levels:
     transform-process: [critical-channel-safe-state-packaging]
     investigate-reconcile-verify: [critical-authoritative-state-restoration]
     monitor-detect-triage: []
-    plan-coordinate-schedule: []
+    plan-coordinate-schedule: [critical-command-window-resequencing]
     recommend-decide-escalate: []
     execute-automate: []
     optimize-adapt: []

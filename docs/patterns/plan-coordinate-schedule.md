@@ -18,6 +18,7 @@ The conceptual seed patterns already named in the browse tree are:
 - `constraint-aware-planning`
 - `multi-party-coordination`
 - `schedule-adjustment-and-replanning`
+- `critical-command-window-resequencing`
 
 ## Problem-structure mapping
 
@@ -28,9 +29,13 @@ This family maps directly to two existing `problem_structure` terms:
 
 Future canonical patterns should choose the planning-centered or coordination-centered term based on what makes the workflow difficult.
 
+`critical-command-window-resequencing` now gives this family a critical-risk anchor for workflows where the hard problem is preserving one authoritative command timeline under severe consequences. It stays in-family only when the system is re-sequencing checkpoints, preserving explicit holds, and handing off a bounded command-window coordination packet rather than triaging events, recommending a policy choice, or executing the response.
+
 ## Family boundary
 
 This family is about making work executable in principle, not necessarily selecting policy outcomes or carrying out actions.
+
+Critical variants still belong here only when the main artifact is a human-controlled checkpoint ledger, resequenced command timeline, or held coordination packet. If the workflow's main value becomes severe-signal triage, trusted-state restoration, crisis briefing, or downstream operational action, it belongs in an adjacent family even if command-window data is involved.
 
 - If the main challenge is **prioritizing alerts and incoming work**, see [monitor-detect-triage](./monitor-detect-triage.md).
 - If the main challenge is **ranking options or preparing a recommendation for a decision-maker**, see [recommend-decide-escalate](./recommend-decide-escalate.md).
