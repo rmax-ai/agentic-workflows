@@ -12,6 +12,29 @@ Finance.
 
 A finance controls analyst is assembling the quarterly internal attestation for the procurement-card program covering cardholder onboarding, manager approval separation, statement-review completion, and unresolved exception aging. The source reports are mostly current, but one business unit still has two overdue manager-review samples, the training evidence for newly delegated approvers was exported before the latest roster change, and a prior-quarter exception allowing one small shared mailbox flow may no longer fit the current policy boundary. The workflow must recommend whether the packet is ready for controller review, should return for targeted remediation, or should escalate to controllership because the requirement fit now depends on exception interpretation before any human signs the internal attestation or changes finance-system settings.
 
+```mermaid
+flowchart TD
+    A["Assemble the quarterly procurement-card<br>attestation evidence packet"]
+    B["Map each attestation requirement<br>to current reports, training evidence,<br>and prior exception history"]
+    C{"Any overdue manager-review samples<br>or stale approver-training evidence?"}
+    D["Recommend targeted remediation<br>to refresh evidence and complete samples"]
+    E["Hold the packet until updated evidence<br>is available for bounded re-review"]
+    F{"Does requirement fit still depend on<br>shared-mailbox exception interpretation?"}
+    G["Escalate to controllership<br>for policy-boundary review"]
+    H["Hold the packet pending exception guidance<br>before any attestation sign-off"]
+    I["Recommend the packet is ready<br>for controller review"]
+
+    A --> B
+    B --> C
+    C -- "Yes" --> D
+    D --> E
+    E --> B
+    C -- "No" --> F
+    F -- "Yes" --> G
+    G --> H
+    F -- "No" --> I
+```
+
 ## Target systems / source systems
 
 - ERP and expense-management workflow reports showing cardholder approvals, statement-review completion, and sampled segregation-of-duties evidence
