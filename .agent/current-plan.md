@@ -2,7 +2,9 @@
 
 ## Iteration focus
 
-Next iteration focus: continue the tied-domain refinement track with one instance-only `hr` slice under the already-mapped `workflow-hand-off-and-completion` pattern so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears.
+Next iteration focus: continue the tied-domain refinement track with one instance-only slice in one of the now-tied thinnest domains (`compliance`, `research`, `support`, or `hr`) under an already-mapped pattern/domain pair so coverage improves without touching schema, vocabularies, canonical pattern metadata, or derived views unless genuine drift appears.
+
+Iteration `20260321-184438` is now complete: `workflow-hand-off-and-completion` gained a second `hr` grounding example through one accepted work-authorization review closure and compliance-tracker synchronization scenario, and the bounded instance-only batch validated cleanly through YAML validation plus the derived MkDocs publication build.
 
 Iteration `20260321-181842` is now complete: `workflow-hand-off-and-completion` gained a second `research` grounding example through one approved human-subjects continuing-review closure and protocol-registry synchronization scenario, and the bounded instance-only batch validated cleanly through YAML validation plus the derived MkDocs publication build.
 
@@ -80,15 +82,15 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 - Phase 3: navigation views are complete and should remain derived from canonical pattern inventory.
 - Phase 4: top-level family overview docs are complete under `docs/patterns/`.
 - Phase 5: canonical coverage now spans forty-nine patterns across all nine top-level pattern families. `recommend-decide-escalate` now sits at seven canonical patterns; `transform-process` and `optimize-adapt` each sit at six; `gather-retrieve-synthesize` now sits at five; and `monitor-detect-triage`, `investigate-reconcile-verify`, `plan-coordinate-schedule`, `execute-automate`, and `human-agent-collaborative-work` each remain at five. Future additions should remain narrow and land only where a genuinely reusable workflow shape deepens uneven grounded coverage rather than duplicating already-covered matrix cells.
-- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred ninety-seven instance files now committed.
+- Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred ninety-eight instance files now committed.
 - Phase 7: coverage refinement remains active, all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder and all tracked architecture types. The next refinement target should stay on balancing grounded depth across underrepresented domains and family-safe refinement slices rather than adding fresh structural inventory.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path, and the repository now also supports derived static-site publication through `uv run python scripts/python/build_site_docs.py`, `uv run mkdocs serve`, `uv run mkdocs build`, and GitHub Pages deployment through `.github/workflows/publish-site.yml`.
 - Derived-view baseline: browse artifacts should continue to follow canonical pattern truth, especially when autonomy or architecture classifications change during refinement work.
-- Current refinement target: `hr` is now the thinnest modeled domain at twenty-six grounded examples, while `research`, `compliance`, and `support` each sit at twenty-seven. The next iteration should pick one equally bounded already-canonical HR slice without expanding structural inventory or derived views.
+- Current refinement target: `hr`, `research`, `compliance`, and `support` are now tied as the thinnest modeled domains at twenty-seven grounded examples each. The next iteration should pick one equally bounded already-canonical slice in one of those domains without expanding structural inventory or derived views.
 
 ## Ordered tasks
 
-1. Reassess `instances/hr/*.md` plus the already-mapped HR patterns in `data/views/by-domain.yaml` and deepen `workflow-hand-off-and-completion` with one equally bounded HR instance-only slice.
+1. Reassess the now-tied thinnest domains through `instances/{compliance,research,support,hr}/*.md` plus the already-mapped pattern/domain pairs in `data/views/by-domain.yaml`, then choose one equally bounded instance-only refinement slice.
 2. Prefer another instance-only refinement batch, and avoid canonical pattern or derived-view edits unless the next grounding exposes genuine drift from repository truth.
 3. Validate repository YAML with `uv run python scripts/python/validate_yaml.py` after the next bounded content batch, then refresh execution memory on top of the verified canonical baseline.
 4. Re-run `uv run python scripts/python/build_site_docs.py` and `uv run mkdocs build` whenever publication-facing docs, patterns, views, vocabularies, instances, or schema change.
@@ -97,10 +99,14 @@ Iteration `20260321-122614` is now complete: `approval-gated-optimization-state-
 
 ## Iteration checkpoint
 
+- Timestamp: `20260321-184438`
+- Completed scope: added `instances/hr/accepted-work-authorization-review-closure-and-compliance-tracker-synchronization.md` as a second HR grounding for `workflow-hand-off-and-completion`, keeping the batch instance-only and bounded at authoritative post-decision closure, queue cleanup, compliance-tracker synchronization, archive linkage, audit recording, and coordinator notification.
+- Current working hypothesis: low-risk execute-family closure patterns continue to deepen cleanly when the authoritative decision is already final, the remaining steps are replay-safe bookkeeping only, and the grounded systems add new domain texture without forcing canonical pattern or derived-view edits.
+- Current scoped follow-on: pick one equally bounded instance-only slice next in one of the now-tied thinnest domains (`compliance`, `research`, `support`, or `hr`) so balancing continues without reopening structural ontology work.
 - Timestamp: `20260321-181842`
 - Completed scope: added `instances/research/approved-human-subjects-continuing-review-closure-and-protocol-registry-synchronization.md` as a second research grounding for `workflow-hand-off-and-completion`, keeping the batch instance-only and bounded at authoritative post-decision closure, queue cleanup, registry synchronization, archive linkage, audit recording, and coordinator notification.
 - Current working hypothesis: low-risk execute-family closure patterns deepen cleanly when the scenario stays explicitly downstream of an already-final decision and the grounded systems differ enough from earlier examples to add domain texture without changing canonical pattern metadata.
-- Current scoped follow-on: add one equally bounded HR `workflow-hand-off-and-completion` grounding next so the thinnest-domain balancing track continues without reopening structural ontology work.
+- Current scoped follow-on: keep balancing the tied thinnest domains with one equally bounded already-canonical grounding slice at a time so the refinement track stays instance-only unless genuine drift appears.
 - Timestamp: `20260321-173800`
 - Completed scope: added one Mermaid workflow diagram each to five eligible instance files: `instances/compliance/control-remediation-sign-off-review-scheduling.md`, `instances/engineering/approved-release-readiness-review-closure-and-tracker-completion.md`, `instances/hr/internal-parental-leave-guidance-publication-verification.md`, `instances/support/enterprise-admin-entitlement-resynchronization-runbook-execution.md`, and `instances/research/benchmark-study-publication-timeline-replanning-after-evidence-analysis-or-clearance-delay.md`.
 - Current working hypothesis: Mermaid remains useful as a bounded explanatory layer for grounded scenarios when each file gets exactly one small workflow diagram placed near the opening orientation material, the diagram stops at the file's stated handoff boundary, and ambiguous or out-of-policy branches remain explicit rather than implied away.

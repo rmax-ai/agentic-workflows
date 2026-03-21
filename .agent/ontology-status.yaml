@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 197
+  instance_files: 198
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ instance_counts_by_domain:
   operations: 29
   research: 27
   support: 27
-  hr: 26
+  hr: 27
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
@@ -76,6 +76,7 @@ consistency_notes:
   - "`approval-centered-collaboration` canonical domain/example metadata plus `data/views/by-domain.yaml` are now realigned with the already-committed `support` and `compliance` readiness-loop instances, restoring browse consistency before further refinement work."
   - "`exception-aware-task-execution` now has explicit `support` grounding through an enterprise admin entitlement resynchronization runbook execution example, extending that bounded-delegation execute-family slice beyond engineering and operations while preserving a clean boundary at delegated routine completion, durable checkpointing, explicit verification, and exception-only escalation rather than customer communication, contract interpretation, or discretionary entitlement redesign."
   - "`workflow-hand-off-and-completion` now has additional `research` grounding through an approved human-subjects continuing-review closure and protocol-registry synchronization example, deepening that low-risk execute-family closure slice beyond benchmark-governance-only context while preserving a clean boundary at authoritative post-decision closure, queue cleanup, registry synchronization, archive linkage, and internal coordinator notification rather than protocol amendment, participant communication, or study execution."
+  - "`workflow-hand-off-and-completion` now has additional `hr` grounding through an accepted work-authorization review closure and compliance-tracker synchronization example, deepening that low-risk execute-family closure slice beyond protected-leave review context while preserving a clean boundary at authoritative post-decision closure, queue cleanup, compliance-tracker synchronization, archive linkage, and internal coordinator notification rather than worker outreach, employment action, filing, or legal strategy."
 repo_reality:
   available_ontology_assets:
     - .github/workflows/publish-site.yml
@@ -327,6 +328,7 @@ repo_reality:
     - instances/hr/bereavement-leave-compliance-briefing-revision-approved-for-people-policy-council-circulation.md
     - instances/hr/work-authorization-lapse-triage-packet-approved-for-restricted-immigration-compliance-review-dispatch.md
     - instances/hr/accepted-protected-leave-review-closure-and-case-tracker-synchronization.md
+    - instances/hr/accepted-work-authorization-review-closure-and-compliance-tracker-synchronization.md
     - instances/hr/open-enrollment-faq-caveat-board-shared-workbench-upkeep.md
     - instances/hr/internal-parental-leave-guidance-publication-verification.md
     - docs/patterns/README.md
