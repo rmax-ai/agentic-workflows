@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-The last iteration rebalanced two thin Phase 6 slices by grounding `execute-automate` in finance and `optimize-adapt` in operations. The next batch should stay modest and target the clearest remaining governed gap, with compliance optimization or operations/support execution now standing out most.
+This iteration will deepen the governed `optimize-adapt` slice by adding one compliance-grounded instance linked to `queue-prioritization-optimization`. The goal is to turn the current compliance optimization cell from a planned opportunity into a concrete, audit-heavy example without broadening the batch into multiple families.
 
 ## Current phase
 
@@ -15,11 +15,10 @@ The last iteration rebalanced two thin Phase 6 slices by grounding `execute-auto
 
 ## Ordered tasks
 
-1. Re-read `queue-prioritization-optimization` and the existing compliance instances to judge whether the next highest-leverage batch should ground `optimize-adapt` in a governed compliance workflow.
-2. In parallel, reassess `browser-based-form-completion-with-approval-gates` against existing operations and support instances to see whether an approval-gated execution example in one of those domains would add more structural value than another optimization case.
-3. Keep the next grounding batch modest: prefer one or two new instances that deepen risk, governance, and architecture diversity instead of spreading shallowly across many domains.
-4. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the next iteration log after the next batch so memory reflects whichever governed slice is chosen.
-5. Continue validating repository YAML with the existing uv-managed helper before closing each iteration.
+1. Author one new compliance instance for `queue-prioritization-optimization` that emphasizes bounded reprioritization, deadline pressure, fairness, rollback, and supervisory review.
+2. Keep the batch modest: do not expand the pattern set or add unrelated instances unless the chosen compliance example proves structurally insufficient.
+3. Update `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, `.agent/repo-map.md`, and the iteration log after the instance lands so repository memory reflects the newly grounded optimization slice.
+4. Continue validating repository YAML with the existing uv-managed helper before closing the iteration.
 
 ## Constraints
 
@@ -27,9 +26,9 @@ The last iteration rebalanced two thin Phase 6 slices by grounding `execute-auto
 - Treat `data/views/` as derived browse artifacts and keep any future updates aligned with stable vocabulary and pattern ids.
 - Ensure every subagent task ends with exactly one git commit.
 - Prefer modest grounding batches that improve coverage balance inside one thin family/domain slice rather than forcing a broad cross-family sweep.
-- Keep the next iteration scoped to one modest grounding batch plus required `.agent/` memory updates; do not expand the canonical pattern set unless dependency order changes.
+- Keep the iteration scoped to one modest compliance-grounding batch plus required `.agent/` memory updates; do not expand the canonical pattern set unless dependency order changes.
 - Keep governance, reversibility, privacy, and auditability explicit in grounded examples.
 
 ## Expected outcome
 
-The next iteration should close another thin governed slice in either `optimize-adapt` or `execute-automate` while preserving the repository's pattern-first structure and modest-batch discipline.
+The iteration should close the compliance cell for `optimize-adapt` with one grounded, governance-aware instance while preserving the repository's pattern-first structure and modest-batch discipline.
