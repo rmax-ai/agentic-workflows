@@ -45,7 +45,7 @@ architectures:
     label: Orchestrated multi-agent
     source_vocabulary: architectures
   pattern_families:
-    gather-retrieve-synthesize: []
+    gather-retrieve-synthesize: [approval-packet-generation]
     transform-process: []
     investigate-reconcile-verify: [incident-root-cause-analysis]
     monitor-detect-triage: []
@@ -59,7 +59,7 @@ architectures:
     label: Human in the loop
     source_vocabulary: architectures
   pattern_families:
-    gather-retrieve-synthesize: [research-synthesis-with-citation-verification]
+    gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation]
     transform-process: []
     investigate-reconcile-verify: [incident-root-cause-analysis]
     monitor-detect-triage: [risk-alert-triage]

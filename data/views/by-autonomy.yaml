@@ -30,7 +30,7 @@ autonomy_levels:
     label: Human directed
     source_vocabulary: autonomy-levels
   pattern_families:
-    gather-retrieve-synthesize: [research-synthesis-with-citation-verification]
+    gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation]
     transform-process: []
     investigate-reconcile-verify: []
     monitor-detect-triage: []

@@ -1,0 +1,266 @@
+id: approval-packet-generation
+slug: approval-packet-generation
+name: Approval packet generation
+summary: Assemble a decision-ready approval packet from distributed evidence, control requirements, and visible exceptions so human reviewers can evaluate a governed request without the workflow making the approval decision itself.
+pattern_family:
+  id: gather-retrieve-synthesize
+  label: Gather / Retrieve / Synthesize
+problem_structure:
+  id: context-gathering-and-synthesis
+  label: Context gathering and synthesis
+  source_vocabulary: problem-structures
+domain:
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+workflow_goal: Produce a governed approval packet that consolidates supporting evidence, required controls, provenance, and unresolved exceptions before downstream human review, while stopping at packet handoff rather than approval, recommendation, or execution.
+inputs:
+  - name: Approval request
+    description: A scoped request, exception, or change proposal that needs a reviewable packet before an approval forum or decision owner can act.
+    kind: request
+    required: true
+    examples:
+      - Production architecture exception awaiting review board evaluation
+      - Quarter-close covenant waiver request requiring controller review
+      - Compliance control deviation packet for policy owner assessment
+  - name: Supporting evidence sources
+    description: Records, documents, analyses, and system artifacts that justify the request or explain its current state.
+    kind: evidence-set
+    required: true
+    examples:
+      - Financial schedules, forecasts, and prior approvals
+      - Policy excerpts, control test results, and obligation mappings
+      - Design documents, incident history, and rollout evidence
+  - name: Approval criteria and control framework
+    description: The thresholds, required approvers, policy checks, and mandatory disclosures that define what the packet must contain.
+    kind: policy
+    required: true
+    examples:
+      - Authority matrix and segregation-of-duties rules
+      - Review board checklist and exception disclosure requirements
+      - Change governance policy with required rollback evidence
+  - name: Exception and dependency state
+    description: Known gaps, unresolved questions, pending prerequisites, and conflicting evidence that must remain visible in the packet.
+    kind: case-state
+    required: false
+    examples:
+      - Open control deficiency awaiting remediation evidence
+      - Missing sign-off from a required engineering owner
+      - Conflicting interpretation of a compliance threshold
+outputs:
+  - name: Approval packet
+    description: A decision-ready packet that links the request to supporting evidence, required controls, provenance, and reviewer context.
+    kind: packet
+    required: true
+    examples:
+      - Architecture review packet with evidence, dependency map, and control checklist
+      - Finance exception packet prepared for controller and treasury review
+  - name: Evidence and provenance index
+    description: Structured mapping from packet claims and sections to source artifacts so reviewers can inspect support quickly.
+    kind: trace
+    required: true
+    examples:
+      - Section-to-source index keyed to document identifiers
+      - Control assertion ledger with linked evidence excerpts
+  - name: Exception register
+    description: Explicit list of open issues, missing evidence, policy conflicts, and unresolved dependencies that prevent the packet from appearing cleaner than reality.
+    kind: issue-list
+    required: true
+    examples:
+      - Outstanding reviewer questions and blocked dependencies
+      - Missing evidence items requiring manual follow-up before approval
+  - name: Handoff record
+    description: Structured record showing packet completeness status, intended reviewers, and the boundary where generation stopped and human review begins.
+    kind: handoff
+    required: true
+    examples:
+      - Review queue entry noting packet ready for committee evaluation
+      - Submission manifest showing packet prepared but not adjudicated
+environment:
+  summary: Operates in governance-sensitive review processes where evidence lives across systems, exceptions are easy to bury, and reviewers need a compact but inspectable packet before making a consequential decision.
+  systems:
+    - Document and evidence repositories
+    - Policy and control libraries
+    - Workflow or ticketing systems
+    - Systems of record relevant to the request
+  actors:
+    - Request owner or analyst
+    - Control or policy owner
+    - Reviewing approver or review board
+    - Domain subject-matter contributors
+  constraints:
+    - Preserve provenance for every consequential claim or required control statement in the packet.
+    - Keep unresolved exceptions, missing evidence, and policy conflicts visible rather than smoothing them into a clean narrative.
+    - Stop at packet generation and handoff; the workflow must not decide approval outcomes or execute any downstream action.
+    - Reflect the current approval framework and reviewer routing without silently inferring authority.
+  assumptions:
+    - Relevant source systems expose enough metadata or stable identifiers to support provenance.
+    - Human reviewers or boards remain responsible for deciding whether the request is approved, rejected, or sent back for rework.
+    - The packet format can accommodate both supporting evidence and unresolved exceptions without hiding either.
+capability_requirements:
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow must gather supporting records, policies, and prior context from multiple systems before a complete packet can exist.
+  - capability:
+      id: synthesis
+      label: Synthesis
+      source_vocabulary: capabilities
+    necessity: Retrieved evidence has to be compressed into a decision-ready packet instead of remaining as scattered source material.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Packet contents, source links, and claimed control coverage must be checked so reviewers are not handed unsupported assertions.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Approval criteria, required disclosures, and reviewer authority boundaries determine packet completeness and handoff readiness.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Multiple contributors and evidence owners often need structured handoffs so specialist findings land in one coherent packet.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: The workflow must preserve packet versions, open exceptions, source mappings, and completeness state across iterative assembly.
+execution_architecture:
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Specialized retrieval, control-checking, exception-curation, and packet-assembly roles are often worth orchestrating separately because the packet must combine heterogeneous evidence while keeping provenance and reviewer context intact.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Humans remain part of the normal loop to confirm scope, resolve ambiguous evidence, and accept the packet handoff before any approval forum relies on it.
+autonomy_profile:
+  level:
+    id: human-directed
+    label: Human directed
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm the request scope, approval boundary, and required reviewers before broad packet assembly begins.
+    - Review the assembled packet, evidence index, and exception register before handoff into downstream approval review.
+    - Decide whether unresolved gaps are acceptable for review or whether the packet must be returned for more evidence.
+  reversibility: The packet is editable and can be regenerated, but an incomplete or misleading packet can still bias downstream reviewers toward poor decisions before problems are detected.
+  escalation: Escalate whenever required evidence is missing, policy interpretation is disputed, reviewer authority is unclear, or the packet would otherwise imply readiness that the available controls do not support.
+risk_governance:
+  level:
+    id: high
+    label: High
+    source_vocabulary: risk-levels
+  failure_impact: An inaccurate or incomplete approval packet can mislead high-stakes reviewers, obscure control gaps, create financial or compliance exposure, and shape downstream decisions that are difficult to unwind once formal review begins.
+  approval_requirements:
+    - A human owner must approve packet completeness and reviewer routing before the packet is handed to the downstream approval process.
+    - Any missing mandatory evidence, unresolved control conflict, or authority ambiguity must be explicitly accepted by a human reviewer rather than suppressed by the workflow.
+  auditability: Preserve source mappings, packet versions, completeness checks, exception states, human overrides, and handoff timestamps so reviewers can reconstruct why the packet looked decision-ready at transfer time.
+  privacy:
+    - Limit inclusion of sensitive financial, personnel, security, or regulated data to what reviewers genuinely need.
+    - Apply masking or access controls when packet evidence references confidential source material.
+  security:
+    - Use least-privilege access for retrieval from systems of record and control repositories.
+    - Log packet assembly, evidence inclusion decisions, and exception-handling steps for later inspection.
+  notes: High-risk posture is appropriate because the pattern shapes governed decisions in finance, compliance, and engineering while stopping just before the formal approval act.
+why_agentic:
+  - The workflow must adapt retrieval and assembly paths as packet gaps, conflicting evidence, and reviewer-specific requirements emerge.
+  - Producing a trustworthy packet requires stateful coordination across specialized evidence, control, and exception-handling roles rather than a one-shot summary.
+  - The system must decide what belongs in the packet, what remains an open exception, and when to stop at a governed handoff instead of drifting into recommendation or execution.
+failure_modes:
+  - mode: Required evidence is omitted while the packet appears complete
+    impact: Reviewers make consequential decisions without seeing material support gaps or missing control context.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Check packet sections against explicit completeness criteria derived from the approval framework.
+      - Keep missing mandatory evidence visible in the exception register and handoff record.
+      - Require human sign-off on completeness before handoff.
+  - mode: Exception visibility is collapsed into summary language
+    impact: Open conflicts, policy concerns, or unresolved dependencies are understated and reviewers receive a falsely reassuring packet.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Maintain a dedicated exception register linked from the main packet.
+      - Block handoff when open exceptions are present but not categorized and surfaced.
+  - mode: Provenance links do not match the packet claims
+    impact: Reviewers cannot verify the packet quickly, and weak or misattributed evidence may survive into formal review.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Validate section-to-source mappings before packet finalization.
+      - Preserve stable source identifiers and reviewer-visible evidence indexes.
+  - mode: The workflow drifts into implicit recommendation or approval language
+    impact: The gather-and-synthesize boundary is blurred and humans may treat the packet as a decision artifact rather than a review input.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Label the output as preparation and handoff material only.
+      - Keep downstream recommendation or approval steps outside the generated packet scope.
+evaluation:
+  success_metrics:
+    - Percentage of approval packets accepted for review without missing mandatory evidence or routing corrections.
+    - Rate at which material exceptions are surfaced before downstream approval meetings or queues begin.
+    - Reviewer time to inspect provenance for a challenged packet claim.
+  quality_criteria:
+    - The packet clearly separates supporting evidence, control context, and unresolved exceptions.
+    - Every consequential claim or checklist assertion is traceable through the provenance index.
+    - The handoff record makes the family boundary explicit by showing that packet generation stopped before approval adjudication.
+  robustness_checks:
+    - Test with conflicting evidence and verify the packet preserves the conflict rather than forcing a false synthesis.
+    - Test with missing required artifacts and ensure the packet remains visibly incomplete or escalates instead of appearing ready.
+    - Test with shifting approval matrices and confirm reviewer routing and completeness rules are recomputed.
+  benchmark_notes: Evaluate governed packet usefulness together with provenance integrity and exception visibility; polished briefing quality alone is insufficient.
+implementation_notes:
+  orchestration_notes:
+    - Keep retrieval, control-context assembly, exception curation, and final packet composition as explicit stages sharing durable packet state.
+    - Preserve structured handoff boundaries so downstream recommendation, approval, or execution systems cannot be mistaken for part of this pattern.
+  integration_notes:
+    - Common implementations integrate evidence stores, systems of record, policy repositories, and review workflow tooling.
+    - Keep the pattern neutral about specific governance platforms, ticketing systems, or document stores.
+  deployment_notes:
+    - Start in review processes where packet incompleteness currently causes delay, rework, or hidden exception risk.
+    - Tune completeness rules with control owners so the workflow stays conservative about handoff readiness.
+  references:
+    - docs/patterns/gather-retrieve-synthesize.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: deal-desk-recommendation-support
+    relationship: provides-context-for
+    notes: Approval packet generation can prepare the governed evidence bundle that later supports a recommendation or escalation workflow.
+  - id: browser-based-form-completion-with-approval-gates
+    relationship: precedes
+    notes: In some environments an approved packet later unlocks a controlled execution workflow, but this pattern stops before that boundary.
+example_domains:
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Assemble a covenant exception packet with supporting schedules, prior approvals, and unresolved variance notes for controller review.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Build a control deviation packet that links obligations, evidence, and open remediation gaps before policy-owner adjudication.
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Prepare an architecture or production-change exception packet with rollback evidence, dependency risks, and review-board context before human approval.
+maturity: draft
+tags:
+  - gather-retrieve-synthesize
+  - approval-packet
+  - governed-handoff
+  - provenance
+  - exception-visibility

@@ -30,7 +30,7 @@ domains:
     label: Engineering
     source_vocabulary: domains
   pattern_families:
-    gather-retrieve-synthesize: [research-synthesis-with-citation-verification]
+    gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation]
     transform-process: []
     investigate-reconcile-verify: [incident-root-cause-analysis]
     monitor-detect-triage: []
@@ -44,7 +44,7 @@ domains:
     label: Finance
     source_vocabulary: domains
   pattern_families:
-    gather-retrieve-synthesize: []
+    gather-retrieve-synthesize: [approval-packet-generation]
     transform-process: [document-to-structured-data-handoff]
     investigate-reconcile-verify: []
     monitor-detect-triage: [risk-alert-triage]
@@ -58,7 +58,7 @@ domains:
     label: Compliance
     source_vocabulary: domains
   pattern_families:
-    gather-retrieve-synthesize: [research-synthesis-with-citation-verification]
+    gather-retrieve-synthesize: [research-synthesis-with-citation-verification, approval-packet-generation]
     transform-process: [document-to-structured-data-handoff]
     investigate-reconcile-verify: []
     monitor-detect-triage: [risk-alert-triage]

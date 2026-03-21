@@ -57,7 +57,7 @@ risk_levels:
     label: High
     source_vocabulary: risk-levels
   pattern_families:
-    gather-retrieve-synthesize: []
+    gather-retrieve-synthesize: [approval-packet-generation]
     transform-process: []
     investigate-reconcile-verify: [incident-root-cause-analysis]
     monitor-detect-triage: [risk-alert-triage]
