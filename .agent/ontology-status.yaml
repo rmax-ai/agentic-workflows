@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 215
+  instance_files: 216
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ instance_counts_by_domain:
   operations: 31
   research: 30
   support: 31
-  hr: 30
+  hr: 31
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
@@ -87,6 +87,7 @@ consistency_notes:
   - "`exception-aware-task-execution` now has explicit `support` grounding through an enterprise admin entitlement resynchronization runbook execution example, extending that bounded-delegation execute-family slice beyond engineering and operations while preserving a clean boundary at delegated routine completion, durable checkpointing, explicit verification, and exception-only escalation rather than customer communication, contract interpretation, or discretionary entitlement redesign."
   - "`workflow-hand-off-and-completion` now has additional `research` grounding through an approved human-subjects continuing-review closure and protocol-registry synchronization example, deepening that low-risk execute-family closure slice beyond benchmark-governance-only context while preserving a clean boundary at authoritative post-decision closure, queue cleanup, registry synchronization, archive linkage, and internal coordinator notification rather than protocol amendment, participant communication, or study execution."
   - "`workflow-hand-off-and-completion` now has additional `hr` grounding through an accepted work-authorization review closure and compliance-tracker synchronization example, deepening that low-risk execute-family closure slice beyond protected-leave review context while preserving a clean boundary at authoritative post-decision closure, queue cleanup, compliance-tracker synchronization, archive linkage, and internal coordinator notification rather than worker outreach, employment action, filing, or legal strategy."
+  - "`workflow-hand-off-and-completion` now has additional `hr` grounding through an accepted workplace-accommodation review closure and case-tracker synchronization example, deepening that same low-risk execute-family closure slice beyond protected-leave and work-authorization review contexts while preserving a clean boundary at authoritative post-decision closure, queue cleanup, tracker-and-ledger synchronization, archive linkage, and internal coordinator notification rather than accommodation adjudication, undue-hardship interpretation, manager instruction, employee communication, workplace-system changes, payroll action, or renewed review."
   - "`workflow-hand-off-and-completion` now has additional `support` grounding through a finalized enterprise support quality-audit exception closure and review-ledger synchronization example, deepening that low-risk execute-family closure slice beyond live escalation review context while preserving a clean boundary at authoritative post-decision closure, queue cleanup, review-ledger synchronization, archive linkage, and internal coordinator notification rather than customer communication, refunds or credits, coaching directives, or renewed review execution."
   - "`workflow-hand-off-and-completion` now has additional `compliance` grounding through a finalized trade-surveillance no-action disposition closure and case-register synchronization example, deepening that low-risk execute-family closure slice beyond sanctions-alert closure while preserving a clean boundary at authoritative post-decision closure, queue cleanup, case-register synchronization, archive linkage, and internal coordinator notification rather than employee outreach, supervisory action, regulator communication, or renewed investigation."
   - "`shared-workbench-orchestration` now also has additional compliance grounding through an internal policy-exception precedent board upkeep example, deepening the same low-risk collaboration-upkeep slice within compliance beyond control-library maintenance while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than precedent adjudication, live exception recommendation, regulator communication, or execution."
