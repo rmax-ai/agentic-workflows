@@ -12,6 +12,24 @@ Finance.
 
 A treasury transformation steering group is reassessing whether a new cash-forecast workflow can pass its shadow-to-primary cutover gate before quarter-close liquidity planning begins. Since the prior review, one business unit's reconciliation variance remains above tolerance, a control-attestation packet aged past the freshness limit set by policy, and a narrower regional rollout path became feasible if the organization defers two lower-volume entities. The workflow must recommend whether finance should proceed with the primary cutover as scoped, hold for refreshed evidence, narrow the go-live to the validated regional subset, or escalate because variance, control-completeness, and delegated cutover thresholds no longer fit local authority before any system-of-record switch occurs.
 
+```mermaid
+flowchart TD
+    A["Reassess cutover gate<br>with updated treasury evidence"] --> B["Verify reconciliation variance,<br>attestation freshness, and entity readiness"]
+    B --> C{"All critical checks pass<br>within delegated cutover authority?"}
+    C -->|"Yes"| D["Recommend full primary cutover<br>as originally scoped"]
+    C -->|"No"| E{"Validated regional subset can proceed<br>if two low-volume entities are deferred?"}
+    E -->|"Yes"| F["Recommend narrow regional go-live<br>with deferred entities documented"]
+    E -->|"No"| G{"Blockers limited to refreshable evidence<br>or remediable variance within local control?"}
+    G -->|"Yes"| H["Hold for refreshed attestation packet<br>and variance remediation evidence"]
+    G -->|"No"| I["Escalate beyond delegated finance authority<br>before any system-of-record switch"]
+    D --> J{"Steering group approves<br>the recommended disposition?"}
+    F --> J
+    H --> J
+    I --> J
+    J -->|"Yes"| K["Hand off approved disposition<br>for governed next-step action"]
+    J -->|"No"| L["Request more evidence<br>or bounded escalation review"]
+```
+
 ## Target systems / source systems
 
 - Treasury program tracker, cutover gate checklist, and delegated finance authority matrix
