@@ -2,7 +2,7 @@
 
 ## Iteration focus
 
-Iteration `20260321-095953` is complete: it added `adaptive-review-sampling-rate-tuning`, three linked review-sampling tuning instances in support, research, and operations, and synchronized the directly affected optimize-family and browse-view artifacts. The next highest-leverage refinement is to reassess the remaining narrow autonomy or architecture concentrations now that `autonomous-with-audit` is no longer isolated to `execute-automate`.
+Iteration `20260321-100858` is reserved for consistency normalization after a drift check found that `adaptive-review-sampling-rate-tuning` is modeled as `autonomous-with-audit` in canonical pattern data and `.agent/` memory, while `data/views/by-autonomy.yaml` still places it under `approval-gated`. The highest-leverage next step is to repair the derived autonomy view and any directly affected metadata before adding more coverage.
 
 ## Current phase
 
@@ -13,27 +13,27 @@ Iteration `20260321-095953` is complete: it added `adaptive-review-sampling-rate
 - Phase 6: grounded instances cover all nine families across all seven currently modeled domains, with one hundred thirty-five instance files now committed.
 - Phase 7: coverage refinement remains active, and all nine top-level families now span the full tracked `low` / `moderate` / `high` / `critical` risk ladder.
 - Tooling baseline: `uv`-managed Python 3.14 helper workflow remains the validation path.
+- Immediate normalization target: the browse-by-autonomy view must stay derived from canonical `autonomy_profile.level` values and should not lag behind recent pattern changes.
 
 ## Ordered tasks
 
-1. Re-evaluate the remaining narrow autonomy and architecture concentrations now that `autonomous-with-audit` spans both `execute-automate` and `optimize-adapt`.
-2. Favor another family-clean refinement only if it represents a real reusable workflow shape rather than a matrix exercise; likely candidates remain a natural approval-gated-execution or autonomous-with-audit variant outside the currently covered families.
-3. Keep future batches modest and synchronized across canonical patterns, grounded instances, browse views, and `.agent/` execution memory.
+1. Normalize the derived autonomy browse view so `adaptive-review-sampling-rate-tuning` appears under `autonomous-with-audit` rather than `approval-gated`, and inspect directly adjacent metadata for the same drift.
+2. Revalidate the affected coverage and status artifacts after the browse-view correction so the repository memory and derived navigation stay mutually consistent.
+3. Only resume autonomy or architecture expansion after the normalization batch is complete and validated.
 4. Continue validating repository YAML with `uv run python scripts/python/validate_yaml.py` after each content batch before closing the iteration.
 
 ## Iteration checkpoint
 
-- Timestamp: `20260321-095953`
-- Completed scope: added `adaptive-review-sampling-rate-tuning`, three linked grounded review-sampling tuning instances in support, research, and operations, and synchronized the optimize family doc plus the directly affected derived views in one feature commit.
-- Updated coverage context: `optimize-adapt` now spans all tracked risk levels and also provides the first non-execution `autonomous-with-audit` anchor through a family-safe self-tuning oversight pattern.
-- Reflection outcome: no new `.agent/proposals/` entry is needed because the iteration reinforced existing guidance about modest family-safe batches, derived views, and autonomy balancing without surfacing a new durable tooling or process gap.
-- Planned orchestrator follow-up: validate the refreshed repository state, record the iteration in `.agent/iterations/2026/20260321-095953.md`, and keep the next candidate search focused on the remaining narrow autonomy or architecture concentrations.
+- Timestamp: `20260321-100858`
+- Planned scope: correct the derived autonomy-view classification drift around `adaptive-review-sampling-rate-tuning`, validate the repaired browse artifact, and update `.agent/` memory so the iteration history records the normalization.
+- Working assumption: the canonical pattern file is authoritative for autonomy classification, so derived browse artifacts and memory should follow it rather than reclassifying the pattern ad hoc.
+- Planned orchestrator follow-up: validate the refreshed repository state, record the iteration in `.agent/iterations/2026/20260321-100858.md`, and then reassess whether the next batch should return to autonomy/architecture expansion or stay focused on additional derivation consistency checks.
 
 ## Constraints
 
 - Keep the ontology pattern-first: choose the next expansion because it fills a structural coverage gap, not because a domain example sounds appealing.
 - Ensure every subagent task ends with exactly one git commit and leaves no unrelated file churn behind.
-- Prefer one modest batch with one new canonical pattern and a few instances over broader family expansion.
+- Prefer one modest normalization batch over broader family expansion when derived views or execution memory drift from canonical pattern data.
 - Keep governance, reversibility, privacy, and auditability explicit in every new pattern and instance.
 - Keep future critical-risk refinements centered on each target family's own primary artifact boundary rather than letting severe workflows collapse into adjacent families.
 - Treat collaboration-family work as in-family only if the primary output remains a critical shared artifact, explicit approval-readiness collaboration loop, or human-owned joint work surface rather than authority choice, command sequencing, or executed action.
