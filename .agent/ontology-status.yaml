@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-operations-collaboration-covered
+repository_stage: phase-6-grounding-finance-collaboration-covered
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 41
+  instance_files: 42
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -54,7 +54,7 @@ pattern_counts_by_family:
   human-agent-collaborative-work: 1
 instance_counts_by_domain:
   engineering: 4
-  finance: 6
+  finance: 7
   compliance: 8
   operations: 9
   research: 2
@@ -100,6 +100,7 @@ repo_reality:
     - instances/finance/multi-year-renewal-pricing-and-payment-structure-recommendation.md
     - instances/finance/treasury-cash-position-discrepancy-investigation.md
     - instances/finance/debt-covenant-obligation-synthesis-for-quarter-close-review.md
+    - instances/finance/quarter-close-covenant-clarification-package-copilot-loop.md
     - instances/operations/cross-functional-maintenance-review-scheduling.md
     - instances/operations/cold-chain-temperature-excursion-alert-triage.md
     - instances/operations/multi-site-service-package-feasibility-recommendation.md
@@ -138,14 +139,14 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and forty-one grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and forty-two grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
   - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open domain slices only if further cross-domain investigation coverage becomes worthwhile."
   - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open monitoring slices only if deeper cross-domain triage coverage becomes worthwhile."
   - "`recommend-decide-escalate` is now grounded across finance, compliance, operations, support, and HR, leaving engineering and research as the remaining open slices only if broader cross-domain recommendation depth becomes more valuable than shoring up collaboration coverage."
-  - "`human-agent-collaborative-work` is now grounded across support, research, compliance, engineering, and operations, leaving finance and HR as the remaining open collaboration slices only if broader family depth becomes worthwhile later."
+  - "`human-agent-collaborative-work` is now grounded across support, research, compliance, engineering, operations, and finance, leaving HR as the only remaining open collaboration slice if closing out the family becomes more valuable than pivoting to other thin families."
   - "`plan-coordinate-schedule` is grounded across operations, support, and HR, leaving engineering and finance open only if broader coordination coverage becomes more valuable than deepening governance-sensitive collaboration or investigation families."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-expand-finance-collaboration-grounding
-  summary: "Use the next small grounding batch to add one finance-domain collaboration example for `analyst-copilot-loop`, extending mixed-initiative coverage into a domain that already has broad synthesis, investigation, monitoring, recommendation, and execution grounding but still lacks an explicit collaboration artifact."
+  id: phase-6-expand-hr-collaboration-grounding
+  summary: "Use the next small grounding batch to add one HR-domain collaboration example for `analyst-copilot-loop`, closing the last uncovered domain slice in `human-agent-collaborative-work` while staying within the existing pattern-first grounding strategy."
