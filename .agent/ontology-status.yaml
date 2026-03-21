@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 216
+  instance_files: 217
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -60,7 +60,7 @@ instance_counts_by_domain:
   finance: 31
   compliance: 31
   operations: 31
-  research: 30
+  research: 31
   support: 31
   hr: 31
 consistency_notes:
@@ -74,6 +74,7 @@ consistency_notes:
   - "`claimed-state-verification` now has additional `support` grounding through an internal premium-support advisory-macro publication verification example, deepening that low-risk investigate-family slice while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting plus authoritative evidence traceability rather than macro editing, republishing, customer communication, or downstream execution."
   - "`schedule-adjustment-and-replanning` now has explicit `compliance` grounding through a control-remediation sign-off timeline replanning example after evidence-collection delay or reviewer-window compression threatened a fixed regulator-facing checkpoint, extending that moderate-risk plan-family replanning slice beyond engineering and research while preserving a clean boundary at revised schedule production, impact ledgering, and coordination-ready handoff rather than remediation sufficiency adjudication, control waiver, regulator filing, or execution."
   - "`schedule-adjustment-and-replanning` now has explicit `research` grounding through a benchmark-study publication timeline replanning example after evidence-analysis or data-governance clearance delay compressed the original publication-review window, extending that moderate-risk plan-family replanning slice beyond engineering and compliance while preserving a clean boundary at revised schedule production, impact ledgering, and coordination-ready handoff rather than governance recommendation, publication adjudication, or submission execution."
+  - "`schedule-adjustment-and-replanning` now has additional `research` grounding through an applied-study data-collection schedule replanning example after recruitment lag or site-capacity loss threatened a fixed interim data-cut handoff, deepening that moderate-risk plan-family replanning slice within research beyond publication-readiness compression while preserving a clean boundary at revised timeline production, dependency-aware impact ledgering, blocked-alternative visibility, and coordination-ready handoff rather than enrollment-policy change, protocol amendment approval, participant communication, scientific tradeoff adjudication, or execution."
   - "`calendar-conflict-coordination` now has additional `support` grounding through a contractual post-incident RCA readout scheduling example, deepening that low-risk plan-family scheduling slice beyond the existing live customer escalation bridge context while preserving a clean boundary at slot selection, reversible holds, and explicit escalation rather than attendee substitution, out-of-hours booking, or final customer-facing invite release."
   - "`critical-authoritative-state-restoration` now has explicit `hr` grounding through a protected-leave occupational-health and benefits state-truth restoration example, extending that critical investigate-family slice beyond finance, compliance, and operations while preserving a clean boundary at authoritative current-state restoration, unresolved holds, and human-reviewed handoff rather than accommodation adjudication, payroll action, or employee communication."
   - "`claimed-state-verification` now has explicit `hr` grounding through an internal parental-leave guidance publication-state verification example, extending that low-risk investigate-family slice beyond engineering, operations, research, and support while preserving a clean boundary at confirmed, disproved, or inconclusive verdicting rather than policy interpretation, communication, or record mutation."
