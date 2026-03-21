@@ -31,7 +31,7 @@ risk_levels:
   pattern_families:
     gather-retrieve-synthesize: [change-triggered-context-briefing]
     transform-process: [normalization-and-enrichment]
-    investigate-reconcile-verify: []
+    investigate-reconcile-verify: [claimed-state-verification]
     monitor-detect-triage: [anomaly-detection-review]
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: [control-requirement-attestation-recommendation]

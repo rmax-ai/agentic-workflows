@@ -74,7 +74,7 @@ autonomy_levels:
   pattern_families:
     gather-retrieve-synthesize: [change-triggered-context-briefing]
     transform-process: [document-to-structured-data-handoff, normalization-and-enrichment]
-    investigate-reconcile-verify: [authoritative-record-reconciliation]
+    investigate-reconcile-verify: [authoritative-record-reconciliation, claimed-state-verification]
     monitor-detect-triage: []
     plan-coordinate-schedule: [calendar-conflict-coordination]
     recommend-decide-escalate: []

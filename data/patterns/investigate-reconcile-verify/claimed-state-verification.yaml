@@ -1,0 +1,271 @@
+id: claimed-state-verification
+slug: claimed-state-verification
+name: Claimed state verification
+summary: Detect or receive a low-risk claimed completion, publication, or propagation state and verify whether the claim is actually supported by authoritative evidence before humans rely on it, while stopping short of repair, reconciliation, or downstream execution.
+pattern_family:
+  id: investigate-reconcile-verify
+  label: Investigate / Reconcile / Verify
+problem_structure:
+  id: evidence-backed-verification
+  label: Evidence-backed verification
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: research
+    label: Research
+    source_vocabulary: domains
+  - id: support
+    label: Support
+    source_vocabulary: domains
+workflow_goal: Confirm or disprove a bounded low-stakes claim about completion, publication, or state propagation by checking authoritative evidence, preserving an inspectable verification trail, and routing ambiguous cases to human follow-up without turning the workflow into repair, closure propagation, or broader diagnosis.
+inputs:
+  - name: Claimed-state trigger
+    description: A trusted request, event, or declared status indicating that a bounded low-risk state should now hold and needs verification before others rely on it.
+    kind: claim-event
+    required: true
+    examples:
+      - Internal package pipeline marks a release artifact bundle as published
+      - Knowledge operations marks a workaround article as live on the customer help surface
+      - Study owner records that a benchmark artifact freeze completed successfully
+  - name: Authoritative evidence sources and verification scope
+    description: The approved systems, source-of-truth checks, and boundary rules that define which evidence may confirm or disprove the claim and which dependent surfaces remain out of scope.
+    kind: verification-boundary
+    required: true
+    examples:
+      - Package registry, checksum manifest, and release-note publication records for one internal SDK version
+      - Approved knowledge-base, portal publication state, and mirror cache status for one article identifier
+      - Artifact registry, immutable object-store manifest, and governance packet references for one study freeze event
+  - name: Verification policy and tolerance rules
+    description: Freshness windows, allowed lag, required corroborating fields, exception thresholds, and publication constraints that determine when the claim is confirmed, disproved, or held for human review.
+    kind: policy
+    required: true
+    examples:
+      - Treat a package as verified only when registry version, checksum manifest, and release-note link agree within the allowed publication window
+      - Mark a help-center article claim inconclusive if portal publication succeeded but search indexing remains inside the approved delay tolerance
+      - Require human review when a study freeze claim lacks one immutable artifact hash even if the tracker shows completion
+  - name: Prior verification state
+    description: Optional earlier verification runs, duplicate trigger history, or unresolved follow-up items used to avoid contradictory verdicts and to preserve continuity across retries.
+    kind: verification-state
+    required: false
+    examples:
+      - Previous partial verification showing package assets published while docs publication lagged
+      - Earlier article-verification run waiting on cache refresh
+outputs:
+  - name: Verification verdict
+    description: Explicit confirmed, disproved, or inconclusive result for the claimed state, with the specific evidence and policy basis for that outcome.
+    kind: verdict
+    required: true
+    examples:
+      - Confirmed that all in-scope package publication artifacts match the claimed version
+      - Disproved a workaround-publication claim because the customer portal still serves the prior article revision
+      - Inconclusive freeze verification because one immutable manifest reference is missing
+  - name: Evidence and provenance trace
+    description: Ordered trace showing which authoritative checks ran, what source versions were observed, what tolerances were applied, and which items remained unresolved.
+    kind: trace
+    required: true
+    examples:
+      - Trace linking registry query results, checksum manifest version, and release-note publication timestamp
+      - Evidence ledger showing portal state, help-center API response, and search-index freshness window
+  - name: Verification follow-up record
+    description: Structured handoff for stale evidence, ambiguous results, or out-of-scope discrepancies that need human interpretation or a downstream repair workflow.
+    kind: follow-up-record
+    required: false
+    examples:
+      - Follow-up noting that one mirrored documentation surface remains stale beyond the allowed lag threshold
+      - Review record showing that an artifact-freeze claim cannot be confirmed because the immutable manifest is absent
+environment:
+  summary: Operates in low-risk operational workflows where people receive claimed completion or publication states from bounded systems and need independent evidence-backed confirmation before trusting those states for routine coordination, reporting, or handoff.
+  systems:
+    - Event feeds, trackers, or status records that carry the claimed state
+    - Authoritative source systems or registries used to confirm the claim
+    - Audit or verification log stores
+    - Optional queue or case system for inconclusive follow-up
+  actors:
+    - Workflow or content owner who defines the allowed claimed-state triggers
+    - Analyst, coordinator, or service owner who consumes the verification result
+    - Governance steward who approves evidence scope and tolerance rules
+  constraints:
+    - Stop at confirming or disproving the claim; do not repair records, propagate completion state, or launch unrelated downstream execution automatically.
+    - Recheck authoritative evidence before issuing a positive verdict so stale events or lagging mirrors are not mistaken for confirmed state.
+    - Keep inconclusive or out-of-scope cases visible instead of forcing a binary answer when evidence quality is insufficient.
+    - Preserve source versions, timestamps, and policy checks so later reviewers can reconstruct why the claim was accepted or rejected.
+  assumptions:
+    - The claimed states are low stakes enough that a delayed or incorrect verification usually causes localized confusion or rework rather than material regulatory, financial, or safety harm.
+    - Authoritative evidence sources expose enough identifiers and freshness metadata to support a defensible verification verdict.
+    - Humans remain available to decide whether an unverified or disproved claim should trigger repair, escalation, or broader investigation.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: Many verification requests begin when a claimed state-change event or status update arrives and must be checked promptly rather than only through ad hoc manual review.
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: The workflow must gather authoritative evidence from the approved source systems before it can confirm or disprove the claim.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: The core task is checking whether the claimed state actually holds against independent evidence, freshness rules, and required corroboration.
+  - capability:
+      id: tool-use
+      label: Tool use
+      source_vocabulary: capabilities
+    necessity: The workflow queries registries, publication systems, manifests, or status APIs and records its verdict through tools rather than text-only reasoning.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Duplicate triggers, lagging evidence, and unresolved verification runs require durable state so later checks do not contradict earlier results silently.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Scope rules, allowed lag, required corroboration, and escalation thresholds determine when a claim may be confirmed versus held for human follow-up.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: Safe operation depends on routing stale evidence, missing corroboration, and out-of-scope discrepancies into explicit follow-up instead of fabricating certainty.
+execution_architecture:
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: The workflow commonly starts from a claimed completion or publication event and reacts by running bounded verification checks against authoritative evidence, rather than by continuously triaging alerts.
+  - architecture:
+      id: tool-using-single-agent
+      label: Tool-using single agent
+      source_vocabulary: architectures
+    fit: One bounded agent can usually fetch the relevant evidence, apply freshness and corroboration rules, and emit an inspectable verdict without multi-agent specialization.
+autonomy_profile:
+  level:
+    id: bounded-delegation
+    label: Bounded delegation
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Approve which claimed-state triggers are in scope, which systems count as authoritative evidence, and which lag or mismatch conditions remain acceptable before delegated verification begins.
+    - Review inconclusive, repeatedly failing, or scope-expanding cases before any downstream repair, communication, or workflow transition occurs.
+    - Approve changes to evidence requirements, tolerated lag, or covered state types before those rules affect live verification runs.
+  reversibility: Verification verdicts and traces can usually be recomputed or superseded as evidence catches up because the workflow records a conclusion about state rather than making consequential downstream changes itself.
+  escalation: Escalate whenever authoritative evidence conflicts materially, freshness falls outside approved tolerances, the claim touches a higher-risk or regulated state, or the next requested step would require repair, publication, or closure propagation instead of verification.
+risk_governance:
+  level:
+    id: low
+    label: Low
+    source_vocabulary: risk-levels
+  failure_impact: Incorrect verification usually causes localized confusion, duplicate follow-up, or temporary reliance on an unconfirmed low-stakes state, but harm is generally inexpensive to detect and correct when the workflow stays bounded at evidence-backed confirmation.
+  approval_requirements:
+    - Case-by-case approval is not required for in-scope verification runs that use preapproved evidence sources, verdict templates, and escalation rules.
+    - Human approval is required before expanding the workflow into record repair, customer or employee communication, external publication, or other downstream actions beyond verification.
+  auditability: Preserve the trigger id and timestamp, evidence sources checked, observed source versions, policy version, verdict outcome, unresolved gaps, and any human overrides so reviewers can reconstruct exactly why the claim was confirmed, disproved, or left inconclusive.
+  privacy:
+    - Limit copied content to the identifiers, version markers, and excerpts needed to prove or disprove the claim rather than replicating entire source artifacts in the verification record.
+    - Keep logs and follow-up records scoped to the minimum necessary detail when support content, unpublished research assets, or internal engineering artifacts contain protected information.
+  security:
+    - Use least-privilege read access to source systems and append-only audit logging where possible so verification cannot silently alter the state it is checking.
+    - Log rule changes, manual overrides, and repeated verification failures so unexpected drift in claimed-state quality remains visible.
+  notes: Low-risk governance fits because the pattern remains bounded at confirmation or disproval of low-stakes states, keeps downstream action out of scope, and preserves a reversible verification trail.
+why_agentic:
+  - Useful verification requires choosing the right authoritative checks, handling expected lag or partial propagation, and deciding when the evidence is sufficient rather than merely reading one status field.
+  - The workflow must preserve prior verdicts, duplicate events, and unresolved exceptions across runs so humans can see whether a claim is consistently failing or simply waiting on an allowed delay.
+  - Safe operation depends on recognizing when a claim can be answered inside delegated low-risk verification and when it should stop and hand off to reconciliation, investigation, or execution patterns.
+failure_modes:
+  - mode: A stale or lagging evidence source is treated as authoritative proof that the claim is confirmed
+    impact: Teams trust a claimed state that has not actually propagated or completed yet and may coordinate around incorrect information.
+    severity: medium
+    detectability: medium
+    mitigations:
+      - Recheck freshness metadata and require corroboration from more than one in-scope source when policy says propagation should be complete.
+      - Mark the result inconclusive when authoritative sources disagree inside the allowed lag window.
+  - mode: The workflow rejects a claim that is still inside an approved propagation delay
+    impact: Humans receive avoidable exception work and lose trust in the verification process because expected timing behavior is treated as failure.
+    severity: low
+    detectability: high
+    mitigations:
+      - Encode explicit tolerance windows and expected lag states in the verification policy.
+      - Preserve prior partial-verification history so repeat checks can distinguish waiting from genuine mismatch.
+  - mode: Duplicate triggers create conflicting or noisy verdict history
+    impact: Reviewers struggle to tell whether the claim actually changed or whether the system reprocessed the same state repeatedly.
+    severity: low
+    detectability: high
+    mitigations:
+      - Use stable identifiers for claims and verification runs so repeated events update one durable record.
+      - Make superseded or replayed verdicts explicit in the audit trail instead of appending ambiguous duplicates.
+  - mode: The workflow drifts into repair, closure propagation, or root-cause diagnosis
+    impact: Family boundaries blur and a low-risk verification loop starts making decisions or changes that belong to adjacent patterns.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Limit outputs to verdicts, evidence traces, and follow-up records.
+      - Route unverified claims to downstream repair, reconciliation, or investigation workflows rather than handling them inline.
+evaluation:
+  success_metrics:
+    - Percentage of in-scope claimed-state events that receive a verdict with complete evidence trace and correct scope classification.
+    - Rate of disproved or inconclusive claims detected before humans rely on the incorrect state for downstream coordination.
+    - Reviewer agreement that verification verdicts applied the right freshness rules and authoritative evidence sources.
+  quality_criteria:
+    - Every positive verdict cites authoritative evidence rather than relying only on the triggering claim or tracker status.
+    - Inconclusive and disproved states remain explicit and inspectable rather than being flattened into optimistic completion language.
+    - The workflow stays bounded at verification and does not mutate authoritative records or perform closure propagation.
+  robustness_checks:
+    - Test duplicate claim events and verify the workflow preserves one coherent verification history rather than emitting contradictory verdicts.
+    - Test expected propagation lag and confirm the workflow distinguishes tolerated delay from true mismatch.
+    - Test missing or conflicting evidence and ensure the workflow emits an inconclusive result or follow-up record instead of guessing.
+  benchmark_notes: Evaluate verification quality together with evidence freshness discipline and boundary control; fast confirmation is not success if the workflow simply trusts the original claim.
+implementation_notes:
+  orchestration_notes:
+    - Keep claim intake, authoritative evidence collection, policy evaluation, verdict emission, and follow-up routing as explicit stages over one durable verification record.
+    - Preserve prior partial results and duplicate-event handling so verification history stays inspectable across repeated checks.
+  integration_notes:
+    - Common implementations integrate trackers, publication systems, registries, artifact stores, and audit logs through status events or bounded polling.
+    - Keep the pattern neutral about specific package registries, knowledge bases, workflow engines, or artifact stores.
+  deployment_notes:
+    - Start with narrow low-stakes state claims where authoritative evidence is already accessible and mismatches are visible enough to benchmark.
+    - Review repeated inconclusive verdicts and scope-expansion requests early so the workflow stays a verification pattern rather than growing into repair automation.
+  references:
+    - docs/patterns/investigate-reconcile-verify.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: authoritative-record-reconciliation
+    relationship: contrasts-with
+    notes: This pattern confirms or disproves a bounded state claim, while authoritative record reconciliation restores trusted state across conflicting records and stages corrections.
+  - id: workflow-hand-off-and-completion
+    relationship: contrasts-with
+    notes: Both may react to state-change events, but this pattern stops at verifying that a claimed state is true instead of propagating downstream completion or closure updates.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Verify that an internal SDK publication claim is actually reflected in the approved package registry, checksum manifest, and release-note record before release coordinators rely on it.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Confirm that a claimed rollout of updated warehouse quick-reference materials reached the approved kiosk and signage surfaces before supervisors treat the update as complete.
+  - domain:
+      id: research
+      label: Research
+      source_vocabulary: domains
+    example: Check that a benchmark-study artifact freeze claim is supported by immutable manifest hashes and registry state before governance reviewers assume the evidence bundle is fixed.
+  - domain:
+      id: support
+      label: Support
+      source_vocabulary: domains
+    example: Verify that a claimed workaround-article publication is live on the authorized support surfaces before case teams cite it to customers.
+maturity: draft
+tags:
+  - investigate-reconcile-verify
+  - evidence-backed-verification
+  - claimed-state-verification
+  - event-driven-monitoring
+  - bounded-delegation
+  - low-risk
