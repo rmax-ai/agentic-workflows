@@ -72,7 +72,7 @@ families:
   - id: continuous-monitoring-and-triage
     label: Continuous monitoring and triage
     source_vocabulary: problem-structures
-  pattern_ids: [risk-alert-triage]
+  pattern_ids: [risk-alert-triage, critical-signal-corroboration-triage]
 - family:
     id: plan-coordinate-schedule
   path: patterns/plan-coordinate-schedule

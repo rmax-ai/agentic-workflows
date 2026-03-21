@@ -1,0 +1,282 @@
+id: critical-signal-corroboration-triage
+slug: critical-signal-corroboration-triage
+name: Critical signal corroboration triage
+summary: Watch for severe signals, corroborate them across independent evidence sources, and package governed escalation context so humans can trigger the right response without the workflow investigating root cause or executing the response itself.
+pattern_family:
+  id: monitor-detect-triage
+  label: Monitor / Detect / Triage
+problem_structure:
+  id: continuous-monitoring-and-triage
+  label: Continuous monitoring and triage
+  source_vocabulary: problem-structures
+domain:
+  - id: engineering
+    label: Engineering
+    source_vocabulary: domains
+  - id: compliance
+    label: Compliance
+    source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
+  - id: finance
+    label: Finance
+    source_vocabulary: domains
+workflow_goal: Detect potentially critical conditions early, corroborate whether multiple signals point to the same severe case, and route a defensible escalation packet into human-controlled response before delay or false confidence causes systemic harm.
+inputs:
+  - name: Severe signal stream
+    description: High-severity alerts, anomaly spikes, exception clusters, or sentinel events that may indicate a fast-moving critical condition.
+    kind: event-stream
+    required: true
+    examples:
+      - Safety-monitor trigger combined with equipment shutdown signals
+      - Fraud-control alerts indicating coordinated account takeover attempts
+      - Production health signals suggesting broad service degradation
+  - name: Corroborating evidence sources
+    description: Independent records, telemetry, histories, and contextual data used to confirm whether the severe signal is isolated noise or a credible critical event.
+    kind: evidence-set
+    required: true
+    examples:
+      - Recent incident history and dependency topology
+      - Customer-impact records and control exceptions
+      - Prior case outcomes and linked entity activity
+  - name: Escalation policies and routing rules
+    description: Severity thresholds, required approvers, response ownership rules, and conditions that determine when the workflow must escalate rather than suppress or defer.
+    kind: policy
+    required: true
+    examples:
+      - Declare executive review for conditions that threaten regulated reporting deadlines
+      - Route safety-critical excursions to the designated response commander
+      - Require human confirmation before paging broad response teams
+  - name: Active case and response state
+    description: Current open cases, acknowledgements, duplicate suppressions, and known maintenance or exception windows that affect triage interpretation.
+    kind: case-state
+    required: false
+    examples:
+      - Existing incident bridge already tracking the same dependency cluster
+      - Approved maintenance window that explains part of the signal pattern
+      - Prior critical case awaiting responder acknowledgement
+outputs:
+  - name: Corroborated critical triage queue
+    description: Ordered queue of severe cases with confidence, severity rationale, and intended escalation path.
+    kind: queue
+    required: true
+    examples:
+      - Critical watchlist for on-call command review
+      - Escalation queue sorted by corroborated blast-radius risk
+  - name: Escalation packet
+    description: Explainable case bundle linking triggering signals, corroborating evidence, unresolved uncertainty, and the human-controlled response path.
+    kind: case-packet
+    required: true
+    examples:
+      - Incident escalation brief with affected services, corroborating telemetry, and owner routing
+      - Safety-risk packet with sensor history, exception context, and required approvers
+  - name: Triage decision log
+    description: Audit trail of corroboration checks, duplicate handling, suppressions, and human handoff events for severe cases.
+    kind: audit-log
+    required: true
+    examples:
+      - Record showing why a critical page was recommended and who accepted it
+      - Log of severe signals merged into an already active case
+environment:
+  summary: Operates in environments where severe signals can arrive quickly, the cost of missing a true critical case is extreme, and responders need corroborated context before they decide how to act.
+  systems:
+    - Event and alert pipelines
+    - Telemetry or case-history stores
+    - Case management and escalation tooling
+    - Policy and routing rule systems
+  actors:
+    - Incident or response commander
+    - Risk or compliance lead
+    - Operations duty manager
+    - Human reviewer or approver
+  constraints:
+    - The workflow must stop at corroboration, prioritization, and governed routing rather than running remediation or investigative playbooks.
+    - Critical-case suppressions and merges must remain explainable after the fact.
+    - Escalation recommendations must preserve uncertainty instead of overstating confidence.
+    - Policy changes for severe-case routing require controlled governance and traceable deployment.
+  assumptions:
+    - Independent evidence sources exist to corroborate or challenge an initial severe signal.
+    - Human responders retain authority to declare, page, report, or otherwise initiate consequential response actions.
+    - Case tooling can preserve audit-grade lineage between incoming signals and routed severe cases.
+capability_requirements:
+  - capability:
+      id: monitoring
+      label: Monitoring
+      source_vocabulary: capabilities
+    necessity: The workflow depends on continuous watchfulness over changing signals so emerging critical conditions are surfaced before response windows close.
+  - capability:
+      id: retrieval
+      label: Retrieval
+      source_vocabulary: capabilities
+    necessity: Corroboration requires gathering supporting telemetry, history, and case context from multiple systems quickly enough to influence triage.
+  - capability:
+      id: triage
+      label: Triage
+      source_vocabulary: capabilities
+    necessity: Severe cases must be prioritized and routed so humans focus first on the signals with the strongest evidence of systemic harm.
+  - capability:
+      id: verification
+      label: Verification
+      source_vocabulary: capabilities
+    necessity: Independent evidence must be checked against the trigger signal so the workflow distinguishes credible critical events from noisy spikes or duplicates.
+  - capability:
+      id: coordination
+      label: Coordination
+      source_vocabulary: capabilities
+    necessity: Multiple specialized roles often have to pass corroboration results, policy checks, and escalation packaging through one coherent case state.
+  - capability:
+      id: policy-and-constraint-checking
+      label: Policy and constraint checking
+      source_vocabulary: capabilities
+    necessity: Escalation thresholds, owner routing, and human-control boundaries determine whether a corroborated case should be raised immediately or held for review.
+  - capability:
+      id: memory-and-state-tracking
+      label: Memory and state tracking
+      source_vocabulary: capabilities
+    necessity: Duplicate detection, case aggregation, responder acknowledgements, and prior severe-signal history all require durable state across time.
+  - capability:
+      id: exception-handling
+      label: Exception handling
+      source_vocabulary: capabilities
+    necessity: The workflow needs safe fallbacks for conflicting corroboration, sparse evidence, and policy conflicts so uncertainty is escalated instead of hidden.
+execution_architecture:
+  - architecture:
+      id: event-driven-monitoring
+      label: Event-driven monitoring
+      source_vocabulary: architectures
+    fit: Severe-signal triage is naturally triggered by incoming alerts, state changes, and repeated re-evaluation as corroborating evidence arrives.
+  - architecture:
+      id: orchestrated-multi-agent
+      label: Orchestrated multi-agent
+      source_vocabulary: architectures
+    fit: Distinct monitoring, corroboration, policy-checking, and escalation-packaging roles are often worth orchestrating separately so critical triage remains fast, explainable, and bounded before response begins.
+  - architecture:
+      id: human-in-the-loop
+      label: Human in the loop
+      source_vocabulary: architectures
+    fit: Humans remain embedded in the normal loop to confirm the highest-consequence escalations, resolve ambiguous corroboration, and decide whether formal response should start.
+autonomy_profile:
+  level:
+    id: recommendation-only
+    label: Recommendation only
+    source_vocabulary: autonomy-levels
+  human_checkpoints:
+    - Confirm whether a corroborated critical case should trigger formal response, paging, external reporting, or other consequential action.
+    - Review cases with conflicting or sparse corroboration before the workflow can label them as critical or suppress them.
+    - Approve material changes to severe-signal thresholds, routing logic, or duplicate-handling rules before they affect live triage.
+  reversibility: Queue positions, corroboration scores, and escalation packets can be recomputed, but a missed or delayed critical escalation may only be partially reversible once harm has spread.
+  escalation: Escalate whenever corroboration is incomplete, signals conflict with policy context, severity exceeds delegated routing thresholds, or the next step would trigger material operational, financial, safety, or compliance consequences.
+risk_governance:
+  level:
+    id: critical
+    label: Critical
+    source_vocabulary: risk-levels
+  failure_impact: Missing, delaying, or misrouting a true critical case can produce severe safety, compliance, financial, or enterprise-operating harm, while false critical escalation can consume scarce response capacity and trigger unnecessary crisis actions.
+  approval_requirements:
+    - Human approval is required before triage output triggers consequential response actions such as paging broad teams, external reporting, customer-impact declarations, or fund restrictions.
+    - Governance review is required for material changes to corroboration logic, suppression rules, or severe-case routing thresholds.
+  auditability: Preserve raw triggering signals, corroborating evidence references, severity rationale, duplicate and suppression decisions, policy versions, and human handoff events for every critical-case recommendation.
+  privacy:
+    - Limit sensitive operational, financial, personal, or regulated data in escalation packets to the minimum needed for rapid human review.
+    - Apply retention and access controls that match the governing obligations for severe cases and linked evidence.
+  security:
+    - Protect alert pipelines, corroboration stores, and escalation tooling against tampering that could hide or fabricate critical cases.
+    - Record privileged overrides, policy changes, and manual severity adjustments in durable logs.
+  notes: The pattern warrants a critical-risk posture because it shapes whether humans notice and mobilize around severe conditions, yet it stays bounded at corroborated triage and governed routing rather than response execution.
+why_agentic:
+  - Useful severe-case triage depends on adaptive corroboration across noisy, changing, and partially conflicting evidence rather than one static threshold.
+  - The workflow must coordinate specialized monitoring, context retrieval, policy checking, and escalation packaging while preserving one shared view of case state.
+  - Critical routing quality depends on deciding when uncertainty itself is reason to escalate, not just on scoring the initial trigger.
+failure_modes:
+  - mode: A true critical case is under-correlated and left below escalation threshold
+    impact: Severe harm continues while responders never receive the corroborated context needed to act in time.
+    severity: high
+    detectability: low
+    mitigations:
+      - Replay known severe cases to test whether corroboration logic still surfaces them rapidly.
+      - Escalate sparse but high-blast-radius signals for human review instead of suppressing them as noise.
+      - Maintain visible lineage between new severe signals and active cases to avoid fragmented evidence.
+  - mode: Independent weak signals are fused into a false critical case
+    impact: Response teams are mobilized unnecessarily, creating distraction, cost, and loss of trust in the triage system.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Require explainable corroboration rationale that distinguishes shared-cause evidence from coincidental co-occurrence.
+      - Track reviewer disagreement and false-critical outcomes to tune fusion logic conservatively.
+  - mode: Duplicate handling merges unrelated severe cases
+    impact: Responders see a distorted case picture and route effort toward the wrong owning team or response path.
+    severity: high
+    detectability: medium
+    mitigations:
+      - Preserve merge lineage and reviewer-visible evidence boundaries within the escalation packet.
+      - Require human review before collapsing high-consequence cases with weak overlap.
+  - mode: The workflow drifts into investigation or execution behavior
+    impact: Family boundaries blur, human control weakens, and triage latency rises because the workflow tries to diagnose or remediate instead of routing promptly.
+    severity: medium
+    detectability: high
+    mitigations:
+      - Keep outputs explicitly limited to triage queues, escalation packets, and decision logs.
+      - Separate downstream investigation and response tooling from the corroboration workflow.
+evaluation:
+  success_metrics:
+    - Recall of historically critical cases that should have reached human-controlled escalation.
+    - Median time from first severe signal to corroborated escalation packet.
+    - Rate of duplicate severe signals correctly merged without obscuring distinct cases.
+  quality_criteria:
+    - Each escalated case includes explainable corroboration rationale, linked evidence, unresolved uncertainty, and intended human response path.
+    - The workflow preserves the boundary between triage and downstream investigation or execution.
+    - Low-confidence but potentially catastrophic cases are surfaced for human review instead of being silently deferred.
+  robustness_checks:
+    - Replay bursty severe-signal scenarios to verify that corroboration and routing remain stable under load.
+    - Test conflicting evidence and ensure the workflow escalates uncertainty rather than forcing a confident critical or non-critical label.
+    - Test overlapping live cases and verify duplicate handling preserves clear lineage and ownership boundaries.
+  benchmark_notes: Evaluate the pattern on both missed-critical risk and false-critical burden; lower noise is not a success if catastrophic cases become easier to miss.
+implementation_notes:
+  orchestration_notes:
+    - Keep signal watching, corroboration retrieval, policy checks, and escalation packaging as explicit coordinated stages over shared case state.
+    - Preserve a clean handoff boundary so declaration, remediation, investigation, and other consequential response steps remain downstream workflows.
+  integration_notes:
+    - Common implementations integrate alert streams, telemetry stores, case systems, and governed escalation tooling.
+    - Keep the pattern neutral about specific observability, fraud, safety, or incident-management platforms.
+  deployment_notes:
+    - Start with severe scenarios where corroboration quality and escalation latency both matter more than broad automation.
+    - Monitor false-critical and missed-critical outcomes continuously because policy drift can quickly degrade trust.
+  references:
+    - docs/patterns/monitor-detect-triage.md
+    - data/vocabularies/problem-structures.yaml
+related_patterns:
+  - id: risk-alert-triage
+    relationship: variant-of
+    notes: This pattern is a critical-risk, corroboration-heavy variant of broader governed alert triage.
+  - id: incident-root-cause-analysis
+    relationship: feeds-into
+    notes: The most severe or ambiguous corroborated cases often move into deeper investigation after human responders accept the escalation.
+example_domains:
+  - domain:
+      id: engineering
+      label: Engineering
+      source_vocabulary: domains
+    example: Corroborate simultaneous latency, error-rate, and dependency-failure signals before routing a suspected platform-wide outage to incident command.
+  - domain:
+      id: compliance
+      label: Compliance
+      source_vocabulary: domains
+    example: Fuse multiple adverse-event or control-breach signals into a governed critical case packet for human safety or regulator-response review.
+  - domain:
+      id: operations
+      label: Operations
+      source_vocabulary: domains
+    example: Corroborate facility safety or supply-chain disruption signals before escalating a high-blast-radius operating risk to the duty manager.
+  - domain:
+      id: finance
+      label: Finance
+      source_vocabulary: domains
+    example: Merge severe payment, identity, and account-behavior signals into a critical fraud-escalation packet for human-controlled intervention.
+maturity: draft
+tags:
+  - monitor-detect-triage
+  - critical-signals
+  - corroboration
+  - governed-escalation
+  - multi-agent-triage

@@ -47,7 +47,7 @@ autonomy_levels:
     gather-retrieve-synthesize: []
     transform-process: []
     investigate-reconcile-verify: [incident-root-cause-analysis]
-    monitor-detect-triage: []
+    monitor-detect-triage: [critical-signal-corroboration-triage]
     plan-coordinate-schedule: []
     recommend-decide-escalate: [deal-desk-recommendation-support]
     execute-automate: []

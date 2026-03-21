@@ -74,7 +74,7 @@ risk_levels:
     gather-retrieve-synthesize: []
     transform-process: []
     investigate-reconcile-verify: []
-    monitor-detect-triage: []
+    monitor-detect-triage: [critical-signal-corroboration-triage]
     plan-coordinate-schedule: []
     recommend-decide-escalate: []
     execute-automate: [browser-based-form-completion-with-approval-gates]
