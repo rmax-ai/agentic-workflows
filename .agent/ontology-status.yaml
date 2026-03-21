@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 165
+  instance_files: 168
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -60,9 +60,9 @@ instance_counts_by_domain:
   finance: 31
   compliance: 20
   operations: 29
-  research: 19
-  support: 21
-  hr: 15
+  research: 20
+  support: 22
+  hr: 16
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -148,6 +148,7 @@ repo_reality:
     - instances/research/embargoed-benchmark-artifact-spot-check-sampling-rate-tuning.md
     - instances/research/benchmark-portfolio-bundle-retuning.md
     - instances/research/benchmark-study-publication-recommendation-packet-revision-approved-for-publication-council-decision-lane.md
+    - instances/research/benchmark-claim-clarification-packet-approved-for-publication-integrity-review-intake.md
     - instances/engineering/release-candidate-review-staging-record-refresh-after-evidence-change.md
     - instances/engineering/release-candidate-cutover-bundle-approved-for-change-window-handoff.md
     - instances/engineering/payments-api-latency-incident-investigation.md
@@ -258,6 +259,7 @@ repo_reality:
     - instances/support/enterprise-support-obligation-synthesis-for-severity-one-review.md
     - instances/support/enterprise-admin-lockout-executive-bridge-crisis-briefing-evidence-synthesis.md
     - instances/support/premium-support-escalation-runbook-change-digest-for-duty-manager-briefing.md
+    - instances/support/enterprise-outage-disclosure-packet-approved-for-executive-customer-review-intake.md
     - instances/support/premium-support-workaround-article-staging-board-shared-workbench-upkeep.md
     - instances/support/enterprise-outage-evidence-packet-to-support-escalation-record-handoff.md
     - instances/support/enterprise-security-incident-remediation-credit-package-readiness-loop.md
@@ -277,6 +279,7 @@ repo_reality:
     - instances/hr/leave-intake-policy-change-digest-for-people-operations-briefing.md
     - instances/hr/international-relocation-and-sign-on-package-recommendation.md
     - instances/hr/workplace-accommodation-exception-memo-copilot-loop.md
+    - instances/hr/protected-leave-return-to-work-exception-packet-approved-for-occupational-health-review-intake.md
     - instances/hr/medical-leave-certification-packet-to-leave-case-record-handoff.md
     - instances/hr/protected-leave-case-review-queue-reprioritization.md
     - instances/hr/protected-leave-return-to-work-status-drift-root-cause-investigation.md
