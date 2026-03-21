@@ -12,6 +12,18 @@ Finance.
 
 A treasury operations team receives real-time alerts for outgoing corporate wire transfers that deviate from a customer's historical behavior, beneficiary profile, jurisdiction pattern, or sanction-screening context. The workflow must quickly separate likely false positives from alerts that warrant analyst escalation, account-contact review, or temporary payment hold consideration.
 
+```mermaid
+flowchart TD
+    A["Outgoing wire alert received<br>with anomaly score and trigger details"] --> B["Enrich alert with customer history,<br>beneficiary screening, prior cases,<br>and wire-approval logs"]
+    B --> C{"Verification checks complete<br>and internally consistent?"}
+    C -- "No" --> D["Hold in analyst review queue<br>for missing context or policy conflict"]
+    C -- "Yes" --> E{"Verified as high-severity risk,<br>sanctions concern, or unusual jurisdiction?"}
+    E -- "Yes" --> F["Bounded escalation to senior analyst<br>with temporary payment hold consideration"]
+    E -- "No" --> G{"Explained by prior benign behavior<br>and low-risk beneficiary context?"}
+    G -- "Yes" --> H["Recommend likely false-positive suppression<br>with rationale and audit log"]
+    G -- "No" --> I["Escalate for analyst triage<br>and possible account-contact review"]
+```
+
 ## Target systems / source systems
 
 - Transaction-monitoring alert stream and scoring pipeline
