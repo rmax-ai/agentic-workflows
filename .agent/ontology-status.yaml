@@ -1,6 +1,6 @@
 version: 1
 last_updated: 2026-03-21
-repository_stage: phase-6-grounding-support-recommendation-covered
+repository_stage: phase-6-grounding-hr-recommendation-covered
 phase_status:
   phase_0:
     name: execution-memory bootstrap
@@ -29,7 +29,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 9
-  instance_files: 39
+  instance_files: 40
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -59,7 +59,7 @@ instance_counts_by_domain:
   operations: 8
   research: 2
   support: 8
-  hr: 3
+  hr: 4
 repo_reality:
   available_ontology_assets:
     - README.md
@@ -137,14 +137,14 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and thirty-nine grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, nine canonical patterns across all nine top-level families, and forty grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
 immediate_gaps:
   - "`investigate-reconcile-verify` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open domain slices only if further cross-domain investigation coverage becomes worthwhile."
   - "`monitor-detect-triage` is now grounded across engineering, finance, compliance, operations, and support, leaving research and HR as the remaining open monitoring slices only if deeper cross-domain triage coverage becomes worthwhile."
-  - "`recommend-decide-escalate` is now grounded across finance, compliance, operations, and support, leaving engineering, research, and HR as open slices; HR is now a plausible next target because the domain already has synthesis, scheduling, and execution grounding but lacks an explicit recommendation artifact."
+  - "`recommend-decide-escalate` is now grounded across finance, compliance, operations, support, and HR, leaving engineering and research as the remaining open slices only if broader cross-domain recommendation depth becomes more valuable than shoring up collaboration coverage."
   - "`human-agent-collaborative-work` is now grounded across support, research, compliance, and engineering, leaving finance, operations, and HR as open collaboration slices only if broader family depth becomes worthwhile later."
   - "`plan-coordinate-schedule` is grounded across operations, support, and HR, leaving engineering and finance open only if broader coordination coverage becomes more valuable than deepening governance-sensitive collaboration or investigation families."
   - "Most families still have only one to three domain-specific examples, leaving many domain, architecture, and risk cells partial even though every top-level family now has at least one grounded artifact."
 next_action:
-  id: phase-6-expand-hr-recommendation-grounding
-  summary: "Use the next small grounding batch to add one HR-domain recommendation example for `deal-desk-recommendation-support`, extending governed recommendation coverage into a domain that already has synthesis, scheduling, and execution grounding."
+  id: phase-6-expand-operations-collaboration-grounding
+  summary: "Use the next small grounding batch to add one operations-domain collaboration example for `analyst-copilot-loop`, extending mixed-initiative coverage into a domain that already has broad monitoring, investigation, transform, optimization, recommendation, scheduling, and synthesis grounding."
