@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 177
+  instance_files: 178
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -60,7 +60,7 @@ instance_counts_by_domain:
   finance: 31
   compliance: 22
   operations: 29
-  research: 21
+  research: 22
   support: 23
   hr: 21
 repo_reality:
@@ -150,6 +150,7 @@ repo_reality:
     - instances/research/benchmark-replication-review-scoring-revision-approved-for-live-use.md
     - instances/research/benchmark-study-publication-recommendation-packet-revision-approved-for-publication-council-decision-lane.md
     - instances/research/benchmark-claim-clarification-packet-approved-for-publication-integrity-review-intake.md
+    - instances/research/benchmark-study-publication-integrity-intake-packet-approved-for-restricted-review-lane.md
     - instances/engineering/release-candidate-review-staging-record-refresh-after-evidence-change.md
     - instances/engineering/release-candidate-cutover-bundle-approved-for-change-window-handoff.md
     - instances/engineering/payments-api-latency-incident-investigation.md
@@ -312,12 +313,12 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred seventy-six grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and one hundred seventy-eight grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
-    - "`approval-gated-triage-dispatch` now spans finance, compliance, operations, and HR through explicit grounded examples, so that monitor-family approval-bound dispatch slice no longer has an HR domain hole."
-    - "The monitor-family by-domain browse view is back in sync with canonical pattern truth after extending `approval-gated-triage-dispatch` into HR."
-    - "HR now rises to twenty-one grounded instances, tying compliance and research as the thinnest modeled domains, so refinement should keep prioritizing narrow governance-heavy slices instead of broader structural expansion."
-    - "The next refinement step should likely keep rebalancing thinner domains with one governance-heavy approval-bound example, likely in `approval-gated-transformation-release` if the transform-family boundary holds for compliance, rather than open a broader structural batch."
+    - "`approval-gated-transformation-release` now spans engineering, finance, compliance, operations, research, and HR through explicit grounded examples, leaving support as the only remaining open domain for that approval-bound transform slice."
+    - "The research by-domain browse view is back in sync with canonical pattern truth after extending `approval-gated-transformation-release` into research."
+    - "Research now rises to twenty-two grounded instances, tying compliance while HR remains the thinnest modeled domain at twenty-one, so refinement should keep prioritizing narrow governance-heavy slices instead of broader structural expansion."
+    - "The next refinement step should likely close the remaining support hole in `approval-gated-transformation-release` if the transform-family boundary can stay centered on one exact transformed package revision and one bounded downstream intake lane."
   next_action:
-    id: phase-7-next-compliance-approval-bound-transform-depth
-    summary: "Use the next iteration to rebalance a still-thin domain with one governance-heavy approval-bound example plus the directly dependent canonical and browse-view updates needed by that slice, with `approval-gated-transformation-release` as the leading candidate if the compliance transform boundary holds."
+    id: phase-7-next-support-approval-bound-transform-depth
+    summary: "Use the next iteration to close the remaining support-domain hole in `approval-gated-transformation-release` with one governance-heavy approval-bound example plus the directly dependent canonical and browse-view updates needed by that slice."
