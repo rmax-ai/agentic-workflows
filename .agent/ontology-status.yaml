@@ -32,7 +32,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 230
+  instance_files: 231
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,10 +62,11 @@ instance_counts_by_domain:
   operations: 33
   research: 33
   support: 33
-  hr: 32
+  hr: 33
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
+  - "`shared-workbench-orchestration` now has additional `hr` grounding through a manager leave playbook caveat-board upkeep example, deepening that low-risk collaboration-upkeep slice within HR beyond benefits FAQ maintenance and hiring-panel guide upkeep while preserving a clean boundary at source refresh, note normalization, ownership visibility, and explicit hold-state management rather than leave-policy interpretation, manager communication, approval adjudication, or live case administration."
   - "`shared-workbench-orchestration` now has a third `research` grounding through a longitudinal survey methodology caveat-board upkeep example, deepening that low-risk collaboration-upkeep slice within research beyond benchmark evidence maintenance and data-use restriction tracking while preserving a clean boundary at source refresh, note normalization, ownership visibility, and explicit hold-state management rather than analysis recommendation, protocol adjudication, publication drafting, or study execution."
   - "`crisis-briefing-evidence-synthesis` now has additional `support` grounding through a regulated customer compliance archive export failure executive-bridge briefing example, deepening that critical-risk gather-family slice within support beyond the existing admin-lockout bridge context while preserving a clean boundary at provenance-preserving crisis-context assembly, freshness-aware evidence compression, and human-reviewed briefing handoff rather than disclosure choice, remediation sequencing, root-cause analysis, or execution."
   - "`authoritative-record-reconciliation` now has explicit `finance` grounding through a vendor-master and treasury settlement-instruction authoritative record reconciliation example, deepening that moderate-risk investigate-family slice within finance while preserving a clean boundary at authoritative-state restoration, discrepancy visibility, and correction-ready handoff rather than root-cause analysis, payment execution, supplier outreach, or master-data governance redesign."
@@ -392,7 +393,7 @@ repo_reality:
     - "`shared-workbench-orchestration` now also has additional HR grounding through an internal hiring-panel interview-guide caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within HR beyond benefits FAQ maintenance while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than interviewer-guidance approval, policy adjudication, candidate communication, or hiring execution."
     - "`shared-workbench-orchestration` now also has additional support grounding through an internal premium-support diagnostic-runbook caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within support beyond workaround-article staging while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than runbook approval, customer communication, or live incident execution."
     - "`claimed-state-verification` now also has additional HR grounding through an internal job-architecture handbook publication verification example, proving that a second low-risk HR verification slice can deepen the domain without reopening canonical pattern or browse-view work."
-    - "Engineering, finance, compliance, and operations now sit at thirty-three grounded instances while research, support, and HR remain at thirty-two, so the next refinement should target one already-canonical thin slice in the remaining thinnest domains without reopening schema, vocabulary, or browse-view work."
+    - "All seven currently modeled domains now sit at thirty-three grounded instances each, so the next refinement should target one already-canonical thin slice for pattern-depth variety rather than domain-count balancing; `finance` is the cleanest next candidate because it has gone the longest without a new grounding in the latest balancing run."
   next_action:
     id: phase-7-next-thin-domain-instance-depth
-    summary: "Use the next iteration to deepen one already-aligned slice in `research`, `support`, or `hr`, preferring an instance-only batch whose canonical pattern metadata and browse views already match the intended domain pairing unless the new grounding exposes real drift."
+    summary: "Use the next iteration to deepen one already-aligned slice in `finance`, preferring an instance-only batch whose canonical pattern metadata and browse views already match the intended domain pairing unless the new grounding exposes real drift."
