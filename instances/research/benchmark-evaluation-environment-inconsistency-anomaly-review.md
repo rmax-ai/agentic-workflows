@@ -12,6 +12,20 @@ Research.
 
 A research evaluation governance team monitors scheduled benchmark reruns, environment manifests, container digests, accelerator assignments, tokenizer and runtime versions, queue-worker placement, and reviewer notes to detect mid-severity evaluation-environment anomalies before they harden into a formal reproducibility incident or publication-integrity escalation. The workflow must collapse duplicate anomalies tied to the same study, benchmark suite, and review window; enrich each case with the approved evaluation baseline, planned infrastructure changes, environment provenance gaps, prior reviewer dispositions, and claim sensitivity; and then prioritize which unexplained inconsistencies deserve human review. A case should enter the review queue when, for example, nominally identical benchmark runs alternate between two accelerator classes without an approved migration note, the same prompt cohort is evaluated under mismatched tokenizer or runtime hashes during a release-sensitive review window, or evaluation jobs spill across regions with different container digests even though the study manifest still records one canonical environment. The goal is an explainable anomaly review packet for research governance, benchmark platform owners, or reproducibility reviewers, not to authorize reruns, diagnose root cause, reconfigure infrastructure, or decide publication posture automatically.
 
+```mermaid
+flowchart TD
+    A["Anomaly signal ingestion<br>Run manifests, environment provenance, placement, and reviewer notes"]
+    B["Duplicate merge<br>Collapse cases by study, benchmark suite, and review window"]
+    C["Baseline/context enrichment<br>Attach approved baseline, change records, provenance gaps, prior dispositions, and claim sensitivity"]
+    D["Prioritization<br>Rank unexplained inconsistencies by impact, confidence, and review urgency"]
+    E["Human review routing<br>Send explainable packet to research governance, benchmark platform owners, or reproducibility reviewers"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Experiment-tracking and benchmark orchestration systems with run manifests, benchmark cohort identifiers, seed policies, and rerun schedules
