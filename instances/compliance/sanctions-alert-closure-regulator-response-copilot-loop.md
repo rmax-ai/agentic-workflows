@@ -42,6 +42,32 @@ This grounds the collaboration pattern in a compliance workflow where the regula
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Financial-crime case-management system<br>alert history, analyst notes,<br>reviewer approvals"]
+    B["Sanctions-screening engine logs<br>match scores, list versions,<br>suppression and routing history"]
+    C["Payments and transaction records<br>payment metadata, settlement timing,<br>customer context"]
+    D["Compliance policy library<br>closure thresholds, escalation standards,<br>issue-management playbooks"]
+    E["Governed case workspace<br>copilot retrieval, shared chronology,<br>draft memo and evidence matrix"]
+    F["Compliance officer and reviewers<br>policy interpretation, defensibility judgment,<br>outbound statement review"]
+    G["Evidence repository<br>screenshots, exported logs,<br>packaged regulator-response attachments"]
+    H["Explicit human approval boundary<br>external transmission, alert reopening,<br>new remediation commitments"]
+    I["Regulatory-correspondence system<br>final human-approved memo<br>and evidence packet"]
+    J["Human-only downstream actions<br>alert reopening or remediation records<br>outside the copilot loop"]
+
+    A -->|"Provide alert chronology<br>and disposition history"| E
+    B -->|"Provide screening hits<br>and routing evidence"| E
+    C -->|"Provide payment facts<br>and customer context"| E
+    D -->|"Provide policy language<br>and closure standards"| E
+    E -->|"Present draft memo, citations,<br>and evidence packet"| F
+    F -->|"Direct revisions and approve<br>defensible wording only"| E
+    E -->|"Store supporting exports<br>and cited attachments"| G
+    E -->|"Hold before any external send<br>or record-changing step"| H
+    F -->|"Approve or withhold transmission,<br>alert reopening, and commitments"| H
+    H -->|"Transmit only the human-approved<br>response package"| I
+    H -->|"Allow separate human-directed<br>follow-on actions only if chosen"| J
+```
+
 - Human-in-the-loop collaboration should remain primary because policy interpretation, exam-response posture, and any concession about control weakness require an accountable compliance officer.
 - A tool-using single agent can retrieve alert evidence, maintain a citation-backed issue list, draft memo sections, and update the shared evidence matrix inside one governed workbench.
 - The copilot may prepare the response packet and internal review draft, but sending anything to the regulator, reopening the original alert, or recording new remediation commitments should remain explicitly human-gated.
