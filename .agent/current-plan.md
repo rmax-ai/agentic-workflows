@@ -4,9 +4,9 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement deepened the `research` slice through `instances/research/bsl-3-cryostorage-excursion-supervised-specimen-containment-task-orchestration.md`, adding a materially distinct guided-execution grounding for `human-directed-task-orchestration`.
-- Result check: the new research example stayed bounded at biosafety-lead-directed live containment work, preserved one authoritative step ledger plus post-step verification and takeover-safe state, and stopped short of planning, recommendation, collaboration-room authorship, adjudication, or downstream study-governance decisions.
-- Read-first set used this iteration: this plan; `data/patterns/execute-automate/human-directed-task-orchestration.yaml`; `instances/engineering/production-incident-guided-remediation-task-orchestration.md`; `instances/operations/cold-chain-emergency-supervised-step-through-task-orchestration.md`; `instances/compliance/sanctions-remediation-human-directed-procedural-execution.md`; the relevant Phase 7 notes in `.agent/backlog.yaml`; the current counts and gap notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-035740.md`.
+- Target in progress: Phase 7 structural refinement will deepen the `finance` slice through one materially distinct second grounding for `staged-change-execution-with-rollback-holds`, most likely a payment- or treasury-infrastructure promotion scenario that stays inside high-risk staged execution rather than drifting back into planning, recommendation, collaboration, or browser submission.
+- Result target: the new finance example should center one already approved live-state change, explicit preflight and checkpoint verification, protected human-visible release holds before blast-radius expansion or fallback retirement, and a rollback-safe intervention packet whenever ambiguous evidence or degraded reversibility appears.
+- Read-first set for this iteration: this plan; `data/patterns/execute-automate/staged-change-execution-with-rollback-holds.yaml`; `instances/engineering/approved-payments-tokenization-cutover-staged-execution.md`; `instances/finance/approved-cash-forecast-primary-cutover-staged-execution.md`; `instances/operations/approved-distribution-sorter-routing-profile-cutover-staged-execution.md`; the relevant Phase 7 notes in `.agent/backlog.yaml`; the current counts and gap notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-040343.md`.
 
 ## Current phase
 
@@ -23,7 +23,7 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Continue Phase 7 with one instance-only refinement in `engineering`, `finance`, `compliance`, `operations`, `support`, or `hr` by deepening a materially distinct non-planning, non-collaboration slice outside the recently refreshed research guided-execution, compliance approval-collaboration, engineering coordination-refresh, and research dispatch surfaces.
+1. Continue Phase 7 with one instance-only refinement in `finance` by deepening a materially distinct high-risk execute slice through `staged-change-execution-with-rollback-holds`, outside the recently refreshed research guided-execution, compliance approval-collaboration, engineering coordination-refresh, and research dispatch surfaces.
 2. Keep the batch instance-only and outside `human-directed-task-orchestration`, `approval-centered-collaboration`, `approval-gated-recommendation-release`, `critical-command-window-resequencing`, `schedule-adjustment-and-replanning`, `approval-packet-generation`, `approval-gated-collaborative-artifact-release`, `approval-gated-briefing-release`, `evidence-gated-verification-for-release`, `approval-gated-transformation-release`, and `contingency-plan-activation-gate`; do not reopen schema, vocabularies, views, or canonical pattern metadata unless the read-first pass surfaces a directly coupled drift that would otherwise leave the repository inconsistent.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
 4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated summary file after verification.
