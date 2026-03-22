@@ -12,6 +12,24 @@ HR.
 
 A people policy enablement team maintains an internal manager leave playbook caveat board while leave program owners, regional HR partners, absence administrators, and manager-training reviewers continuously refine internal manager-guidance coverage for recurring leave scenarios. Small updates arrive throughout the cycle: one leave specialist links a revised intermittent-leave intake note, a regional partner flags a stale jurisdiction-specific return-to-work example, a training reviewer marks one decision-tree screenshot as outdated, and a policy owner reassigns ownership of an unresolved leave-vendor handoff note. The agent keeps that internal workbench usable by refreshing linked source references, normalizing duplicate caveat notes, updating section ownership and hold markers, and carrying unresolved policy-boundary questions forward in a visible register. Humans remain responsible for deciding what leave policy actually requires, which manager instructions are legally or policy-safe, whether any exception handling is approved, and when any material should move into separate manager communication, approval, case administration, or operational execution workflows.
 
+```mermaid
+flowchart TD
+    A["Small board edits or linked-source changes arrive"]
+    B["Agent retrieves current board state,<br>linked references, and prior hold status"]
+    C{"Update stays within internal<br>workbench upkeep rules?"}
+    D["Agent refreshes source links,<br>normalizes duplicate caveats,<br>and updates owner or hold markers"]
+    E["Agent records provenance,<br>unresolved questions, and visible hold state"]
+    F["Hold note in register and hand off<br>to human owner outside this workflow"]
+    G["Maintained internal caveat board<br>stays current and resumable"]
+
+    A -->|"Ingest bounded updates"| B
+    B -->|"Revalidate sources and rules"| C
+    C -->|"Yes"| D
+    D -->|"Apply internal board upkeep"| E
+    E -->|"Keep workbench usable"| G
+    C -->|"No"| F
+```
+
 ## Target systems / source systems
 
 - Shared manager leave playbook caveat board with topic sections, owner fields, blocker tags, and revision history
