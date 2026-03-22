@@ -12,6 +12,20 @@ Support.
 
 An enterprise support operations team monitors case-severity changes, first-response timestamps, named-escalation roster updates, premium-support queue assignments, after-hours paging events, and entitlement snapshots to detect mid-severity obligation-drift anomalies before they harden into customer-escalation failures or contractual disputes. The workflow must collapse duplicate anomalies tied to the same customer account, support program, and response window; enrich each case with the approved service-level matrix, roster-change history, maintenance context, recent reviewer notes, and prior suppressions; and then prioritize which clusters deserve support-governance review. A cluster should enter the review queue when, for example, a premium customer repeatedly lands in a standard response lane despite an unchanged entitlement snapshot, named escalation contacts disappear from multiple linked cases during a roster sync, or after-hours paging is skipped for several severity-two cases even though the obligation profile still requires a governed handoff. The goal is an explainable anomaly review packet for support operations leads or service-governance reviewers, not to interpret contract language, contact the customer, retroactively promise credits, declare an incident, or reassign live case ownership automatically.
 
+```mermaid
+flowchart TD
+    A["Signal ingestion<br>case-severity, response-timestamp, queue-assignment, paging, and entitlement events"]
+    B["Duplicate merge<br>collapse anomalies by customer account, support program, and response window"]
+    C["Obligation-context enrichment<br>attach approved service-level matrix, roster-change history, maintenance context, reviewer notes, and prior suppressions"]
+    D["Prioritization<br>rank obligation-drift clusters by persistence, premium-support impact, and confidence"]
+    E["Human review routing<br>send bounded anomaly packet to the restricted support-governance review queue"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Support ticketing, chat, and case-routing platforms with severity history, queue assignments, response timestamps, paging events, and escalation notes
