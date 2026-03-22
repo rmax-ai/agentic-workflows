@@ -12,6 +12,18 @@ Support.
 
 A premium support incident liaison, a cloud forensics coordinator, and restricted data-handling reviewers are co-producing one governed forensic evidence clarification packet because a regulated customer has submitted suspicious-access artifacts that need bounded internal security review before anyone broadens handling or treats the material as investigation-ready. Agents help reconcile customer-provided log excerpts, internal case chronology, tenant-scoped telemetry summaries, chain-of-custody annotations, redaction disputes, residency constraints, and reviewer objections into the shared packet while preserving which concerns remain unresolved and which residual caveats the human artifact owner accepted explicitly. The workflow ends only when the named support release owner approves that exact packet revision for one bounded restricted product security review intake lane, where downstream reviewers may decide whether the evidence package is sufficient for formal security assessment or needs narrower scope and fresher support. It does not classify the incident, authorize wider artifact transfer, notify the customer of a determination, or execute containment or remediation steps.
 
+```mermaid
+flowchart TD
+    A["Collaborative forensic evidence<br>clarification packet"]
+    B["Residual objections<br>and caveats stay visible"]
+    C["Release-manifest approval<br>for exact packet revision"]
+    D["Restricted product security<br>review intake lane"]
+
+    A --> B
+    B --> C
+    C --> D
+```
+
 ## Target systems / source systems
 
 - Governed support collaboration workspace holding the forensic evidence clarification packet, revision history, objection ledger, and release-manifest state
