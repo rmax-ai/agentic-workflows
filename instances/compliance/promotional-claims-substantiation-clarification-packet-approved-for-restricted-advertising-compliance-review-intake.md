@@ -12,6 +12,15 @@ Compliance.
 
 A promotional compliance lead, a medical affairs reviewer, and a brand-governance partner are co-producing one governed claims substantiation clarification packet because a disease-awareness campaign draft now depends on comparative outcome language, citation excerpts, and audience-limitation notes that remain partially contested across internal reviewers. Agents help reconcile approved label references, evidence-table excerpts, fair-balance caveats, market-specific restrictions, and unresolved reviewer objections into the shared packet while preserving which concerns remain open and which residual caveats the human artifact owner accepted explicitly. The workflow ends only when the named compliance release owner approves that exact packet revision for one bounded advertising-compliance review intake lane, where downstream reviewers may decide whether the packet is sufficient for formal promotional review or needs narrower wording and fresher support. It does not approve campaign launch, choose a regulatory posture, contact authorities, or publish or remediate the customer-facing materials.
 
+```mermaid
+flowchart TD
+    A["Promotional compliance lead,<br>medical affairs reviewer, and<br>brand-governance partner co-produce one<br>claims substantiation clarification packet"] -->|"agent-assisted reconciliation"| B["Shared packet revision keeps approved label references,<br>evidence excerpts, fair-balance caveats,<br>market restrictions, and unresolved objections visible"]
+    B -->|"exact revision submitted for release decision"| C{"Named compliance release owner<br>approves this exact packet revision<br>for one restricted advertising-compliance<br>review intake lane?"}
+    C -->|"yes"| D["Exact packet revision released to one restricted<br>advertising-compliance review intake lane"]
+    C -->|"no"| E["Release held while objections,<br>caveats, or packet content remain unresolved"]
+```
+
+
 ## Target systems / source systems
 
 - Governed promotional-compliance collaboration workspace holding the claims substantiation clarification packet, revision history, objection ledger, and release-manifest state
