@@ -59,6 +59,26 @@ This grounds `approval-gated-triage-dispatch` in a compliance setting that is ma
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    packet["Trade-surveillance alerting<br>and case-triage systems"]
+    context["Order-management, trade-ledger, market-data,<br>and employee-access systems"]
+    gate["Approval-gated dispatch workflow"]
+    approval["Approval-routing tooling"]
+    reviewer["Approved market-conduct reviewer"]
+    queue["Restricted market-conduct review queue<br>and dispatch-manifest service"]
+    audit["Audit and hold-tracking stores"]
+
+    packet -->|"Triaged packet<br>and lineage"| gate
+    context -->|"Freshness, venue context,<br>and hold-state references"| gate
+    gate -->|"Approval request<br>for exact revision"| approval
+    reviewer -->|"Approve exact revision<br>for restricted dispatch"| approval
+    approval -->|"Signer identity, reviewer audience,<br>and queue boundary"| gate
+    gate -->|"Released packet revision<br>and dispatch manifest"| queue
+    gate -->|"Hold register entries,<br>blocked attempts, and audit events"| audit
+    audit -->|"Visible hold state<br>and supersession history"| gate
+```
+
 - Event-driven monitoring fits because trade corrections, venue context, employee-access information, and legal-hold status can change while the already-triaged packet waits at the dispatch gate.
 - Approval-gated execution fits because the packet is prepared for one bounded market-conduct review lane but remains blocked until the required reviewer approves the exact revision and recipient scope.
 - Human-in-the-loop review should remain on the normal path because dispatch into a restricted surveillance-review lane expands who may inspect sensitive trading context even though this workflow still stops short of any misconduct finding or response choice.
