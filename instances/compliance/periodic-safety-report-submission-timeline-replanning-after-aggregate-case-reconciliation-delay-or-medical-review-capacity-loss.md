@@ -51,6 +51,38 @@ This grounds the replanning pattern in a thinner compliance slice where the main
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Pharmacovigilance planning inputs"]
+        tracker["Safety-report planning<br>tracker"]
+        reconciliation["Aggregate-case reconciliation workboard<br>and safety data warehouse"]
+        calendars["Medical-review and<br>labeling-review calendars"]
+        milestone["Regulatory operations<br>milestone register"]
+    end
+
+    subgraph workflow["Recommendation-only<br>replanning workflow"]
+        refresh["State refresh<br>role"]
+        check["Constraint-testing<br>role"]
+        package["Replanning-packet<br>role"]
+    end
+
+    planning["Planning and<br>coordination tools"]
+    workspace["Restricted pharmacovigilance<br>coordination workspace"]
+    approvers["Safety surveillance lead,<br>aggregate reporting owner,<br>and regulatory operations planner"]
+
+    tracker -->|"Baseline schedule"| refresh
+    reconciliation -->|"Lock status and deltas"| refresh
+    calendars -->|"Review windows"| check
+    milestone -->|"Fixed submission checkpoint"| check
+    refresh -->|"Current dependency state"| check
+    check -->|"Candidate timeline"| planning
+    planning -->|"Revised schedule"| package
+    check -->|"Risks and blockers"| package
+    package -->|"Coordination-ready packet"| workspace
+    workspace -->|"Adoption review"| approvers
+    approvers -->|"Approve or escalate"| workspace
+```
+
 - An orchestrated multi-agent workflow fits because one role can refresh reconciliation, review-capacity, and milestone state, another can test candidate timelines against fixed submission and review constraints, and another can package the accepted replanning proposal with downstream impacts and unresolved blockers.
 - Human-in-the-loop adoption remains necessary because the safety surveillance lead, aggregate reporting owner, or regulatory operations planner must approve any material movement of review sequencing, schedule compression, or handoff timing before the revised plan becomes authoritative.
 - Recommendation-only autonomy is the right ceiling: the workflow can propose a feasible updated submission timeline and identify deadline risk, but it should not assess cases, waive required medical or labeling review, alter the authority deadline, communicate externally, or trigger submission activity.
