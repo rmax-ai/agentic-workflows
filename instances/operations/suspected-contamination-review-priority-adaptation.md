@@ -12,6 +12,26 @@ Operations.
 
 Operations leadership has already declared a severe contamination-response state after distribution and field reports suggest one refrigerated product lot may be spreading risk across multiple facilities and routes. Several existing review surfaces now compete for the same constrained specialist pool: lot-hold evidence review, traceability-gap assessment, field-inspection triage, and routine quality-exception follow-up. The normal prioritization state still surfaces easy documentation cleanup and lower-consequence inspection backlog items while supervisors repeatedly override the queues to protect potential spread paths, regulator-visible holds, and at-risk facility reviews. The workflow must recommend a temporary emergency optimization state that protects contamination-critical review lanes, preserves explicit expiry and rollback controls, and reallocates scarce attention without choosing the response authority, sequencing the command playbook, releasing or holding inventory, or dispatching corrective work directly.
 
+```mermaid
+flowchart TD
+    A["Severe contamination state<br>already declared"]
+    B["Override and aging evidence<br>shows normal priority drift"]
+    C["Protected contamination-review lanes<br>and reserve floors stay fixed"]
+    D["Temporary severe-mode priority state<br>reweights existing review surfaces"]
+    E["Expiry review timestamp<br>and rollback triggers attached"]
+    F["Human reviewer adopts<br>temporary state"]
+    G["Protected lanes remain active<br>until expiry review"]
+    H["Rollback or restore baseline<br>when triggers fire or severe state eases"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+```
+
 ## Target systems / source systems
 
 - Command dashboard with the declared contamination scope, active review backlogs, and current lot or facility hold state
