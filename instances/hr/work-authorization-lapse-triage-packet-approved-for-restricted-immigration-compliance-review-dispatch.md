@@ -12,6 +12,18 @@ HR.
 
 An HR compliance operations team already has an evidence-backed work-authorization lapse packet assembled from earlier alert triage, with the worker's authorization window, employer-entity context, worksite and job-change history, renewal-case status, and unresolved uncertainty documented. The next step is not to contact the worker, instruct the manager, decide legal strategy, or change employment status; it is to decide whether the exact packet revision may cross into the restricted immigration-compliance review lane that can trigger those downstream human workflows. The dispatch workflow watches packet freshness, document-redaction state, signer approval, and bounded reviewer-roster rules, then releases the triaged packet only when the approved HR compliance reviewer signs the dispatch manifest for that lane.
 
+```mermaid
+flowchart TD
+    A["Already-triaged work-authorization lapse packet<br>awaiting restricted dispatch review"] --> B["HR compliance case-management and alert-triage systems<br>refresh packet revision, alert lineage,<br>and cited reverification context"]
+    B --> C{"Packet freshness, document-redaction state,<br>and privacy-scope holds clear for dispatch?"}
+    C -- "No" --> D["Visible stale-document or privacy-scope hold<br>remains on this packet revision"] --> H["Stop at held dispatch state"]
+    C -- "Yes" --> E{"Requested immigration-compliance lane and<br>reviewer roster stay within approved boundary?"}
+    E -- "No" --> F["Scope-boundary conflict hold recorded<br>for this packet revision"] --> H
+    E -- "Yes" --> G{"Approved HR compliance reviewer signed<br>the exact dispatch manifest revision?"}
+    G -- "No" --> I["Approval-routing tooling keeps dispatch pending<br>with signer state visible"] --> H
+    G -- "Yes" --> J["Restricted immigration-compliance review queue<br>receives the approved packet revision"] --> K["Dispatch manifest and audit trail recorded<br>for the bounded lane release"]
+```
+
 ## Target systems / source systems
 
 - HR compliance case-management and alert-triage systems holding the already-triaged work-authorization lapse packet, alert lineage, and prior duplicate merges
