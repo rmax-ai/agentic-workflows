@@ -12,6 +12,33 @@ HR.
 
 An HR labor-relations lead, a works-council compliance advisor, and an employee-relations policy author are co-producing one governed consultation notice variance clarification packet because the planned deployment of an employee performance-monitoring platform generated formal objections from the works council about whether the original consultation notice accurately described the monitored data categories, aggregation logic, retention intervals, and individual-impact scope. After the council's initial objection letter arrived, the collaborating authors discovered that the notice contained disputed language about pseudonymisation thresholds, unanswered questions about whether the monitoring scope extended to home-office activity, and an unresolved version conflict between the platform vendor's data-processing annex and the HR data-inventory register. Agents help reconcile the objection ledger, cross-reference policy references, normalize disputed clause wording, and maintain the packet revision trace while preserving which objections remain open and which wording changes the human artifact owner accepted explicitly. The workflow ends only when the named labor-relations release owner approves that exact clarification packet revision for one restricted labor-relations review intake lane, where downstream reviewers may decide whether the consultation notice variance is adequately addressed, requires re-issue, or needs escalation to formal co-determination procedures. It does not make that determination, contact the works council, authorize platform deployment, or update HR system configuration.
 
+```mermaid
+flowchart TD
+    A["Works-council objection letter,<br>prior consultation records,<br>and deadline/state inputs"]
+    B["HR data-inventory register,<br>vendor annex, and policy references"]
+    C["Governed HR collaboration workspace:<br>clarification packet,<br>objection ledger, revision history,<br>and release-manifest draft"]
+    D["HR labor-relations lead,<br>works-council compliance advisor,<br>and employee-relations policy author"]
+    E["Named labor-relations release owner"]
+    F{"Material source, scope, or rule<br>change during approval review?"}
+    G["Hold release and supersede<br>the prior revision"]
+    H["Approved clarification packet revision<br>and release manifest bound to one<br>restricted labor-relations review-intake lane"]
+    I["Restricted labor-relations<br>review-intake lane"]
+    J["Stop: workflow ends at restricted<br>review-intake handoff"]
+    K["Out of scope:<br>co-determination determination,<br>works-council communication,<br>platform deployment,<br>and HR system configuration"]
+
+    A -->|"Supply objections,<br>case history, and deadlines"| C
+    B -->|"Supply authoritative definitions,<br>annex versions, and rules"| C
+    D -->|"Reconcile objections,<br>normalize wording, and maintain trace"| C
+    C -->|"Present exact packet revision,<br>ledger, and manifest draft"| E
+    E -->|"Review release boundary,<br>signers, and residual objections"| F
+    F -->|"Yes"| G
+    G -->|"Return with held-release reason<br>for revision and trace update"| C
+    F -->|"No"| H
+    H -->|"Handoff exact approved revision"| I
+    I -->|"End at intake receipt"| J
+    J -.|"Do not perform"| K
+```
+
 ## Target systems / source systems
 
 - Governed HR collaboration workspace holding the works-council consultation notice variance clarification packet, objection ledger, revision history, and release-manifest draft
