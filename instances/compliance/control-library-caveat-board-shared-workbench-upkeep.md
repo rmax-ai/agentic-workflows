@@ -40,6 +40,31 @@ This grounds the pattern in a low-risk compliance setting where the maintained a
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    control["Internal control library<br>current control statements,<br>implementation notes, and procedure references"]
+    evidence["Evidence-reference register<br>document identifiers, effective dates,<br>and stewardship metadata"]
+    notes["Reviewer annotation surface<br>small edits, caveats,<br>and handoff notes"]
+    owners["Team ownership directory<br>current section stewards<br>and backup owners"]
+    review["Human compliance owners<br>delegation rules and boundary review"]
+
+    subgraph upkeep["Bounded control-library<br>caveat-board upkeep"]
+        agent["Event-driven upkeep agent<br>refreshes links, normalizes caveats,<br>and synchronizes owner plus hold state"]
+        board["Shared control-library caveat board<br>control sections, owner fields,<br>hold tags, and revision history"]
+        hold["Explicit hold register<br>unresolved applicability questions<br>and contested caveats"]
+    end
+
+    control -->|"Provides current control references<br>and approved procedures"| agent
+    evidence -->|"Provides evidence identifiers,<br>dates, and stewardship metadata"| agent
+    notes -->|"Provides collaborator edits,<br>caveats, and handoff notes"| agent
+    owners -->|"Provides current steward<br>and backup-owner assignments"| agent
+    review -->|"Defines allowed field updates,<br>source boundaries, and hold conditions"| agent
+    agent -->|"Updates links, ownership markers,<br>and revision history"| board
+    agent -->|"Carries forward contested caveats<br>and applicability questions"| hold
+    hold -->|"Keeps held items visible<br>on the shared board"| board
+    agent -->|"Routes interpretive or advice-like changes<br>for human review"| review
+```
+
 - Event-driven monitoring fits because upkeep should react when control-library references, evidence metadata, reviewer notes, or owner assignments change.
 - A tool-using single agent can refresh source links, normalize duplicate caveat wording, and keep ownership plus hold markers synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when a note would reinterpret a control requirement, clear a caveat that is still contested, or make the board sound like formal advice or sign-off.
