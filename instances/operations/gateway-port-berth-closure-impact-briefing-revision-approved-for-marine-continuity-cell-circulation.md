@@ -12,6 +12,21 @@ Operations.
 
 An operations continuity workflow has already synthesized one revision of a gateway-port berth closure impact briefing that summarizes berth availability, crane operating restrictions, container dwell exposure, hazardous-cargo segregation caveats, and unresolved hydrographic survey gaps after overnight silt intrusion closes part of a major terminal. Before that exact revision is circulated into the restricted marine continuity cell lane, a named terminal operations director must approve the audience scope, freshness window, and annex handling so continuity readers receive the reviewed context package rather than a stale draft, an over-broad copy, or a version carrying restricted cargo details beyond the approved lane. The workflow stops at governed release of that briefing revision; it does not choose vessel rerouting, authorize berth reassignment, notify carriers or regulators, or execute downstream port-recovery actions.
 
+```mermaid
+flowchart TD
+BRIEF["Prepared berth-closure impact<br>briefing revision held for release review"]
+CHECK["Revision identity, provenance,<br>and freshness verified"]
+REVIEW["Terminal operations director reviews<br>audience scope, freshness window, and annex handling"]
+MANIFEST["Approval manifest records the exact<br>revision id, lane, expiry, and hold or release state"]
+RELEASE["Approved briefing revision circulated<br>to the marine continuity cell lane"]
+HOLD["Briefing revision remains held or<br>is superseded before circulation"]
+BRIEF --> CHECK
+CHECK --> REVIEW
+REVIEW -->|"approve exact revision and lane"| MANIFEST
+MANIFEST -->|"release"| RELEASE
+REVIEW -->|"hold or supersede"| HOLD
+```
+
 ## Target systems / source systems
 
 - Restricted operations briefing workspace storing the synthesized berth-closure briefing revision, superseded revisions, annex redactions, and provenance ledger
