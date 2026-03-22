@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 295
+  instance_files: 296
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -65,14 +65,15 @@ instance_counts_by_domain:
   engineering: 41
   finance: 41
   compliance: 43
-  operations: 42
+  operations: 43
   research: 44
   support: 42
   hr: 42
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred ninety-five grounded examples across all seven currently modeled domains, with `research` at forty-four; `compliance` at forty-three; `operations`, `support`, and `hr` at forty-two; and `engineering` and `finance` at forty-one. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has two hundred ninety-six grounded examples across all seven currently modeled domains, with `research` at forty-four; `compliance` and `operations` at forty-three; `support` and `hr` at forty-two; and `engineering` and `finance` at forty-one. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`governed-optimization-bundle-retuning` now has its first `operations` grounding through a cold-chain network review bundle retuning example, deepening that high-risk optimize/adapt slice beyond finance quarter-close, research benchmark, and HR protected-leave coverage by centering one exact refrigerated-network shared bundle across excursion severity scoring, lot-release weighting, inspection buffers, and facility-hold duration with hub-type fairness drift, protected product-lane guardrails, candidate replay, deferred policy-adjacent moves, and explicit human adoption rather than live queue reprioritization, inspection scheduling, facility remediation, lot release, or downstream cold-chain execution."
   - "`critical-signal-corroboration-triage` now has its first `research` grounding through a BSL-3 containment-integrity multi-signal critical corroboration triage example, deepening that critical monitor-family corroboration slice beyond engineering outage, compliance device field-failure, finance fraud-ring, and operations ammonia-release coverage by centering one exact biosafety command case with pressure, HEPA, airlock, decontamination, custody-gap, and dual-incident-report signals plus duplicate-aware lineage and governed routing rather than containment action, personnel outreach, protocol adjudication, regulator communication, or downstream laboratory execution."
   - "`policy-constrained-escalation-routing` now has its first `hr` grounding through an executive retaliation-concern protected-review escalation-routing example, deepening that high-governance recommendation slice beyond compliance breach-notification, operations cold-chain compressor failure, and support sovereign-artifact handling coverage by centering one exact protected workplace-concern case with disclosure linkage, executive-conflict rules, blocked lower-authority paths, and governed packet assembly rather than retaliation adjudication, employee outreach, leadership communication, or downstream case execution."
   - "`explainable-watchlist-maintenance` now has its first `compliance` grounding through a records-retention taxonomy drift watchlist example, deepening that low-risk monitor-family upkeep slice beyond engineering CI warnings, research benchmark metadata hygiene, and support article confusion coverage by centering one exact records-governance watchlist with explainable grouping, bounded suppression, healthy-state checks, migration-window context, and routine stewardship publication rather than retention-law interpretation, legal-hold decisioning, escalation routing, or metadata-change execution."
