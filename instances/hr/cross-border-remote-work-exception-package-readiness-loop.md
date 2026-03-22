@@ -12,6 +12,18 @@ HR.
 
 An HR mobility partner is coordinating a formal exception package because an employee wants to work remotely for several weeks from a country outside the company's pre-cleared remote-work list, and the request must be refined through policy, legal, security, and people-operations review before a named human approval owner will consider it. In a governed HR collaboration workspace, the mobility partner and agent support iterate on the packet as reviewers challenge whether the proposed stay dates and location facts are evidenced clearly, whether role sensitivity and data-access constraints are described accurately, whether existing country-coverage rules or local-employment limits leave unresolved gaps, and whether reviewer objections remain visible enough for the next readiness checkpoint. The agents help preserve conflicting reviewer positions, refresh itinerary, policy, and role evidence, rewrite the packet to reflect accepted edits and unresolved objections, and keep a handoff ledger that shows who owns the next approval-readiness checkpoint. The human mobility partner and named approval owner remain responsible for deciding whether the packet is ready to advance, whether objections require another revision cycle, and whether the request should pause for more evidence or specialist review rather than move toward adjudication.
 
+```mermaid
+flowchart TD
+    A["Request, HRIS, policy, legal,<br>security, and travel inputs"] -->|"refresh evidence"| B["Draft exception packet with<br>visible reviewer objections"]
+    B -->|"collect challenges and edits"| C["Policy, legal, security, and<br>people-operations review feedback"]
+    C -->|"rewrite packet and ledger"| D["Revised packet, unresolved issues,<br>and next handoff ownership"]
+    D -->|"check approval readiness"| E{"Ready to hand off for<br>formal decision review?"}
+    E -->|"No: another revision cycle"| B
+    E -->|"Pause: more evidence or specialist review needed"| F["Hold at the current readiness<br>checkpoint"]
+    F -->|"resume after new evidence<br>or review arrives"| B
+    E -->|"Yes: transfer packet, issues,<br>and ownership"| G["Approval-routing queue for formal<br>human decision review<br>(workflow boundary)"]
+```
+
 ## Target systems / source systems
 
 - Governed HR review workspace with the draft exception packet, comment history, readiness status, and named handoff ownership
