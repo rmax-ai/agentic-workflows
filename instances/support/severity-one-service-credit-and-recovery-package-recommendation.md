@@ -12,6 +12,22 @@ Support.
 
 After a prolonged identity-service outage affecting a global enterprise customer, the support account escalation team must recommend whether to offer the requested recovery package of service credits, temporary premium-support staffing, and waived overage charges, counter with a narrower package tied to documented impact, or escalate because the combined concession would exceed delegated authority or set a risky precedent. The workflow weighs contractual service-credit rules, outage severity evidence, customer tenure and renewal context, prior concession history, and stakeholder input from support leadership, customer success, finance, and legal before anyone makes a customer-facing commitment.
 
+```mermaid
+flowchart TD
+    A["Collect outage evidence<br>and requested recovery terms"]
+    B["Review contract rules<br>service-credit policy<br>and concession precedent"]
+    C["Assemble ranked concession options<br>with rationale and guardrails"]
+    D["Check delegated authority<br>precedent risk<br>and exception thresholds"]
+    E["Trigger escalation for out-of-policy<br>or high-risk packages"]
+    F["Hand off recommendation packet<br>to support leadership reviewers"]
+    A --> B
+    B --> C
+    C --> D
+    D --> F
+    D --> E
+    E --> F
+```
+
 ## Target systems / source systems
 
 - Severity-one incident record, customer escalation timeline, and outage impact summary
