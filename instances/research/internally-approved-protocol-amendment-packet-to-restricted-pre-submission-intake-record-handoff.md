@@ -12,6 +12,19 @@ Research.
 
 A clinical research governance operations team receives an internally approved protocol-amendment packet for a multisite observational study that needs to enter a restricted pre-submission intake lane before any formal ethics submission or sponsor communication begins. The source packet combines the amendment cover memo signed by the principal investigator, a redlined protocol, revised schedule-of-events pages, updated recruitment-language excerpts, participant-risk impact notes, site-readiness confirmations, adverse-event context, and a carry-forward list of unresolved findings from the prior protocol version. The workflow must transform that heterogeneous packet into one inspectable governed intake record with required fields for study identifier, amendment type, proposed effective window, delta-from-current-protocol summary, affected participant-facing materials, source document inventory, named intake-lane owner, explicit blocker register, provenance links, and restricted-audience tags while preserving contradictions, missing approvals, and version lineage.
 
+```mermaid
+flowchart TD
+    INTAKE["Packet intake<br>Internally approved protocol-amendment packet enters the restricted pre-submission lane"]
+    EXTRACT["Field extraction and normalization<br>Study identifier, amendment type, effective window, delta summary, affected materials, and source inventory are mapped to the intake schema"]
+    BLOCKERS["Blocker visibility<br>Contradictions, missing approvals, unresolved prior findings, and privacy-sensitive gaps remain explicit in the governed record"]
+    EXCEPTION["Exception routing<br>Blocked or ambiguous packets move to governance intake coordinator or privacy review follow-up"]
+    HANDOFF["Restricted intake record handoff<br>Structured pre-submission intake record is staged for Human Subjects Pre-Submission Intake"]
+    INTAKE --> EXTRACT
+    EXTRACT --> BLOCKERS
+    BLOCKERS --> EXCEPTION
+    BLOCKERS --> HANDOFF
+```
+
 ## Target systems / source systems
 
 - Restricted research-governance pre-submission staging system that stores one structured intake record for protocol-change review and shows the owning lane as Human Subjects Pre-Submission Intake
