@@ -12,6 +12,34 @@ Support.
 
 Knowledge operations marks a premium-support workaround article as published after the internal knowledge base, customer help center, and article-linking service report successful release for a high-volume but low-stakes product issue. Case teams still need to know whether the claimed publication state is actually true on the approved support surfaces before they cite the article in routine customer responses. The workflow verifies the claim against authoritative evidence and emits a bounded verdict; it must not send customer communications, reclassify the issue, or publish corrective updates itself.
 
+```mermaid
+flowchart TD
+    claim["Publication claim received<br>for one approved workaround article revision"]
+    policy["Load approved surfaces<br>source precedence and lag tolerance"]
+    kb["Check internal knowledge base<br>approved article revision and publication state"]
+    help["Check customer help center<br>visible article revision and locale coverage"]
+    link["Check article-linking service<br>linked article availability state"]
+    assess["Compare observed publication evidence<br>against corroboration and tolerance rules"]
+    conflict{"Does any approved surface show<br>a conflicting publication state?"}
+    lag{"Is remaining uncertainty limited to<br>missing evidence within allowed lag?"}
+    confirmed["Confirmed verdict<br>claim corroborated across approved surfaces"]
+    disproved["Disproved verdict<br>one approved surface shows conflicting publication state"]
+    inconclusive["Inconclusive verdict<br>evidence missing or still within allowed lag"]
+
+    claim --> policy
+    policy --> kb
+    policy --> help
+    policy --> link
+    kb --> assess
+    help --> assess
+    link --> assess
+    assess --> conflict
+    conflict -->|"Yes"| disproved
+    conflict -->|"No"| lag
+    lag -->|"No"| confirmed
+    lag -->|"Yes"| inconclusive
+```
+
 ## Target systems / source systems
 
 - Internal support knowledge base that records the approved article version and publication status
