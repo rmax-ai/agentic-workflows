@@ -12,6 +12,25 @@ Support.
 
 After a contract renewal, security-admin turnover, and a delayed CRM-to-portal sync, enterprise support operations discovers that the current named support-contact roster for several strategic tenants no longer agrees across the CRM account-contact register, the support-entitlement service, the secure support portal contact directory, and the identity-verification ledger used for restricted case access. One source shows a newly added security lead as an active authorized contact for severity escalations with a recent domain-verification timestamp, another still treats a departed operations manager as the only named contact eligible for restricted attachments, and the portal roster matches the new contact's email but not the support-plan scope or effective date now reflected in the entitlement service. Before any restricted case detail is released, any severity escalation is accepted from the new contact, or any team decides whether the drift came from contract amendment timing, stale synchronization, or admin error, the workflow must restore one trusted current support-contact eligibility state for each affected tenant, keep unresolved conflicts visible, and hand off a correction-ready package for controlled record repair.
 
+```mermaid
+flowchart TD
+    start["Named support-contact eligibility records conflict across<br>CRM, entitlement, portal, and identity-verification sources"]
+    compare["Compare matched contact records, effective dates,<br>role scopes, verification markers, and deactivation evidence<br>inside the reconciliation workspace"]
+    rules["Apply approved source-precedence,<br>freshness, and field-eligibility rules"]
+    verify{"Can one authoritative current eligibility state<br>be verified for the tenant and contact set?"}
+    package["Produce the reconciled eligibility ledger,<br>discrepancy ledger, explicit exceptions,<br>and correction-ready package"]
+    hold["Place the tenant on explicit reconciliation hold<br>and keep unresolved conflicts visible<br>for steward review"]
+    stop["Stop before portal access grant,<br>restricted-case release, or escalation acceptance"]
+
+    start --> compare
+    compare --> rules
+    rules --> verify
+    verify -->|"Yes"| package
+    verify -->|"No"| hold
+    package --> stop
+    hold --> stop
+```
+
 ## Target systems / source systems
 
 - CRM account-contact records, contract renewal snapshots, support-plan mappings, and named-contact effective-date history
