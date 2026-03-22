@@ -39,6 +39,29 @@ This grounds the pattern in a compliance workflow where the urgent need is not t
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph trust["Core investigation room<br>and narrower trust boundary"]
+        hotline["Hotline, case-management, and<br>records-preservation systems"]
+        finance["ERP, distributor-payment,<br>travel-and-expense, and rebate-approval systems"]
+        thirdparty["Due-diligence, contract-lifecycle,<br>and market-authorization repositories"]
+        controls["Legal-privilege, disclosure-policy,<br>and board-briefing control systems"]
+        render["Orchestrated multi-agent workflow<br>with approved rendering tables"]
+        staging["Secure staging workspace<br>case package, held-detail annexes,<br>lineage traces, manifests, and approvals"]
+        reviewers["Compliance, legal, and audit reviewers"]
+    end
+    audience["Chief compliance officer bridge,<br>audit-committee liaison channel,<br>and restricted regional leadership lanes"]
+
+    hotline -->|"Authoritative intake<br>and hold state"| render
+    finance -->|"Transactions and approvals"| render
+    thirdparty -->|"Distributor and jurisdiction context"| render
+    controls -->|"Audience and hold rules"| render
+    render -->|"Bounded outputs"| staging
+    staging -->|"Review package and held detail state"| reviewers
+    reviewers -->|"Reviewer approvals<br>and hold decisions"| staging
+    staging -->|"Channel-safe package only"| audience
+```
+
 - An orchestrated multi-agent workflow can separate authoritative evidence retrieval, audience-safe rendering, hold-state validation, and manifest assembly so each stage remains inspectable during the response.
 - Human reviewers should remain in the loop because compliance, legal, and audit owners must decide whether privileged interview content, named employees, or distributor-specific detail can move into a narrower annex or must stay held.
 - The workflow should emit only the channel-safe case package, held-detail register, lineage trace, and release manifest rather than recommending disciplinary actions, approving voluntary disclosure, or triggering distributor suspension.
