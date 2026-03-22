@@ -40,6 +40,30 @@ This grounds the pattern in compliance where the hard problem is not deciding me
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph G["Approval-gated planning boundary"]
+        P["Pharmacovigilance continuity playbooks and outage workspace<br>with the declared fallback scope,<br>frozen queue references,<br>prior packet versions,<br>and protected intake boundaries"]
+        T["Trusted intake outage-state,<br>serious-event queue snapshot,<br>reporting-clock cohort,<br>and duplicate-watch systems"]
+        R["Qualified intake rosters,<br>shift calendars,<br>translation-vendor commitments,<br>callback coverage plans,<br>and quality-check schedules"]
+        L["Readiness ledger,<br>activation-ready packet,<br>and hold register"]
+        A["Approval-routing and audit systems"]
+        O["Named safety compliance approval owner"]
+    end
+    subgraph D["Downstream restricted communications tooling"]
+        C["Restricted communications tooling<br>for affiliate notices,<br>hotline script release,<br>and vendor coordination timing"]
+    end
+
+    P -->|"provides declared fallback scope,<br>frozen queue references,<br>and protected intake boundaries"| L
+    T -->|"provides authoritative outage,<br>queue,<br>reporting-clock,<br>and duplicate-watch inputs"| L
+    R -->|"provides staffing,<br>translation,<br>callback,<br>and quality-check commitments"| L
+    L -->|"stores packet versions,<br>open holds,<br>resource commitments,<br>and sign-off state"| A
+    A -->|"routes the packet for human sign-off"| O
+    O -->|"approves or rejects the packet"| A
+    A -->|"captures the approved packet<br>before any manual intake continuity mode may start"| L
+    A -.->|"remains downstream of the planning gate"| C
+```
+
 - Approval-gated execution fits because the manual intake continuity mode may be operationally prepared while still blocked until safety compliance leadership approves the packet.
 - The readiness ledger should tie intake staffing, minimum-case capture controls, translation and callback coverage, duplicate-reconciliation holds, and reporting-clock windows to one current packet version.
 - Explicit holds should remain visible whenever jurisdiction coverage, protected channels, or frozen-queue reconciliation are incomplete rather than being compressed into a nominally ready packet.
