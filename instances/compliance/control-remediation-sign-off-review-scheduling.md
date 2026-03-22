@@ -40,6 +40,30 @@ This grounds the scheduling pattern in a compliance workflow where the main valu
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    tracker["Remediation tracker with milestone,<br>required roles, and submission cutoff"]
+    calendars["Team calendars across New York,<br>Toronto, and London"]
+    review["Compliance review calendar with<br>blackouts and board bookings"]
+    evidence["Evidence register for validation-<br>artifact completion status"]
+    tools["Calendar and meeting tools for<br>tentative holds and invite drafts"]
+    workspace["Compliance coordination workspace"]
+    agent["Compliance sign-off review<br>scheduling agent"]
+    director["Compliance controls director<br>approval checkpoint"]
+    escalation["Human conflict-resolution path<br>for policy or authority exceptions"]
+
+    tracker -->|"Provides committed review window,<br>required roles, and severity context"| agent
+    calendars -->|"Provides free-busy, timezone,<br>and delegate metadata"| agent
+    review -->|"Provides regulator-committed windows,<br>blackouts, and existing review boards"| agent
+    evidence -->|"Confirms validation artifacts are complete<br>before scheduling can begin"| agent
+    agent -->|"Places reversible holds and drafts<br>role-based invite options"| tools
+    tools -->|"Returns hold state, candidate slots,<br>and invite-draft updates"| agent
+    agent -->|"Records candidate slots, exceptions,<br>and confirmation status"| workspace
+    agent -->|"Requests final slot approval before<br>the invite becomes authoritative"| director
+    director -->|"Approves the selected slot or<br>rejects it for revision"| agent
+    agent -->|"Escalates no-overlap, after-hours,<br>or delegate-authority conflicts"| escalation
+```
+
 - A tool-using single agent gathers free-busy availability, remediation-window constraints, required-attendee rules, and existing review-board bookings from approved compliance systems.
 - Bounded delegation fits because the agent can rank feasible slots, place short-lived tentative holds, and draft a meeting packet linked to the remediation record, but it should not move the committed milestone, replace a required control owner silently, or confirm the final review invitation without the compliance controls director's approval.
 - Human checkpoints remain necessary when no compliant overlap exists before the submission cutoff, when only after-hours options remain for a required reviewer, or when a proposed delegate would change who can speak for internal audit, model governance, or accountable technology risk.
