@@ -12,6 +12,19 @@ Support.
 
 A severity-one customer bridge is active for a managed-service outage that affects several production regions and involves internal security-sensitive dependency detail that cannot be exposed directly to the customer or every support participant. The authoritative state spans incident records, service-health systems, entitlement and contractual metadata, workaround trackers, dependency maps, security review notes, and bridge timelines that change quickly as engineering confirms what is safe to share externally. Before account leadership, incident management, and the customer-facing bridge can align on one sanctioned artifact, the workflow must transform that state into a channel-safe structured service-state package with affected-capability fields, region-impact buckets, customer-safe status codes, workaround-readiness markers, timeline checkpoints, held-detail placeholders for restricted dependency or exploitability context, and a release manifest that records which annexes remain internal only.
 
+```mermaid
+flowchart TD
+    A["Authoritative state retrieval<br>Incident, service-health, entitlement, workaround, and bridge records are pulled from approved source systems"]
+    B["Channel-safe rendering<br>Approved mappings convert source state into affected capabilities, region-impact buckets, customer-safe status codes, and timeline checkpoints"]
+    C["Held-detail placeholders<br>Restricted dependency names, exploitability context, and other unsafe details are replaced with explicit held-state placeholders"]
+    D["Review queue<br>Support leadership, incident command, security, or legal review fields that remain unsafe or need release confirmation"]
+    E["Manifest-backed package handoff<br>Customer-safe service-state package and release manifest are handed off with annex holds and supersession state recorded"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Incident, service-health, and dependency systems holding authoritative outage and workaround state
