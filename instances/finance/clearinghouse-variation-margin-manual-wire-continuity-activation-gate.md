@@ -12,6 +12,20 @@ Finance.
 
 After a clearing connectivity disruption is declared, treasury and clearing operations have already identified the bounded fallback path and the accountable approval owner: a governed manual wire continuity route for same-day clearinghouse variation-margin settlement if the primary automated settlement path does not recover before cutoff. Upstream workflows have already restored the trusted margin obligation, designated the exact legal entity and settlement account scope, and routed the correct authority lane. The planning workflow now has to prepare one activation-ready packet showing approved beneficiary-template readiness, wire cutoff coverage, dual-approval signer availability, callback-control readiness, protected ledger-posting holds, and reconciliation-log readiness. It should keep explicit holds for any stale margin snapshot, incomplete signer coverage, missing callback script, unsettled beneficiary template, or broken confirmation-log control, and stop at the human approval gate rather than choosing whether to activate, contacting the clearinghouse or settlement bank, releasing the wire, restoring cash truth, or performing downstream contingency execution.
 
+```mermaid
+flowchart TD
+    start["Declared clearing disruption<br>and bounded manual-wire route"] --> gather["Assemble activation packet<br>from trusted continuity inputs"]
+    gather --> template{"Beneficiary template<br>settled and approved?"}
+    template -->|"No"| hold["Keep packet on hold<br>with explicit blockers"]
+    template -->|"Yes"| signer{"Dual-approval signer<br>coverage available?"}
+    signer -->|"No"| hold
+    signer -->|"Yes"| controls{"Callback, cutoff, posting,<br>and reconciliation controls ready?"}
+    controls -->|"No"| hold
+    controls -->|"Yes"| packet["Produce current readiness packet<br>with lineage and open-hold state"]
+    packet --> gate["Stop at human approval gate<br>for continuity activation"]
+    hold --> gate
+```
+
 ## Target systems / source systems
 
 - Treasury and clearing continuity playbooks with the declared contingency scope, prior activation packets, protected settlement-account boundaries, and manual-wire fallback rules
