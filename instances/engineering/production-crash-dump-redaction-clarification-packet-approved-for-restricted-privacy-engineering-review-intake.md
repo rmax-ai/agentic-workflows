@@ -36,6 +36,19 @@ This grounds the pattern in engineering privacy stewardship rather than architec
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    reviewers["Privacy engineering lead,<br>production reliability engineer,<br>and crash forensics maintainer"] -->|"Co-produce clarification packet,<br>objection ledger, and caveats"| workspace["Governed collaboration workspace<br>holding the crash-dump clarification packet,<br>revision history, objections,<br>and release-manifest draft"]
+    agents["Agents"] -->|"Compare dump revisions,<br>cross-check redaction coverage,<br>and maintain release trace"| workspace
+    crash["Secure crash-dump vault,<br>symbol server, and<br>forensics tooling"] -->|"Authoritative dump fragments,<br>symbolization provenance,<br>crash-session identifiers,<br>and attachment hashes"| workspace
+    privacy["Privacy classification services,<br>redaction-policy references,<br>retention registry, and<br>customer-environment inventory"] -->|"Identifier taxonomies,<br>minimization rules,<br>retention deadlines,<br>and sensitivity context"| workspace
+    workspace -->|"Exact packet revision,<br>residual objections, and<br>release-manifest draft"| routing["Restricted intake-routing<br>and approval systems"]
+    owner["Named engineering<br>release owner"] -->|"Approve exact revision<br>for one bounded intake lane"| routing
+    routing -->|"Approved packet revision<br>for restricted review intake"| lane["Restricted privacy-engineering<br>review-intake lane"]
+    workspace -->|"Supersession state,<br>accepted residual objections,<br>and access trace"| audit["Audit, supersession, and<br>access-governance systems"]
+    routing -->|"Release decisions,<br>lane-boundary enforcement,<br>and handoff traceability"| audit
+```
+
 - Approval-gated execution fits because the clarification packet can be collaboration-ready while still blocked from restricted privacy-engineering intake until the human release owner approves the exact revision with its accepted residual caveats.
 - Human-in-the-loop control is required because only accountable privacy and production engineering leaders may accept residual leakage risk, confirm symbolization boundaries, and authorize release of the packet itself into the bounded review lane.
 - Agents may compare dump revisions, cross-check redaction coverage, flag identifier-class mismatches, refresh retention metadata, and maintain the release trace, but they must not decide whether the artifact is privacy-safe, enable debugger access, or transmit crash evidence outside the approved lane.
