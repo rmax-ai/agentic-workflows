@@ -12,6 +12,19 @@ Compliance.
 
 A global anti-bribery response cell has declared a critical misconduct event after a whistleblower packet, unusual distributor rebate entries, and internal-chat extracts indicate that several market-access teams may have routed improper payments through a regional distributor network. The authoritative state spans hotline case files, ERP payment records, distributor due-diligence dossiers, contract amendments, travel-and-expense approvals, records-preservation logs, and legal-privilege notes that restrict which employee names, market identifiers, and evidence excerpts can be shown outside the core investigation room. Before the chief compliance officer bridge, audit-committee liaison channel, and restricted regional leadership lanes can coordinate from one governed artifact, the workflow must transform that authoritative state into a channel-safe structured case package with jurisdiction buckets, distributor-alias groupings, payment-pattern bands, preservation-status fields, employee-role abstractions, held-detail placeholders for privileged interview content or whistleblower identifiers, and evidence-backed lineage that keeps raw allegations and named subjects inside a narrower trust boundary until release is approved.
 
+```mermaid
+flowchart TD
+    A["Retrieve bounded misconduct evidence state<br>hotline, ERP, diligence, contract, T&E, preservation, and privilege records"] -->|"Transform under approved boundary"| B["Apply audience policy and package contract<br>jurisdiction buckets, alias rules, hold states, and lineage requirements"]
+    B -->|"Render with controlled mappings"| C["Render channel-safe case package<br>payment-pattern bands, preservation fields, role abstractions, and held-detail placeholders"]
+    C -->|"Check release constraints"| D{"Any privileged, identifying, or unverified detail<br>that exceeds the approved audience boundary?"}
+    D -->|"Yes"| E["Move restricted detail into held annexes and exception register<br>retain source lineage and hold reasons"]
+    D -->|"No"| F["Assemble release candidate package and manifest<br>record lineage, minimization, and supersession state"]
+    E -->|"Return bounded package state"| F
+    F -->|"Submit governed package"| G{"Approved for release<br>to the defined restricted audience?"}
+    G -->|"No"| E
+    G -->|"Yes"| H["Release approved channel-safe package only<br>with held-detail annexes kept inside the narrower trust boundary"]
+```
+
 ## Target systems / source systems
 
 - Hotline, case-management, and records-preservation systems holding authoritative allegation intake, custodian scope, interview status, and litigation-hold state
