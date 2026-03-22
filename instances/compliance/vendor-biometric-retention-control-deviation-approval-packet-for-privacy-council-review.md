@@ -40,6 +40,25 @@ This grounds `approval-packet-generation` in a compliance workflow where the har
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    pcm["Privacy compliance manager"] --> pew["Privacy exception workspace<br>scoped deviation request, packet draft,<br>completeness checklist, and handoff status"]
+
+    subgraph gb["Governed packet-generation boundary"]
+        direction LR
+        pew --> asm["Packet assembly workflow<br>retrieval, synthesis, provenance index,<br>and exception register curation"]
+        vrr["Vendor-risk repository"] --> asm
+        tel["Privacy engineering and storage telemetry systems"] --> asm
+        dpr["Data inventory, transfer-mapping,<br>and DPIA repositories"] --> asm
+        lpl["Legal and policy libraries"] --> asm
+        asm --> pkt["Approval packet set<br>approval packet, evidence index,<br>exception register, and handoff record"]
+        asm --> pew
+    end
+
+    pkt --> rrq["Review-routing queue<br>bounded council evaluation"]
+    rrq --> pcr["Named privacy council reviewers"]
+```
+
 - Orchestrated multi-agent retrieval and synthesis fit because contract evidence, telemetry proofs, obligation mappings, and exception-state curation often live in separate systems and require coordinated packet assembly.
 - Human-in-the-loop checkpoints should remain mandatory so an accountable privacy owner can confirm request scope, required reviewers, and whether unresolved evidence gaps are acceptable to surface in the packet before handoff.
 - Agents may normalize biometric data categories, reconcile source identifiers, and draft packet sections, but they should not decide whether the retention deviation is permissible, extend the vendor's exception window, or trigger downstream legal or operational actions.
