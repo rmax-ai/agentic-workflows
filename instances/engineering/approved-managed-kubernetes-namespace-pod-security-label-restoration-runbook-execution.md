@@ -40,6 +40,21 @@ This grounds the pattern in engineering work where the useful delegation is a na
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Restricted remediation queue<br>task + checkpoint ledger"] --> B["Runbook orchestrator<br>MKS-PSA-Label-Restore-v3"]
+    C["Namespace baseline register"] --> B
+    D["Platform-exception register"] --> B
+    E["Cluster inventory snapshot"] --> B
+    F["Namespace ownership directory"] --> B
+    B -->|"Approved label-restore action"| G["Cluster API or approved<br>remediation worker"]
+    G -->|"Write status + namespace readback"| B
+    B -->|"Request post-write validation"| H["Verification probe<br>readback + dry-run admission"]
+    H -->|"Verification result"| B
+    B -->|"Checkpoints, retry ledger,<br>and verification artifacts"| I["Platform governance<br>evidence store"]
+    B -->|"Out-of-bounds condition or<br>terminal failure packet"| J["Escalation queue"]
+```
+
 - An orchestrated execution flow can separate task intake, prerequisite revalidation, label restoration, authoritative verification, and escalation packaging while preserving one durable checkpoint ledger for the namespace-remediation task.
 - Durable state should record the last completed checkpoint, current retry count, namespace `resourceVersion`, runbook revision, and verification evidence so an interrupted run does not replay the same write blindly.
 - Verification should re-read the namespace from the authoritative cluster API and run the dry-run admission probe after each consequential action rather than trusting the label-write response alone.
