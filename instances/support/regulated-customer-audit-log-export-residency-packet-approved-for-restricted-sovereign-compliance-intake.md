@@ -12,6 +12,20 @@ Support.
 
 A sovereign-support escalation team is preparing one exact residency-governed audit-log export packet revision for a regulated customer whose requested compliance export spans storage shards and key domains across multiple residency boundaries. The authoritative source state spans the customer case timeline, approved contract annexes, export job traces, shard-residency inventory, customer-managed key metadata, retention-policy mappings, prior exception packet lineage, and hold history for unsanitized tenant fragments or stale jurisdiction attestations that cannot leave the internal workspace yet. The downstream restricted lane expects one transformed packet with normalized tenant and export-request identifiers, residency-zone fields, key-custody references, retention tags, diagnostic inventory, held-annex markers, lineage links, and an approval manifest authorizing handoff into that single sovereign-compliance intake queue. The workflow must stop once that exact packet revision is approved for intake, without recommending a concession, adjudicating residency permissibility, communicating with the customer, broadening artifact access, or executing any export or remediation step.
 
+```mermaid
+flowchart TD
+    A["Authoritative export sources<br>case timeline, contract annexes, export traces, residency inventory, key metadata, retention mappings, packet lineage, and hold history"]
+    B["Transformed packet assembly<br>normalize tenant and export-request ids, residency zones, key-custody references, retention tags, and diagnostic inventory"]
+    C["Hold visibility<br>record held annexes, unsanitized tenant fragments, stale jurisdiction attestations, and lineage-linked exceptions for internal retention"]
+    D["Manifest approval review<br>named sovereign-support and privacy owners confirm exact packet version, audience scope, held annex markers, and restricted intake boundary"]
+    E["Sovereign-compliance intake<br>approved packet revision and manifest enter the single restricted sovereign-compliance queue"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Enterprise support case timeline, secure attachment store, and export-failure bridge notes holding the authoritative chronology and approved diagnostic artifacts
