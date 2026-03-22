@@ -41,6 +41,43 @@ This grounds the pattern in an engineering crisis where leadership needs one dis
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Approved evidence systems"]
+        registry["Production package registry<br>internal artifact repository<br>mirror telemetry systems"]
+        attest["Provenance, attestation, and<br>signing-verification stores"]
+        deploy["Deployment inventory<br>release catalog<br>environment-state systems"]
+        history["Prior executive bridge briefs<br>unresolved-question tracker<br>correction log"]
+    end
+
+    subgraph synth["Bounded crisis-briefing synthesis"]
+        scope["Artifact-scope<br>retrieval"]
+        verify["Attestation and provenance<br>verification"]
+        exposure["Deployment-exposure<br>assembly"]
+        ledger["Shared crisis-state ledger<br>claim provenance and freshness"]
+        compose["Bridge-brief<br>composition"]
+    end
+
+    subgraph governance["Governance boundary"]
+        govern["Release-governance<br>emergency hold<br>exception-tracking systems"]
+        review["Human brief owner<br>review"]
+        workspace["Executive bridge workspace<br>reviewed briefs and annex links"]
+    end
+
+    registry -->|"Published versions,<br>digests, and holds"| scope
+    attest -->|"Lineage and signature<br>verification"| verify
+    deploy -->|"Current package<br>references"| exposure
+    history -->|"Prior brief continuity<br>and corrections"| compose
+    govern -->|"Approved containment<br>and exception state"| ledger
+    scope -->|"Artifact scope"| ledger
+    verify -->|"Verified anomalies"| ledger
+    exposure -->|"Deployment exposure"| ledger
+    ledger -->|"Source-backed crisis state"| compose
+    compose -->|"Draft brief"| review
+    review -->|"Approved brief"| workspace
+    review -->|"Correction requests"| compose
+```
+
 - An orchestrated multi-agent workflow can separate artifact-scope retrieval, attestation and provenance verification, deployment-exposure assembly, and final bridge-brief composition while maintaining one shared crisis-state ledger.
 - Human-in-the-loop review should remain mandatory for each executive bridge brief because affected-package scope, deployment-exposure wording, and containment-posture statements can materially influence downstream release, trust, and customer decisions.
 - The workflow should preserve claim-level provenance and freshness markers that distinguish authoritative registry and attestation evidence, approved release-governance state, and lower-authority bridge observations awaiting confirmation.
