@@ -41,6 +41,22 @@ This grounds the pattern in engineering work where the value is not autonomous r
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    IC["Incident commander<br>directs bounded remediation steps"] --> AG["Tool-using agent<br>executes one directed step at a time"]
+    RB["Runbook and authority boundary sources<br>scope, no-go conditions, takeover rules"] --> AG
+    IC --> IR["Incident command record / bridge log<br>authoritative current step and bridge timeline"]
+    AG --> IR
+    AG --> TOOLS["Feature-flag and orchestration / restart tools<br>apply directed operational changes"]
+    TOOLS --> DASH["Metrics, tracing, and rollback dashboards<br>verification signals after each step"]
+    DASH --> AG
+    AG --> AUD["Audit store<br>tool outputs, verification snapshots, and step ledger"]
+    IR --> AUD
+    AG --> PKT["Takeover packet boundary<br>exact current state for specialist handoff when needed"]
+    IR --> PKT
+    AUD --> PKT
+```
+
 - A tool-using single agent can run the commanded operational actions, collect metrics, update the incident record, and maintain the current authoritative step ledger between bridge instructions.
 - Human-in-the-loop control is the normal mode because the incident commander must direct significant next steps, especially before any restart, traffic shift, or rollback that could widen blast radius.
 - The workflow should package takeover-ready state for database, network, or platform specialists whenever the bridge lead redirects execution to a narrower team with different authority.
