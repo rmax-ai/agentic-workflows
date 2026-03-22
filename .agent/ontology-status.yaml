@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 325
+  instance_files: 326
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -65,14 +65,15 @@ instance_counts_by_domain:
   engineering: 45
   finance: 46
   compliance: 49
-  operations: 46
+  operations: 47
   research: 46
   support: 47
   hr: 46
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has three hundred twenty-five grounded examples across all seven currently modeled domains, with `compliance` at forty-nine; `support` at forty-seven; and `finance`, `research`, `operations`, plus `hr` at forty-six while `engineering` remains at forty-five. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has three hundred twenty-six grounded examples across all seven currently modeled domains, with `compliance` at forty-nine; `operations` plus `support` at forty-seven; and `finance`, `research`, plus `hr` at forty-six while `engineering` remains at forty-five. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`calendar-conflict-coordination` now has additional `operations` grounding through a peak-season dock-yard carrier window alignment scheduling example, deepening that low-risk planning-family scheduling slice beyond cross-functional maintenance review by centering one exact coordination packet with holiday-volume readiness, carrier appointment lock, approved backup roster, and policy-bound availability source precedence; explicit surge-state and appointment-lock prerequisites; visible yard-density, gate-staffing, backup-coverage, and shift-handoff blockers; append-only revision lineage; and one named Elena Morales, Director of Peak Operations Coordination owner rather than labor assignment, carrier communication, overtime approval, dock-door resequencing, or downstream shipment execution."
   - "`schedule-adjustment-and-replanning` now has additional `hr` grounding through a global-mobility onboarding timeline replanning example, deepening that moderate-risk planning-family slice within HR beyond interview panel scheduling by centering one exact replanning packet with explicit source precedence across the mobility case system, consulate appointment portal, authentication queue, relocation vendor capacity view, IT provisioning gate, and stakeholder availability register; prerequisite pre-clearance and Day-1 buffer policy state; visible appointment, authentication, and vendor blockers; append-only revision lineage; and one named global mobility specialist owner rather than immigration eligibility decisions, candidate communication, offer amendments, relocation booking, or downstream onboarding execution."
   - "`calendar-conflict-coordination` now has additional `finance` grounding through a treasury collateral substitution cutoff review scheduling example, deepening that low-risk plan-family scheduling slice within finance beyond quarter-close control review while preserving a clean boundary at one exact scheduling packet and coordination log with explicit source precedence across the collateral workflow tracker, custodian cutoff calendar, delegate roster, and policy-bound availability state; prerequisite eligibility-refresh and funding-window state; visible blockers; append-only revision lineage; and one named Maya Chen owner rather than authority selection, cutoff changes, settlement instruction release, counterparty communication, or downstream execution."
   - "`adaptive-review-sampling-rate-tuning` now has additional `operations` grounding through a cold-chain deviation closure spot-check sampling-rate example, deepening that low-risk optimize/adapt slice beyond maintenance documentation and approval-bound optimization release by centering one exact closure-packet sampling-policy revision with explicit source precedence across the quality policy store, deviation ledger, findings history, capacity register, and governance audit trail; prerequisite delegated policy and steady-state inspection posture; visible protected-floor, sparse-data, cooldown, and onboarding-history blockers; versioned lineage; and one named Quality Director, Distribution Operations owner rather than deviation reopening, release-disposition changes, auditor scheduling, regulator communication, or downstream cold-chain execution."
