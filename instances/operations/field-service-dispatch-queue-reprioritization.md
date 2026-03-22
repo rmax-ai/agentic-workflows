@@ -12,6 +12,20 @@ Operations.
 
 An operations dispatch supervisor for a regional utility service network needs to retune the live field-service work-order queue after an early-summer storm causes a surge of transformer inspections, downed-line assessments, meter-restoration visits, and routine preventive work. The dispatch platform already tracks outage impact, customer vulnerability flags, crew certifications, travel time, and appointment commitments, but the current ordering no longer fits the day because two line crews are offline, one district is under heat-safety restrictions, and yesterday's rush decisions created repeat visits for partially diagnosed equipment faults. The optimization workflow must reprioritize the queue so urgent restoration and safety work rises appropriately while preserving fairness for stranded low-income neighborhoods, bounded travel assumptions, and non-waivable safety constraints on who can be dispatched where.
 
+```mermaid
+flowchart TD
+    trigger["Storm surge, crew loss, and heat restrictions disrupt the live dispatch queue"]
+    collect["Collect open work orders, crew qualifications, repeat-visit history, and weather constraints"]
+    optimize["Recompute queue priorities within outage, safety, fairness, and travel guardrails"]
+    publish["Publish a revised ranked dispatch queue with rationale for promoted and deferred work"]
+    audit["Record the tuning signals, guardrail checks, and trusted rollback point"]
+
+    trigger --> collect
+    collect --> optimize
+    optimize --> publish
+    publish --> audit
+```
+
 ## Target systems / source systems
 
 - Field-service dispatch platform with open work orders, outage linkage, customer commitments, and current queue ranking
