@@ -12,6 +12,22 @@ Support.
 
 An enterprise support operations team monitors a live alert stream that combines inbound support tickets, chat transcripts, failed-login spikes, MFA-reset attempts, and anomalous admin-session telemetry to detect possible customer account takeover events before the case queue is overwhelmed. The workflow must merge duplicate signals, attach tenant and entitlement context, and prioritize which alerts need immediate human review. A case should rise to the urgent queue when, for example, a tenant shows at least three administrator lockout tickets within 20 minutes, two or more failed MFA reset attempts from a new country within one hour, or any combination of support contact plus admin-session anomaly that suggests unauthorized access to billing, export, or user-management features. The goal is to package an evidence-backed triage record for a support security lead, not to freeze accounts, promise customer remediation, or send external notifications automatically.
 
+```mermaid
+flowchart TD
+    A["New support, chat, login, and admin-session signals<br>arrive for takeover triage"]
+    B["Merge duplicate signals by tenant,<br>contact, and active evidence window"]
+    C["Enrich the alert with tenant context,<br>verified contacts, and prior compromise history"]
+    D{"Urgent-review thresholds met for<br>signal counts, anomaly combinations,<br>and protected admin scope?"}
+    E["Route an evidence-backed triage packet<br>to the urgent human review queue"]
+    F["Keep the enriched alert in the standard triage queue<br>with merged lineage for later review"]
+
+    A --> B
+    B --> C
+    C --> D
+    D -->|"Yes"| E
+    D -->|"No"| F
+```
+
 ## Target systems / source systems
 
 - Support ticketing and live-chat platform with ticket severity, contact identity, tenant history, and recent escalation notes
