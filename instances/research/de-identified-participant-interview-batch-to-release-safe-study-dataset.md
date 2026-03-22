@@ -12,6 +12,18 @@ Research.
 
 An applied research team is preparing a cross-site methods review for a study on how enterprise developers evaluate model-generated code suggestions during secure software delivery. The raw batch includes interview transcripts, moderator notes, consent-status exports, annotation worksheets, screen-capture excerpts, and follow-up participant emails that mention employer names, team structures, incident examples, internal tool names, and a few accidental disclosures about production environments. Before any methods board review, cross-lab sharing, or publication-readiness discussion can occur, the workflow must transform that sensitive batch into a release-safe structured study dataset with pseudonymous participant ids, coded topic spans, normalized study-phase labels, allowed demographic buckets, issue taxonomy tags, disclosure-risk flags, and evidence links that stay inside the restricted boundary while making remaining ambiguity and suppressed content visible to reviewers.
 
+```mermaid
+flowchart TD
+    intake["Sensitive batch intake<br>transcripts notes consent exports screen captures"]
+    transform["De-identification and coding<br>pseudonymous ids coded spans normalized buckets taxonomy tags"]
+    exception["Exception review<br>residual disclosure consent conflict semantic-loss checks"]
+    staging["Release-safe dataset staging<br>review dataset transformation trace approval manifest"]
+    intake --> transform
+    transform --> exception
+    transform --> staging
+    exception --> staging
+```
+
 ## Target systems / source systems
 
 - Restricted research repository holding transcripts, notes, consent records, and screen-capture excerpts
