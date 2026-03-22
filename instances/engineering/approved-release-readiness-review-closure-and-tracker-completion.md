@@ -39,6 +39,33 @@ This example keeps execute-automate grounded in engineering without sliding into
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    RGS["Release-governance system<br>accepted readiness record"]
+    RT["Engineering release tracker<br>or milestone board"]
+    CL["Checklist or task system"]
+    EA["Evidence archive"]
+    NQ["Notification or scheduler-intake queue"]
+
+    subgraph BW["Bounded closure worker"]
+        EV["Event-driven closure worker"]
+        VAL{"Review version,<br>milestone mapping,<br>and archive linkage valid?"}
+        SYNC["Idempotent closure sync"]
+        MF["Manual follow-up packet<br>and halt"]
+        EV -->|"revalidate source state"| VAL
+        VAL -->|"valid"| SYNC
+        VAL -->|"invalid"| MF
+    end
+
+    RGS -->|"accepted-state event"| EV
+    RGS -->|"accepted-state recheck"| VAL
+    RT -->|"milestone mapping lookup"| VAL
+    EA -->|"archive linkage lookup"| VAL
+    SYNC -->|"approved state<br>and archived evidence links"| RT
+    SYNC -->|"readiness checklist closure"| CL
+    SYNC -->|"ready-for-handoff signal"| NQ
+```
+
 - An event-driven worker can watch accepted release-review events and run a bounded closure playbook that touches only approved downstream systems.
 - Idempotent writes are important because release trackers, checklist systems, and scheduler queues may each have different retry and acknowledgement behavior.
 - The worker should confirm that the evidence archive link and release milestone mapping still match before closing the checklist or clearing the queue entry.
