@@ -12,6 +12,18 @@ HR.
 
 A restricted immigration-compliance review team has already recorded an accepted disposition for a work-authorization reverification case in the authoritative review system after the upstream specialists completed their decision-making work. That disposition is final for this workflow and must not be reopened, reinterpreted, or extended into worker outreach, manager instruction, employment-status action, vendor filing, or legal strategy. The remaining execute step is limited to low-risk closure bookkeeping: detect the accepted-disposition event, recheck that the worker-case identifier, disposition version, and approved archive references still match the source record, close the restricted post-review queue item, sync the internal work-authorization compliance tracker and reverification case ledger to the recorded review-complete state, attach archive references for the final review memo and supporting evidence packet, record completion state in the audit store, and notify the internal work-authorization coordinator that closure propagation is complete. If the case was reopened, the disposition changed, or the target tracker points to a different reverification episode, the workflow should stop and route manual follow-up instead of guessing.
 
+```mermaid
+flowchart TD
+    event["Accepted disposition event<br>received from the authoritative<br>review system"] --> verify["Re-read the source review record<br>and compare case id, disposition version,<br>and approved archive references"]
+    verify --> boundary{"Current source state and target mapping<br>still match the same reverification episode?"}
+    boundary -->|"No"| followup["Stop automatic closure and route<br>manual follow-up for reopened,<br>changed, or mismapped cases"]
+    boundary -->|"Yes"| queue["Close the restricted<br>post-review queue item"]
+    queue --> sync["Sync the compliance tracker and<br>reverification case ledger to the<br>recorded review-complete state"]
+    sync --> archive["Attach archive references for the<br>final review memo and evidence packet"]
+    archive --> complete["Record completion in the audit store<br>and notify the internal work-authorization<br>coordinator"]
+    complete --> stop["Stop at closure propagation only;<br>no worker outreach, manager instruction,<br>or employment-status action"]
+```
+
 ## Target systems / source systems
 
 - Restricted immigration-compliance or work-authorization review system that records the accepted disposition and emits the authoritative state-change event
