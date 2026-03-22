@@ -43,6 +43,41 @@ This grounds the optimization pattern in an engineering workflow where queue ord
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph SRC["Failure and context signal boundary"]
+        ci["CI orchestration platform<br>failure backlog, branch metadata,<br>queue order, and rerun history"]
+        flake["Test analytics and flake tracking<br>quarantine records, reopen history,<br>and repeated-failure rates"]
+        meta["Source control and service catalog<br>repository criticality, owning teams,<br>release-candidate linkage, and shared dependencies"]
+        build["Build artifact, signing, and dependency scanning<br>failure evidence, image versions,<br>certificate status, and toolchain context"]
+        cap["Reviewer capacity view<br>coverage, specialty ownership,<br>and release-week staffing shifts"]
+    end
+
+    subgraph OPT["Bounded queue optimization boundary"]
+        agent["Queue reprioritization agent<br>bounded weight tuning, simulation,<br>and failure-level rationale"]
+        queue["Revised review queue<br>published ranked order<br>inside approved guardrails"]
+    end
+
+    subgraph GOV["Governance and rollback boundary"]
+        dash["Queue governance dashboard<br>inspect ranking changes, freeze tuning,<br>pin failures, and restore trusted policy"]
+        lead["Engineering-manager review<br>for material protected-path,<br>security, or fairness changes"]
+        audit["Audit log<br>signals, overrides, guardrail checks,<br>and rollback history"]
+    end
+
+    ci -- "Release pressure, backlog aging,<br>and current queue state" --> agent
+    flake -- "Quarantine, reopen,<br>and repeat-failure signals" --> agent
+    meta -- "Repository criticality,<br>release linkage, and blast radius" --> agent
+    build -- "Security-scan, signing,<br>and shared toolchain evidence" --> agent
+    cap -- "Reviewer coverage<br>and specialty constraints" --> agent
+    agent -- "In-policy ranked queue<br>with failure-level rationale" --> queue
+    agent -- "Guardrail evaluation,<br>fairness checks, and tuning packet" --> audit
+    queue -- "Published ordering<br>for supervisory inspection" --> dash
+    dash -- "Freeze, pin, or restore<br>last trusted policy" --> agent
+    dash -- "Material reprioritization packet" --> lead
+    lead -- "Approved exception<br>or hold decision" --> agent
+    audit -- "Explainable change history<br>for inspection and rollback" --> dash
+```
+
 - Event-driven monitoring should trigger queue reevaluation when release branches accumulate failures, shared build-image regressions appear, reopen rates climb, or reviewers repeatedly override the current ordering.
 - A tool-using single agent can recompute bounded prioritization weights, simulate the effect on merge blockage and reviewer load, and publish a revised ranked queue with failure-level rationale for supervisory inspection.
 - Exception-gated autonomy fits because in-policy tuning can adjust queue ordering automatically within preapproved ranges, but changes that materially alter protected-branch handling, security-related priority rules, or fairness balancing should require engineering-manager review before activation.
