@@ -12,6 +12,20 @@ Research.
 
 A research publications lead, a data steward, and repository governance partners are co-producing one governed publication rights and provenance clarification packet because a manuscript-ready supplement now relies on legacy specimen images, derived annotations, and consortium-provided reference tables whose reuse lineage is incomplete and partially contested. Agents help reconcile deposit records, contributor agreements, repository restrictions, hold-state notes, and approved provenance wording into the shared packet while preserving which rights questions remain unresolved and which residual uncertainties the human artifact owner accepted explicitly. The workflow ends only when the named research release owner approves that exact packet revision for one bounded publication rights review intake lane, where downstream reviewers may decide whether the asset set is ready for formal rights assessment or needs narrower provenance handling. It does not adjudicate publication rights, contact outside contributors, or authorize manuscript release.
 
+```mermaid
+flowchart TD
+    A["Collaborative publication-rights and provenance<br>clarification packet revision"]
+    B["Residual rights uncertainty, provenance gaps, and<br>hold-state visibility stay explicit"]
+    C["Exact packet revision and release manifest<br>prepared for approval"]
+    D["Human research release owner approves<br>publication-rights intake release"]
+    E["Approved packet revision released into<br>publication-rights review intake"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Governed research publication workspace holding the publication rights and provenance clarification packet, revision history, objection ledger, and release-manifest state
