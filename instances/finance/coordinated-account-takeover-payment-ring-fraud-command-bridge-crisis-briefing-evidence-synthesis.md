@@ -12,6 +12,23 @@ Finance.
 
 A bank's fraud command function has already declared a critical bridge after corroborated evidence shows a coordinated account-takeover payment ring moving across commercial and affluent-retail accounts, newly added beneficiaries, and multiple outbound payment rails. Before anyone decides whether to block payments, reimburse losses, file suspicious-activity reports, contact law enforcement, brief regulators, or direct live customer response, the workflow must assemble one provenance-preserving crisis brief for the fraud-command bridge. The brief needs to compress verified affected-account scope, outbound-payment state, beneficiary-cluster overlap, authentication-compromise evidence, analyst-confirmed case lineage, and unresolved exposure questions into one inspectable situation picture that distinguishes authoritative current facts from lower-authority bridge notes and stale case commentary so human fraud leaders can coordinate from grounded context rather than fragmented queue updates.
 
+```mermaid
+flowchart TD
+    start["Critical fraud-command bridge<br>already declared"] --> gather["Gather evidence from approved<br>fraud, payment, identity, and case systems"]
+    gather --> payment["Confirm affected-account scope<br>and outbound payment state"]
+    gather --> identity["Verify compromise evidence<br>from authentication and device signals"]
+    gather --> lineage["Assemble beneficiary overlap<br>and analyst-confirmed case lineage"]
+    payment --> synth["Compose one crisis brief<br>with source authority and freshness"]
+    identity --> synth
+    lineage --> synth
+    synth --> gaps["Keep unresolved exposure<br>questions explicit"]
+    gaps --> review{"Reviewer approves<br>bridge brief?"}
+    review -->|"Yes"| handoff["Handoff reviewed brief<br>to the fraud-command bridge"]
+    review -->|"No"| revise["Revise brief using correction log<br>and refreshed evidence"]
+    revise --> synth
+    handoff --> stop["Stop before payment blocking,<br>reporting, or customer response"]
+```
+
 ## Target systems / source systems
 
 - Fraud-command bridge workspace where reviewed crisis briefs, restricted annexes, and superseded updates are stored
