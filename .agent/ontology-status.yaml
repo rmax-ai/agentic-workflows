@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 263
+  instance_files: 264
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ pattern_counts_by_family:
   optimize-adapt: 6
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
-  engineering: 37
+  engineering: 38
   finance: 38
   compliance: 38
   operations: 38
@@ -72,7 +72,8 @@ instance_counts_by_domain:
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred sixty-three grounded examples across all seven currently modeled domains; `finance`, `compliance`, `operations`, `support`, and `hr` now stand at thirty-eight while `engineering` and `research` remain at thirty-seven, showing that Phase 7 can deepen selected domains while keeping cross-domain balance visible."
+  - "The repository now has two hundred sixty-four grounded examples across all seven currently modeled domains; `engineering`, `finance`, `compliance`, `operations`, `support`, and `hr` now stand at thirty-eight while `research` remains at thirty-seven, showing that Phase 7 can keep tightening domain balance through narrowly scoped instance-only refinement."
+  - "`approval-gated-collaborative-artifact-release` now has further `engineering` grounding through a production crash-dump redaction clarification packet approved for a restricted privacy-engineering review intake lane, deepening that high-governance collaboration release slice within engineering beyond transitive-dependency license review by centering symbolization-scope disputes, customer-identifier leakage risk, retention-window conflicts, and debugging-evidence minimization rather than incident adjudication, debugger enablement, customer communication, or wider artifact sharing."
   - "`approval-gated-collaborative-artifact-release` now has further `hr` grounding through a works-council consultation notice variance clarification packet approved for a restricted labor-relations review intake lane, deepening that high-governance collaboration release slice within HR beyond protected-leave return-to-work handling and cross-border employee-record transfer governance by centering monitored-data-category disputes, pseudonymisation-threshold ambiguity, home-office scope objections, and vendor-annex version conflicts rather than co-determination adjudication, works-council communication, platform deployment authorization, or HR system configuration."
   - "`approval-gated-collaborative-artifact-release` now has further `compliance` grounding through an electronic-communications retention-schedule conflict packet approved for a restricted records-retention review intake lane, deepening that high-governance collaboration release slice within compliance beyond promotional claims substantiation and vendor-transfer remediation by centering exact artifact release, archive taxonomy mapping disputes, legal-hold overlays, backup immutability caveats, jurisdiction-specific retention-clock conflicts, and repository-lineage ambiguity rather than retention adjudication, deletion approval, regulator communication, or archive reconfiguration execution."
   - "`evidence-gated-verification-for-release` now has additional `finance` grounding through an approved covenant-compliance certificate packet verification example, deepening that investigate-family approval-bound slice within finance beyond morning-liquidity posting by centering evidence sufficiency on ratio-calculation freshness, audited-statement cut-off alignment, signatory-boundary control, prior-quarter lineage, and restricted lender-reporting lane scope rather than covenant interpretation, lender communication, filing submission, waiver negotiation, or downstream reliance execution."
@@ -435,7 +436,7 @@ repo_reality:
     - "`shared-workbench-orchestration` now also has additional HR grounding through an internal hiring-panel interview-guide caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within HR beyond benefits FAQ maintenance while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than interviewer-guidance approval, policy adjudication, candidate communication, or hiring execution."
     - "`shared-workbench-orchestration` now also has additional support grounding through an internal premium-support diagnostic-runbook caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within support beyond workaround-article staging while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than runbook approval, customer communication, or live incident execution."
     - "`claimed-state-verification` now also has additional HR grounding through an internal job-architecture handbook publication verification example, proving that a second low-risk HR verification slice can deepen the domain without reopening canonical pattern or browse-view work."
-    - "Engineering and research now sit at thirty-seven grounded instances while finance, compliance, operations, support, and hr stand at thirty-eight, so the next refinement should tighten balance by deepening one already-aligned thirty-seven-instance domain through an instance-only batch; a materially distinct research- or engineering-side collaboration-release example is now the cleanest next candidate because canonical metadata and browse exposure already align."
+    - "Research now sits at thirty-seven grounded instances while engineering, finance, compliance, operations, support, and hr stand at thirty-eight, so the next refinement should tighten balance by deepening the remaining thin domain through an instance-only batch; a materially distinct research-side collaboration-release example is now the cleanest next candidate because canonical metadata and browse exposure already align."
   next_action:
     id: phase-7-next-thin-domain-instance-depth
-    summary: "Use the next iteration to deepen one already-aligned thirty-seven-instance domain, preferably `research` or `engineering` through a materially distinct `approval-gated-collaborative-artifact-release` example, unless the new grounding exposes directly coupled canonical drift."
+    summary: "Use the next iteration to deepen the remaining thirty-seven-instance `research` domain, preferably through a materially distinct `approval-gated-collaborative-artifact-release` example, unless the new grounding exposes directly coupled canonical drift."
