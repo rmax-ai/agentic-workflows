@@ -12,6 +12,21 @@ Operations.
 
 An operations command center has declared a critical product-contamination event after multiple facilities report converging quality failures and downstream distribution partners begin asking for a current list of potentially exposed lots. The authoritative state spans lot genealogy systems, plant quality holds, cold-chain telemetry, warehouse inventory positions, shipment manifests, and legal-review notes that restrict which facility or product identifiers can be shared externally before verification is complete. Before partner coordination, executive oversight, and internal containment channels can work from one governed artifact, the workflow must transform that authoritative state into a channel-safe structured lot package with product-family groupings, region-level exposure fields, shipment-hold counts, quarantine-status codes, facility-alias renderings, held-detail placeholders for unresolved genealogy branches, and manifest-backed lineage that keeps restricted annexes inside the approved trust boundary.
 
+```mermaid
+flowchart TD
+    A["Authoritative state<br>retrieval"]
+    B["Channel-safe lot<br>packaging"]
+    C["Held-detail placeholders<br>for unresolved branches"]
+    D["Review queue<br>for blocked release questions"]
+    E["Manifest-backed package<br>handoff"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> B
+    B --> E
+```
+
 ## Target systems / source systems
 
 - Manufacturing, quality, genealogy, and warehouse systems holding authoritative lot, facility, and quarantine state
