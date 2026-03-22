@@ -12,6 +12,17 @@ Engineering.
 
 A developer-platform governance team monitors service-catalog snapshots, on-call escalation-policy exports, repository `CODEOWNERS` changes, team-directory aliases, and service-to-repository mapping records to detect mid-severity ownership-drift anomalies before they harden into paging dead ends, unreviewed operational debt, or misrouted engineering obligations. The workflow must collapse duplicate anomalies tied to the same service, escalation path, and review window; assemble one exact anomaly review packet for the affected cluster; and enrich it with explicit source precedence, the current ownership-policy version, prior reviewer notes, and recent suppressions. In each packet, the approved service catalog remains authoritative for canonical service identity and declared owning team, the live escalation-policy export is the next source for reviewable paging coverage state, repository `CODEOWNERS` and team-directory aliases provide supporting context only when the higher-precedence records disagree, and free-form platform notes stay lowest-precedence evidence. A case should enter the review queue when, for example, several tier-two services lose a matching primary escalation target without a corresponding catalog update, one service family shows repeated divergence between `CODEOWNERS` and the active on-call policy after a team rename, or a batch of newly created services inherits a stale escalation alias that no longer resolves to an accountable team. The goal is an explainable anomaly review packet for platform governance leads, not to reassign service ownership, rewrite paging policy, edit `CODEOWNERS`, authorize staffing changes, or launch root-cause investigation automatically.
 
+```mermaid
+flowchart TD
+    start["Service-catalog snapshots,<br>escalation-policy exports,<br>repo ownership, and team aliases"] --> detect["Detect ownership-drift anomalies<br>across service, paging, repo,<br>and directory records"]
+    detect --> merge["Collapse duplicate anomalies<br>by service, escalation path,<br>and review window"]
+    merge --> packet["Assemble one review packet<br>with source precedence,<br>policy version, notes, and suppressions"]
+    packet --> verify["Check authoritative evidence order:<br>service catalog first, escalation export next,<br>supporting repo and alias context after that"]
+    verify --> gate{"Review prerequisites<br>and queue threshold met?"}
+    gate -->|"Yes"| queue["Handoff explainable anomaly packet<br>to the restricted platform-governance<br>review queue"]
+    gate -->|"No"| stop["Stop with blockers or ambiguity<br>kept visible in the packet<br>until human review is eligible"]
+```
+
 ## Target systems / source systems
 
 - Internal service-catalog systems with canonical service identifiers, declared owners, service tiers, lifecycle state, and approved ownership snapshots
