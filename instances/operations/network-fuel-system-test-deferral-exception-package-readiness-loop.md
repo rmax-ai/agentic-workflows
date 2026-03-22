@@ -12,6 +12,21 @@ Operations.
 
 A field operations continuity manager is coordinating a formal exception package because several regional facilities cannot complete a scheduled backup fuel-system integrity test before a forecasted severe-weather window, yet deferring the test requires explicit cross-functional approval. In a governed review workspace, the manager and agent support iterate on the packet as safety, facilities engineering, quality, and business-continuity reviewers challenge whether the operational constraints are evidenced adequately, whether the temporary safeguards are strong enough, whether site-level test history and open defects are represented accurately, and whether unresolved concerns are being carried forward transparently. The agents help preserve reviewer objections, refresh maintenance and continuity evidence, rewrite the packet to reflect accepted edits and contested issues, and maintain an explicit handoff ledger showing who owns the next approval-readiness checkpoint. The human operations manager and named approval owner remain responsible for deciding whether the packet is ready for formal approval review, whether any objection should stop progression, and whether the request should pause for more evidence or alternate continuity planning rather than move toward adjudication.
 
+```mermaid
+flowchart TD
+    A["Draft packet and reviewer objections<br>Current exception package, open concerns, and ownership ledger"]
+    B["Collaborative packet revision<br>Agents and manager update evidence links, wording, and contested sections"]
+    C["Objection handling checkpoint<br>Unresolved safety, quality, engineering, and continuity concerns stay visible"]
+    D["Readiness checkpoint<br>Human owner reviews whether the packet is ready for the next governed handoff"]
+    E["Human handoff<br>Packet, unresolved issues, and next approval owner move to formal review intake"]
+    A --> B
+    B --> C
+    C --> B
+    C --> D
+    D --> B
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Governed operations review workspace with the draft test-deferral packet, reviewer comments, readiness status, and named handoff ownership
