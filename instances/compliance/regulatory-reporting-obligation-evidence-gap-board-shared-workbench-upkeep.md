@@ -47,6 +47,31 @@ This grounds the pattern in a compliance governance surface where the maintained
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    inventory["Approved regulatory-obligation inventory<br>and filing-calendar repository"]
+    evidence["Evidence-link register<br>bundle ids, timestamps,<br>and steward metadata"]
+    procedures["Reporting procedure repository<br>evidence categories, review-state meanings,<br>and handoff checkpoints"]
+    notes["Reviewer annotation and ticket surface<br>steward edits, ownership handoffs,<br>and follow-up comments"]
+    review["Human reporting stewards<br>and compliance owners<br>boundary review"]
+
+    subgraph upkeep["Bounded regulatory-reporting obligation<br>evidence-gap board upkeep"]
+        agent["Event-driven upkeep agent<br>applies source precedence, refreshes links,<br>and preserves review plus owner state"]
+        board["Quarterly regulatory-reporting obligation<br>evidence-gap board"]
+        hold["Visible hold register<br>scope, freshness, mapping,<br>and blocker conflicts"]
+    end
+
+    inventory -->|"Provides authoritative obligation,<br>jurisdiction, cadence, and milestone data"| agent
+    evidence -->|"Provides evidence bundle links,<br>timestamps, and steward metadata"| agent
+    procedures -->|"Provides evidence categories,<br>review-state meanings, and checkpoints"| agent
+    notes -->|"Provides collaborator edits,<br>gap notes, and handoff comments"| agent
+    review -->|"Defines allowed field updates,<br>hold conditions, and stop boundaries"| agent
+    agent -->|"Updates source links, row metadata,<br>and revision lineage"| board
+    agent -->|"Carries forward unresolved blockers<br>and precedence conflicts"| hold
+    hold -->|"Keeps unresolved items visible<br>on the shared board"| board
+    agent -->|"Routes interpretation, materiality,<br>regulator-facing, submission, or remediation-like changes"| review
+```
+
 - Event-driven monitoring fits because upkeep should react when approved obligation metadata, filing-calendar milestones, evidence-register timestamps, or reviewer notes change.
 - A tool-using single agent can refresh source links, reconcile row metadata, normalize duplicate evidence-gap wording, and keep review-state plus hold markers synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when an update would reinterpret an obligation, clear a blocker tied to missing evidence, or make a row sound like a filing recommendation or legal position.
