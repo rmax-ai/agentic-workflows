@@ -12,6 +12,29 @@ Operations.
 
 During a regional refrigeration-control outage, network operations has already declared a bounded contingency path that would reroute temperature-sensitive inventory through alternate cross-docks and overflow cold storage if the primary network cannot recover before product-age thresholds are breached. Upstream monitoring and incident workflows have already established the trusted facility status and the named human approval lane. The planning workflow must now prepare one activation-ready reroute packet showing trailer commitments, receiving-site capacity, quality-release checkpoints, cold-chain monitoring coverage, and protected customer-communication holds. It should keep explicit holds for any lane that lacks confirmed carrier acceptance, receiving capacity, or quality sign-off, and stop at the approval gate instead of dispatching trucks, changing inventory state, or choosing a different emergency response.
 
+```mermaid
+flowchart TD
+    A["Declared reroute scope<br>and authoritative readiness inputs"]
+    B["Assemble lane-by-lane reroute readiness ledger<br>for trailers, receiving sites, quality checkpoints,<br>monitoring coverage, and communication holds"]
+    C["Check each lane for confirmed carrier acceptance,<br>receiving capacity, quality sign-off,<br>and monitoring continuity"]
+    D{"Any prerequisite missing<br>or still provisional?"}
+    E["Record explicit hold state<br>for blocked lane and unmet prerequisite"]
+    F["Compile activation-ready reroute packet<br>with ready lanes, protected holds,<br>resource commitments, and lineage"]
+    G{"Human approval gate<br>for reroute activation packet?"}
+    H["Held packet remains pending<br>with visible blockers and approval queue state"]
+    I["Approved activation-ready packet<br>published as the gate output"]
+
+    A --> B
+    B --> C
+    C --> D
+    D -->|"Yes"| E
+    D -->|"No"| F
+    E --> F
+    F --> G
+    G -->|"Hold"| H
+    G -->|"Approve"| I
+```
+
 ## Target systems / source systems
 
 - Network continuity runbooks and operations command workspace with the declared reroute scope, prior packet versions, and product-age constraints
