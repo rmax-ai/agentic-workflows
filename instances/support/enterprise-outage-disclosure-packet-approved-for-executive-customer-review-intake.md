@@ -12,6 +12,18 @@ Support.
 
 A premium support lead, an incident communications manager, and customer-success reviewers are co-producing one governed disclosure packet after a prolonged enterprise outage because the timeline, mitigation wording, and residual-issue narrative must be reconciled before executives review any customer-facing draft. Agents help merge incident chronology, support case notes, contract caveats, and disputed wording about service restoration into the shared packet while preserving which objections remain unresolved and which edits the human artifact owner accepted. The workflow ends only when the named support release owner approves that exact packet revision for one bounded executive customer review intake lane, where downstream reviewers may decide what disclosure or follow-up should occur. It does not send the packet to the customer, approve credits, or execute remediation steps.
 
+```mermaid
+flowchart TD
+    A["Collaborative outage disclosure packet<br>draft revision"]
+    B["Unresolved objections<br>and accepted residual disagreement"]
+    C["Release-manifest approval<br>for exact packet revision"]
+    D["Executive customer review<br>intake lane"]
+
+    A --> B
+    B --> C
+    C --> D
+```
+
 ## Target systems / source systems
 
 - Governed support collaboration workspace storing the outage disclosure packet, comment threads, objection ledger, and release-manifest draft
