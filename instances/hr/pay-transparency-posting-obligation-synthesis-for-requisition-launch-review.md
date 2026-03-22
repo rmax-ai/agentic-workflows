@@ -12,6 +12,17 @@ HR.
 
 An HR operations and talent acquisition team is preparing to open a requisition for a remotely eligible manager role that may be posted across multiple U.S. states and one Canadian province. Before anyone finalizes the job posting, sets disclosure language, requests compensation-range exceptions, or gives legal advice, the workflow needs a cited current-state brief showing which pay-transparency obligations, salary-range disclosure rules, benefits-disclosure expectations, applicant notice duties, record-retention requirements, and internal policy constraints are actually supported by the active source set. The useful artifact is an evidence-backed obligations synthesis that separates verified requirements from jurisdictional ambiguity, effective-date questions, and open items still requiring employment counsel or compensation-owner review.
 
+```mermaid
+flowchart TD
+    A["Requisition scope, remote-work framing,<br>and posting jurisdictions in scope"] -->|"retrieve approved sources"| B["Collect ATS intake data, compensation-governance rules,<br>primary-source law, regulator guidance, and internal posting policy"]
+    B -->|"synthesize and verify"| C["Build cited obligations synthesis with<br>claim-to-source mappings"]
+    C -->|"check evidence quality"| D{"Any jurisdiction ambiguity, effective-date gap,<br>or unsupported claim?"}
+    D -->|"no"| E["Verified obligations brief limited to supported<br>posting, notice, benefits, retention, and policy constraints"]
+    D -->|"yes"| F["Document verified requirements separately from<br>ambiguities, open questions, and unsupported items"]
+    E -->|"store"| G["Controlled HR policy review workspace with<br>brief, evidence trace, and open-questions log"]
+    F -->|"store"| G
+```
+
 ## Target systems / source systems
 
 - Controlled HR policy review workspace where the cited obligations brief, evidence trace, and open-questions log are stored
