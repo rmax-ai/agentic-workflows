@@ -12,6 +12,27 @@ Research.
 
 A benchmark-study owner records that the study's artifact freeze is complete after uploading the final evaluation outputs, manifests, and supporting notebooks for an internal governance review. Governance coordinators still need to confirm whether that claimed freeze state is actually supported by the approved artifact registry, immutable object-store manifest, and review-packet references before they rely on the study as fixed-input evidence. The workflow verifies the claim against those authoritative sources and emits a bounded verdict; it must not approve the study, reopen the evidence packet, or decide any publication or review outcome.
 
+```mermaid
+flowchart TD
+    A["Freeze-complete<br>claim recorded"]
+    B["Check artifact registry<br>freeze status and inventory"]
+    C["Check immutable manifest<br>hashes and retention markers"]
+    D["Check review-packet<br>artifact and manifest references"]
+    E["Evaluate corroborating<br>evidence against the claim"]
+    F["Confirmed<br>freeze state"]
+    G["Disproved<br>freeze state"]
+    H["Inconclusive<br>freeze state"]
+    A --> B
+    A --> C
+    A --> D
+    B --> E
+    C --> E
+    D --> E
+    E --> F
+    E --> G
+    E --> H
+```
+
 ## Target systems / source systems
 
 - Benchmark artifact registry containing the study identifier, freeze status, and expected artifact inventory
