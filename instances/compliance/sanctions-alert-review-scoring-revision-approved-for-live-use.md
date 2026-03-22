@@ -40,6 +40,28 @@ This grounds the pattern in compliance where the released artifact is a versione
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Gov["Sanctions governance lead"]
+    Replay["Replay and shadow-analysis workspace<br>with overrides, missed-escalation checks,<br>and corridor-specific alert history"]
+    Registry["Versioned sanctions alert-scoring registry<br>with live, candidate, and restore profiles"]
+    Queues["Screening-review dashboards,<br>analyst queues, and oversight surfaces"]
+    subgraph Control["Approval-gated scoring-revision release boundary"]
+        Manifest["Compliance approval and manifest tooling"]
+        Release["Governed release agent"]
+        Audit["Audit, rollback, and restoration controls"]
+    end
+
+    Gov --> Manifest
+    Replay --> Release
+    Registry --> Release
+    Manifest --> Release
+    Release --> Registry
+    Release --> Audit
+    Audit --> Registry
+    Registry --> Queues
+```
+
 - Approval-gated execution fits because the scoring revision can be technically ready in the screening registry while activation remains blocked until a named sanctions owner approves that exact version and live scope.
 - Human-in-the-loop review remains necessary because accountable compliance leaders must accept the trade-offs among protected screening coverage, false-positive burden, and analyst capacity before the revision becomes live.
 - A governed release agent can compare revision hashes, verify replay evidence, arm rollback triggers, and write the audit trace, but it should not clear alerts, decide sanctions matches, or trigger regulator outreach.
