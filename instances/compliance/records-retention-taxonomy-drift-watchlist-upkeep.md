@@ -12,6 +12,19 @@ Compliance.
 
 A records-governance operations team monitors recurring low-severity retention taxonomy hygiene signals across enterprise content repositories, records catalogs, collaboration spaces, and classification crosswalk tables: repeated use of retired retention labels, missing disposal-trigger tags, stale jurisdiction qualifiers, and inconsistent business-unit mappings that do not yet affect a live legal hold, regulatory inquiry, or disposition event. The workflow must merge duplicate signals by retention class, business unit, source system, and scheduled cleanup window, enrich each watchlist item with content steward, recent healthy classification checks, approved migration windows, and prior suppression history, and then publish a routine upkeep queue for records stewards and information-governance coordinators. The goal is to keep persistent taxonomy drift visible long enough for scheduled metadata hygiene work before it turns into audit friction, retention-schedule confusion, or downstream disposition-control debt, not to reinterpret retention rules, decide whether a record belongs on hold, route an escalation, or execute relabeling changes automatically.
 
+```mermaid
+flowchart TD
+    A["Recurring retention taxonomy drift signals<br>and healthy classification updates arrive"] --> B["Merge duplicate signals by retention class,<br>business unit, source system,<br>and scheduled cleanup window"]
+    B --> C["Enrich each watchlist item with content steward,<br>recent healthy checks, approved migration windows,<br>and prior suppression history"]
+    C --> D{"Signal remains inside approved<br>low-severity taxonomy upkeep scope?"}
+    D -->|"No"| E["Escalate hold-sensitive or disposition-sensitive issues<br>to the out-of-scope governance workflow"]
+    D -->|"Yes"| F{"Recent healthy checks or prior suppressions<br>justify bounded suppression or removal?"}
+    F -->|"Yes"| G["Record the suppression or removal rationale<br>in watchlist history"]
+    F -->|"No"| H["Publish the routine upkeep queue<br>for records stewards and governance coordinators"]
+    G --> I["Log merges, enrichments, suppressions,<br>and queue publication state"]
+    H --> I
+```
+
 ## Target systems / source systems
 
 - Enterprise content repositories, records catalogs, and archive platforms with retention labels, jurisdiction tags, disposal-trigger fields, and classification timestamps
