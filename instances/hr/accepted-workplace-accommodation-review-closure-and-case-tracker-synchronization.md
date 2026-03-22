@@ -12,6 +12,17 @@ HR.
 
 A restricted workplace-accommodation review team has already recorded an accepted or deferred final disposition for an accommodation case in the authoritative review system after the upstream reviewers completed their decision-making work. That disposition is final for this workflow and must not be reopened, reinterpreted, or extended into accommodation adjudication, undue-hardship interpretation, manager instruction, employee communication, accessibility or workplace-system changes, payroll action, or any new review. The remaining execute step is limited to low-risk post-decision closure bookkeeping: detect the final-disposition event, recheck that the accommodation case identifier, disposition version, and approved archive references still match the source record, close the restricted review queue item, sync the accommodation case tracker and accommodation ledger to the recorded review-complete state, attach archive references for the final review memo and supporting packet, record completion state in the audit store, and notify the internal HR accommodation coordinator that closure propagation is complete. If the case was reopened, the disposition changed, an archive reference drifted, or the target tracker points to a different accommodation episode, the workflow should stop and route manual follow-up instead of guessing.
 
+```mermaid
+flowchart TD
+    A["Authoritative accepted or deferred<br>final-disposition event detected"] --> B["Re-read the source record and verify<br>case identifier, disposition version,<br>archive references, and episode mapping"]
+    B --> C{"Source state and mappings<br>still match?"}
+    C -->|"No"| D["Stop automation and route<br>manual follow-up"]
+    C -->|"Yes"| E["Close the restricted<br>review queue item"]
+    E --> F["Sync the accommodation case tracker<br>and accommodation ledger to the<br>review-complete state"]
+    F --> G["Attach approved archive references<br>for the final review memo and<br>supporting packet"]
+    G --> H["Record completion state in the audit store<br>and notify the internal HR<br>accommodation coordinator"]
+```
+
 ## Target systems / source systems
 
 - Restricted workplace-accommodation review system that records the accepted or deferred final disposition and emits the authoritative state-change event
