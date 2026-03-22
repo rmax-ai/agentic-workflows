@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 286
+  instance_files: 287
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -65,14 +65,15 @@ instance_counts_by_domain:
   engineering: 41
   finance: 41
   compliance: 41
-  operations: 41
+  operations: 42
   research: 41
   support: 41
   hr: 40
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred eighty-six grounded examples across all seven currently modeled domains, with `engineering`, `finance`, `compliance`, `operations`, `research`, plus `support` at forty-one and `hr` at forty; Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has two hundred eighty-seven grounded examples across all seven currently modeled domains, with `operations` at forty-two; `engineering`, `finance`, `compliance`, `research`, and `support` at forty-one; and `hr` at forty. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`claimed-state-verification` now has additional `operations` grounding through a regional delivery-exception dispatch playbook publication verification example, deepening that low-risk investigate-family verification slice beyond warehouse slotting rollout confirmation by centering one exact dispatch playbook publication claim across the approved SOP repository, dispatcher console pane, supervisor portal, and offline tablet mirror with explicit confirmed/disproved/inconclusive verdicting, freshness-aware evidence checks, and bounded follow-up rather than republishing, route assignment, driver communication, dispatch execution, or record repair."
   - "`authoritative-record-reconciliation` now has additional `support` grounding through an enterprise named support-contact eligibility reconciliation example, deepening that moderate-risk investigate-family record-repair slice beyond finance remittance, compliance ownership, and HR benefits coverage by centering one exact support operating-surface drift across CRM, support-entitlement, secure portal, and identity-verification records with source-of-truth precedence, field-level discrepancy resolution, staged correction packaging, authoritative post-reconciliation verification, and explicit exception routing rather than contract interpretation, escalation acceptance, customer communication, root-cause diagnosis, or live service execution."
   - "`exception-aware-task-execution` now has additional `compliance` grounding through an approved gifts-and-hospitality pre-approval linkage repair runbook, deepening that moderate-risk execute-family delegated-execution slice beyond support entitlement resynchronization by centering one exact anti-bribery control-drift repair workflow with approved-artifact verification, bounded retries, authoritative post-action verification, durable checkpoint state, and exception-only escalation rather than approval recreation, closure-only synchronization, browser submission, regulator communication, or broader remediation redesign."
   - "`normalization-and-enrichment` now has its first grounding through an internal service catalog owner and environment alias normalization example, bringing the last previously uninstantiated canonical pattern into the instance layer by centering one exact engineering metadata-cleanup workflow with approved owner/environment lookup enrichment, field-level lineage, unresolved-alias exception handling, and a hard stop at search-index staging rather than document handoff, approval-gated package release, monitoring, recommendation, or downstream publication."
