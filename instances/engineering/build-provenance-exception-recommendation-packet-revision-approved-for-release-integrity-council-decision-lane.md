@@ -38,6 +38,18 @@ This grounds the pattern in engineering where the reusable challenge is release 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    workspace["Release-integrity<br>recommendation workspace"] -->|"Packet revision<br>and evidence references"| agent["Governed release agent"]
+    evidence["Attestation and lineage<br>evidence records"] -->|"Cited provenance,<br>reproducibility, and signer evidence"| agent
+    rules["Governance rule<br>repository"] -->|"Council lane, recipients,<br>review window, owner"| agent
+    agent -->|"Approval request with packet hash,<br>scope, and expiry"| owner["Named release-governance<br>owner"]
+    owner -->|"Approved bounded<br>council release"| agent
+    agent -->|"Approval manifest and<br>restricted packet routing"| routing["Manifest and restricted-routing<br>tooling"]
+    routing -->|"Released packet revision<br>to council lane"| council["Release integrity<br>council lane"]
+    routing -->|"Handoff record and blocked<br>forwarding attempts"| ledger["Audit and supersession<br>ledger"]
+```
+
 - Approval-gated execution fits because the recommendation packet remains blocked until a named release-governance owner authorizes release into the release integrity council decision lane.
 - Human-in-the-loop review remains necessary because only accountable engineering governance owners should confirm audience scope, expiry timing, and blocked-path visibility without turning release approval into approval of the provenance exception itself.
 - A governed agent can verify packet hashes, assemble the manifest, and block broadened distribution, but it should not approve the exception, mint provenance, rebuild artifacts, or trigger production release actions.
