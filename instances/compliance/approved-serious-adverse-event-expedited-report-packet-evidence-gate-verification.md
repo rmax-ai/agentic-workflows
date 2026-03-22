@@ -41,6 +41,29 @@ This grounds the pattern in a compliance workflow where the hard problem is not 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    workspace["Restricted pharmacovigilance<br>compliance workspace"]
+    casefiles["Safety case-management system,<br>source-document vault, and<br>checksum registry"]
+    clock["Serious-event reporting-clock ledger,<br>intake audit trail, and<br>duplicate-link register"]
+    coding["MedDRA coding snapshot store,<br>expectedness references, and<br>qualified-person signatory roster"]
+    verify["Approved packet evidence<br>gate verification"]
+    manifest["Approval manifest service"]
+    approver["Named drug-safety compliance<br>approval gate"]
+    lane["Restricted expedited-report<br>quality-review lane boundary"]
+    audit["Audit store"]
+
+    workspace -->|"Provides approved packet revision,<br>superseded versions, holds, and assignments"| verify
+    casefiles -->|"Provides minimum-case fields,<br>protected attachments, and<br>source-document lineage"| verify
+    clock -->|"Provides clock-start references,<br>nullification boundaries, and<br>duplicate-link context"| verify
+    coding -->|"Provides coding freeze, expectedness,<br>and signatory-readiness evidence"| verify
+    audit -->|"Supplies prior verdicts,<br>timestamps, and blocked reuse"| verify
+    verify -->|"Stores verdicts, evidence lineage,<br>and restricted-lane checks"| audit
+    verify -->|"Sends approval-ready packet for<br>one exact revision"| manifest
+    manifest -->|"Presents release-eligible packet<br>to named approvers"| approver
+    approver -->|"Releases only the verified packet<br>to the lane boundary"| lane
+```
+
 - Approval-gated execution fits because the verification packet can be assembled automatically while restricted expedited-report quality review remains concretely blocked until named drug-safety compliance approvers release that exact packet revision.
 - Human-in-the-loop review should remain mandatory because pharmacovigilance compliance, quality, and safety-operations owners must interpret held conditions before anyone relies on the packet for a consequential review handoff.
 - Durable verification state should preserve superseded verdicts, repeated release holds, packet-version lineage, and reporting-clock recalculations so later reviewers can distinguish genuine evidence refresh from duplicate checks on a previously blocked revision.

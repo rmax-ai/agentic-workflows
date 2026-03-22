@@ -43,6 +43,32 @@ This grounds the execution pattern in a compliance workflow where the browser ac
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    approvers["Legal, compliance, and corporate<br>secretary approvers"]
+    case["Compliance case-management<br>system"]
+    records["Entity-management records,<br>capitalization table, and approved<br>ownership change memorandum"]
+    documents["Identity and document repository<br>for officer attestations and attachments"]
+    executor["Compliance operations<br>executor"]
+    gate["Approval-gated final<br>submission check"]
+    agent["Browser-based registry<br>submission agent"]
+    portal["Beneficial ownership registry<br>filing portal"]
+    takeover["Human review and<br>manual takeover path"]
+    evidence["Evidence store"]
+
+    approvers -->|"Record required sign-offs and<br>submission conditions"| case
+    executor -->|"Starts the approved filing run"| agent
+    case -->|"Provides approved request and<br>current approval state"| gate
+    records -->|"Provides entity identifiers,<br>ownership data, and change basis"| agent
+    documents -->|"Provides attestations and<br>supporting attachments"| agent
+    agent -->|"Requests final commit authorization<br>after field and attachment entry"| gate
+    gate -->|"Allows submission only when<br>approvals remain current"| agent
+    agent -->|"Populates fields, uploads documents,<br>and captures confirmation"| portal
+    portal -->|"Returns prior filing state,<br>validation results, and reference number"| agent
+    agent -->|"Escalates approval drift, data mismatch,<br>or ambiguous confirmation"| takeover
+    agent -->|"Stores screenshots, portal reference numbers,<br>and exception notes"| evidence
+```
+
 - Approval-gated execution should assemble the filing packet, re-verify current approvals, and prevent final submission until the required sign-offs are confirmed immediately before commit.
 - A tool-using single agent can navigate the registry portal, populate owner and entity fields, upload supporting documents, and capture evidence at each gated checkpoint.
 - Human-in-the-loop control is required for ownership-structure ambiguities, portal layout changes, validation mismatches, or any warning that the filing would amend a live regulated record unexpectedly.

@@ -40,6 +40,33 @@ This instance grounds commercial recommendation support in a compliance-heavy pa
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Reviewer["Human compliance owner"]
+    Packet["Governed exception packet<br>CP-RDS-Exception-Packet-v3"]
+    subgraph Boundary["Recommendation-only control boundary"]
+        Workflow["Deal-desk recommendation workflow"]
+        Result["Inspectable recommendation packet<br>with support, narrowing,<br>or escalation rationale"]
+    end
+    subgraph Sources["Read-only source systems"]
+        CRM["CRM opportunity record,<br>exception request notes,<br>and partner account history"]
+        Program["Current channel partner program guide,<br>rebate policy, and signed partner addendum records"]
+        Demo["Demo-data handling standard,<br>data classification inventory,<br>and approved sandbox catalog"]
+        Approvals["Approval matrix,<br>prior exception register,<br>and reviewer comment history"]
+        Status["Partner certification,<br>training completion,<br>and program-tier status records"]
+    end
+
+    Reviewer -->|"opens scoped request"| Packet
+    Packet -->|"packet under review"| Workflow
+    CRM -->|"read-only context"| Workflow
+    Program -->|"current policy and terms"| Workflow
+    Demo -->|"demo-data controls"| Workflow
+    Approvals -->|"thresholds and precedents"| Workflow
+    Status -->|"prerequisite program state"| Workflow
+    Workflow -->|"assembled evidence and recommendation"| Result
+    Result -->|"human review before any action"| Reviewer
+```
+
 - A recommendation-only workflow can assemble the current partner-program policy stack, rebate constraints, demo-data controls, and comparable exception history into one inspectable packet.
 - Human-in-the-loop review remains mandatory because the workflow should advise on support, narrowing, or escalation, not approve the exception, amend partner terms, or change system entitlements.
 - Read-only integration with CRM, partner-program, policy, and sandbox-governance systems is preferable so the agent cannot convert a recommendation into a commercial commitment or data-sharing action.

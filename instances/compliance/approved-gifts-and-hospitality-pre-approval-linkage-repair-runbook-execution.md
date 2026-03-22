@@ -40,6 +40,27 @@ This grounds the pattern in compliance operations where the valuable automation 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    queue["Restricted ethics and compliance<br>remediation queue and task system"]
+    register["Gifts-and-hospitality register"]
+    archive["Approval workflow or archive store"]
+    policy["Policy and control<br>metadata service"]
+    audit["Audit store"]
+    repair["Delegated pre-approval linkage<br>repair orchestration"]
+    ethics["Ethics operations<br>human takeover"]
+
+    queue -->|"Provides delegated repair task,<br>runbook id, retry budget,<br>and prior checkpoint state"| repair
+    register -->|"Provides current disclosure row,<br>approval-link fields, threshold band,<br>and government-counterparty state"| repair
+    archive -->|"Provides authoritative pre-approval artifact,<br>immutable hash, reviewer identity,<br>and effective policy version"| repair
+    policy -->|"Provides runbook prerequisites,<br>allowed repair scope, retry rules,<br>and escalation triggers"| repair
+    audit -->|"Provides checkpoint lineage,<br>verification evidence,<br>and prior retry history"| repair
+    repair -->|"Restores approved pre-approval link,<br>archive pointer, and repair marker"| register
+    repair -->|"Stores checkpoint transitions,<br>verification evidence, retry counts,<br>completion records, and exception packets"| audit
+    repair -->|"Publishes durable completion record,<br>retry trace, and checkpoint state"| queue
+    repair -->|"Routes exception packet for mismatch,<br>unverifiable approval, or retry exhaustion"| ethics
+```
+
 - An orchestrated execution flow can separate task intake, state hydration, repair execution, authoritative verification, and escalation packaging while preserving one durable checkpoint ledger for the remediation task.
 - Durable workflow state should record the current checkpoint, retry count, approval artifact hash, last register-write result, and final verified repair state so duplicate events or interrupted runs can resume safely.
 - Verification should re-read the authoritative gifts-and-hospitality register after each consequential write rather than trusting the write response alone.

@@ -35,6 +35,32 @@ This grounds the pattern in a compliance workflow where the pressing problem is 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    case["Internal KYC case ledger<br>current beneficial-owner assertions,<br>review decisions, and evidence references"]
+    registry["Corporate transparency registry snapshot<br>reported owners, filing extracts,<br>and effective-date history"]
+    legal["Legal-entity master<br>approved ownership-chain diagrams,<br>capitalization tables, and change packets"]
+    screening["Sanctions-screening ownership graph<br>controller relationships, aliases,<br>and downstream entity-link mappings"]
+    memory["Shared reconciliation memory<br>source-precedence logic, prior adjudications,<br>superseded claims, and rollback references"]
+    reconcile["Beneficial ownership authoritative-record<br>reconciliation agent"]
+    review["Human compliance or corporate-governance review<br>for ambiguous controller identity,<br>threshold, or effective-date conflicts"]
+    ledger["Reconciled beneficial-ownership ledger<br>with field-level lineage"]
+    exceptions["Unresolved exception queue<br>and explicit reconciliation hold"]
+    package["Staged correction package<br>for controlled record repair"]
+
+    case -->|"Provides current owner assertions,<br>review decisions, and evidence references"| reconcile
+    registry -->|"Provides reported owners,<br>filing extracts, and effective-date history"| reconcile
+    legal -->|"Provides approved ownership-chain evidence<br>and capitalization context"| reconcile
+    screening -->|"Provides controller relationships,<br>aliases, and downstream link mappings"| reconcile
+    memory -->|"Supplies precedence rules,<br>prior adjudications, and rollback references"| reconcile
+    reconcile -->|"Stores discrepancy lineage,<br>superseded claims, and run state"| memory
+    reconcile -->|"Writes one authoritative current-state ledger<br>with field-level lineage"| ledger
+    reconcile -->|"Routes unresolved identity or effective-date<br>conflicts into explicit hold"| exceptions
+    reconcile -->|"Stages correction-ready repair inputs<br>without downstream submission"| package
+    exceptions -->|"Escalates ambiguous conflicts<br>for steward review"| review
+    review -->|"Returns adjudications and scope decisions<br>for bounded reconciliation reruns"| memory
+```
+
 - A tool-using single agent can gather case-ledger extracts, registry snapshots, ownership-chain evidence, and screening-reference records into one bounded reconciliation run.
 - Human-in-the-loop review should remain standard for conflicting controller identity, threshold-edge ownership percentages, disputed effective dates, or any case where a proposed correction would change a regulated ownership assertion.
 - The workflow should stop at the reconciled beneficial-ownership ledger, unresolved exception queue, and staged correction package rather than submitting a registry update, re-screening customers, changing risk ratings, or directing investigative follow-up.
