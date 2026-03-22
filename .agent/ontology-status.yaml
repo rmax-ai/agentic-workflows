@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 368
+  instance_files: 369
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -66,10 +66,12 @@ instance_counts_by_domain:
   finance: 54
   compliance: 54
   operations: 52
-  research: 52
+  research: 53
   support: 52
   hr: 52
   consistency_notes:
+  - "`change-triggered-context-briefing` now has additional `research` grounding through a benchmark disclosure-control playbook change digest example, deepening that low-risk gather-family revision-briefing slice beyond the earlier operations, support, and HR digest contexts by centering one exact governed artifact, `Benchmark-Disclosure-Control-Change-Brief-r4`, with explicit source boundaries across the approved playbook repository, prior baseline archive, controlled disclosure-control exception register, benchmark artifact taxonomy, disclosure-control checklist library, research-governance workspace, and authoritative change notification feed; and a hard stop at informational briefing handoff rather than publication go/no-go recommendation, exception adjudication, collaborator coordination, root-cause investigation, or live release execution."
+  - "After this additional research change-digest depth, the next refinement step should likely move away from the just-refreshed `change-triggered-context-briefing` research lane and rebalance one of the remaining 52-instance domains (`engineering`, `operations`, `support`, or `hr`) through a materially distinct bounded slice that avoids approval, recommendation, investigation, or live execution drift."
   - "`crisis-briefing-evidence-synthesis` now has additional `research` grounding through a rare-disease registry re-identification command-bridge example, deepening that critical-risk gather-family slice beyond prior engineering, operations, finance, and support crisis contexts by centering one exact governed artifact, `RDR-ReID-Command-Brief-r4`, with explicit source precedence across the authoritative restricted-release registry, query and download audit logs, approved disclosure-control baselines, collaborator transfer manifests, and IRB-approved sharing restrictions; prerequisites including declared scope, command-bridge audience, frozen export manifest, active consent-and-data-use snapshot, access-review roster, and prior `r3` lineage; visible stale Zurich collaborator acknowledgment, unresolved `RD-17` audit-versus-manifest mismatch, uncertain preprint supplement exposure, and incomplete withdrawal-roster refresh blockers; and a hard stop at reviewed crisis-briefing handoff rather than notification, access revocation, publication intervention, root-cause investigation, or live containment."
   - "After this additional research crisis-briefing depth, the next refinement step should likely move away from the just-refreshed `crisis-briefing-evidence-synthesis` research lane and rebalance one of the remaining 52-instance domains (`engineering`, `operations`, `support`, or `hr`) through a materially distinct bounded slice that avoids approval, recommendation, investigation, or live execution drift."
   - "`workflow-hand-off-and-completion` now has additional `hr` grounding through an accepted professional-license lapse review closure and credential-compliance-tracker synchronization example, deepening that low-risk execute-family closure slice beyond protected-leave, work-authorization, workplace-accommodation, and dependent-benefits review contexts while preserving a clean boundary at authoritative post-decision closure, queue cleanup, credential-tracker plus exception-ledger synchronization, archive linkage, and internal coordinator notification rather than worker outreach, staffing changes, training assignment, regulator filing, payroll action, or renewed review."
@@ -364,6 +366,7 @@ repo_reality:
     - instances/research/benchmark-study-publication-integrity-intake-packet-approved-for-restricted-review-lane.md
     - instances/research/approved-benchmark-study-publication-integrity-packet-evidence-gate-verification.md
     - instances/research/benchmark-study-research-review-intake-record-refresh-after-rerun-manifest-update.md
+    - instances/research/benchmark-disclosure-control-playbook-change-digest-for-research-governance-briefing.md
     - instances/research/approved-secondary-dataset-access-request-triage-packet-for-restricted-governance-review-dispatch.md
     - instances/engineering/release-candidate-review-staging-record-refresh-after-evidence-change.md
     - instances/engineering/release-candidate-cutover-bundle-approved-for-change-window-handoff.md
@@ -556,11 +559,11 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and three hundred sixty-seven grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and three hundred sixty-nine grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "All forty-nine canonical patterns remain grounded at least once, so the remaining Phase 7 pressure is structurally thin depth within already-covered patterns rather than missing-first-instance coverage."
-    - "Domain counts are still slightly uneven after lifting HR to fifty-two grounded instances; research is now the thinnest modeled domain at fifty-one while finance and compliance remain the deepest at fifty-four."
-    - "The just-refreshed `workflow-hand-off-and-completion` HR lane should rest while the next refinement targets a materially distinct research slice rather than another execute-family closure example."
+    - "Domain counts are still slightly uneven after lifting research to fifty-three grounded instances; engineering, operations, support, and HR are now tied as the thinnest modeled domains at fifty-two while finance and compliance remain the deepest at fifty-four."
+    - "The just-refreshed `change-triggered-context-briefing` research lane should rest while the next refinement targets a materially distinct slice in one of the tied 52-instance domains rather than another research digest example."
   next_action:
-    id: phase-7-next-research-refinement
-    summary: "Use the next iteration to add one materially distinct instance-only refinement in the now-thinnest `research` domain, favoring a not-just-refreshed slice that stays bounded at one exact governed artifact without reopening schema or canonical metadata."
+    id: phase-7-next-domain-rebalance
+    summary: "Use the next iteration to add one materially distinct instance-only refinement in one of the tied thinnest domains (`engineering`, `operations`, `support`, or `hr`), favoring a not-just-refreshed bounded slice that stays at one exact governed artifact without reopening schema or canonical metadata."
