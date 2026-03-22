@@ -12,6 +12,25 @@ Research.
 
 During a high-consequence serious adverse event bridge for a blinded multicenter trial, sponsor oversight finds that current emergency-unblinding and investigational-product quarantine state has diverged across the interactive response technology system, the restricted emergency code-break ledger, site pharmacy accountability records, and the safety command workspace. One source shows a participant emergency unblinding request as completed with a treatment assignment viewed by an authorized clinician, another still shows the participant as blinded, and the linked kit identifiers appear quarantined in one pharmacy record but still available for dispense in another. At the same time, one site's overnight manual custody note references a replacement kit move that does not align cleanly with the central chain-of-custody timeline. Before sponsor medical, data-management, pharmacy, and trial-operations leaders decide whether the current state is stable enough for any downstream dosing hold, site instruction, protocol deviation review, or authority-facing action, the workflow must restore the trusted current state of participant blinding status, emergency code-break usage, linked kit quarantine state, and specimen or kit custody dependencies while keeping every unresolved truth gap on explicit hold.
 
+```mermaid
+flowchart TD
+    A["Critical discrepancy scope<br>participant, code-break, kit, and custody window"]
+    B["Source-precedence comparison<br>IRT, restricted unblinding ledger, pharmacy, and safety workspace"]
+    C["Resolved comparison set<br>fresh evidence and lineage align for current-state acceptance"]
+    D["Unresolved hold branch<br>material conflict, stale evidence, or broken custody linkage remains visible"]
+    E["Trusted current-state ledger<br>accepted blinding, code-break, quarantine, and custody state"]
+    F["Hold register<br>explicit provisional branches and unresolved truth gaps"]
+    G["Restricted handoff only<br>ledger, holds, evidence lineage, and bounded reviewer package"]
+
+    A --> B
+    B --> C
+    B --> D
+    C --> E
+    D --> F
+    E --> G
+    F --> G
+```
+
 ## Target systems / source systems
 
 - Interactive response technology randomization and kit-allocation records, emergency-code access state, participant identifiers, and blinded-versus-unblinded status markers
