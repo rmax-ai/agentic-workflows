@@ -12,6 +12,28 @@ Research for internal human-subjects data stewardship.
 
 An internal research operations team maintains a shared data-use restriction board for a de-identified study dataset while principal investigators, privacy stewards, repository curators, and methods reviewers continuously refine what material may be reused in secondary internal analysis. Small updates arrive throughout the week: one steward links a revised consent-scope note, a curator flags a stale transcript-tag example, a reviewer adds a caveat that one coded excerpt set must stay inside a secure enclave, and a study lead reassigns ownership of an unresolved linkage-risk question. The agent keeps that bounded internal board usable by refreshing linked source references, normalizing duplicate restriction notes, updating subset ownership and hold markers, and carrying unresolved use-scope questions forward in a visible register. Humans remain responsible for deciding what the consent language actually permits, whether a restriction interpretation is correct, whether a dataset segment is safe for reuse, and when any material should move into separate approval, release, or execution workflows.
 
+```mermaid
+flowchart TD
+    A["Approved consent notes,<br>privacy references, and protocol updates"]
+    B["Reviewer annotations and duplicate<br>restriction notes on the shared board"]
+    C["Dataset subset inventory with<br>owner assignments and hold markers"]
+    D["Shared data-use restriction board<br>with prior unresolved-question state"]
+    E["Agent upkeep pass for bounded<br>restriction-board refresh"]
+    F["Updated board rows with refreshed links,<br>normalized notes, and hold-state updates"]
+    G["Visible unresolved-question register<br>carried forward for follow-up"]
+    H["Steward review for ownership-only<br>or hold-only follow-up items"]
+    I["Stop and hand off if a request would imply<br>access approval or data movement"]
+
+    A -->|"Refresh authoritative references first"| E
+    B -->|"Merge overlapping restriction wording"| E
+    C -->|"Sync subset ownership and hold context"| E
+    D -->|"Preserve prior unresolved state"| E
+    E -->|"Refresh links, normalize notes,<br>and update ownership or hold markers"| F
+    E -->|"Carry unresolved use-scope questions forward"| G
+    G -->|"Visible follow-up for stewards"| H
+    E -->|"Boundary-triggering request"| I
+```
+
 ## Target systems / source systems
 
 - Shared data-use restriction board with dataset-segment rows, owner fields, hold tags, and revision history
