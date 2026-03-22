@@ -42,6 +42,17 @@ This grounds the pattern in compliance without drifting into alert triage, autho
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    sources["Cross-venue alerting, order reconstruction,<br>benchmark analytics, and client-impact dashboards"] -->|"Feed evidence and backlog state"| workspace["Severe-state surveillance workspace"]
+    restricted["Restricted communications queues,<br>override history, and aging telemetry"] -->|"Supply protected-lane state"| workspace
+    workspace -->|"Share severe-case state"| coordination["Multi-agent coordination<br>for evidence review, lane validation,<br>queue simulation, and rollback packaging"]
+    rules["Emergency market-conduct<br>governance rules"] -->|"Constrain protected lanes,<br>expiry, and rollback"| coordination
+    coordination -->|"Prepare temporary<br>reprioritization packet"| leaders["Market-conduct and<br>surveillance leaders"]
+    leaders -->|"Adopt, extend,<br>or reject"| audit["Queue-state versioning<br>and audit systems"]
+    audit -->|"Apply approved temporary logic"| queues["Live review queues"]
+```
+
 - Orchestrated multi-agent coordination fits because linked-order evidence review, protected-lane validation, severe-mode queue simulation, and rollback packaging benefit from distinct roles over one shared severe-case state.
 - Human-in-the-loop review is mandatory because market-conduct and surveillance leaders must explicitly adopt, extend, or reject the temporary reprioritization state before it influences live review queues.
 - Human-directed autonomy keeps the boundary clean: the workflow can recommend protected-lane capacity reservations and temporary urgency weights, but it must not freeze trading activity, assign investigators, or decide whether manipulation occurred.
