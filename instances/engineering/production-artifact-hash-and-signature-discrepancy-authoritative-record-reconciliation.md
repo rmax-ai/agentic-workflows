@@ -39,6 +39,29 @@ This grounds the pattern in an engineering workflow where the urgent task is not
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    registry["Artifact registry<br>active promoted digest,<br>tag state, and promotion time"]
+    sigledger["Provenance and signature ledger<br>digest, signing key lineage,<br>and envelope references"]
+    snapshot["Change-management release snapshot<br>approved artifact tuple,<br>certificate fingerprint, and<br>approval timestamp"]
+    runtime["Deployment and runtime validation<br>observed production digest and<br>signature-envelope checks"]
+    agent["Tool-using reconciliation agent<br>for the affected artifact tuple"]
+    workspace["Reconciliation workspace<br>field-level discrepancy ledger,<br>precedence application, and<br>shared reconciliation memory"]
+    hold["Explicit reconciliation hold<br>for unresolved digest,<br>signature, or binding conflicts"]
+    package["Correction-ready package<br>reconciled current-state ledger,<br>masked discrepancy details, and<br>allowed write targets"]
+    steward["Release Integrity Steward<br>Maya Chen"]
+
+    registry -->|"Manifest identity and<br>promotion state"| agent
+    sigledger -->|"Signature lineage and<br>ledger evidence"| agent
+    snapshot -->|"Release-binding metadata<br>and approval context"| agent
+    runtime -->|"Observed runtime integrity<br>state"| agent
+    agent -->|"Compared fields and<br>source-precedence results"| workspace
+    workspace -->|"Unresolved consequential<br>conflicts stay visible"| hold
+    workspace -->|"Reconciled ledger and<br>field lineage"| package
+    hold -->|"Visible hold list and<br>exception context"| package
+    package -->|"Correction-ready handoff only;<br>controlled record repair stays<br>outside this workflow"| steward
+```
+
 - A tool-using single agent can gather the registry manifest record, signature-ledger entry, change snapshot, and runtime-validation observation into one bounded reconciliation run for the affected artifact tuple.
 - Human-in-the-loop review should remain standard when digest lineage and signature lineage disagree, when a runtime observation cannot be linked cleanly to an approved ledger entry, or when any proposed correction would alter production-facing release records.
 - Shared reconciliation memory should preserve superseded digest values, signature envelope references, precedence-rule application, prior steward annotations, and rollback references so later reviewers can inspect exactly why one field value became authoritative.
