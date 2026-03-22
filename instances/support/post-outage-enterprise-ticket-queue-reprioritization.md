@@ -12,6 +12,22 @@ Support.
 
 After an overnight authentication outage, a support operations supervisor inherits a backlog of enterprise tickets covering login failures, delayed SSO reprovisioning, duplicate account lockouts, and unrelated routine admin requests. The support queue already contains severity, contract tier, elapsed SLA time, and incident linkage, but recent reopen data shows that tickets closed quickly without validating tenant-specific identity mappings are coming back and consuming senior engineer time. The optimization workflow must retune the ranked queue so outage-related tickets with high reopen risk or executive-visibility signals rise appropriately, while preserving hard guardrails for security-sensitive cases, aged contractual obligations, and fairness across customers that were not affected by the outage.
 
+```mermaid
+flowchart TD
+    A["Outcome signals<br>reopen risk, overrides, SLA misses"]
+    B["Policy guardrails<br>security, fairness, contract limits"]
+    C["Staffing context<br>identity-specialist coverage"]
+    D["Bounded queue retuning<br>adjust ranking weights in approved range"]
+    E["Publish revised order<br>ranked queue plus rationale"]
+    F["Rollback boundary<br>restore last trusted tuning if drift appears"]
+
+    A --> D
+    B --> D
+    C --> D
+    D --> E
+    D --> F
+```
+
 ## Target systems / source systems
 
 - Support ticketing platform with backlog state, severity, customer tier, SLA timers, and incident linkage
