@@ -12,6 +12,23 @@ Operations.
 
 An operations synthesis workflow has already produced one revised cold-chain command briefing that consolidates affected-lot counts, facility condition summaries, route exposure, hold-policy references, and unresolved containment questions after a network excursion. Before that exact revision is released into the restricted regional command circulation lane, a command owner must approve the visibility scope, freshness cutoff, and internal-only annex handling so regional leaders receive the intended context package without wider reuse or stale carry-forward. The workflow ends at approved circulation of that briefing revision; it does not choose reroute strategy, authorize disposal, issue regulator notices, or dispatch field teams.
 
+```mermaid
+flowchart TD
+    A["Revised cold-chain command briefing<br>prepared for release review"]
+    B["Command owner reviews visibility scope,<br>freshness cutoff, and annex handling"]
+    C["Pending revision remains held<br>or is superseded"]
+    D["Approved release manifest for one<br>regional command circulation lane"]
+    E["Exact briefing revision circulates in the<br>approved regional command lane"]
+    F["Audit and retention record captures<br>released, held, or blocked state"]
+
+    A --> B
+    B --> C
+    B --> D
+    D --> E
+    E --> F
+    C --> F
+```
+
 ## Target systems / source systems
 
 - Restricted command-briefing workspace with the synthesized command summary, annex redactions, superseded revisions, and provenance trace
