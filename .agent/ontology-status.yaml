@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 260
+  instance_files: 261
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -67,12 +67,12 @@ instance_counts_by_domain:
   compliance: 37
   operations: 38
   research: 37
-  support: 37
+  support: 38
   hr: 37
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred sixty grounded examples across all seven currently modeled domains; `finance` and `operations` now stand at thirty-eight while `engineering`, `compliance`, `research`, `support`, and `hr` remain at thirty-seven, showing that Phase 7 can deepen selected domains while keeping cross-domain balance visible."
+  - "The repository now has two hundred sixty-one grounded examples across all seven currently modeled domains; `finance`, `operations`, and `support` now stand at thirty-eight while `engineering`, `compliance`, `research`, and `hr` remain at thirty-seven, showing that Phase 7 can deepen selected domains while keeping cross-domain balance visible."
   - "`evidence-gated-verification-for-release` now has additional `finance` grounding through an approved covenant-compliance certificate packet verification example, deepening that investigate-family approval-bound slice within finance beyond morning-liquidity posting by centering evidence sufficiency on ratio-calculation freshness, audited-statement cut-off alignment, signatory-boundary control, prior-quarter lineage, and restricted lender-reporting lane scope rather than covenant interpretation, lender communication, filing submission, waiver negotiation, or downstream reliance execution."
   - "`contingency-plan-activation-gate` now has additional `compliance` grounding through a serious-adverse-event manual intake continuity activation-gate example, deepening that critical-risk plan-family contingency slice within compliance beyond sanctions-screening fallback by centering the approval boundary on one governed readiness packet with intake staffing, protected receipt-channel rules, duplicate-reconciliation holds, and jurisdiction-specific reporting-clock coverage rather than manual intake launch, reporter acknowledgment, regulator communication, or safety-case creation."
   - "`approval-gated-triage-dispatch` now has additional `hr` grounding through a sensitive workplace accommodation intake triage packet approved for restricted occupational-health review dispatch, deepening that monitor-family approval-bound slice within HR beyond work-authorization lapse review while preserving a clean boundary at one exact triaged packet release, medical-privacy hold visibility, signer-controlled reviewer scope, and audit-ready lineage rather than accommodation adjudication, worker or manager outreach, legal interpretation, or workplace-adjustment execution."
@@ -424,7 +424,7 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and two hundred sixty grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and two hundred sixty-one grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "`evidence-gated-verification-for-release` now also has additional finance grounding through an approved covenant-compliance certificate packet verification example, so the investigate-family approval-bound slice now spans engineering, finance, operations, research, and HR while preserving a clean boundary at evidence sufficiency, release-hold state, certificate lineage, and human-approved downstream reliance rather than covenant interpretation, lender communication, filing submission, or execution."
     - "`shared-workbench-orchestration` now also has explicit compliance grounding through an internal control-library caveat-board upkeep example, extending the low-risk collaboration-upkeep slice beyond research, operations, support, and HR while preserving a clean boundary at internal artifact refresh, source revalidation, ownership preservation, and explicit hold-state management rather than legal advice, adjudication, regulator communication, or execution."
@@ -433,7 +433,7 @@ repo_reality:
     - "`shared-workbench-orchestration` now also has additional HR grounding through an internal hiring-panel interview-guide caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within HR beyond benefits FAQ maintenance while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than interviewer-guidance approval, policy adjudication, candidate communication, or hiring execution."
     - "`shared-workbench-orchestration` now also has additional support grounding through an internal premium-support diagnostic-runbook caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within support beyond workaround-article staging while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than runbook approval, customer communication, or live incident execution."
     - "`claimed-state-verification` now also has additional HR grounding through an internal job-architecture handbook publication verification example, proving that a second low-risk HR verification slice can deepen the domain without reopening canonical pattern or browse-view work."
-    - "Engineering, compliance, research, support, and hr now sit at thirty-seven grounded instances while finance and operations stand at thirty-eight, so the next refinement should tighten balance by deepening one already-aligned thirty-seven-instance domain through an instance-only batch; a materially distinct support-side collaboration-release example is now the cleanest next candidate because canonical metadata and browse exposure already align."
+    - "Engineering, compliance, research, and hr now sit at thirty-seven grounded instances while finance, operations, and support stand at thirty-eight, so the next refinement should tighten balance by deepening one already-aligned thirty-seven-instance domain through an instance-only batch; a materially distinct compliance-side collaboration-release example is now the cleanest next candidate because canonical metadata and browse exposure already align."
   next_action:
     id: phase-7-next-thin-domain-instance-depth
     summary: "Use the next iteration to deepen one already-aligned thirty-seven-instance domain, preferably `support` through a materially distinct `approval-gated-collaborative-artifact-release` example, unless the new grounding exposes directly coupled canonical drift."
