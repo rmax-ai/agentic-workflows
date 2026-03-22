@@ -12,6 +12,29 @@ Research.
 
 After a protocol amendment narrows permitted secondary analyses for one longitudinal biospecimen cohort and a delayed site sync leaves several records out of step, research operations discovers that current sample-use eligibility no longer agrees across the protocol registry, the participant consent ledger, the biospecimen custody inventory, and the study-operations intake tracker used to queue governed assay work. One source shows a participant's samples as eligible for genomic re-analysis under the newly approved amendment window, another still carries the pre-amendment consent scope as active, and the custody inventory matches the specimen identifiers and storage status but not the withdrawal marker and effective date now reflected in the consent ledger. Before any sample is queued for a governed assay, any dataset linkage packet is prepared, or any team decides whether the drift came from amendment timing, site processing error, or stale synchronization, the workflow must restore one trusted current use-eligibility state for each affected participant-sample record set, keep unresolved conflicts visible, stage a correction-ready package, and verify that the authoritative state is the one reflected across approved research control surfaces.
 
+```mermaid
+flowchart TD
+    intake["Sample-use eligibility discrepancy found across<br>protocol registry, consent ledger,<br>custody inventory, and intake tracker"]
+    gather["Gather current records for the affected<br>participant-sample set and amendment window"]
+    compare["Compare consent scope, withdrawal markers,<br>custody status, and effective dates<br>under approved source precedence rules"]
+    decision{"Do consequential eligibility fields align within<br>approved precedence and freshness rules?"}
+    hold["Place the participant-sample set on<br>explicit reconciliation hold and keep<br>unresolved conflicts visible"]
+    ledger["Assemble one authoritative current-state<br>eligibility ledger with field-level lineage"]
+    package["Stage a correction package with<br>approved write targets, rollback references,<br>and steward review notes"]
+    verify["Verify the authoritative state is now reflected across<br>approved protocol, consent, custody,<br>and intake control surfaces"]
+    stop["Bounded stop before assay launch,<br>dataset-linkage preparation,<br>or participant outreach"]
+
+    intake --> gather
+    gather --> compare
+    compare --> decision
+    decision -->|"Yes"| ledger
+    decision -->|"No"| hold
+    hold --> ledger
+    ledger --> package
+    package --> verify
+    verify --> stop
+```
+
 ## Target systems / source systems
 
 - Protocol registry entries, approved amendment records, allowed analysis-scope fields, cohort inclusion criteria, and protocol effective-date history
