@@ -12,6 +12,24 @@ Operations.
 
 A central fulfillment operations reliability team is preparing a monthly network-readiness review for conveyor and sorter assets ahead of peak volume. The workflow must gather OEM safety bulletins, field service advisories, site-specific operating waivers, completed inspection records, and parts-availability notices to produce a grounded synthesis of which restrictions, mandatory checks, temporary mitigations, and unresolved conflicts currently apply at each affected site. The goal is not to decide shutdowns, reprioritize work orders, or assign crews, but to assemble a cited operating-context brief that site leaders and planners can trust before any downstream action.
 
+```mermaid
+flowchart TD
+    A["Reliability team<br>scopes monthly readiness question"] -->|"retrieve approved evidence"| B["OEM bulletin portal<br>and field service advisory library"]
+    A -->|"retrieve site status records"| C["CMMS inspection history<br>and site waiver register"]
+    A -->|"map applicability"| D["Asset inventory<br>and equipment configuration database"]
+    A -->|"retrieve supply constraints"| E["Parts availability dashboard<br>and approved substitute-parts list"]
+    A -->|"retrieve prior mitigation guidance"| F["EHS notice repository<br>and controlled incident-summary archive"]
+    B -->|"bulletins and advisories"| G["Evidence set by site<br>and asset population"]
+    C -->|"inspection and waiver status"| G
+    D -->|"installed model and serial context"| G
+    E -->|"parts notices and substitutes"| G
+    F -->|"controlled mitigation references"| G
+    G -->|"synthesize with citations"| H["Cited operating-context brief<br>plus evidence trace"]
+    G -->|"missing evidence or conflicting guidance"| I{"Open question<br>or conflict?"}
+    I -->|"yes"| J["Open questions list<br>for unresolved gaps and conflicts"]
+    I -->|"no"| H
+```
+
 ## Target systems / source systems
 
 - Operations readiness-review workspace or reliability briefing repository that stores the cited synthesis and evidence trace
