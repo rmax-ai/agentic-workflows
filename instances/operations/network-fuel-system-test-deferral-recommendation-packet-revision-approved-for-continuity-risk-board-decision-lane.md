@@ -12,6 +12,24 @@ Operations.
 
 An operations continuity workflow has already prepared one exact recommendation packet revision for a temporary deferral of scheduled backup fuel-system integrity tests across several depots ahead of a forecast severe-weather window. The packet narrows the bounded options to defer the named sites with daily manual inspection and generator-watch controls, release a narrower deferral limited to the lowest-risk depots with vendor standby coverage, or escalate to executive safety review, and it keeps blocked paths such as a region-wide blanket deferral, extension past the allowed retest window, or vendor-cancellation without compensating controls explicit. Before that exact packet revision can enter the restricted continuity risk board decision lane, a named operations release owner must approve the board scope, validity window, and manifest binding so reviewers receive the governed recommendation artifact rather than a stale, broadened, or misrouted copy. The workflow stops at governed release of that packet revision; it does not decide whether the deferral is granted, reschedule the tests, or dispatch any field work.
 
+```mermaid
+flowchart TD
+    packet["Exact recommendation packet revision<br>ready for governed release review"]
+    owner["Named operations release owner<br>reviews scope, validity window, and manifest binding"]
+    hold["Hold current packet revision<br>until scope or evidence concerns are resolved"]
+    supersede["Supersede packet revision<br>when weather timing, site scope, or evidence changes"]
+    manifest["Bind exact packet hash, depot scope,<br>board audience, and expiry in manifest"]
+    release["Release approved packet revision<br>to continuity risk board decision lane only"]
+
+    packet --> owner
+    owner -->|"Hold current revision"| hold
+    owner -->|"Supersede stale or broadened revision"| supersede
+    owner -->|"Approve exact revision"| manifest
+    hold -->|"Resume same revision review"| owner
+    supersede -->|"Route new exact revision for review"| packet
+    manifest -->|"Release bound packet"| release
+```
+
 ## Target systems / source systems
 
 - Test-deferral recommendation workspace holding the current packet revision, bounded option set, blocked-path rationale, and superseded drafts
