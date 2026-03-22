@@ -12,6 +12,20 @@ Support.
 
 An enterprise support operations team monitors live case metadata, chat escalation requests, repeated reopen cycles, status-page mismatch complaints, and tenant-specific entitlement-change tickets to detect mid-severity service and process anomalies before they harden into a formal incident or security escalation. The workflow must collapse duplicate cases around the same tenant, product area, and release window; enrich each anomaly with support tier, maintenance context, known-issue notes, recent workaround publication history, and prior reviewer feedback; and then prioritize which clusters deserve duty-manager review. A cluster should enter the review queue when, for example, one enterprise tenant triggers five or more severity-upgrade requests in 30 minutes while platform telemetry remains below incident thresholds, repeated reopen-and-close cycles suggest the documented workaround is failing, or a burst of entitlement-change requests arrives alongside regional complaint spikes without evidence of account compromise. The goal is an explainable anomaly review packet for a support duty manager or trust-and-safety reviewer, not to declare an incident, apply customer credits, reset accounts, or launch a root-cause investigation automatically.
 
+```mermaid
+flowchart TD
+    signals["Merge anomaly signals<br>from severity changes, reopen cycles,<br>chat escalations, and complaint bursts"]
+    clusters["Collapse duplicate clusters<br>by tenant, product area,<br>and release window"]
+    enrich["Enrich anomaly context<br>with support tier, maintenance state,<br>known issues, and reviewer feedback"]
+    prioritize["Prioritize review packets<br>by persistence, tenant impact,<br>and bounded review thresholds"]
+    route["Route explainable packets<br>to support duty manager or<br>trust-and-safety review queues"]
+
+    signals --> clusters
+    clusters --> enrich
+    enrich --> prioritize
+    prioritize --> route
+```
+
 ## Target systems / source systems
 
 - Support ticketing and chat platforms with severity history, reopen counts, tenant identity, entitlement metadata, and escalation notes
