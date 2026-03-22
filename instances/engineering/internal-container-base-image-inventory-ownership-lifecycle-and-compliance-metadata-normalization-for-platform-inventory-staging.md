@@ -63,6 +63,24 @@ If the registry inventory and catalog snapshot disagree on owner, lifecycle stat
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Internal container registry inventory export<br>for the frozen base-image batch"]
+    B["Base-image catalog snapshot<br>for the same frozen batch"]
+    C["Build-manifest metadata store<br>used for lineage support"]
+    D["Approved reference tables<br>team, lifecycle, compliance, family,<br>and exception crosswalk data"]
+    E["Normalization and enrichment path<br>for Platform-Base-Image-Inventory-<br>Normalization-Packet-v2"]
+    F["Platform inventory staging store<br>normalized packet, trace, and lineage"]
+    G["Exception workspace<br>blocker-marked unsupported or conflicting values"]
+
+    A -->|"Registry identity and labels"| E
+    B -->|"Catalog family, owner,<br>and lifecycle values"| E
+    C -->|"Lineage timestamps and<br>derivation context"| E
+    D -->|"Approved mappings and<br>governed identifiers"| E
+    E -->|"Normalized packet,<br>trace, and lineage"| F
+    E -->|"Visible exceptions with<br>raw values and blockers"| G
+```
+
 - A tool-using single agent can ingest the frozen inventory batch, apply source-precedence rules, query approved lookup tables, and write the normalized packet, trace, and exception bundle in one bounded batch loop.
 - The target schema should keep observed registry or catalog values separate from normalized and enriched fields so downstream consumers can distinguish directly observed metadata from governed canonical identifiers.
 - Safe enrichment may add canonical team ids, lifecycle-policy ids, compliance-profile codes, governed exception references, and stable family identifiers, but unsupported inference about image risk, migration urgency, rollout readiness, or policy approval must remain out of scope.
