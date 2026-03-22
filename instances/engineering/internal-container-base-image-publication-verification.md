@@ -37,6 +37,16 @@ This grounds the pattern in an engineering workflow where a green publication si
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    claim["Publication claim feed<br>runtime-base:2026-03-18"] -->|"Triggers verification"| verifier["Verification workflow<br>bounded verdicting and lag handling"]
+    registry["Approved internal registry<br>tag and immutable digest"] -->|"Provides observed publication state"| verifier
+    manifest["Signed manifest store<br>digest set and signature reference"] -->|"Provides signed manifest evidence"| verifier
+    catalog["Base-image catalog<br>approved revision metadata"] -->|"Provides claimed catalog state"| verifier
+    mirror["Mirror-status endpoint<br>propagation and freshness status"] -->|"Provides lag evidence"| verifier
+    verifier -->|"Records verdict and evidence trace"| state["Durable verification state<br>internal-container-base-image-publication-verification"]
+```
+
 - Event-driven monitoring fits because the verification run should begin when the base-image-publication-complete claim is recorded rather than only after engineers notice digest mismatches.
 - A tool-using single agent can compare image tags, immutable digests, signature references, manifest timestamps, and mirror-status freshness across the approved internal surfaces while applying allowed propagation tolerances.
 - Bounded delegation is appropriate because platform owners can predefine the authoritative registry, manifest, catalog, and mirror-status sources plus lag rules while humans retain authority over republish, rollback, or adoption decisions.
