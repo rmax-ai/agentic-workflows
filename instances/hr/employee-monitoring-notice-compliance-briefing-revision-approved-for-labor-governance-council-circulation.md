@@ -12,6 +12,15 @@ HR.
 
 An HR labor-governance and people-privacy workflow has already synthesized one revision of an employee monitoring notice compliance briefing after a planned workforce monitoring expansion surfaced conflicting jurisdiction summaries, vendor annex drift, unresolved home-office scope caveats, and open questions about whether the current notice set accurately describes retained telemetry fields and manager-visible outputs. Before that exact revision is circulated into the restricted labor governance council lane, a named HR labor governance owner must approve the audience scope, freshness window, annex profile, and hold-versus-release state so council readers receive the reviewed context package rather than a stale draft, an over-broad copy, or a version carrying restricted monitoring annex material beyond the approved lane. The workflow stops at governed release of that briefing revision; it does not adjudicate whether the notice is legally sufficient, decide monitoring policy, contact employees or works councils, schedule communications, or execute downstream HR, legal, or platform changes.
 
+```mermaid
+flowchart TD
+    A["Prepared employee monitoring notice<br>compliance briefing revision"] -->|"Submit exact revision, provenance,<br>audience scope, and annex profile for review"| B{"HR labor governance owner<br>approves release boundary?"}
+    B -->|"No — hold or supersede when freshness,<br>annex, jurisdiction, or telemetry scope is unresolved"| C["Briefing remains on hold with<br>supersession state recorded"]
+    B -->|"Yes — approve exact revision id,<br>council lane, freshness deadline, and annex profile"| D["Approval manifest records release<br>disposition and bounded circulation terms"]
+    D -->|"Release only to restricted labor governance<br>council lane with forwarding blocked"| E["Approved briefing revision circulates<br>to named council recipients"]
+    E -->|"Log release lineage, expiry, and blocked<br>reuse or forwarding attempts"| F["Audit and supersession tracker preserves<br>release-state record"]
+```
+
 ## Target systems / source systems
 
 - Restricted HR briefing workspace storing the synthesized monitoring-notice compliance briefing revision, superseded drafts, annex bindings, and provenance ledger
