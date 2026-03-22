@@ -12,6 +12,27 @@ Research.
 
 A research-governance coordinator records that the monthly internal benchmark registry snapshot is published after the registry exporter, governed snapshot manifest, and internal discovery portal all report success for the new benchmark inventory cut. Lab leads and benchmark-review coordinators still need to know whether that claimed publication state is actually supported by the approved internal surfaces before they rely on the snapshot as the current reference for benchmark availability, lineage, and governance tags. The workflow verifies the claim against authoritative evidence and emits a bounded confirmed, disproved, or inconclusive verdict; it must not republish the snapshot, adjudicate benchmark quality, approve release of any benchmark, or launch broader remediation.
 
+```mermaid
+flowchart TD
+    A["Publication claim<br>for registry snapshot recorded"]
+    B["Check internal benchmark registry<br>snapshot id and publication status"]
+    C["Check governed snapshot manifest<br>bundle id checksum set and export timestamp"]
+    D["Check internal discovery portal<br>snapshot revision and governance-tag summary"]
+    E["Evaluate corroborating evidence<br>across approved publication surfaces"]
+    F["Confirmed<br>publication state"]
+    G["Disproved<br>publication state"]
+    H["Inconclusive<br>publication state"]
+    A --> B
+    A --> C
+    A --> D
+    B --> E
+    C --> E
+    D --> E
+    E --> F
+    E --> G
+    E --> H
+```
+
 ## Target systems / source systems
 
 - Internal benchmark registry containing the approved snapshot identifier, publication status, benchmark inventory totals, and effective-at metadata
