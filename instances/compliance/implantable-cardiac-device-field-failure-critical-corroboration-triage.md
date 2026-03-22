@@ -40,6 +40,18 @@ This grounds the pattern in a compliance setting where the risk is neither one n
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    TLM["Device telemetry and remote-monitoring systems"] -->|"Battery-depletion anomalies,<br>therapy interruptions, and failure-rate spikes"| SCM
+    CAE["Complaint-intake, medical-information,<br>and adverse-event systems"] -->|"Complaint narratives, serious-event coding,<br>and reporting-clock references"| SCM
+    SER["Service, explant, and replacement-order systems"] -->|"Returns, replacement urgency,<br>serial-number linkage, and field-service history"| SCM
+    MFG["Manufacturing execution, supplier quality,<br>and nonconformance systems"] -->|"Lot genealogy, component deviations,<br>and corrective-action references"| SCM
+    SCM["Safety-case management and escalation-routing tooling<br>duplicate-aware lineage, shared critical-case state,<br>packet revisions, and human-controlled handoff"] -->|"Shared critical-case state and packet context"| AGT["Specialized agents or staged services<br>telemetry review, complaint linkage,<br>lot-and-firmware genealogy checks,<br>duplicate handling, and packet assembly"]
+    AGT -->|"Corroboration, linkage, and packet updates"| SCM
+    SCM -->|"Corroborated critical packet<br>for human-controlled review"| CMD["Human product-safety command lane"]
+    CMD -->|"Review outcome and routing control"| SCM
+```
+
 - Event-driven monitoring fits because telemetry spikes, complaint narratives, adverse-event follow-up, and quality deviations can arrive asynchronously and materially change corroboration within hours.
 - Orchestrated multi-agent or staged service roles fit because telemetry review, complaint linkage, lot-and-firmware genealogy checks, duplicate handling, and escalation-packet assembly are specialized tasks that need one shared critical-case state.
 - Human-in-the-loop review remains necessary because even a recommendation-only critical packet can rapidly influence consequential downstream recall, reporting, and patient-safety decisions.
