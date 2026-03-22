@@ -35,6 +35,23 @@ This grounds the pattern in compliance work focused on collaborative stewardship
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    PCL["Promotional compliance lead"] -->|"Co-produce governed packet"| WS["Governed promotional-compliance collaboration workspace<br>claims substantiation clarification packet, revision history,<br>objection ledger, and release-manifest state"]
+    MAR["Medical affairs reviewer"] -->|"Review label and evidence support"| WS
+    BGP["Brand-governance partner"] -->|"Contribute audience and restriction context"| WS
+    AG["Agents"] -->|"Crosswalk citations, refresh references,<br>normalize objections, and maintain release trace"| WS
+    LCR["Labeling, medical-legal-reference,<br>and claims-library systems"] -->|"Approved indication language,<br>evidence citations, usage constraints,<br>and prior claim-treatment history"| WS
+    CAR["Campaign asset inventory, market-routing notes,<br>reviewer comment threads, and fair-balance checklists"] -->|"Contested wording, audience caveats,<br>and unresolved restriction gaps"| WS
+    WS -->|"Exact packet revision, approved audience scope,<br>and intake-lane routing request"| IAT["Advertising-compliance policy,<br>restricted review-intake controls,<br>and approval-routing tools"]
+    IAT -->|"Approval request for exact packet revision"| CRO["Named compliance<br>release owner"]
+    CRO -->|"Approve release boundary for one intake lane"| IAT
+    IAT -->|"Release only approved packet revision"| ARL["Restricted advertising-compliance<br>review intake lane"]
+    WS -->|"Superseded revisions, accepted residual caveats,<br>and blocked-release causes"| ACG["Audit, retention,<br>and access-governance systems"]
+    IAT -->|"Downstream handoff traceability<br>and audience controls"| ACG
+    ACG -->|"Preserved traceability and access constraints"| WS
+```
+
 - Approval-gated execution fits because the clarification packet can be collaboration-ready while still blocked from advertising-compliance intake until the human release owner approves the exact revision.
 - Human-in-the-loop control is required because only accountable compliance leaders may accept residual wording disagreement, confirm audience scope, and authorize the packet's release boundary.
 - Agents may crosswalk citations, refresh evidence references, normalize objection wording, and maintain the release trace, but they must not decide claim acceptability, approve campaign use, or trigger external dissemination.
