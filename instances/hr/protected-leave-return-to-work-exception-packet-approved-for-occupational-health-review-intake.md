@@ -12,6 +12,20 @@ HR.
 
 A leave case manager, an employee relations partner, and occupational health reviewers are co-producing one governed exception packet because an employee's planned return-to-work date now conflicts with site-access restrictions, duty limitations, and manager coverage concerns. Agents help reconcile clinician summaries, essential-function notes, interactive-process comments, and disputed wording about temporary restrictions into the shared packet while preserving which objections remain unresolved and which edits the human artifact owner accepted. The workflow ends only when the named leave-program release owner approves that exact packet revision for one bounded occupational health review intake lane, where downstream reviewers may decide whether additional restrictions, phased return conditions, or escalation are required. It does not decide the return-to-work outcome, notify the employee, or update payroll or scheduling systems.
 
+```mermaid
+flowchart TD
+    A["Collaborative packet inputs and objections are reconciled<br>by the leave case manager, employee relations partner, and agents"] -->|"Accepted edits and unresolved objections are captured"| B["Governed HR collaboration workspace maintains<br>the packet revision, objection ledger, and release-manifest draft"]
+    B -->|"Exact revision is prepared for release review"| C{"Material changes, stale evidence, or lane-boundary conflicts<br>appear during approval review?"}
+    C -->|"Yes"| D["Release is held and the prior approval state is superseded"]
+    D -->|"Packet returns to the governed collaboration loop"| B
+    C -->|"No"| E["Named leave-program release owner reviews<br>the exact revision, residual disagreement, and intake scope"]
+    E -->|"Release decision is requested"| F{"Approve this exact packet revision<br>for one bounded occupational health intake lane?"}
+    F -->|"No"| D
+    F -->|"Yes"| G["Approved release manifest binds the exact revision,<br>signers, accepted residual disagreement, and lane scope"]
+    G -->|"Approved packet is handed forward"| H["Occupational health review intake receives<br>the approved packet revision"]
+    H -->|"Workflow boundary reached"| I["Stop at approved occupational health review intake handoff"]
+```
+
 ## Target systems / source systems
 
 - Governed HR collaboration workspace storing the return-to-work exception packet, comment history, objection ledger, and release-manifest draft
