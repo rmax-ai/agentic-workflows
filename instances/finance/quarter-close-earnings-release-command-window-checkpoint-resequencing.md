@@ -12,6 +12,17 @@ Finance.
 
 A finance command team has already declared a quarter-close earnings-release command window with an active checkpoint sequence for late consolidation review, disclosure-controls readiness, audit-committee delegate confirmation, legal sign-off readiness, and final release-room handoff preparation. Then authoritative changes land inside the same governed window: a late consolidation correction reopens one checkpoint, the stock-exchange and filing calendar narrows the latest defensible cutoff for protected release-room preparation, the approved audit-committee delegate changes because the primary contact is pulled into another governance event, and legal and disclosure readiness updates show that one downstream checkpoint cannot safely advance on the prior timing. The workflow must resequence the live checkpoint order, preserve one authoritative checkpoint ledger with explicit holds where prerequisite readiness or authority is still missing, show participant deltas for the materially affected owners, and hand one updated command packet to the named finance release lead for adoption before any filing submission, earnings recommendation, investor communication, or downstream execution begins.
 
+```mermaid
+flowchart TD
+    A["Declared quarter-close earnings-release command window<br>with active checkpoint sequence"] -->|"Authoritative change arrives inside the governed window"| B["Refresh authoritative checkpoint, cutoff, readiness,<br>and delegate state"]
+    B -->|"Use current close, calendar, legal,<br>disclosure, and roster updates"| C["Resequence the live checkpoint ledger<br>for the declared release window"]
+    C -->|"No — prerequisite readiness or approved authority is still missing"| D["Place the affected checkpoint on explicit hold<br>in the authoritative ledger"]
+    C -->|"Yes — prerequisites and authority support the move"| E["Assemble one updated command packet<br>with participant deltas"]
+    D -->|"Carry hold state forward in the same packet"| E
+    E -->|"Hand updated packet to the named finance release lead"| F["Finance release lead adopts the resequenced packet"]
+    F -->|"Stop before filing submission, earnings recommendation,<br>investor communication, or downstream execution"| G["Authoritative resequenced ledger and adopted command packet"]
+```
+
 ## Target systems / source systems
 
 - Earnings-release command workspace containing the declared quarter-close scope, current checkpoint order, protected timing boundaries, and prior command packets
