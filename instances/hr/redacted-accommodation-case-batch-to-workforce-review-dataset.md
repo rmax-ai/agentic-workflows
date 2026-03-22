@@ -12,6 +12,19 @@ HR.
 
 An employee relations and accommodations governance team is preparing a quarterly review of how workplace accommodation requests are being handled across several operating regions. The raw batch includes case narratives from HR partners, medical documentation excerpts, manager emails, leave-coordination notes, vendor correspondence, and spreadsheet annotations about turnaround time, work restrictions, location constraints, and disputed interactive-process steps. Before any workforce policy review, cross-region governance discussion, or external counsel briefing can begin, the workflow must transform the batch into a redacted structured review dataset with case-level pseudonymous identifiers, normalized accommodation categories, request-stage fields, timeline markers, restricted-detail flags, coded escalation reasons, and trace links held inside the approved boundary while keeping medical specifics, employee identities, manager names, and site details out of the release-safe package.
 
+```mermaid
+flowchart TD
+    A["Restricted accommodation case batch"] -->|"ingests within approved<br>HR boundary"| B["De-identify, pseudonymize,<br>and normalize case content"]
+    B -->|"checks transformed batch"| C{"Residual-risk, policy conflict,<br>or misleading lossiness?"}
+    C -->|"yes"| D["Route flagged records to HR privacy,<br>employee relations, or legal<br>exception queue"]
+    D -->|"holds release pending review"| E["Reviewer corrects or confirms<br>safe transformations"]
+    E -->|"returns cleared records"| B
+    C -->|"no"| F["Assemble redacted workforce-review<br>dataset, trace links, and<br>approval manifest in staging"]
+    F -->|"submits batch for sign-off"| G{"Safe for intended<br>governance audience?"}
+    G -->|"no"| D
+    G -->|"yes"| H(["Stop at reviewed staging handoff<br>for workforce review dataset"])
+```
+
 ## Target systems / source systems
 
 - Restricted HR case-management repository holding accommodation case notes, attachments, and timeline updates
