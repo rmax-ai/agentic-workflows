@@ -40,6 +40,18 @@ This grounds the pattern in an engineering setting where the urgent problem is n
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    registry["Production package registries,<br>artifact repositories, and mirror telemetry systems"] -->|"Registry drift, republish events,<br>and checksum evidence"| case
+    provenance["Build provenance, signing-attestation,<br>and supply-chain verification stores"] -->|"Attestation lineage,<br>signature references, and digest links"| case
+    cicd["CI/CD orchestration,<br>runner attestation, and workload-identity systems"] -->|"Runner-pool anomalies,<br>token-use signals, and execution history"| case
+    sbom["SBOM generation, dependency-policy,<br>and source-control systems"] -->|"SBOM diffs, dependency substitutions,<br>and version-to-commit mappings"| case
+    case["Security case-management and escalation-routing tooling<br>duplicate-aware lineage, shared critical-case state,<br>packet revisions, and human-controlled handoff"] -->|"Shared critical-case state<br>and packet context"| agents
+    agents["Specialized agents or staged services<br>attestation review, runner-identity checks,<br>dependency lineage analysis, duplicate handling,<br>and escalation-packet assembly"] -->|"Corroboration, duplicate linkage,<br>and packet updates"| case
+    case -->|"Corroborated escalation packet<br>for governed review"| command
+    command["Human-controlled release-security command lane"] -->|"Review boundary and<br>routing control"| case
+```
+
 - Event-driven monitoring fits because provenance mismatches, signing anomalies, mirror drift, dependency-policy violations, and consumer verification failures can arrive asynchronously and materially change corroboration within minutes.
 - Orchestrated multi-agent or staged service roles fit because attestation review, runner-identity checks, dependency lineage analysis, duplicate handling, and escalation-packet assembly are specialized tasks that need one shared critical-case state.
 - Human-in-the-loop review remains necessary because even a recommendation-only critical packet can rapidly influence consequential downstream decisions about release trust, package availability, customer communication, and containment.
