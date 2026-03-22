@@ -12,6 +12,19 @@ Support.
 
 A premium support organization stages a structured escalation record for high-touch cases so duty managers, product specialists, and service-account teams can review one current package containing incident context, entitlement state, environment metadata, reproduction status, artifact pointers, and customer-approved logs. After the record is first assembled, the underlying source state often changes quickly: new diagnostic bundles arrive, entitlement corrections are posted, linked incidents are reclassified, environment snapshots are refreshed, and customer ticket updates clarify reproduction steps. Each authoritative change should trigger re-materialization of the staged escalation record, preserving a delta trace and source lineage while routing exceptions whenever conflicting severity, entitlement, or diagnostic evidence would make the refreshed package unsafe for downstream review.
 
+```mermaid
+flowchart TD
+    approved["Approved diagnostic bundle<br>change event"]
+    refresh["Refresh staged premium-support<br>escalation record"]
+    verify{"Do refreshed entitlement,<br>severity, and diagnostic fields remain<br>source-verifiable and schema-safe?"}
+    delta["Write current staged record<br>with delta trace and lineage"]
+    exception["Route refresh exception for<br>conflicting entitlement, severity,<br>or diagnostic evidence"]
+    approved -->|"authoritative change"| refresh
+    refresh --> verify
+    verify -->|"yes"| delta
+    verify -->|"no"| exception
+```
+
 ## Target systems / source systems
 
 - Support escalation staging system used by duty managers and specialist reviewers
