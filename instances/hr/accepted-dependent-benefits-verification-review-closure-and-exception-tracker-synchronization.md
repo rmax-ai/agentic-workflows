@@ -12,6 +12,19 @@ HR.
 
 A restricted benefits-verification review team has already recorded an accepted final disposition for a dependent-benefits verification exception case in the authoritative review system after the upstream specialists completed their decision-making work. That disposition is final for this workflow and must not be reopened, reinterpreted, or extended into eligibility adjudication, carrier enrollment changes, payroll deduction changes, employee communication, appeal handling, or policy reinterpretation. The remaining execute step is limited to low-risk post-decision closure bookkeeping: detect the accepted-disposition event, recheck that the worker-household case identifier, disposition version, and approved archive references still match the source record, close the restricted post-review queue item, sync the internal benefits exception tracker and dependent-verification case ledger to the recorded review-complete state, attach archive references for the final review memo and supporting evidence packet, record completion state in the audit store, and notify the internal benefits operations coordinator that closure propagation is complete. If the case was reopened, the disposition changed, the archive reference drifted, or the target tracker points to a different verification episode, the workflow should stop and route manual follow-up instead of guessing.
 
+```mermaid
+flowchart TD
+    A["Accepted final disposition<br>event detected"] --> B["Re-read authoritative review record<br>and compare case identifier,<br>disposition version, and archive references"]
+    B --> C{"Source state and target verification<br>episode still match?"}
+    C -- "No" --> D["Stop automatic closure<br>and route manual follow-up"]
+    C -- "Yes" --> E["Close restricted<br>post-review queue item"]
+    E --> F["Sync benefits exception tracker<br>and dependent-verification case ledger<br>to review-complete state"]
+    F --> G["Attach final review memo and<br>supporting evidence packet archive references"]
+    G --> H["Record completion state in audit store<br>and notify internal benefits<br>operations coordinator"]
+    H --> I["Closure propagation complete"]
+```
+
+
 ## Target systems / source systems
 
 - Restricted benefits-verification or dependent-eligibility review system that records the accepted final disposition and emits the authoritative state-change event
