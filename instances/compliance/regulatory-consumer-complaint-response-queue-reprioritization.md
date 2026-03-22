@@ -42,6 +42,21 @@ This grounds the optimization pattern in a compliance workflow where queue order
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    portal["Regulatory complaint portal<br>and correspondence tracker"]
+    servicing["Customer remediation and servicing systems"]
+    outcomes["Historical QA and outcome store"]
+    case_mgmt["Compliance case-management system<br>complaint intake, due dates, allegation tags,<br>owner assignments, and queue order"]
+    dashboard["Queue governance dashboard<br>supervisory review, freeze tuning,<br>and rollback controls"]
+
+    portal --> case_mgmt
+    servicing --> case_mgmt
+    outcomes --> case_mgmt
+    case_mgmt --> dashboard
+    dashboard --> case_mgmt
+```
+
 - Event-driven monitoring should trigger queue reevaluation when complaint volumes spike, statutory response windows narrow, protected-priority allegations enter the queue, or supervisors repeatedly override the current ordering.
 - A tool-using single agent can recompute bounded prioritization weights, simulate the effect on deadline exposure and reviewer load, and publish a revised ranked queue with case-level rationale for supervisory inspection.
 - Exception-gated autonomy fits because in-policy tuning can adjust ordering automatically within preapproved ranges, but larger changes to deadline buffers, fairness weights, or protected-priority handling should require supervisory review before activation.
