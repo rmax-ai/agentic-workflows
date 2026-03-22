@@ -12,6 +12,24 @@ Operations.
 
 A network operations knowledge team marks an updated delivery-exception dispatch playbook as published after posting a new revision for routine failed-delivery, address-clarification, and customer-unavailable cases. Regional dispatch leads still need to know whether that claimed publication state is actually true across the approved playbook surfaces before they rely on the new guidance during shift handoffs. The workflow checks authoritative evidence, applies freshness and cache-lag tolerances, and emits an explicit confirmed, disproved, or inconclusive verdict; it must not assign routes, contact drivers, reopen the playbook draft, or direct downstream dispatch work.
 
+```mermaid
+flowchart TD
+    intake["Intake publication-complete claim<br>for one dispatch playbook revision"]
+    checks["Check authoritative surfaces:<br>SOP repository revision and status,<br>dispatcher console pane,<br>supervisor portal, and<br>tablet-sync bundle freshness"]
+    match{"Do all in-scope authoritative surfaces<br>show the approved playbook revision?"}
+    lag{"Are remaining mismatches only within<br>the allowed freshness or cache-lag window?"}
+    confirmed["Emit confirmed verdict<br>with evidence trace"]
+    disproved["Emit disproved verdict<br>for stale or conflicting surface state"]
+    inconclusive["Emit inconclusive verdict<br>for still-tolerated propagation lag"]
+
+    intake --> checks
+    checks --> match
+    match -->|"yes"| confirmed
+    match -->|"no"| lag
+    lag -->|"yes"| inconclusive
+    lag -->|"no"| disproved
+```
+
 ## Target systems / source systems
 
 - Central dispatch SOP repository containing the approved playbook revision, publication status, and effective-from metadata
