@@ -12,6 +12,19 @@ Operations.
 
 An intermodal yard operations workflow has already prepared one exact recommendation packet revision for temporary overnight handling of delayed hazardous-goods containers after a main rail handoff window collapses and the ordinary segregated pad reaches its safe occupancy cap. The packet narrows the bounded options to release a recommendation for staging the named containers in one monitored overflow pad with class-compatible spacing, fire-watch coverage, and a twelve-hour dwell cap; release a narrower recommendation limited to the lowest-risk compatibility group with daylight-only onward transfer; or escalate to corporate dangerous-goods authority review, and it keeps blocked paths such as mixed-compatibility overflow stacking, use of an unmonitored trailer lot, or onward truck dispatch without renewed placard and seal inspection explicit. Before that exact packet revision can enter the restricted dangerous goods continuity board decision lane, a named operations release owner must approve the board audience, expiry window, and manifest binding so reviewers receive the governed recommendation artifact rather than a stale, broadened, or misrouted copy. The workflow stops at governed release of that packet revision; it does not decide whether overflow staging is allowed, resequence yard moves, issue driver instructions, or move any container.
 
+```mermaid
+flowchart TD
+    A["Exact hazardous-goods overflow<br>recommendation packet revision ready"]
+    B["Named operations release owner reviews<br>board audience, expiry, and manifest binding"]
+    C["Packet release held or superseded<br>when scope or supporting state changes"]
+    D["Approved release manifest binds<br>the exact packet revision and board lane"]
+    E["Approved packet revision enters the<br>dangerous goods continuity board lane"]
+    A --> B
+    B -->|"Scope or evidence changes"| C
+    B -->|"Approve exact release"| D
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Hazardous-goods recommendation workspace holding the current packet revision, bounded option set, blocked-path rationale, and superseded drafts
