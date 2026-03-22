@@ -12,6 +12,18 @@ HR.
 
 After a restricted protected-leave escalation, the leave operations team finds that the employee's current status has diverged across the leave case system, occupational-health review tracker, benefits administration ledger, and HR case notes. One system shows the leave episode still open with an active medical restriction review, another shows the occupational-health packet as complete but tied to a different effective date, and the benefits record reflects a continuation state that no longer matches the leave case timeline. Before HR leadership, occupational health, benefits, and employee-relations reviewers decide whether any downstream action is appropriate, the workflow must restore the trusted current state of the protected-leave episode, occupational-health review status, and benefits-state dependencies, while preserving explicit holds for every conflict that cannot yet be reconciled under approved source-of-truth rules.
 
+```mermaid
+flowchart TD
+    A["Restricted protected-leave<br>discrepancy scope"] -->|"starts restoration"| B["Collect leave, occupational-health,<br>benefits, and HR status evidence"]
+    B -->|"applies source-of-truth<br>and freshness rules"| C["Propose trusted protected-leave<br>current-state ledger"]
+    C -->|"checks for unresolved<br>state conflicts"| D{"Any material conflict,<br>stale source, or date mismatch?"}
+    D -->|"yes"| E["Place affected state on hold<br>and write discrepancy register"]
+    D -->|"no"| F["Assemble restricted trusted-state<br>handoff packet"]
+    E -->|"preserves provisional branches<br>with lineage"| F
+    F -->|"routes bounded output<br>for inspection"| G["Human reviewers inspect trusted state,<br>holds, and source lineage"]
+    G -->|"stops before downstream action"| H["Stop at trusted-state ledger,<br>hold register, and HR handoff packet"]
+```
+
 ## Target systems / source systems
 
 - Restricted leave case-management records, leave episode timelines, and reviewer notes used as candidate authoritative state for protected-leave status
