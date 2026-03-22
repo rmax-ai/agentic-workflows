@@ -12,6 +12,25 @@ Support.
 
 An enterprise support recovery workflow has already prepared one exact recommendation packet revision for a strategic-customer outage remedy package after a prolonged identity-service failure. The packet narrows the bounded options to release a capped service-credit and recovery-engineering package, release a narrower credit-only package tied to documented impact, or escalate to chief revenue and legal review, and it keeps blocked requests such as a multi-quarter fee holiday, contract rewrite, or permanent staffing overlay explicit. Before that exact packet revision can enter the restricted executive customer-review decision lane, a named support release owner must approve the audience scope, validity window, and release manifest so reviewers receive the governed recommendation artifact rather than a stale or over-shared copy. The workflow stops at governed release of that packet revision; it does not decide which recovery package is granted, post credits, amend the contract, or communicate the outcome to the customer.
 
+```mermaid
+flowchart TD
+    start["Exact enterprise recovery-package<br>recommendation packet revision ready"]
+    verify{"Packet hash, bounded option set,<br>and blocked remedy requests<br>still match?"}
+    scope{"Executive-review lane scope,<br>validity window, and manifest binding<br>still valid?"}
+    approve{"Named support release owner<br>approves bounded executive release?"}
+    hold["Hold packet revision<br>for manual follow-up<br>or supersession"]
+    release["Release exact packet revision<br>to executive customer-review lane<br>with bounded remedy options"]
+    handoff["Record manifest-bound handoff<br>and block forwarding outside<br>the approved executive lane"]
+    start --> verify
+    verify -->|"No"| hold
+    verify -->|"Yes"| scope
+    scope -->|"No"| hold
+    scope -->|"Yes"| approve
+    approve -->|"No"| hold
+    approve -->|"Yes"| release
+    release --> handoff
+```
+
 ## Target systems / source systems
 
 - Recovery-package recommendation workspace holding the current packet revision, bounded concession options, blocked-term notes, and superseded drafts
