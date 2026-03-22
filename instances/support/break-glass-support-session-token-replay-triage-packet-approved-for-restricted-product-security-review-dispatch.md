@@ -12,6 +12,23 @@ Support.
 
 A support trust team already has one evidence-backed triage packet assembled for a suspected replay of a short-lived break-glass support session token used during a severe enterprise troubleshooting escalation. Earlier monitoring already correlated privileged-session broker logs, remote-support console events, tenant-boundary alerts, case chronology, identity-provider sign-in records, and one duplicate escalation from a regional duty manager into a single bounded packet with explicit unresolved uncertainty. The next step is not to decide whether the activity was malicious, notify the customer, recommend compensating controls, choose incident authority, open a collaborative investigation room, or trigger remediation; it is to decide whether that exact triaged packet revision may cross into the restricted product security review lane that handles privileged-support misuse. The workflow watches packet freshness, annex minimization, named reviewer scope, and human approval state, then releases the packet only when the dispatch manifest authorizes that one protected downstream queue for that one packet revision.
 
+```mermaid
+flowchart TD
+    A["Triaged packet<br>ready for dispatch review"]
+    B["Check packet freshness<br>and exact revision"]
+    C["Verify annex minimization<br>and restricted reviewer scope"]
+    D["Approver signs dispatch manifest<br>for one packet revision"]
+    E["Dispatch exact packet revision<br>to restricted product security review lane"]
+    H["Hold dispatch<br>until freshness, minimization, or approval is restored"]
+    A --> B
+    B --> C
+    B --> H
+    C --> D
+    C --> H
+    D --> E
+    D --> H
+```
+
 ## Target systems / source systems
 
 - Severe-support incident intake and triage systems holding the already-triaged packet, duplicate-lineage record, affected-case identifiers, unresolved caveat markers, and the predeclared restricted product security review destination
