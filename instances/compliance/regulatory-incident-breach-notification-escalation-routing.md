@@ -44,6 +44,28 @@ This grounds the pattern in compliance through a case where the main value is go
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph Sources["Read-only evidence and policy sources"]
+        Audit["Audit issue-management workspace<br>original finding, control-test notes,<br>sampled records, and ownership state"]
+        Data["Data inventory, record-of-processing,<br>and schema repositories<br>data classes, subject categories,<br>approved uses, and jurisdiction tags"]
+        Logs["Access, DLP, and workspace-sharing logs<br>contractor visibility, download history,<br>retention windows, and containment state"]
+        Policy["Breach-notification, outside-counsel,<br>legal-privilege, and regulatory-reporting<br>policy library"]
+        Precedent["Prior privacy-incident,<br>reporting precedent, and escalation logs"]
+    end
+    subgraph Boundary["Recommendation-only escalation-routing boundary"]
+        Workflow["Escalation-routing workflow<br>compare triggers, authority lanes,<br>and blocked lower-authority paths"]
+    end
+    Reviewer["Human authority reviewers"]
+
+    Audit -->|"finding context and case state"| Workflow
+    Data -->|"data classification and jurisdiction context"| Workflow
+    Logs -->|"visibility, download, and retention evidence"| Workflow
+    Policy -->|"notification thresholds, privilege rules,<br>and mandatory escalation routes"| Workflow
+    Precedent -->|"comparable routing packets and outcomes"| Workflow
+    Workflow -->|"recommended lane and escalation packet"| Reviewer
+```
+
 - A recommendation-only workflow can combine audit evidence, data classification, access history, jurisdiction mapping, and escalation-policy triggers into one ranked routing recommendation.
 - Human-in-the-loop review is mandatory because privacy counsel, general counsel, breach-notification leaders, and regulatory-reporting owners must decide whether to accept the recommended lane and what downstream action is legally authorized.
 - Read-only integration with audit, data-governance, access-log, and policy systems is preferable so the workflow cannot send notices, open regulator filings, instruct containment work, or change legal-case records on its own.
