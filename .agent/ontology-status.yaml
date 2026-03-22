@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 272
+  instance_files: 273
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -65,14 +65,15 @@ instance_counts_by_domain:
   engineering: 39
   finance: 38
   compliance: 38
-  operations: 38
+  operations: 39
   research: 39
   support: 40
   hr: 40
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred seventy-two grounded examples across all seven currently modeled domains, with `support` and `hr` at forty, `engineering` and `research` at thirty-nine, and `finance`, `compliance`, and `operations` at thirty-eight; Phase 7 should keep favoring structurally distinct slice diversification while staying grounded in validation-backed repository counts."
+  - "The repository now has two hundred seventy-three grounded examples across all seven currently modeled domains, with `support` and `hr` at forty, `engineering`, `research`, and `operations` at thirty-nine, and `finance` plus `compliance` at thirty-eight; Phase 7 should keep favoring structurally distinct slice diversification while staying grounded in validation-backed repository counts."
+  - "`approval-packet-generation` now has additional `operations` grounding through a marine-terminal vapor-recovery outage loading-rate deviation approval-packet example, deepening that high-risk gather-family slice within operations through one governed process-safety committee packet with permit-limit evidence, vapor-control telemetry, outage findings, staffing attestations, provenance indexing, and visible blockers rather than committee recommendation, deviation adjudication, vessel-loading instruction, regulator communication, or live maintenance execution."
   - "`approval-gated-transformation-release` now has further `support` grounding through a regulated-customer audit-log export residency packet approved for a restricted sovereign-compliance intake lane, deepening that high-risk transform-family release-control slice within support beyond vendor-escalation intake by centering residency-zone normalization, key-custody references, stale-jurisdiction-attestation holds, tenant-fragment containment, and manifest-bound sovereign audience scope rather than residency adjudication, concession handling, customer communication, export execution, or downstream remediation."
   - "`approval-gated-collaborative-artifact-release` now has further `research` grounding through a controlled cohort small-cell suppression clarification packet approved for a restricted data-governance review intake lane, deepening that high-governance collaboration release slice within research beyond consent-language variance, publication-rights provenance, and sensitive-methods redaction by centering small-cell suppression disputes, cohort-linkage exposure, utility-preserving exception requests, and enclave-export assumptions rather than disclosure adjudication, dataset provisioning, journal communication, or downstream review decisions."
   - "`approval-gated-collaborative-artifact-release` now has further `engineering` grounding through a production crash-dump redaction clarification packet approved for a restricted privacy-engineering review intake lane, deepening that high-governance collaboration release slice within engineering beyond transitive-dependency license review by centering symbolization-scope disputes, customer-identifier leakage risk, retention-window conflicts, and debugging-evidence minimization rather than incident adjudication, debugger enablement, customer communication, or wider artifact sharing."
@@ -445,7 +446,7 @@ repo_reality:
     - "`shared-workbench-orchestration` now also has additional HR grounding through an internal hiring-panel interview-guide caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within HR beyond benefits FAQ maintenance while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than interviewer-guidance approval, policy adjudication, candidate communication, or hiring execution."
     - "`shared-workbench-orchestration` now also has additional support grounding through an internal premium-support diagnostic-runbook caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within support beyond workaround-article staging while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than runbook approval, customer communication, or live incident execution."
     - "`claimed-state-verification` now also has additional HR grounding through an internal job-architecture handbook publication verification example, proving that a second low-risk HR verification slice can deepen the domain without reopening canonical pattern or browse-view work."
-    - "Operations now sits at thirty-seven grounded instances while engineering, finance, compliance, research, and support stand at thirty-eight and hr stands at thirty-nine, so the next refinement can deepen the thin operations surface while still favoring structurally distinct non-collaboration slices over pure count chasing."
+    - "Finance and compliance now sit at thirty-eight grounded instances while engineering, research, and operations stand at thirty-nine and support plus hr stand at forty, so the next refinement can deepen one of the thinner finance or compliance surfaces while still favoring structurally distinct non-collaboration slices over pure count chasing."
   next_action:
-    id: phase-7-next-distinct-operations-leaning-instance-depth
-    summary: "Use the next iteration to add another materially distinct instance-only refinement outside both `approval-gated-collaborative-artifact-release` and `approval-gated-briefing-release`, preferably one that also deepens the now-thinner `operations` domain unless the new grounding exposes directly coupled canonical drift."
+    id: phase-7-next-distinct-finance-or-compliance-instance-depth
+    summary: "Use the next iteration to add another materially distinct instance-only refinement outside `approval-packet-generation`, `approval-gated-collaborative-artifact-release`, and `approval-gated-briefing-release`, preferably one that deepens a now-thinner `finance` or `compliance` slice unless the new grounding exposes directly coupled canonical drift."
