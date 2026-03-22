@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 293
+  instance_files: 294
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -68,11 +68,12 @@ instance_counts_by_domain:
   operations: 42
   research: 43
   support: 42
-  hr: 41
+  hr: 42
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred ninety-three grounded examples across all seven currently modeled domains, with `research` and `compliance` at forty-three; `operations` and `support` at forty-two; and `engineering`, `finance`, and `hr` at forty-one. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has two hundred ninety-four grounded examples across all seven currently modeled domains, with `research` and `compliance` at forty-three; `operations`, `support`, and `hr` at forty-two; and `engineering` and `finance` at forty-one. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`policy-constrained-escalation-routing` now has its first `hr` grounding through an executive retaliation-concern protected-review escalation-routing example, deepening that high-governance recommendation slice beyond compliance breach-notification, operations cold-chain compressor failure, and support sovereign-artifact handling coverage by centering one exact protected workplace-concern case with disclosure linkage, executive-conflict rules, blocked lower-authority paths, and governed packet assembly rather than retaliation adjudication, employee outreach, leadership communication, or downstream case execution."
   - "`explainable-watchlist-maintenance` now has its first `compliance` grounding through a records-retention taxonomy drift watchlist example, deepening that low-risk monitor-family upkeep slice beyond engineering CI warnings, research benchmark metadata hygiene, and support article confusion coverage by centering one exact records-governance watchlist with explainable grouping, bounded suppression, healthy-state checks, migration-window context, and routine stewardship publication rather than retention-law interpretation, legal-hold decisioning, escalation routing, or metadata-change execution."
   - "`critical-protected-artifact-collaboration` now has its first `hr` grounding through a workplace-violence threat protected assessment-packet collaboration-room example, deepening that critical human-agent collaboration slice beyond engineering signing-key compromise, finance liquidity-stress funding review, and compliance sanctions regulator-position coverage by centering one exact HR severe-case packet with visible disagreement, restricted annex boundaries, explicit human artifact ownership, and bounded handoff readiness rather than authority selection, protective-action decisions, employee communications, law-enforcement coordination, leave or discipline administration, or workplace response execution."
   - "`critical-authoritative-state-restoration` now has its first `research` grounding through an emergency unblinding and investigational-product quarantine state-truth restoration example, deepening that critical investigate-family trusted-current-state slice beyond finance liquidity, compliance sanctions-hold, operations contamination-lot, and HR protected-leave coverage by centering one exact emergency-unblinding and product-control picture across the interactive response technology system, restricted code-break ledger, site pharmacy accountability records, and safety command workspace with explicit unresolved truth gaps and governed handoff rather than root-cause diagnosis, site communication, dosing decisions, protocol deviation adjudication, authority notification, or downstream study action."
