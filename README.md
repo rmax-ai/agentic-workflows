@@ -1,6 +1,4 @@
-# agentic-workflows
-
-[![Publish Site](https://github.com/rmax-ai/agentic-workflows/actions/workflows/publish-site.yml/badge.svg)](https://github.com/rmax-ai/agentic-workflows/actions/workflows/publish-site.yml)
+# Agentic Workflows
 
 A pattern-first ontology of agentic workflows.
 
