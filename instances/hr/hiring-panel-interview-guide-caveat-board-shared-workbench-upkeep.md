@@ -12,6 +12,17 @@ HR.
 
 A talent acquisition enablement team maintains an internal interview-guide caveat board while recruiting operations leads, regional HR partners, interviewer-training reviewers, and hiring-program owners continuously refine interviewer-instruction coverage for a recurring hiring loop. Small updates arrive throughout the cycle: one reviewer links a revised scorecard note, a regional partner flags a stale locale-specific prohibited-question example, a training reviewer marks one screenshot as outdated, and a program owner reassigns section ownership after recruiter rotation. The agent keeps that internal workbench usable by refreshing linked source references, normalizing duplicate caveat notes, updating section ownership and hold markers, and carrying unresolved local-guidance questions forward in a visible register. Humans remain responsible for deciding what interviewing guidance is actually approved, which wording is legally or policy-safe, whether any note changes evaluation criteria, and when any material should move into separate training release, policy review, candidate communication, or hiring execution workflows.
 
+```mermaid
+flowchart TD
+    A["Recruiting operations leads,<br>regional HR partners, training reviewers,<br>and program owners add small updates"] -->|"triggers upkeep cycle"| B["Agent checks the caveat board,<br>linked sources, and prior hold state"]
+    B -->|"tests boundary and source fit"| C{"Update stays inside internal<br>workbench upkeep?"}
+    C -->|"yes"| D["Agent refreshes source links,<br>deduplicates caveat notes,<br>and updates owners or hold markers"]
+    D -->|"writes bounded board changes"| E["Shared interview-guide caveat board<br>remains current and inspectable"]
+    D -->|"carries forward unresolved items"| F["Open local-guidance questions<br>and blockers stay visible"]
+    C -->|"no"| G["Hold for named human owner<br>because interpretation, approval,<br>or release work is out of scope"]
+    G -->|"stops at internal handoff"| H["Stop before training release,<br>policy review, candidate communication,<br>or hiring execution"]
+```
+
 ## Target systems / source systems
 
 - Shared interview-guide caveat board with topic sections, owner fields, blocker tags, and revision history
