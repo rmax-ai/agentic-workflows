@@ -12,6 +12,31 @@ Support.
 
 After initial triage has already confirmed a customer-impacting access issue, an enterprise support investigation team must determine why several tenant administrators suddenly lost access to audit exports, billing controls, and user-management actions during a contract-renewal week. The plausible causes conflict: an entitlement sync may have applied the wrong package after a SKU migration, a stale identity-provider group mapping may have overwritten product roles, a region-specific configuration flag may have disabled the admin bundle for one shard, or a responder may have removed a temporary override during an earlier support case without recognizing its downstream impact. The workflow reconciles case history, product telemetry, entitlement snapshots, audit evidence, and responder notes into a defensible explanation of what failed, what remains uncertain, and which checks still need human follow-through before anyone promises remediation, declares a security incident, or sends a customer-facing root-cause statement.
 
+```mermaid
+flowchart TD
+E["Case history, entitlement telemetry, identity sync, config history, and responder notes<br>normalized to the incident window"]
+T["Reconciled evidence timeline<br>observed facts only"]
+H1["Hypothesis 1: SKU migration applied the wrong package<br>compared with entitlement snapshots and migration events"]
+H2["Hypothesis 2: Stale identity-provider mapping overwrote product roles<br>compared with sync records, group changes, and claims"]
+H3["Hypothesis 3: Region-specific configuration disabled the admin bundle<br>compared with shard settings and rollout history"]
+H4["Hypothesis 4: Earlier support override removal caused the loss<br>compared with case history and responder handoff notes"]
+M["Supporting and disconfirming evidence matrix<br>keeps competing explanations visible"]
+R["Most defensible explanation<br>ranked by evidence strength and fit to the timeline"]
+U["Residual uncertainty and remaining verification gaps<br>stated explicitly before conclusion handoff"]
+E --> T
+T --> H1
+T --> H2
+T --> H3
+T --> H4
+H1 --> M
+H2 --> M
+H3 --> M
+H4 --> M
+M --> R
+M --> U
+R --> U
+```
+
 ## Target systems / source systems
 
 - Support case history, escalation notes, prior workaround records, and severity timeline for the affected tenant
