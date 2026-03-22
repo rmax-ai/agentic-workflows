@@ -38,6 +38,16 @@ This grounds the pattern in engineering where the reusable problem is release co
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    evidence["Upgrade readiness<br>evidence sources"] --> workspace["Architecture-exception workspace<br>with current recommendation packet revision"]
+    workspace --> manifest["Approval manifest and routing tooling<br>for exact packet hash and board scope"]
+    rules["Governance rule repository"] --> manifest
+    owner["Named release-governance owner"] --> manifest
+    manifest --> lane["Architecture board<br>decision lane"]
+    manifest --> ledger["Audit and supersession ledger"]
+```
+
 - Approval-gated execution fits because the recommendation packet remains held until a human release owner approves one exact revision for the architecture board decision lane.
 - Human-in-the-loop review remains necessary because only accountable engineering governance owners should decide whether the packet is safe to release without implying that the waiver decision is already approved.
 - A governed agent can verify packet hashes, compare superseded revisions, assemble the manifest, and block broadened distribution, but it should not rewrite the recommendation or convert release approval into upgrade authorization.
