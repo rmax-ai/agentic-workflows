@@ -19,6 +19,9 @@ domain:
   - id: compliance
     label: Compliance
     source_vocabulary: domains
+  - id: operations
+    label: Operations
+    source_vocabulary: domains
   - id: research
     label: Research
     source_vocabulary: domains
