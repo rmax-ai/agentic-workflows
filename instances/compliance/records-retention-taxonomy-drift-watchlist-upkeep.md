@@ -39,6 +39,21 @@ This grounds `explainable-watchlist-maintenance` in compliance work where recurr
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Repository and content sources<br>retention labels, jurisdiction tags,<br>disposal-trigger fields, classification timestamps"]
+    B["Retention taxonomy and crosswalk sources<br>current class identifiers, retired aliases,<br>approved migration windows, business-unit mappings"]
+    C["Steward ownership directory<br>content custodians, governance coordinators,<br>approved backup reviewers"]
+    D["Routine records-hygiene queue and watchlist<br>merged drift items, steward context,<br>suppression state, scheduled upkeep view"]
+    E["Searchable audit log<br>merges, suppressions, removals,<br>queue publication history"]
+
+    A -->|"Provide recurring drift signals<br>and healthy classification updates"| D
+    B -->|"Provide retention taxonomy truth<br>and crosswalk context"| D
+    C -->|"Provide steward ownership<br>and backup reviewer context"| D
+    D -->|"Record watchlist merges, suppressions,<br>removals, and queue publication state"| E
+    E -->|"Provide prior suppression<br>and publication history"| D
+```
+
 - Event-driven monitoring fits because the watchlist should refresh as new classification scans, taxonomy updates, and healthy-state checks arrive across repositories.
 - A tool-using single agent can merge repeated taxonomy-drift signals, retrieve bounded ownership and migration-window context, and maintain one explainable records-hygiene watchlist.
 - Exception-gated autonomy is appropriate because routine low-stakes watchlist upkeep can run automatically, while signals touching active legal holds, imminent disposition windows, or unresolved policy-boundary questions should escalate out of scope.
