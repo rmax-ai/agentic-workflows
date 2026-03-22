@@ -48,6 +48,28 @@ This grounds the pattern in a compliance workflow where schedule-state freshness
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    tracker["Remediation tracker<br>committed milestone, required review roles,<br>and prior coordination state"]
+    validation["Validation and evidence systems<br>authoritative completion timestamps<br>and readiness state"]
+    calendars["Team calendars and delegate records<br>review-board availability, approved alternates,<br>and steering-committee lock windows"]
+    refresh["Control-remediation sign-off review<br>coordination refresh"]
+    workspace["Compliance coordination workspace<br>packet versions, acknowledgements,<br>tentative status, and lineage"]
+    notices["Meeting and notification tools<br>targeted delta notices and<br>authoritative invite status"]
+    owner["Compliance controls director or<br>designated remediation owner<br>adoption checkpoint"]
+    exceptions["Bounded exception queue<br>milestone-risk, authority-change, and<br>unresolved acknowledgement holds"]
+
+    tracker -->|"Provides committed milestone,<br>required roles, and prior packet state"| refresh
+    validation -->|"Provides authoritative validation completion<br>timestamps and evidence readiness"| refresh
+    calendars -->|"Provides latest acceptable review window,<br>approved alternates, and attendee availability"| refresh
+    workspace -->|"Provides current packet version,<br>acknowledgements, and lineage history"| refresh
+    refresh -->|"Writes refreshed packet state,<br>tentative status, and lineage updates"| workspace
+    refresh -->|"Publishes targeted attendee and timing<br>delta notices without replacing invite history"| notices
+    refresh -->|"Presents materially changed coordination state<br>for explicit adoption"| owner
+    owner -->|"Returns adoption or hold decision<br>for the refreshed packet"| refresh
+    refresh -->|"Routes deadline breaches, unsupported authority<br>changes, or acknowledgement gaps"| exceptions
+```
+
 - Event-driven monitoring should listen only to approved remediation-calendar, validation-completion, and delegate-state changes that affect the existing sign-off packet.
 - Exception-gated autonomy fits because packet refresh, targeted notice publication, and lineage updates can proceed automatically for in-policy changes while sensitive authority or deadline shifts remain gated.
 - The compliance controls director or designated remediation owner should adopt materially changed schedule state before the refreshed review packet becomes authoritative.
