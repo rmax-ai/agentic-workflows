@@ -12,6 +12,20 @@ Support.
 
 An enterprise support intake specialist receives a severity-escalation packet after a customer reports that a production identity federation outage is blocking workforce login across multiple regions. The source packet includes the original support ticket export, email updates from the customer admin, screenshots of failed SSO flows, a sanitized HAR-summary attachment, a CRM entitlement snapshot, an account-team escalation note, and a bridge-request template with named responders. Before support leadership decides whether to open a formal severity-one bridge or page additional engineering teams, the workflow must transform the packet into a structured escalation staging record with the required fields for tenant identity, affected environment, impacted product surface, first-observed timestamp, customer-declared business impact, entitled response tier, approved contacts, attached diagnostic artifacts, privacy flags, and source-evidence links while preserving contradictions and uncertainty.
 
+```mermaid
+flowchart TD
+    intake["Packet intake<br>Support specialist receives outage evidence packet"]
+    extract["Field extraction and normalization<br>Parse ticket export, emails, screenshots, HAR summary, CRM snapshot, and escalation template into schema-aligned candidate fields"]
+    check["Schema and policy checks<br>Validate required fields, provenance coverage, privacy flags, contradictions, and confidence thresholds"]
+    exception["Exception routing<br>Send low-confidence, conflicting, or boundary-violating packets to support duty-manager review"]
+    handoff["Staged escalation-record handoff<br>Write structured escalation staging record with trace links for downstream leadership review"]
+
+    intake --> extract
+    extract --> check
+    check --> handoff
+    check --> exception
+```
+
 ## Target systems / source systems
 
 - Support case-management or severity-escalation staging system with a defined intake schema for enterprise incident records
