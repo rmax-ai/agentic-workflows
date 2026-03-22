@@ -12,6 +12,19 @@ HR.
 
 A people operations team maintains a controlled leave-intake policy package covering intake-form wording, required supporting documents, jurisdiction-specific notice language, handoff checkpoints to payroll and benefits, and approved vendor workflow notes. When the policy package is revised, case coordinators need a grounded digest showing what changed, which prior intake requirements still stand, and which counsel or vendor clarifications remain unresolved. The workflow should stop at a briefing artifact for people operations leads and case managers; it should not determine employee eligibility, recommend accommodations, or execute any case update in downstream HR systems.
 
+```mermaid
+flowchart TD
+    A["Authoritative leave-intake package<br>publication event"] -->|"triggers digest refresh"| B["Retrieve current approved package<br>and prior approved baseline"]
+    B -->|"collect linked authoritative sources"| C["Gather current templates,<br>jurisdiction guidance, and vendor notes"]
+    C -->|"compare with baseline"| D["Assemble change-context digest"]
+    D -->|"identify carry-forward items"| E["Summarize changed instructions,<br>unchanged requirements, and source traces"]
+    E -->|"alignment gap found"| F{"Jurisdiction map or vendor note<br>missing or unresolved?"}
+    F -->|"yes"| G["Record open clarification item<br>in briefing workspace"]
+    F -->|"no"| H["Publish briefing artifact for<br>people operations leads and case managers"]
+    G -->|"include unresolved questions"| H
+    H -->|"workflow boundary ends"| I["Stop at briefing artifact<br>without case decisions or system updates"]
+```
+
 ## Target systems / source systems
 
 - HR policy repository containing the current approved leave-intake package, superseded versions, and publication metadata
