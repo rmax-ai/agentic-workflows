@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement diversified `contingency-plan-activation-gate` through `instances/research/clinical-trial-emergency-unblinding-manual-continuity-activation-gate.md`, adding a materially distinct `research` example in that approval-bound planning slice.
-- Result check: the new research example stayed bounded at one activation-ready emergency-unblinding continuity packet with sealed treatment-code custody, medical-monitor and pharmacy coverage, participant-identity crosswalk control, protocol-specific eligibility checks, and audit-trail readiness while avoiding unblinding execution, site notification, study-record updates, or study-conduct changes.
-- Read-first set used this iteration: this plan; `data/patterns/plan-coordinate-schedule/contingency-plan-activation-gate.yaml`; `instances/compliance/serious-adverse-event-manual-intake-continuity-activation-gate.md`; `instances/engineering/critical-security-patch-offline-signing-continuity-activation-gate.md`; `instances/finance/intraday-liquidity-contingency-funding-facility-activation-gate.md`; `instances/operations/network-cold-chain-emergency-reroute-activation-gate.md`; the relevant planning notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-025258.md`.
-- Boundary check: the new example preserved one named approval gate, explicit readiness prerequisites, packet lineage, and protected holds while stopping before manual unblinding, protocol execution, participant or reviewer communication, or downstream operational action.
+- Active target: Phase 7 structural refinement should diversify `contingency-plan-activation-gate` through one materially distinct `support` example centered on a secure customer support portal outage and a governed fallback path for restricted enterprise evidence intake.
+- Intended result check: the new support example should stay bounded at one activation-ready continuity packet with verified named-account coverage, customer-identity confirmation controls, restricted evidence-channel readiness, chain-of-custody logging, and executive or duty-manager approval ownership while avoiding actual fallback-channel opening, customer artifact transfer, vendor escalation, customer communication, or incident remediation execution.
+- Read-first set for this iteration: this plan; `data/patterns/plan-coordinate-schedule/contingency-plan-activation-gate.yaml`; `instances/compliance/serious-adverse-event-manual-intake-continuity-activation-gate.md`; `instances/engineering/critical-security-patch-offline-signing-continuity-activation-gate.md`; `instances/finance/intraday-liquidity-contingency-funding-facility-activation-gate.md`; `instances/operations/network-cold-chain-emergency-reroute-activation-gate.md`; `instances/research/clinical-trial-emergency-unblinding-manual-continuity-activation-gate.md`; `instances/support/customer-escalation-bridge-scheduling.md`; `instances/support/contractual-post-incident-rca-readout-scheduling.md`; `instances/support/enterprise-security-incident-remediation-credit-package-readiness-loop.md`; the relevant planning notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-025852.md`.
+- Boundary check: the new example should preserve one named approval gate, explicit readiness prerequisites, packet lineage, and protected holds while stopping before fallback evidence intake starts, customer or vendor messages are sent, or downstream incident-response action begins.
 
 ## Current phase
 
@@ -24,7 +24,7 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Continue Phase 7 with one instance-only refinement centered on `contingency-plan-activation-gate`, preferring the remaining `support` or `hr` domain slices unless a stronger directly coupled planning gap emerges during the read-first pass.
+1. Continue Phase 7 with one instance-only refinement centered on `contingency-plan-activation-gate`, now targeting `support` through a secure customer evidence-intake continuity activation gate unless the authoring pass reveals a direct duplication risk.
 2. Keep the next batch instance-only unless the new grounding exposes a real canonical or browse-view drift; otherwise do not reopen schema, vocabularies, or views.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the next content change.
 4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
