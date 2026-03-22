@@ -12,6 +12,18 @@ HR.
 
 An HR operations specialist needs to submit an approved employee status change for a shift supervisor moving from hourly to salaried payroll after promotion. The target payroll platform is browser-only, requires multiple tabs for compensation, effective date, tax handling, and benefits eligibility, and the submission may proceed only after the manager, HR business partner, and payroll approver have all signed off in the case system.
 
+```mermaid
+flowchart TD
+    A["Approved status change packet<br>and supporting form are ready"] -- "enters review" --> B{"Manager, HR business partner,<br>and payroll approvals verified<br>in the case system?"}
+    B -- "no" --> C["Stop / hold submission<br>until required approvals exist"]
+    B -- "yes" --> D["Open the browser-only HRIS or payroll portal<br>and enter status, compensation, effective date,<br>tax handling, and benefits eligibility"]
+    D -- "checks against approved data and rules" --> E{"Effective-date conflict,<br>payroll cutoff issue, or portal mismatch?"}
+    E -- "yes" --> F["Stop safely and hand over from saved state<br>for human payroll review"]
+    E -- "no" --> G["Re-verify approval state in the case system<br>immediately before final submission"]
+    G -- "approval state confirmed" --> H["Submit the payroll status change<br>in the portal"]
+    H -- "records outcome" --> I["Capture confirmation number,<br>screenshots, and exception notes<br>in the evidence store"]
+```
+
 ## Target systems / source systems
 
 - HR case-management system with manager, HRBP, and payroll approvals
