@@ -12,6 +12,22 @@ Support.
 
 Support leadership has already activated an executive bridge after a widespread enterprise admin lockout leaves multiple premium customers unable to recover tenant access. Before anyone promises workaround timelines, approves customer communications, offers concessions, or coordinates downstream remediation, the workflow needs one grounded crisis brief that merges verified affected-account scope, active entitlement and escalation obligations, product-incident status, security-handling constraints, known workaround availability, and unresolved customer-impact questions. The useful output is a provenance-preserving support crisis brief that distinguishes binding account facts and active incident state from anecdotal bridge chatter or stale case commentary so human leaders can manage a severe customer event from one inspectable narrative.
 
+```mermaid
+flowchart TD
+    trigger["Executive bridge activated<br>crisis brief requested"]
+    retrieve["Retrieve current evidence<br>affected-account scope, entitlement state, incident status, security constraints"]
+    rank["Rank and align evidence<br>authoritative records over bridge chatter and stale case notes"]
+    gaps["Surface uncertainty register<br>open customer-impact questions, workaround unknowns, freshness gaps"]
+    brief["Assemble prioritized crisis brief<br>verified scope first, active obligations next, unresolved questions last"]
+    handoff["Stop at crisis-brief handoff<br>no commitments, concessions, or remediation execution"]
+
+    trigger --> retrieve
+    retrieve --> rank
+    rank --> gaps
+    gaps --> brief
+    brief --> handoff
+```
+
 ## Target systems / source systems
 
 - Executive support bridge workspace where reviewed briefs, restricted notes, and superseded updates are stored
