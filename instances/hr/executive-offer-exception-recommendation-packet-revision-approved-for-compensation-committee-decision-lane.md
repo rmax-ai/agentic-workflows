@@ -12,6 +12,17 @@ HR.
 
 An executive recruiting workflow has already prepared one exact recommendation packet revision for a senior-leader offer exception. The packet narrows the bounded options to release a capped sign-on plus relocation exception package, release a narrower in-band compensation mix with deferred equity treatment, or escalate to the chief people officer for broader review, and it keeps blocked requests such as guaranteed severance, an off-cycle level change, or open-ended housing support explicit. Before that exact packet revision can enter the restricted compensation committee decision lane, a named total-rewards release owner must approve the committee scope, validity window, and release manifest so committee members receive the governed recommendation artifact rather than a stale or redistributed copy. The workflow stops at governed release of that packet revision; it does not decide which offer exception is approved, issue the offer letter, or communicate terms to the candidate.
 
+```mermaid
+flowchart TD
+    A["Exact recommendation packet revision ready<br>with bounded options and blocked terms"] -- "Review for release" --> B["Review committee scope, validity window,<br>and release manifest for that revision"]
+    B -- "Check current state" --> C{"Packet state or committee scope<br>changed during release review?"}
+    C -- "Yes" --> D["Hold and supersede the packet revision<br>before any committee routing"]
+    C -- "No" --> E{"Named total-rewards release owner<br>approves release into the committee lane?"}
+    E -- "No" --> F["Keep the packet held<br>outside the compensation committee lane"]
+    E -- "Yes" --> G["Release the exact packet revision<br>through the approved manifest to the named<br>compensation committee lane only"]
+    G -- "Stop at handoff" --> H["Stop at governed committee handoff<br>no committee decision, offer letter,<br>or candidate communication"]
+```
+
 ## Target systems / source systems
 
 - Executive offer-exception workspace holding the current recommendation packet revision, bounded option set, blocked-term rationale, and superseded drafts
