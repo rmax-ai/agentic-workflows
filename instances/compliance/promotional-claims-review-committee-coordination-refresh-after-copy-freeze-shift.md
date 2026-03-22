@@ -49,6 +49,27 @@ This grounds the pattern in a compliance governance workflow where one already-i
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    governance["Promotional-review governance record<br>scope, required roles, and prior packet version"]
+    calendars["Brand operations and medical-legal-regulatory calendars<br>copy-freeze deadlines and committee-slot moves"]
+    delegates["Team calendars, delegate mappings,<br>and role eligibility records"]
+    substantiation["Claim-substantiation repository<br>packet-ready timestamps and evidence-freeze state"]
+    workspace["Compliance coordination workspace<br>refreshed packet, tentative hold, lineage,<br>and adoption state"]
+    notices["Notification and meeting tooling<br>targeted delta notices and invite history"]
+    owner["Advertising-compliance owner<br>adoption checkpoint"]
+    exceptions["Bounded exception routing<br>policy or feasibility issues"]
+
+    governance -->|"Current packet<br>and guardrails"| workspace
+    calendars -->|"Approved copy-freeze<br>and slot changes"| workspace
+    delegates -->|"Delegate coverage<br>and role state"| workspace
+    substantiation -->|"Substantiation-ready<br>timestamps"| workspace
+    workspace -->|"Targeted delta notices"| notices
+    workspace -->|"Changed state<br>for adoption"| owner
+    owner -->|"Adopted refresh<br>or hold state"| workspace
+    workspace -->|"Boundary breach<br>or no feasible window"| exceptions
+```
+
 - Event-driven monitoring should react only to approved copy-freeze updates, authoritative substantiation-ready changes, and governed delegate-state changes that affect the issued review packet.
 - Exception-gated autonomy fits because the workflow can refresh the packet, revise the tentative hold, and issue targeted participant notices automatically when changes remain inside promotional-governance and authority guardrails.
 - The advertising-compliance owner should adopt any changed meeting time, required-attendee substitution, or copy-freeze-sensitive shift before the refreshed packet becomes authoritative.
