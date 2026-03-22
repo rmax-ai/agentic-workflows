@@ -12,6 +12,29 @@ Research.
 
 A research biosafety office already has one evidence-backed triage packet assembled for a near-miss exposure event involving a high-consequence pathogen study. Earlier monitoring already merged badge-access logs, cabinet alarm telemetry, specimen inventory references, training and fit-test records, duplicate incident notices from the principal investigator and lab manager, and one recent containment-engineering clarification into a single bounded packet. The next step is not to determine whether an exposure occurred, classify severity, notify regulators, initiate medical surveillance, suspend experiments, or direct lab operations; it is to decide whether that exact triaged packet revision may cross into the restricted biosafety oversight review lane that handles high-consequence containment incidents. The workflow watches packet freshness, annex minimization, approval state, and lane-boundary rules, then releases the packet only when the named biosafety approver signs the dispatch manifest for that one protected downstream review queue.
 
+```mermaid
+flowchart TD
+    packet["Near-miss exposure<br>triage packet revision queued"]
+    freshness["Packet freshness<br>and cited-source check"]
+    minimization["Annex minimization<br>scope check"]
+    signer["Named biosafety approver<br>signoff check"]
+    boundary["Restricted oversight review<br>lane boundary check"]
+    hold["Dispatch hold register<br>for stale, over-broad, unsigned,<br>or out-of-bound packets"]
+    manifest["Dispatch manifest<br>bound to exact packet revision"]
+    lane["Restricted biosafety oversight<br>review dispatch"]
+
+    packet --> freshness
+    freshness --> minimization
+    freshness --> hold
+    minimization --> signer
+    minimization --> hold
+    signer --> boundary
+    signer --> hold
+    boundary --> manifest
+    boundary --> hold
+    manifest --> lane
+```
+
 ## Target systems / source systems
 
 - Laboratory incident intake and triage systems holding the already-triaged near-miss packet, duplicate lineage, facility identifiers, event timeline, and unresolved caveat markers
