@@ -12,6 +12,17 @@ Operations.
 
 An airport facilities duty manager, a terminal operations continuity lead, and fire-life-safety governance partners are co-producing one governed smoke-control impairment clarification packet because a major terminal concourse has partial damper-actuator failures during a peak-travel week and the organization cannot let ad hoc email threads define what downstream reviewers see. Agents help reconcile building automation alarms, last-pass functional test results, compensating patrol plans, occupancy-loading assumptions, code-variance notes, and reviewer objections into the shared packet while preserving which concerns remain unresolved and which residual caveats the human artifact owner accepted explicitly. The workflow ends only when the named operations release owner approves that exact packet revision for one bounded fire-protection engineering review intake lane, where downstream reviewers may decide whether the impairment package is sufficient for formal facilities-safety review or needs narrower scope and fresher evidence. It does not adjudicate occupancy posture, authorize maintenance deferral, notify tenants or regulators, or execute compensating patrols.
 
+```mermaid
+flowchart TD
+    A["Building automation, fire alarm,<br>smoke-control test, and maintenance systems<br>provide fault records and evidence"] -->|"support packet update"| B["Governed collaboration workspace maintains<br>the smoke-control impairment clarification packet,<br>revision history, and objection ledger"]
+    C["Facilities duty manager, terminal continuity lead,<br>fire-life-safety governance partners,<br>and agent support co-produce the packet"] -->|"update exact revision"| B
+    B -->|"submit exact revision,<br>residual objections, and scope"| D["Named operations release owner reviews<br>the exact packet revision for one bounded<br>fire-protection engineering intake lane"]
+    D -->|"hold release for stale evidence,<br>scope change, or blocking unresolved issue"| E["Approval-routing, audit, and retention systems<br>record the held release or superseded revision"]
+    D -->|"approve exact revision for one intake lane"| F["Approval-routing, audit, and retention systems<br>bind the approved packet revision,<br>signers, and handoff traceability"]
+    F -->|"handoff approved packet only"| G["Fire-protection engineering review intake lane"]
+    G -->|"stop at intake handoff"| H["Workflow boundary stop;<br>no engineering adjudication,<br>occupancy posture decision,<br>notifications, or patrol execution"]
+```
+
 ## Target systems / source systems
 
 - Governed facilities-operations collaboration workspace holding the smoke-control impairment clarification packet, revision history, objection ledger, and release-manifest state
