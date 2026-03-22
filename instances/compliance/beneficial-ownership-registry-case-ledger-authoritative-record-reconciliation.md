@@ -12,6 +12,15 @@ Compliance.
 
 After a cross-border entity restructuring and a time-compressed annual review, a compliance operations team discovers that the current beneficial ownership picture for several regulated subsidiaries no longer agrees across the internal KYC case ledger, the corporate transparency registry snapshot, the legal-entity master, and the sanctions-screening ownership graph. One source shows a newly added intermediate holding company with an effective date tied to board approval, another still treats the prior natural-person controller as the active reportable owner, and the most recent review packet contains supporting ownership percentages that match the new chain but not the controlling-person designation now reflected in one downstream system. Before any registry amendment is filed, any customer risk tier is changed, any alert disposition is revisited, or any team decides whether the drift came from late filings, mapping error, or stale ingestion, the workflow must restore one trusted current beneficial ownership state for each affected entity, keep unresolved conflicts visible, and hand off a correction-ready package for controlled record repair.
 
+```mermaid
+flowchart TD
+    A["Conflicting current beneficial ownership records detected<br>across the case ledger, registry snapshot, legal-entity master, and screening graph"] -- "Collect bounded current-state extracts and evidence" --> B["Match each affected entity and align owner identity, controller designation, ownership percentages, and effective dates"]
+    B -- "Apply approved source-precedence and freshness rules" --> C["Build one reconciled authoritative current beneficial ownership state<br>with field-level lineage"]
+    B -- "Keep unresolved conflicts visible" --> D["Place the entity in explicit reconciliation hold<br>with discrepancy details and exception lineage"]
+    C -- "Stage controlled record repair inputs" --> E["Produce a correction-ready handoff package<br>for controlled record repair"]
+    D -- "Route unresolved issues without downstream action" --> E
+```
+
 ## Target systems / source systems
 
 - Internal KYC or customer due-diligence case ledger holding current beneficial-owner assertions, review decisions, and evidence references
