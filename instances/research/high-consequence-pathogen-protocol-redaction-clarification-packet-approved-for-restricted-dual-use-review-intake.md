@@ -12,6 +12,22 @@ Research.
 
 A principal investigator, an institutional biosafety officer, and a secure methods-governance lead are co-producing one governed sensitive-methods redaction clarification packet because a draft protocol supplement for a high-consequence pathogen challenge study now contains procedural detail that may exceed the institution's approved disclosure boundary for aerosolization settings, environmental persistence checks, and scale-up notes. Agents help reconcile protocol revisions, containment annotations, biosafety objections, and approved redaction wording into the shared packet while preserving which disclosure questions remain contested and which residual specificity the human artifact owner accepted explicitly. The workflow ends only when the named research release owner approves that exact packet revision for one bounded restricted dual-use review intake lane, where downstream reviewers may decide whether the supplement can proceed to formal sensitive-methods review or requires narrower technical disclosure. It does not adjudicate dual-use risk, communicate with outside collaborators, or authorize protocol or manuscript submission.
 
+```mermaid
+flowchart TD
+    A["Draft supplement detail<br>containment evidence<br>reviewer comments"]
+    B["Collaborative clarification packet<br>current exact revision"]
+    C["Residual objection visibility<br>boundary notes<br>accepted specificity"]
+    D["Release manifest<br>one exact packet revision<br>one restricted intake lane"]
+    E["Named research release owner<br>approval decision"]
+    F["Restricted dual-use review<br>intake only"]
+    A --> B
+    B --> C
+    B --> D
+    C --> D
+    D --> E
+    E --> F
+```
+
 ## Target systems / source systems
 
 - Governed research methods workspace holding the sensitive-methods redaction clarification packet, revision history, objection ledger, and release-manifest state
