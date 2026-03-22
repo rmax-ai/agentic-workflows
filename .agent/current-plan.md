@@ -4,9 +4,9 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement deepened the thinner `compliance` slice through `instances/compliance/trade-surveillance-duplicate-alert-suppression-exception-package-readiness-loop.md`, adding a materially distinct second compliance grounding for `approval-centered-collaboration`.
-- Result check: the new compliance example stayed bounded at one governed surveillance-control exception packet, preserved conflicting reviewer positions and explicit approval ownership, refreshed alert-volume and validation evidence, and stopped at readiness recommendation plus formal governance handoff rather than suppression adjudication, live monitoring changes, regulator communication, or downstream execution.
-- Read-first set used this iteration: this plan; `data/patterns/human-agent-collaborative-work/approval-centered-collaboration.yaml`; `instances/compliance/regulator-reporting-timeline-exception-package-readiness-loop.md`; the other domain anchors for `approval-centered-collaboration`; the relevant Phase 7 notes in `.agent/backlog.yaml`; the current counts and gap notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-035223.md`.
+- Target now: Phase 7 structural refinement should deepen a materially distinct `research` slice through one instance for `human-directed-task-orchestration`, giving `execute-automate` additional live guided-execution grounding outside the recently refreshed collaboration, coordination-refresh, and dispatch surfaces.
+- Intended result check: the new research example should stay bounded at explicit human-directed execution of consequential research steps, preserve one authoritative step ledger plus post-step verification and takeover-safe state, and stop short of planning, recommendation, collaboration-room authorship, adjudication, or downstream study-governance decisions.
+- Read-first set for this iteration: this plan; `data/patterns/execute-automate/human-directed-task-orchestration.yaml`; `instances/engineering/production-incident-guided-remediation-task-orchestration.md`; `instances/operations/cold-chain-emergency-supervised-step-through-task-orchestration.md`; `instances/compliance/sanctions-remediation-human-directed-procedural-execution.md`; the relevant Phase 7 notes in `.agent/backlog.yaml`; the current counts and gap notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-035740.md`.
 
 ## Current phase
 
@@ -23,7 +23,7 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Continue Phase 7 with one instance-only refinement in `engineering` or `research` by deepening a materially distinct non-collaboration or non-planning slice outside the recently refreshed compliance approval-collaboration, engineering coordination-refresh, and research dispatch surfaces.
+1. Continue Phase 7 with one instance-only refinement in `research` by adding a materially distinct `human-directed-task-orchestration` example that keeps `execute-automate` diverse and clearly outside the recently refreshed collaboration, coordination-refresh, and dispatch surfaces.
 2. Keep the batch instance-only and outside `approval-centered-collaboration`, `approval-gated-recommendation-release`, `critical-command-window-resequencing`, `schedule-adjustment-and-replanning`, `approval-packet-generation`, `approval-gated-collaborative-artifact-release`, `approval-gated-briefing-release`, `evidence-gated-verification-for-release`, `approval-gated-transformation-release`, and `contingency-plan-activation-gate`; do not reopen schema, vocabularies, views, or canonical pattern metadata unless the read-first pass surfaces a directly coupled drift that would otherwise leave the repository inconsistent.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
 4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated summary file after verification.
