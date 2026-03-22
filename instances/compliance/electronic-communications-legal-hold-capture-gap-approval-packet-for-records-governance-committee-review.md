@@ -40,6 +40,24 @@ This grounds `approval-packet-generation` in a compliance workflow where the har
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    J["Records owner checkpoint<br>scope and reviewer routing confirmed"] -->|"authorizes assembly"| F["Records-compliance exception workspace<br>packet state and completeness checklist"]
+    A["Legal-hold management system<br>matter notices and custodian rosters"] -->|"provides hold evidence"| F
+    B["Communications-archive and mobile-capture platforms<br>telemetry, message counts, and gap alerts"] -->|"provides capture evidence"| F
+    C["Change-management and vendor-operations systems<br>migration records and vendor attestations"] -->|"provides change evidence"| F
+    D["Supervisory review and surveillance workspaces<br>compensating review coverage and prior exceptions"] -->|"provides supervisory evidence"| F
+    E["Policy and retention libraries<br>review criteria and disclosure requirements"] -->|"provides control context"| F
+    F -->|"assembles packet draft"| G["Approval packet<br>committee review draft"]
+    F -->|"maintains source links"| H["Provenance index<br>claim-to-source mappings"]
+    F -->|"maintains open gaps"| I["Exception register<br>capture-gap blockers and disputed timestamps"]
+    G -->|"submitted for completeness review"| K["Records owner checkpoint<br>packet completeness and visible exceptions confirmed"]
+    H -->|"supports trace review"| K
+    I -->|"surfaces unresolved blockers"| K
+    K -->|"creates handoff status"| L["Handoff record<br>named committee reviewers and completeness state"]
+    L -->|"routes packet for review only"| M["Review-routing queue<br>records-governance committee intake"]
+```
+
 - Orchestrated multi-agent retrieval and synthesis fit because legal-hold notices, archive telemetry, migration records, and supervisory evidence often live in separate systems and require coordinated packet assembly.
 - Human-in-the-loop checkpoints should remain mandatory so an accountable records owner can confirm matter scope, required reviewers, and whether unresolved evidence gaps are acceptable to surface in the packet before handoff.
 - Agents may reconcile custodian identifiers, align timeline fragments, and draft packet sections, but they should not decide whether preservation remains legally sufficient, extend any exception window, or trigger downstream counsel, regulator, or remediation actions.
