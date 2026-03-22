@@ -12,6 +12,27 @@ Support.
 
 A premium support quality team reviews resolved enterprise tickets, transcript excerpts, bridge summaries, and escalation notes to catch coaching issues, mishandled severity judgments, and repeatable remediation mistakes before they compound. The current fixed sampling policy over-reviews routine low-risk closures while under-covering post-outage identity-recovery cases, security-adjacent escalations, and complex multi-team incidents that later reopen or trigger customer complaints. The workflow must autonomously retune bounded quality-review sampling rates so cohorts with rising escape risk or defect yield receive more spot checks, while preserving protected minimum coverage for sensitive escalation classes, respecting reviewer-capacity ceilings, minimizing copied customer detail, and keeping a fast rollback path if the tuning loop starts chasing noisy short-term findings.
 
+```mermaid
+flowchart TD
+    INPUTS["Cohort findings and capacity inputs<br>Resolved-ticket defect yield, reopen clusters,<br>protected floors, and reviewer capacity"]
+    CHECK["Evidence and guardrail check<br>Confirm stable review windows,<br>sparse-signal limits, and cooldown status"]
+    RETUNE["Bounded sampling retune<br>Propose cohort rate increases or decreases<br>inside delegated step limits"]
+    GUARD{"Do proposed changes stay within<br>protected floors, cooldown rules,<br>and reviewer-capacity bounds?"}
+    APPLY["Publish tuned sampling policy<br>Write the new version, audit trace,<br>and explicit rollback triggers"]
+    FREEZE["Freeze autonomous tuning<br>Keep the prior trusted policy active<br>until support leadership review completes"]
+    AUDIT["Post-change audit review<br>Inspect later escape signals and workload drift<br>against the committed tuning cycle"]
+    ROLLBACK["Rollback to last trusted policy<br>Restore prior rates and record<br>the trigger and affected cohorts"]
+
+    INPUTS --> CHECK
+    CHECK --> RETUNE
+    RETUNE --> GUARD
+    GUARD --> APPLY
+    GUARD --> FREEZE
+    APPLY --> AUDIT
+    AUDIT --> INPUTS
+    AUDIT --> ROLLBACK
+```
+
 ## Target systems / source systems
 
 - Support QA configuration store with the active sample policy, protected-cohort floors, and prior policy versions
