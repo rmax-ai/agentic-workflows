@@ -12,6 +12,39 @@ Compliance.
 
 A market-abuse surveillance team already has one evidence-backed manipulation-alert packet assembled from earlier alert triage, with the related order and quote sequence, account and employee-access context, duplicate lineage, venue references, and unresolved uncertainty documented. The next step is not to decide whether misconduct occurred, freeze trading, contact the desk, or make any regulator-facing filing; it is to decide whether the exact packet revision may cross into the restricted market-conduct review lane that can trigger those downstream human workflows. The dispatch workflow watches packet freshness, legal-hold state, signer approval, recipient-roster scope, and dispatch-manifest lineage, then releases the triaged packet only when the approved market-conduct reviewer signs that one bounded downstream dispatch for the exact packet revision.
 
+```mermaid
+flowchart TD
+    A["Already-triaged manipulation-alert packet<br>waiting at dispatch gate"]
+    B["Check packet freshness<br>and supersession state"]
+    C{"Fresh and exact revision<br>still current?"}
+    D["Record stale or superseded packet<br>in dispatch hold register"]
+    E["Check legal-hold state<br>and privacy-scope restrictions"]
+    F{"Dispatch allowed under<br>current hold state?"}
+    G["Record legal-hold or scope block<br>in dispatch hold register"]
+    H["Verify signer approval,<br>approved reviewer audience,<br>and restricted queue boundary"]
+    I{"Exact revision, reviewer audience,<br>and lane approved?"}
+    J["Record approval or boundary block<br>in dispatch hold register"]
+    K["Release exact packet revision<br>to restricted market-conduct review queue"]
+    L["Write dispatch manifest for<br>packet revision, lane boundary,<br>and visible hold state"]
+    M["Append dispatch or hold outcome<br>to audit log"]
+
+    A -->|"Packet at gate"| B
+    B -->|"Freshness and lineage checked"| C
+    C -->|"No"| D
+    C -->|"Yes"| E
+    D -->|"Hold recorded"| M
+    E -->|"Hold state reviewed"| F
+    F -->|"No"| G
+    F -->|"Yes"| H
+    G -->|"Hold recorded"| M
+    H -->|"Approval and scope verified"| I
+    I -->|"No"| J
+    I -->|"Yes"| K
+    J -->|"Hold recorded"| M
+    K -->|"Released revision"| L
+    L -->|"Manifest written"| M
+```
+
 ## Target systems / source systems
 
 - Trade-surveillance alerting and case-triage systems holding the already-triaged manipulation packet, alert lineage, duplicate merges, and cited surveillance evidence references
