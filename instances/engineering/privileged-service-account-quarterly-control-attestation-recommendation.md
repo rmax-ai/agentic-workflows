@@ -39,6 +39,32 @@ This grounds the pattern in engineering where the hard part is not opening ticke
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Read-only evidence sources"]
+        iam["IAM inventory and privileged-access review workspace<br>service-account scope, owners, approval history, and prior quarterly outcomes"]
+        rotation["Secrets-management and credential-rotation logs<br>last rotation dates, automation health, and break-glass usage records"]
+        catalog["Service catalog, dependency registry, and architecture notes<br>current ownership boundaries after the recent service split"]
+        controls["Security control library<br>least-privilege requirements, exception rules, freshness limits, and delegated review thresholds"]
+        exceptions["Exception register and internal review tracker<br>approved compensating controls, cleanup actions, and reviewer comments"]
+    end
+
+    subgraph workflow["Recommendation workflow"]
+        agent["Tool-using single agent<br>gathers evidence into a requirement-by-requirement mapping"]
+        packet["Attestation recommendation packet<br>mapping, rationale, and flagged gaps"]
+    end
+
+    owner["Platform security control owner<br>human-in-the-loop reviewer"]
+
+    iam -->|"Read-only access-review evidence"| agent
+    rotation -->|"Read-only rotation and break-glass evidence"| agent
+    catalog -->|"Read-only service-boundary context"| agent
+    controls -->|"Requirement and threshold rules"| agent
+    exceptions -->|"Exception status and reviewer context"| agent
+    agent -->|"Assemble recommendation output"| packet
+    packet -->|"Human review before any signed attestation"| owner
+```
+
 - A tool-using single agent can gather the latest access-review exports, exception metadata, service ownership records, and rotation evidence into a requirement-by-requirement mapping.
 - Human-in-the-loop review should remain mandatory because platform security owners must decide whether partial evidence or compensating controls are acceptable for the quarter's signed attestation.
 - Read-only integration is preferable so the workflow cannot silently alter IAM state, rotate credentials, or mark the attestation approved.
