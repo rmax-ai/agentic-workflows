@@ -12,6 +12,23 @@ Research.
 
 A research operations lead oversees a shared benchmark-program tuning bundle that influences multiple coupled surfaces: study intake scoring, replication-review sensitivity, documentation-sufficiency weighting, and publication-readiness prioritization for a portfolio of model benchmark studies. Recent outcome history shows that the current bundle favors novelty and short review-cycle completion, but replication-review overrides, disclosure-risk rechecks, and late-stage documentation repairs are rising for studies with weaker reproducibility evidence or more complex data-use constraints. The workflow must produce a governed retuning package that adjusts the shared bundle so reproducibility quality, disclosure integrity, and review stability improve together, without letting the system decide whether a study may publish, rewrite research policy, or trigger downstream release actions on its own.
 
+```mermaid
+flowchart TD
+    A["Outcome analysis consolidates override clusters,<br>disclosure-risk rechecks, documentation repairs,<br>and active benchmark-bundle behavior across coupled review surfaces"]
+    B["Protected-parameter and evidence checks confirm<br>reproducibility floors, disclosure-integrity limits,<br>fairness constraints, and policy-linked tuning boundaries"]
+    C["Replay workspace tests candidate bundle versions<br>against prior benchmark-study cohorts for intake scoring,<br>replication sensitivity, documentation weighting, and readiness prioritization"]
+    D["Governed retuning package compares cross-surface winners and losers,<br>candidate bundle versions, deferred policy-adjacent moves,<br>and rollback triggers before any adoption choice"]
+    E{"Do research stewards accept the trade-offs<br>and adopt the candidate bundle with an explicit rollback boundary?"}
+    F["Keep the prior trusted bundle active,<br>record why adoption was deferred or rejected,<br>and preserve the rollback-ready boundary"]
+    G["Human-adopted candidate bundle is approved at the boundary<br>with trade-off visibility, deferred changes,<br>and rollback conditions carried forward"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    E --> G
+```
+
 ## Target systems / source systems
 
 - Benchmark-program intake and review systems with study metadata, current scoring outputs, replication-review queues, and publication-readiness state
