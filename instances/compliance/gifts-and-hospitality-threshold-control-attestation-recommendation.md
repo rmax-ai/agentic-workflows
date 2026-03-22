@@ -39,6 +39,28 @@ This grounds the pattern in compliance with a scenario that is materially differ
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph Boundary["Recommendation-only boundary<br>with read-only source access"]
+        Workspace["Ethics and compliance review workspace<br>quarterly attestation checklist, prior outcomes,<br>reviewer notes, and open questions"]
+        Register["Gifts-and-hospitality register and approval workflow<br>request records, threshold flags,<br>counterparty classifications, and reviewer actions"]
+        Training["Learning-management and HR roster systems<br>anti-bribery training completion, role assignments,<br>and covered-population exports"]
+        Travel["Travel, expense, and event-planning systems<br>hosted-meal records, attendee context,<br>and migration-era reference IDs"]
+        Policy["Policy library and exception register<br>disclosure thresholds, aggregation rules,<br>government-counterparty handling,<br>evidence freshness limits, and escalation criteria"]
+        Agent["Tool-using attestation recommendation agent"]
+        Packet["Reviewable attestation rationale packet<br>with requirement mapping and escalation flags"]
+    end
+    Reviewer["Human compliance owner"]
+
+    Workspace -->|"Checklist context"| Agent
+    Register -->|"Read-only register evidence"| Agent
+    Training -->|"Read-only training and roster evidence"| Agent
+    Travel -->|"Read-only hosted-meal and pre-approval evidence"| Agent
+    Policy -->|"Read-only policy and exception rules"| Agent
+    Agent -->|"Assemble bounded recommendation packet"| Packet
+    Packet -->|"Human review before sign-off or follow-up"| Reviewer
+```
+
 - A tool-using single agent can retrieve the current requirement set, align register entries with training and pre-approval evidence, compare exception scope against current aggregation rules, and assemble one reviewable rationale packet.
 - Human-in-the-loop review is required because ethics or compliance leadership must decide whether partial evidence is acceptable, whether exception scope still fits policy, or whether the case needs escalation.
 - Read-only integration with compliance, learning, HR, travel, and register systems is preferable so the workflow cannot alter disclosures, refresh approvals, approve the attestation, or change live control records.
