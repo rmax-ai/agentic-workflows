@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Active target: continue Phase 7 structural refinement with an instance-only governance-heavy batch in `operations`, likely deepening an already grounded approval-bound or release-control slice so grounded coverage keeps expanding without reopening schema, vocabulary, or browse assets unless a real drift appears.
-- Selection rule: stay inside a pattern/domain pair that already has grounding and vary the governed evidence set, release manifest, freshness or hold-state logic, and bounded audience or authority controls rather than renaming the same scenario with new nouns.
-- Read-first set: this plan; the most relevant already-canonical pattern for the next chosen operations-side approval-bound slice; one same-domain neighbor in `instances/operations/`; one cross-domain neighbor in the same family; the relevant coverage notes in `.agent/coverage-matrix.yaml`; and the newest relevant files in `.agent/iterations/2026/`, starting with `20260322-011512.md`.
-- Boundary rule: keep the next example centered on one exact governed artifact, packet, or release boundary with explicit freshness or hold-state visibility and bounded audience or authority scope, and stop before adjudication, execution approval, downstream communications, or live operational action.
+- Active target: continue Phase 7 structural refinement with one instance-only, governance-heavy `operations` batch centered on `approval-gated-collaborative-artifact-release`, so the repository closes that still-open domain grounding for the pattern without reopening schema, vocabulary, or browse assets unless a real drift appears.
+- Selection rule: stay inside the approval-gated shared-artifact release boundary and vary the governed evidence set, release manifest, hold-state logic, and bounded intake-lane scope rather than rephrasing an existing briefing, recommendation, transformation, or dispatch example.
+- Read-first set: this plan; `data/patterns/human-agent-collaborative-work/approval-gated-collaborative-artifact-release.yaml`; the same-domain neighbor `instances/operations/network-fuel-system-test-deferral-exception-package-readiness-loop.md`; the cross-domain neighbors `instances/research/publication-rights-and-provenance-clarification-packet-approved-for-publication-rights-review-intake.md` and `instances/compliance/vendor-transfer-remediation-packet-approved-for-privacy-counsel-intake.md`; the relevant coverage notes in `.agent/coverage-matrix.yaml`; and the newest relevant files in `.agent/iterations/2026/`, starting with `20260322-011512.md`.
+- Boundary rule: keep the example centered on one exact collaboratively maintained operations artifact that is approved for one bounded review-intake lane with explicit objection, freshness, and audience-boundary visibility, and stop before exception adjudication, live maintenance or continuity action, outside communication, or any downstream operational decision.
 
 ## Current phase
 
@@ -24,7 +24,7 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Author one materially distinct instance in the next selected thin, governance-heavy `operations` slice, preferring an already-canonical pattern/domain pairing so the batch stays instance-only unless real canonical drift appears.
+1. Author one materially distinct `operations` instance for `approval-gated-collaborative-artifact-release`, keeping the batch instance-only unless real canonical drift appears.
 2. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
 3. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
 4. Carry the next-step target forward toward Phase 7 closure by continuing to deepen thin approval-bound or governance-heavy slices in underused families rather than by restoring domain-count parity mechanically.
