@@ -12,6 +12,20 @@ Support.
 
 An enterprise support organization maintains a controlled severity-one escalation runbook for premium customers that is revised when paging paths, ownership boundaries, incident-communication checkpoints, or approved product-specific exceptions change. When a new runbook revision is published, the on-call duty manager needs a grounded digest that shows which escalation steps changed, which entitlement and account-context assumptions still apply, and which product-owner clarifications remain open. The workflow should stop at an informational handoff brief for the duty manager and support leads; it should not recommend customer concessions, route live cases, or declare incident severity.
 
+```mermaid
+flowchart TD
+    A["Approved runbook<br>change event"]
+    B["Compare current revision<br>with prior baseline"]
+    C["Assemble bounded context<br>from entitlement, exception,<br>and ownership sources"]
+    D["Highlight unresolved<br>product-owner questions"]
+    E["Publish duty-manager<br>briefing digest"]
+    A --> B
+    B --> C
+    C --> D
+    C --> E
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Support runbook repository containing the current approved premium-escalation playbook, prior revision history, and publication metadata
