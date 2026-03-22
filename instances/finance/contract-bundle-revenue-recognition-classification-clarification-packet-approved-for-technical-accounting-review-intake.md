@@ -12,6 +12,25 @@ Finance.
 
 Accounting operations, revenue systems, and finance policy and technical accounting partners are co-producing one governed contract-bundle revenue recognition classification clarification packet because a portfolio of multi-element enterprise contracts has accumulated ambiguous performance-obligation splits, variable-consideration estimates, and disputed standalone-selling-price allocations that downstream reviewers cannot safely adjudicate without a single authoritative, evidence-linked artifact. The ambiguity surfaced when a contract modification retroactively changed the bundle structure mid-arrangement and the existing revenue sub-ledger entries no longer align with the updated allocation model held in the revenue systems team's working files. Agents help reconcile contract terms, modification memos, revenue sub-ledger evidence, billing-schedule excerpts, ASC 606 policy references, and reviewer objections into the shared clarification packet while keeping which classification questions remain open and which residual caveats the human artifact owner accepted explicitly both visible and linked to inspectable evidence. The workflow ends only when the named finance policy release owner approves that exact packet revision for one bounded technical-accounting review intake lane, where downstream technical-accounting reviewers may decide whether the classification packet is sufficient for formal accounting-position review or needs narrower scope and fresher contract evidence. It does not adjudicate the revenue recognition treatment, post or reverse revenue entries, change contract terms, issue accounting-policy guidance memos, or notify customers or auditors.
 
+```mermaid
+flowchart TD
+    start["Ambiguous contract-bundle<br>classification questions surface"]
+    packet["Co-produce one clarification packet<br>from contract, sub-ledger, billing,<br>and ASC 606 evidence"]
+    visible["Keep open questions, objections,<br>and accepted residual caveats visible"]
+    ready{"Exact packet revision<br>ready for release review?"}
+    owner{"Finance policy release owner approves<br>this exact revision for one bounded<br>technical-accounting intake lane?"}
+    hold["Hold release and supersede the packet<br>if scope or evidence changed materially"]
+    manifest["Bind the approved revision, accepted caveats,<br>and intake-lane boundary in the release manifest"]
+    intake["Handoff the packet to bounded<br>technical-accounting review intake"]
+    stop["Stop before classification adjudication,<br>revenue-entry changes, policy guidance,<br>or auditor and customer communication"]
+
+    start --> packet --> visible --> ready
+    ready -->|"No"| packet
+    ready -->|"Yes"| owner
+    owner -->|"No"| hold --> packet
+    owner -->|"Yes"| manifest --> intake --> stop
+```
+
 ## Target systems / source systems
 
 - Governed finance collaboration workspace holding the contract-bundle classification clarification packet, revision history, objection ledger, and release-manifest state
