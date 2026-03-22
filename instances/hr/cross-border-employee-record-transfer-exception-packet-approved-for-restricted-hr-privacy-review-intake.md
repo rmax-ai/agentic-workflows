@@ -12,6 +12,18 @@ HR.
 
 A global mobility privacy lead, a people-data governance manager, and regional HR records stewards are co-producing one governed transfer-exception packet because an EMEA business unit wants to move a bounded set of employee file materials into a U.S.-hosted mobility-case platform after a legal-entity consolidation left the original regional workspace unable to support ongoing assignment administration. Agents help reconcile record-category inventories, localization caveats, retention-rule conflicts, vendor-subprocessor notes, and disputed minimization wording into the shared packet while preserving which objections remain unresolved and which redaction or annex changes the human artifact owner accepted explicitly. The workflow ends only when the named HR privacy release owner approves that exact packet revision for one restricted HR privacy review intake lane, where downstream reviewers may decide whether the proposed cross-border record transfer can proceed, needs narrower scope, or requires additional legal controls. It does not notify employees, authorize the transfer, update payroll or mobility systems, or decide the downstream privacy review outcome.
 
+```mermaid
+flowchart TD
+    A["HR record inventories,<br>platform constraints,<br>and privacy lane rules"] -->|"inform"| B["Governed transfer-exception packet<br>with objection ledger<br>and release-manifest draft"]
+    C["Global mobility privacy lead,<br>people-data governance manager,<br>and regional HR records stewards"] -->|"co-produce and refine"| B
+    D["Agents reconcile inventories,<br>localization, retention,<br>and subprocessor notes"] -->|"preserve visible objections<br>and accepted edits"| B
+    B -->|"submit exact revision"| E{"HR privacy release owner approves<br>that exact packet revision<br>for one restricted intake lane?"}
+    E -->|"no or material change during review"| F["Hold release and supersede<br>the prior packet revision"]
+    F -->|"return for revision"| B
+    E -->|"yes"| G["Approved exact packet revision<br>for one restricted HR privacy review intake lane"]
+    G -->|"workflow boundary ends"| H["Restricted HR privacy review intake only,<br>with no transfer authorization<br>or downstream outcome decided here"]
+```
+
 ## Target systems / source systems
 
 - Governed HR collaboration workspace holding the cross-border transfer-exception packet, revision history, objection ledger, and release-manifest draft
