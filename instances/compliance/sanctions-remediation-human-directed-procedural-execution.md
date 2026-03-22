@@ -42,6 +42,30 @@ This grounds the pattern in compliance work where the main artifact is real proc
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Lead["Sanctions remediation lead"]
+    Rules["Authority boundary and<br>legal-escalation rules"]
+    Counsel["Legal counsel or<br>senior compliance takeover"]
+    subgraph Boundary["Human-directed sanctions remediation boundary"]
+        Agent["Directed remediation<br>execution agent"]
+        Case["Sanctions case-management system<br>and remediation ledger"]
+        Controls["Payment operations controls<br>account blocks and corridor holds"]
+        Evidence["Screening engine, alias history,<br>and watchlist evidence"]
+        Audit["Approved audit store<br>action traces, state snapshots,<br>and takeover packets"]
+    end
+
+    Lead -->|"Directs permitted control steps<br>and scope decisions"| Agent
+    Rules -->|"Constrains allowed actions,<br>verification gates, and handoff triggers"| Agent
+    Evidence -->|"Provides remediation basis<br>and verification evidence"| Agent
+    Agent -->|"Applies named blocks,<br>queue holds, and evidence capture"| Controls
+    Controls -->|"Returns authoritative control state<br>for post-step verification"| Agent
+    Agent -->|"Updates verified case state<br>and evidence references"| Case
+    Case -->|"Returns current ledger state<br>and case context"| Agent
+    Agent -->|"Stores action traces,<br>evidence hashes, and packet artifacts"| Audit
+    Agent -->|"Publishes bounded takeover packet<br>when the branch leaves directed execution"| Counsel
+```
+
 - A tool-using single agent can execute the directed block and hold actions, query verification signals, capture evidence references, and update the case ledger after each approved step.
 - Human-in-the-loop control remains mandatory because the sanctions lead decides which accounts, entities, and corridors fall inside scope and when legal counsel must take over a branch.
 - The workflow should emit takeover packets whenever unresolved match quality, jurisdictional limits, or regulator-facing consequences mean the next step cannot remain inside directed procedural execution.
