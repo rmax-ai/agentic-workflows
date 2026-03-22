@@ -12,6 +12,20 @@ Compliance.
 
 A broker-dealer market-conduct compliance program maintains a controlled restricted-communications review procedure covering approved lexicon packs, channel-coverage assumptions, preservation checkpoints, analyst annotation requirements, employee-role masking rules, and evidence-linkage expectations for surveillance cases. When an authoritative revision of that procedure package is published, the named human briefing owner—the Market Conduct Surveillance Supervisor on duty—needs a grounded digest showing which review steps changed, which prior carry-forward context still governs current surveillance work, and which unresolved questions remain about vendor lexicon deployment, approved-channel coverage, or template alignment. The workflow should stop at a contextual briefing for the supervisor and surveillance leads; it should not triage alerts, reopen cases, route escalations, prepare regulator communications, or direct downstream surveillance execution.
 
+```mermaid
+flowchart TD
+    A["Authoritative procedure<br>publication event"] -->|"Trigger digest refresh"| B["Load new procedure package<br>and prior published baseline"]
+    B -->|"Compare revision content"| C["Identify changed review steps<br>from the procedure delta"]
+    B -->|"Gather linked context"| D["Retrieve lexicon, channel-coverage,<br>template, and exception records"]
+    C -->|"Separate changed steps"| E["Summarize changed review instructions"]
+    D -->|"Carry forward current context"| F["Retain still-effective lexicon,<br>coverage, and exception context"]
+    D -->|"Surface unresolved questions"| G["Record lexicon deployment,<br>channel-coverage, and template gaps"]
+    E -->|"Assemble briefing content"| H["Compile change digest with<br>provenance and delta trace"]
+    F -->|"Add carry-forward context"| H
+    G -->|"Add unresolved items"| H
+    H -->|"Hand off briefing"| I["Post supervisor briefing for the<br>Market Conduct Surveillance Supervisor<br>and surveillance leads"]
+```
+
 ## Target systems / source systems
 
 - Controlled surveillance-procedure repository containing the newly approved restricted-communications review package, prior published baseline, revision metadata, and release notice
