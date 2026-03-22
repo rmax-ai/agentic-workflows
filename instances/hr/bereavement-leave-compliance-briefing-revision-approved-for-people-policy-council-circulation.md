@@ -12,6 +12,14 @@ HR.
 
 An HR policy and employee-relations workflow has already synthesized one revision of a bereavement leave compliance briefing after a quarterly review surfaced conflicting handbook language, vendor intake-script drift, jurisdiction-specific notice gaps, and unresolved redaction questions across several regions. Before that exact revision is circulated into the restricted people policy council lane, a named HR governance owner must approve the audience scope, freshness window, and hold-versus-release state so council readers receive the reviewed context package rather than a stale draft or an over-detailed copy. The workflow stops at governed release of that briefing revision; it does not adjudicate any employee case, decide the policy change, schedule manager training, launch communications, or execute downstream HR updates.
 
+```mermaid
+flowchart TD
+    A["Prepared bereavement leave compliance<br>briefing revision"] -->|"Route for governed release review"| B["HR governance owner reviews audience scope,<br>freshness window, and hold-versus-release state"]
+    B -->|"Approve exact revision for the restricted council lane"| C["Approval manifest binds revision id,<br>people policy council lane, and expiry"]
+    C -->|"Circulate the reviewed context package"| D["Restricted people policy council<br>receives the approved briefing revision"]
+    B -->|"Keep on hold or supersede because the revision is stale,<br>over-detailed, or changed by new guidance"| E["No circulation; the briefing revision<br>remains held or is superseded"]
+```
+
 ## Target systems / source systems
 
 - Restricted HR briefing workspace storing the synthesized compliance briefing revision, superseded drafts, redaction notes, and provenance ledger
