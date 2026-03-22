@@ -12,6 +12,20 @@ Research.
 
 An applied research lead, a reproducibility reviewer, and publication-operations partners are co-producing one governed claim-clarification packet because a benchmark paper draft now contains performance wording that must be reconciled with late reruns, hardware annotations, and external disclosure limits before integrity review. Agents help merge rerun tables, methodology caveats, reviewer objections, and approved claim wording into the shared packet while preserving which concerns remain contested and which edits the human artifact owner accepted. The workflow ends only when the named research release owner approves that exact packet revision for one bounded publication integrity review intake lane, where downstream reviewers may decide whether the claims are supportable or need further narrowing. It does not decide publication, submit the paper, or release benchmark artifacts externally.
 
+```mermaid
+flowchart TD
+    A["Collaborative claim-clarification packet<br>revision"]
+    B["Residual objections, caveats, and<br>release boundaries stay visible"]
+    C["Exact packet revision and release<br>manifest prepared for approval"]
+    D["Human research release owner approves<br>integrity-review intake release"]
+    E["Approved packet revision released into<br>publication integrity review intake"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Governed publication workspace holding the claim-clarification packet, revision history, objection ledger, and release-manifest state
