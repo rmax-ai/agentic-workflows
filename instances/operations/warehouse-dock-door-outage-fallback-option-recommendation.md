@@ -12,6 +12,22 @@ Operations.
 
 A high-volume warehouse loses one of its inbound dock doors at the start of a night shift after a restraint fault leaves the position unavailable until facilities can inspect it. The local inbound supervisor has a documented delegated authority band that allows only a narrow set of fallback options, such as rebalancing selected trailers across adjacent open doors within queue limits, authorizing capped manual-unload overtime for palletized non-hazmat loads, or holding lower-priority replenishment trailers for the next inbound wave, while outside labor callouts, mobile dock-equipment rental, hazmat-location changes, or customer appointment exceptions require higher approval. The workflow must rank the viable in-band recovery options, show which fallback paths are blocked by spend, safety, freight-handling, and service guardrails, and package escalation only if the local option menu no longer covers the case before anyone changes appointments, dispatches outside labor, or starts unloading under an unapproved workaround.
 
+```mermaid
+flowchart TD
+    A["Dock-door outage context<br>and inbound constraints"]
+    B["Delegated fallback menu<br>and hard guardrails"]
+    C["Compare local fallback options<br>to queue, safety, and freight limits"]
+    D["Rank viable in-band<br>recovery options"]
+    E["Record allowed, conditional,<br>and blocked fallback paths"]
+    F["Package escalation when<br>no in-band option remains"]
+    A --> C
+    B --> C
+    C -->|"viable in-band options remain"| D
+    C --> E
+    C -->|"no in-band option remains"| F
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Dock scheduling board, trailer appointment queue, inbound wave plan, and current yard-position snapshot
