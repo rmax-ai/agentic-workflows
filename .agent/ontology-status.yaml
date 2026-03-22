@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 276
+  instance_files: 277
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -63,7 +63,7 @@ pattern_counts_by_family:
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
   engineering: 39
-  finance: 39
+  finance: 40
   compliance: 39
   operations: 40
   research: 39
@@ -72,7 +72,8 @@ instance_counts_by_domain:
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred seventy-six grounded examples across all seven currently modeled domains, with `operations`, `support`, and `hr` at forty and `engineering`, `finance`, `research`, and `compliance` at thirty-nine; Phase 7 should keep favoring structurally distinct slice diversification while staying grounded in validation-backed repository counts."
+  - "The repository now has two hundred seventy-seven grounded examples across all seven currently modeled domains, with `finance`, `operations`, `support`, and `hr` at forty and `engineering`, `research`, and `compliance` at thirty-nine; Phase 7 should keep favoring structurally distinct slice diversification while staying grounded in validation-backed repository counts."
+  - "`authoritative-change-coordination-refresh` now has additional `finance` grounding through a treasury collateral substitution review coordination refresh example, deepening that planning-family coordination-refresh slice within finance beyond quarter-close control review by centering one issued substitution-review packet, authoritative tri-party custodian cutoff movement, approved delegate substitution, eligibility-extract timing drift, targeted delta notices, and one governed treasury-owner adoption handoff rather than funding-plan replanning, asset selection, counterparty negotiation, or collateral movement."
   - "`critical-command-window-resequencing` now has additional `finance` grounding through a quarter-close earnings-release command-window checkpoint resequencing example, deepening that critical-risk plan-family slice within finance beyond the existing liquidity bridge example by centering a late consolidation correction, a narrowed exchange or filing cutoff, an approved audit-committee delegate change, legal and disclosure readiness movement, explicit hold visibility, participant deltas, and one governed adoption handoff rather than accounting judgment, filing submission, investor communication, recommendation, or downstream execution."
   - "`schedule-adjustment-and-replanning` now has additional `compliance` grounding through a periodic safety-report submission timeline replanning example, deepening that moderate-risk plan-family slice within compliance beyond control-remediation sign-off by centering aggregate-case reconciliation lock timing, medical-review capacity loss, labeling-review compression, fixed authority deadline visibility, blocked alternatives, and one governed adoption handoff rather than case assessment, medical judgment, regulator communication, report submission, or downstream pharmacovigilance execution."
   - "`approval-packet-generation` now has additional `operations` grounding through a marine-terminal vapor-recovery outage loading-rate deviation approval-packet example, deepening that high-risk gather-family slice within operations through one governed process-safety committee packet with permit-limit evidence, vapor-control telemetry, outage findings, staffing attestations, provenance indexing, and visible blockers rather than committee recommendation, deviation adjudication, vessel-loading instruction, regulator communication, or live maintenance execution."
@@ -440,7 +441,7 @@ repo_reality:
     - .agent/prompts/operator-prompt.txt
     - scripts/run-agentic-workflows-loop.sh
     - scripts/run-agentic-workflows-forever.sh
-  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and two hundred sixty-six grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
+  note: Repository now has committed execution memory, foundational docs, the canonical pattern schema, six core controlled vocabularies, five browse-view artifacts, nine top-level family overview docs, forty-nine canonical patterns across all nine top-level families, and two hundred seventy-seven grounded instances spanning research, engineering, finance, operations, compliance, support, and HR.
   immediate_gaps:
     - "`evidence-gated-verification-for-release` now also has additional finance grounding through an approved covenant-compliance certificate packet verification example, so the investigate-family approval-bound slice now spans engineering, finance, operations, research, and HR while preserving a clean boundary at evidence sufficiency, release-hold state, certificate lineage, and human-approved downstream reliance rather than covenant interpretation, lender communication, filing submission, or execution."
     - "`shared-workbench-orchestration` now also has explicit compliance grounding through an internal control-library caveat-board upkeep example, extending the low-risk collaboration-upkeep slice beyond research, operations, support, and HR while preserving a clean boundary at internal artifact refresh, source revalidation, ownership preservation, and explicit hold-state management rather than legal advice, adjudication, regulator communication, or execution."
@@ -449,7 +450,8 @@ repo_reality:
     - "`shared-workbench-orchestration` now also has additional HR grounding through an internal hiring-panel interview-guide caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within HR beyond benefits FAQ maintenance while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than interviewer-guidance approval, policy adjudication, candidate communication, or hiring execution."
     - "`shared-workbench-orchestration` now also has additional support grounding through an internal premium-support diagnostic-runbook caveat-board upkeep example, deepening the same low-risk collaboration-upkeep slice within support beyond workaround-article staging while preserving a clean boundary at source refresh, note normalization, ownership preservation, and explicit hold-state management rather than runbook approval, customer communication, or live incident execution."
     - "`claimed-state-verification` now also has additional HR grounding through an internal job-architecture handbook publication verification example, proving that a second low-risk HR verification slice can deepen the domain without reopening canonical pattern or browse-view work."
-    - "Finance and compliance now sit at thirty-eight grounded instances while engineering, research, and operations stand at thirty-nine and support plus hr stand at forty, so the next refinement can deepen one of the thinner finance or compliance surfaces while still favoring structurally distinct non-collaboration slices over pure count chasing."
+    - "`authoritative-change-coordination-refresh` now also has additional finance grounding through a treasury collateral substitution review coordination refresh example, so the plan-family coordination-refresh slice spans engineering, finance, and compliance while preserving a clean boundary at one current packet refresh, targeted delta notices, explicit adoption or exception checkpoints, and append-only lineage rather than broader replanning, recommendation, adjudication, or execution."
+    - "Engineering, research, and compliance now sit at thirty-nine grounded instances while finance, operations, support, and hr stand at forty, so the next refinement can deepen one of the thinner engineering, research, or compliance surfaces while still favoring structurally distinct non-collaboration or adjacent approval-bound slices over pure count chasing."
   next_action:
-    id: phase-7-next-distinct-finance-or-compliance-instance-depth
-    summary: "Use the next iteration to add another materially distinct instance-only refinement outside `approval-packet-generation`, `approval-gated-collaborative-artifact-release`, and `approval-gated-briefing-release`, preferably one that deepens a now-thinner `finance` or `compliance` slice unless the new grounding exposes directly coupled canonical drift."
+    id: phase-7-next-distinct-engineering-research-or-compliance-instance-depth
+    summary: "Use the next iteration to add another materially distinct instance-only refinement outside `authoritative-change-coordination-refresh`, `approval-packet-generation`, `approval-gated-collaborative-artifact-release`, and `approval-gated-briefing-release`, preferably one that deepens a now-thinner `engineering`, `research`, or `compliance` slice unless the new grounding exposes directly coupled canonical drift."
