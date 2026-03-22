@@ -12,6 +12,19 @@ Engineering.
 
 After a production hotfix is promoted through an emergency release lane and several downstream records are updated asynchronously, release engineering discovers that the current artifact identity no longer agrees across the artifact registry, the provenance and signature ledger, the change-management release snapshot, and the deployment-validation record used for runtime integrity checks. The registry still marks image digest `sha256:8f4…7ac` as the active promoted artifact for release train `rel-2026.03.22.4`, the signature ledger records the same tag against digest `sha256:8f4…71e` with signing key `kms-prod-sign-09`, and the change snapshot carries the newer digest but an older certificate fingerprint and approval timestamp. Runtime validation for the production cluster matches the newer digest but shows a signature envelope id that cannot yet be linked back to the approved ledger entry. Before anyone re-verifies evidence sufficiency, approves the release, republishes metadata, rolls anything forward or back, or decides why the records drifted, the workflow must restore one trusted current release-integrity record for that artifact set, keep unresolved conflicts on explicit hold, and hand off a correction-ready package to Release Integrity Steward Maya Chen for controlled record repair.
 
+```mermaid
+flowchart TD
+    start["Artifact identity discrepancy found across<br>registry, signature ledger, change snapshot,<br>and runtime validation"] --> gather["Gather current records for the affected<br>release train and artifact tuple"]
+    gather --> compare["Compare digest, signature lineage,<br>change-binding metadata, and runtime<br>observation under source precedence rules"]
+    compare --> align{"Do consequential fields align within<br>approved precedence and freshness rules?"}
+    align -->|"Yes"| ledger["Assemble one authoritative current-state<br>release-integrity ledger with field lineage"]
+    align -->|"No"| hold["Place the artifact on explicit<br>reconciliation hold and keep<br>unresolved conflicts visible"]
+    hold --> ledger
+    ledger --> package["Stage a correction-ready package with<br>masked discrepancy details and<br>allowed write targets"]
+    package --> handoff["Handoff the reconciled ledger and<br>correction package to Release Integrity<br>Steward Maya Chen"]
+    handoff --> stop["Bounded stop before release re-verification,<br>approval adjudication, metadata republish,<br>or roll-forward / rollback action"]
+```
+
 ## Target systems / source systems
 
 - Artifact registry records holding immutable manifest digests, promotion timestamps, repository coordinates, and active production tags
