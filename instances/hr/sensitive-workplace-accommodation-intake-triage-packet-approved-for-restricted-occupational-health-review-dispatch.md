@@ -12,6 +12,18 @@ HR.
 
 An HR accommodations operations team already has one evidence-backed workplace-accommodation intake packet assembled from earlier triage, with the worker's requested support category, essential-function mapping, worksite constraints, provider-document status, prior duplicate intake lineage, and unresolved uncertainty documented. The next step is not to decide accommodation eligibility, contact the worker or manager, interpret disability law, or implement workplace changes; it is to decide whether the exact packet revision may cross into the restricted occupational-health review lane that can trigger those downstream human workflows. The dispatch workflow watches medical-annex redaction state, essential-function freshness, signer approval, reviewer-scope rules, visible hold status, and dispatch-manifest lineage, then releases the triaged packet only when the approved accommodations reviewer signs the dispatch manifest for that one bounded lane.
 
+```mermaid
+flowchart TD
+    A["Already-triaged accommodation packet<br>awaiting restricted dispatch review"] --> B["HR accommodations case-management and<br>intake-triage systems refresh packet revision,<br>lineage, and cited annex state"]
+    B --> C{"Medical-annex redaction complete<br>and essential-function context fresh?"}
+    C -- "No" --> D["Visible medical-privacy or freshness hold<br>remains on the packet"] --> H["Stop at held dispatch state"]
+    C -- "Yes" --> E{"Requested occupational-health lane and<br>reviewer audience stay within approved scope?"}
+    E -- "No" --> F["Scope-boundary conflict hold recorded<br>for this packet revision"] --> H
+    E -- "Yes" --> G{"Approved accommodations reviewer signed<br>the exact dispatch manifest revision?"}
+    G -- "No" --> I["Approval-routing tooling keeps dispatch pending<br>with signer status visible"] --> H
+    G -- "Yes" --> J["Restricted occupational-health review queue<br>receives the approved packet revision"] --> K["Dispatch manifest and audit trail recorded<br>for the bounded lane release"]
+```
+
 ## Target systems / source systems
 
 - HR accommodations case-management and intake-triage systems holding the already-triaged accommodation packet, intake lineage, and prior duplicate merges
