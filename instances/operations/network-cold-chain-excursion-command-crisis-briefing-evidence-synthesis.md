@@ -12,6 +12,24 @@ Operations.
 
 An operations command center has already declared a critical cold-chain event after temperature excursions propagate across multiple distribution hubs handling time-sensitive medical inventory. Before anyone decides recall scope, reroutes shipments, authorizes disposal, or initiates regulator notifications, the workflow must assemble one command briefing that compresses confirmed affected inventory, sensor confidence, facility conditions, transit status, quality-hold rules, and unresolved containment questions into a provenance-preserving brief. The goal is a time-sensitive shared picture that separates verified current state from lower-authority field notes and incomplete recovery assumptions so human crisis leaders can coordinate from grounded context rather than fragmented spreadsheets and bridge traffic.
 
+```mermaid
+flowchart TD
+    A["Declared cold-chain event<br>and briefing scope"]
+    B["Retrieve authoritative sensor,<br>calibration, inventory, and facility evidence"]
+    C["Check source authority,<br>timestamps, and freshness"]
+    D["Reconcile shipment state,<br>hold rules, and site conditions"]
+    E["Assemble command brief with<br>verified facts, provenance, and open questions"]
+    F["Human reviewer confirms<br>brief scope and evidence framing"]
+    G["Handoff approved crisis brief<br>and supersession-ready record"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+```
+
 ## Target systems / source systems
 
 - Operations command workspace where reviewed crisis briefs, restricted annexes, and superseded versions are stored
