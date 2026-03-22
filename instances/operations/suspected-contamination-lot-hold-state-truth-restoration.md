@@ -12,6 +12,30 @@ Operations.
 
 During a declared contamination event, the command center finds that lot hold and movement status diverge across genealogy systems, warehouse quarantine records, shipment manifests, and quality-review workbenches. Some downstream pallets appear contained in one system but still in transit in another, while one facility's manual hold action has not propagated consistently across partner-facing tracking views. Before operations, quality, and legal leaders decide whether the exposed inventory picture is stable enough for recall scoping, partner direction, or regulator communication, the workflow must determine which lots are definitively quarantined, which shipments are still exposed, and which branches remain unresolved because authoritative evidence conflicts.
 
+```mermaid
+flowchart TD
+    A["Collect genealogy, quarantine, shipment, and facility-hold evidence<br>with timestamps and lineage"]
+    B["Compare authoritative lot and pallet state<br>under freshness, precedence, and identity rules"]
+    C{"Do the authoritative records converge on<br>current containment status?"}
+    D["Write the trusted containment ledger<br>for reconciled lots and pallet branches"]
+    E["Place conflicting lot branches in an unresolved hold register<br>with evidence gaps and hold reasons"]
+    F{"Can bounded reviewer-visible verification<br>resolve the remaining branch conflicts?"}
+    G["Update the trusted containment ledger<br>with newly verified branch status"]
+    H["Preserve unresolved branches alongside the trusted ledger<br>with explicit uncertainty and lineage"]
+    I["Assemble the command-center handoff packet<br>from the trusted ledger and unresolved register"]
+
+    A -->|"Collect evidence"| B
+    B -->|"Check authoritative agreement"| C
+    C -->|"Yes"| D
+    C -->|"No"| E
+    E -->|"Run bounded verification"| F
+    F -->|"Yes"| G
+    F -->|"No"| H
+    D -->|"Prepare bounded handoff"| I
+    G -->|"Prepare bounded handoff"| I
+    H -->|"Prepare bounded handoff"| I
+```
+
 ## Target systems / source systems
 
 - Manufacturing genealogy, quality, and facility-hold systems containing authoritative lot and quarantine state
@@ -44,4 +68,3 @@ This grounds the pattern in an operations workflow where the urgent task is rest
 - Agreement between the workflow's authoritative lot-state picture and the final human-accepted current-state view
 - Percentage of ambiguous shipment or pallet branches preserved in the hold register until evidence converges
 - Reliability of the workflow when warehouse state, carrier updates, and manual facility holds arrive asynchronously during repeated command-center refreshes
-
