@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 314
+  instance_files: 315
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -68,11 +68,12 @@ instance_counts_by_domain:
   operations: 44
   research: 45
   support: 45
-  hr: 43
+  hr: 44
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has three hundred fourteen grounded examples across all seven currently modeled domains, with `compliance` at forty-nine; `research` and `support` at forty-five; `engineering`, `finance`, and `operations` at forty-four; and `hr` at forty-three. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has three hundred fifteen grounded examples across all seven currently modeled domains, with `compliance` at forty-nine; `research` and `support` at forty-five; and `engineering`, `finance`, `operations`, and `hr` at forty-four. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`research-synthesis-with-citation-verification` now has additional `hr` grounding through a contingent-worker co-employment and tenure-limit obligations brief example, deepening that moderate-risk gather/synthesize slice beyond pay-transparency posting review by centering one exact contingent-workforce program-review artifact with source-precedence notes, supplier-attestation and effective-date ambiguity, visible open questions, and one named Global Contingent Workforce Governance Lead owner rather than worker-classification determination, engagement approval, contractor conversion recommendation, vendor action, labor-relations outreach, or downstream workforce-program execution."
   - "`shared-workbench-orchestration` now has its first `engineering` grounding through a runtime support-window exception caveat board example, deepening that low-risk collaboration-family upkeep slice beyond research benchmark matrices, operations rollout caveat boards, support workaround staging boards, HR FAQ caveat boards, and compliance control-library upkeep by centering one exact platform-standard artifact with prerequisite state, policy and inventory provenance, prior-exception lineage, visible blocker fields, append-only revision history, and one named Platform Standards Steward owner rather than waiver recommendation, retirement-date changes, exception adjudication, stakeholder communication, or migration execution."
   - "`change-triggered-context-briefing` now has its first `compliance` grounding through a trade-surveillance restricted-communications review procedure change digest, deepening that low-risk gather/synthesize slice beyond support escalation, warehouse slotting, and leave-intake coverage by centering one exact market-conduct procedure revision with source-version provenance, carry-forward coverage and exception context, explicit unresolved lexicon, connector, and template-alignment questions, and one named Market Conduct Surveillance Supervisor handoff rather than alert triage, case handling, escalation routing, regulator communication, or downstream surveillance execution."
   - "`document-to-structured-data-handoff` now has additional `research` grounding through an internally approved protocol-amendment packet to restricted pre-submission intake record handoff, deepening that moderate-risk transform-family handoff slice beyond benchmark-study review intake by centering one exact multisite study-change packet with source-level provenance, blocker register visibility, protocol-delta lineage, restricted-audience tags, and one named Human Subjects Pre-Submission Intake owner rather than amendment recommendation, ethics decisioning, sponsor communication, or downstream submission execution."
