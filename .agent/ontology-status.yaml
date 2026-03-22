@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 298
+  instance_files: 299
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -67,12 +67,13 @@ instance_counts_by_domain:
   compliance: 44
   operations: 44
   research: 44
-  support: 42
+  support: 43
   hr: 42
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred ninety-eight grounded examples across all seven currently modeled domains, with `research`, `compliance`, and `operations` at forty-four; `support` and `hr` at forty-two; and `engineering` and `finance` at forty-one. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has two hundred ninety-nine grounded examples across all seven currently modeled domains, with `research`, `compliance`, and `operations` at forty-four; `support` at forty-three; `hr` at forty-two; and `engineering` and `finance` at forty-one. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`critical-protected-artifact-collaboration` now has its first `support` grounding through a cross-tenant support session exposure protected account-impact packet collaboration-room example, deepening that critical human-agent collaboration slice beyond engineering signing-key compromise, finance liquidity-stress funding review, compliance sanctions regulator-position coverage, and HR workplace-violence threat assessment by centering one exact support severe-case packet with visible disagreement over exposure scope and evidence sufficiency, tenant-identifying and access-sensitive annex handling, explicit human artifact ownership, and bounded handoff readiness rather than disclosure authority choice, customer communication, privileged-access changes, or downstream response execution."
   - "`critical-escalation-authority-recommendation` now has its first `operations` grounding through a regional aviation-fuel terminal contamination authority-recommendation example, deepening that critical recommendation slice beyond engineering signing-key compromise, finance liquidity-facility draw, and compliance sanctions-screening outage coverage by centering one exact fuel-quality threat with sample lineage, tank and hydrant traces, loaded-truck history, airport stock posture, delegation rules, and protected continuity holds rather than contamination investigation briefing, continuity planning, dispatch execution, airport communication, or downstream response control."
   - "`batch-content-transformation` now has its first `compliance` grounding through a redacted third-party due diligence governance-review dataset example, deepening that high-risk transform-family slice beyond research participant interviews, HR accommodation cases, and support transcript batches by centering one exact ABC due-diligence batch with pseudonymous third-party identifiers, normalised risk-tier and jurisdiction coding, restricted-content flags, approval-bound traceability, and explicit lossy transformation visibility rather than due-diligence adjudication, regulator communication, relationship-exit recommendation, or downstream operational action."
   - "`governed-optimization-bundle-retuning` now has its first `operations` grounding through a cold-chain network review bundle retuning example, deepening that high-risk optimize/adapt slice beyond finance quarter-close, research benchmark, and HR protected-leave coverage by centering one exact refrigerated-network shared bundle across excursion severity scoring, lot-release weighting, inspection buffers, and facility-hold duration with hub-type fairness drift, protected product-lane guardrails, candidate replay, deferred policy-adjacent moves, and explicit human adoption rather than live queue reprioritization, inspection scheduling, facility remediation, lot release, or downstream cold-chain execution."
