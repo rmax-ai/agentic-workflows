@@ -41,6 +41,26 @@ This instance shows how severe compliance monitoring can require an explicit app
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    packet["Pharmacovigilance case and signal-triage systems<br>store the already-triaged safety packet,<br>duplicate linkage, seriousness coding,<br>and reporting-clock context"]
+    refs["Follow-up intake, expectedness reference,<br>and product-label systems<br>provide freshness and hold-state inputs"]
+    reviewer["Qualified safety reviewer"]
+    approval["Safety-review approval systems<br>record reviewer identity,<br>route scope, and sign-off time"]
+    dispatch["Dispatch-manifest tooling<br>releases one approved packet revision<br>into the protected lane"]
+    audit["Audit and hold-tracking services<br>preserve supersession, hold state,<br>protected-routing decisions,<br>and blocked dispatch attempts"]
+    lane["Expedited medical-review queue"]
+
+    packet -->|"Packet revision and lane context"| dispatch
+    refs -->|"Freshness and hold-state inputs"| dispatch
+    reviewer -->|"Review and sign-off"| approval
+    packet -->|"Packet revision for review"| approval
+    approval -->|"Approved scope and reviewer sign-off"| dispatch
+    dispatch -->|"Dispatch manifest and audit events"| audit
+    audit -->|"Current hold and supersession state"| dispatch
+    dispatch -->|"Approved packet revision"| lane
+```
+
 - Event-driven monitoring fits because follow-up narratives, duplicate links, and reporting-clock state can change while the packet is waiting for dispatch approval.
 - Approval-gated execution fits because the packet is technically ready for expedited review but must remain blocked until a qualified safety reviewer authorizes the precise dispatch boundary.
 - Human-in-the-loop review should remain mandatory because releasing the packet into expedited medical review changes who can act next, even though the workflow still does not decide the medical or regulatory response.
