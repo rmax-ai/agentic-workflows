@@ -12,6 +12,22 @@ Research for pre-publication benchmark governance.
 
 An applied research enablement team receives a submission packet from an internal multimodal-model benchmarking squad that wants a new study entered into the organization's pre-publication review pipeline. The packet combines a draft extended abstract, experiment tracker exports, evaluation notebook snapshots, dataset licensing notes, annotator-guideline excerpts, a model card draft, red-team observation summaries, and a spreadsheet of headline benchmark numbers prepared for a possible workshop submission. Before any publication decision, external abstract submission, leaderboard update, or executive circulation occurs, the workflow must transform that heterogeneous packet into a structured research-review intake record with required fields for study owner, benchmark question, candidate title, model variants, dataset and prompt-set versions, evaluation window, metric definitions, compute environment, artifact inventory, privacy and licensing flags, uncertainty notes, and source-evidence links while preserving contradictions and missing details.
 
+```mermaid
+flowchart TD
+    A["Benchmark study artifact<br>packet intake"]
+    B["Field extraction from draft,<br>tracker, notebook, and table artifacts"]
+    C["Normalization to intake schema,<br>controlled metadata, and source links"]
+    D{"Required fields, provenance,<br>and policy checks pass?"}
+    E["Exception routing for privacy,<br>licensing, reproducibility, or conflicts"]
+    F["Structured research-review<br>intake record handoff"]
+
+    A --> B
+    B --> C
+    C --> D
+    D -->|"No"| E
+    D -->|"Yes"| F
+```
+
 ## Target systems / source systems
 
 - Research review or publication-governance staging system with a versioned intake schema for candidate studies
