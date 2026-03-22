@@ -12,6 +12,28 @@ Operations.
 
 A peak-operations coordinator needs to schedule one same-day dock-yard carrier window alignment review after the holiday-volume readiness board marks the morning outbound lane as coordination-required. The review must include the yard flow lead, the dock operations supervisor, the carrier appointment desk lead, the linehaul dispatch liaison, and the gate security supervisor because it sits after the prerequisite peak-volume operating-state check and before any downstream carrier-window notifications or dock-door reassignment activity. The workflow stays bounded at one inspectable coordination packet and coordination log for the current surge period. Source precedence is explicit: the holiday-volume readiness board decides whether scheduling is allowed and names the required participant roles; the carrier appointment lock calendar sets the latest feasible review boundary and protected gate-buffer windows; the approved backup roster determines which designated alternates can satisfy role coverage; and policy-bound availability state is consulted only after the first three sources agree on packet state and participant set. The packet remains tentative until Elena Morales, Director of Peak Operations Coordination, confirms the slot. Visible blockers stay attached, including unresolved yard-density telemetry lag, an amber gate-lane staffing state, missing approved backup coverage for the carrier appointment desk, and protected shift-handoff conflicts. Revision lineage records superseded slot proposals and the reason each revision was replaced. The workflow stops at scheduling and coordination; it does not assign labor, resequence loads, notify carriers, approve overtime, or execute shipments.
 
+```mermaid
+flowchart TD
+    A["Create coordination packet<br>for current surge period"]
+    B["Check source precedence<br>holiday-volume readiness board"]
+    C["Check source precedence<br>carrier appointment lock calendar"]
+    D["Check source precedence<br>approved backup roster"]
+    E["Consult policy-bound availability<br>after first three sources agree"]
+    F["Select tentative slot<br>within protected review boundary"]
+    G["Attach visible blockers<br>telemetry lag, staffing amber, coverage gaps, handoff conflicts"]
+    H["Present tentative packet and blocker state<br>to Elena Morales for confirmation"]
+    I["Confirmed scheduling packet<br>and coordination log"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+```
+
 ## Target systems / source systems
 
 - Holiday-volume readiness board with surge-state status, named owner, required review roles, and coordination-required gating state; this is the first source for whether a scheduling packet can exist at all.
