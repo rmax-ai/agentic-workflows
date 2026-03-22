@@ -62,6 +62,49 @@ Third-party due-diligence programs often close an enhanced review in the authori
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph authority["Authoritative closure sources"]
+        case["Third-party due-diligence<br>case-management system"]
+        packet["Sealed closure packet<br>TPDD-Enhanced-Review-Closure-Packet-v3"]
+        archive["Approved archive manifest<br>tpdd-closure-archive-4821-r7"]
+        episode["Frozen onboarding exception episode<br>onboarding-exception-4821-episode-1"]
+    end
+
+    subgraph context["Context-only consistency source"]
+        metadata["Vendor master and onboarding<br>case metadata"]
+    end
+
+    worker["Closure propagation worker"]
+    followup["Manual follow-up packet"]
+    boundary["Control boundary:<br>no vendor contact,<br>no onboarding release,<br>no policy change"]
+    coordinator["Due-diligence operations<br>coordinator"]
+
+    subgraph targets["Allowed target systems"]
+        queue["Restricted enhanced-review queue"]
+        ledger["Onboarding exception ledger"]
+        register["Compliance exception register"]
+        audit["Append-only audit store"]
+        notify["Internal operations<br>notification channel"]
+    end
+
+    case -->|"Final disposition event<br>and current case state"| worker
+    packet -->|"Sealed packet lineage"| worker
+    archive -->|"Pinned archive references<br>and checksum"| worker
+    episode -->|"Frozen exception mapping"| worker
+    metadata -->|"Identifier consistency check"| worker
+
+    worker -->|"Close queue item"| queue
+    worker -->|"Sync closed-no-further-action state"| ledger
+    worker -->|"Sync closed-no-further-action state"| register
+    worker -->|"Append source snapshots,<br>target updates, and replay decisions"| audit
+    worker -->|"Send completion notice"| notify
+    notify -->|"Closure propagation complete"| coordinator
+
+    worker -->|"Route mismatches or boundary breaches"| followup
+    worker --- boundary
+```
+
 - An event-driven completion worker can subscribe to final no-further-action disposition events and start only when the source event corresponds to an approved post-decision state.
 - The worker should re-read the current case record and closure packet before writing anywhere so stale events, vendor-master merges, or superseding packet revisions are caught before propagation.
 - Durable completion state should track queue closure, ledger sync, archive linkage, notification delivery, and skipped idempotent actions because duplicate events and partial retries are normal.
