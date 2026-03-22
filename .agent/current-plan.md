@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement diversified `contingency-plan-activation-gate` through `instances/hr/semi-monthly-payroll-bank-file-continuity-activation-gate.md`, adding a materially distinct `hr` example in that approval-bound planning slice.
-- Result check: the new HR example stayed bounded at one activation-ready continuity packet with payroll and treasury dual-control staffing coverage, employee-identity and payee-account verification controls, protected pay-group and exception coverage, statutory deduction and garnishment hold handling, and bank-file custody readiness while avoiding manual payroll disbursement, employee communication, benefit changes, case handling, or downstream system execution.
-- Read-first set used this iteration: this plan; `data/patterns/plan-coordinate-schedule/contingency-plan-activation-gate.yaml`; `instances/compliance/serious-adverse-event-manual-intake-continuity-activation-gate.md`; `instances/engineering/critical-security-patch-offline-signing-continuity-activation-gate.md`; `instances/finance/intraday-liquidity-contingency-funding-facility-activation-gate.md`; `instances/operations/network-cold-chain-emergency-reroute-activation-gate.md`; `instances/research/clinical-trial-emergency-unblinding-manual-continuity-activation-gate.md`; `instances/support/enterprise-secure-support-portal-restricted-evidence-intake-continuity-activation-gate.md`; `instances/hr/critical-backfill-headcount-freeze-exception-package-readiness-loop.md`; `instances/hr/interview-panel-availability-coordination.md`; `instances/hr/approved-payroll-status-change-submission.md`; the relevant planning notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-030400.md`.
-- Boundary check: the new example preserved one named approval gate, explicit readiness prerequisites, packet lineage, and protected holds while stopping before any manual payroll disbursement, employee outreach, benefit adjustment, case handling, or downstream systems execution begins.
+- Target for the next bounded batch: Phase 7 structural refinement should deepen a thinner `operations` slice through one materially distinct, instance-only `approval-packet-generation` example.
+- Why this target: the current plan explicitly favors thinner `finance`, `compliance`, or `operations` surfaces and asks for planning or adjacent approval-bound structures without reopening recently deepened collaboration, briefing, or contingency-activation slices unless the read-first pass exposes direct drift.
+- Read-first set for the next authoring pass: this plan; `data/patterns/gather-retrieve-synthesize/approval-packet-generation.yaml`; `instances/compliance/vendor-biometric-retention-control-deviation-approval-packet-for-privacy-council-review.md`; `instances/compliance/electronic-communications-legal-hold-capture-gap-approval-packet-for-records-governance-committee-review.md`; `instances/operations/network-fuel-system-test-deferral-exception-package-readiness-loop.md`; `instances/operations/airport-terminal-smoke-control-impairment-clarification-packet-approved-for-fire-protection-engineering-review-intake.md`; `instances/operations/approved-bulk-chemical-transfer-manifold-isolation-packet-evidence-gate-verification.md`; the relevant gather-family notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-030921.md`.
+- Boundary check for the next example: keep the artifact at one exact approval packet with evidence indexing, exception visibility, provenance links, and a governed human handoff; do not drift into recommendation, adjudication, scheduling, live operations execution, regulator communication, or broader collaboration-room behavior.
 
 ## Current phase
 
@@ -24,8 +24,8 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Continue Phase 7 with one instance-only refinement in a thinner `finance`, `compliance`, or `operations` slice, preferably in a planning or adjacent approval-bound structure without extending `contingency-plan-activation-gate` again unless a directly coupled gap emerges during the read-first pass.
-2. Keep the next batch instance-only unless the new grounding exposes a real canonical or browse-view drift; otherwise do not reopen schema, vocabularies, or views.
+1. Continue Phase 7 with one instance-only refinement in a thinner `operations` slice through `approval-packet-generation`, unless the read-first pass exposes a direct canonical drift that genuinely blocks authoring.
+2. Keep the batch instance-only and outside both `approval-gated-collaborative-artifact-release`, `approval-gated-briefing-release`, and `contingency-plan-activation-gate`; otherwise do not reopen schema, vocabularies, or views.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the next content change.
 4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
 
