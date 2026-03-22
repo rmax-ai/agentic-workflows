@@ -12,6 +12,27 @@ Research.
 
 A research integrity team performs spot checks on benchmark-study artifacts, reproducibility packets, disclosure annexes, and claims tables before embargoed benchmark results are briefed to partners, leadership, or publication stakeholders. The fixed sampling policy has been efficient for routine internal studies, but recent findings show that lower-volume embargoed artifacts with rerun instability, disclosure-sensitive annexes, or negative-result replication disputes generate more meaningful review defects than the baseline sample captures. The workflow must autonomously retune bounded spot-check sampling rates so higher-risk artifact cohorts receive more oversight, while preserving protected floors for sensitive disclosure classes, keeping blinded or conflict-managed information contained, respecting reviewer-capacity limits, and rolling back quickly if the loop starts overreacting to a small number of atypical defects.
 
+```mermaid
+flowchart TD
+    A["Cohort findings and capacity inputs<br>Aggregate defect yield, escaped-issue signals,<br>protected floors, cooldown status, and reviewer capacity"]
+    B["Bounded evidence check<br>Confirm stable evidence windows, sparse-signal thresholds,<br>and embargo-safe cohort definitions before tuning"]
+    C["Candidate sampling retune<br>Propose bounded rate increases or decreases<br>for artifact cohorts inside delegated step limits"]
+    D{"Do proposed changes stay within<br>protected floors, cooldown rules,<br>and reviewer-capacity bounds?"}
+    E["Apply tuned sampling policy<br>Write the new version, supporting audit record,<br>and explicit rollback triggers"]
+    F["Freeze autonomous tuning<br>Keep the prior trusted sampling policy active<br>until research-integrity review completes"]
+    G{"Do later audit signals show escaped issues<br>or overreaction after the retune?"}
+    H["Rollback to the last trusted policy<br>Record the trigger, recovery action,<br>and affected artifact cohorts"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    D --> F
+    E --> G
+    G --> A
+    G --> H
+```
+
 ## Target systems / source systems
 
 - Research review policy store with baseline and protected spot-check rates, cooldown rules, and versioned sampling history
