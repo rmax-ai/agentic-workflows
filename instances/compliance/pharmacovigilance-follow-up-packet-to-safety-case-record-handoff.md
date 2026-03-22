@@ -45,6 +45,34 @@ This grounds the transform pattern in a regulated compliance workflow where the 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph intake["Safety intake boundary"]
+        repo["Safety intake mailbox<br>and document repository"]
+        ocr["OCR and document-parsing service"]
+        agent["Tool-using intake agent"]
+    end
+
+    refs["Product master, MedDRA coding reference,<br>lot-release records, and approved taxonomies"]
+
+    subgraph staging["Structured case-record boundary"]
+        icsr["Pharmacovigilance case-management or ICSR staging system<br>versioned intake schema and intake contract<br>for direct, normalized, and pending fields"]
+    end
+
+    subgraph review["Human review boundary"]
+        queue["Safety exception queue"]
+        human["Medical review, coding review,<br>and data-entry correction"]
+    end
+
+    repo -->|"Follow-up packet documents"| ocr
+    ocr -->|"Parsed text and source spans"| agent
+    refs -->|"Approved normalization<br>and coding references"| agent
+    agent -->|"Populate staged safety case,<br>provenance, uncertainty markers,<br>and transformation trace"| icsr
+    agent -->|"Contradictions, missing minimum-case criteria,<br>or unsupported inference"| queue
+    queue -->|"Route review work"| human
+    human -->|"Corrections and confirmations"| icsr
+```
+
 - A tool-using single agent can coordinate OCR, source segmentation, field extraction, MedDRA candidate lookup, schema validation, and packaging of the staged safety case plus transformation trace.
 - The target handoff should use an explicit intake contract that distinguishes directly extracted values, normalized values, and fields still awaiting human coding or confirmation.
 - Approved reference data may normalize product names, lot formats, reporter categories, and seriousness criteria, but the workflow should refuse unsupported inference for missing onset dates, patient age, or causality indicators.
