@@ -12,6 +12,36 @@ HR.
 
 An employee relations partner and accommodations lead are preparing an internal exception memo after a manager requests approval for a customer-facing workforce analyst to remain fully remote beyond the company's standard hybrid policy because the employee has presented medical restrictions, ergonomic constraints, and a long commute that may aggravate the condition. The HR case owner uses a copilot inside a controlled accommodations workspace to iteratively assemble the interactive-process chronology, pull the current hybrid-work policy language and job-essential-function notes, compare prior accommodation correspondence and manager-proposed alternatives, draft the exception memo and employee-response packet, and rewrite sections as the HR business partner, employment counsel, and occupational health reviewers narrow what wording is supportable. The human HR owner remains responsible for deciding whether the record is complete enough to proceed, what accommodation options are actually supportable, whether additional medical clarification or labor-relations review is required, and approving every outbound statement or commitment before anything is sent to the employee or recorded as a final case outcome.
 
+```mermaid
+flowchart TD
+    A["HR case owner opens the controlled accommodations workspace<br>and frames the memo task and drafting boundaries"]
+    B["Workspace retrieves chronology, interactive-process notes, and prior outreach<br>from the HR case-management system"]
+    C["Workspace retrieves role, location, and essential-function context<br>from HRIS and job architecture records"]
+    D["Workspace retrieves restriction summaries, occupational health notes,<br>and prior accommodation agreements from the secure repository"]
+    E["Workspace retrieves current hybrid-work policy language and exception standards<br>from the policy library"]
+    F["Copilot assembles the chronology, evidence checklist, draft memo sections,<br>and draft employee-response packet inside the shared workspace"]
+    G["HR business partner, employment counsel, and occupational health reviewers<br>narrow what wording is supportable in the workspace"]
+    H["HR case owner reviews whether the record is complete enough to proceed<br>and what accommodation language is supportable"]
+    I["Hold for medical clarification, labor-relations review, or formal escalation<br>before the drafting loop can continue"]
+    J["Handoff state records a review-ready memo draft,<br>open questions, and an unsent employee-response packet"]
+    K["Stop before outbound communication, final accommodation decision,<br>or case-system disposition"]
+
+    A -->|"request grounded context"| B
+    A -->|"request grounded context"| C
+    A -->|"request grounded context"| D
+    A -->|"request grounded context"| E
+    B -->|"provide chronology evidence"| F
+    C -->|"provide job context"| F
+    D -->|"provide restriction evidence"| F
+    E -->|"provide policy language"| F
+    F -->|"submit draft for reviewer narrowing"| G
+    G -->|"return edits and constraints"| F
+    F -->|"present draft and evidence state"| H
+    H -->|"pause for clarification or escalation"| I
+    H -->|"record current handoff state"| J
+    J -->|"remain inside the drafting boundary"| K
+```
+
 ## Target systems / source systems
 
 - Controlled HR accommodations workspace with the draft memo, reviewer comments, handoff state, and approval routing
