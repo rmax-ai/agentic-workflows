@@ -12,6 +12,21 @@ Operations.
 
 A fulfillment network operations excellence team publishes a controlled slotting-rule package each Thursday before the next wave of weekend replenishment. When the authoritative ruleset changes, shift supervisors need a grounded digest showing which aisle-capacity constraints, hazardous-adjacency restrictions, seasonal overflow rules, scanner exception handling steps, and locally approved temporary waivers changed versus the prior package. The workflow should stop at a concise contextual briefing for supervisors and site leads; it should not reprioritize labor, assign move tasks, or decide whether a site should request a special operating exception.
 
+```mermaid
+flowchart TD
+    A["Authoritative slotting<br>package change event"]
+    B["Current versus prior<br>ruleset comparison"]
+    C["Waiver and facility<br>context assembly"]
+    D["Open questions and<br>mapping gaps visibility"]
+    E["Supervisor briefing<br>digest publication"]
+
+    A --> B
+    B --> C
+    C --> D
+    C --> E
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Warehouse management rules repository containing the current approved slotting package, the superseded version, and versioned rule metadata
