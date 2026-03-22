@@ -12,6 +12,30 @@ Operations.
 
 A distribution network is preparing to roll a revised sorter routing profile into one facility for an overnight shift after throughput and misroute issues made the current configuration unsustainable. The authoritative source state spans routing tables, lane capacities, fallback thresholds, maintenance exceptions, shift staffing constraints, and safety-console notes, but the downstream cutover workflow expects one structured routing package with explicit hold placeholders and a manifest authorizing handoff for that single shift window. The transformation workflow must reshape the bounded source material into the approved shift-release package, preserve lineage for every routing and fallback field, and stop once the manifest is signed rather than activating the profile, recommending whether the cutover should happen, or verifying operational readiness beyond the package contract itself.
 
+```mermaid
+flowchart TD
+    start["Collect bounded routing source state<br>for one facility and one shift window"]
+    transform["Transform routing tables, lane capacities,<br>fallback thresholds, and exceptions into<br>the shift-release package"]
+    contract{"Do lineage, facility scope, hold placeholders,<br>and package-contract fields remain complete?"}
+    hold["Place unresolved maintenance conflicts,<br>missing fallback lineage, or scope mismatches<br>into the hold register"]
+    refresh["Resolve held items, refresh the bounded source state,<br>and rebuild the exact package revision"]
+    manifest["Assemble the approval manifest with<br>package version, facility scope, shift boundary,<br>and held annex state"]
+    approve{"Do operations leadership and site reliability<br>approve this exact package revision<br>for shift-cutover handoff?"}
+    handoff["Release the approved routing package and manifest<br>to the downstream shift-cutover handoff lane only"]
+    stop["Stop at the approved package contract boundary<br>before any downstream cutover action"]
+
+    start --> transform
+    transform --> contract
+    contract -->|"No"| hold
+    hold --> refresh
+    refresh --> transform
+    contract -->|"Yes"| manifest
+    manifest --> approve
+    approve -->|"No"| hold
+    approve -->|"Yes"| handoff
+    handoff --> stop
+```
+
 ## Target systems / source systems
 
 - Routing-profile repository, sorter configuration stores, and lane-capacity systems holding the authoritative profile inputs
