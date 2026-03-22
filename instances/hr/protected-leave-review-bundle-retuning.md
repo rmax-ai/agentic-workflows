@@ -12,6 +12,21 @@ HR.
 
 A people operations governance lead is responsible for a shared leave-and-accommodation tuning bundle that affects several coupled surfaces: intake urgency scoring, document-sufficiency weighting, follow-up timing buffers, and specialist-review prioritization for protected leave and workplace accommodation cases. Recent outcome history shows that the active bundle has improved average closure time for straightforward cases, but escalations, reopen events, and supervisor overrides are increasing for intermittent-leave renewals, accommodation requests with sensitive medical documentation, and cases involving lower-visibility worker populations that require more careful review. The workflow must recommend a governed retuning package that adjusts the shared bundle across those surfaces so protected-worker fairness, documentation quality, and review timeliness improve together, without letting the system adjudicate leave eligibility, rewrite HR policy, or execute case actions without human adoption.
 
+```mermaid
+flowchart TD
+    A["Current leave-review bundle<br>and case outcome history"] -->|"feeds"| B["Analyze cross-surface drift<br>across urgency, evidence, follow-up,<br>and specialist-review surfaces"]
+    C["Protected-worker guardrails<br>and policy-linked limits"] -->|"constrains"| B
+    B -->|"proposes"| D["Candidate shared retuning bundle<br>and trade-off summary"]
+    D -->|"checked in replay"| E["Replay candidate bundle<br>against prior protected-leave cohorts"]
+    E -->|"surfaces"| F{"Within protected-worker fairness,<br>timing, and evidence guardrails?"}
+    F -->|"no"| G["Deferred policy-linked or unsafe moves<br>queued for governance follow-up"]
+    G -->|"stop"| H["Retuning cycle held<br>without bundle adoption"]
+    F -->|"yes"| I["Governed retuning recommendation package<br>plus candidate bundle version"]
+    I -->|"reviewed by"| J{"People operations governance lead<br>adopts this retuning package?"}
+    J -->|"yes"| K["Human-adopted retuning package<br>and candidate bundle version"]
+    J -->|"no"| L["Bundle deferred or rejected<br>with prior trusted version retained"]
+```
+
 ## Target systems / source systems
 
 - Leave and accommodation case-management system with active case states, current urgency scores, follow-up timers, and specialist-review routing outputs
