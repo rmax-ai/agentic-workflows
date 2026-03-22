@@ -39,6 +39,33 @@ This grounds the pattern in a compliance workflow where the consequential judgme
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph Closure["Low-risk closure bookkeeping boundary"]
+        Source["Restricted sanctions alert<br>case-management system"]
+        Worker["Event-driven completion worker"]
+        Queue["Restricted post-review queue"]
+        Ledger["Sanctions case ledger<br>or alert tracker"]
+        Archive["Archive or evidence store"]
+        Audit["Audit store"]
+        Notify["Internal sanctions operations<br>notification channel"]
+    end
+
+    Coordinator["Internal sanctions operations coordinator"]
+    Manual["Manual follow-up record"]
+
+    Source -->|"Final false-positive disposition event"| Worker
+    Worker -->|"Re-read current source record"| Source
+    Worker -->|"Close queue item"| Queue
+    Worker -->|"Sync closed-false-positive state"| Ledger
+    Worker -->|"Verify and attach archive references"| Archive
+    Worker -->|"Record completion state<br>and idempotency markers"| Audit
+    Worker -->|"Notify closure propagation complete"| Notify
+    Notify -->|"Deliver completion notice"| Coordinator
+    Worker -->|"Create manual follow-up record<br>for mismatches or reopened alerts"| Manual
+    Manual -->|"Store follow-up state"| Audit
+```
+
 - An event-driven completion worker can subscribe to final false-positive disposition events from the sanctions case system and start the closure sequence only for approved post-decision states.
 - The worker should re-read the current source record before writing anywhere so a reopened alert, superseded disposition, or changed archive reference is not propagated from a stale event.
 - Durable completion state should track queue closure, ledger synchronization, archive linkage, notification delivery, and skipped idempotent actions because duplicate events or partial retries are normal operational conditions.
