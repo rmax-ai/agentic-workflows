@@ -12,6 +12,20 @@ Operations.
 
 A marine terminal dangerous-goods coordinator, an inland rail-yard transfer planner, and a network safety governance lead are co-producing one governed segregation-deviation clarification packet because several import containers arrive with placard combinations, overpack notes, and transfer timing assumptions that do not match the temporary staging-zone map now being used during crane-maintenance congestion. Agents help reconcile container-segregation maps, yard-slot assignments, placard conflict photos, train consist extracts, temporary buffer-zone constraints, and rail-handoff objections into the shared packet while preserving which compatibility questions remain unresolved and which residual caveats the human artifact owner accepted explicitly. The workflow ends only when the named operations release owner approves that exact packet revision for one restricted dangerous-goods safety review intake lane, where downstream reviewers may decide whether the packet is sufficient for formal safety review or requires narrower scope and fresher evidence. It does not adjudicate dangerous-goods acceptability, authorize truck or rail movement, contact regulators, or execute yard reconfiguration.
 
+```mermaid
+flowchart TD
+    A["Container and staging evidence assembled"]
+    B["Shared clarification packet revised"]
+    C["Unresolved segregation and handoff objections logged"]
+    D["Release manifest bound to exact packet revision and intake lane"]
+    E["Operations release owner approves restricted safety review intake release"]
+
+    A -->|"Evidence and policy inputs inform packet update"| B
+    B -->|"Open questions stay visible"| C
+    C -->|"Exact revision and boundary details recorded"| D
+    D -->|"Release request sent for approval"| E
+```
+
 ## Target systems / source systems
 
 - Governed intermodal-operations collaboration workspace holding the segregation-deviation clarification packet, revision history, disagreement ledger, and release-manifest draft
