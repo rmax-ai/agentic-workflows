@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 371
+  instance_files: 372
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ pattern_counts_by_family:
   optimize-adapt: 6
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
-  engineering: 52
+  engineering: 53
   finance: 54
   compliance: 55
   operations: 53
@@ -70,6 +70,8 @@ instance_counts_by_domain:
   support: 52
   hr: 53
   consistency_notes:
+  - "`normalization-and-enrichment` now has additional `engineering` grounding through an internal container base-image inventory metadata normalization example, deepening that low-risk transform-family canonicalization slice beyond service-catalog owner and environment alias cleanup by centering one exact governed staging artifact, `Platform-Base-Image-Inventory-Normalization-Packet-v2`, with explicit source precedence across the approved staging schema and normalization policy, the frozen internal container registry inventory export, the base-image catalog snapshot, approved owner, lifecycle, compliance-profile, and exception-reference tables, and trace-only build-manifest metadata over lower-precedence inventory notes; prerequisite pinned schema, alias tables, lifecycle-policy matrix, compliance-profile registry, exception-id crosswalk, and frozen batch lineage; visible stale catalog snapshots, unresolved retired team aliases, missing lifecycle-policy mappings, unsupported compliance-profile shorthand, conflicting exception references, and catalog-versus-registry digest gaps blockers; and a hard stop at downstream-safe staging rather than image approval, migration recommendation, scanner triage, publication, taxonomy change, or source mutation."
+  - "After this additional engineering normalization depth, the next refinement step should likely move away from the just-refreshed `normalization-and-enrichment` engineering lane and rebalance the remaining 52-instance `support` domain through a materially distinct bounded slice such as `change-triggered-context-briefing` that avoids approval, recommendation, investigation, and live execution drift."
   - "`adaptive-threshold-calibration` now has additional `hr` grounding through a work-authorization expiry alert threshold calibration example, deepening that low-risk optimize-family slice beyond payroll audit sampling by centering one exact governed calibration artifact, `WA-Expiry-Threshold-Calibration-Record-v3`, with explicit source precedence across the approved immigration compliance standard, employer-entity work-authorization rule matrix, authoritative immigration case-system snapshots, and effective-dated HRIS worker context over lower-precedence manager notes and worker-uploaded provisional receipts; prerequisite pinned threshold baseline, frozen 90-day review window, confirmed routing rules, and trusted `v2` lineage; visible stale vendor receipt-status, location mismatches, missing no-alert backchecks, and pending automatic-extension policy clarification blockers; and a hard stop at publishing or deferring the calibration record rather than triaging live cases, notifying workers, assigning reviewers, or directing downstream legal, employment, or payroll action."
   - "After this additional HR threshold-calibration depth, the next refinement step should likely move away from the just-refreshed `adaptive-threshold-calibration` HR lane and rebalance one of the remaining 52-instance domains (`engineering` or `support`) through a materially distinct bounded slice that avoids approval, recommendation, investigation, dispatch, live execution, or another immediate low-risk optimize/adapt repeat."
   - "`normalization-and-enrichment` now has additional `operations` grounding through a warehouse shipment-manifest normalization example, deepening that low-risk transform-family canonicalization slice beyond engineering service-catalog alias cleanup by centering one exact governed artifact, `Warehouse-Shipment-Manifest-Normalization-Packet-v3`, with explicit source precedence across the approved staging schema and normalization policy, the warehouse booking export, carrier delivery-manifest intake, and approved facility, owner, handling-class, route-lane, and service-level reference tables over lower-precedence dock annotations; prerequisite pinned schema and reference-data snapshots, frozen manifest-batch lineage, and minimum shipment identifiers; visible stale carrier revisions, missing facility crosswalks, shipment-owner mapping conflicts, unsupported handling-class shorthand, and missing route-lane entries blockers; and a hard stop at downstream-safe staging rather than supplier approval, rerouting recommendation, discrepancy investigation, WMS or ERP mutation, partner communication, or downstream operational action."
