@@ -12,6 +12,27 @@ Support.
 
 Support leadership has already activated an executive bridge after a compliance archive export failure leaves several regulated enterprise customers unable to retrieve retained communications ahead of active audit, legal-hold, or supervisory-review deadlines. Before anyone promises recovery timing, approves customer disclosures, grants exceptions, or coordinates downstream remediation, the workflow needs one grounded crisis brief that merges verified affected-account scope, contractual and compliance urgency windows, archive-service incident status, retention-integrity validation state, approved workaround availability, and unresolved customer-exposure questions. The useful output is a provenance-preserving support crisis brief that separates binding records-retention facts and verified export-state evidence from anecdotal bridge chatter, vendor speculation, or stale case commentary so human leaders can manage a high-stakes customer event from one inspectable narrative.
 
+```mermaid
+flowchart TD
+    A["Affected-account scope evidence<br>from support case and escalation systems"]
+    B["Contractual and compliance urgency windows<br>from CRM and obligation records"]
+    C["Archive incident and export-state evidence<br>from telemetry, backlog, and replay feeds"]
+    D["Retention-integrity validation evidence<br>from audit logs and custody controls"]
+    E["Source precedence review<br>authoritative records outrank bridge chatter"]
+    F["Evidence assembly ledger<br>claim, source, timestamp, freshness"]
+    G["Crisis brief synthesis<br>verified current state and source-ranked context"]
+    H["Uncertainty register<br>open questions, contradictions, stale inputs"]
+
+    A --> E
+    B --> E
+    C --> E
+    D --> E
+    E --> F
+    F --> G
+    F --> H
+    H --> G
+```
+
 ## Target systems / source systems
 
 - Executive support bridge workspace where reviewed briefs, restricted annexes, and superseded updates are stored
