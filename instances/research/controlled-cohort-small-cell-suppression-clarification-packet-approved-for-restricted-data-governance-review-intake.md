@@ -12,6 +12,20 @@ Research.
 
 A research data steward, a statistical disclosure-control lead, and a manuscript operations partner are co-producing one governed controlled cohort small-cell suppression clarification packet because a manuscript-ready supplementary table set and companion cohort summary export now contain low-count slices, linked geography fields, and exception requests that may exceed the institution's approved disclosure boundary for controlled research data. Agents help reconcile table drafts, suppression-rule annotations, investigator objections, repository restrictions, and approved clarification wording into the shared packet while preserving which cells remain disputed, which utility-preserving exceptions exceed the approved disclosure threshold, which cohort-linkage caveats stay unresolved, and which residual caveats the human artifact owner accepted explicitly. The workflow ends only when the named research release owner approves that exact packet revision and its release manifest for one restricted data-governance review intake lane, where downstream reviewers may decide whether the packet is sufficient for formal controlled-data disclosure review or needs narrower table content and refreshed de-identification treatment. It does not adjudicate disclosure acceptability, provision the dataset, communicate with outside researchers or journals, submit supplementary materials, or decide the downstream review outcome.
 
+```mermaid
+flowchart TD
+    A["Collaborative small-cell suppression<br>clarification packet revision"]
+    B["Unresolved suppression objections,<br>linkage caveats, and release boundaries stay visible"]
+    C["Exact packet revision and release<br>manifest prepared for approval"]
+    D["Human research release owner approves<br>restricted data-governance intake release"]
+    E["Approved packet revision released into<br>restricted data-governance review intake"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Governed research collaboration workspace holding the controlled cohort small-cell suppression clarification packet, revision history, objection ledger, and release-manifest draft
