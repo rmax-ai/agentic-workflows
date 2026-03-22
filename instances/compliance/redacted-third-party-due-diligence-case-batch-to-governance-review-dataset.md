@@ -12,6 +12,18 @@ Compliance.
 
 An anti-bribery and corruption (ABC) compliance team is preparing an annual programme-effectiveness review for the audit and compliance committee. The raw batch includes third-party due diligence investigation files spanning several hundred intermediaries, agents, and joint-venture partners: intake questionnaires, background-screening reports, beneficial-ownership declarations, high-risk-country exception narratives, payment justification memos, escalation notes, and prior-approval correspondence. Many files contain the legal names, passport or registration numbers, home-country addresses, and bank details of named individuals; commercially sensitive transaction amounts and deal structures; and unresolved investigation findings that may intersect with pending regulatory matters. Before any committee review, cross-programme benchmarking, or external counsel read-out can begin, the workflow must transform that batch into a redacted structured governance-review dataset with pseudonymous third-party identifiers, normalised risk-tier and jurisdiction codes, due-diligence outcome fields, exception-category tags, escalation-stage markers, restricted-content flags, and trace links held inside the approved compliance boundary while removing individual identifiers, banking details, commercial transaction specifics, and active-investigation references from the release-safe package.
 
+```mermaid
+flowchart TD
+    A["Restricted due-diligence case batch<br>inside the approved compliance boundary"] -->|"parse and segment"| B["Parse and segment questionnaires,<br>screening reports, declarations,<br>memos, and correspondence"]
+    B -->|"detect sensitive elements"| C["Detect personal identifiers,<br>banking details, commercial terms,<br>and active-investigation references"]
+    C -->|"apply approved transformations"| D["Pseudonymize third parties,<br>remove restricted elements,<br>normalize review fields,<br>and set restricted-content flags"]
+    D -->|"check residual release risk"| E{"Residual identifiers, unsafe linkage,<br>or non-generalizable investigation<br>or commercial content remains?"}
+    E -->|"Yes"| F["Route affected records to the ABC legal,<br>privacy, and investigations exception queue"]
+    E -->|"No"| G["Review transformed records,<br>trace links, lossy transformations,<br>and manifest scope"]
+    F -->|"review and resolve"| G
+    G -->|"stage reviewed package"| H["Stage the reviewed release-safe<br>governance-review dataset<br>with manifest"]
+```
+
 ## Target systems / source systems
 
 - Restricted compliance case-management repository holding due diligence files, screening reports, exception memos, and escalation correspondence
