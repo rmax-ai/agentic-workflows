@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Active target: continue Phase 7 structural refinement with an instance-only `approval-gated-briefing-release` batch in `engineering`, adding a second engineering grounding around an approved release-rollback readiness briefing revision whose circulation into a restricted platform-reliability council lane depends on exact revision control, freshness-bound unresolved-risk visibility, and bounded audience scope without reopening canonical pattern or browse assets.
+- Active target: continue Phase 7 structural refinement with an instance-only `approval-gated-briefing-release` batch in `engineering`, adding a second engineering grounding around an approved release-rollback readiness briefing revision whose circulation into a restricted platform-reliability council lane depends on exact revision control, freshness-bound unresolved-risk visibility, rollback-annex handling, and bounded audience scope without reopening canonical pattern or browse assets.
 - Selection rule: stay inside a pattern/domain pair that already has one grounding and vary the governed evidence set, approval-ready packet, and hold-state logic rather than renaming the same scenario with new nouns.
 - Read-first set: this plan; `data/patterns/gather-retrieve-synthesize/approval-gated-briefing-release.yaml`; `instances/engineering/release-candidate-risk-briefing-revision-approved-for-architecture-board-circulation.md`; one cross-domain briefing-release neighbor such as the operations gateway-port berth-closure example; the relevant coverage notes in `.agent/coverage-matrix.yaml`; and the newest relevant files in `.agent/iterations/2026/`, starting with `20260322-010520.md`.
-- Boundary rule: keep the next engineering example centered on one exact briefing-release boundary with freshness-aware unresolved-risk visibility, approval-ready hold state, and bounded platform-governance audience control, and stop before council adjudication, rollback approval, stakeholder communications, or release execution.
+- Boundary rule: keep the next engineering example centered on one exact briefing-release boundary with freshness-aware unresolved-risk visibility, rollback-annex gating, approval-ready hold state, and bounded platform-governance audience control, and stop before council adjudication, rollback approval, stakeholder communications, or release execution.
 
 ## Current phase
 
