@@ -12,6 +12,30 @@ Support.
 
 Knowledge operations marks an internal premium-support advisory macro as published after the macro source repository, agent-assist macro library, and support-console suggestion service report a successful release for a recurring but low-risk product guidance scenario. Premium-support teams still need to know whether that claimed publication state is actually true across the approved internal support surfaces before they rely on the macro in routine case handling. The workflow verifies the claim against authoritative evidence and emits a bounded confirmed, disproved, or inconclusive verdict; it must not edit the macro, republish content, contact customers, escalate the case, or trigger downstream workflow changes.
 
+```mermaid
+flowchart TD
+    A["Publication claim received<br>for one approved advisory macro revision"]
+    B["Load verification policy<br>approved surfaces and lag tolerance"]
+    C["Check macro source repository<br>revision metadata visibility state"]
+    D["Check agent-assist macro library<br>published revision availability"]
+    E["Check support-console suggestion service<br>eligible revision state"]
+    F["Evidence matches across approved surfaces<br>within allowed lag window"]
+    G["Confirmed verdict<br>claim corroborated across approved surfaces"]
+    H["Disproved verdict<br>one approved surface shows conflicting state"]
+    I["Inconclusive verdict<br>evidence missing or still within allowed lag"]
+
+    A --> B
+    B --> C
+    B --> D
+    B --> E
+    C --> F
+    D --> F
+    E --> F
+    F -->|"yes"| G
+    F -->|"no conflicting state"| H
+    F -->|"no evidence gap or tolerated lag"| I
+```
+
 ## Target systems / source systems
 
 - Macro source repository containing the approved advisory macro revision, publication metadata, and internal visibility settings
