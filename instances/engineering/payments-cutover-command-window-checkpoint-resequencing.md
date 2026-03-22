@@ -41,6 +41,21 @@ This grounds the pattern in engineering work where the critical problem is no lo
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    cm["Change-management record<br>for declared cutover scope<br>and protected milestones"] -->|"declared scope<br>and rollback guardrails"| verify["Readiness verification"]
+    tracker["Release-readiness tracker<br>and replication dashboard"] -->|"checkpoint completion<br>and dependency state"| verify
+    roster["On-call roster, delegate records,<br>and calendars"] -->|"approved owners<br>and delegate windows"| verify
+    verify -->|"authoritative updates"| resequence["Checkpoint resequencing"]
+    resequence -->|"protected-window conflicts"| holds["Hold classification"]
+    resequence -->|"revised checkpoint order"| packet["Packet assembly"]
+    holds -->|"held checkpoints<br>and exceptions"| packet
+    packet -->|"current packet, lineage,<br>and acknowledgements"| ledger["Cutover coordination workspace"]
+    ledger -->|"resequenced packet<br>for adoption"| leadership["Release leadership"]
+    leadership -->|"approved checkpoint order<br>or continued hold"| ledger
+    ledger -->|"targeted timeline deltas"| notify["Notification tooling"]
+```
+
 - An orchestrated multi-agent design can separate readiness verification, checkpoint resequencing, hold classification, and packet assembly while preserving one shared cutover ledger.
 - Human-directed control fits because release leadership must adopt any materially changed checkpoint order before the new packet becomes authoritative for live coordination.
 - The workflow should track superseded command packets, changed owner acknowledgements, and protected-window conflicts so teams can see exactly why the sequence changed.
