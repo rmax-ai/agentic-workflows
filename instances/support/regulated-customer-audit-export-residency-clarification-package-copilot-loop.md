@@ -12,6 +12,27 @@ Support.
 
 A sovereign-support lead is preparing an internal clarification package after a residency-constrained customer asks where requested audit-export artifacts are generated, staged, and retained before the company's restricted compliance-review intake will even accept the case. The lead uses a copilot inside a governed support workspace to iteratively assemble the clarification package, pull export-job traces, residency inventory snapshots, staging-bucket controls, retention-policy mappings, and prior case notes, rewrite sections as privacy, platform, and compliance reviewers narrow what wording is supportable, and maintain an unresolved-blockers register plus revision lineage for each draft turn. The governed artifact stays internal: the human owner remains responsible for deciding which system facts are authoritative, whether the evidence is complete enough for restricted intake preparation, what ambiguities must remain visible, and approving the final clarification package before it is attached to any downstream review request. The workflow stops at the internal package; it does not authorize intake, choose a concession, grant export access, send a customer reply, or trigger any downstream execution.
 
+```mermaid
+flowchart TD
+    H["Sovereign support clarification lead"]
+    W["Governed support workbench<br>internal clarification package"]
+    E["Retrieve evidence<br>export traces, residency inventory, retention controls, prior case notes"]
+    D["Draft and revise package<br>copilot updates claims, citations, and internal wording"]
+    B["Keep blockers visible<br>unresolved evidence gaps, source conflicts, ambiguous wording"]
+    L["Preserve revision lineage<br>draft turns, reviewer edits, accepted and rejected changes"]
+    A["Human approval<br>approve internal clarification package for downstream attachment readiness"]
+
+    H --> W
+    W --> E
+    E --> D
+    D --> B
+    D --> L
+    B --> D
+    L --> D
+    D --> A
+    A --> W
+```
+
 ## Target systems / source systems
 
 - Governed support workbench holding the draft clarification package, reviewer comments, unresolved blockers, revision lineage, and explicit human ownership
