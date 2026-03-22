@@ -41,6 +41,19 @@ This grounds the new canonical pattern in an engineering crisis where the highes
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    telemetry["Telemetry and dependency sources<br>service health, tracing, dependency graph, SLO dashboards"] -->|"provides live service evidence"| retrieve["Orchestrated evidence retrieval<br>telemetry, change-window, and impact assembly"]
+    changes["Change and deployment history<br>change log, pipeline history, rollback checkpoints"] -->|"provides production change context"| retrieve
+    impact["Customer-impact and status inputs<br>impact tracker, support summaries, status drafting workspace"] -->|"provides customer-impact posture"| retrieve
+    context["Service context sources<br>service catalog, ownership registry, exception register"] -->|"provides ownership and policy context"| retrieve
+    prior["Prior brief archive and unresolved questions<br>continuity across bridge updates"] -->|"provides prior brief lineage"| retrieve
+    retrieve -->|"updates source-ranked claims<br>and provenance trace"| state["Shared crisis state<br>freshness markers and provenance trace"]
+    state -->|"feeds review-ready synthesis"| compose["Brief composition<br>executive bridge draft"]
+    compose -->|"submits review-ready brief"| review["Incident commander review<br>human approval gate"]
+    review -->|"publishes approved brief<br>and supersession record"| workspace["Incident command workspace<br>reviewed crisis brief handoff"]
+```
+
 - An orchestrated multi-agent setup can separate telemetry retrieval, change-window reconstruction, customer-impact assembly, and final briefing composition while sharing one source-ranked crisis state.
 - Human-in-the-loop review should remain mandatory for each executive bridge brief because ambiguous blast-radius statements, mitigation claims, and external-status wording can materially affect response leadership.
 - The workflow should preserve a provenance trace that marks which statements come from authoritative telemetry, which come from ticket state, and which remain lower-authority operator notes awaiting confirmation.
