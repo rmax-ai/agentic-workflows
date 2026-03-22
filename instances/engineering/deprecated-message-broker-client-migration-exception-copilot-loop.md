@@ -41,6 +41,31 @@ This grounds the collaboration pattern in engineering governance work where the 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Service catalog and dependency graph<br>affected services, broker-client constraints,<br>planned migration waves"]
+    B["CI and compatibility-test records<br>upgrade failures, benchmark regressions,<br>reproducibility notes"]
+    C["Incident archive and SLO evidence<br>broker reliability history,<br>postmortem context"]
+    D["Platform standards repository<br>deprecation notices, migration guidance,<br>exception-review criteria"]
+    E["Shared engineering workspace<br>draft exception memo, evidence matrix,<br>open questions and owners"]
+    F["Embedded copilot and tooling<br>retrieve evidence, refresh citations,<br>propose reviewer-specific rewrites"]
+    G["Principal engineer and reviewers<br>reliability and security feedback,<br>credibility checks on commitments"]
+    H["Human approval boundary<br>migration exception rationale,<br>mitigations, rollback, expiration"]
+    I["Submission-ready exception packet<br>human-approved memo, evidence matrix,<br>follow-up owners"]
+
+    A -->|"Provide dependency scope<br>and migration constraints"| E
+    B -->|"Provide current test evidence<br>and failure details"| E
+    C -->|"Provide operational history<br>and reliability context"| E
+    D -->|"Provide policy language<br>and review standards"| E
+    E -->|"Use governed draft state<br>and task ownership"| F
+    F -->|"Return refreshed draft sections,<br>citations, and issue tracking"| E
+    E -->|"Present packet revisions,<br>evidence links, and open questions"| G
+    G -->|"Send reviewer comments<br>and required changes"| E
+    E -->|"Hold before submission or waiver recording<br>until human approval"| H
+    G -->|"Confirm or reject readiness of rationale,<br>mitigations, and rollback language"| H
+    H -->|"Release only the human-approved<br>submission-ready packet"| I
+```
+
 - Human-in-the-loop collaboration should remain primary because exception scope, risk acceptance, and deadline commitments require accountable engineering judgment.
 - A tool-using single agent can retrieve dependency evidence, refresh the memo's facts and citations, propose reviewer-specific rewrites, and track unresolved questions inside one shared workspace.
 - The copilot may update the draft packet and evidence matrix, but submitting the exception, changing the proposed expiration date, or recording platform-standard waivers should remain explicitly human-approved.
