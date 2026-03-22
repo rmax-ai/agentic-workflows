@@ -49,6 +49,25 @@ This grounds the pattern in a records-governance workflow where one already-issu
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Retention-conflict governance record<br>approved review scope, required participant roles,<br>current coordination status, prior packet version"]
+    B["Messaging archive operations calendar<br>authoritative archive-freeze moves,<br>migration checkpoints, intake constraints"]
+    C["Team calendars, delegate mappings,<br>role eligibility records for required attendees<br>and approved delegates"]
+    D["Compliance coordination workspace<br>packet revisions, acknowledgements,<br>adoption state, blockers, refresh lineage"]
+    E["Meeting and notification tooling<br>role-targeted delta updates with<br>authoritative invite history preserved"]
+    F["Records-governance owner adoption checkpoint<br>changed meeting time, attendee substitution,<br>archive-freeze-sensitive shift"]
+    G["Exception routing boundary<br>no-feasible-window refreshes, unsupported delegate changes,<br>unresolved legal-hold overlaps, stale roster-readiness conditions"]
+
+    A -->|"Provide governed review state"| D
+    B -->|"Provide authoritative archive timing"| D
+    C -->|"Provide attendee and delegate state"| D
+    D -->|"Issue targeted participant deltas"| E
+    D -->|"Present changed state for adoption"| F
+    D -->|"Route out-of-policy refreshes"| G
+    F -->|"Adopt refreshed coordination state"| D
+```
+
 - Event-driven monitoring should react only to approved archive-freeze updates, supervised-user roster readiness changes, legal-hold overlap status changes, and governed delegate-state changes that affect the issued review packet.
 - Exception-gated autonomy fits because the workflow can refresh the packet, revise the tentative hold, carry forward visible blockers, and issue targeted participant notices automatically when changes remain inside records-governance and restricted-attendee guardrails.
 - The records-governance owner should adopt any changed meeting time, required-attendee substitution, or archive-freeze-sensitive shift before the refreshed packet becomes authoritative.
