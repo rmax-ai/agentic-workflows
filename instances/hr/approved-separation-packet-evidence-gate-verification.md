@@ -12,6 +12,20 @@ HR.
 
 An HR employee-relations team has one approved separation packet revision for a high-consequence employee departure, but the packet cannot be released into the restricted separation-administration lane until current evidence still supports human reliance on that exact version. The workflow rechecks the signed separation agreement, final-pay worksheet approvals, revocation-window status, benefits-continuation notice version, and protected reviewer scope against the packet, then emits a verified, held, or insufficient verdict with an explicit release-hold state for named HR approvers. It must not renegotiate terms, decide whether the separation should proceed, schedule the employee meeting, change payroll or access state, or execute the downstream separation steps.
 
+```mermaid
+flowchart TD
+    start["Approved separation<br>packet revision"]
+    start -->|"recheck"| verify["Recheck signed separation agreement,<br>final-pay worksheet approvals,<br>revocation-window status,<br>benefits-continuation notice version,<br>and protected reviewer scope"]
+    verify -->|"assess"| assess{"Does current evidence still support<br>release of this exact packet revision?"}
+    assess -->|"yes"| verified["Emit verified verdict<br>with evidence lineage and<br>release-ready packet"]
+    assess -->|"stale or boundary drift"| held["Emit held verdict<br>with explicit release-hold state<br>for named HR approvers"]
+    assess -->|"missing or conflicting evidence"| insufficient["Emit insufficient verdict<br>with blocked packet reuse and<br>required evidence gaps"]
+    verified -->|"present"| gate["Present verified packet at the<br>human HR approval gate"]
+    gate -->|"stop"| stop["Stop before restricted separation-<br>administration handoff or any<br>downstream separation execution"]
+    held -->|"hold"| stop
+    insufficient -->|"hold"| stop
+```
+
 ## Target systems / source systems
 
 - Restricted employee-relations case workspace holding the approved separation packet revision, superseded drafts, reviewer assignments, and hold history
