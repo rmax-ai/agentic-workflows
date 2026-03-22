@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Active target: continue Phase 7 structural refinement with an instance-only governance-heavy batch in `research`, likely deepening an already canonical approval-bound or release-control slice so grounded coverage keeps expanding without reopening schema, vocabulary, or browse assets unless a real drift appears.
-- Selection rule: stay inside a pattern/domain pair that already has one grounding and vary the governed evidence set, approval-ready packet, freshness or hold-state logic, and audience-bound controls rather than renaming the same scenario with new nouns.
-- Read-first set: this plan; the most relevant already-canonical pattern for the next chosen research-side approval-bound slice; one same-domain neighbor in `instances/research/`; one cross-domain neighbor in the same family; the relevant coverage notes in `.agent/coverage-matrix.yaml`; and the newest relevant files in `.agent/iterations/2026/`, starting with `20260322-011118.md`.
-- Boundary rule: keep the next example centered on one exact governed artifact or packet boundary with explicit freshness or hold-state visibility and bounded audience or authority scope, and stop before adjudication, execution approval, downstream communications, or live operational action.
+- Active target: continue Phase 7 structural refinement with an instance-only governance-heavy batch in `research`, specifically by deepening `approval-gated-collaborative-artifact-release` through one publication-rights and provenance clarification packet released only into a bounded review-intake lane so grounded coverage keeps expanding without reopening schema, vocabulary, or browse assets unless a real drift appears.
+- Selection rule: stay inside a pattern/domain pair that already has grounding and vary the governed evidence set, release manifest, hold-state logic, and audience-bound controls rather than renaming the same publication or ethics scenario with new nouns.
+- Read-first set: this plan; `data/patterns/human-agent-collaborative-work/approval-gated-collaborative-artifact-release.yaml`; the research neighbors `instances/research/benchmark-claim-clarification-packet-approved-for-publication-integrity-review-intake.md` and `instances/research/participant-consent-language-variance-clarification-packet-approved-for-human-subjects-ethics-pre-review-intake.md`; one cross-domain neighbor in the same family; the relevant coverage notes in `.agent/coverage-matrix.yaml`; and the newest relevant files in `.agent/iterations/2026/`, starting with `20260322-011118.md`.
+- Boundary rule: keep the next example centered on one exact collaborative clarification artifact with explicit provenance, rights, or hold-state visibility and bounded review-lane scope, and stop before publication approval, external disclosure, author outreach, rights adjudication, or any live operational action.
 
 ## Current phase
 
@@ -24,7 +24,7 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Author one materially distinct instance in the next selected thin, governance-heavy slice, preferring an already-canonical research pattern/domain pairing so the batch stays instance-only unless real canonical drift appears.
+1. Author one materially distinct `research` instance for `approval-gated-collaborative-artifact-release`, centering a publication-rights and provenance clarification packet that stays bounded at governed artifact release into one review-intake lane so the batch remains instance-only unless real canonical drift appears.
 2. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
 3. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
 4. Carry the next-step target forward toward Phase 7 closure by continuing to deepen thin approval-bound or governance-heavy slices in underused families rather than by restoring domain-count parity mechanically.
