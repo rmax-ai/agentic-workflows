@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 311
+  instance_files: 312
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -64,7 +64,7 @@ pattern_counts_by_family:
 instance_counts_by_domain:
   engineering: 43
   finance: 44
-  compliance: 47
+  compliance: 48
   operations: 44
   research: 45
   support: 45
@@ -72,7 +72,8 @@ instance_counts_by_domain:
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has three hundred eleven grounded examples across all seven currently modeled domains, with `compliance` at forty-seven; `research` and `support` at forty-five; `finance` and `operations` at forty-four; and `engineering` plus `hr` at forty-three. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has three hundred twelve grounded examples across all seven currently modeled domains, with `compliance` at forty-eight; `research` and `support` at forty-five; `finance` and `operations` at forty-four; and `engineering` plus `hr` at forty-three. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`change-triggered-context-briefing` now has its first `compliance` grounding through a trade-surveillance restricted-communications review procedure change digest, deepening that low-risk gather/synthesize slice beyond support escalation, warehouse slotting, and leave-intake coverage by centering one exact market-conduct procedure revision with source-version provenance, carry-forward coverage and exception context, explicit unresolved lexicon, connector, and template-alignment questions, and one named Market Conduct Surveillance Supervisor handoff rather than alert triage, case handling, escalation routing, regulator communication, or downstream surveillance execution."
   - "`document-to-structured-data-handoff` now has additional `research` grounding through an internally approved protocol-amendment packet to restricted pre-submission intake record handoff, deepening that moderate-risk transform-family handoff slice beyond benchmark-study review intake by centering one exact multisite study-change packet with source-level provenance, blocker register visibility, protocol-delta lineage, restricted-audience tags, and one named Human Subjects Pre-Submission Intake owner rather than amendment recommendation, ethics decisioning, sponsor communication, or downstream submission execution."
   - "`approval-gated-optimization-state-release` now has additional `hr` grounding through an executive-conflict investigation intake scoring revision release example, deepening that high-risk optimize/adapt approval-bound slice beyond protected leave and accommodation intake by centering one exact employee-relations tuning revision with provenance snapshots, visible blocker state, field-level delta lineage, explicit expiry and rollback controls, and one named approval lane rather than allegation substantiation, investigator assignment, executive communication, policy adjudication, or downstream case execution."
   - "`change-triggered-representation-refresh` now has additional `finance` grounding through a borrowing-base certificate review package refresh after collateral schedule update, deepening that moderate-risk transform-family refresh slice beyond quarter-close covenant staging by centering one exact asset-based-lending review package with receivables and inventory schedule lineage, approved reserve and concentration-haircut changes, field-level delta trace, exception-held blockers, and a named credit-officer plus facility-agent review lane rather than lender submission, borrowing requests, treasury availability posting, or downstream execution."
