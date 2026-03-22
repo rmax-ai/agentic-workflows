@@ -12,6 +12,15 @@ Finance.
 
 A controllership and disclosure-preparation workflow has already synthesized one revision of a quarter-close earnings sensitivity briefing that summarizes exposure drivers, segment-level variance sensitivity, covenant watchpoints, unresolved post-close adjustments, and disclosure-readiness caveats for the current reporting cycle. Before that exact revision is circulated into the restricted disclosure committee lane, a named corporate controller must approve the audience scope, freshness window, and supersession state so committee readers receive the reviewed context package instead of a stale draft, an overly broad copy, or a forwarding-prone version. The workflow stops at governed release of that briefing revision; it does not decide disclosure wording, set earnings guidance, approve a filing position, schedule investor communications, or execute any downstream finance action.
 
+```mermaid
+flowchart TD
+    A["Synthesized earnings sensitivity briefing<br>revision is ready for governed release"] -->|"Prepare release manifest and verify boundary"| B["Exact revision, audience scope, freshness window,<br>and supersession state are checked"]
+    B -->|"Controller review required"| C["Named corporate controller reviews the<br>release boundary for that exact revision"]
+    C -->|"Hold or supersede"| D["Revision remains on hold or is superseded<br>before any committee circulation"]
+    C -->|"Approve for disclosure committee lane"| E["Approved revision is circulated to the<br>restricted disclosure committee lane"]
+    E -->|"Record release lineage and controls"| F["Approval manifest and audit/supersession<br>tracking record the governed release state"]
+```
+
 ## Target systems / source systems
 
 - Restricted finance briefing workspace storing the synthesized earnings sensitivity briefing revision, prior revisions, caveat register, and provenance ledger
