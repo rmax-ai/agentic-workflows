@@ -12,6 +12,17 @@ HR.
 
 An HR leave operations program already maintains a restricted staged review record for an active protected-leave case so leave specialists can inspect one privacy-scoped package instead of reopening the HRIS case, document repository, employee portal, and manager attendance notes every time the file changes. After that staged record is issued, authoritative source changes still arrive: a clinician submits recertification that narrows intermittent-frequency limits, the employee corrects expected treatment dates in the secure portal, receipt metadata is fixed for a late faxed provider note, or the leave case source record is updated to reflect a superseding certification version. Each approved source change should trigger refresh of the staged leave-review record, preserving field-level delta lineage, explicit current-versus-superseded values, and exception routing whenever conflicting medical timing, incomplete provider provenance, or policy-disallowed overwrite logic would make the refreshed package unsafe for downstream restricted review.
 
+```mermaid
+flowchart TD
+    A["Approved recertification or case-source update<br>arrives from authoritative HR leave systems"] -->|"triggers refresh"| B["Refresh agent re-reads current case bundle,<br>prior staged leave-review record,<br>and overwrite rules"]
+    B -->|"checks lineage, timing, and privacy scope"| C{"Safe to refresh<br>within approved rules?"}
+    C -->|"yes"| D["Rebuild restricted staged leave-review record<br>with current values and superseded-value markers"]
+    D -->|"writes trace"| E["Update lineage and audit store<br>with field-level deltas and trigger id"]
+    E -->|"publishes current record"| F["Refreshed staged leave-review record<br>is ready for restricted downstream review"]
+    C -->|"no"| G["Route exception to leave-program,<br>employee-relations, or medical-review queue"]
+    G -->|"stops automatic refresh"| H["Hold current-state publication<br>until exception follow-up is complete"]
+```
+
 ## Target systems / source systems
 
 - Restricted leave-review staging store holding the already-issued structured record used by leave specialists
