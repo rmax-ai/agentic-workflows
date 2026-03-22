@@ -40,6 +40,31 @@ This grounds the execution pattern in an engineering workflow where the browser 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    OWNER["Elena Park<br>Accountable owner"]
+    GOV["Certificate-governance / issuance-record system<br>Approved request, approval chain, and prerequisite checklist"]
+    PACKET["Approved CSR packet / subscriber identity / SAN inventory /<br>HSM custody attestation / issuance-window reservation"]
+    POLICY["Cryptographic policy / profile catalog / trust-chain inventory /<br>expiration calendar / environment registration records"]
+    REVIEWER["CA reviewer<br>Controlled takeover path"]
+
+    subgraph BOUNDARY["Approval-gated submission boundary"]
+        EXEC["Tool-using portal submission agent"]
+        PORTAL["Browser-only enterprise PKI portal"]
+        EVID["Evidence store<br>Masked screenshots, approval references,<br>request identifiers, and blocker notes"]
+    end
+
+    OWNER -->|"owns packet integrity,<br>approval freshness, and takeover routing"| GOV
+    GOV -->|"authorizes approved request<br>and named-owner context"| EXEC
+    PACKET -->|"supplies exact CSR, subscriber,<br>SAN, custody, and timing inputs"| EXEC
+    POLICY -->|"constrains profile, trust chain,<br>expiration timing, and environment scope"| EXEC
+    EXEC -->|"submits approved fields only<br>after approval recheck"| PORTAL
+    PORTAL -->|"returns warnings,<br>queue state, and request confirmation"| EXEC
+    EXEC -->|"records masked evidence,<br>approval trace, and blockers"| EVID
+    EXEC -->|"halts and hands off on ambiguity,<br>scope drift, or policy mismatch"| REVIEWER
+    REVIEWER -->|"resumes controlled review<br>or portal takeover"| EXEC
+```
+
 - Approval-gated execution should assemble the issuance packet, verify that release-integrity, cryptography-management, and certificate-authority approvals remain current, and block final commit until those approvals are rechecked immediately before submit.
 - A tool-using single agent can navigate the PKI portal, populate subscriber, profile, SAN, and custody fields, attach or reference the approved issuance artifacts, and capture masked evidence at each gated checkpoint.
 - Human-in-the-loop control should remain standard for CSR or SAN drift, unexpected certificate-profile changes, trust-chain warnings, portal layout changes, duplicate pending requests, or any prompt that suggests the submission would create a broader certificate request than the approved packet allows.
