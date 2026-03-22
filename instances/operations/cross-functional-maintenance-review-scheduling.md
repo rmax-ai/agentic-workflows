@@ -12,6 +12,21 @@ Operations.
 
 A plant operations coordinator needs to schedule a pre-maintenance review for a Saturday ERP and warehouse-control cutover affecting manufacturing, facilities, network engineering, and the overnight support desk. The meeting has to land before the approved maintenance window, include both on-site and remote participants across two shifts, avoid shift handoff gaps, and secure a conference room with dial-in support near the operations floor.
 
+```mermaid
+flowchart TD
+    request["Coordinator receives cross-functional<br>maintenance review request"]
+    gather["Gather required attendees, shift overlays,<br>change-window timing, and room needs"]
+    screen["Screen candidate slots against shift handoffs,<br>maintenance timing, and required attendance"]
+    hold["Select viable slot and place tentative room<br>and remote meeting hold"]
+    packet["Draft invite packet with chosen slot,<br>logistics, and coordination rationale"]
+    escalate["Escalate when no in-policy slot satisfies<br>required attendees and logistics"]
+    request -->|"intake"| gather
+    gather -->|"constraints assembled"| screen
+    screen -->|"viable slot found"| hold
+    screen -->|"no compliant slot"| escalate
+    hold -->|"tentative booking details"| packet
+```
+
 ## Target systems / source systems
 
 - Team calendars with shift overlays and on-call rotations
