@@ -12,6 +12,22 @@ Support.
 
 An enterprise support workflow has already prepared one exact recommendation packet revision for a regulated customer's audit-export remedy package after repeated compliance-archive extraction failures blocked a time-bound external submission. The packet narrows the bounded options to release one supervised reconstruct-and-validate export package with time-boxed vendor assistance, release a narrower partial-export and evidence-gap disclosure package tied to validated retained records, or escalate to chief privacy and legal review, and it keeps blocked requests such as an unrestricted database dump, continuous raw-log streaming, or open-ended manual analyst augmentation explicit. Before that exact packet revision can enter the restricted account-governance board decision lane, a named support release owner must approve the audience scope, regulatory timing window, and release manifest so reviewers receive the governed recommendation artifact rather than a stale or over-shared copy. The workflow stops at governed release of that packet revision; it does not decide which remedy package is granted, execute the export, amend data-sharing terms, or communicate the outcome to the customer.
 
+```mermaid
+flowchart TD
+    packet["Exact recommendation packet revision<br>bounded remedy options<br>blocked access notes"]
+    review["Release review<br>audience scope<br>regulatory timing window"]
+    approve["Approve release<br>exact revision confirmed"]
+    hold["Hold and supersede<br>stale scope or changed evidence"]
+    manifest["Recommendation release manifest<br>packet hash<br>lane scope<br>expiry window"]
+    lane["Restricted account-governance board decision lane<br>governed handoff only"]
+
+    packet --> review
+    review --> approve
+    review --> hold
+    approve --> manifest
+    manifest --> lane
+```
+
 ## Target systems / source systems
 
 - Audit-export remedy recommendation workspace holding the current packet revision, bounded remedy options, blocked-access notes, and superseded drafts
