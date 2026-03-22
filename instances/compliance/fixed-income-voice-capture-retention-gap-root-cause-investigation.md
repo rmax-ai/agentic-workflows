@@ -93,6 +93,60 @@ Fixed-income voice-capture gaps sit at the intersection of communications survei
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph AUTH["Authoritative read-only evidence"]
+        RM["Recorder export manifests<br>from the fixed-income voice-capture estate"]
+        AL["Archive ingest ledger and<br>immutable-storage receipt records"]
+        LH["Legal-hold registry"]
+        RB["Approved retention-policy baseline and<br>books-and-records schedule"]
+    end
+
+    subgraph SEC["Secondary contextual evidence"]
+        CH["Connector deployment tickets,<br>certificate rollover records, telemetry, and retry logs"]
+        CTX["Desk inventory records,<br>line-assignment sheets, and surveillance notes"]
+    end
+
+    subgraph ORCH["Orchestrated investigation workspace"]
+        COORD["Multi-agent investigation orchestrator"]
+        MRG["Recorder-manifest retrieval"]
+        ARC["Archive-ledger reconciliation"]
+        RET["Retention-and-hold baseline verification"]
+        HIS["Change-history analysis"]
+        PKT["Shared investigation record<br>FIVR-Retention-Gap-Investigation-v3"]
+    end
+
+    subgraph GOV["Human approval boundary"]
+        OWN["Monica Reyes<br>Director of Communications Records Governance"]
+        PROMO["Approval gate for source promotion"]
+        USE["Approval gate for downstream use"]
+        DOWN["Human-owned downstream workflows<br>for remediation, disciplinary use, or regulator-facing use"]
+    end
+
+    RM -->|"Read-only manifest evidence"| MRG
+    AL -->|"Hash-linked ingest and receipt evidence"| ARC
+    LH -->|"Frozen hold population"| RET
+    RB -->|"Approved retention baseline"| RET
+    CH -->|"Change-history evidence"| HIS
+    CTX -->|"Lower-precedence contextual evidence"| PROMO
+
+    COORD -->|"Coordinates retrieval and joins"| MRG
+    COORD -->|"Coordinates retrieval and joins"| ARC
+    COORD -->|"Coordinates retrieval and joins"| RET
+    COORD -->|"Coordinates retrieval and joins"| HIS
+
+    MRG -->|"Manifest references and cohort joins"| PKT
+    ARC -->|"Object state and retrieval-index findings"| PKT
+    RET -->|"Hold-scope and retention checks"| PKT
+    HIS -->|"Certificate and connector findings"| PKT
+    PROMO -->|"Explicitly promoted secondary evidence"| PKT
+
+    OWN -->|"Approves source promotion"| PROMO
+    PKT -->|"Findings held at the investigation boundary"| USE
+    OWN -->|"Approves downstream use"| USE
+    USE -->|"Released only after human review"| DOWN
+```
+
 - An orchestrated multi-agent design can separate recorder-manifest retrieval, archive-ledger reconciliation, retention-and-hold baseline verification, and change-history analysis while preserving one shared investigation record.
 - Shared case memory should preserve cohort-level hypotheses, manifest-to-object joins, timestamp-normalization decisions, blocker status, and rejected explanations so later reviewers can inspect how the packet evolved from `v1` to `v3`.
 - Human-in-the-loop review is required before promoting any secondary evidence to authoritative use, declaring the primary root cause for all affected cohorts, or using the findings in remediation, disciplinary, or regulator-facing workflows.
