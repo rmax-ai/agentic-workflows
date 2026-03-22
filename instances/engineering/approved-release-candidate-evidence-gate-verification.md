@@ -38,6 +38,27 @@ This grounds the pattern in an engineering workflow where evidence sufficiency i
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    packet["Release packet store"]
+    artifacts["Artifact registry,<br>checksum manifest, and<br>provenance log"]
+    readiness["Dependency-health dashboards,<br>canary-preflight checks, and<br>rollback credential or fallback-path validation"]
+    verify["Approved release-candidate<br>evidence gate verification"]
+    approval["Change-approval system for<br>downstream release authority"]
+    gate["Human release approval gate<br>for downstream cutover"]
+    boundary["Downstream cutover<br>handoff boundary"]
+    audit["Audit store"]
+
+    packet -->|"Provides approved packet,<br>protected scope, and rollback plan"| verify
+    artifacts -->|"Provides signed hashes,<br>checksums, and provenance"| verify
+    readiness -->|"Provides dependency health,<br>preflight, and rollback readiness"| verify
+    audit -->|"Supplies prior verdict lineage<br>and hold reasons"| verify
+    verify -->|"Stores verdicts, evidence timestamps,<br>and blocked handoff state"| audit
+    verify -->|"Publishes approval-ready packet<br>with current verdict"| approval
+    approval -->|"Routes packet only to authorized<br>release approvers"| gate
+    gate -->|"Releases only the verified packet<br>to the handoff boundary"| boundary
+```
+
 - Approval-gated execution fits because the verification packet can be assembled automatically, yet downstream cutover remains concretely blocked until a release manager approves use of the verified result.
 - Human-in-the-loop review should remain standard because release leadership must decide whether held conditions are acceptable, require refresh, or force a separate downstream decision workflow.
 - Durable verification state should preserve superseded verdicts, packet revisions, and repeated hold reasons so later approvals can distinguish genuine drift from duplicate checks.
