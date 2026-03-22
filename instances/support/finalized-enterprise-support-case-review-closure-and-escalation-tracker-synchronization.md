@@ -12,6 +12,28 @@ Support.
 
 A restricted enterprise support case-review board has already recorded a final closure-approved disposition for a severity-one escalation in the authoritative internal review system after the upstream judgment about the case is complete. That disposition is final for this workflow and must not be reopened, reinterpreted, or extended into customer messaging, service-credit handling, refund posting, or live remediation execution. The remaining execute step is limited to low-risk closure bookkeeping: detect the final-disposition event, recheck that the escalation identifier, disposition version, and approved archive references still match the source record, close the restricted post-review queue item, sync the escalation tracker and case ledger to the recorded review-complete state, attach archive references for the final closure packet and internal review note, record completion state in the audit store, and notify the internal support operations coordinator that closure propagation is complete. If the case was reopened, the disposition changed, or the tracker points to a different escalation episode, the workflow should stop and route manual follow-up instead of guessing.
 
+```mermaid
+flowchart TD
+    A["Final closure-approved<br>event detected"]
+    B{"Source record still shows<br>the same finalized disposition?"}
+    C{"Escalation id, disposition version,<br>and archive references still align?"}
+    D["Close restricted post-review<br>queue item"]
+    E["Sync escalation tracker<br>and case ledger"]
+    F["Attach final closure packet<br>and internal review note references"]
+    G["Record completion state<br>in audit store"]
+    H["Notify support operations coordinator<br>that closure propagation is complete"]
+    I["Route manual follow-up<br>and halt"]
+    A --> B
+    B --> I
+    B --> C
+    C --> I
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+```
+
 ## Target systems / source systems
 
 - Restricted enterprise support case-review system that records the final closure-approved disposition and emits the authoritative state-change event
