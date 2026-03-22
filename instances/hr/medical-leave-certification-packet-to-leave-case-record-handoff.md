@@ -12,6 +12,20 @@ HR.
 
 An HR leave operations team receives a multi-document intake packet after a manufacturing supervisor requests protected medical leave following an unplanned surgery with an expected intermittent rehabilitation period. The packet combines the employee's leave request form from the HR portal, a clinician certification with handwritten restrictions, hospital discharge paperwork, a faxed return-to-work note, a manager attendance summary, and scanned identity or relationship documentation needed to open the case under the employer's leave policy. Before any leave eligibility determination, payroll update, accommodation analysis, or employee-facing commitment occurs, the workflow must transform the packet into a structured leave-case staging record with required fields for employee identity, employer entity, leave event type, requested start date, expected duration window, intermittent-leave indicators, document inventory, restriction summary, missing-information flags, privacy tags, and source-evidence links while preserving uncertainty and contradictions.
 
+```mermaid
+flowchart TD
+    A["Multi-document medical leave<br>intake packet"] -->|"submit for intake"| B["OCR and document parsing<br>within approved intake channels"]
+    B -->|"extract packet content"| C["Candidate leave-case fields,<br>document inventory, and<br>source evidence links"]
+    C -->|"normalize only with approved<br>reference data"| D["Normalized employee, employer,<br>leave event, timing, and<br>restriction-summary fields"]
+    D -->|"check schema, provenance,<br>privacy, and uncertainty"| E{"Required fields, provenance,<br>and privacy handling<br>within policy?"}
+    E -->|"yes"| F["Structured leave-case<br>staging record"]
+    E -->|"yes"| G["Transformation trace with<br>uncertainty, lossiness, and<br>privacy tags"]
+    E -->|"no"| H["Exception review queue for<br>leave administrator or<br>employee-relations review"]
+    F -->|"handoff bundle"| I["Stop point:<br>reviewable staged leave-case<br>handoff"]
+    G -->|"attach trace"| I
+    H -->|"hold for review"| J["Stop point:<br>no adjudication, payroll update,<br>or employee communication"]
+```
+
 ## Target systems / source systems
 
 - Leave-management or HR case-intake staging system with a versioned schema for new leave cases
