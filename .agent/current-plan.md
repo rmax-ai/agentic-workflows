@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Active target: continue Phase 7 structural refinement with an instance-only `evidence-gated-verification-for-release` batch in `finance`, adding a second finance grounding that materially changes the evidence set, sufficiency holds, and downstream reliance boundary without reopening canonical pattern or browse assets.
+- Active target: continue Phase 7 structural refinement with an instance-only `evidence-gated-verification-for-release` batch in `finance`, adding a second finance grounding around an approved covenant-compliance certificate packet whose release into a restricted lender-reporting review lane depends on current evidence sufficiency, explicit hold visibility, and signatory-boundary control without reopening canonical pattern or browse assets.
 - Selection rule: stay inside a pattern/domain pair that already has one grounding and vary the governed evidence set, approval-ready packet, and hold-state logic rather than renaming the same scenario with new nouns.
 - Read-first set: this plan; `data/patterns/investigate-reconcile-verify/evidence-gated-verification-for-release.yaml`; the existing finance verification instance; one cross-domain verification neighbor such as the engineering or research example; the relevant coverage notes in `.agent/coverage-matrix.yaml`; and the newest relevant files in `.agent/iterations/2026/`, starting with `20260322-005359.md`.
-- Boundary rule: keep the next finance example centered on one exact evidence-gated release-verification boundary with explicit sufficiency trace, approval-ready hold visibility, and lineage, and stop before posting approval, ledger changes, controller sign-off, or downstream reliance execution.
+- Boundary rule: keep the next finance example centered on one exact evidence-gated release-verification boundary with explicit sufficiency trace, approval-ready hold visibility, certificate-lineage evidence, and signatory-boundary control, and stop before covenant interpretation, lender communication, filing submission, waiver negotiation, or downstream reliance execution.
 
 ## Current phase
 
@@ -24,7 +24,7 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Author one materially distinct `evidence-gated-verification-for-release` instance in `instances/finance/` that keeps the workflow bounded at evidence sufficiency, explicit hold visibility, and approval-ready downstream reliance handoff.
+1. Author one materially distinct `evidence-gated-verification-for-release` instance in `instances/finance/` for an approved covenant-compliance certificate packet that keeps the workflow bounded at evidence sufficiency, explicit hold visibility, and approval-ready downstream reliance handoff.
 2. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
 3. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
 4. Carry the next-step target forward toward Phase 7 closure by continuing to deepen thin approval-bound or governance-heavy slices in underused families rather than by restoring domain-count parity.
