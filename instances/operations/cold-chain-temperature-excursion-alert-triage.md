@@ -12,6 +12,30 @@ Operations.
 
 A cold-chain operations center monitors live temperature, door-open, location, and power-status telemetry from refrigerated trailers, depots, and pharmacy storage units carrying temperature-sensitive products. The workflow must separate sensor chatter and transient blips from excursions that may threaten product quality, enrich alerts with route stage, shipment criticality, equipment service history, and prior exception context, and then route the most consequential cases to the right response queue. The emphasis is on continuous watching, explainable severity ranking, and human-gated escalation into quarantine, maintenance, or customer-notification decisions rather than on executing those downstream actions automatically.
 
+```mermaid
+flowchart TD
+    A["IoT telemetry pipeline<br>temperature, door, power, and connectivity events"]
+    B["Transportation or warehouse system<br>shipment, lane, and facility context"]
+    C["Equipment maintenance history<br>calibration, faults, and prior incidents"]
+    D["Product and quality rules<br>excursion ranges, hold times, and sensitivity tiers"]
+    E["Cold-chain alert triage<br>deduplicate, enrich, rank, and route"]
+    F["Transient-noise suppression hold<br>lineage retained for audit"]
+    G["Alert evidence packet<br>telemetry window, context, and rationale"]
+    H["Prioritized exception queue<br>operations, quality, or maintenance review"]
+    I["Human review handoff<br>downstream hold or notification decisions begin after this point"]
+
+    A -->|"emit alert signals"| E
+    B -->|"add shipment context"| E
+    C -->|"add sensor-health context"| E
+    D -->|"apply excursion rules"| E
+    E -->|"place transient chatter in hold"| F
+    E -->|"assemble case evidence"| G
+    E -->|"route material excursion case"| H
+    F -->|"preserve suppression lineage"| G
+    G -->|"attach evidence packet"| H
+    H -->|"handoff for approval-gated review"| I
+```
+
 ## Target systems / source systems
 
 - IoT telemetry pipeline for temperature probes, door sensors, compressor status, battery health, and connectivity-loss events
