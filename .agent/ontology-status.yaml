@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 317
+  instance_files: 318
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -65,14 +65,15 @@ instance_counts_by_domain:
   engineering: 45
   finance: 44
   compliance: 49
-  operations: 44
+  operations: 45
   research: 45
   support: 46
   hr: 44
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has three hundred seventeen grounded examples across all seven currently modeled domains, with `compliance` at forty-nine; `support` at forty-six; `engineering` and `research` at forty-five; and `finance`, `operations`, and `hr` at forty-four. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has three hundred eighteen grounded examples across all seven currently modeled domains, with `compliance` at forty-nine; `support` at forty-six; `engineering`, `research`, and `operations` at forty-five; and `finance` plus `hr` at forty-four. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`shared-workbench-orchestration` now has additional `operations` grounding through a delivery-fleet brake-inspection bulletin applicability caveat-board example, deepening that low-risk collaboration-family upkeep slice beyond warehouse slotting rollout by centering one exact internal fleet-safety board with authoritative bulletin-over-inventory source precedence, prerequisite state, explicit blocker and fitment-question visibility, append-only revision lineage, and one named Fleet Safety Standards Steward owner rather than applicability adjudication, temporary-deferral approval, road-use restriction choice, maintenance scheduling, or downstream repair execution."
   - "`analyst-copilot-loop` now has additional `support` grounding through a regulated customer audit-export residency clarification package example, deepening that moderate-risk collaboration slice beyond contractor-access escalation by centering one exact internal clarification artifact with explicit source precedence across residency inventory, storage-location, and retention records, visible unresolved blockers, revision lineage, and one named Sovereign Support Clarification Lead owner rather than intake authorization, concession choice, customer communication, export access, or downstream execution."
   - "`research-synthesis-with-citation-verification` now has additional `hr` grounding through a contingent-worker co-employment and tenure-limit obligations brief example, deepening that moderate-risk gather/synthesize slice beyond pay-transparency posting review by centering one exact contingent-workforce program-review artifact with source-precedence notes, supplier-attestation and effective-date ambiguity, visible open questions, and one named Global Contingent Workforce Governance Lead owner rather than worker-classification determination, engagement approval, contractor conversion recommendation, vendor action, labor-relations outreach, or downstream workforce-program execution."
   - "`shared-workbench-orchestration` now has its first `engineering` grounding through a runtime support-window exception caveat board example, deepening that low-risk collaboration-family upkeep slice beyond research benchmark matrices, operations rollout caveat boards, support workaround staging boards, HR FAQ caveat boards, and compliance control-library upkeep by centering one exact platform-standard artifact with prerequisite state, policy and inventory provenance, prior-exception lineage, visible blocker fields, append-only revision history, and one named Platform Standards Steward owner rather than waiver recommendation, retirement-date changes, exception adjudication, stakeholder communication, or migration execution."
