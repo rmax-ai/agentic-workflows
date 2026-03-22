@@ -12,6 +12,18 @@ Operations.
 
 A network quality operations manager is preparing a governed remediation brief after three distribution centers logged repeated inbound pallet-labeling deviations from a packaging supplier, causing receiving delays, quarantine holds, and manual relabel work during a seasonal volume ramp. The manager uses a copilot inside a shared operations workspace to iteratively pull nonconformance evidence, compare shipment-level exception patterns across sites, draft the supplier-facing corrective-action brief and internal approval summary, and rewrite sections as procurement, warehouse leadership, and quality reviewers narrow the required asks. The human manager remains responsible for deciding which deviations are substantiated, choosing what remediation commitments and commercial consequences are appropriate, and approving every outbound statement before anything is sent to the supplier or recorded in the quality system of record.
 
+```mermaid
+flowchart TD
+    A["Evidence retrieval<br>Receiving exceptions, dock photos, scan logs, and nonconformance records"]
+    B["Brief drafting<br>Copilot assembles the remediation brief and internal approval summary"]
+    C["Reviewer revision<br>Procurement, warehouse leadership, and quality request rewrites and narrowing"]
+    D["Human approval boundary<br>Manager approves or rejects the final outbound wording and conclusions"]
+    A --> B
+    B --> C
+    C --> B
+    B --> D
+```
+
 ## Target systems / source systems
 
 - Shared operations workbench with the draft remediation brief, reviewer comments, and section-level ownership
