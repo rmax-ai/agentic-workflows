@@ -12,6 +12,28 @@ Support.
 
 A premium-support organization has already declared a severity-one customer-update command window for a strategic managed-service outage with an active checkpoint sequence for incident-state validation, restricted workaround-safety review, contractual update-window confirmation, executive support-bridge approval, and customer-bridge handoff preparation. Then authoritative conditions change inside the same governed window: workaround verification finishes later than planned, the named executive support approver rotates to an approved delegate during the live bridge, and the latest defensible customer-update handoff moves earlier because the customer's contractual review slot and internal restricted-review window compress. The workflow must resequence the live checkpoint order, preserve one authoritative checkpoint ledger with explicit holds where prerequisite evidence or authority is still missing, show participant deltas for the materially affected support, incident, security, and account owners, and hand one updated command packet to the named support bridge lead for adoption before any customer update, concession discussion, remediation commitment, or downstream execution begins.
 
+```mermaid
+flowchart TD
+    A["Declared severity-one customer-update command window<br>and active checkpoint sequence"]
+    B["Verify authoritative changes to workaround timing,<br>approved executive delegate coverage,<br>and compressed contractual and restricted-review windows"]
+    C{"Can the checkpoint ledger be resequenced<br>without crossing protected review boundaries<br>or missing prerequisite authority?"}
+    D["Place affected checkpoints on explicit hold<br>and record why prerequisite evidence or authority<br>is still missing"]
+    E["Resequence the checkpoint ledger for incident-state validation,<br>restricted workaround-safety review,<br>contractual update-window confirmation,<br>executive bridge approval, and handoff preparation"]
+    F["Assemble one updated command packet<br>with explicit holds, participant deltas,<br>and superseded timeline lineage"]
+    G{"Does the named support bridge lead<br>adopt the updated packet<br>for the live command window?"}
+    H["Keep the prior authoritative packet active<br>and wait for new authoritative changes<br>or bridge-lead direction"]
+    I["Record bridge-lead adoption of the resequenced packet<br>as the current authoritative command window"]
+    A --> B
+    B --> C
+    C -->|"No"| D
+    C -->|"Yes"| E
+    D --> F
+    E --> F
+    F --> G
+    G -->|"No"| H
+    G -->|"Yes"| I
+```
+
 ## Target systems / source systems
 
 - Severity-one support bridge workspace containing the declared command scope, current checkpoint order, protected customer-update and executive-review windows, and prior command packets
