@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 367
+  instance_files: 368
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -66,10 +66,12 @@ instance_counts_by_domain:
   finance: 54
   compliance: 54
   operations: 52
-  research: 51
+  research: 52
   support: 52
   hr: 52
   consistency_notes:
+  - "`crisis-briefing-evidence-synthesis` now has additional `research` grounding through a rare-disease registry re-identification command-bridge example, deepening that critical-risk gather-family slice beyond prior engineering, operations, finance, and support crisis contexts by centering one exact governed artifact, `RDR-ReID-Command-Brief-r4`, with explicit source precedence across the authoritative restricted-release registry, query and download audit logs, approved disclosure-control baselines, collaborator transfer manifests, and IRB-approved sharing restrictions; prerequisites including declared scope, command-bridge audience, frozen export manifest, active consent-and-data-use snapshot, access-review roster, and prior `r3` lineage; visible stale Zurich collaborator acknowledgment, unresolved `RD-17` audit-versus-manifest mismatch, uncertain preprint supplement exposure, and incomplete withdrawal-roster refresh blockers; and a hard stop at reviewed crisis-briefing handoff rather than notification, access revocation, publication intervention, root-cause investigation, or live containment."
+  - "After this additional research crisis-briefing depth, the next refinement step should likely move away from the just-refreshed `crisis-briefing-evidence-synthesis` research lane and rebalance one of the remaining 52-instance domains (`engineering`, `operations`, `support`, or `hr`) through a materially distinct bounded slice that avoids approval, recommendation, investigation, or live execution drift."
   - "`workflow-hand-off-and-completion` now has additional `hr` grounding through an accepted professional-license lapse review closure and credential-compliance-tracker synchronization example, deepening that low-risk execute-family closure slice beyond protected-leave, work-authorization, workplace-accommodation, and dependent-benefits review contexts while preserving a clean boundary at authoritative post-decision closure, queue cleanup, credential-tracker plus exception-ledger synchronization, archive linkage, and internal coordinator notification rather than worker outreach, staffing changes, training assignment, regulator filing, payroll action, or renewed review."
   - "After this additional HR closure depth, the next refinement step should likely move away from the just-refreshed `workflow-hand-off-and-completion` HR lane and rebalance the now-thinnest modeled domain through one bounded `research` refinement in a materially distinct, not-just-refreshed slice."
   - "`approval-packet-generation` now has additional `finance` grounding through a temporary secured-funding concentration-limit exception approval packet example, deepening that high-risk gather-family slice beyond quarter-close covenant and liquidity committee surfaces by centering one exact governed packet, `USD-Secured-Funding-Concentration-Exception-Packet-v4`, with explicit source precedence across concentration policy `TR-LIM-14`, the dealer exposure ladder, tri-party collateral inventory by CUSIP, custodian haircut and eligibility schedules, settlement-fail history, liquidity contingency notes, prior concentration-exception packets, and lower-precedence committee-intake commentary; prerequisite scoped exception state, current authority and committee-routing rules, current dealer exposure and tri-party inventory snapshots, current custodian cutoff state, and prior packet lineage; visible stale 07:30 ET custodian inventory, unresolved Dealer Atlas affiliate-netting disagreement, missing New York legal-annex acknowledgment, and incomplete 09:00 ET independent price-verification refresh blockers; and a hard stop at packet assembly and handoff rather than recommendation, adjudication, or downstream funding action."
