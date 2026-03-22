@@ -12,6 +12,19 @@ Operations.
 
 After a regional fulfillment hub has already declared an incident for a spike in parcel misroutes during an overnight sort wave, network operations must determine why cartons bound for three destination zones were repeatedly diverted to the wrong outbound lanes. The leading explanations conflict: a stale destination-lookup table may have remained active after a routing update, diverter timing may have drifted after a maintenance intervention, barcode image quality may have degraded because of dust buildup on the tunnel scanners, or supervisors may have authorized a temporary manual recirculation workaround that bypassed normal scan confirmation. The workflow reconciles controls logs, scan evidence, maintenance history, and human shift notes into a defensible explanation of what failed, what remains uncertain, and which follow-up checks still matter before leadership commits to remediation or customer-facing statements.
 
+```mermaid
+flowchart TD
+I["Incident declared for overnight sorter misroutes"]
+E["Collect routing, controls, scanner, maintenance,<br>and shift-note evidence for the incident window"]
+T["Normalize parcel, lane, and diverter events<br>into one reconciled incident timeline"]
+H["Test competing explanations:<br>stale routing table, diverter timing drift,<br>scanner degradation, or manual recirculation workaround"]
+R["Produce an evidence-backed root-cause narrative<br>with remaining uncertainty and follow-up checks"]
+I --> E
+E --> T
+T --> H
+H --> R
+```
+
 ## Target systems / source systems
 
 - Warehouse control system routing tables, wave-release configuration history, and sort-plan change records
