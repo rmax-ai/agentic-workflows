@@ -40,6 +40,21 @@ This grounds `approval-packet-generation` in an engineering workflow where the h
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    RI["Release-integrity exception workspace<br>deferral request, packet draft,<br>completeness checklist, and handoff status"] --> PA["Orchestrated packet assembly<br>retrieval, synthesis, provenance index,<br>and exception register without approval decisions"]
+    HSM["HSM administration, ceremony-planning,<br>and key-inventory systems"] --> PA
+    BSP["Build-signing and artifact-provenance<br>platforms"] --> PA
+    PGR["Policy, cryptographic standard,<br>and engineering governance repositories"] --> PA
+    AGR["Access-governance, token-custody,<br>and secure-storage records"] --> PA
+    subgraph HRB["Human review boundary"]
+        HRO["Human release-integrity owner<br>confirms scope, required reviewers,<br>and unresolved evidence gaps"]
+        RRQ["Review-routing queue<br>completed packet, evidence index,<br>exception register, and named reviewers"]
+    end
+    PA -->|"bounded handoff only"| HRO
+    HRO --> RRQ
+```
+
 - Orchestrated multi-agent retrieval and synthesis fit because key inventories, HSM audit logs, policy requirements, ceremony-readiness records, and dependency evidence often live in separate systems and require coordinated packet assembly.
 - Human-in-the-loop checkpoints should remain mandatory so an accountable release-integrity owner can confirm deferral scope, required reviewers, and whether unresolved evidence gaps are acceptable to surface in the packet before handoff.
 - Agents may reconcile key identifiers, align validity and ceremony timelines, and draft packet sections, but they should not decide whether the deferral is acceptable, extend the exception window, authorize any release activity, or initiate the delayed rotation.
