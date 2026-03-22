@@ -48,6 +48,28 @@ This instance grounds the pattern in engineering where the hard problem is not s
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph Boundary["Recommendation-only boundary"]
+        GateSystems["Release gate tracker<br>change record<br>delegated production authority matrix"]
+        ReadinessEvidence["Deployment evidence store<br>rollback rehearsal log<br>service dependency status dashboard"]
+        VerificationSignals["Schema-compatibility issue tracker<br>test result history<br>environment-drift verification reports"]
+        PolicyContext["Freeze-calendar policy<br>customer-impact forecasts<br>prior gated-cutover exception register"]
+        ReliabilityEvidence["Observability baseline snapshots<br>recovery-time objective references"]
+        Recommender["Payments tokenization cutover<br>readiness disposition recommender"]
+        Packet["Proceed, hold, narrow, or escalate<br>recommendation packet<br>with blocker register and rationale"]
+    end
+    ReleaseBoard["Platform engineering release board<br>human review handoff"]
+
+    GateSystems -->|"Read-only gate context"| Recommender
+    ReadinessEvidence -->|"Read-only readiness evidence"| Recommender
+    VerificationSignals -->|"Verification status"| Recommender
+    PolicyContext -->|"Policy and forecast context"| Recommender
+    ReliabilityEvidence -->|"Recovery references"| Recommender
+    Recommender -->|"Disposition and rationale"| Packet
+    Packet -->|"Human review"| ReleaseBoard
+```
+
 - Event-driven monitoring fits because blocker reopen events, expired rollback evidence, and freeze-window changes should automatically trigger a refreshed gate recommendation instead of waiting for a manual checklist pass.
 - Human-in-the-loop review is mandatory because the workflow should advise on the gate disposition, not approve the change record, edit release scope, or start the production rollout.
 - Read-only integration with release tracking, verification, observability, and policy systems is preferable so the agent cannot silently convert a recommendation into a live deployment decision.
