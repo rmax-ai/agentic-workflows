@@ -12,6 +12,22 @@ Operations.
 
 A regulated distribution quality team performs spot checks on cold-chain deviation closure packets — the governed artifacts that formally close temperature excursions, humidity breaches, and transport delay events affecting pharmaceutical or perishable goods. Each packet bundles the root-cause investigation record, corrective-action evidence, product-impact assessment, and sign-off trail required for regulatory submission and customer audit. The current fixed sampling policy treats all closed deviation packets equally, under-covering high-escape cohorts such as multi-leg carrier events, out-of-specification edge cases with product released under exception, and sites where prior regulatory findings were clustered. The workflow must autonomously retune bounded spot-check sampling rates so closure-packet cohorts with higher escape risk or greater quality-finding yield receive more oversight, while keeping protected floors for submission-visible deviations, respecting auditor and quality-specialist capacity, minimizing copied patient-adjacent or proprietary logistics detail, and preserving a fast rollback path when the loop risks overreacting to a short spike in findings after a seasonal disruption.
 
+```mermaid
+flowchart TD
+    A["Deviation management system<br>closed-packet cohort metadata"] -->|"cohort population data"| E["Bounded sampling-rate tuning loop"]
+    B["Quality-review findings history<br>yield and escape signals"] -->|"finding yield signals"| E
+    C["Auditor and quality-specialist capacity register<br>reviewer availability and backlog"] -->|"capacity constraints"| E
+    D["Quality policy store<br>active rates, protected floors, rollback snapshots"] -->|"current policy bounds"| E
+    E -->|"proposed cohort moves"| F["Guardrail checks<br>protected floors, sparse data, cooldowns, reviewer-load ceilings"]
+    F -->|"blocked move"| G["Hold affected cohort at current rate<br>or freeze autonomous tuning"]
+    F -->|"within delegated bounds"| H["Versioned sampling-policy revision<br>new rates and change record"]
+    G -->|"freeze or discrepancy packet"| I["Governance and change-control workspace"]
+    H -->|"publish trusted revision"| D
+    H -->|"lineage and sampled run record"| I
+    J["Quality Director, Distribution Operations"] -->|"sampled inspection and rollback authority"| I
+    I -->|"freeze or restore last trusted snapshot"| D
+```
+
 ## Target systems / source systems
 
 - Quality policy store with active closure-packet sampling rates, protected deviation classes, prior policy versions, and rollback snapshots
