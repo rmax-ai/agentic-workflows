@@ -12,6 +12,29 @@ HR.
 
 A labor-relations enablement team maintains one internal works-council consultation playbook caveat board while regional labor partners, policy owners, template stewards, and program reviewers continuously refine internal consultation-playbook readiness for recurring workforce-change scenarios. The board already carries prerequisite state for each section: the currently approved global playbook version, country or works-council scope, required trigger category, the active notice-template revision, the last counsel-reviewed timestamp, visible blocker fields, unresolved local-issue tags, append-only revision lineage, and named human ownership under Director of Labor Relations Enablement Marta Keller. Small updates arrive throughout the cycle: a DACH labor partner adds a caveat about unresolved local notice timing, a policy owner links a newly approved country addendum, a template steward flags a translation-template mismatch, and a program reviewer notes that one annex reference is missing from the approved source set. The agent keeps that bounded internal workbench usable by applying explicit source precedence from approved labor-relations policy and country addenda ahead of calendar annotations, template notes, and reviewer comments, refreshing linked references, normalizing duplicate caveat entries, preserving revision-to-revision lineage, updating owner or handoff markers, and carrying unresolved blockers forward in a visible hold register. Humans remain responsible for legal interpretation, consultation strategy, notice issuance, employee communication, whether a works-council engagement is required or sufficient, and any downstream labor-relations execution.
 
+```mermaid
+flowchart TD
+    A["Approved labor-relations policy<br>and country addenda"]
+    T["Consultation-template workspace"]
+    R["Review and annotation surface"]
+    C["Calendar and planning<br>annotations feed"]
+    B["Shared works-council consultation<br>playbook caveat board"]
+    G["Agent upkeep pass<br>applies source precedence"]
+    H["Visible hold register<br>unresolved blockers and questions"]
+    M["Marta Keller or named<br>section owner review"]
+    S["Stop and handoff to adjacent workflow<br>if update requires legal interpretation,<br>consultation strategy, notice issuance,<br>or downstream labor-relations execution"]
+
+    A -->|"Authoritative updates"| G
+    T -->|"Template revisions and steward notes"| G
+    R -->|"Caveats, blocker notes, and handoff comments"| G
+    C -->|"Non-authoritative reminders"| G
+    B -->|"Prior board state and lineage"| G
+    G -->|"Refresh references, normalize duplicates,<br>preserve ownership and lineage"| B
+    G -->|"Carry unresolved items forward"| H
+    H -->|"Human follow-up on open blockers"| M
+    G -->|"Boundary-triggering update"| S
+```
+
 ## Target systems / source systems
 
 - Shared works-council consultation playbook caveat board with section rows, prerequisite-state columns, blocker tags, explicit source-precedence markers, ownership fields, and append-only revision history
