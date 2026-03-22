@@ -12,6 +12,25 @@ Support.
 
 After a resolved authentication outage for a regulated enterprise customer, a premium support program manager needs to schedule the contractual root-cause readout within five business days of the customer-safe RCA draft being approved. The meeting must include the assigned escalation manager, the reliability engineer who owned the fix, the customer success director, the customer's incident manager, and an approved language interpreter for the customer's Mexico City stakeholder group, while also respecting the customer's CAB blackout blocks, the engineer's follow-the-sun handoff window, and policy that customer-facing readouts cannot be booked outside published support coverage hours without duty-manager approval. The workflow is about finding a viable slot, placing reversible holds, and escalating quickly when no compliant overlap exists rather than improvising attendee substitutions or sending a final invite without human confirmation.
 
+```mermaid
+flowchart TD
+    A["Contractual deadline, attendee roles,<br>coverage hours, and blackout windows gathered"]
+    B["Required calendars, interpreter roster,<br>and handoff constraints reconciled"]
+    C["In-policy viable slots ranked<br>before the five-business-day deadline"]
+    D["Short-lived tentative holds<br>placed on top candidate slots"]
+    E["No compliant overlap or hold conflict<br>escalated to duty-manager or support leadership"]
+    F["Premium support manager reviews<br>slot, exceptions, and hold state"]
+    G["Human confirms selected slot<br>before any customer-facing invite commitment"]
+
+    A --> B
+    B --> C
+    C --> D
+    C --> E
+    D --> F
+    E --> F
+    F --> G
+```
+
 ## Target systems / source systems
 
 - Support escalation record with contractual RCA deadline, required attendee roles, and customer-safe readout status
