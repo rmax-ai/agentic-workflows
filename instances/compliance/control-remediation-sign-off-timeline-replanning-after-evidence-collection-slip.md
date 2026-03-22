@@ -51,6 +51,38 @@ This grounds the replanning pattern in a compliance workflow where timing pressu
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Compliance planning inputs"]
+        tracker["Remediation program<br>tracker"]
+        workboards["Evidence and validation<br>workboards"]
+        calendars["Audit, compliance, and<br>technology risk calendars"]
+        reporting["Regulatory reporting<br>calendar"]
+    end
+
+    subgraph workflow["Recommendation-only<br>replanning workflow"]
+        refresh["Dependency refresh<br>role"]
+        check["Constraint-checking<br>role"]
+        package["Packet assembly<br>role"]
+    end
+
+    planning["Planning and milestone<br>tools"]
+    workspace["Compliance coordination<br>workspace"]
+    approvers["Compliance controls director<br>and required partners"]
+
+    tracker -->|"Baseline plan"| refresh
+    workboards -->|"Evidence readiness"| refresh
+    calendars -->|"Reviewer windows"| check
+    reporting -->|"Fixed checkpoint"| check
+    refresh -->|"Current dependency state"| check
+    check -->|"Candidate timeline"| planning
+    planning -->|"Revised schedule"| package
+    check -->|"Risks and blockers"| package
+    package -->|"Coordination-ready packet"| workspace
+    workspace -->|"Adoption review"| approvers
+    approvers -->|"Approve or escalate"| workspace
+```
+
 - An orchestrated multi-agent workflow fits because one role can refresh current dependency state from evidence and validation systems, another can test candidate timelines against fixed compliance and reviewer constraints, and another can package the accepted replanning proposal with downstream impacts and unresolved blockers.
 - Human-in-the-loop adoption remains necessary because the compliance controls director, remediation owner, or regulatory reporting lead must approve any material movement of sign-off sequencing, review compression, or communication timing before the revised schedule becomes authoritative.
 - Recommendation-only autonomy is the right ceiling: the workflow can propose a feasible updated sequence and identify deadline risks, but it should not declare the control remediated, waive internal-audit participation, alter the fixed regulator checkpoint, or trigger filing or remediation actions.
