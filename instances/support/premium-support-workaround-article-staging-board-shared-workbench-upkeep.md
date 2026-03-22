@@ -12,6 +12,22 @@ Support.
 
 A premium support knowledge team keeps an internal workaround-article staging board while product specialists, support leads, and documentation reviewers refine a draft troubleshooting article for a known enterprise issue. Small updates arrive continuously: one engineer revises a prerequisite step, a support lead adds a customer-safe caution note, a reviewer flags a stale screenshot, and the product owner links a newly confirmed log signature. The agent maintains the shared staging board by refreshing linked evidence, normalizing step formatting, deduplicating overlapping reviewer comments, updating section owners, and carrying publication blockers forward in a visible hold register. Humans remain responsible for deciding whether the workaround is actually supported, what wording is safe for customer-facing publication, and when the staged article should enter a separate publication or communication workflow.
 
+```mermaid
+flowchart TD
+    A["Reviewer and source updates<br>arrive for the staging board"]
+    B["Refresh the staging board<br>with current draft context"]
+    C["Update evidence links<br>for screenshots and log signatures"]
+    D["Normalize troubleshooting notes<br>and overlapping reviewer comments"]
+    E["Carry publication blockers forward<br>in the visible hold register"]
+    F["Maintained internal staging board<br>stays current and resumable"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+```
+
 ## Target systems / source systems
 
 - Shared article-staging board with draft sections, ownership fields, blocker tags, and revision history
