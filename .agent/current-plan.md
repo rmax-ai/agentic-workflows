@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement diversified into `approval-gated-briefing-release` through `instances/hr/employee-monitoring-notice-compliance-briefing-revision-approved-for-labor-governance-council-circulation.md`, adding a second materially distinct HR example in that high-governance release-control slice.
-- Result check: the new HR example stayed bounded at governed release of one exact employee-monitoring notice compliance briefing revision into one restricted labor-governance council lane, with audience scope, freshness, annex profile, and hold-versus-release state explicit while avoiding notice-sufficiency adjudication, employee or works-council communication, scheduling, or downstream platform changes.
-- Read-first set used this iteration: this plan; `data/patterns/gather-retrieve-synthesize/approval-gated-briefing-release.yaml`; `instances/hr/bereavement-leave-compliance-briefing-revision-approved-for-people-policy-council-circulation.md`; `instances/finance/quarter-close-earnings-sensitivity-briefing-revision-approved-for-disclosure-committee-circulation.md`; `instances/operations/gateway-port-berth-closure-impact-briefing-revision-approved-for-marine-continuity-cell-circulation.md`; the relevant briefing-release notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-023015.md`.
-- Boundary check: the new example remained centered on one already synthesized HR briefing revision plus its release manifest, annex binding, and bounded circulation lane, and it stopped before policy adjudication, labor-relations outreach, employee notification, deployment approval, or downstream execution.
+- Active target: Phase 7 structural refinement will diversify `evidence-gated-verification-for-release` with one materially distinct `operations` example so the currently thinnest modeled domain gains another verification-bound instance outside both recent approval-release slices.
+- Planned result check: the new operations example should stay bounded at rechecking whether one already approved packet still has sufficient current evidence for downstream reliance, with explicit verified-versus-held state, evidence lineage, and restricted approval-boundary scope while avoiding replanning, recommendation, remediation, or live execution.
+- Read-first set for this iteration: this plan; `data/patterns/investigate-reconcile-verify/evidence-gated-verification-for-release.yaml`; `instances/operations/approved-sorter-routing-cutover-evidence-gate-verification.md`; `instances/finance/approved-covenant-compliance-certificate-packet-evidence-gate-verification.md`; `instances/engineering/approved-release-candidate-evidence-gate-verification.md`; `instances/research/approved-benchmark-study-publication-integrity-packet-evidence-gate-verification.md`; the relevant verification notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-023450.md`.
+- Boundary check: the intended example must remain centered on one exact approved operations packet plus its current corroborating evidence and approval gate, and it must stop before route selection, control-room decision support, field execution, vendor communication, or any downstream operational action.
 
 ## Current phase
 
@@ -24,10 +24,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Continue Phase 7 with another structurally distinct instance-only refinement outside both `approval-gated-collaborative-artifact-release` and `approval-gated-briefing-release`, preferably one that also deepens the now-thinner `operations` domain unless a stronger directly coupled gap emerges.
-2. Keep the next batch instance-first unless the new grounding exposes real directly coupled canonical drift.
-3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the next content change.
-4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
+1. Add one `operations` instance for `evidence-gated-verification-for-release` that is materially distinct from the existing sorter-routing cutover example while staying purely verification-bound.
+2. Keep the batch instance-only unless the new grounding exposes a directly coupled canonical or browse drift that validation makes explicit.
+3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
+4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and `20260322-024237.md` after verification.
 
 ## Recent checkpoints
 
