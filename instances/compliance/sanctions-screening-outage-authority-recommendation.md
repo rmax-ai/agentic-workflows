@@ -57,6 +57,45 @@ This grounds the pattern in compliance where the main artifact is neither a cris
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph orchestration["Orchestrated multi-agent workflow"]
+        R["Screening-state retrieval"]
+        L["Legal-trigger checking"]
+        C["Authority-lane comparison"]
+        P["Decision-packet assembly"]
+    end
+
+    subgraph review["Human-in-the-loop review"]
+        RC["Regional compliance leadership"]
+        ES["Enterprise sanctions and legal command"]
+        RR["Regulator-response authority"]
+    end
+
+    V["Shared severe-case view"]
+    CW["Critical compliance workspace<br>declared outage scope, prior packets, and active holds"]
+    SE["Screening-engine status, backlog queues,<br>payment-hold ledgers, override records,<br>and corridor-level exposure summaries"]
+    AM["Enterprise and regional authority matrix<br>covering sanctions decision rights, legal review triggers,<br>and regulator-response ownership"]
+    RP["Applicable regulator-notification policy,<br>protected legal-privilege guidance,<br>and non-waivable release restrictions"]
+    PC["Prior outage or escalation cases,<br>audit logs, and restricted annex tooling for sensitive<br>counterparty or jurisdiction detail"]
+
+    CW -->|"Provide declared scope and active holds"| R
+    SE -->|"Provide screening-state evidence"| R
+    RP -->|"Provide legal and release triggers"| L
+    AM -->|"Provide authority rules"| C
+    R -->|"Update shared case state"| V
+    L -->|"Provide trigger assessment"| C
+    R -->|"Provide backlog and exposure context"| C
+    V -->|"Provide shared severe-case view"| C
+    C -->|"Record recommended authority lane"| V
+    C -->|"Provide bounded authority choice"| P
+    V -->|"Provide assembled evidence context"| P
+    PC -->|"Provide prior-case references and annex links"| P
+    P -->|"Send regional-lane packet when selected"| RC
+    P -->|"Send enterprise-lane packet when selected"| ES
+    P -->|"Send regulator-response packet when selected"| RR
+```
+
 - An orchestrated multi-agent workflow can separate screening-state retrieval, legal-trigger checking, authority-lane comparison, and decision-packet assembly while preserving one shared severe-case view.
 - Human-in-the-loop review is mandatory because the workflow should recommend the correct sanctions decision owner and bounded hold-versus-release options, not adjudicate transactions or send regulator notifications.
 - Human-directed autonomy fits because enterprise sanctions, legal, and regulator-response leaders must explicitly accept the packet before any consequential decision proceeds.
