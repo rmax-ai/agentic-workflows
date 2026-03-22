@@ -12,6 +12,19 @@ Support.
 
 A premium support operations team is preparing a monthly quality and coaching review for a set of escalated enterprise incidents. The raw batch includes chat transcripts, bridge summaries, ticket comments, uploaded log snippets, screenshots, customer-provided configuration notes, and agent wrap-up narratives that can contain customer names, user email addresses, API keys, tenant ids, internal hostnames, and detailed descriptions of production architecture. Before any quality-review session, coaching calibration, or cross-team trend analysis can occur, the workflow must transform that batch into a privacy-screened structured dataset with case pseudonyms, normalized issue and product tags, response-step markers, escalation-stage fields, customer-impact buckets, secret-detection flags, and restricted-boundary evidence links while removing or generalizing customer identifiers, credentials, and environment details from the release-safe package.
 
+```mermaid
+flowchart TD
+    intake["Raw batch intake<br>Support transcripts, notes, attachments, and diagnostics enter the restricted batch workspace"]
+    screening["Privacy screening and structuring<br>Detect secrets and identifiers, generalize environment details, and map records into the review schema"]
+    review["Exception review<br>Privacy, security, or support reviewers resolve low-confidence masking and semantic-loss cases"]
+    staging["Release-safe dataset staging<br>Approved structured records, redaction trace, and batch manifest move to governed staging"]
+
+    intake --> screening
+    screening --> review
+    screening --> staging
+    review --> staging
+```
+
 ## Target systems / source systems
 
 - Support ticketing and transcript repositories holding chats, bridge notes, attachments, and incident summaries
