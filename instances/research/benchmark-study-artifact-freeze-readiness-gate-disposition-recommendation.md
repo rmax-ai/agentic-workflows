@@ -12,6 +12,33 @@ Research.
 
 A research governance panel is reassessing whether a benchmark study can pass its artifact-freeze gate before an external workshop submission deadline. Since the previous check, one reproducibility rerun succeeded, a license clarification for a third-party evaluation corpus remains unresolved, and a late privacy review note requires narrowing one prompt subset unless additional redaction evidence arrives. The workflow must recommend whether research should proceed with the package as scoped, hold the gate, narrow the submission to the fully cleared workload set, or escalate because reproducibility, disclosure, or dataset-rights thresholds now sit outside delegated publication-gate authority before any external artifact is finalized.
 
+```mermaid
+flowchart TD
+    A["Refresh benchmark-study artifact-freeze gate evidence<br>with the latest reproducibility, rights, and privacy signals"]
+    B["Review rerun success, dataset-rights clarification,<br>prompt-subset privacy scope,<br>and delegated publication-gate thresholds"]
+    C{"All required gate evidence is current<br>and within delegated authority for the full study package?"}
+    D{"A narrower cleared workload set and prompt scope<br>can pass without unresolved blocker spillover?"}
+    E{"Remaining issues are refreshable blockers<br>that still stay within local gate-control limits?"}
+    P["Recommend proceed as scoped<br>for the current artifact-freeze package"]
+    N["Recommend narrow<br>to the cleared workload set and approved prompt subset"]
+    H["Recommend hold<br>for refreshed rights, privacy, or reproducibility evidence"]
+    X["Recommend escalate<br>because threshold or authority limits are exceeded"]
+    J["Hand off the disposition packet,<br>blocker register, and rationale<br>to the research governance panel"]
+
+    A --> B
+    B --> C
+    C -->|"Yes"| P
+    C -->|"No"| D
+    D -->|"Yes"| N
+    D -->|"No"| E
+    E -->|"Yes"| H
+    E -->|"No"| X
+    P --> J
+    N --> J
+    H --> J
+    X --> J
+```
+
 ## Target systems / source systems
 
 - Study governance tracker, artifact-freeze checklist, and publication-gate policy library
