@@ -41,6 +41,28 @@ This grounds the execution pattern in an engineering workflow where the browser 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    change["Engineering change-management system<br>approved freeze-exception record<br>and required approvals"]
+    packet["Approved remediation packet<br>rollback plan, incident reference,<br>and evidence attachments"]
+    calendar["Release calendar and freeze-policy rules<br>blackout windows and exception constraints"]
+    control["Approval-gated submission control<br>rechecks approvals, scope, and window<br>before browser entry and final submit"]
+    portal["Browser-only production change-governance portal<br>service identity, justification, rollback,<br>window, attestations, and attachments"]
+    evidence["Evidence store<br>masked screenshots, attachment references,<br>confirmation numbers, and takeover notes"]
+    human["Human approval and takeover control<br>for drift, ambiguity, or scope conflict"]
+
+    change -->|"approved record<br>and sign-offs"| control
+    packet -->|"authorized exception packet"| control
+    calendar -->|"freeze rules<br>and allowed window"| control
+    control -->|"gated field entry<br>and final submission"| portal
+    control -->|"checkpoint evidence"| evidence
+    portal -->|"confirmation and<br>portal artifacts"| evidence
+    control -->|"halt and handoff"| human
+    portal -->|"layout drift, ambiguous state,<br>or scope mismatch"| human
+    human -->|"resolved approval state<br>or takeover notes"| evidence
+    human -->|"resume only with<br>reconciled approval state"| control
+```
+
 - Approval-gated execution should assemble the exception packet, verify that service-owner, incident-command, and change-authority approvals remain current, and block final commit until those approvals are rechecked immediately before submit.
 - A tool-using single agent can navigate the change-governance portal, populate freeze-exception fields, upload the approved rollback and evidence packet, and capture masked evidence at each gated checkpoint.
 - Human-in-the-loop control should remain standard for changed blast-radius statements, blackout-window conflicts, unexpected approver mismatches, portal layout drift, or any warning that the submission would authorize a broader production action than the approved exception covers.
