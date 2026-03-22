@@ -39,6 +39,34 @@ This grounds the gather/synthesize family in a compliance workflow where the har
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph Sources["Approved evidence sources"]
+        A["Contract repository<br>executed DPA, SCCs,<br>transfer addenda, security exhibits"]
+        B["Vendor diligence sources<br>trust portal, subprocesser registry,<br>hosting disclosures, architecture summaries"]
+        C["Internal privacy library<br>transfer-assessment templates<br>and review playbooks"]
+        D["Primary-source regulator materials<br>statutory text, guidance,<br>supervisory FAQs"]
+        E["Exception register and prior reviews<br>still-effective derogations,<br>grandfathered commitments,<br>control assumptions"]
+    end
+
+    F["Tool-using single agent<br>retrieve approved evidence,<br>map claims to sources,<br>draft structured synthesis"]
+    G["Controlled compliance review workspace<br>verified obligations brief,<br>evidence trace,<br>open-questions ledger"]
+    H["Open-question boundary<br>source conflicts, jurisdiction scope,<br>transfer mechanism validity,<br>safeguard sufficiency ambiguity"]
+    I["Human-in-the-loop review<br>privacy owner, legal reviewer,<br>or vendor diligence owner"]
+    J["Downstream handoff boundary<br>approval, remediation planning,<br>transfer-assessment update,<br>or legal advice"]
+
+    A --> F
+    B --> F
+    C --> F
+    D --> F
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> G
+    G --> J
+```
+
 - A tool-using single agent can retrieve the active agreement stack, approved vendor disclosures, relevant regulator materials, and internal review artifacts, then draft a structured synthesis with claim-to-source mappings.
 - Human-in-the-loop review should remain mandatory for conflicts between primary law, regulator guidance, and vendor commitments, as well as for any unresolved question about transfer mechanism validity or jurisdictional scope.
 - The workflow should preserve an evidence trace that distinguishes binding executed terms, primary-source legal text, regulator guidance, vendor-asserted operational facts, and internal policy overlays.
