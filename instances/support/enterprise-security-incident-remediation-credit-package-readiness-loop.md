@@ -12,6 +12,24 @@ Support.
 
 A senior support escalation manager is coordinating a formal remediation-and-credit package because a strategic customer experienced a security-sensitive service incident, and any proposed remediation commitments or commercial credit must pass explicit review before it can be offered. In a governed collaboration workspace, the manager and agent support iterate on the packet as security, legal, revenue-operations, and customer-success reviewers challenge whether the incident chronology is complete, whether the proposed remediation commitments are bounded correctly, whether the commercial credit rationale matches contract terms, and whether unresolved objections are visible enough for the next approval checkpoint. The agents help preserve reviewer objections, refresh case and contract evidence, rewrite sections to reflect accepted edits and contested issues, and maintain an explicit handoff ledger showing who owns the next approval-readiness checkpoint. The human support manager and named approval owner remain responsible for deciding whether the packet is ready for formal approval review, whether any objection should block handoff, and whether the request should pause for more evidence or deeper security or legal analysis rather than move toward adjudication.
 
+```mermaid
+flowchart TD
+    A["Senior support escalation manager opens<br>the governed remediation-and-credit packet workspace"]
+    B["Agents refresh incident chronology,<br>security findings, contract evidence,<br>and the objection-and-handoff ledger"]
+    C["Security, legal, revenue-operations, and customer-success reviewers<br>challenge chronology completeness, remediation boundaries,<br>credit rationale, and unresolved objections"]
+    D["Agents revise packet sections, evidence links,<br>and readiness notes while keeping contested issues<br>and reviewer objections visible"]
+    E{"Human readiness checkpoint:<br>do the support manager and named approval owner<br>accept the packet for formal approval handoff?"}
+    F["Return the packet for another revision cycle<br>with visible objections, refreshed evidence,<br>and updated handoff ownership"]
+    G["Transfer the packet, unresolved objections,<br>readiness state, and named approval owner<br>to the formal approval review queue"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E -->|"Revise"| F
+    F --> B
+    E -->|"Approve handoff"| G
+```
+
 ## Target systems / source systems
 
 - Governed support review workspace with the draft remediation-and-credit packet, comment history, readiness state, and named handoff ownership
