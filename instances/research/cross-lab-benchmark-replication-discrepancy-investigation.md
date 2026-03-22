@@ -12,6 +12,32 @@ Research.
 
 Ahead of an internal model-governance review, a second evaluation team cannot reproduce a headline benchmark gain from a multimodal retrieval study comparing two model-serving configurations. The discrepancy could stem from dataset snapshot drift after a late redaction refresh, an evaluation-harness tokenizer change, a retrieval index built from a newer document corpus than the study packet recorded, or a silent serving fallback that routed the original run to a larger checkpoint than the one documented in the benchmark summary. The workflow reconciles experiment metadata, dataset lineage, artifact hashes, serving telemetry, and reviewer notes into a defensible explanation of why the results diverged, what remains uncertain, and which verification checks still require accountable human follow-through before anyone reuses, narrows, or withdraws the benchmark claim.
 
+```mermaid
+flowchart TD
+    A["Observed benchmark discrepancy<br>between original and replication runs"]
+    B["Reconcile experiment metadata,<br>dataset lineage, artifact hashes,<br>and serving telemetry"]
+    C["Test hypothesis 1:<br>dataset snapshot drift"]
+    D["Test hypothesis 2:<br>evaluation-harness tokenizer change"]
+    E["Test hypothesis 3:<br>newer retrieval index corpus"]
+    F["Test hypothesis 4:<br>silent serving fallback to larger checkpoint"]
+    G["Compare supporting and disconfirming evidence<br>across competing hypotheses"]
+    H["Produce defensible explanation<br>for the divergence"]
+    I["Record residual uncertainty,<br>missing artifacts, and pending verification checks"]
+
+    A --> B
+    B --> C
+    B --> D
+    B --> E
+    B --> F
+    C --> G
+    D --> G
+    E --> G
+    F --> G
+    G --> H
+    G --> I
+    H --> I
+```
+
 ## Target systems / source systems
 
 - Experiment tracker entries, run manifests, seed values, and benchmark summary tables for the original and replication runs
