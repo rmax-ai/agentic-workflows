@@ -12,6 +12,25 @@ Finance.
 
 A treasury collateral coordinator needs to schedule one same-day collateral substitution cutoff review for a tri-party funding lane after the substitution packet reaches ready-for-review status. The review must include collateral management, treasury operations, liquidity risk, the secured funding desk, and finance systems support because it sits after the prerequisite eligibility refresh and before any downstream settlement-instruction preparation. The workflow stays bounded at one inspectable review-scheduling packet and coordination log for the current custodian cutoff window. Source precedence is explicit: the collateral workflow tracker decides whether scheduling is allowed and names the required reviewer roles; the custodian cutoff calendar sets the latest feasible review boundary and protected buffers; the delegate roster determines which approved backups can satisfy role coverage; and policy-bound availability state is consulted only after the first three sources agree on the packet state and participant set. The packet remains tentative until Maya Chen, Director of Treasury Collateral Management, confirms the slot. Visible blockers stay attached, including unresolved eligibility-refresh lag, funding-window amber state, missing approved delegate coverage, and protected availability conflicts. Revision lineage records superseded slot proposals and the reason each revision was replaced. The workflow stops at scheduling and coordination; it does not select authority, change custodian cutoffs, release settlement instructions, contact counterparties, or execute the substitution.
 
+```mermaid
+flowchart TD
+    A["Substitution packet reaches<br>ready-for-review status"] -->|"check scheduling gate<br>and required reviewer roles"| B{"Tracker allows scheduling?"}
+    B -->|"no"| X["Attach visible blocker to the scheduling packet<br>and coordination log"]
+    B -->|"yes"| C["Apply custodian cutoff calendar<br>to find the latest compliant review window"]
+    C -->|"window available"| D["Verify approved role coverage<br>from the delegate roster"]
+    C -->|"buffer too tight"| X
+    D -->|"coverage complete"| E["Consult policy-bound availability<br>and rank compliant slots"]
+    D -->|"coverage missing"| X
+    E -->|"slot found"| F["Create a tentative scheduling packet,<br>reversible hold, and coordination log"]
+    E -->|"protected conflict or stale state"| X
+    F -->|"request owner confirmation"| G{"Maya Chen confirms<br>the tentative slot?"}
+    G -->|"yes"| H["Confirmed cutoff review scheduling packet<br>and coordination log"]
+    G -->|"no, supersede with reason logged"| I["Append revision lineage and replace<br>the tentative slot proposal"]
+    I -->|"re-rank remaining compliant slots"| E
+    X -->|"stop and escalate blockers"| J["Stop at scheduling and coordination only<br>without downstream execution"]
+    H -->|"stop before authority, cutoff, or settlement changes"| J
+```
+
 ## Target systems / source systems
 
 - Collateral workflow tracker with substitution packet status, named owner, required reviewer roles, and ready-for-review gating state; this is the first source for whether a scheduling packet can exist at all.
