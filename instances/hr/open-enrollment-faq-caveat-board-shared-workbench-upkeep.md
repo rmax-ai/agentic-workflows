@@ -12,6 +12,26 @@ HR.
 
 A people operations benefits team maintains an internal open enrollment FAQ caveat board while benefits specialists, policy owners, regional HR partners, and internal communications reviewers continuously refine employee-question coverage for the upcoming enrollment window. Small updates arrive throughout the cycle: a carrier liaison adds one plan-note caveat, a regional partner flags a stale dependent-eligibility example, a reviewer marks one screenshot as outdated, and a policy owner links a newly approved portal instruction change. The agent keeps that internal workbench usable by refreshing linked source references, normalizing duplicate caveat notes, updating section ownership and hold markers, and carrying unresolved policy-interpretation questions forward in a visible register. Humans remain responsible for deciding what the benefits rules actually mean, which wording is safe for employee-facing use, whether any exception or clarification is approved, and when any material should move into separate communication, approval, or execution workflows.
 
+```mermaid
+flowchart TD
+    A["Shared FAQ caveat board<br>and prior state"]
+    B["Small collaborator edits<br>and linked source updates"]
+    C["Agent revalidates sources,<br>refreshes references, and<br>normalizes caveat structure"]
+    D{"Validated and still within<br>internal workbench upkeep?"}
+    E["Maintained FAQ caveat board<br>with updated owners and holds"]
+    F["Upkeep ledger and visible<br>unresolved-question register"]
+    G["Hold note for benefits owner<br>or reviewer follow-up"]
+    H["Stop and hand off before<br>employee-facing, approval,<br>or execution workflows"]
+
+    A -->|"provides current state"| C
+    B -->|"triggers bounded refresh"| C
+    C -->|"checks boundary and freshness"| D
+    D -->|"yes"| E
+    E -->|"records changes and open items"| F
+    D -->|"no"| G
+    G -->|"routes held item"| H
+```
+
 ## Target systems / source systems
 
 - Shared FAQ caveat board with topic sections, owner fields, blocker tags, and revision history
