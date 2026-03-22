@@ -40,6 +40,33 @@ This grounds the pattern in engineering work where the important output is one d
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Authoritative source systems"]
+        src1["Build manifest stores<br>artifact registries<br>provenance-attestation services<br>SBOM repositories"]
+        src2["Component ownership directory<br>environment classification tables<br>approved catalog-schema profile records"]
+    end
+    subgraph transform["Governed transformation boundary"]
+        stage["Governed staging store<br>and manifest service"]
+        package["Transformed catalog package<br>transformation trace<br>hold register<br>lineage references"]
+    end
+    subgraph approval["Approval boundary"]
+        review["Approval tooling for release metadata<br>and platform governance reviewers"]
+        hold["Hold and exception queue"]
+    end
+    subgraph intake["Restricted intake boundary"]
+        lane["Authoritative system-inventory<br>intake lane"]
+    end
+
+    src1 --> stage
+    src2 --> stage
+    stage --> package
+    stage -->|"Unresolved schema, lineage,<br>ownership, or restricted-field issues"| hold
+    package --> review
+    review -->|"Approved package and manifest<br>for one intake lane"| lane
+    review -->|"Boundary or approval concerns"| hold
+```
+
 - Approval-gated execution fits because the transformed catalog package may be technically complete for one authoritative intake lane while remaining blocked until named engineering reviewers approve the exact version and schema scope in the manifest.
 - Human-in-the-loop governance is required because accountable reviewers must confirm held fields, provenance continuity, ownership mappings, and the single downstream intake boundary before release.
 - The workflow should emit only the transformed build-artifact catalog package, transformation trace, hold register, lineage references, and approval manifest rather than an inventory acceptance decision, artifact retirement plan, legal or license judgment, or build-pipeline change request.
