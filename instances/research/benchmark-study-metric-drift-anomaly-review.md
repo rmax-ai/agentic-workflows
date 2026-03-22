@@ -12,6 +12,23 @@ Research.
 
 A research governance team monitors benchmark reruns, experiment metadata, artifact provenance checks, dataset-version changes, and reviewer comments to detect mid-severity metric-drift anomalies before they become publication, disclosure, or integrity incidents. The workflow must collapse duplicate anomalies tied to the same study, benchmark slice, and release window; enrich each case with expected variance bands, planned methodological changes, artifact lineage, prior reviewer notes, and claim sensitivity; and then prioritize which unexplained drifts deserve human review. A case should enter the review queue when, for example, a headline benchmark score jumps beyond the approved variance band without a matching study-plan update, repeated reruns disagree because one artifact lineage is incomplete, or a dataset-version change coincides with unexplained subgroup drift in a study slated for near-term sharing. The goal is an explainable anomaly review packet for benchmark governance, study owners, or research-integrity reviewers, not to decide publication posture, retract claims, run a root-cause analysis, or notify outside parties automatically.
 
+```mermaid
+flowchart TD
+    A["Drift signal detection<br>Benchmark reruns, metric deltas, and provenance alerts"]
+    B["Duplicate merge<br>Collapse anomalies by study, slice, and release window"]
+    C["Variance enrichment<br>Attach approved variance bands and planned study changes"]
+    D["Lineage enrichment<br>Attach artifact lineage, dataset versions, and reviewer notes"]
+    E["Prioritization<br>Rank unexplained drift by claim sensitivity and review urgency"]
+    F["Review routing<br>Send the packet to the governed human review queue"]
+
+    A --> B
+    B --> C
+    B --> D
+    C --> E
+    D --> E
+    E --> F
+```
+
 ## Target systems / source systems
 
 - Experiment-tracking systems with run metadata, metric histories, benchmark slices, configuration provenance, and rerun outcomes
