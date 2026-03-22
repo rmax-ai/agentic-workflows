@@ -42,6 +42,23 @@ This grounds the pattern in compliance work focused on collaborative stewardship
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    RCL["Records-compliance lead"] -->|"Co-produce governed packet"| WS["Governed records-compliance collaboration workspace<br>retention-conflict packet, revision history,<br>objection ledger, and release-manifest state"]
+    EAR["Enterprise archiving reviewer"] -->|"Review archive evidence and objections"| WS
+    SGP["Surveillance-governance partner"] -->|"Contribute supervised-channel constraints"| WS
+    AG["Agents"] -->|"Crosswalk mappings, refresh references,<br>normalize objections, and maintain release trace"| WS
+    CAS["Communications-archive, supervisory-journaling,<br>and repository-classification systems"] -->|"Repository inventories, message-type mappings,<br>retention clocks, attachment rules,<br>and archive-lineage evidence"| WS
+    BRP["Books-and-records policy, retention-schedule,<br>legal-hold, and jurisdictional-obligation repositories"] -->|"Retention minima, hold overlays,<br>and schedule-interpretation history"| WS
+    WS -->|"Exact packet revision, approved audience scope,<br>and intake-lane routing request"| IAT["Intake-routing, approval, and audience-governance tools"]
+    IAT -->|"Approval request for exact packet revision"| CRO["Named compliance release owner"]
+    CRO -->|"Approve release boundary for one intake lane"| IAT
+    IAT -->|"Release only approved packet revision"| RRL["Restricted records-retention review intake lane"]
+    WS -->|"Superseded revisions, accepted residual disagreement,<br>and blocked-release causes"| ACG["Audit, access-control, and records-governance systems"]
+    IAT -->|"Downstream handoff traceability and audience controls"| ACG
+    ACG -->|"Preserved traceability and access constraints"| WS
+```
+
 - Approval-gated execution fits because the retention-conflict packet can become collaboration-ready while still blocked from records-retention intake until the human release owner approves the exact revision.
 - Human-in-the-loop control is required because only accountable compliance leaders may accept residual schedule disagreement, confirm audience scope, and authorize the packet's release boundary.
 - Agents may crosswalk repository identifiers, refresh retention-source references, normalize objection wording, and maintain the release trace, but they must not decide the authoritative retention schedule, approve deletion or preservation action, or trigger external dissemination.
