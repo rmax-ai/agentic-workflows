@@ -13,6 +13,25 @@ Research for internal AI platform strategy.
 
 An applied-research analyst is preparing a recommendation-ready benchmark briefing for an architecture review board that must choose between three model-serving platforms for internal generative-AI workloads. The analyst uses a copilot inside a shared research workspace to iteratively tighten benchmark scope, pull source-grounded latency and cost results from the experiment tracker, compare vendor claims against internal test runs, rewrite the board memo for different stakeholder questions, and maintain an open-issues list for security and infrastructure follow-up, while the human analyst remains responsible for deciding which evidence is in scope, interpreting tradeoffs in disputed results, and approving the final briefing before it reaches engineering leadership.
 
+```mermaid
+flowchart TD
+    A["Analyst sets benchmark scope<br>and evidence boundaries"]
+    B["Copilot retrieves benchmark evidence<br>from tracker, notebooks, and vendor docs"]
+    C["Shared memo updates with cited findings<br>and comparison draft revisions"]
+    D["Analyst reviews claims, caveats,<br>and disputed result framing"]
+    E["Open issues list tracks security,<br>infrastructure, and evidence gaps"]
+    F["Human approval checkpoint for<br>briefing package inside workspace"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> B
+    D --> C
+    D --> E
+    E --> C
+    C --> F
+```
+
 ## Target systems / source systems
 
 - Shared research workspace with the draft benchmark memo, reviewer comments, and section-level ownership
