@@ -12,6 +12,21 @@ Support.
 
 A premium support operations team maintains an internal diagnostic-runbook caveat board while product support engineers, incident coordinators, service reliability liaisons, and tooling reviewers continuously refine notes attached to recurring escalation diagnostics. Small updates arrive throughout the week: one engineer links a superseding log-query example, an incident coordinator flags a stale environment prerequisite, a tooling reviewer marks one capture script as deprecated for one tenant tier, and a support lead reassigns ownership of an unresolved data-retention caveat. The agent keeps that internal workbench usable by refreshing linked source references, normalizing duplicate caveat notes, preserving accepted ownership assignments, and carrying unresolved hold states forward in a visible register. Humans remain responsible for deciding which diagnostic steps are officially approved for runbook use, whether any caveat changes support posture, whether a step should be executed during a live case, and when any material should move into separate execution, customer communication, approval, or publication workflows.
 
+```mermaid
+flowchart TD
+    A["Reviewer and source updates<br>arrive for the caveat board"]
+    B["Refresh caveat-board references<br>and prerequisite notes"]
+    C["Normalize duplicate caveats<br>and stale note wording"]
+    D["Preserve ownership fields<br>and update hold markers"]
+    E["Carry unresolved items forward<br>in a visible register"]
+    F["Maintained internal workbench<br>stays current and resumable"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+```
+
 ## Target systems / source systems
 
 - Shared diagnostic-runbook caveat board with step groups, owner fields, hold tags, and revision history
