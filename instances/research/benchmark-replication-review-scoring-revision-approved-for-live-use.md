@@ -12,6 +12,29 @@ Research.
 
 A research integrity lead has prepared one exact replication-review scoring revision for a benchmark publication program after replay shows that the current live profile underweights cross-lab divergence, dataset-governance caveats, and disclosure-sensitive benchmark claims during final review. The candidate revision increases sensitivity to rerun instability, tightens protected integrity floors for governance-heavy datasets, and defines a restore target if false-positive burden or missed replication risk rises. The workflow must release that exact scoring revision into bounded live use only after a human approver confirms the manifest, validity window, and rollback packet, while staying bounded at optimization-state release rather than deciding publication readiness, revising benchmark claims, or releasing study artifacts externally.
 
+```mermaid
+flowchart TD
+    A["Prepare exact replication-review<br>scoring revision candidate"]
+    B["Verify replay evidence, revision hash,<br>benchmark-program scope, and restore target"]
+    C{"Manifest, validity window,<br>and rollback packet complete?"}
+    D["Hold release until verification gaps<br>or packet errors are corrected"]
+    E{"Named approver authorizes that exact<br>revision for bounded live use?"}
+    F["Activate approved scoring revision for the named<br>benchmark publication program and write audit trace"]
+    G{"False-positive burden, missed replication risk,<br>or validity-window expiry triggered?"}
+    H["Keep revision live within the approved<br>benchmark-program window"]
+    I["Restore the prior trusted scoring profile<br>and record rollback or expiry action"]
+    A --> B
+    B --> C
+    C -->|"No"| D
+    C -->|"Yes"| E
+    E -->|"No"| D
+    E -->|"Yes"| F
+    F --> G
+    G -->|"No"| H
+    H -->|"Within window"| G
+    G -->|"Yes"| I
+```
+
 ## Target systems / source systems
 
 - Versioned replication-review scoring registry with the active live profile, candidate revision hash, protected integrity floors, and prior trusted revisions
