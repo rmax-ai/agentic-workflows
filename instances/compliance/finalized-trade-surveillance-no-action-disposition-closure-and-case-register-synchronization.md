@@ -12,6 +12,19 @@ Compliance.
 
 A restricted trade-surveillance review team has already recorded a final no-action disposition for an employee trading-alert case in the authoritative surveillance case-management system after the review, evidence assessment, and supervisory sign-off are complete. That disposition is final for this workflow and must not be reopened, reinterpreted, or extended into employee outreach, desk supervision directives, trading restrictions, regulator communication, or renewed investigation. The remaining execute step is limited to low-risk closure bookkeeping: detect the final-disposition event, recheck that the surveillance case identifier, disposition version, and approved archive references still match the source record, close the restricted post-review queue item, sync the surveillance case register and supervisory review tracker to the recorded closed-no-action state, attach archive references for the final disposition memo and evidence bundle, record completion state in the audit store, and notify the internal surveillance operations coordinator that closure propagation is complete. If the case was reopened, the disposition changed, or the target register points to a different surveillance-review episode, the workflow should stop and route manual follow-up instead of guessing.
 
+```mermaid
+flowchart TD
+    A["Authoritative final no-action<br>disposition event detected"] --> B["Recheck source record<br>case identifier, disposition version,<br>and archive references"]
+    B -->|"Case reopened"| X["Stop and route<br>manual follow-up"]
+    B -->|"Disposition changed"| X
+    B -->|"Episode mismatch"| X
+    B -->|"Verified final no-action state"| C["Close restricted<br>post-review queue item"]
+    C --> D["Sync surveillance case register<br>and supervisory review tracker<br>to closed-no-action state"]
+    D --> E["Attach archive references<br>for final disposition memo<br>and evidence bundle"]
+    E --> F["Record completion state<br>in audit store"]
+    F --> G["Notify internal surveillance<br>operations coordinator that closure<br>propagation is complete"]
+```
+
 ## Target systems / source systems
 
 - Restricted trade-surveillance case-management system that records the final no-action disposition and emits the authoritative state-change event
