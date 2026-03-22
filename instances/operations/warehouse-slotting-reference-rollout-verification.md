@@ -12,6 +12,26 @@ Operations.
 
 An operations excellence team marks an updated warehouse slotting quick-reference bundle as rolled out for the next shift after publishing new kiosk pages, scanner help cards, and printable supervisor sheets. Site leads want to know whether that claimed rollout state is actually true across the approved reference surfaces before they assume the new guidance is available on the floor. The workflow verifies the rollout claim against authoritative publication evidence and stops at a clear confirmed, disproved, or inconclusive result; it must not assign labor, reprioritize replenishment work, or push new materials itself.
 
+```mermaid
+flowchart TD
+    claim["Rollout claim<br>recorded for verification"]
+    scope["Load approved surfaces,<br>authoritative evidence sources,<br>and lag policy"]
+    evidence["Check kiosk, scanner help-card,<br>and printable-sheet evidence<br>against the claimed bundle version"]
+    lag{"Any authoritative surface still<br>inside the approved lag window?"}
+    match{"Do all authoritative checks<br>support the claimed rollout state?"}
+    inconclusive["Verdict: inconclusive<br>allowed lag still prevents a final conclusion"]
+    disproved["Verdict: disproved<br>at least one approved surface remains stale<br>or mismatched beyond tolerance"]
+    confirmed["Verdict: confirmed<br>all approved surfaces match the claim"]
+
+    claim --> scope
+    scope --> evidence
+    evidence --> lag
+    lag -->|"Yes"| inconclusive
+    lag -->|"No"| match
+    match -->|"Yes"| confirmed
+    match -->|"No"| disproved
+```
+
 ## Target systems / source systems
 
 - Controlled operations content repository containing the approved slotting reference bundle and release metadata
