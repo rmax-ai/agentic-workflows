@@ -12,6 +12,20 @@ Research.
 
 A research methods stewardship team monitors recurring low-severity benchmark metadata hygiene signals across internal study catalogs, experiment registries, and result dashboards: missing annotation fields, stale dataset-card references, repeated absent reviewer tags, inconsistent benchmark-suite labels, and minor documentation gaps that do not yet call benchmark validity into question. The workflow must merge duplicate signals by study portfolio, benchmark suite, and review window, enrich each watchlist item with study owner, upcoming review cadence, prior deferments, and recent healthy metadata checks, and then publish a routine upkeep queue for methods stewards and study coordinators. The goal is to keep small but persistent metadata gaps visible before they mature into publication-readiness, disclosure, or integrity-review concerns, not to challenge study claims, block sharing, or launch a root-cause investigation automatically.
 
+```mermaid
+flowchart TD
+    A["Recurring benchmark metadata hygiene signals<br>across catalogs, registries, and dashboards"]
+    B["Merge recurring signals by study portfolio,<br>benchmark suite, and review window"]
+    C["Enrich bounded watchlist context with study owner,<br>review cadence, deferments, and healthy checks"]
+    D["Publish routine metadata hygiene watchlist<br>and upkeep queue for stewards"]
+    E["Trigger escalation when recurrence age or scope<br>exceeds delegated watchlist limits"]
+
+    A --> B
+    B --> C
+    C --> D
+    C --> E
+```
+
 ## Target systems / source systems
 
 - Experiment and benchmark registries with study metadata, suite identifiers, annotation history, and review-window markers
