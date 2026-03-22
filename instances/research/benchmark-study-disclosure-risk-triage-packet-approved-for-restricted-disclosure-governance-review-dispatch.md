@@ -12,6 +12,29 @@ Research.
 
 A research governance team already has an evidence-backed disclosure-risk triage packet assembled for one benchmark study after earlier monitoring merged draft-sharing telemetry, a late rerun regression, a dataset-rights change, and an outside-review request against the same embargo window. The next step is not to decide whether external reviewers may see the draft, narrow the benchmark claims, notify partners, or approve publication; it is to decide whether the exact packet revision may cross into the restricted disclosure-governance review lane that can trigger those downstream human workflows. The dispatch workflow watches packet freshness, annex redaction state, signer approval, and bounded reviewer-audience rules, then releases the triaged packet only when the approved research-governance reviewer signs the dispatch manifest for that lane.
 
+```mermaid
+flowchart TD
+    packet["Approved disclosure-risk<br>triage packet revision queued"]
+    freshness["Packet freshness<br>and evidence window check"]
+    redaction["Annex redaction<br>scope check"]
+    signer["Research-governance signer<br>approval check"]
+    audience["Restricted reviewer audience<br>boundary check"]
+    hold["Dispatch hold register<br>for stale, unredacted, unsigned,<br>or out-of-bound packets"]
+    manifest["Dispatch manifest<br>bound to exact packet revision"]
+    lane["Restricted disclosure-governance<br>review lane dispatch"]
+
+    packet --> freshness
+    freshness --> redaction
+    freshness --> hold
+    redaction --> signer
+    redaction --> hold
+    signer --> audience
+    signer --> hold
+    audience --> manifest
+    audience --> hold
+    manifest --> lane
+```
+
 ## Target systems / source systems
 
 - Benchmark study workspace and disclosure-risk triage systems holding the already-triaged packet, alert lineage, claim scope, and prior duplicate merges
