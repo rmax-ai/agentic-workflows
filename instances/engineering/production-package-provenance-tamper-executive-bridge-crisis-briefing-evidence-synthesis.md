@@ -12,6 +12,20 @@ Engineering.
 
 Release security has already declared a critical package-provenance tamper case after corroborated evidence shows one production package lineage may have been republished or distributed with provenance that no longer matches the approved build and signing trail. Before anyone recommends rollback, revocation, customer notification, root-cause hypotheses, or release execution steps, an executive bridge needs one source-backed crisis brief that compresses verified affected artifact scope, publication and deployment exposure, attestation anomalies, current containment and release-hold posture, internal or customer release-impact posture, and unresolved unknowns. The useful output is a provenance-preserving engineering crisis brief that separates authoritative registry, attestation, deployment, and release-governance facts from lower-authority bridge commentary or stale case notes so human leaders can coordinate from one inspectable situation picture.
 
+```mermaid
+flowchart TD
+    start["Critical package-provenance tamper declared<br>executive bridge brief requested"] --> gather["Retrieve current evidence<br>registry state, attestations, deployment exposure, holds, prior brief"]
+    gather --> verify{"Material claims have<br>authoritative, fresh backing?"}
+    verify -->|"No"| hold["Hold brief release<br>record contradictions, stale inputs, and open unknowns"]
+    hold --> escalate["Bounded escalation<br>request source-owner or governance confirmation"]
+    escalate --> gather
+    verify -->|"Yes"| brief["Assemble crisis brief<br>separate verified scope, containment posture, and unresolved questions"]
+    brief --> approve{"Human brief owner approves<br>executive bridge version?"}
+    approve -->|"No"| hold
+    approve -->|"Yes"| publish["Publish reviewed brief<br>record provenance, approval, and supersession lineage"]
+    publish --> stop["Workflow stops at crisis-briefing handoff<br>rollback, revocation, disclosure, and release execution stay outside scope"]
+```
+
 ## Target systems / source systems
 
 - Executive bridge workspace where reviewed crisis briefs, superseded updates, owner acknowledgements, and restricted annex links are stored
