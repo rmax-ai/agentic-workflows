@@ -39,6 +39,27 @@ This grounds the pattern in engineering where the valuable output is a bounded r
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph SOURCES["Read-only evidence and policy sources"]
+        HSM["HSM inventory and custody registry<br>with audit-log context"]
+        CER["Key-ceremony record store<br>with witness logs and role assignments"]
+        IAM["Identity and access governance workspace<br>with approved custodian roster"]
+        REL["Release engineering configuration and<br>notarization bridge / hotfix-signing path context"]
+        CTRL["Controls library and exception register<br>with attestation rules and escalation thresholds"]
+    end
+
+    AGENT["Tool-using review agent<br>maps requirements to current evidence<br>and assembles a rationale packet"]
+    HUMAN["Human release security review boundary<br>decides whether to approve, remediate,<br>or escalate the attestation posture"]
+
+    HSM --> AGENT
+    CER --> AGENT
+    IAM --> AGENT
+    REL --> AGENT
+    CTRL --> AGENT
+    AGENT --> HUMAN
+```
+
 - A tool-using single agent can retrieve the current requirement set, align ceremony records with custodian and HSM evidence, compare exception scope against the newly added signing path, and assemble one reviewable rationale packet.
 - Human-in-the-loop review is required because release security owners must decide whether partial custody evidence is acceptable, whether exception scope is still in band, or whether the case needs governance escalation.
 - Read-only integration with HSM, identity-governance, release-configuration, and exception systems is preferable so the workflow cannot alter key policy, update roster state, approve the attestation, or trigger live signing changes.
