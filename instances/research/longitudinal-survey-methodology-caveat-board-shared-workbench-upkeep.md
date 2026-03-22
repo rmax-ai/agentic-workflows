@@ -12,6 +12,28 @@ Research for internal longitudinal study methods governance.
 
 An internal research methods group maintains a shared methodology caveat board for a multi-wave longitudinal survey while statisticians, fieldwork coordinators, instrument owners, and reproducibility reviewers continuously log small comparability concerns that could affect later internal analysis. Updates arrive throughout the week: one analyst links a revised weighting note for a low-response subgroup, a fieldwork lead flags that one site used an older instrument wording for two days, a methods reviewer adds a caveat about translation drift in one wave, and a study coordinator reassigns ownership of an unresolved skip-logic question. The agent keeps that bounded internal board usable by refreshing source links, normalizing duplicate caveat wording, updating wave-level ownership and hold markers, and carrying unresolved comparability questions forward in a visible register without turning the board into a publication recommendation, protocol decision, or execution queue. Humans remain responsible for deciding whether a caveat is scientifically material, whether a wave should be excluded from analysis, whether weighting or documentation changes are warranted, and when any board content is mature enough to feed a separate review or publication workflow.
 
+```mermaid
+flowchart TD
+    A["Approved methods memos,<br>instrument versions, and weighting notes"]
+    B["Fieldwork operations log and<br>site-level deployment annotations"]
+    C["Reviewer comments and duplicate<br>caveat wording on the shared board"]
+    D["Shared methodology caveat board<br>with prior ownership and hold state"]
+    E["Agent upkeep pass for internal<br>board refresh and normalization"]
+    F["Updated board rows with refreshed links,<br>normalized duplicates, and ownership markers"]
+    G["Visible unresolved-caveat register<br>carried forward across survey waves"]
+    H["Methods owner review for hold-only<br>ownership or carry-forward questions"]
+    I["Stop and hand off if an update would imply<br>scientific judgment or publication action"]
+
+    A -->|"Refresh authoritative references first"| E
+    B -->|"Pull deployment and incident updates"| E
+    C -->|"Merge overlapping caveat notes"| E
+    D -->|"Preserve prior unresolved state"| E
+    E -->|"Refresh links, normalize duplicates,<br>and update ownership or hold markers"| F
+    E -->|"Carry unresolved comparability questions forward"| G
+    G -->|"Visible hold-only follow-up"| H
+    E -->|"Boundary-triggering request"| I
+```
+
 ## Target systems / source systems
 
 - Shared methodology caveat board with wave-level rows, owner fields, hold tags, and revision history
