@@ -12,6 +12,18 @@ Research with compliance-adjacent policy review.
 
 A privacy and records-governance team is preparing an annual review of customer-data retention obligations across support transcripts, billing records, fraud-monitoring evidence, and security logs. The workflow needs a grounded synthesis of which retention periods are mandatory, which are policy choices, and where the source material is contradictory across jurisdictions or internal standards.
 
+```mermaid
+flowchart TD
+    A["Scoped retrieval<br>from approved retention sources"]
+    B["Claim-to-source synthesis<br>with inspectable citations"]
+    C["Unresolved conflict surfacing<br>for contradictory obligations"]
+    D["Human review handoff<br>for legal and records owners"]
+
+    A --> B
+    B --> C
+    C --> D
+```
+
 ## Target systems / source systems
 
 - Internal records-retention policy library
