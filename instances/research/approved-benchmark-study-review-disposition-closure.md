@@ -12,6 +12,22 @@ Research for benchmark governance.
 
 An internal research-governance council records that a multimodal benchmark study is approved for internal catalog inclusion after reviewers finish reproducibility, licensing, and disclosure checks. The decision itself is already final in the review system. The remaining workflow is low-risk downstream completion: detect the authoritative approval event, recheck that the study identifier and approved disposition are still current, update the internal study registry, attach the final review packet hash to the catalog record, archive the approved evidence bundle, close the intake checklist, and notify the study owners that the review is complete. The workflow must not publish the work externally, change the approved disposition, or infer any new release decision beyond the recorded council outcome.
 
+```mermaid
+flowchart TD
+    A["Authoritative approval event<br>received from review system"]
+    B["Recheck current study identifier<br>and approved disposition"]
+    C["Update internal study registry<br>and attach final packet hash"]
+    D["Archive approved evidence bundle<br>for closure record"]
+    E["Close intake checklist<br>and record completion trace"]
+    F["Notify study owners<br>that review closure is complete"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+```
+
 ## Target systems / source systems
 
 - Research review system that records the authoritative approved disposition and emits a state-change event
