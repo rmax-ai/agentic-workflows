@@ -12,6 +12,27 @@ Research.
 
 A research data-governance workflow has already prepared one exact recommendation packet revision for an external collaborator's request to access a sensitive longitudinal cohort dataset. The packet narrows the bounded options to approve enclave-only access to the approved variable subset, narrow the request to synthetic or aggregate extracts pending stronger controls, or escalate to IRB and privacy review, and it keeps blocked paths such as direct row-level export or reuse outside the stated protocol explicit. Before that exact packet revision can enter the restricted data access committee decision lane, a named research governance owner must approve the committee scope, review-window expiry, and manifest binding so committee members receive the governed recommendation artifact rather than a stale or broadened copy. The workflow stops at governed release of that packet revision; it does not adjudicate the access request, provision the enclave, amend the protocol, or release any dataset.
 
+```mermaid
+flowchart TD
+    ready["Exact sensitive-cohort dataset-access<br>recommendation packet revision ready"]
+    verify["Verify packet revision id, bounded access options,<br>and blocked paths against current evidence"]
+    scope["Confirm data access committee lane,<br>review-window expiry, and manifest binding"]
+    approve["Named research governance owner<br>reviews release or hold state"]
+    hold["Hold packet revision for manual follow-up,<br>scope correction, or manifest repair"]
+    supersede["Supersede packet revision when consent scope,<br>privacy posture, or collaborator controls change"]
+    release["Release exact packet revision to data access committee lane<br>with approve-enclave, narrow-extract, or escalate options"]
+    record["Record manifest-bound handoff and block forwarding<br>outside approved committee audience"]
+    ready --> verify
+    verify --> scope
+    verify --> hold
+    scope --> approve
+    scope --> hold
+    hold --> supersede
+    approve --> release
+    approve --> hold
+    release --> record
+```
+
 ## Target systems / source systems
 
 - Data access recommendation workspace holding the current packet revision, bounded access options, blocked-path notes, and superseded drafts
