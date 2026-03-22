@@ -39,6 +39,23 @@ This grounds the pattern in compliance work where humans and agents collaborate 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    CO["Compliance operations lead"] -->|"Co-produce packet sections,<br>evidence framing, and release notes"| WS["Governed compliance collaboration workspace<br>remediation packet, objection ledger,<br>release-manifest draft, and revision history"]
+    VG["Vendor-governance reviewer"] -->|"Contribute vendor-control context<br>and remediation caveats"| WS
+    PC["Privacy counsel contributor"] -->|"Review privileged legal framing<br>and contested issues"| WS
+    AG["Agents"] -->|"Reconcile evidence references,<br>compare revisions, and maintain release trace"| WS
+    ES["Vendor-risk, contract-management,<br>transfer-impact, and control-testing systems"] -->|"Authoritative evidence,<br>remediation status, and control findings"| WS
+    WS -->|"Exact packet revision,<br>privileged audience scope,<br>and intake-lane request"| RT["Approval and intake-routing tools"]
+    PR["Privacy-policy, legal-intake,<br>and committee-governance repositories"] -->|"Privileged scope rules,<br>required signers, and lane constraints"| RT
+    RT -->|"Approval request for exact packet revision"| RO["Named compliance<br>release owner"]
+    RO -->|"Approve one exact revision<br>for bounded intake"| RT
+    RT -->|"Release only approved packet revision"| IL["Bounded privacy-counsel<br>intake lane"]
+    WS -->|"Held-release causes,<br>superseded revisions,<br>and objection trace"| ARC["Audit, access-control,<br>and retention systems"]
+    RT -->|"Approval and handoff traceability"| ARC
+    ARC -->|"Privilege boundary<br>and retention state"| WS
+```
+
 - Approval-gated execution fits because the remediation packet can be collaboration-complete before it is allowed to cross into the privileged privacy-counsel intake boundary.
 - Human-in-the-loop control is essential because only accountable compliance and legal owners may accept residual disagreement, preserve privilege boundaries, and release the packet onward.
 - Agents may update evidence references, compare section revisions, and maintain the release trace, but they must not adjudicate legal posture or initiate vendor communications.
