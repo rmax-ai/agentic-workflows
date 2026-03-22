@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 321
+  instance_files: 322
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -66,13 +66,14 @@ instance_counts_by_domain:
   finance: 45
   compliance: 49
   operations: 45
-  research: 45
+  research: 46
   support: 47
   hr: 45
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has three hundred twenty-one grounded examples across all seven currently modeled domains, with `compliance` at forty-nine; `support` at forty-seven; and `engineering`, `finance`, `research`, `operations`, plus `hr` at forty-five. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has three hundred twenty-two grounded examples across all seven currently modeled domains, with `compliance` at forty-nine; `support` at forty-seven; `research` at forty-six; and `engineering`, `finance`, `operations`, plus `hr` at forty-five. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`contingency-plan-activation-gate` now has additional `research` grounding through a biorepository freezer-failure specimen-preservation continuity example, deepening that critical planning-family activation-readiness slice beyond emergency unblinding by centering one exact biospecimen-preservation packet with validated laboratory information management system inventory, calibrated telemetry, and qualified backup-capacity source precedence, explicit SOP and use-restriction prerequisites, visible rack-map, label, vessel, and capacity blockers, append-only packet lineage, and one named Director of Biorepository Continuity owner rather than authority selection, communications, specimen movement, custody execution, or downstream continuity action."
   - "`delegated-authority-option-ranking` now has additional `support` grounding through a regulated enterprise severe-incident service-credit accommodation option-ranking example, deepening that moderate-risk recommend-family bounded-delegation slice beyond diagnostic telemetry accommodation by centering one exact premium-support concession packet with signed-order-form and concession-matrix source precedence, prerequisite incident and concession-cap state, visible blocked rebate, retention, and staffing requests, revision lineage, and one named Premium Support Escalation Manager owner rather than approval adjudication, customer commitment, engineering assignment, policy rewrite, or downstream billing execution."
   - "`readiness-gate-disposition-recommendation` now has additional `finance` grounding through a regulatory-reporting ledger cutover readiness-gate example, deepening that moderate-risk recommend-family release-readiness slice beyond cash-forecast cutover by centering one exact controllership gate packet with reporting-policy and mapping-register source precedence, visible secured-funding replay and fallback-evidence blockers, revision lineage, and one named Director of Regulatory Reporting Readiness owner rather than filing strategy choice, attestation approval, regulator communication, ledger switching, or downstream execution."
   - "`shared-workbench-orchestration` now has additional `operations` grounding through a delivery-fleet brake-inspection bulletin applicability caveat-board example, deepening that low-risk collaboration-family upkeep slice beyond warehouse slotting rollout by centering one exact internal fleet-safety board with authoritative bulletin-over-inventory source precedence, prerequisite state, explicit blocker and fitment-question visibility, append-only revision lineage, and one named Fleet Safety Standards Steward owner rather than applicability adjudication, temporary-deferral approval, road-use restriction choice, maintenance scheduling, or downstream repair execution."
