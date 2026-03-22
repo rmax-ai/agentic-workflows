@@ -12,6 +12,28 @@ Research.
 
 A research data-governance team already has one evidence-backed triage packet assembled for a secondary dataset access request tied to a completed human-subjects study. Earlier monitoring already merged the request form, protocol-scope checks, consent-restriction flags, enclave-capability notes, prior duplicate submissions, and one recent sponsor-use clarification into a single bounded packet. The next step is not to decide whether the requester may receive access, reinterpret consent, negotiate conditions, publish findings, or activate any data movement; it is to decide whether that exact triaged packet revision may cross into the restricted governance review lane that handles sensitive secondary-use review. The workflow watches packet freshness, requester-role redaction, approval state, and lane-boundary rules, then releases the packet only when the named research-governance approver signs the dispatch manifest for that one downstream review queue.
 
+```mermaid
+flowchart TD
+    A["Exact triage packet<br>awaiting restricted review dispatch"]
+    B["Freshness and boundary checks<br>packet revision, cited references, requester-role redaction, lane scope"]
+    C{"All dispatch checks pass?"}
+    D["Dispatch hold<br>stale, superseded, mis-scoped, or insufficiently redacted packet"]
+    E["Checks clear<br>exact packet revision can enter approver review"]
+    F["Research-governance approver review<br>exact packet revision and dispatch manifest"]
+    G["Dispatch remains blocked<br>approval not yet signed for this revision and queue"]
+    H["Approval signed<br>exact packet revision authorized for queue release"]
+    I["Restricted governance review queue<br>exact approved packet revision dispatched"]
+
+    A --> B
+    B --> C
+    C --> D
+    C --> E
+    E --> F
+    F --> G
+    F --> H
+    H --> I
+```
+
 ## Target systems / source systems
 
 - Secondary-use intake and triage systems holding the already-triaged access-request packet, duplicate lineage, requester metadata, requested dataset scope, and unresolved caveat markers
