@@ -12,6 +12,28 @@ Support.
 
 An enterprise premium-support escalation manager is reviewing a recurrent authentication-latency case for a regulated customer that wants broader diagnostic collection before it approves the next troubleshooting step. The manager has a documented delegated authority band that allows recommendation of only a narrow local option menu, such as a tenant-scoped twenty-four-hour verbose logging extension, a one-time secure upload window for approved diagnostic artifacts, or continuation under the standard evidence-collection path, while broader packet capture, production database snapshots, indefinite retention overrides, or direct engineering debugging access require higher approval. The workflow must rank the viable in-band diagnostic accommodation options, show which requested paths are blocked by privacy, data-access, retention, and support-authority guardrails, and package escalation only if no locally permissible option can cover the case before anyone enables extra telemetry, changes retention settings, or requests privileged infrastructure access.
 
+```mermaid
+flowchart TD
+    A["Case facts<br>and requested diagnostic accommodation"]
+    B["Delegated authority band<br>and hard guardrails"]
+    C["Bounded local option set<br>for comparison"]
+    D["Blocked or escalation-only paths<br>with rationale"]
+    E["Rank in-band options<br>against case evidence"]
+    F{"Any local option<br>fits all hard boundaries?"}
+    G["Preferred bounded recommendation<br>plus boundary register"]
+    H["Escalation packet<br>because no local option fits"]
+
+    A --> B
+    A --> E
+    B --> C
+    B --> D
+    C --> E
+    E --> F
+    F --> G
+    F --> H
+    D --> H
+```
+
 ## Target systems / source systems
 
 - Premium-support case timeline, incident notes, diagnostic request history, and current severity or business-impact summary
