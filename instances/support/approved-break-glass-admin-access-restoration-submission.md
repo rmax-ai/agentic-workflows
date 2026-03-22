@@ -12,6 +12,22 @@ Support.
 
 A senior support operations lead needs to submit an already approved break-glass admin access restoration for a strategic enterprise tenant after a live incident leaves the normal delegated support path unable to recover customer administrators. The target emergency admin console is browser-only, spreads the action across tenant verification, incident reference, temporary privilege scope, expiration time, customer-account approval evidence, and acknowledgement screens, and final submission may proceed only after incident command, security, and the accountable customer-account authority have all signed off in the escalation case system. Because the console action can restore privileged access to a production tenant and may expose sensitive tenant metadata during execution, the workflow must recheck approvals, confirm the incident and tenant identity still match the approved emergency packet, and halt safely if the console, approval state, or post-submit confirmation becomes ambiguous.
 
+```mermaid
+flowchart TD
+    A["Recheck approved break-glass packet<br>against tenant, incident, scope, and expiry"]
+    B["Enter emergency admin console in browser<br>with approved tenant context"]
+    C["Confirm submit gate still matches<br>current approvals and console state"]
+    D["Submit restoration request<br>within approved temporary admin boundary"]
+    E["Halt without submission<br>and preserve takeover state"]
+    F["Capture masked evidence<br>for approvals, entered values, and confirmation state"]
+    A --> B
+    B --> C
+    C -->|"Approved and unambiguous"| D
+    C -->|"Mismatch, stale approval, or ambiguity"| E
+    D --> F
+    E --> F
+```
+
 ## Target systems / source systems
 
 - Support escalation or incident case system holding the approved break-glass request, security review, customer-account authorization, and segregation-of-duties evidence
