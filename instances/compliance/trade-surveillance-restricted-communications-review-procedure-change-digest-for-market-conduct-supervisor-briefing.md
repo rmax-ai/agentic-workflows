@@ -42,6 +42,19 @@ This grounds the pattern in compliance work where the trigger is a controlled co
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    feed["Change notification<br>feed"] -->|"Publishes approved<br>procedure revision event"| agent["Tool-using single agent<br>for bounded digest assembly"]
+    procedure["Controlled surveillance-procedure<br>repository"] -->|"Provides new package,<br>baseline, and revision metadata"| agent
+    lexicon["Surveillance lexicon<br>registry"] -->|"Provides approved dictionaries<br>and applicability notes"| agent
+    coverage["Channel-coverage<br>inventory"] -->|"Provides channel-scope<br>and preservation context"| agent
+    templates["Restricted surveillance<br>case-template library"] -->|"Provides current worksheet<br>and annotation standards"| agent
+    exceptions["Approved exception<br>register"] -->|"Provides current carve-outs<br>and regional deviations"| agent
+    owners["Compliance owners"] -->|"Define trusted source boundary<br>and briefing template"| agent
+    agent -->|"Posts digest, delta trace,<br>and unresolved items"| workspace["Controlled supervisor-briefing<br>workspace"]
+    workspace -->|"Delivers briefing"| supervisor["Market Conduct Surveillance Supervisor<br>and surveillance leads"]
+```
+
 - Event-driven monitoring fits because the digest should refresh when the approved restricted-communications review procedure is published, not only when a supervisor manually requests context.
 - A tool-using single agent can compare the new and prior procedure packages, retrieve the linked lexicon, channel-coverage, template, and exception records, and assemble a supervisor-ready brief with claim-to-source mappings.
 - Bounded delegation is appropriate because compliance owners can define the trusted source boundary and briefing template while the Market Conduct Surveillance Supervisor retains responsibility for deciding whether any separate review or follow-up is needed.
