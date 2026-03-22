@@ -12,6 +12,28 @@ Support.
 
 An enterprise support duty manager is preparing a severity-one account review after a major customer reports that a production identity integration outage should be covered by premium support commitments. Before anyone promises update cadence, service credits, named-engineer coverage, or contractual response obligations, the workflow needs a grounded synthesis of which support terms are actually in force across the master services agreement, order form, premium support addendum, renewal amendment, approved exception register, and current product-entitlement records. The goal is a cited obligations brief that separates verified commitments from ambiguity about scope, exclusions, or legacy carve-outs so downstream customer communication, legal interpretation, and concession decisions start from inspectable evidence rather than memory.
 
+```mermaid
+flowchart TD
+    intake["Scoped severity-one review question<br>and approved source boundary"]
+    contracts["Retrieve executed agreements<br>amendments and renewal records"]
+    entitlements["Retrieve active entitlement<br>and support-tier records"]
+    exceptions["Retrieve approved exceptions<br>and legal interpretation artifacts"]
+    policy["Retrieve current support policy<br>and legacy-offer mappings"]
+    synthesis["Synthesize in-force obligations<br>with claim-to-source citations"]
+    ambiguity["Surface ambiguity on scope<br>exclusions supersession and coverage"]
+    handoff["Hand off cited brief<br>open questions and evidence trace for human review"]
+    intake --> contracts
+    intake --> entitlements
+    intake --> exceptions
+    intake --> policy
+    contracts --> synthesis
+    entitlements --> synthesis
+    exceptions --> synthesis
+    policy --> synthesis
+    synthesis --> ambiguity
+    ambiguity --> handoff
+```
+
 ## Target systems / source systems
 
 - Controlled support review workspace where the cited synthesis brief and evidence trace are stored
