@@ -12,6 +12,26 @@ Research for internal AI platform evaluation.
 
 A small applied-research team keeps an internal benchmark evidence matrix in a shared workbench while comparing model-serving platforms for future infrastructure planning. Analysts, reproducibility reviewers, and experiment owners continuously add run ids, caveat notes, hardware annotations, reviewer comments, and section ownership changes as new benchmark reruns land. The agent's role is to keep that bounded internal matrix synchronized: refresh linked experiment metadata, normalize duplicated reviewer notes, update section status markers, and carry unresolved methodology questions forward without collapsing them into a final recommendation memo. Humans remain responsible for interpreting contested results, deciding which evidence is persuasive, and choosing when any part of the matrix is mature enough to feed a separate board-facing briefing workflow.
 
+```mermaid
+flowchart TD
+    A["Experiment tracker<br>new run ids and metadata"]
+    B["Reviewer annotation surface<br>caveats and methodology questions"]
+    C["Shared benchmark evidence matrix<br>current rows, owners, and lineage"]
+    D["Agent upkeep pass<br>bounded matrix synchronization"]
+    E["Normalized matrix rows<br>refreshed status and links"]
+    F["Unresolved-question register<br>carry-forward hold state"]
+    G["Named analyst or reproducibility reviewer<br>follow-up on contested items"]
+    H["Stop and hand off to adjacent workflow<br>if update becomes recommendation or board-facing memo"]
+
+    A -->|"Refresh linked experiment metadata"| D
+    B -->|"Normalize duplicated notes<br>and preserve open questions"| D
+    C -->|"Use prior matrix state<br>owners and revision lineage"| D
+    D -->|"Update matrix synchronization<br>status markers and note structure"| E
+    D -->|"Carry unresolved methodology questions forward"| F
+    F -->|"Human follow-up on contested results"| G
+    D -->|"Boundary-triggering request"| H
+```
+
 ## Target systems / source systems
 
 - Shared research workbench containing the benchmark evidence matrix, section ownership, caveat flags, and revision history
