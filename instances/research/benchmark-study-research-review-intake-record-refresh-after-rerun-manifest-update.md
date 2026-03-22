@@ -12,6 +12,24 @@ Research.
 
 An applied research governance program already maintains a staged research-review intake record for an in-flight benchmark study so reproducibility, privacy, and publication-operations reviewers can inspect one current structured packet instead of reopening the experiment tracker, artifact registry, dataset notes, methods annexes, and prior intake exceptions every time source state changes. After that intake record is issued, authoritative updates still arrive: a signed rerun manifest supersedes a draft benchmark results bundle, a methods annex corrects hardware configuration notes, a dataset-version registry entry narrows which prompt-set release is in scope, or exception lineage is updated to show that one previously cited score table was withdrawn. Each approved source change should trigger refresh of the staged research-review intake record, preserving field-level delta lineage, explicit current-versus-superseded values, and exception routing whenever conflicting rerun provenance, unresolved dataset-version drift, or policy-disallowed overwrite logic would make the refreshed packet unsafe for downstream restricted review.
 
+```mermaid
+flowchart TD
+    A["Approved source<br>change"]
+    B["Current authoritative<br>source bundle"]
+    C["Prior staged intake<br>record baseline"]
+    D["Staged intake<br>record refresh"]
+    E["Delta lineage and<br>supersession trace"]
+    F["Current refreshed staged<br>intake record"]
+    G["Exception routing<br>queue"]
+    A --> B
+    A --> C
+    B --> D
+    C --> D
+    D --> E
+    D --> F
+    D --> G
+```
+
 ## Target systems / source systems
 
 - Restricted research-review staging store holding the already-issued structured intake record used by reproducibility and governance reviewers
