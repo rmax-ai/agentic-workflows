@@ -39,6 +39,19 @@ This grounds the pattern in engineering work where the main reusable challenge i
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    reviewers["Platform security lead,<br>payments architect, and<br>release engineering reviewers"] -->|"Co-produce exception packet<br>and objection state"| workspace["Governed collaboration workspace<br>holding the shared exception packet,<br>comment threads, objection state,<br>and release-manifest draft"]
+    agents["Agents"] -->|"Refresh evidence links,<br>rewrite disputed sections,<br>and maintain release manifest"| workspace
+    evidence["CI, deployment rehearsal,<br>and rollback-evidence systems"] -->|"Current test artifacts,<br>dependency waivers,<br>and mitigation proof"| workspace
+    workspace -->|"Exact packet revision,<br>objection ledger, and<br>release-manifest draft"| routing["Approval and intake-routing tooling"]
+    policy["Architecture standards,<br>rollback-policy, and<br>release-governance repositories"] -->|"Permitted intake boundary<br>and required signers"| routing
+    owner["Named release owner"] -->|"Approve exact revision<br>for one intake lane"| routing
+    routing -->|"Release approved packet revision"| lane["Architecture-review<br>intake lane"]
+    workspace -->|"Packet supersession<br>and collaboration history"| audit["Audit systems"]
+    routing -->|"Release-owner decisions,<br>audience-boundary changes,<br>and blocked-release history"| audit
+```
+
 - Approval-gated execution fits because the shared packet can be collaboration-ready before it is allowed to cross into the architecture-review intake queue.
 - Human-in-the-loop collaboration is mandatory because only accountable engineering and security owners may accept residual disagreement, approve audience scope, and release the packet onward.
 - Agents may refresh evidence links, rewrite disputed sections, and maintain the release manifest, but they must not decide whether the board should approve the exception or trigger the change.
