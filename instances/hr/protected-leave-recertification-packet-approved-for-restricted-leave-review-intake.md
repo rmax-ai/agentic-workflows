@@ -12,6 +12,17 @@ HR.
 
 An HR leave program is preparing a recertification package for an employee whose ongoing protected leave schedule may need to continue past the original certification window. The authoritative source state spans the prior leave case record, the new clinician recertification form, employee-submitted schedule updates, manager attendance context, document-receipt logs, and policy-required metadata about the recertification due date and allowed review audience. The downstream restricted review lane expects one transformed intake packet with normalized case identifiers, current leave episode references, document inventory, privacy tags, held-field markers, and an approval manifest that authorizes handoff into that single leave-program intake queue. The workflow must stop once that exact packet revision is approved for intake, without deciding eligibility, requesting more documentation from the employee, changing payroll or scheduling state, or issuing any return-to-work or accommodation determination.
 
+```mermaid
+flowchart TD
+    A["Authoritative leave case, recertification form,<br>schedule updates, and policy metadata"] -->|"Normalize and assemble"| B["Governed staging store builds the<br>restricted review intake packet"]
+    B -->|"Preserve lineage and held annexes"| C["Packet draft with trace,<br>privacy tags, and hold register"]
+    C -->|"Check case reference, provider lineage,<br>audience scope, and privacy tags"| D{"Any intake-release hold remains?"}
+    D -->|"Yes"| E["Hold and exception queue blocks<br>restricted review intake release"]
+    D -->|"No"| F["Leave-program reviewer signs the exact packet version,<br>audience scope, and intake boundary"]
+    F -->|"Approve exact revision"| G["Approved recertification packet and manifest<br>for one restricted leave-review intake lane"]
+    G -->|"Stop at intake approval boundary"| H["Workflow ends before restricted review,<br>eligibility, outreach, payroll, or scheduling action"]
+```
+
 ## Target systems / source systems
 
 - Leave-management case record, recertification schedule tracker, and secure document repository holding the active case state and newly submitted clinician materials
