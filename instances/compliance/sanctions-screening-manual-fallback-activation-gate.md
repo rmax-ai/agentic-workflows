@@ -40,6 +40,38 @@ This grounds the pattern in compliance where the hard problem is preparing a gov
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Target systems / source systems"]
+        playbooks["Compliance continuity playbooks<br>and outage workspace"]
+        authority["Trusted outage-state, payment-hold,<br>queue-segmentation, and reviewer-coverage systems"]
+        staffing["Legal-hold records, delegate rosters,<br>calendars, and staffing plans"]
+    end
+
+    subgraph gate["Sanctions screening manual fallback activation gate"]
+        planner["Activation packet preparation"]
+        ledger[("Readiness ledger")]
+        holds[("Hold register")]
+        packet["Activation-ready packet"]
+    end
+
+    approver["Compliance leadership<br>approval owner"]
+    audit["Approval-routing and audit systems"]
+    restricted["Restricted communications tooling<br>for regulator-response and internal-notice checkpoints"]
+
+    playbooks -->|"Provides declared fallback scope<br>and prior gate packets"| planner
+    authority -->|"Provides trusted outage, hold,<br>queue, and coverage inputs"| planner
+    staffing -->|"Provides legal holds,<br>delegates, and staffing commitments"| planner
+    planner -->|"Updates current readiness state"| ledger
+    planner -->|"Keeps explicit blockers visible"| holds
+    planner -->|"Assembles approval packet"| packet
+    packet -->|"Sends packet for human review"| approver
+    packet -->|"Captures packet version"| audit
+    holds -->|"Captures hold state"| audit
+    approver -->|"Captures human sign-off"| audit
+    audit -->|"Keeps downstream checkpoints<br>after the planning gate"| restricted
+```
+
 - Approval-gated execution fits because the manual fallback may be operationally prepared but must remain blocked until compliance leadership approves the packet.
 - The readiness ledger should tie reviewer staffing, queue segmentation, legal holds, protected-channel rules, and release boundaries to one current packet version.
 - Explicit holds should remain visible for missing reviewer coverage, unresolved legal constraints, or absent segregation-of-duties checkpoints instead of being normalized away.
