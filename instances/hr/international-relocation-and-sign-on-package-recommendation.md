@@ -12,6 +12,20 @@ HR.
 
 An HR compensation and mobility review team is evaluating an offer package for a finalist who would relocate from Singapore to London for a regional general manager role. The candidate is requesting a higher sign-on bonus to offset forfeited equity, temporary housing beyond standard policy, school-search support, and an earlier review for long-term incentive eligibility. The workflow must recommend whether HR should support the package as requested, counter with an in-band mix of compensation and relocation benefits, or escalate because compensation-band limits, mobility-policy thresholds, internal-equity concerns, and executive-approval triggers move outside delegated authority before anyone makes a binding offer commitment.
 
+```mermaid
+flowchart TD
+    A["HR compensation and mobility review<br>receives requested package context"] -->|"retrieves"| B["Role level, compensation guardrails,<br>mobility policy, precedents, and stakeholder input"]
+    B -->|"checks"| C["Compare requested sign-on, housing,<br>school support, and LTI timing against guardrails"]
+    C -->|"evaluates"| D{"Compensation-band, mobility-policy,<br>equity, or authority limits exceeded?"}
+    D -->|"no"| E{"Requested package is defensible<br>as submitted?"}
+    E -->|"yes"| F["Recommend supporting the package<br>as requested"]
+    E -->|"no"| G["Recommend an in-band mix of compensation<br>and relocation benefits"]
+    D -->|"yes"| H["Escalation required before any<br>binding offer commitment"]
+    F -->|"documents"| I["Decision support packet with assumptions,<br>policy checks, precedent fit, and rationale"]
+    G -->|"documents"| I
+    H -->|"documents"| I
+```
+
 ## Target systems / source systems
 
 - Applicant tracking record, approved requisition level, and recruiter negotiation notes
