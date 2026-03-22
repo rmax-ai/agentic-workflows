@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement added one new instance in the already grounded `finance` + `approval-gated-collaborative-artifact-release` pair through a materially distinct contract-bundle revenue-recognition classification clarification packet approved for a bounded technical-accounting review intake lane.
-- Result check: the new finance example stayed distinct from the existing covenant-position packet by centering a different governed artifact class with explicit release-manifest, freshness, hold-state, and audience-boundary logic rather than renaming the same committee packet shape with new nouns.
-- Read-first set used this iteration: this plan; `data/patterns/human-agent-collaborative-work/approval-gated-collaborative-artifact-release.yaml`; `instances/finance/quarter-close-covenant-position-packet-approved-for-controller-committee-intake.md`; `instances/operations/airport-terminal-smoke-control-impairment-clarification-packet-approved-for-fire-protection-engineering-review-intake.md`; the relevant finance and collaboration coverage notes in `.agent/coverage-matrix.yaml`; and `20260322-012027.md`.
-- Boundary check: the new example remained centered on one exact collaborative clarification packet with visible unresolved objections and residual caveats, and it stopped before technical-accounting adjudication, contract redrafting, invoice or revenue treatment changes, external reporting, or live downstream action.
+- Active target: Phase 7 structural refinement should add one new instance in the already grounded `support` + `approval-gated-collaborative-artifact-release` pair through a materially distinct governed support artifact released into one bounded downstream review lane.
+- Distinctness check: the new support example should not read like the existing executive customer outage disclosure packet with renamed nouns; it should center a different artifact class, a different approving owner or review lane, and a different governance pressure such as contractual, security, audit, or regulated-customer boundary handling.
+- Read-first set for this batch: this plan; `data/patterns/human-agent-collaborative-work/approval-gated-collaborative-artifact-release.yaml`; `instances/support/enterprise-outage-disclosure-packet-approved-for-executive-customer-review-intake.md`; `instances/compliance/vendor-transfer-remediation-packet-approved-for-privacy-counsel-intake.md`; `instances/hr/protected-leave-return-to-work-exception-packet-approved-for-occupational-health-review-intake.md`; `instances/operations/airport-terminal-smoke-control-impairment-clarification-packet-approved-for-fire-protection-engineering-review-intake.md`; the relevant collaboration coverage notes in `.agent/coverage-matrix.yaml`; and `20260322-012749.md`.
+- Boundary check: the new example must remain centered on one exact collaborative artifact plus its release manifest, disagreement ledger, and bounded intake lane, and it must stop before customer communication, concession approval, vendor action, remediation execution, or downstream authority adjudication.
 
 ## Current phase
 
@@ -24,7 +24,7 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Carry the next-step target forward toward Phase 7 closure by deepening another governance-heavy approval-bound slice in an already grounded pattern/domain pair, preferably in a non-finance domain so the repository keeps broad balance while still favoring materially distinct artifact classes or review-lane boundaries over mechanical parity work.
+1. Carry the next-step target forward toward Phase 7 closure by deepening another governance-heavy approval-bound slice in an already grounded pattern/domain pair, with this batch specifically targeting a non-finance `support` example for `approval-gated-collaborative-artifact-release`.
 2. Keep the next batch instance-first unless a new grounding exposes real directly coupled canonical drift.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the next content change.
 4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
