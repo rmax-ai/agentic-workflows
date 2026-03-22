@@ -12,6 +12,25 @@ Operations.
 
 An operations assurance lead has prepared one exact sampling-policy revision for maintenance documentation spot checks after replay shows that the current policy undercovers newly onboarded vendors and safety-critical asset classes during outage season. The candidate revision increases coverage for those protected cohorts, tightens cooldown rules on recent low-yield strata, and includes an explicit restore target if escaped defects rise. The workflow must release that exact policy revision into live selection only after a human approver confirms the manifest, validity period, and rollback packet, while staying bounded at optimization-state release rather than assigning reviewers, changing maintenance schedules, or dispatching corrective work.
 
+```mermaid
+flowchart TD
+    A["Prepare exact maintenance-assurance<br>sampling-policy revision candidate"]
+    B["Verify replay evidence, protected-cohort floors,<br>validity window, and restore target"]
+    C["Hold release until manifest gaps,<br>scope drift, or rollback-readiness issues are corrected"]
+    D["Assurance approver reviews the manifest<br>for that exact revision and bounded live window"]
+    E["Activate the approved sampling-policy revision<br>for live spot-check selection"]
+    F["Keep the revision live only within the approved<br>window while guardrails remain acceptable"]
+    G["Restore the prior trusted sampling policy<br>and record rollback or expiry action"]
+    A --> B
+    B -->|"Checks fail"| C
+    B -->|"Checks pass"| D
+    D -->|"Not approved"| C
+    D -->|"Approved"| E
+    E -->|"Window active"| F
+    E -->|"Guardrails breached or expired"| G
+    F -->|"Guardrails breached or expired"| G
+```
+
 ## Target systems / source systems
 
 - Versioned assurance-policy store with the current live sampling rules, candidate revision, protected-floor settings, and prior trusted revisions
