@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 302
+  instance_files: 303
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -63,7 +63,7 @@ pattern_counts_by_family:
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
   engineering: 41
-  finance: 41
+  finance: 42
   compliance: 46
   operations: 44
   research: 44
@@ -72,7 +72,8 @@ instance_counts_by_domain:
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has three hundred two grounded examples across all seven currently modeled domains, with `compliance` at forty-six; `research`, `operations`, and `support` at forty-four; `hr` at forty-two; and `engineering` and `finance` at forty-one. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has three hundred three grounded examples across all seven currently modeled domains, with `compliance` at forty-six; `research`, `operations`, and `support` at forty-four; `finance` and `hr` at forty-two; and `engineering` at forty-one. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`crisis-briefing-evidence-synthesis` now has its first `finance` grounding through a coordinated account-takeover payment ring fraud-command bridge crisis briefing example, deepening that critical gather/synthesize slice beyond engineering outage, operations cold-chain, and support executive-bridge coverage by centering one exact cross-channel fraud-command brief with affected-account scope, outbound-payment state, beneficiary-cluster overlap, authentication-compromise evidence, analyst-confirmed case lineage, and explicit unresolved exposure questions rather than payment blocking, reimbursement choice, suspicious-activity filing, law-enforcement contact, regulator communication, or downstream execution."
   - "`critical-channel-safe-state-packaging` now has its first `compliance` grounding through a multinational distributor bribery response channel-safe case package example, deepening that critical transform slice beyond finance liquidity stress, operations contamination containment, and support severity-one service-state coverage by centering one exact anti-bribery response package with jurisdiction buckets, distributor aliases, payment-pattern bands, preservation-status fields, privileged and whistleblower hold placeholders, and manifest-bound release rather than crisis briefing, culpability assessment, regulator communication, or downstream remediation execution."
   - "`critical-protected-priority-adaptation` now has its first `compliance` grounding through a trade-surveillance benchmark-manipulation review priority adaptation example, deepening that critical optimize/adapt slice beyond engineering signing-key integrity review, finance intraday liquidity protection, and operations contamination review by centering one exact severe market-conduct state with protected benchmark-window and restricted-communications lanes, explicit expiry and rollback discipline, supervisor override evidence, and human adoption rather than authority selection, command planning, alert adjudication, regulator communication, or downstream trading restrictions."
   - "`critical-command-window-resequencing` now has its first `support` grounding through a severity-one customer-update command-window checkpoint resequencing example, deepening that critical planning slice beyond engineering payments cutover, finance liquidity and earnings-release command windows, and operations contamination coordination by centering one exact support bridge timeline with workaround-verification slippage, approved delegate rotation, compressed contractual and restricted-review windows, explicit holds, participant deltas, and named bridge-lead adoption rather than incident triage, customer message authorship, concession choice, remedy recommendation, negotiation, or downstream execution."
