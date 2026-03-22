@@ -49,6 +49,30 @@ This grounds the pattern in an engineering governance workflow where the key nee
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    governance["Infrastructure-governance record<br>approved exception-review scope,<br>required roles, current coordination status,<br>and prior packet version"]
+    board["Architecture board operations calendar<br>review-slot moves, materials-lock deadlines,<br>and board-intake constraints"]
+    roles["Team calendars, delegate mappings,<br>and role eligibility records"]
+    evidence["Evidence systems<br>firewall-validation and dependency-readiness<br>timestamps"]
+    refresh["Exception-review coordination refresh<br>event-driven monitoring and policy checks"]
+    workspace["Governance coordination workspace<br>refreshed packet revisions, acknowledgements,<br>adoption state, and lineage"]
+    notices["Notification and meeting tooling<br>role-targeted updates and<br>authoritative invite history"]
+    owner["Infrastructure-governance owner<br>adoption checkpoint"]
+    exceptions["Bounded exception routing<br>intake-window, delegate-coverage,<br>and authority-boundary issues"]
+
+    governance -->|"Provides approved scope,<br>required roles, and prior packet state"| refresh
+    board -->|"Publishes authoritative slot moves,<br>materials-lock deadlines, and intake rules"| refresh
+    roles -->|"Provides attendee availability,<br>delegate coverage, and role eligibility"| refresh
+    evidence -->|"Provides firewall-validation and<br>dependency-readiness timestamps"| refresh
+    workspace -->|"Provides current packet version,<br>acknowledgements, and lineage"| refresh
+    refresh -->|"Writes refreshed packet state,<br>tentative hold, and lineage updates"| workspace
+    refresh -->|"Issues role-targeted timing,<br>attendee, and readiness deltas"| notices
+    refresh -->|"Presents materially changed state<br>for explicit adoption"| owner
+    owner -->|"Returns adoption or hold outcome<br>for the refreshed packet"| refresh
+    refresh -->|"Routes intake breaches,<br>unsupported delegate changes,<br>or no-feasible-window cases"| exceptions
+```
+
 - Event-driven monitoring should react only to approved architecture-board operations updates, authoritative evidence-ready changes, and governed delegate-state changes that affect the issued review packet.
 - Exception-gated autonomy fits because the workflow can refresh the packet, revise the tentative hold, and issue targeted participant notices automatically when changes remain inside intake and authority guardrails.
 - The infrastructure-governance owner should adopt any changed meeting time, required-attendee substitution, or materials-lock-sensitive shift before the refreshed packet becomes authoritative.
