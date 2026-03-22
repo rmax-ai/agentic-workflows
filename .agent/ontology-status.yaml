@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 369
+  instance_files: 370
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -65,11 +65,13 @@ instance_counts_by_domain:
   engineering: 52
   finance: 54
   compliance: 55
-  operations: 52
+  operations: 53
   research: 53
   support: 52
   hr: 52
   consistency_notes:
+  - "`normalization-and-enrichment` now has additional `operations` grounding through a warehouse shipment-manifest normalization example, deepening that low-risk transform-family canonicalization slice beyond engineering service-catalog alias cleanup by centering one exact governed artifact, `Warehouse-Shipment-Manifest-Normalization-Packet-v3`, with explicit source precedence across the approved staging schema and normalization policy, the warehouse booking export, carrier delivery-manifest intake, and approved facility, owner, handling-class, route-lane, and service-level reference tables over lower-precedence dock annotations; prerequisite pinned schema and reference-data snapshots, frozen manifest-batch lineage, and minimum shipment identifiers; visible stale carrier revisions, missing facility crosswalks, shipment-owner mapping conflicts, unsupported handling-class shorthand, and missing route-lane entries blockers; and a hard stop at downstream-safe staging rather than supplier approval, rerouting recommendation, discrepancy investigation, WMS or ERP mutation, partner communication, or downstream operational action."
+  - "After this additional operations normalization depth, the next refinement step should likely move away from the just-refreshed `normalization-and-enrichment` operations lane and rebalance one of the remaining 52-instance domains (`engineering`, `support`, or `hr`) through a materially distinct bounded slice that avoids approval, recommendation, investigation, live execution, or another immediate transform-normalization repeat."
   - "`shared-workbench-orchestration` now has additional `compliance` grounding through a regulatory-reporting obligation evidence-gap board example, deepening that low-risk collaboration-family workbench-upkeep slice beyond control-library and policy-exception workbenches by centering one exact governed internal artifact, `Quarterly-Regulatory-Reporting-Obligation-Evidence-Gap-Board`, with explicit source precedence across the approved regulatory-obligation inventory and filing-calendar rules over evidence-register snapshots, procedure references, ticket comments, and reviewer annotations; prerequisite obligation, jurisdiction, cadence, filing-window, evidence-link, review-reference, blocker, and lineage state; visible evidence-freshness, jurisdiction-mapping, procedure-alignment, owner-handoff, and reporting-window blockers; and a hard stop at internal board upkeep rather than legal interpretation, materiality recommendation, regulator communication, submission, or downstream remediation."
   - "After this additional compliance shared-workbench depth, the next refinement step should likely move away from the just-refreshed `shared-workbench-orchestration` compliance lane and rebalance one of the remaining 52-instance domains (`engineering`, `operations`, `support`, or `hr`) through a materially distinct bounded slice that avoids approval, recommendation, investigation, live execution, or another immediate workbench-upkeep repeat."
   - "`change-triggered-context-briefing` now has additional `research` grounding through a benchmark disclosure-control playbook change digest example, deepening that low-risk gather-family revision-briefing slice beyond the earlier operations, support, and HR digest contexts by centering one exact governed artifact, `Benchmark-Disclosure-Control-Change-Brief-r4`, with explicit source boundaries across the approved playbook repository, prior baseline archive, controlled disclosure-control exception register, benchmark artifact taxonomy, disclosure-control checklist library, research-governance workspace, and authoritative change notification feed; and a hard stop at informational briefing handoff rather than publication go/no-go recommendation, exception adjudication, collaborator coordination, root-cause investigation, or live release execution."
