@@ -40,6 +40,38 @@ This grounds the pattern in engineering where the hard problem is not deciding w
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Target systems / source systems"]
+        playbooks["Release continuity playbooks<br>and incident workspace"]
+        trusted["Trusted build-lineage, digest-confirmation,<br>reproducible-build, and rollback-package systems"]
+        readiness["Offline enclave readiness records,<br>signer rosters, shift calendars,<br>and custody logs"]
+    end
+
+    subgraph gate["Critical security patch offline signing<br>continuity activation gate"]
+        planner["Activation packet preparation"]
+        ledger["Readiness ledger"]
+        holds["Hold register"]
+        packet["Approval-gated continuity packet"]
+    end
+
+    approver["Release security leadership<br>approval owner"]
+    audit["Approval-routing and audit systems"]
+    publication["Restricted publication tooling<br>for registry release, mirror promotion,<br>and customer advisory timing"]
+
+    playbooks -->|"Provides fallback scope, frozen manifest,<br>and prior packet context"| planner
+    trusted -->|"Provides manifest binding, digest freshness,<br>reproducibility references, and rollback scope"| planner
+    readiness -->|"Provides enclave readiness, signer coverage,<br>and custody commitments"| planner
+    planner -->|"Updates current readiness state"| ledger
+    planner -->|"Keeps quorum, digest, enclave,<br>rollback, and publication blockers visible"| holds
+    planner -->|"Assembles approval packet"| packet
+    packet -->|"Sends packet for human review"| approver
+    packet -->|"Captures packet version"| audit
+    holds -->|"Captures hold state"| audit
+    approver -->|"Captures human sign-off"| audit
+    audit -->|"Keeps publication tooling downstream<br>of the planning gate"| publication
+```
+
 - Approval-gated execution fits because the offline signing continuity mode may be technically prepared while still blocked until release security leadership approves the packet.
 - The readiness ledger should tie frozen-manifest binding, signer coverage, enclave status, rollback custody, digest freshness, and artifact quarantine holds to one current packet version.
 - Explicit holds should remain visible whenever signer quorum, enclave sealing, rollback-package custody, or publication-boundary controls are incomplete rather than being compressed into a nominally ready packet.
