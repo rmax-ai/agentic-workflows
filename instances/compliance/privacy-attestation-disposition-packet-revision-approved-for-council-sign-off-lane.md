@@ -38,6 +38,17 @@ This grounds the pattern in compliance where a bounded recommendation packet mus
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    records["Vendor-risk, contract, subprocess,<br>retention, and exception records"] --> workspace["Privacy attestation workspace<br>with exact packet revision"]
+    workspace --> routing["Approval manifest and<br>council-routing tooling"]
+    governance["Governance repository for<br>council lane and expiry"] --> routing
+    owner["Named compliance<br>release owner"] --> routing
+    routing --> council["Restricted privacy council<br>sign-off lane"]
+    routing --> audit["Audit and supersession ledger"]
+    audit --> workspace
+```
+
 - Approval-gated execution fits because the recommendation packet remains blocked until a named compliance owner authorizes release into the privacy council sign-off lane.
 - Human-in-the-loop review remains necessary because only accountable governance owners should confirm audience scope, expiry, and residual-gap visibility without collapsing the workflow into attestation approval itself.
 - A governed agent can compare packet hashes, assemble the manifest, and block broadened distribution, but it should not file the attestation, approve vendor posture, or open remediation tasks.
