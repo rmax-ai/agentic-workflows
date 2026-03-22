@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 268
+  instance_files: 269
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -62,7 +62,7 @@ pattern_counts_by_family:
   optimize-adapt: 6
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
-  engineering: 38
+  engineering: 39
   finance: 38
   compliance: 38
   operations: 38
@@ -72,7 +72,7 @@ instance_counts_by_domain:
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred sixty-eight grounded examples across all seven currently modeled domains, with `support` and `hr` at thirty-nine while `engineering`, `finance`, `compliance`, `operations`, and `research` stand at thirty-eight; Phase 7 should keep favoring structurally distinct slice diversification while staying grounded in validation-backed repository counts."
+  - "The repository now has two hundred sixty-nine grounded examples across all seven currently modeled domains, with `engineering`, `support`, and `hr` at thirty-nine while `finance`, `compliance`, `operations`, and `research` stand at thirty-eight; Phase 7 should keep favoring structurally distinct slice diversification while staying grounded in validation-backed repository counts."
   - "`approval-gated-transformation-release` now has further `support` grounding through a regulated-customer audit-log export residency packet approved for a restricted sovereign-compliance intake lane, deepening that high-risk transform-family release-control slice within support beyond vendor-escalation intake by centering residency-zone normalization, key-custody references, stale-jurisdiction-attestation holds, tenant-fragment containment, and manifest-bound sovereign audience scope rather than residency adjudication, concession handling, customer communication, export execution, or downstream remediation."
   - "`approval-gated-collaborative-artifact-release` now has further `research` grounding through a controlled cohort small-cell suppression clarification packet approved for a restricted data-governance review intake lane, deepening that high-governance collaboration release slice within research beyond consent-language variance, publication-rights provenance, and sensitive-methods redaction by centering small-cell suppression disputes, cohort-linkage exposure, utility-preserving exception requests, and enclave-export assumptions rather than disclosure adjudication, dataset provisioning, journal communication, or downstream review decisions."
   - "`approval-gated-collaborative-artifact-release` now has further `engineering` grounding through a production crash-dump redaction clarification packet approved for a restricted privacy-engineering review intake lane, deepening that high-governance collaboration release slice within engineering beyond transitive-dependency license review by centering symbolization-scope disputes, customer-identifier leakage risk, retention-window conflicts, and debugging-evidence minimization rather than incident adjudication, debugger enablement, customer communication, or wider artifact sharing."
@@ -81,6 +81,7 @@ consistency_notes:
   - "`evidence-gated-verification-for-release` now has additional `finance` grounding through an approved covenant-compliance certificate packet verification example, deepening that investigate-family approval-bound slice within finance beyond morning-liquidity posting by centering evidence sufficiency on ratio-calculation freshness, audited-statement cut-off alignment, signatory-boundary control, prior-quarter lineage, and restricted lender-reporting lane scope rather than covenant interpretation, lender communication, filing submission, waiver negotiation, or downstream reliance execution."
   - "`evidence-gated-verification-for-release` now has additional `operations` grounding through an approved bulk-chemical transfer manifold-isolation packet verification example, deepening that investigate-family approval-bound slice within operations beyond sorter-routing cutover by centering valve-lineup state, pressure-equalization evidence, emergency-bypass readiness, permit-boundary alignment, telemetry freshness, and restricted transfer-authority lane scope rather than transfer go/no-go choice, permit refresh, crew dispatch, or live product movement."
   - "`contingency-plan-activation-gate` now has additional `compliance` grounding through a serious-adverse-event manual intake continuity activation-gate example, deepening that critical-risk plan-family contingency slice within compliance beyond sanctions-screening fallback by centering the approval boundary on one governed readiness packet with intake staffing, protected receipt-channel rules, duplicate-reconciliation holds, and jurisdiction-specific reporting-clock coverage rather than manual intake launch, reporter acknowledgment, regulator communication, or safety-case creation."
+  - "`contingency-plan-activation-gate` now has additional `engineering` grounding through a critical-security-patch offline signing continuity activation-gate example, deepening that critical-risk plan-family approval-bound slice within engineering by centering frozen manifest binding, signer-quorum coverage, enclave attestation, rollback-package custody, digest-freshness checks, and publication-boundary hold visibility rather than offline signing, patch publication, attestation-service restoration, customer notification, or downstream release execution."
   - "`approval-gated-triage-dispatch` now has additional `hr` grounding through a sensitive workplace accommodation intake triage packet approved for restricted occupational-health review dispatch, deepening that monitor-family approval-bound slice within HR beyond work-authorization lapse review while preserving a clean boundary at one exact triaged packet release, medical-privacy hold visibility, signer-controlled reviewer scope, and audit-ready lineage rather than accommodation adjudication, worker or manager outreach, legal interpretation, or workplace-adjustment execution."
   - "`approval-gated-transformation-release` now has additional `engineering` grounding through a build-artifact catalog schema transformation package approved for one authoritative system-inventory intake lane, deepening that high-risk transform-family release-control slice within engineering beyond change-window cutover and staging-record refresh examples while preserving a clean boundary at governed release of one exact transformed catalog package rather than inventory approval, policy adjudication, artifact deprecation, or build-system change."
   - "`policy-constrained-escalation-routing` now has additional `compliance` grounding through a regulatory incident breach-notification escalation-routing example, deepening that high-risk recommend-family escalation slice within compliance beyond attestation and authority-restoration examples while preserving a clean boundary at governed authority routing, blocked lower-authority visibility, and audit-ready packet assembly rather than breach adjudication, regulator notification, customer communication, or incident-response execution."
@@ -276,6 +277,7 @@ repo_reality:
     - instances/engineering/database-upgrade-exception-recommendation-packet-revision-approved-for-architecture-board-decision-lane.md
     - instances/engineering/production-signing-key-integrity-review-priority-adaptation.md
     - instances/engineering/production-package-provenance-tamper-critical-corroboration-triage.md
+    - instances/engineering/critical-security-patch-offline-signing-continuity-activation-gate.md
      - instances/finance/suspicious-wire-transfer-alert-triage.md
      - instances/finance/suspicious-wire-triage-packet-approved-for-restricted-fraud-review-dispatch.md
      - instances/finance/enterprise-arrears-settlement-band-option-recommendation.md
