@@ -41,6 +41,33 @@ This is a strong first engineering instance because it shows why incident analys
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    gateway["API gateway logs<br>and latency dashboards"]
+    traces["Distributed traces<br>for checkout and authorization calls"]
+    changes["Deployment history<br>and feature-flag audit logs"]
+    db["Database pool metrics<br>and failover events"]
+    notes["Incident timeline notes,<br>responder chat, and<br>customer-impact reports"]
+    telemetry["Telemetry retrieval<br>flow"]
+    timeline["Timeline reconciliation<br>flow"]
+    case["Shared case memory<br>candidate causes, checks,<br>rejected explanations, and<br>normalized timestamps"]
+    verify["Hypothesis verification<br>flow"]
+    lead["Incident lead<br>human review"]
+    packet["Reconciled investigation packet<br>for human-approved remediation"]
+
+    gateway -->|"Latency evidence"| telemetry
+    traces -->|"Trace evidence"| telemetry
+    changes -->|"Rollout evidence"| telemetry
+    db -->|"Database evidence"| telemetry
+    notes -->|"Timeline inputs"| timeline
+    telemetry -->|"Collected evidence"| case
+    timeline -->|"Reconciled chronology"| case
+    case -->|"Hypotheses and cited evidence"| verify
+    verify -->|"Confirmed or rejected<br>explanations"| case
+    case -->|"Scope and cause review"| lead
+    lead -->|"Approved packet"| packet
+```
+
 - An orchestrated multi-agent flow separates telemetry retrieval, timeline reconciliation, and hypothesis verification so evidence handling stays explicit.
 - Shared case memory preserves candidate causes, confirming checks, rejected explanations, and timestamp normalization across responders.
 - Human-in-the-loop review remains necessary for incident-scope decisions, primary-cause declaration, and approval of corrective actions.
