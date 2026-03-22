@@ -12,6 +12,21 @@ HR.
 
 A people-operations governance lead has prepared one exact scoring-policy revision for protected leave and workplace accommodation review intake after replay shows that the current live profile underweights intermittent-leave renewals, medically complex accommodation updates, and lower-visibility worker populations when specialist review capacity tightens. The candidate revision raises protected-case sensitivity, strengthens documentation-volatility weighting, and preserves a restore target if reopen churn or fairness drift rises. The workflow must release that exact scoring revision into bounded live use only after an HR approval owner confirms the manifest, validity window, and rollback packet, while staying centered on governed optimization-state release rather than leave eligibility adjudication, accommodation approval, staffing assignment, or worker communication.
 
+```mermaid
+flowchart TD
+    A["People-operations governance lead<br>prepares one exact scoring revision"] -->|"submits candidate revision"| B["Governed release agent<br>checks revision id, replay evidence,<br>fairness floors, and rollback target"]
+    B -->|"routes for validation"| C{"Revision, guardrails,<br>and rollback packet valid?"}
+    C -->|"no - hold release"| H["Release hold<br>candidate revision stays non-live"]
+    H -->|"retain prior live profile"| I["Stop point<br>prior trusted scoring profile remains live"]
+    C -->|"yes - assemble approval packet"| D["HR approval owner<br>reviews manifest, validity window,<br>and bounded intake scope"]
+    D -->|"requests approval decision"| E{"Approve exact revision<br>for bounded live use?"}
+    E -->|"no - keep held"| J["Approval hold<br>candidate revision not activated"]
+    J -->|"keep current state"| I
+    E -->|"yes - authorize activation"| F["Scoring registry and intake surfaces<br>activate the exact approved revision"]
+    F -->|"record release lineage"| G["Audit and rollback controls<br>store manifest, expiry, and restore target"]
+    G -->|"stop at governed release"| K["Stop point<br>approved scoring revision is live<br>within the bounded HR intake scope"]
+```
+
 ## Target systems / source systems
 
 - Versioned leave-and-accommodation scoring registry with the current live profile, candidate revision id, protected-review floors, and prior trusted revisions
