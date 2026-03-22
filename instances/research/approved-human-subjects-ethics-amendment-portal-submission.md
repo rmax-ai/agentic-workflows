@@ -12,6 +12,24 @@ Research for human-subjects study governance.
 
 An academic-industry research operations lead needs to submit an already approved ethics amendment for a longitudinal human-subjects study after the team adds a new wearable-derived biomarker, revises participant recontact language, and expands a data-sharing pathway to an external statistical lab. The target institutional review board portal is browser-only, spreads the amendment across protocol summary, risk-change justification, consent-document uploads, external-collaborator disclosures, and investigator-attestation tabs, and final submission may proceed only after the principal investigator, privacy reviewer, and institutional research compliance office have all signed off in the study-governance system. Because a mistaken commit could authorize the wrong protocol version or expose sensitive participant-handling details, the workflow must recheck approvals, confirm the amendment packet still matches the approved protocol materials, and halt safely if the live portal, attachment state, or confirmation path becomes ambiguous.
 
+```mermaid
+flowchart TD
+    A["Recheck approvals<br>and amendment packet"]
+    B["Enter IRB portal<br>amendment workflow"]
+    C["Upload approved<br>attachments"]
+    D{"Ready to submit<br>with matching portal state?"}
+    E["Submit amendment<br>in portal"]
+    F["Halt at draft or<br>abandon session"]
+    G["Capture masked evidence<br>and confirmation artifacts"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    D --> F
+    E --> G
+    F --> G
+```
+
 ## Target systems / source systems
 
 - Study-governance or research operations system holding the amendment request, required approvals, and protocol version history
