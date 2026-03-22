@@ -12,6 +12,23 @@ Research.
 
 A research publication-operations team is preparing one bounded publication-integrity intake packet for a benchmark study that may eventually support a workshop paper and controlled public artifact release. The authoritative source state spans the benchmark claim register, experiment rerun manifests, dataset-rights clearances, disclosure-review notes, approved abstract metadata, redaction and embargo flags, and prior packet hold history. The downstream restricted lane expects one transformed packet with normalized study and claim identifiers, evidence-lineage references, rights and disclosure tags, held-field markers, and an approval manifest authorizing handoff into that single publication-integrity review intake queue. The workflow must stop once that exact packet revision is approved for intake, without collaboratively redrafting the manuscript, recommending whether the study should be published, adjudicating claim support, submitting the paper, or disclosing benchmark artifacts externally.
 
+```mermaid
+flowchart TD
+    source["Authoritative benchmark source state<br>claim register, rerun manifests, rights clearances<br>disclosure notes, metadata, flags, and hold history"]
+    transform["Transform one intake packet revision<br>normalize study and claim identifiers<br>preserve lineage, rights tags, and held-field markers"]
+    hold["Hold handling register<br>capture stale lineage, rights conflicts<br>scope mismatches, and identifier mismatches"]
+    manifest["Approval manifest assembly<br>bind exact packet revision, restricted lane<br>signers, held annexes, and audience scope"]
+    approve["Research publication-governance approval<br>review exact packet version and manifest<br>for restricted intake release"]
+    release["Restricted intake release<br>handoff approved packet only to the<br>publication-integrity review queue"]
+
+    source --> transform
+    transform --> hold
+    hold --> transform
+    transform --> manifest
+    manifest --> approve
+    approve --> release
+```
+
 ## Target systems / source systems
 
 - Benchmark claim registry, experiment tracker, and rerun-manifest repository holding the authoritative study, claim, metric, and evidence-lineage state
