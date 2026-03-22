@@ -12,6 +12,28 @@ Research.
 
 A research governance review group is evaluating whether to support external publication of an internal benchmark study comparing model-serving platforms for enterprise generative-AI workloads. The study team wants to submit a workshop paper, brief product leadership, and publish a blog-ready summary before a major industry event, but the evidence packet still includes unresolved reproducibility gaps for one workload, a dataset-license ambiguity around a third-party corpus, and vendor-sensitivity concerns because one platform required nonstandard tuning to reach the reported result. The workflow must recommend whether research should support publication as scoped, narrow the publication package to safer claims and approved artifacts, or escalate because reproducibility, licensing, privacy, or reputational-risk thresholds move outside delegated approval limits before any abstract, briefing, or public claim is committed.
 
+```mermaid
+flowchart TD
+    A["Assemble benchmark publication evidence packet<br>and governing publication policy inputs"]
+    B["Review reproducibility gaps, dataset-license ambiguity,<br>vendor-sensitivity concerns, and approval thresholds"]
+    C{"Evidence and policy review support<br>publication as currently scoped?"}
+    D{"A narrower package with safer claims<br>and approved artifacts stays within policy?"}
+    E["Recommend support<br>publication as scoped"]
+    F["Recommend narrow<br>to safer claims and approved artifacts"]
+    G["Recommend escalate<br>for higher publication, legal, or communications review"]
+    H["Hand off the recommendation packet,<br>caveats, and evidence links<br>to the research governance review group"]
+
+    A --> B
+    B --> C
+    C -->|"Yes"| E
+    C -->|"No"| D
+    D -->|"Yes"| F
+    D -->|"No"| G
+    E --> H
+    F --> H
+    G --> H
+```
+
 ## Target systems / source systems
 
 - Benchmark study workspace, draft paper, abstract text, and reviewer comment log
