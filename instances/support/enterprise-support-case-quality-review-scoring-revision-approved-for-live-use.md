@@ -12,6 +12,29 @@ Support.
 
 A support quality governance lead has prepared one exact case-quality review scoring revision for enterprise support after replay shows that the current live profile underweights privacy-sensitive escalations, executive-visibility reopen clusters, and complex outage-recovery follow-ups when specialist review capacity tightens. The candidate revision increases sensitivity to those protected review factors, tightens cooldown handling for low-yield routine closure cohorts, and names a restore target if supervisor overrides, fairness drift, or escaped-quality defects rise. The workflow must release that exact scoring revision into bounded live use only after the Director of Support Quality confirms the manifest, validity window, and rollback packet, while staying centered on governed optimization-state release rather than ticket routing, severity adjudication, staffing, customer communication, or downstream case execution.
 
+```mermaid
+flowchart TD
+    A["Prepare exact enterprise support<br>case-quality scoring revision candidate"]
+    B["Verify candidate hash, replay evidence,<br>protected review floors, bounded live window,<br>and prior trusted restore target"]
+    C{"Manifest, validity window,<br>and rollback packet complete?"}
+    D["Hold release until verification gaps,<br>missing controls, or lineage defects are corrected"]
+    E{"Director of Support Quality approves<br>that exact revision for bounded live use?"}
+    F["Activate approved scoring revision for the named<br>enterprise review program and write audit trace"]
+    G{"Guardrails hold and bounded<br>live window still active?"}
+    H["Keep revision live only within the approved<br>enterprise review window and scope"]
+    I["Restore the prior trusted scoring profile<br>and record rollback or expiry action"]
+    A --> B
+    B --> C
+    C -->|"No"| D
+    C -->|"Yes"| E
+    E -->|"No"| D
+    E -->|"Yes"| F
+    F --> G
+    G -->|"Yes"| H
+    H -->|"Recheck"| G
+    G -->|"No"| I
+```
+
 ## Target systems / source systems
 
 - Versioned support quality-review scoring registry with the current live profile, candidate revision hash, protected review floors, and prior trusted revisions
