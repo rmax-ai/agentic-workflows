@@ -44,6 +44,44 @@ This grounds the pattern in an engineering workflow where execution itself can c
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph GOV["Governance and release control"]
+        CR["Approved change record<br>cutover scope, cohorts, thresholds,<br>and named release authorities"]
+        H1["Human release authority<br>hold before widening scope"]
+        H2["Human release authority<br>hold before retiring legacy fallback"]
+    end
+
+    subgraph CTRL["Traffic and rollback control boundary"]
+        CP["Service-mesh or feature-flag<br>control plane"]
+        KF["Key-management, secrets, and<br>fallback configuration"]
+    end
+
+    subgraph PAY["Payments verification boundary"]
+        TS["Tokenization service"]
+        MON["Telemetry, authorization, and<br>settlement monitoring"]
+    end
+
+    AUD["Append-only audit and evidence store"]
+
+    CR -- "Approved scope and thresholds" --> CP
+    CR -- "Named authorities and hold policy" --> H1
+    CR -- "Named authorities and retirement guard" --> H2
+    CR -- "Approved package reference" --> AUD
+    CP -- "Traffic policy updates" --> TS
+    TS -- "Operational signals" --> MON
+    KF -- "Rollback readiness state" --> CP
+    KF -- "Rollback evidence" --> AUD
+    MON -- "Checkpoint evidence" --> AUD
+    CP -- "Stage changes and fallback state" --> AUD
+    AUD -- "Checkpoint evidence for review" --> H1
+    AUD -- "Retirement evidence for review" --> H2
+    H1 -- "Release or hold decision" --> CP
+    H1 -- "Hold outcome and justification" --> AUD
+    H2 -- "Release or hold decision" --> CP
+    H2 -- "Retirement decision and justification" --> AUD
+```
+
 - Orchestrated multi-agent coordination fits because separate roles can manage preflight validation, stage execution, payments verification, and rollback-readiness checking while sharing one authoritative cutover ledger.
 - Human-in-the-loop control should remain normal at the hold points before widening traffic from the first merchant cohort to broad production scope and again before disabling the legacy vault path.
 - Exception-gated autonomy is appropriate because the workflow may advance automatically inside narrow thresholds, but latency spikes, authorization mismatches, or settlement-parity drift should force a visible hold or rollback packet rather than silent continuation.
