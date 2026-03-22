@@ -12,6 +12,21 @@ HR.
 
 An HR compliance operations team monitors a continuous stream of work-authorization expiry signals across visa records, employment-eligibility reverification dates, immigration-vendor case updates, manager-submitted job changes, and HRIS worker-status events. The workflow must collapse duplicate reminders tied to the same worker and authorization window, enrich each alert with employer entity, work location, job-change context, dependent filing status, prior outreach history, and any in-flight renewal case, and then prioritize which cases need immediate human review. The goal is to produce an evidence-backed triage queue for HR compliance specialists, immigration counsel coordinators, or employee-relations leads before an authorization lapse, but not to contact the worker, submit filings, change employment status, or decide legal strategy automatically.
 
+```mermaid
+flowchart TD
+    A["Work-authorization expiry and status signals<br>arrive from HR and immigration systems"] -->|"deduplicate by worker<br>and authorization window"| B["Alert cluster state"]
+    B -->|"attach HRIS, vendor, document,<br>and prior-case context"| C["Enriched alert record"]
+    C -->|"apply expiry, reverification,<br>job-change, and routing rules"| D{"Covered by active renewal<br>or duplicate low-value reminder?"}
+    D -->|"yes"| E["Suppress or merge alert<br>with lineage preserved"]
+    D -->|"no"| F["Assemble evidence-backed<br>triage packet"]
+    F -->|"check urgency and confidence"| G{"Potential work interruption,<br>conflicting records, or low confidence?"}
+    G -->|"yes"| H["Urgent human review queue<br>for HR compliance or legal lane"]
+    G -->|"no"| I["Prioritized review queue<br>for HR compliance specialists"]
+    E -->|"record suppression rationale"| J["Audit trail for merges,<br>suppressions, and routing"]
+    H -->|"record escalated routing"| J
+    I -->|"record standard routing"| J
+```
+
 ## Target systems / source systems
 
 - HRIS worker master, employment-status history, employer-entity records, work location data, and effective-dated job-change events
