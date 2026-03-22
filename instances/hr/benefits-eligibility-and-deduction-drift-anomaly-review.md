@@ -12,6 +12,17 @@ HR.
 
 An HR benefits operations team monitors eligibility determinations, dependent-coverage changes, qualifying-life-event updates, payroll deduction feeds, carrier-file acknowledgments, and retro-effective-date edits to detect mid-severity benefits anomalies before they turn into coverage gaps, payroll disputes, or compliance incidents. The workflow must collapse duplicate anomalies tied to the same worker or household, benefit plan, and effective-date window; enrich each case with plan eligibility rules, payroll-calendar context, approved event windows, prior reviewer notes, sensitive dependent-data exposure, and any recent vendor-file rejects; and then prioritize which anomalies deserve restricted human review. A case should enter the review queue when, for example, multiple workers in the same population lose medical-plan eligibility and restart deductions on mismatched dates without corresponding status changes, repeated retro deduction adjustments appear after a qualifying life event without carrier acceptance, or a burst of dependent eligibility flips lands near an enrollment cutoff with missing supporting context. The goal is an explainable anomaly review packet for benefits operations, payroll liaison, or people-compliance reviewers, not to correct deductions, contact employees or carriers, interpret plan law, or open a formal investigation automatically.
 
+```mermaid
+flowchart TD
+    A["Monitor eligibility, deduction, carrier, and event-change signals"] --> B["Merge related anomalies by worker or household,<br>benefit plan, and effective-date window"]
+    B --> C["Enrich each anomaly with eligibility rules,<br>payroll-calendar context, approved event windows,<br>prior reviewer notes, sensitive-data exposure,<br>and recent vendor-file rejects"]
+    C --> D{"Mid-severity anomaly remains explainable<br>and worthy of restricted human review?"}
+    D -- "No" --> E["Suppress, defer, or keep under watch<br>with duplicate and routing history preserved"]
+    D -- "Yes" --> F["Assemble explainable anomaly review packet<br>with anomaly drivers and bounded context"]
+    F --> G["Route packet to restricted benefits operations,<br>payroll liaison, or people-compliance review queue"]
+    G --> H["Human review begins here;<br>deduction correction, outreach, legal interpretation,<br>and formal investigation stay outside this workflow"]
+```
+
 ## Target systems / source systems
 
 - HRIS and benefits-administration systems with worker eligibility status, dependent coverage, plan elections, effective dates, and qualifying-life-event metadata
