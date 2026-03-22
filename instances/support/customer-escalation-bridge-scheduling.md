@@ -12,6 +12,24 @@ Support.
 
 After a severe overnight service disruption affecting a large enterprise customer, a support escalation manager needs to schedule a same-day customer bridge to align internal responders before the customer update call. The bridge has to include the assigned support lead, the incident commander, the engineering service owner for the degraded component, and the customer success manager covering the account, while also respecting the customer team's stated availability in US Eastern time and the internal engineering lead's working hours in Central European time. The workflow is about finding a viable coordination slot, placing reversible holds, and escalating quickly if no in-policy overlap exists within the agreed response window.
 
+```mermaid
+flowchart TD
+    A["Escalation manager<br>starts same-day bridge scheduling"]
+    B["Normalize timezones,<br>required-role coverage, and<br>working-hour guardrails"]
+    C{"In-policy overlap exists for the<br>current responder set and<br>customer availability?"}
+    D["Place short-lived tentative holds<br>on the best compliant slot"]
+    E["Keep assigned responders unchanged<br>unless human approval authorizes substitution"]
+    F["Human confirms slot and attendee set<br>before any customer invite commit"]
+    G["Escalate to incident leadership<br>when no compliant overlap exists"]
+
+    A -->|"Gather constraints"| B
+    B -->|"Search viable slots"| C
+    C -->|"Yes"| D
+    C -->|"No"| G
+    D -->|"Preserve responder boundary"| E
+    E -->|"Route for confirmation"| F
+```
+
 ## Target systems / source systems
 
 - Support incident ticket with severity, account tier, and required responder roles
