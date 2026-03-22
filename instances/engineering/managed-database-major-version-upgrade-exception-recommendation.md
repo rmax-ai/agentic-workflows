@@ -49,6 +49,26 @@ This instance grounds the recommendation pattern in engineering where the hard p
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    change["Engineering change record<br>and exception request"]
+    inventory["Managed-database inventory<br>and vendor support timeline"]
+    deps["Dependency manifest,<br>driver compatibility, and migration test evidence"]
+    policy["Release calendar,<br>freeze policy, approval matrix,<br>and exception register"]
+    evidence["Observability baselines,<br>rollback runbook, and recovery objectives"]
+    optionset["Recommendation workflow builds<br>ranked option set"]
+    review["Engineering review group<br>human review"]
+    boundary["Stops before exception approval,<br>change-record edits, or migration start"]
+
+    change -->|"Read only"| optionset
+    inventory -->|"Read only"| optionset
+    deps -->|"Read only"| optionset
+    policy -->|"Read only"| optionset
+    evidence -->|"Read only"| optionset
+    optionset -->|"Recommendation packet"| review
+    review -->|"Recommendation only"| boundary
+```
+
 - A recommendation-only workflow can retrieve support deadlines, compatibility evidence, rollback readiness, precedent exceptions, and release-policy thresholds into one ranked option set for engineering review.
 - Human-in-the-loop review is mandatory because the workflow should advise on acceptable upgrade paths and escalation triggers, not approve the exception, edit the production change record, or start the migration.
 - Read-only integration with change management, cloud inventory, test evidence, and observability systems is preferable so the agent cannot silently convert a recommendation into a live infrastructure modification or deployment commitment.
