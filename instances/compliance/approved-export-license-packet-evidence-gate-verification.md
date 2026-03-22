@@ -43,6 +43,33 @@ This grounds the pattern in an export-controls workflow where the hard problem i
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    workspace["Restricted export-controls<br>compliance workspace"]
+    ccl["Commerce Control List and<br>Munitions List snapshot repository"]
+    certificate["End-user certificate registry"]
+    risk["Country-risk-tier ledger and<br>denied-party screening timestamp log"]
+    controlplan["Technology control plan<br>version ledger"]
+    authority["Export-compliance officer<br>authority register"]
+    verify["Approved packet evidence<br>gate verification"]
+    manifest["Approval manifest service"]
+    approver["Named export-compliance<br>officer approval gate"]
+    lane["Restricted export-license-review<br>lane boundary"]
+    audit["Audit store"]
+
+    workspace -->|"Provides approved packet revision,<br>superseded versions, and assignments"| verify
+    ccl -->|"Provides classification snapshot and<br>control-list currency evidence"| verify
+    certificate -->|"Provides certificate validity and<br>geographic-scope evidence"| verify
+    risk -->|"Provides country-risk tier and<br>screening freshness evidence"| verify
+    controlplan -->|"Provides plan version and<br>shipment-parameter alignment"| verify
+    authority -->|"Provides signatory authority and<br>delegation status"| verify
+    audit -->|"Supplies superseded verdicts,<br>release holds, and lineage"| verify
+    verify -->|"Stores verdicts, timestamps,<br>and blocked superseded reuse"| audit
+    verify -->|"Sends approval-ready packet for<br>one exact revision"| manifest
+    manifest -->|"Presents release-eligible packet<br>to named approvers"| approver
+    approver -->|"Releases only the verified packet<br>to the lane boundary"| lane
+```
+
 - Approval-gated execution fits because the verification packet can be assembled automatically while the restricted export-license-review lane remains concretely blocked until named export-compliance officers release that exact packet revision.
 - Human-in-the-loop review should remain mandatory because export-controls compliance, trade-operations, and legal owners must interpret held conditions — such as a superseded ECCN entry, a lapsed end-user certificate, or a newly elevated country risk tier — before anyone relies on the packet for a consequential licensing-authority submission handoff.
 - Durable verification state should preserve superseded verdicts, repeated release holds, packet-version lineage, and classification-snapshot timestamps so later reviewers can distinguish genuine evidence refresh from resubmission of a previously blocked revision.
