@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 300
+  instance_files: 301
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -64,7 +64,7 @@ pattern_counts_by_family:
 instance_counts_by_domain:
   engineering: 41
   finance: 41
-  compliance: 44
+  compliance: 45
   operations: 44
   research: 44
   support: 44
@@ -72,7 +72,8 @@ instance_counts_by_domain:
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has three hundred grounded examples across all seven currently modeled domains, with `research`, `compliance`, `operations`, and `support` at forty-four; `hr` at forty-two; and `engineering` and `finance` at forty-one. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has three hundred one grounded examples across all seven currently modeled domains, with `compliance` at forty-five; `research`, `operations`, and `support` at forty-four; `hr` at forty-two; and `engineering` and `finance` at forty-one. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`critical-protected-priority-adaptation` now has its first `compliance` grounding through a trade-surveillance benchmark-manipulation review priority adaptation example, deepening that critical optimize/adapt slice beyond engineering signing-key integrity review, finance intraday liquidity protection, and operations contamination review by centering one exact severe market-conduct state with protected benchmark-window and restricted-communications lanes, explicit expiry and rollback discipline, supervisor override evidence, and human adoption rather than authority selection, command planning, alert adjudication, regulator communication, or downstream trading restrictions."
   - "`critical-command-window-resequencing` now has its first `support` grounding through a severity-one customer-update command-window checkpoint resequencing example, deepening that critical planning slice beyond engineering payments cutover, finance liquidity and earnings-release command windows, and operations contamination coordination by centering one exact support bridge timeline with workaround-verification slippage, approved delegate rotation, compressed contractual and restricted-review windows, explicit holds, participant deltas, and named bridge-lead adoption rather than incident triage, customer message authorship, concession choice, remedy recommendation, negotiation, or downstream execution."
   - "`critical-protected-artifact-collaboration` now has its first `support` grounding through a cross-tenant support session exposure protected account-impact packet collaboration-room example, deepening that critical human-agent collaboration slice beyond engineering signing-key compromise, finance liquidity-stress funding review, compliance sanctions regulator-position coverage, and HR workplace-violence threat assessment by centering one exact support severe-case packet with visible disagreement over exposure scope and evidence sufficiency, tenant-identifying and access-sensitive annex handling, explicit human artifact ownership, and bounded handoff readiness rather than disclosure authority choice, customer communication, privileged-access changes, or downstream response execution."
   - "`critical-escalation-authority-recommendation` now has its first `operations` grounding through a regional aviation-fuel terminal contamination authority-recommendation example, deepening that critical recommendation slice beyond engineering signing-key compromise, finance liquidity-facility draw, and compliance sanctions-screening outage coverage by centering one exact fuel-quality threat with sample lineage, tank and hydrant traces, loaded-truck history, airport stock posture, delegation rules, and protected continuity holds rather than contamination investigation briefing, continuity planning, dispatch execution, airport communication, or downstream response control."
