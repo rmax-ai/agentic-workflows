@@ -15,6 +15,8 @@
 
 - `scripts/run-agentic-workflows-loop.sh` — runs one repository iteration by assembling prompt context and invoking Copilot.
 - `scripts/run-agentic-workflows-forever.sh` — optional wrapper for repeated iterations with a stop-file check.
+- `scripts/run-mermaid-illustration-loop.sh` — runs the Mermaid-illustration orchestrator prompt through Copilot with a configurable batch size.
+- `scripts/run-mermaid-illustration-forever.sh` — optional wrapper for repeated Mermaid illustration batches with a stop-file check.
 - `scripts/python/validate_yaml.py` — uv-managed Python helper that validates repository YAML files without relying on ad hoc Ruby.
 - `scripts/python/build_site_docs.py` — uv-managed Python helper that regenerates the MkDocs input tree in `build/site-docs` from canonical Markdown, YAML, instance, and schema sources.
 - `.github/workflows/publish-site.yml` — GitHub Actions workflow that validates YAML, regenerates `build/site-docs`, builds `build/site`, and deploys the generated site through GitHub Pages.

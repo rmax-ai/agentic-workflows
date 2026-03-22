@@ -93,6 +93,20 @@ Typical setup:
 2. `uv sync`
 3. `uv run python scripts/python/validate_yaml.py`
 
+Automation entrypoints:
+
+1. `./scripts/run-agentic-workflows-loop.sh` for one ontology iteration
+2. `./scripts/run-agentic-workflows-forever.sh` for repeated ontology iterations with a stop-file check
+3. `./scripts/run-mermaid-illustration-loop.sh` for one Mermaid illustration batch across Markdown workflow files
+4. `./scripts/run-mermaid-illustration-forever.sh` for repeated Mermaid illustration batches with a stop-file check
+
+Mermaid illustration batching accepts the usual shell environment overrides:
+
+- `BATCH_SIZE` to change the default batch size from `10`
+- `MODEL` to change the default Copilot model from `gpt-5.4`
+- `COPILOT_BIN` to point at a non-default Copilot CLI binary
+- `REPO_ROOT` to override repository auto-detection
+
 Static site publication:
 
 1. `uv run python scripts/python/build_site_docs.py`

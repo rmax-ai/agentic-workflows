@@ -37,6 +37,8 @@ The repository now has execution memory, foundational docs, the canonical patter
 - `.agent/prompts/operator-prompt.txt`
 - `scripts/run-agentic-workflows-loop.sh`
 - `scripts/run-agentic-workflows-forever.sh`
+- `scripts/run-mermaid-illustration-loop.sh`
+- `scripts/run-mermaid-illustration-forever.sh`
 
 Grounded coverage is still intentionally thin, so current work should keep expanding instances and representative pattern/domain combinations in small, dependency-aware batches instead of generating large shallow sets.
 
