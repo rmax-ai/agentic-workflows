@@ -12,6 +12,21 @@ HR.
 
 An HR operations team monitors backdated worker-status changes, location transfers, pay-group updates, manager-chain corrections, leave returns, and manual override activity to detect mid-severity lifecycle anomalies before they turn into payroll, access, or compliance incidents. The workflow must collapse duplicate anomalies tied to the same worker or team, enrich each case with approved change windows, legal-entity context, prior HR reviewer notes, sensitive-field exposure, and any in-flight case history, and then prioritize which anomalies deserve restricted human review. A case should enter the review queue when, for example, several backdated status and pay-group changes land for one worker outside the approved effective-date window, a cluster of manager and location edits appears for a team during no planned reorganization, or repeated manual overrides follow a leave return without the expected supporting records. The goal is an explainable anomaly review packet for HR operations, payroll liaison, or people-compliance reviewers, not to rewrite records, contact the worker, suspend pay, or launch a formal investigation automatically.
 
+```mermaid
+flowchart TD
+    A["HRIS and workforce-management change history"] -->|"monitor"| B["Worker lifecycle anomaly detection"]
+    C["Leave, payroll-interface, and case-management records"] -->|"retrieve bounded context"| D["Context enrichment and prior-state lookup"]
+    E["Identity, role, and access metadata"] -->|"retrieve bounded context"| D
+    B -->|"candidate anomaly"| F["Duplicate collapse by worker or team"]
+    D -->|"context bundle"| G["Approved-window and sensitivity checks"]
+    F -->|"clustered anomaly"| G
+    G -->|"below review threshold or expected change"| H["Suppression or merge decision"]
+    G -->|"review-worthy anomaly"| I["Explainable anomaly review packet"]
+    H -->|"log decision"| K["Audit-grade evidence storage"]
+    I -->|"route"| J["Restricted HR review queue"]
+    I -->|"write lineage"| K
+```
+
 ## Target systems / source systems
 
 - HRIS and workforce-management systems with effective-dated worker status, legal-entity, location, manager, and pay-group history
