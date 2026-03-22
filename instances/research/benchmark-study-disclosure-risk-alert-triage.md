@@ -12,6 +12,19 @@ Research.
 
 A research governance team monitors a continuous stream of disclosure-risk signals around active benchmark studies, including draft-paper sharing events, slide-deck exports, embargo milestones, reproducibility regression alerts, dataset-rights changes, external-review requests, and publication-policy exceptions. The workflow must collapse duplicate signals tied to the same study, claim set, or disclosure window; enrich each alert with benchmark scope, artifact sensitivity, prior reviewer concerns, partner or vendor restrictions, and current embargo posture; and then prioritize which cases need immediate human review. A case should rise to the urgent queue when, for example, an externally shareable draft still depends on a newly failed replication, a dataset license changes after benchmark figures were circulated for review, or multiple external-access requests arrive near an embargo boundary for a study with unresolved disclosure caveats. The goal is to create an evidence-backed triage packet for research governance, publication-review, or legal-and-communications reviewers, not to decide publication posture, rewrite the benchmark claims, grant artifact access, or run a retrospective investigation.
 
+```mermaid
+flowchart TD
+    A["Disclosure-risk<br>alert stream"]
+    B["Merged alert cluster<br>by study, claim set, or disclosure window"]
+    C["Policy context enrichment<br>benchmark scope, sensitivity, restrictions, embargo posture"]
+    D["Prioritized triage packet<br>severity, rationale, queue placement"]
+    E["Human-routed escalation<br>research governance, publication review, legal and communications"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Benchmark study workspace with draft papers, slide decks, artifact manifests, reviewer comments, and controlled-sharing records
