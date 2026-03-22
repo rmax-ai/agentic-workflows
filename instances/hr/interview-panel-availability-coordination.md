@@ -12,6 +12,16 @@ HR.
 
 A recruiter needs to schedule a final-round interview panel for a senior data-platform candidate within a five-business-day hiring SLA. The panel must include the hiring manager, a peer engineer from the target team, a cross-functional partner interviewer, and a recruiter closeout conversation, while respecting the candidate's provided availability in India Standard Time, interviewer working-hour rules in Pacific and Eastern time, and fairness constraints that avoid repeatedly assigning the same interviewer to off-hours loops. The workflow should reconcile calendars, sequence interview blocks into a coherent panel, place reversible holds, and escalate only when no policy-compliant panel can be assembled in time.
 
+```mermaid
+flowchart TD
+    A["Recruiter reviews<br>final-round request"] -->|"Read required roles,<br>candidate windows, and SLA"| B["Gather calendars,<br>working-hour rules, and fairness metadata"]
+    B -->|"Compare required panel roles<br>against feasible time blocks"| C["Build candidate panel sequence<br>with ordered interview blocks"]
+    C -->|"Check timezone,<br>working-hour, and fairness guardrails"| D{"Policy-compliant panel<br>available in time?"}
+    D -->|"Yes"| E["Place reversible holds<br>for selected panel blocks"]
+    E -->|"Capture held sequence<br>for recruiter review"| F["Panel proposal ready"]
+    D -->|"No"| G["Escalate exception<br>for recruiter or hiring manager"]
+```
+
 ## Target systems / source systems
 
 - Applicant tracking system with stage, SLA clock, interview plan, and required panel roles
