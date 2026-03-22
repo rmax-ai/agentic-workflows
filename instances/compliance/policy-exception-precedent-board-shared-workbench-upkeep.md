@@ -36,6 +36,18 @@ This grounds the pattern in a compliance setting that is materially different fr
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    register["Internal exception register<br>with prior cases and expiry data"] -->|"Case links and rationale"| agent["Shared-workbench upkeep agent<br>for bounded link, tag, note,<br>owner, and hold maintenance"]
+    policy["Policy and standards<br>repository"] -->|"Current policy and<br>superseding guidance"| agent
+    notes["Reviewer annotation surface<br>for small edits and handoff notes"] -->|"Caveats, corrections,<br>and handoff notes"| agent
+    directory["Compliance ownership<br>directory"] -->|"Approved owner data"| agent
+    board["Shared policy-exception<br>precedent board"] -->|"Rows, tags, holds,<br>and revision history"| agent
+    agent -->|"Bounded upkeep updates<br>with provenance"| board
+    agent -->|"Interpretation or adjudication<br>needed"| human["Human compliance review<br>outside automated upkeep"]
+    human -->|"Reviewed note or<br>hold instruction"| notes
+```
+
 - Event-driven monitoring fits because upkeep should react when exception-register entries, policy references, reviewer notes, or board fields change.
 - A tool-using single agent can refresh source links, normalize duplicate precedent caveats, and keep ownership plus hold markers synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when a note would reinterpret a precedent, clear a contested scope limitation, or make the board sound like a live exception recommendation.
