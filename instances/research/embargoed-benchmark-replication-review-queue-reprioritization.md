@@ -12,6 +12,22 @@ Research.
 
 A central research-quality team manages a backlog of benchmark-study replication and validation packages before any externally visible paper, workshop submission, or leadership briefing can move forward. The queue mixes internal model-serving benchmarks, partner-funded evaluation studies, negative-result replications, and follow-up reviews triggered by earlier reproducibility defects. Recent outcome data shows that reviewers have been pulling forward polished submissions from well-resourced teams while packages with partial rerun failures, embargo-sensitive partner data, or statistically ambiguous negative findings sit longer and later require disruptive last-minute escalations. The optimization workflow must continuously retune queue order so studies with the highest external-claim risk, imminent embargo decisions, or reproducibility instability rise appropriately, while preserving fairness across teams, protecting blinded review norms where applicable, respecting finite reviewer capacity, and maintaining a fast rollback path if the feedback loop starts rewarding presentation quality over scientific risk.
 
+```mermaid
+flowchart TD
+    R["Risk inputs<br>reproducibility instability<br>embargo pressure"]
+    F["Fairness inputs<br>negative-result delay checks<br>team-bias guardrails"]
+    C["Capacity inputs<br>reviewer load<br>specialist availability"]
+    T["Bounded queue retuning<br>adjust weights within approved ranges"]
+    P["Publish revised order<br>updated ranked review queue<br>study-level rationale"]
+    B["Rollback boundary<br>restore last trusted policy<br>escalate retuning packet"]
+
+    R --> T
+    F --> T
+    C --> T
+    T --> P
+    T --> B
+```
+
 ## Target systems / source systems
 
 - Research review intake system with active replication backlog, study metadata, embargo dates, reviewer assignments, and current queue order
