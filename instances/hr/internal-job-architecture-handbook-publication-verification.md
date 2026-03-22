@@ -12,6 +12,26 @@ HR.
 
 A people programs team marks an updated internal job architecture handbook as published after refreshing the handbook source repository, manager self-service portal, and internal search index for the new leveling-framework revision. HR business partners and recruiting operations still need to know whether that claimed publication state is actually supported by the approved internal handbook surfaces before they rely on the handbook link for routine manager guidance and role-leveling coordination. The workflow verifies the claim against authoritative evidence and emits a bounded confirmed, disproved, or inconclusive verdict; it must not rewrite handbook content, interpret leveling policy for a specific employee, notify managers, or trigger downstream system changes.
 
+```mermaid
+flowchart TD
+    A["People programs tracker records<br>handbook-publication-complete claim"]
+    B["Verification run opens durable record<br>for the handbook revision"]
+    C["Collect authoritative evidence from<br>repository, manager portal, cache status, and search index"]
+    D{"Do revision markers, effective dates,<br>and publication states match<br>across approved surfaces?"}
+    E{"Is any mismatch still within<br>the allowed propagation window?"}
+    F["Emit confirmed verdict with<br>evidence trace in audit log"]
+    G["Hold as inconclusive with<br>follow-up record in audit log"]
+    H["Emit disproved verdict with<br>stale-surface trace in audit log"]
+
+    A -->|"triggers"| B
+    B -->|"queries"| C
+    C -->|"applies verification rules"| D
+    D -->|"yes"| F
+    D -->|"no"| E
+    E -->|"yes"| G
+    E -->|"no"| H
+```
+
 ## Target systems / source systems
 
 - Internal job architecture handbook repository containing the approved handbook revision, publication status, and effective-date metadata
