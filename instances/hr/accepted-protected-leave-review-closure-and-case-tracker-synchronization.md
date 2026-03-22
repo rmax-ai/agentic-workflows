@@ -12,6 +12,16 @@ HR.
 
 A restricted protected-leave or return-to-work review has already reached an accepted disposition in the occupational health or leave-program review system after the upstream reviewers completed their decision-making work. That authoritative decision is final for this workflow and must not be reopened, reinterpreted, or extended into employee outcome handling. The remaining execute step is limited to low-risk closure: detect the accepted-disposition event, recheck that the case identifier, disposition version, and approved packet references still match the source record, close the restricted review queue item, sync the leave case and return-to-work tracker to the recorded review-complete state, attach archive references for the final packet and closure note, record completion state in the audit store, and notify the internal HR coordinator that the review-closure bookkeeping is complete. If the case was reopened, the packet reference drifted, or the tracker points to a different leave episode, the workflow should stop and route manual follow-up instead of guessing.
 
+```mermaid
+flowchart TD
+    A["Accepted protected-leave review<br>event detected"] --> B["Re-read the source review record<br>and verify case identifier, disposition version,<br>and approved packet references"]
+    B --> C{"Accepted disposition and leave-episode mapping<br>still match the current source and tracker state?"}
+    C -- "No" --> D["Stop automatic closure<br>and route manual follow-up"]
+    C -- "Yes" --> E["Close the restricted review queue item<br>and sync the leave case and return-to-work tracker<br>to the recorded review-complete state"]
+    E --> F["Attach final packet and closure-note references<br>and record completion state in the audit store"]
+    F --> G["Notify the internal HR coordinator<br>that review-closure bookkeeping is complete"]
+```
+
 ## Target systems / source systems
 
 - Restricted occupational-health or leave-program review system that records the accepted disposition and emits the authoritative state-change event
