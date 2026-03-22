@@ -41,6 +41,17 @@ This grounds the pattern in a compliance workflow where the hard work is repeate
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    H["Human surveillance manager<br>and named approval owner<br>readiness checkpoint and handoff control"] -->|"Keeps readiness review<br>and approval routing human-controlled"| E["Governed compliance review workspace<br>suppression-exception packet, reviewer comments,<br>readiness state, handoff ownership"]
+    A["Trade-surveillance case management<br>and alert telemetry systems<br>alert volumes, scenario identifiers,<br>duplicate-case examples, analyst dispositions"] -->|"Provides alert-volume evidence,<br>duplicate examples, and case history"| E
+    B["Market-data incident and engineering-change records<br>venue-feed duplication defect, deployment timing,<br>remediation status, affected instruments or venues"] -->|"Provides defect status,<br>deployment timing, and affected scope"| E
+    C["Model-governance, QA, and control-testing repositories<br>scenario logic documentation, validation results,<br>approval-order rules, exception criteria"] -->|"Provides validation evidence,<br>exception criteria, and approval-order rules"| E
+    D["Surveillance operating procedures<br>and conduct-risk standards<br>mandatory controls, sampling expectations,<br>evidence requirements, approval authorities"] -->|"Provides control requirements,<br>review expectations, and authority boundaries"| E
+    G["Orchestrated agent support<br>alert telemetry refresh, reviewer-objection normalization,<br>policy checks, handoff-ledger upkeep"] -->|"Refreshes packet sections,<br>evidence tables, and readiness summaries"| E
+    E -->|"Transfers packet, unresolved objections,<br>and next approval owner for formal governance review"| F["Approval-routing queue<br>final human-approved packet,<br>unresolved objections, next approval owner"]
+```
+
 - Human-in-the-loop collaboration should remain primary because market-conduct exposure, compensating-control sufficiency, and exception-risk tolerance require accountable surveillance and compliance ownership.
 - An orchestrated multi-agent setup fits when separate agent roles refresh alert telemetry, normalize reviewer objections, verify policy and approval-order completeness, and maintain the shared handoff ledger across several revision rounds.
 - Agents may prepare revised packet sections, evidence-response tables, and readiness summaries, but approving suppression, changing scenario logic, or releasing downstream operational instructions should remain explicitly human-controlled.
