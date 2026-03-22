@@ -40,6 +40,22 @@ This grounds the pattern in a compliance workflow where the difficult work is ne
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Regulatory obligations inventory<br>and reporting calendar<br>deadlines, jurisdiction scope, prior interpretations"]
+    B["Control-testing and issue-management systems<br>defect record, validation results,<br>remediation milestones, reviewer findings"]
+    C["Legal and policy repositories<br>reporting interpretations, regulator templates,<br>delegation-of-authority rules, exception criteria"]
+    D["Data-quality and transaction-operations evidence stores<br>reconciliation summaries, affected population estimates,<br>manual review logs, monitoring snapshots"]
+    E["Governed compliance review workspace<br>timeline-exception packet, comment history,<br>readiness state, handoff ownership"]
+    F["Approval-routing queue<br>final packet, unresolved objections,<br>next approval owner"]
+
+    A -->|"Provides filing deadlines,<br>jurisdiction scope, and submission rules"| E
+    B -->|"Provides control defect status,<br>validation evidence, and remediation history"| E
+    C -->|"Provides reporting interpretations,<br>authority rules, and exception criteria"| E
+    D -->|"Provides reconciliation evidence,<br>manual review logs, and monitoring snapshots"| E
+    E -->|"Transfers packet, visible objections,<br>and next approval owner for formal review"| F
+```
+
 - Human-in-the-loop collaboration should remain primary because legal posture, regulator-exposure framing, and residual reporting-risk acceptance require accountable compliance and legal ownership.
 - An orchestrated multi-agent setup fits when separate agent roles refresh obligation evidence, reconcile reviewer objections, verify authority mappings, and maintain the shared handoff ledger across multiple revision rounds.
 - Agents may prepare revised packet sections, evidence-response tables, and readiness summaries, but final approval routing, regulator outreach decisions, and any acceptance of a reporting breach or extension request should remain explicitly human-controlled.
