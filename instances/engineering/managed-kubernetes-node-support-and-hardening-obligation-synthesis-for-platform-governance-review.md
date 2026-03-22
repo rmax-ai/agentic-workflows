@@ -39,6 +39,18 @@ This grounds the gather-and-synthesize pattern in infrastructure governance rath
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    provider["Cloud-provider support bulletins<br>and lifecycle notices"] -->|"approved source retrieval"| synth["Tool-using synthesis agent<br>for obligations brief assembly"]
+    standards["Internal platform standards<br>repository"] -->|"baseline requirements"| synth
+    inventory["Cluster inventory and node-image<br>attestation systems"] -->|"current inventory state"| synth
+    vuln["Vulnerability evidence<br>and patch validation records"] -->|"security evidence"| synth
+    archive["Prior review archive<br>and exception register"] -->|"carryover context"| synth
+    synth -->|"claim-to-source mappings and<br>source-precedence annotations"| workspace["Controlled platform-governance workspace<br>for MKS-Node-Baseline-Obligations-Brief-v2<br>and evidence trace"]
+    synth -->|"conflicts or evidence gaps"| review["Human-in-the-loop review<br>for source conflicts and scope ambiguity"]
+    review -->|"review notes on unresolved items"| workspace
+```
+
 - A tool-using single agent can retrieve approved support bulletins, platform standards, cluster inventory snapshots, attestation records, vulnerability evidence, and prior exception files, then assemble a structured obligations brief with claim-to-source mappings and explicit source-precedence annotations.
 - Human-in-the-loop review should remain mandatory for conflicts between provider lifecycle notices, internal hardening policy, vulnerability-severity interpretations, and still-effective exception records, especially when regional scope or workload class changes the applicable obligation.
 - The workflow should preserve an evidence trace that distinguishes binding provider support commitments, current internal platform standards, observed inventory state, security evidence, and lower-authority contextual materials such as migration notes or service-owner comments.
