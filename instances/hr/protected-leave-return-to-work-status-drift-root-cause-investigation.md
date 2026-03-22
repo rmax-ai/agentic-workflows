@@ -12,6 +12,32 @@ HR.
 
 After an employee is cleared to return from protected medical leave, time punches and manager scheduling records show the worker back on shift, but the next payroll preview still treats the employee as unpaid leave while benefits administration keeps the case in an active leave state. Several plausible causes conflict: the leave case may have been closed without the return-to-work event posting to the HRIS, a faxed provider release may have been indexed to the wrong worker record, a backdated schedule correction may have arrived after the payroll cut-off and masked the real status transition, or an integration retry may have replayed an older leave segment after the return was already approved. The workflow reconciles leave-case history, document intake timestamps, HRIS status changes, payroll calculations, timekeeping events, integration logs, and specialist notes into a defensible explanation of what actually failed, what remains uncertain, and which verification checks still need accountable human follow-through before anyone restores pay, adjusts leave balances, or tells the employee the case is resolved.
 
+```mermaid
+flowchart TD
+    A["Status drift detected<br>after protected leave return"]
+    B["Collect leave case history<br>and return-to-work approval"]
+    C["Pull HRIS status changes,<br>timekeeping, payroll, and benefits logs"]
+    D["Normalize timestamps<br>into one investigation timeline"]
+    E{"Evidence supports one<br>reconciled status-transition path?"}
+    F["Compare competing hypotheses<br>against document indexing, cut-off timing,<br>and integration replay history"]
+    G{"Material gaps or conflicts<br>still remain?"}
+    H["Hold unresolved checks for<br>accountable human follow-through"]
+    I["Produce defensible root-cause narrative<br>with cited uncertainty and next checks"]
+    J["Stop at investigation output<br>before pay, leave, or communication action"]
+
+    A -->|"trigger investigation"| B
+    B -->|"add leave-case evidence"| C
+    C -->|"assemble cross-system evidence"| D
+    D -->|"test causal sequence"| E
+    E -->|"yes"| I
+    E -->|"no"| F
+    F -->|"rank competing explanations"| G
+    G -->|"yes"| H
+    G -->|"no"| I
+    H -->|"carry uncertainty forward"| I
+    I -->|"handoff investigation result"| J
+```
+
 ## Target systems / source systems
 
 - Leave case-management records, return-to-work approvals, document-index history, and specialist handoff notes for the affected leave event
