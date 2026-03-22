@@ -38,6 +38,21 @@ This grounds the transform pattern in a compliance setting where committee-level
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Restricted compliance case-management<br>repository"]
+    B["Redaction and de-identification<br>tooling"]
+    C["ABC-programme schema<br>registry"]
+    D["Review workbench and<br>governed staging store"]
+    E["ABC legal, privacy, and<br>investigations exception queue"]
+
+    A -->|"bounded due-diligence files"| B
+    C -->|"approved review fields,<br>taxonomies, and release constraints"| B
+    B -->|"redacted dataset,<br>transformation trace, and manifest"| D
+    B -->|"residual-risk cases"| E
+    E -->|"review outcomes"| D
+```
+
 - An orchestrated multi-agent workflow can divide file parsing and segmentation, sensitive-element detection across personal identifiers and financial fields, jurisdiction and risk-tier normalisation, and release-package validation so that each stage exposes its reasoning and residual-risk findings independently.
 - Human reviewers should remain in the normal loop because due diligence files often contain contextual investigation narratives, cross-referenced individuals, and unresolved escalation threads that automated detectors cannot release safely without ABC-programme and legal judgment.
 - The workflow should emit only a release-safe committee review dataset and reviewed manifest rather than updating live intermediary records, generating a regulatory position, or instructing relationship managers on remediation actions.
