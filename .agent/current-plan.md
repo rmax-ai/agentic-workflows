@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement deepened the thinner `finance` slice through `instances/finance/treasury-collateral-substitution-review-coordination-refresh-after-custodian-cutoff-shift.md`, adding a materially distinct second finance grounding for `authoritative-change-coordination-refresh`.
-- Result check: the new finance example stayed bounded at one issued substitution-review coordination packet, authoritative custodian cutoff and eligibility-timing deltas, approved delegate substitution, targeted participant notices, explicit treasury-owner adoption or exception checkpoints, and append-only lineage while avoiding funding-plan replanning, asset selection, counterparty negotiation, or collateral movement.
-- Read-first set used this iteration: this plan; `data/patterns/plan-coordinate-schedule/authoritative-change-coordination-refresh.yaml`; `docs/patterns/plan-coordinate-schedule.md`; `instances/finance/quarter-close-control-review-coordination-refresh-after-consolidation-shift.md`; `instances/engineering/release-readiness-review-coordination-refresh-after-approver-window-change.md`; `instances/compliance/control-remediation-sign-off-review-coordination-refresh-after-validation-slip.md`; the relevant plan-family notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-033427.md`.
-- Boundary check: the new example preserved one already-issued treasury collateral substitution review packet, authoritative tri-party custodian cutoff movement, eligibility-extract delay, approved delegate coverage, targeted delta notices, and a governed adoption handoff while stopping before substitution recommendation, treasury decision adjudication, counterparty communication, or execution.
+- Target in progress: Phase 7 structural refinement should deepen the thinner `research` slice through one additional, materially distinct grounding for `approval-gated-triage-dispatch`.
+- Intended result check: the new research example should stay bounded at one already-triaged packet, one protected downstream review lane, explicit dispatch approval and hold state, and append-only release lineage while avoiding downstream adjudication, recommendation, communications, provisioning, or operational execution.
+- Read-first set for this iteration: this plan; `data/patterns/monitor-detect-triage/approval-gated-triage-dispatch.yaml`; `instances/research/approved-secondary-dataset-access-request-triage-packet-for-restricted-governance-review-dispatch.md`; `instances/research/benchmark-study-disclosure-risk-triage-packet-approved-for-restricted-disclosure-governance-review-dispatch.md`; the relevant monitor-family notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-034024.md`.
+- Boundary check: the next example must keep approval bound to one exact triage packet revision and one restricted downstream lane, with freshness, audience, and hold conditions explicit, while stopping before reviewer adjudication, consent or policy interpretation, requester communication, manuscript or study decisions, data movement, or other downstream execution.
 
 ## Current phase
 
@@ -24,10 +24,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Continue Phase 7 with one instance-only refinement in one of the now-thinnest domains (`engineering`, `research`, or `compliance`) by deepening a structurally distinct planning or adjacent approval-bound slice outside the just-completed finance coordination-refresh example.
+1. Continue Phase 7 with one instance-only refinement in the now-thinnest `research` domain by deepening a structurally distinct `approval-gated-triage-dispatch` scenario outside the recently expanded coordination-refresh, recommendation-release, verification, transformation, and collaboration-release surfaces.
 2. Keep the batch instance-only and outside `approval-gated-recommendation-release`, `critical-command-window-resequencing`, `schedule-adjustment-and-replanning`, `approval-packet-generation`, `approval-gated-collaborative-artifact-release`, `approval-gated-briefing-release`, `evidence-gated-verification-for-release`, `approval-gated-transformation-release`, and `contingency-plan-activation-gate`; do not reopen schema, vocabularies, views, or canonical pattern metadata unless the read-first pass surfaces a directly coupled drift that would otherwise leave the repository inconsistent.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the next content change.
-4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and `.agent/iterations/2026/20260322-034024.md` after verification.
+4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and `.agent/iterations/2026/20260322-034614.md` after verification.
 
 ## Recent checkpoints
 
