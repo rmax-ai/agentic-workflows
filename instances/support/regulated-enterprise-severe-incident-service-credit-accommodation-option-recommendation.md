@@ -12,6 +12,27 @@ Support.
 
 After three severe availability incidents in six weeks disrupt a regulated enterprise customer's identity and audit-export workloads, Maya Chen, the premium-support escalation manager for the account, must prepare one local recommendation artifact that ranks only the service-credit accommodation options still permitted inside her delegated authority band. The bounded option menu allows a capped one-month premium-support service credit, a narrower split accommodation that combines a smaller service credit with a temporary incident-review add-on already preapproved for the account tier, or a no-credit recommendation paired with documented rationale that the incident cluster fails the delegated trigger threshold. The workflow must keep source precedence explicit by favoring the signed premium-support order form, the current delegated concession matrix, and the post-incident service-impact ledger ahead of sales notes or bridge commentary; it must preserve blocked requests such as a permanent rate reduction, cross-product rebate, extended free premium-support term, nonstandard retention concession, or direct engineering staffing guarantee; and it must package escalation for the account-governance board only if no in-band accommodation remains defensible. The artifact stops at local option ranking and escalation packaging rather than approving a concession, making a customer commitment, drafting customer communications, assigning engineering work, rewriting policy, or executing downstream billing changes.
 
+```mermaid
+flowchart TD
+    intake["Severe incident cluster<br>enters local accommodation review"]
+    sources["Retrieve signed order form,<br>delegated concession matrix,<br>and service-impact ledger"]
+    ranking["Rank only bounded local options:<br>capped service credit,<br>split accommodation, or no-credit rationale"]
+    blocked["Keep blocked paths visible:<br>rate reduction, cross-product rebate,<br>extended support term, retention concession,<br>and engineering staffing guarantee"]
+    viable{"Does any in-band option<br>remain defensible after<br>guardrail and trigger checks?"}
+    artifact["Assemble one local recommendation artifact<br>with preferred ranking,<br>source-backed rationale, and blocked-path register"]
+    escalation["Package escalation for the<br>account-governance board with evidence,<br>guardrail breaches, and unresolved trade-offs"]
+    stop["Workflow stops at option ranking<br>and escalation packaging,<br>not concession approval or customer commitment"]
+
+    intake --> sources
+    sources --> ranking
+    ranking --> blocked
+    blocked --> viable
+    viable -->|"Yes"| artifact
+    viable -->|"No"| escalation
+    artifact --> stop
+    escalation --> stop
+```
+
 ## Target systems / source systems
 
 - Premium-support case timeline, major-incident review notes, service-impact ledger, and prior accommodation history for the affected regulated account
