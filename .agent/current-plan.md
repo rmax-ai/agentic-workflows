@@ -4,10 +4,9 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement diversified `contingency-plan-activation-gate` through `instances/engineering/critical-security-patch-offline-signing-continuity-activation-gate.md`, adding a materially distinct `engineering` example in that approval-bound planning slice.
-- Result check: the new engineering example stayed bounded at one offline-signing continuity activation packet with readiness-ledger and hold-register visibility for frozen manifest binding, signer quorum, enclave readiness, rollback custody, and publication-boundary controls while avoiding authority recommendation, attestation-service restoration, customer notification, artifact signing, or patch shipment.
-- Read-first set used this iteration: this plan; `data/patterns/plan-coordinate-schedule/contingency-plan-activation-gate.yaml`; `instances/compliance/serious-adverse-event-manual-intake-continuity-activation-gate.md`; `instances/finance/intraday-liquidity-contingency-funding-facility-activation-gate.md`; `instances/operations/network-cold-chain-emergency-reroute-activation-gate.md`; the relevant planning notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-024802.md`.
-- Boundary check: the new example preserved one named approval gate, explicit readiness prerequisites, packet lineage, and protected holds while stopping before fallback launch, truth restoration, authority routing, external communication, or live downstream execution.
+- Target for this iteration: continue Phase 7 structural refinement on `contingency-plan-activation-gate` by adding one materially distinct `research` example, which is the thinnest remaining domain slice for this planning pattern and also rebalances the current domain counts.
+- Intended read-first set: this plan; `data/patterns/plan-coordinate-schedule/contingency-plan-activation-gate.yaml`; `instances/compliance/serious-adverse-event-manual-intake-continuity-activation-gate.md`; `instances/engineering/critical-security-patch-offline-signing-continuity-activation-gate.md`; `instances/finance/intraday-liquidity-contingency-funding-facility-activation-gate.md`; `instances/operations/network-cold-chain-emergency-reroute-activation-gate.md`; the relevant planning notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-025258.md`.
+- Boundary check for the next example: keep the workflow anchored at one named activation gate and one governed readiness packet with explicit prerequisites, lineage, and hold visibility while stopping before fallback launch, protocol execution, participant or reviewer communication, or downstream operational action.
 
 ## Current phase
 
@@ -24,7 +23,7 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Continue Phase 7 with one instance-only refinement centered on `contingency-plan-activation-gate`, preferring the remaining uncovered domains `research`, `support`, or `hr` unless a stronger directly coupled planning gap emerges.
+1. Continue Phase 7 with one instance-only refinement centered on `contingency-plan-activation-gate`, targeting `research` unless a stronger directly coupled planning gap emerges during the read-first pass.
 2. Keep the next batch instance-only unless the new grounding exposes a real canonical or browse-view drift; otherwise do not reopen schema, vocabularies, or views.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the next content change.
 4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
