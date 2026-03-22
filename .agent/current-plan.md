@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement added one new `research` instance in the already grounded `approval-gated-collaborative-artifact-release` slice through `instances/research/controlled-cohort-small-cell-suppression-clarification-packet-approved-for-restricted-data-governance-review-intake.md`.
-- Result check: the new research example stayed materially separate from the existing consent-language, publication-rights, and sensitive-methods examples by centering one governed controlled-data disclosure-control clarification packet, one restricted data-governance review intake lane, and one residual-objection profile around small-cell suppression scope, cohort-linkage exposure, utility-preserving exception requests, and enclave-export assumptions rather than ethics wording, rights provenance, benchmark-claim integrity, or dual-use redaction.
-- Read-first set used this iteration: this plan; `data/patterns/human-agent-collaborative-work/approval-gated-collaborative-artifact-release.yaml`; `instances/research/participant-consent-language-variance-clarification-packet-approved-for-human-subjects-ethics-pre-review-intake.md`; `instances/research/publication-rights-and-provenance-clarification-packet-approved-for-publication-rights-review-intake.md`; `instances/research/high-consequence-pathogen-protocol-redaction-clarification-packet-approved-for-restricted-dual-use-review-intake.md`; `instances/engineering/production-crash-dump-redaction-clarification-packet-approved-for-restricted-privacy-engineering-review-intake.md`; the relevant collaboration coverage notes in `.agent/coverage-matrix.yaml`; `.agent/ontology-status.yaml`; and `20260322-022438.md`.
-- Boundary check: the new example remained centered on one exact collaborative research artifact plus its release manifest, disagreement ledger, and bounded intake lane, and it stopped before disclosure adjudication, dataset provisioning, journal or collaborator communication, supplementary-material submission, or downstream review decisions.
+- Target: Phase 7 structural refinement should diversify into `approval-gated-briefing-release` by adding one materially distinct `hr` example through a second governed briefing-circulation scenario rather than continuing the recent collaboration-release run.
+- Success check: the new example must stay bounded at release of one exact synthesized briefing revision into one restricted visibility lane, keeping audience scope, freshness, hold state, and supersession explicit while avoiding policy adjudication, employee-case handling, communications rollout, scheduling, or downstream execution.
+- Read-first set for this iteration: this plan; `data/patterns/gather-retrieve-synthesize/approval-gated-briefing-release.yaml`; `instances/hr/bereavement-leave-compliance-briefing-revision-approved-for-people-policy-council-circulation.md`; `instances/finance/quarter-close-earnings-sensitivity-briefing-revision-approved-for-disclosure-committee-circulation.md`; `instances/operations/gateway-port-berth-closure-impact-briefing-revision-approved-for-marine-continuity-cell-circulation.md`; the relevant briefing-release notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-023015.md`.
+- Constraint: keep the batch instance-first unless the new grounding exposes directly coupled canonical drift that would leave the pattern metadata or browse layer inaccurate if left unchanged.
 
 ## Current phase
 
@@ -24,10 +24,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Shift the next-step target from domain rebalancing to pattern-slice diversification by adding one materially distinct instance-only refinement in a different high-governance release-control slice, preferably outside `approval-gated-collaborative-artifact-release`, unless a stronger directly coupled gap emerges.
-2. Keep the next batch instance-first unless a new grounding exposes real directly coupled canonical drift.
-3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the next content change.
-4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
+1. Add one materially distinct `hr` instance in `approval-gated-briefing-release` so Phase 7 widens a different high-governance release-control slice without reopening collaboration-release authoring.
+2. Keep the batch instance-first unless the new grounding exposes real directly coupled canonical drift.
+3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
+4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and `20260322-023450.md` after verification.
 
 ## Recent checkpoints
 
