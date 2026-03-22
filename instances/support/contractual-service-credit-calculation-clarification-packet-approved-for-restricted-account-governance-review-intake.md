@@ -12,6 +12,24 @@ Support.
 
 A strategic support renewal manager, a billing-operations analyst, and an account-governance partner are co-producing one governed contractual service-credit calculation clarification packet because a customer has disputed how outage-duration windows, excluded maintenance intervals, entitlement caps, and overlapping ticket chronology should be interpreted before any internal account-governance reviewers look at the case. Agents help reconcile case timeline extracts, service-level obligation clauses, maintenance-window annotations, metering evidence, calculation worksheets, and unresolved reviewer objections into the shared packet while preserving which disagreements remain open, which evidence lineage is still contested, and which residual caveats the human artifact owner accepted explicitly. The workflow ends only when the named support release owner approves that exact packet revision for one bounded restricted account-governance review intake lane, where downstream reviewers may decide whether the clarification packet is sufficient for formal governance review or needs narrower scope and fresher support. It does not approve a credit, recommend a concession, contact the customer, change billing records, or execute remediation steps.
 
+```mermaid
+flowchart TD
+    A["Collaborative clarification packet<br>co-produced and revised"]
+    B["Visible disagreement<br>and objection state retained"]
+    C["Exact packet revision<br>and release manifest prepared"]
+    D["Named support release owner<br>reviews packet and manifest"]
+    E["Approved packet revision<br>released"]
+    F["Restricted account-governance<br>review intake lane"]
+    G["Release held for clarification packet,<br>manifest, or disagreement updates"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    D --> G
+    E --> F
+```
+
 ## Target systems / source systems
 
 - Governed support collaboration workspace holding the contractual service-credit calculation clarification packet, revision history, objection ledger, and release-manifest state
