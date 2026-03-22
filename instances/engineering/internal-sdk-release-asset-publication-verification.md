@@ -39,6 +39,16 @@ This grounds the pattern in an engineering workflow where the hard problem is no
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Pipeline claim feed<br>publication-complete event"] -->|"provides claimed version"| B["Verification service<br>evidence-backed checks"]
+    B -->|"queries published package evidence"| C["Package registry<br>artifact ids and version"]
+    B -->|"reads signed hashes"| D["Checksum manifest store<br>released manifest bundle"]
+    B -->|"checks official publication note"| E["Release-notes system<br>version announcement record"]
+    B -->|"writes verdict and evidence trace"| F["Internal SDK release asset publication verification<br>durable verification record"]
+    F -->|"preserves claim id<br>and source observations"| B
+```
+
 - Event-driven monitoring fits because the workflow begins from the publication-complete claim emitted by the pipeline rather than from a manually opened investigation.
 - A tool-using single agent can query the registry, compare checksum manifest versions, check the release-notes record, and write one inspectable verdict with any unresolved gaps.
 - Bounded delegation is appropriate because engineering owners can predefine the accepted sources, version-matching rules, and tolerated lag while humans retain ownership of any republish, rollback, or broader release decision.
