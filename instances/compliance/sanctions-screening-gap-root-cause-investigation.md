@@ -40,6 +40,25 @@ This instance shows how `incident-root-cause-analysis` applies to compliance whe
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph automated["Orchestrated multi-agent<br>investigation"]
+        screening["Screening telemetry"]
+        list_history["List-ingestion history"]
+        routing["Case-routing traces"]
+        investigation_record["Normalized investigation record"]
+        case_memory["Shared case memory"]
+        screening -->|"Contributes evidence to"| investigation_record
+        list_history -->|"Contributes evidence to"| investigation_record
+        routing -->|"Contributes evidence to"| investigation_record
+        investigation_record -->|"Updates"| case_memory
+    end
+    participants["Compliance, engineering, and<br>operations participants"]
+    approvals["Human-in-the-loop approval"]
+    case_memory -->|"Supports review for"| participants
+    participants -->|"Approve primary root cause,<br>official incident scope, and regulator communications through"| approvals
+```
+
 - An orchestrated multi-agent design can divide evidence collection across screening telemetry, list-ingestion history, and case-routing traces while sharing one normalized investigation record.
 - Shared case memory should track affected transactions, competing causal hypotheses, rejected explanations, and open verification checks across compliance, engineering, and operations participants.
 - Human-in-the-loop approval is required before declaring the primary root cause, defining the official incident scope, or using the findings in regulator communications.
