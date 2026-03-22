@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 308
+  instance_files: 309
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -68,11 +68,12 @@ instance_counts_by_domain:
   operations: 44
   research: 44
   support: 45
-  hr: 42
+  hr: 43
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has three hundred eight grounded examples across all seven currently modeled domains, with `compliance` at forty-seven; `support` at forty-five; `research` and `operations` at forty-four; `engineering` and `finance` at forty-three; and `hr` at forty-two. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has three hundred nine grounded examples across all seven currently modeled domains, with `compliance` at forty-seven; `support` at forty-five; `research` and `operations` at forty-four; `engineering`, `finance`, and `hr` at forty-three. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`approval-gated-optimization-state-release` now has additional `hr` grounding through an executive-conflict investigation intake scoring revision release example, deepening that high-risk optimize/adapt approval-bound slice beyond protected leave and accommodation intake by centering one exact employee-relations tuning revision with provenance snapshots, visible blocker state, field-level delta lineage, explicit expiry and rollback controls, and one named approval lane rather than allegation substantiation, investigator assignment, executive communication, policy adjudication, or downstream case execution."
   - "`change-triggered-representation-refresh` now has additional `finance` grounding through a borrowing-base certificate review package refresh after collateral schedule update, deepening that moderate-risk transform-family refresh slice beyond quarter-close covenant staging by centering one exact asset-based-lending review package with receivables and inventory schedule lineage, approved reserve and concentration-haircut changes, field-level delta trace, exception-held blockers, and a named credit-officer plus facility-agent review lane rather than lender submission, borrowing requests, treasury availability posting, or downstream execution."
   - "`approval-packet-generation` now has explicit `engineering` grounding through a production artifact-signing key-rotation deferral approval-packet example, deepening that high-risk gather-family approval-bound slice beyond compliance legal-hold and biometric-retention cases plus operations vapor-recovery deviation coverage by centering one exact cryptography-governance packet with key-inventory lineage, HSM attestation evidence, ceremony-readiness blockers, dependency-status traces, scoped exception visibility, and a named board-review handoff rather than deferral recommendation, approval adjudication, key-rotation scheduling, or downstream release execution."
   - "`crisis-briefing-evidence-synthesis` now has its first `finance` grounding through a coordinated account-takeover payment ring fraud-command bridge crisis briefing example, deepening that critical gather/synthesize slice beyond engineering outage, operations cold-chain, and support executive-bridge coverage by centering one exact cross-channel fraud-command brief with affected-account scope, outbound-payment state, beneficiary-cluster overlap, authentication-compromise evidence, analyst-confirmed case lineage, and explicit unresolved exposure questions rather than payment blocking, reimbursement choice, suspicious-activity filing, law-enforcement contact, regulator communication, or downstream execution."
