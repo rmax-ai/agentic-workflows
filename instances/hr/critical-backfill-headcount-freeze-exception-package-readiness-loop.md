@@ -12,6 +12,27 @@ HR.
 
 An HR business partner is coordinating a formal exception package because a business unit wants to backfill a manager-level role during an active headcount freeze, and the request must be refined through finance, talent, and executive review before a final human approval owner will consider it. In a governed HR collaboration workspace, the HRBP and agent support iterate on the packet as reviewers challenge the business-criticality rationale, organizational-design alternatives, internal-mobility evidence, compensation-band implications, and the proposed timing for opening the requisition. The agents help preserve conflicting reviewer positions, refresh workforce-planning and recruiting evidence, rewrite the packet to reflect accepted edits and unresolved objections, and keep a handoff ledger that shows who owns the next approval-readiness checkpoint. The human HRBP and named approval owner remain responsible for deciding whether the package is actually ready to advance, whether reviewer objections have been sufficiently answered, and whether the request should stop for additional evidence or broader workforce-planning escalation instead of moving toward adjudication.
 
+```mermaid
+flowchart TD
+    A["HRBP maintains the draft freeze-exception packet<br>in the governed HR review workspace"]
+    B["Finance, talent, and executive reviewers challenge the packet's<br>business-criticality rationale, alternatives, mobility evidence, compensation implications, and timing"]
+    C["Agents refresh workforce-planning, recruiting, HRIS,<br>compensation, and policy evidence"]
+    D["Agents rewrite the packet, preserve conflicting positions,<br>and update the handoff ledger"]
+    E{"Human HRBP and named approval owner decide whether<br>the package is ready to advance"}
+    F["Hold the package for additional evidence or broader<br>workforce-planning escalation"]
+    G["Transfer the final packet, unresolved issues, and handoff ownership<br>to the executive approval-routing queue"]
+    H["Workflow boundary: formal decision review starts after this handoff"]
+
+    A -->|"review cycle starts"| B
+    B -->|"reviewer objections logged"| C
+    C -->|"refreshed evidence available"| D
+    D -->|"revised packet and ledger ready"| E
+    E -->|"No"| F
+    F -->|"return for another revision round"| B
+    E -->|"Yes"| G
+    G -->|"approval-readiness handoff only"| H
+```
+
 ## Target systems / source systems
 
 - Governed HR review workspace with the draft exception packet, comment history, readiness status, and named handoff ownership
