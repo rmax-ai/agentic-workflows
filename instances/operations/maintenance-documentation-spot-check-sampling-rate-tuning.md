@@ -12,6 +12,24 @@ Operations.
 
 An operations assurance team reviews completed maintenance work orders, inspection photos, calibration certificates, and technician notes to catch documentation gaps before they undermine safety audits, warranty recovery, or preventive-maintenance planning. A fixed spot-check policy currently over-samples routine low-risk records while under-covering work from recently onboarded vendors, safety-critical asset classes, and sites where documentation escapes were discovered only during later audits. The workflow must autonomously retune bounded spot-check sampling rates so maintenance records with rising escape risk or higher finding yield receive more review coverage, while preserving protected floors for safety-critical assets, respecting reviewer-capacity and outage-season workload constraints, minimizing copied worker detail, and preserving rollback if the loop begins chasing short-lived local defects.
 
+```mermaid
+flowchart TD
+POLICY["Current sampling policy<br>and protected floors"]
+RECORDS["Completed maintenance records<br>and candidate spot-check cohorts"]
+HISTORY["Findings, escapes, and<br>prior backfill results"]
+CAPACITY["Reviewer capacity and<br>seasonal workload context"]
+TUNE["Bounded sampling-rate tuning"]
+UPDATED["Updated spot-check<br>sampling policy"]
+AUDIT["Sampling change record<br>with rollback status"]
+POLICY -->|"policy bounds"| TUNE
+RECORDS -->|"cohort inputs"| TUNE
+HISTORY -->|"yield and miss signals"| TUNE
+CAPACITY -->|"load constraints"| TUNE
+TUNE -->|"approved rate changes"| UPDATED
+TUNE -->|"audit trace"| AUDIT
+UPDATED -->|"versioned policy"| AUDIT
+```
+
 ## Target systems / source systems
 
 - Maintenance-assurance policy store with active sampling rates, protected asset classes, and prior configuration versions
