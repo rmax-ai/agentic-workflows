@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement diversified `evidence-gated-verification-for-release` through `instances/operations/approved-bulk-chemical-transfer-manifold-isolation-packet-evidence-gate-verification.md`, adding a second materially distinct `operations` example in that high-governance verification slice.
-- Result check: the new operations example stayed bounded at rechecking whether one already approved manifold-isolation packet revision still had sufficient current evidence for restricted transfer-authority reliance, with explicit verified / held / insufficient outcomes, evidence lineage, and named approval-boundary scope while avoiding replanning, recommendation, permit refresh, or live transfer execution.
-- Read-first set used this iteration: this plan; `data/patterns/investigate-reconcile-verify/evidence-gated-verification-for-release.yaml`; `instances/operations/approved-sorter-routing-cutover-evidence-gate-verification.md`; `instances/finance/approved-covenant-compliance-certificate-packet-evidence-gate-verification.md`; `instances/engineering/approved-release-candidate-evidence-gate-verification.md`; `instances/research/approved-benchmark-study-publication-integrity-packet-evidence-gate-verification.md`; the relevant verification notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-023450.md`.
-- Boundary check: the new example remained centered on one exact approved operations packet plus current corroborating evidence and the restricted approval gate, and it stopped before transfer go/no-go choice, control-room decision support, crew dispatch, permit refresh, vendor communication, or any downstream operational action.
+- Active target: Phase 7 structural refinement should diversify `approval-gated-transformation-release` through one additional materially distinct grounded example, preferably in `support`, because that approval-bound transform slice remains thinner than the recently expanded collaboration, briefing, and verification slices.
+- Intended result check: the next example must stay bounded at one exact transformed package revision plus its release manifest, hold register, and restricted downstream intake or handoff lane while avoiding recommendation, evidence-verdicting, negotiation, adjudication, publication, or live execution.
+- Read-first set for this iteration: this plan; `data/patterns/transform-process/approval-gated-transformation-release.yaml`; `instances/support/enterprise-identity-outage-vendor-escalation-packet-approved-for-restricted-vendor-intake.md`; `instances/engineering/build-artifact-catalog-schema-transformation-approved-for-system-inventory-intake.md`; `instances/finance/morning-liquidity-posting-bundle-approved-for-ledger-handoff.md`; the relevant transform notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-024237.md`.
+- Boundary check: the next example must remain centered on governed transformation release of one exact package version into one named downstream lane, with unresolved fields, annexes, or scope conflicts kept visible rather than collapsing into incident handling, vendor or stakeholder communication, policy adjudication, or downstream system change.
 
 ## Current phase
 
@@ -24,8 +24,8 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Continue Phase 7 with another structurally distinct instance-only refinement outside `approval-gated-collaborative-artifact-release`, `approval-gated-briefing-release`, and `evidence-gated-verification-for-release`, preferably in a different approval-bound or transformation-bound slice unless a stronger coupled gap emerges.
-2. Prefer a batch that deepens one of the still-thinner canonical slices such as `contingency-plan-activation-gate` or `approval-gated-transformation-release` without reopening schema, vocabularies, or views unless validation exposes real drift.
+1. Continue Phase 7 with one structurally distinct instance-only refinement outside `approval-gated-collaborative-artifact-release`, `approval-gated-briefing-release`, and `evidence-gated-verification-for-release`, now specifically targeting `approval-gated-transformation-release` unless validation exposes a stronger directly coupled gap.
+2. Prefer a support-grounded approval-bound transform-release example that deepens package-version lineage, held-annex visibility, and single-lane release governance without reopening schema, vocabularies, or views unless validation exposes real drift.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the next content change.
 4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
 
