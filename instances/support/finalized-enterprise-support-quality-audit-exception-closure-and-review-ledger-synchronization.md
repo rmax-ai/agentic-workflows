@@ -12,6 +12,25 @@ Support.
 
 A restricted enterprise support quality exceptions panel has already recorded a final closure-approved disposition for a quality-audit exception case in the authoritative internal review system after the upstream judgment about the exception is complete. That disposition is final for this workflow and must not be reopened, reinterpreted, or extended into customer communication, refund or credit handling, live ticket remediation, agent coaching directives, or new review execution. The remaining execute step is limited to low-risk closure bookkeeping: detect the final-disposition event, recheck that the quality-exception identifier, disposition version, and approved archive references still match the source record, close the restricted post-review queue item, sync the quality review ledger and exception tracker to the recorded review-complete state, attach archive references for the final closure memo and approved evidence bundle, record completion state in the audit store, and notify the internal support quality operations coordinator that closure propagation is complete. If the case was reopened, the disposition changed, or the target ledger points to a different quality-review episode, the workflow should stop and route manual follow-up instead of guessing.
 
+```mermaid
+flowchart TD
+    A["Final closure-approved<br>event detected"]
+    B{"Source record still matches<br>quality-exception id,<br>disposition version, and archive references?"}
+    C["Route manual follow-up<br>and halt propagation"]
+    D["Close restricted post-review<br>queue item"]
+    E["Sync quality review ledger<br>and exception tracker"]
+    F["Attach final closure memo<br>and approved evidence references"]
+    G["Record completion state<br>in the audit store"]
+    H["Notify support quality operations<br>coordinator that closure propagation<br>is complete"]
+    A --> B
+    B -->|"No"| C
+    B -->|"Yes"| D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+```
+
 ## Target systems / source systems
 
 - Restricted enterprise support quality-exception review system that records the final closure-approved disposition and emits the authoritative state-change event
