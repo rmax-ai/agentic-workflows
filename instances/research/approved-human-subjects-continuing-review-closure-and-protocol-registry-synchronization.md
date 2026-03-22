@@ -12,6 +12,24 @@ Research.
 
 A university-affiliated research compliance office has already recorded an approved continuing-review disposition for a longitudinal human-subjects study in the authoritative ethics workflow after the board completed its decision-making work. That approval is final for this workflow and must not be reopened, reinterpreted, or extended into participant-facing study execution. The remaining execute step is limited to low-risk closure bookkeeping: detect the approved continuing-review event, recheck that the protocol identifier, approval term, and approved packet references still match the source record, close the annual review queue item, sync the internal protocol registry and study-operations tracker to the recorded review-complete state, attach archive references for the final approval letter and continuing-review packet, record completion state in the audit store, and notify the study operations coordinator that review closure propagation is complete. If the protocol was reopened, the approval term changed, or the target registry points to a different study record, the workflow should stop and route manual follow-up instead of guessing.
 
+```mermaid
+flowchart TD
+    A["Approved continuing-review<br>event detected"]
+    B{"Study identifiers, approval term,<br>and packet references still match?"}
+    C["Close annual review<br>queue item"]
+    D["Sync protocol registry and<br>study-operations tracker"]
+    E["Attach archive references and<br>record audit completion state"]
+    F["Notify study operations coordinator<br>that closure propagation is complete"]
+    G["Stop automation and route<br>manual follow-up"]
+
+    A --> B
+    B -->|"Yes"| C
+    B -->|"No"| G
+    C --> D
+    D --> E
+    E --> F
+```
+
 ## Target systems / source systems
 
 - Restricted ethics or research-compliance workflow system that records the approved continuing-review disposition and emits the authoritative state-change event
