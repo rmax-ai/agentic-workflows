@@ -12,6 +12,18 @@ Operations.
 
 A food-distribution command center has already declared a critical contamination coordination window with an active checkpoint sequence for laboratory readiness review, facility containment confirmation, carrier hold verification, legal review, and partner-briefing preparation. As the event unfolds, authoritative conditions change: laboratory turnaround slips, one facility confirms containment earlier than expected, and legal narrows the latest safe partner-briefing window while a carrier review owner rotates to an approved after-hours delegate. The workflow must rebuild one authoritative checkpoint order, preserve explicit holds for any partner-facing or containment checkpoint that is not yet safe to advance, and issue one current command packet so operations, quality, and legal teams stop coordinating from diverging whiteboard timelines.
 
+```mermaid
+flowchart TD
+    A["Declared contamination coordination window<br>and active checkpoint sequence"] --> B["Verify authoritative updates from laboratory status,<br>facility containment, carrier hold, approved delegate,<br>and legal window sources"]
+    B --> C{"Protected checkpoints can be resequenced<br>without crossing contamination hold rules<br>or the narrowed legal window?"}
+    C -->|"No"| D["Keep unsafe containment or partner-facing checkpoints<br>on explicit hold and record the conflicts<br>in the command ledger"]
+    D --> E["Assemble one current command packet<br>with the resequenced checkpoint ledger,<br>hold register, and superseded timeline lineage"]
+    C -->|"Yes"| E
+    E --> F{"Do command owners adopt<br>the current contamination packet<br>for live coordination use?"}
+    F -->|"No"| G["Stop at the held or prior authoritative timeline<br>and wait for new authoritative updates"]
+    F -->|"Yes"| H["Publish the authoritative contamination command packet<br>and targeted checkpoint deltas inside the command workspace"]
+```
+
 ## Target systems / source systems
 
 - Command-center incident record with the declared contamination scope, protected checkpoints, and prior coordination packets
