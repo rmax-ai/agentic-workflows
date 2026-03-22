@@ -53,6 +53,30 @@ This instance grounds the pattern in compliance through a records-governed archi
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph Boundary["Recommendation-only boundary"]
+        GateTracker["Records-governance gate tracker"]
+        PolicyAuthority["Books-and-records policy library<br>delegated records-authority matrix"]
+        BlockerContext["Retention schedule register<br>supervisory communications channel inventory<br>legal-hold registry"]
+        ValidationEvidence["Archive migration validation dashboard<br>hash-chain replay evidence store<br>channel-by-channel completeness reports"]
+        ImmutabilityEvidence["Vendor immutability certification repository<br>storage configuration snapshots<br>prior exception register"]
+        ReviewLineage["Prior gate packet revisions<br>reviewer comment history<br>restricted audit log"]
+        Recommender["Archive cutover readiness<br>disposition recommendation"]
+        Packet["Proceed, hold, narrow, or escalate<br>recommendation packet<br>with blocker register and rationale"]
+    end
+    Board["Records governance board<br>review handoff"]
+
+    GateTracker --> Recommender
+    PolicyAuthority --> Recommender
+    BlockerContext --> Recommender
+    ValidationEvidence --> Recommender
+    ImmutabilityEvidence --> Recommender
+    ReviewLineage --> Recommender
+    Recommender --> Packet
+    Packet --> Board
+```
+
 - Event-driven monitoring fits because legal-hold mapping closure, replay-validation results, vendor attestation updates, and retirement-window pressure should trigger a refreshed gate recommendation as soon as the packet context materially changes.
 - Human-in-the-loop review is mandatory because the workflow should advise on the gate disposition, not approve the archive-of-record switch, waive books-and-records obligations, notify supervisors, or start the migration.
 - Read-only integration with records, legal-hold, validation, and policy systems is preferable so the agent cannot silently convert a readiness recommendation into a live retention-system cutover.
