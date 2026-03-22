@@ -42,6 +42,28 @@ This grounds the pattern in an engineering workflow where the value is careful m
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph inputs["Observed and approved inputs"]
+        catalog["Internal service-catalog export<br>service rows, owner strings,<br>service aliases, and environment labels"]
+        metadata["Repository metadata files<br>and platform inventory notes"]
+        refs["Approved reference sources<br>team directory, environment code list,<br>service registry, and alias-mapping table"]
+    end
+
+    normalize["Bounded normalization and enrichment path<br>for search-index staging"]
+
+    subgraph outputs["Staging-only outputs"]
+        staging["Search-index staging store<br>normalized records, provenance,<br>and reference versions"]
+        exceptions["Exception queue or review workspace<br>unsupported aliases, conflicts,<br>and missing canonical identifiers"]
+    end
+
+    catalog -->|"Raw service metadata<br>and alias values"| normalize
+    metadata -->|"Supplemental search metadata<br>for the same services"| normalize
+    refs -->|"Approved canonical lookups<br>and mappings"| normalize
+    normalize -->|"Normalized staged records<br>with lineage and trace"| staging
+    normalize -->|"Unresolved alias bundle<br>with raw values and context"| exceptions
+```
+
 - A tool-using single agent can ingest the source rows, apply normalization rules, query approved lookup tables, and write staged normalized records plus a trace in one bounded batch loop.
 - The canonical target schema should separate observed source values from normalized values so downstream consumers can distinguish direct metadata from approved enrichment.
 - Reference lookups may standardize service aliases, team identifiers, environment codes, and support-tier labels, but unsupported inference about ownership, production criticality, or service lifecycle should remain out of scope and route to exceptions.
