@@ -13,6 +13,18 @@ Use the family pages to:
 
 Each family page should be treated as a narrative anchor for later canonical pattern files, not as a substitute for them.
 
+```mermaid
+flowchart TD
+    start["Open pattern family<br>overview"] --> family["Identify one primary<br>pattern family"]
+    family --> linkage["Use linked problem_structure<br>terms as guidance"]
+    linkage --> check{"Existing vocabulary<br>fits cleanly?"}
+    check -->|"Yes"| reuse["Reuse existing terms<br>and family boundary"]
+    check -->|"No"| gap["Document ontology gap<br>without inventing terms"]
+    reuse --> govern["Keep governance, reversibility,<br>approval boundaries, and<br>auditability explicit"]
+    gap --> govern
+    govern --> handoff["Seed later canonical<br>pattern files"]
+```
+
 ## Family order
 
 The browse order below follows `docs/index-tree.md` and `data/views/index-tree.yaml`.
