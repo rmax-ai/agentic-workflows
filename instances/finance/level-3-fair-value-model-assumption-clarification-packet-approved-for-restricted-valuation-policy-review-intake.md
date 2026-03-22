@@ -12,6 +12,25 @@ Finance.
 
 A valuation control lead, a portfolio finance manager, and a model risk partner are co-producing one governed level-3 fair-value model assumption clarification packet because a quarterly valuation update for an illiquid structured investment now depends on cash-flow timing assumptions, stale comparable transactions, calibration notes, and observable-versus-unobservable input treatment that remain partially disputed across working teams. Agents help reconcile model-version outputs, calibration worksheets, market-data extracts, prior-quarter challenge logs, and reviewer objections into the shared packet while preserving which assumption disagreements remain open, which control objections are still active, and which residual caveats the human artifact owner accepted explicitly. The workflow ends only when the named valuation governance release owner approves that exact packet revision for one bounded restricted valuation-policy review intake lane, where downstream reviewers may decide whether the packet is sufficient for formal policy review or needs narrower scope and fresher support. It does not adjudicate the valuation conclusion, post reserves, assign the fair-value hierarchy, brief auditors, prepare investor disclosures, or decide the downstream review outcome.
 
+```mermaid
+flowchart TD
+    A["Valuation control lead, portfolio finance manager,<br>and model risk partner co-produce one<br>level-3 fair-value model assumption clarification packet"]
+    B["Agents reconcile model-version outputs,<br>calibration worksheets, market-data extracts,<br>prior-quarter challenge logs, and reviewer objections"]
+    C["Shared packet keeps open assumption disagreements,<br>active control objections, and accepted residual caveats visible"]
+    D{"Named valuation governance release owner<br>approves this exact packet revision for one bounded<br>restricted valuation-policy review intake lane?"}
+    E["Hold release and supersede the packet revision<br>if comparables, market-data extracts,<br>model version, or reviewer scope change materially"]
+    F["Release the exact packet revision to one restricted<br>valuation-policy review intake lane with<br>release-manifest binding"]
+    G["Stop before valuation adjudication, reserve posting,<br>fair-value hierarchy assignment, auditor briefing,<br>investor disclosure, or downstream review-outcome decisions"]
+
+    A -->|"co-produces"| B
+    B -->|"updates"| C
+    C -->|"submitted for release decision"| D
+    D -->|"No"| E
+    E -->|"return for revision"| B
+    D -->|"Yes"| F
+    F -->|"workflow boundary"| G
+```
+
 ## Target systems / source systems
 
 - Governed finance collaboration workspace holding the level-3 fair-value model assumption clarification packet, revision history, objection ledger, and release-manifest state
