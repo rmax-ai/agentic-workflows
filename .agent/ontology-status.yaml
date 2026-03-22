@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 281
+  instance_files: 282
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -63,7 +63,7 @@ pattern_counts_by_family:
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
   engineering: 40
-  finance: 40
+  finance: 41
   compliance: 40
   operations: 40
   research: 41
@@ -72,7 +72,8 @@ instance_counts_by_domain:
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has two hundred eighty-one grounded examples across all seven currently modeled domains, with `research` at forty-one and `engineering`, `finance`, `compliance`, `operations`, `support`, plus `hr` at forty; Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has two hundred eighty-two grounded examples across all seven currently modeled domains, with `finance` plus `research` at forty-one and `engineering`, `compliance`, `operations`, `support`, plus `hr` at forty; Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`staged-change-execution-with-rollback-holds` now has additional `finance` grounding through an approved real-time payments funding switch cutover example, deepening that high-risk execute-family staged-execution slice within finance beyond cash-forecast promotion by centering prefunded settlement balance checks, rail connectivity, duplicate-prevention state, acknowledgement parity, limited-originator activation, broader rail-scope promotion, and protected legacy-retirement holds rather than cutover planning, authority recommendation, payment exception adjudication, customer communication, or downstream settlement operations outside the staged execution window."
   - "`human-directed-task-orchestration` now has additional `research` grounding through a BSL-3 cryostorage excursion supervised specimen containment example, deepening that critical-risk execute-family guided-execution slice within research beyond recommendation, planning, and collaboration surfaces by centering biosafety-lead-directed access holds, independent probe confirmation, qualified backup-freezer movement, chain-of-custody and capacity updates, mandatory post-step verification, and takeover-safe handoff rather than salvage planning, biosafety adjudication, or downstream study execution."
   - "`authoritative-change-coordination-refresh` now has additional `engineering` grounding through a platform network-segmentation exception review coordination refresh example, deepening that planning-family event-driven coordination-refresh slice within engineering beyond release-readiness review by centering one already-issued architecture-board packet, materials-lock movement, approved delegate substitution, firewall-validation readiness drift, targeted delta notices, and one governed infrastructure-governance adoption checkpoint rather than broad replanning, exception recommendation revision, board adjudication, or downstream network-policy execution."
   - "`approval-gated-triage-dispatch` now has additional `research` grounding through a high-consequence pathogen near-miss exposure triage packet approved for restricted biosafety oversight review dispatch, deepening that monitor-family approval-bound slice within research beyond dataset-access and benchmark disclosure-risk dispatch by centering one already-triaged near-miss packet, containment-telemetry and training freshness, reviewer-audience minimization, explicit hold visibility, and one governed biosafety release rather than exposure adjudication, corrective-action planning, regulator notification, personnel communication, or downstream laboratory execution."
