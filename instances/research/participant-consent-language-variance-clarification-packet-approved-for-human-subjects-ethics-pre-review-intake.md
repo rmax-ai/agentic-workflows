@@ -12,6 +12,19 @@ Research.
 
 A principal investigator, a clinical research operations lead, and human-subjects governance partners are co-producing one governed consent-language variance clarification packet because translated participant-facing materials for one multisite study now diverge from the approved master consent in ways that may affect risk wording, withdrawal instructions, and compensation language. Agents help reconcile source consent versions, translator notes, site objections, and approved clarification wording into the shared packet while preserving which concerns remain contested and which edits the human artifact owner accepted. The workflow ends only when the named research release owner approves that exact packet revision for one bounded human-subjects ethics pre-review intake lane, where downstream reviewers may decide whether the variance is acceptable, needs an amendment, or requires narrower participant language. It does not decide ethics disposition, contact participants, or submit an amendment package.
 
+```mermaid
+flowchart TD
+    A["Source consent variants<br>translator notes<br>site objections"]
+    B["Collaborative clarification packet<br>visible contested wording<br>accepted edits"]
+    C["Release-manifest approval<br>exact packet revision<br>named release owner"]
+    D["Human-subjects ethics pre-review intake<br>bounded intake lane<br>packet handoff only"]
+
+    A --> B
+    B --> C
+    C --> B
+    C --> D
+```
+
 ## Target systems / source systems
 
 - Governed research collaboration workspace holding the consent-variance clarification packet, revision history, objection ledger, and release-manifest state
