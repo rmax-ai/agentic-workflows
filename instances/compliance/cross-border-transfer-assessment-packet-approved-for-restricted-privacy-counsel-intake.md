@@ -42,6 +42,43 @@ This grounds the pattern in compliance work where the key output is one downstre
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Authoritative source systems"]
+        scope["Vendor-risk register,<br>subprocess inventory,<br>and data-flow mapping systems"]
+        questionnaire["Transfer-impact questionnaire store"]
+        annexes["Approved contract annex repository"]
+        taxonomy["Regional data-category taxonomy"]
+    end
+
+    subgraph staging["Governed staging store and manifest service"]
+        packet["Governed staging store"]
+        manifest["Manifest service"]
+    end
+
+    hold["Hold and exception queue"]
+
+    subgraph approval["Approval boundary"]
+        reviewer["Privacy compliance reviewer"]
+        tooling["Approval tooling"]
+    end
+
+    subgraph intake["Restricted privacy-counsel intake lane"]
+        queue["Restricted privacy-counsel intake queue"]
+    end
+
+    scope -->|"Authoritative transfer scope<br>and lineage"| packet
+    questionnaire -->|"Questionnaire responses"| packet
+    annexes -->|"Approved contract annexes"| packet
+    taxonomy -->|"Regional data-category mappings"| packet
+    packet -->|"Staged transfer-assessment packet<br>and transformation trace"| manifest
+    packet -->|"Missing annex lineage,<br>stale subprocess scope,<br>jurisdiction-tag conflicts,<br>or audience mismatches"| hold
+    manifest -->|"Exact packet version,<br>held-field markers,<br>and audience scope"| tooling
+    reviewer -->|"Review and sign"| tooling
+    tooling -->|"Approved manifest status"| manifest
+    tooling -->|"Approved packet and manifest"| queue
+```
+
 - Approval-gated execution fits because the transfer-assessment packet may be technically complete for one restricted counsel-intake lane while remaining blocked until a privacy compliance reviewer approves the exact version and audience scope in the manifest.
 - Human-in-the-loop governance is required because accountable reviewers must confirm jurisdiction tags, held annexes, and the single downstream intake boundary before release.
 - The workflow should emit only the transformed transfer-assessment packet, transformation trace, hold register, and approval manifest rather than a permissibility recommendation, legal conclusion, vendor instruction, or regulator-submission package.
