@@ -39,6 +39,33 @@ This grounds the pattern in a compliance workflow that is materially different f
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph Closure["Low-risk closure bookkeeping boundary"]
+        Source["Restricted trade-surveillance case-management system"]
+        Worker["Event-driven completion worker"]
+        Queue["Restricted post-review queue"]
+        Register["Surveillance case register<br>or supervisory review tracker"]
+        Archive["Archive or evidence store"]
+        Audit["Audit store"]
+        Notify["Internal surveillance operations<br>notification channel"]
+    end
+
+    subgraph Manual["Manual follow-up boundary"]
+        Coordinator["Internal surveillance operations coordinator"]
+    end
+
+    Source -->|"Final no-action disposition event"| Worker
+    Worker -->|"Re-read current source record"| Source
+    Worker -->|"Close queue item"| Queue
+    Worker -->|"Sync closed-no-action state"| Register
+    Worker -->|"Verify and attach archive references"| Archive
+    Worker -->|"Record completion state<br>and idempotency markers"| Audit
+    Worker -->|"Notify closure propagation complete"| Notify
+    Notify -->|"Deliver completion notice"| Coordinator
+    Worker -->|"Route reopened case, mismatch,<br>or out-of-scope next step"| Coordinator
+```
+
 - An event-driven completion worker can subscribe to final no-action disposition events from the surveillance case system and start the closure sequence only for approved post-decision states.
 - The worker should re-read the current source record before writing anywhere so a reopened surveillance case, superseded disposition, or changed archive reference is not propagated from a stale event.
 - Durable completion state should track queue closure, register synchronization, archive linkage, notification delivery, and skipped idempotent actions because duplicate events or partial retries are normal operational conditions.
