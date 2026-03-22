@@ -12,6 +12,22 @@ Compliance.
 
 A records-compliance lead, an enterprise archiving reviewer, and a surveillance-governance partner are co-producing one governed retention-schedule conflict packet because a broker-dealer's supervised electronic-communications estate now stores trader chats, AI-generated conversation summaries, and attachment previews across multiple archives whose retention clocks, legal-hold overlays, and category mappings are still partially contested. Agents help reconcile books-and-records obligations, channel taxonomy mappings, retention-table excerpts, legal-hold carve-outs, backup immutability caveats, and unresolved reviewer objections into the shared packet while preserving which repository-specific concerns remain open and which residual objections the human release owner accepted explicitly. The workflow ends only when the named compliance release owner approves that exact packet revision for one bounded records-retention review intake lane, where downstream reviewers may decide whether the packet supports a formal retention determination or needs narrower scoping and fresher evidence. It does not set the retention period, authorize deletion or preservation changes, contact regulators, or execute archive reconfiguration.
 
+```mermaid
+flowchart TD
+    A["Co-produce one governed<br>retention-schedule conflict packet"]
+    B["Reconcile retention evidence,<br>repository mappings, hold overlays,<br>and unresolved objections"]
+    C["Bind one exact packet revision,<br>release manifest, and restricted<br>records-retention review intake lane"]
+    D{"Named compliance release owner<br>approves that exact packet revision<br>for the restricted intake lane?"}
+    E["Release that exact packet revision<br>into one restricted records-retention<br>review intake lane"]
+    F["Hold release and return the packet<br>for revision or supersession inside<br>the governed collaboration workflow"]
+    A -->|"Maintain shared packet"| B
+    B -->|"Prepare exact revision and scope"| C
+    C -->|"Submit for approval"| D
+    D -->|"Yes"| E
+    D -->|"No"| F
+    F -->|"Revise or supersede packet"| A
+```
+
 ## Target systems / source systems
 
 - Governed records-compliance collaboration workspace holding the retention-schedule conflict packet, revision history, objection ledger, and release-manifest state
