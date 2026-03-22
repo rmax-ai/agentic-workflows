@@ -42,6 +42,36 @@ This grounds the scheduling pattern in an engineering workflow where the value c
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Approved engineering sources"]
+        ticket["Change-management ticket<br>cutover window<br>rollback checkpoint<br>required review roles"]
+        calendars["Team calendars<br>release engineering<br>service owner<br>SRE<br>database<br>security"]
+        releasecal["Release calendar<br>freeze periods<br>launch blackouts<br>booked review slots"]
+        readiness["CI/CD release dashboard<br>and readiness checklist<br>evidence deadlines only"]
+    end
+    subgraph delegated["Bounded scheduling boundary"]
+        agent["Tool-using scheduling agent"]
+        packet["Draft review packet<br>ranked slot<br>role coverage<br>tentative status"]
+    end
+    subgraph human["Human commitment boundary"]
+        owner{"Release owner confirms<br>slot and any exception?"}
+        meeting["Calendar and meeting tools<br>reversible holds<br>delegate-aware invite draft<br>final invite"]
+        channel["Engineering coordination channel<br>substitutions<br>policy exceptions<br>final status"]
+    end
+
+    ticket -->|"Cutover window, rollback checkpoint,<br>and required roles"| agent
+    calendars -->|"Free-busy and delegate metadata"| agent
+    releasecal -->|"Freeze rules, blackouts,<br>and review-slot conflicts"| agent
+    readiness -->|"Evidence-freeze deadline"| agent
+    agent -->|"Rank in-policy slots"| packet
+    packet -->|"Place reversible holds<br>and draft invite"| meeting
+    packet -->|"Log draft status,<br>substitutions, and exceptions"| channel
+    packet -->|"Request confirmation or<br>exception review"| owner
+    owner -->|"Approve final slot<br>or policy exception"| meeting
+    owner -->|"Record final approval status"| channel
+```
+
 - A tool-using single agent gathers free-busy availability, freeze-window constraints, required-attendee rules, and existing production-review bookings from approved engineering systems.
 - Bounded delegation fits because the agent can rank feasible slots, place short-lived tentative holds, and draft a meeting packet linked to the governing change record, but it should not move the cutover window, replace a required reviewer silently, or finalize the review invitation without the release owner’s confirmation.
 - Human checkpoints remain necessary when no in-policy overlap exists before the evidence cutoff, when only after-hours options remain for a required team, or when a designated delegate would change the review’s approval authority.
