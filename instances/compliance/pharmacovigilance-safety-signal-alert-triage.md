@@ -41,6 +41,29 @@ This grounds the pattern in a regulated compliance setting where alert triage ha
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph inbound["Inbound safety sources"]
+        safety["Pharmacovigilance safety database<br>cases, follow-up, and prior signal history"]
+        literature["Literature and medical-information feeds<br>event and product mentions"]
+        deviations["Clinical-quality or deviation system<br>deviations and unblinding issues"]
+    end
+    refs["Product, label, and expectedness references<br>known risks and reporting rules"]
+    agent["Event-driven triage agent<br>normalize context, suppress duplicates,<br>score, and route"]
+    queue["Signal-review queue<br>prioritized triage packets and countdowns"]
+    reviewers["Human reviewers<br>safety scientist, medical reviewer,<br>or compliance lead"]
+    evidence["Audit evidence store<br>source documents, linkage rationale,<br>routing history, and overrides"]
+
+    safety --> agent
+    literature --> agent
+    deviations --> agent
+    refs --> agent
+    agent --> queue
+    agent --> evidence
+    queue --> reviewers
+    reviewers --> evidence
+```
+
 - Event-driven monitoring should ingest inbound safety and deviation signals continuously, then re-score alerts as new follow-up facts, duplicate links, or label changes arrive.
 - Human-in-the-loop review should remain central because seriousness interpretation, expectedness edge cases, and any escalation that could affect regulatory reporting or product-risk posture require accountable clinical or safety reviewers.
 - A tool-using single agent can normalize source metadata, attach prior-case and product context, suppress obvious duplicates under controlled rules, and publish a prioritized queue with rationale and countdowns for reporting windows.
