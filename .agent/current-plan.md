@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement diversified `approval-gated-transformation-release` through `instances/support/regulated-customer-audit-log-export-residency-packet-approved-for-restricted-sovereign-compliance-intake.md`, adding a second materially distinct `support` example in that approval-bound transform slice.
-- Result check: the new support example stayed bounded at one exact sovereign-compliance intake packet revision with lineage, hold visibility, and an approval-manifest-bound restricted intake lane while avoiding residency adjudication, concession recommendation, customer communication, export execution, or remediation work.
-- Read-first set used this iteration: this plan; `data/patterns/transform-process/approval-gated-transformation-release.yaml`; `instances/support/enterprise-identity-outage-vendor-escalation-packet-approved-for-restricted-vendor-intake.md`; `instances/engineering/build-artifact-catalog-schema-transformation-approved-for-system-inventory-intake.md`; `instances/finance/morning-liquidity-posting-bundle-approved-for-ledger-handoff.md`; the relevant transform notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-024237.md`.
-- Boundary check: the new example remained centered on governed transformation release of one exact package version into one restricted sovereign-compliance intake lane, with unresolved tenant fragments, stale jurisdiction attestations, key-custody mismatches, and residency-mapping drift kept visible rather than collapsing into permissibility decisions, broader artifact access, customer messaging, or downstream system action.
+- Active target: Phase 7 structural refinement should diversify `contingency-plan-activation-gate` with one materially distinct domain example in an uncovered domain such as `engineering`, `research`, `support`, or `hr`.
+- Target check: the next example must stay bounded at one activation-ready contingency packet, readiness ledger, and explicit hold register, and must stop before fallback launch, authority recommendation, truth restoration, external communication, or operational execution.
+- Read-first set for this iteration: this plan; `data/patterns/plan-coordinate-schedule/contingency-plan-activation-gate.yaml`; `instances/compliance/serious-adverse-event-manual-intake-continuity-activation-gate.md`; `instances/finance/intraday-liquidity-contingency-funding-facility-activation-gate.md`; `instances/operations/network-cold-chain-emergency-reroute-activation-gate.md`; the relevant planning notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-024802.md`.
+- Boundary check: the next example should preserve explicit readiness prerequisites, packet lineage, protected holds, and one named approval gate while avoiding recommendation of who should decide, fresh diagnosis of upstream state, or initiation of the contingency path itself.
 
 ## Current phase
 
@@ -18,14 +18,14 @@ This file is the rolling control document for the next bounded batch. Detailed e
   the highest-leverage refinement pressure inside the current
   matrix.
 - Canonical pattern coverage spans all nine pattern families, all tracked architecture types, and the full `low` / `moderate` / `high` / `critical` risk ladder.
-- Grounded coverage now spans two hundred sixty-eight examples across all seven modeled domains, with `support` and `hr` at thirty-nine grounded examples while `engineering`, `finance`, `compliance`, `operations`, and `research` stand at thirty-eight.
+- Grounded coverage now spans two hundred sixty-eight examples across all seven modeled domains, with `support` and `hr` at thirty-nine grounded examples while `engineering`, `finance`, `compliance`, `operations`, and `research` stand at thirty-eight; the next refinement should prefer a thinner plan-family approval gate instead of revisiting the recently deepened collaboration, briefing, verification, or transformation slices.
 - Browse artifacts remain derived from canonical pattern truth and should only change when a new grounding exposes genuine drift.
 - The validation and publication baseline remains `uv run python scripts/python/validate_yaml.py`, `uv run python scripts/python/build_site_docs.py`, and `uv run mkdocs build`.
 
 ## Ordered tasks
 
-1. Continue Phase 7 with another structurally distinct instance-only refinement outside `approval-gated-collaborative-artifact-release`, `approval-gated-briefing-release`, `evidence-gated-verification-for-release`, and `approval-gated-transformation-release`, preferably in a different approval-bound planning slice unless a stronger coupled gap emerges.
-2. Prefer a batch that deepens one of the still-thinner canonical slices such as `contingency-plan-activation-gate` without reopening schema, vocabularies, or views unless validation exposes real drift.
+1. Continue Phase 7 with one instance-only refinement centered on `contingency-plan-activation-gate`, preferring an uncovered domain such as `engineering`, `research`, `support`, or `hr` unless a stronger directly coupled planning gap emerges.
+2. Keep the batch instance-only unless the new grounding exposes a real canonical or browse-view drift; otherwise do not reopen schema, vocabularies, or views.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the next content change.
 4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
 
