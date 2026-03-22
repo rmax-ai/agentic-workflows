@@ -12,6 +12,18 @@ HR.
 
 An HR leave operations manager is overseeing a backlog of open protected-leave cases that need document-sufficiency review, recertification follow-up, intermittent-use verification, return-to-work restriction handling, or case-closure checks before employee commitments and statutory response windows slip. The queue mixes new family and medical leave requests, disability-related leave extensions, military-family leave inquiries, and intermittent leave cases with repeated attendance-code corrections. Recent handling data shows that specialists have been pulling forward straightforward cases with complete paperwork while medically sensitive, multilingual, or manager-disputed cases are aging longer and creating missed callback commitments, uneven specialist load, and late escalations to employee relations. The optimization workflow must reprioritize the existing review queue within bounded limits so imminent service deadlines, employee-impact severity, documentation-aging risk, and protected-priority leave events rise appropriately without letting complex cases, certain worksites, or employees needing language support be systematically pushed back.
 
+```mermaid
+flowchart TD
+    A["Queue reevaluation trigger<br>deadline pressure, override drift, or capacity change"] -->|"Triggers reprioritization"| B["Optimization agent reads<br>open leave queue, outcome history, and staffing context"]
+    B -->|"Builds candidate ranking"| C["Apply protected-priority, fairness,<br>and workload-balance guardrails"]
+    C -->|"Checks bounded tuning"| D{"Within approved tuning bounds<br>and guardrails?"}
+    D -->|"Yes"| E["Publish revised ranked review queue<br>with case-level rationale"]
+    E -->|"Records change"| F["Optimization audit trail<br>signals, checks, and ranking update"]
+    D -->|"No"| G["Supervisor review hold<br>for material change or drift"]
+    G -->|"Freeze or revert"| H["Restore last trusted prioritization policy"]
+    H -->|"Logs rollback"| F
+```
+
 ## Target systems / source systems
 
 - Leave case-management system with open case state, intake dates, callback commitments, due-date clocks, current queue order, and specialist assignments
