@@ -12,6 +12,20 @@ Support.
 
 A support knowledge-operations team monitors recurring low-severity self-serve confusion signals across help-center articles, troubleshooting search flows, and deflection bots: repeated zero-result searches, abrupt article exits after one step, clusters of thumbs-down feedback, and repeated fallback-to-chat sessions tied to the same low-stakes help topic. The workflow must merge duplicate signals by article family, locale, and issue theme, enrich each watchlist item with article revision history, search phrases, recent content edits, prior content-owner notes, and last healthy feedback window, and then publish a routine backlog for documentation owners to review during scheduled content-maintenance cycles. The goal is to keep recurring friction visible for content hygiene and coverage improvement, not to reroute live escalations, draft customer promises, or decide whether a support policy exception should be granted.
 
+```mermaid
+flowchart TD
+    A["Recurring self-serve confusion signals<br>arrive from article analytics, search flows, and bot fallbacks"]
+    B["Merge duplicate signals by article family,<br>locale, and issue theme"]
+    C["Enrich each watchlist item with article revision history,<br>search phrases, recent content edits, prior notes,<br>and the last healthy feedback window"]
+    D["Publish the routine watchlist and backlog<br>for scheduled content-maintenance review"]
+    E["Trigger escalation when a signal crosses the approved<br>watchlist boundary or no longer fits low-stakes upkeep scope"]
+
+    A --> B
+    B --> C
+    C --> D
+    C --> E
+```
+
 ## Target systems / source systems
 
 - Help-center analytics with article views, abandonment signals, feedback scores, and zero-result search patterns
