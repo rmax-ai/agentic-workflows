@@ -39,6 +39,36 @@ This grounds the pattern in a compliance setting where the reusable shape is sev
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Protected sources and controls"]
+        case_systems["Sanctions case systems,<br>outage records, and<br>issue-management tools"]
+        policy_repos["Legal and policy repositories"]
+        annex_store["Restricted annex store"]
+    end
+
+    subgraph room["Restricted compliance<br>collaboration room"]
+        agent_roles["Orchestrated multi-agent roles<br>for evidence refresh,<br>objection normalization,<br>annex-boundary maintenance,<br>and protected-trace updates"]
+        packet["Regulator-position packet,<br>disagreement register,<br>annex map, and<br>release-state controls"]
+    end
+
+    reviewers["Compliance, legal, and<br>regional reviewers"]
+    owner["Senior compliance manager"]
+    audit_controls["Audit and access-control systems"]
+    downstream["Downstream human-controlled<br>escalation and response workflows"]
+    boundary["Authority recommendation,<br>regulator outreach, and<br>operational containment stay outside the room"]
+
+    case_systems -->|"Refreshes chronology,<br>affected volumes, and controls for"| agent_roles
+    policy_repos -->|"Provides privilege, escalation,<br>and release rules to"| agent_roles
+    annex_store -->|"Provides restricted annex<br>material to"| agent_roles
+    agent_roles -->|"Drafts revisions and<br>maintains readiness state in"| packet
+    reviewers -->|"Review objections and<br>regional disagreements in"| packet
+    owner -->|"Decides handoff readiness for"| packet
+    packet -->|"Logs revisions, annex retrievals,<br>release approvals, and overrides in"| audit_controls
+    packet -->|"Hands off to"| downstream
+    packet -.->|"Stops before"| boundary
+```
+
 - Human-in-the-loop collaboration should remain primary because privilege handling, release timing, and tolerance for unresolved exposure language require accountable legal and compliance ownership.
 - An orchestrated multi-agent setup fits when separate agent roles refresh outage evidence, normalize reviewer objections, maintain annex boundaries, and preserve the protected trace across revisions.
 - Agents may draft revisions, reconcile chronology updates, and maintain readiness state, but selecting the escalation authority, contacting regulators, or directing operational holds should remain outside the room and explicitly human-controlled.
