@@ -12,6 +12,21 @@ Support.
 
 A support lead is handling a sensitive enterprise escalation after a customer reports that a recently deprovisioned contractor may still have been able to view historical support attachments containing invoice backups and configuration exports. The lead uses a copilot inside the case workspace to iteratively summarize ticket history, compare account-state evidence from identity and audit systems, rewrite customer-facing updates in a careful tone, and prepare an engineering-and-security handoff, while the human lead remains responsible for interpreting the evidence, deciding what can be said externally, and approving the final next-step message.
 
+```mermaid
+flowchart TD
+    A["Support lead and copilot gather case history,<br>identity status, and audit evidence into one workspace"]
+    B["Copilot drafts cautious internal summary updates<br>grounded in retrieved evidence and uncertainty labels"]
+    C["Open questions tracker records missing logs,<br>conflicts, and owners for follow-up"]
+    D["Human lead reviews each draft change,<br>removes unsupported wording, and approves next edits"]
+    E["Copilot prepares an internal handoff packet<br>with evidence links, draft timeline, and open questions"]
+    F["Human lead approves the bounded handoff<br>to engineering or security for further investigation"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+```
+
 ## Target systems / source systems
 
 - Support case workspace with prior ticket history, severity notes, and executive-escalation timeline
