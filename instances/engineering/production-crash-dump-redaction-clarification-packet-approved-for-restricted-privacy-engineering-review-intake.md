@@ -12,6 +12,16 @@ Engineering.
 
 A privacy engineering lead, a production reliability engineer, and a crash forensics maintainer are co-producing one governed production crash-dump redaction clarification packet because a recurring service crash in a customer-facing environment generated debugger evidence that may still expose customer identifiers, session payload fragments, and stack-local data even after the first sanitization pass. Agents help reconcile crash-dump excerpts, redaction diffs, symbolization requests, retention-policy notes, and reviewer objections into the shared packet while preserving which memory regions remain disputed, which symbolization requests exceed the approved debugging scope, which customer-identifier leakage risks stay unresolved, and which residual caveats the human artifact owner accepted explicitly. The workflow ends only when the named engineering release owner approves that exact packet revision and its release manifest for one restricted privacy-engineering review intake lane, where downstream reviewers may decide whether the packet is sufficient for formal privacy review or needs narrower evidence and fresh sanitization. It does not adjudicate the incident, enable debugger access, contact customers, share crash artifacts beyond the approved lane, or decide the downstream review outcome.
 
+```mermaid
+flowchart TD
+    start["Recurring service crash<br>produces sensitive debugger evidence"] --> gather["Pull authoritative dump fragments,<br>symbolization provenance, and policy context"]
+    gather --> collaborate["Co-produce one governed crash-dump<br>clarification packet with visible disputes"]
+    collaborate --> verify["Bind the exact packet revision to a<br>release manifest and bounded intake lane"]
+    verify --> approve{"Human release owner<br>approves exact revision?"}
+    approve -->|"No"| hold["Hold or supersede release in the<br>governed workspace"]
+    approve -->|"Yes"| handoff["Release the approved packet revision<br>to restricted privacy-engineering intake"]
+```
+
 ## Target systems / source systems
 
 - Governed engineering collaboration workspace holding the production crash-dump redaction clarification packet, revision history, objection ledger, and release-manifest draft
