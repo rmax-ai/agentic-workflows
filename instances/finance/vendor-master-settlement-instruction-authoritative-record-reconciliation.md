@@ -12,6 +12,25 @@ Finance.
 
 After an ERP-payables integration and a rushed vendor-admin role change, accounts payable and treasury discover that payment instructions for several high-value suppliers no longer agree across the ERP vendor master, the treasury settlement-instruction repository, the approved bank-account hash register, and the callback-verification case log. One supplier record shows a newly imported IBAN and SWIFT pair with a recent portal-sync timestamp, another source still marks the prior account as the active settlement instruction for the next payment run, and the callback record supports the new account ownership evidence but not the effective date now shown in the ERP profile. Before any payment batch is released, any bank-account change is submitted, or any control owner decides whether fraud, admin error, or migration drift occurred, the workflow must restore one trusted current remittance state for each affected supplier, keep unreconciled conflicts visible, and hand off a correction-ready package for controlled record repair.
 
+```mermaid
+flowchart TD
+    start["Conflicting supplier payment instruction records<br>appear across ERP, treasury, hash, and callback sources"]
+    compare["Compare matched supplier records, timestamps,<br>hashes, and callback evidence in the reconciliation workspace"]
+    rules["Apply approved source-precedence,<br>freshness, and field-level eligibility rules"]
+    decision{"Authoritative current remittance state<br>established for the supplier?"}
+    package["Produce reconciled remittance ledger,<br>discrepancy ledger, and correction-ready package"]
+    hold["Place supplier on explicit reconciliation hold<br>and keep unresolved conflicts in the exception queue"]
+    stop["Stop before payment-batch release,<br>bank-account change submission,<br>or root-cause decisioning"]
+
+    start --> compare
+    compare --> rules
+    rules --> decision
+    decision -->|"Yes"| package
+    decision -->|"No"| hold
+    package --> stop
+    hold --> stop
+```
+
 ## Target systems / source systems
 
 - ERP accounts-payable vendor master records, active payment-method fields, remittance profiles, and integration update logs
