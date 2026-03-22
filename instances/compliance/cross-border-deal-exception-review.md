@@ -53,6 +53,18 @@ This instance shows why deal support in compliance is not a generic contract sum
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    crm["CRM opportunity, quote drafts,<br>and reseller details"] -->|"Deal context"| agent["Recommendation-only<br>review workflow"]
+    policy["Pricing guardrails, approval matrix,<br>and precedent exceptions"] -->|"Policy evidence"| agent
+    contract["Contract templates,<br>redlines, and fallback clauses"] -->|"Contract inputs"| agent
+    guidance["Export, sanctions, privacy,<br>and cross-border guidance"] -->|"Jurisdiction checks"| agent
+    finance["Margin, revenue-recognition,<br>and implementation notes"] -->|"Commercial risk notes"| agent
+    agent -->|"Review packet"| packet["Ranked options,<br>blockers, and trade-offs"]
+    packet -->|"Human review"| reviewers["Authorized reviewers"]
+    agent -->|"Recommendation boundary"| boundary["No writes to quoting,<br>approval, or contracting systems"]
+```
+
 - A recommendation-only workflow retrieves pricing guardrails, precedent exceptions, contractual deviations, and jurisdiction-specific compliance constraints into one review packet.
 - Human-in-the-loop review is mandatory because the workflow should advise on option ranking and escalation triggers, not approve the exception or alter deal records.
 - Write access to quoting, approval, or contracting systems should remain disabled so the agent cannot convert a recommendation into an operational commitment.
