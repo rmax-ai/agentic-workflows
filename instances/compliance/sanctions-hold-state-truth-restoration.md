@@ -41,6 +41,39 @@ This shows the family at critical risk in a compliance setting where the immedia
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph Sources["Source systems"]
+        SS["Sanctions-screening engine<br>and case queues"]
+        PL["Payment-rail hold and release ledgers<br>and message traces"]
+        RO["Regional override logs<br>and adjudication notes"]
+        CW["Counterparty reference data<br>and regulator-response workbench"]
+    end
+
+    subgraph Boundary["Trusted current-state restoration boundary"]
+        ORCH["Orchestrated reconciliation workflow"]
+        LEDGER[("Shared sanctions-state ledger")]
+        HOLD[("Unresolved hold register")]
+        PACKET["Trusted current-state<br>handoff packet"]
+    end
+
+    subgraph Human["Human control boundary"]
+        REV["Compliance, treasury, and legal reviewers"]
+        AUD["Audit and authoritative-state<br>acceptance tooling"]
+    end
+
+    SS -->|"State evidence"| ORCH
+    PL -->|"Hold and release evidence"| ORCH
+    RO -->|"Override evidence"| ORCH
+    CW -->|"Identifiers and case context"| ORCH
+    ORCH -->|"Trusted current state"| LEDGER
+    ORCH -->|"Protected conflicts"| HOLD
+    LEDGER -->|"Blocked/released picture"| REV
+    HOLD -->|"Reviewer-visible unresolved items"| REV
+    REV -->|"Accepted authoritative state"| AUD
+    AUD -->|"Approved current-state handoff"| PACKET
+```
+
 - An orchestrated multi-agent workflow can divide screening-state retrieval, payment-ledger comparison, override interpretation, and hold-register assembly while preserving one shared sanctions-state ledger.
 - Human reviewers should stay embedded to confirm emergency precedence rules, adjudicate protected conflicts, and accept the trusted blocked/released picture before it is used downstream.
 - The workflow should output only the reconciled current-state ledger, unresolved hold register, and compliance handoff packet rather than filing reports, releasing funds, or directing investigative action.
