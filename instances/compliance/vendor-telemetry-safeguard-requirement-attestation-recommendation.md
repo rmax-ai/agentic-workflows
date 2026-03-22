@@ -39,6 +39,24 @@ This grounds the pattern in compliance where the useful work is a requirement-fi
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Vendor-risk or privacy-review workspace<br>annual attestation checklist, prior outcomes,<br>and reviewer notes"]
+    B["Contract, DPA, and subprocess repositories<br>active safeguard terms, notice clauses,<br>and regional commitments"]
+    C["Security and configuration evidence stores<br>encryption attestations, retention snapshots,<br>access-log samples, and architecture diagrams"]
+    D["Exception register<br>compensating controls, debug-export limits,<br>and remediation commitments"]
+    E["Internal policy library<br>review thresholds, freshness rules,<br>and escalation criteria"]
+    F["Requirement attestation recommendation workspace<br>maps safeguard requirements to evidence<br>and prepares approve/remediate/escalate guidance"]
+    G["Human privacy leadership review boundary<br>sign-off, vendor-status changes, and legal interpretation<br>remain human-controlled"]
+
+    A --> F
+    B --> F
+    C --> F
+    D --> F
+    E --> F
+    F --> G
+```
+
 - A tool-using single agent can map each safeguard requirement to current contract terms, subprocess records, retention snapshots, and prior exceptions without needing a more complex orchestration layer.
 - Human-in-the-loop review is required because privacy leadership must decide whether stale or partial safeguard evidence is acceptable for the annual sign-off or should force escalation.
 - Read-only integration with vendor-risk, contract, and evidence systems is preferable so the workflow cannot alter vendor records or imply that the annual review has already been approved.
