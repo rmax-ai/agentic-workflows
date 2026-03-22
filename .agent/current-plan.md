@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement deepened the thinner `operations` slice through `instances/operations/intermodal-hazardous-goods-overflow-staging-recommendation-packet-revision-approved-for-dangerous-goods-continuity-board-decision-lane.md`, adding a materially distinct second operations grounding for `approval-gated-recommendation-release`.
-- Result check: the new operations example stayed bounded at one exact recommendation packet revision, one bounded option set, one named dangerous-goods continuity board lane, explicit blocked-path visibility, expiry and audience controls, and one governed release handoff while avoiding recommendation generation, decision adjudication, yard replanning, dispatcher coordination, or container movement.
-- Read-first set used this iteration: this plan; `data/patterns/recommend-decide-escalate/approval-gated-recommendation-release.yaml`; `docs/patterns/recommend-decide-escalate.md`; `instances/operations/network-fuel-system-test-deferral-recommendation-packet-revision-approved-for-continuity-risk-board-decision-lane.md`; `instances/research/benchmark-study-publication-recommendation-packet-revision-approved-for-publication-council-decision-lane.md`; `instances/research/sensitive-cohort-dataset-access-recommendation-packet-revision-approved-for-data-access-committee-decision-lane.md`; `instances/compliance/privacy-attestation-disposition-packet-revision-approved-for-council-sign-off-lane.md`; the relevant recommend-family notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-032850.md`.
-- Boundary check: the new example preserved one already-prepared hazardous-goods overflow staging recommendation packet, immutable revision identity, bounded viable and blocked option set, explicit lane and expiry controls, and a governed release manifest while stopping before the downstream human choice, yard replanning, carrier coordination, or any execution task begins.
+- Target in progress: Phase 7 structural refinement will deepen the thinner `finance` slice through a materially distinct second grounding for `authoritative-change-coordination-refresh`.
+- Selection rationale: `finance` remains one of the thinnest domains at thirty-nine instances, and `authoritative-change-coordination-refresh` currently has only one finance grounding while remaining outside the recently overused approval-release, briefing-release, collaboration-release, verification, transformation, and contingency-activation slices.
+- Read-first set for this iteration: this plan; `data/patterns/plan-coordinate-schedule/authoritative-change-coordination-refresh.yaml`; `docs/patterns/plan-coordinate-schedule.md`; `instances/finance/quarter-close-control-review-coordination-refresh-after-consolidation-shift.md`; `instances/engineering/release-readiness-review-coordination-refresh-after-approver-window-change.md`; `instances/compliance/control-remediation-sign-off-review-coordination-refresh-after-validation-slip.md`; the relevant plan-family notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-033427.md`.
+- Boundary check for the new instance: preserve one already-issued finance coordination packet, authoritative upstream timing or attendance deltas, targeted participant notices, explicit adoption or exception checkpoints, and append-only lineage while stopping before broader replanning, accounting judgment, recommendation, approval adjudication, submission, or downstream execution.
 
 ## Current phase
 
@@ -24,10 +24,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Continue Phase 7 with one instance-only refinement in one of the now-thinnest domains (`engineering`, `finance`, `compliance`, or `research`) by deepening a structurally distinct planning or adjacent approval-bound slice outside the just-completed hazardous-goods recommendation-release example.
+1. Continue Phase 7 with one instance-only refinement in `finance` by adding a second, materially distinct grounding for `authoritative-change-coordination-refresh`.
 2. Keep the batch instance-only and outside `approval-gated-recommendation-release`, `critical-command-window-resequencing`, `schedule-adjustment-and-replanning`, `approval-packet-generation`, `approval-gated-collaborative-artifact-release`, `approval-gated-briefing-release`, `evidence-gated-verification-for-release`, `approval-gated-transformation-release`, and `contingency-plan-activation-gate`; do not reopen schema, vocabularies, views, or canonical pattern metadata unless the read-first pass surfaces a directly coupled drift that would otherwise leave the repository inconsistent.
-3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the next content change.
-4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated iteration record after verification.
+3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the finance coordination-refresh instance lands.
+4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and `.agent/iterations/2026/20260322-034024.md` after verification.
 
 ## Recent checkpoints
 
