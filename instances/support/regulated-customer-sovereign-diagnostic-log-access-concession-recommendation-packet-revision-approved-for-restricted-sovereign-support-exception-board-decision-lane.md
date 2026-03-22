@@ -12,6 +12,21 @@ Support.
 
 A support workflow for a regulated sovereign-cloud customer has already prepared one exact recommendation packet revision for a diagnostic-log access concession after intermittent signature-validation failures in a tax-filing integration leave the customer unable to reconcile rejected submissions before a statutory deadline. The packet narrows the bounded options to release one time-boxed in-region supervised log-view concession through a sovereign review enclave, release a narrower metadata-correlation and support-analyst walkthrough package tied to prefiltered fields, or escalate to sovereign privacy and legal leadership, and it keeps blocked requests such as unrestricted raw-log export, non-resident engineer access, continuous SIEM forwarding, or direct production environment entry explicit. Before that exact packet revision can enter the restricted sovereign-support exception board decision lane, a named support release owner must approve the recommendation-lineage chain, residency-bound audience scope, approval-ready hold state, and release manifest so board reviewers receive the governed recommendation artifact rather than a stale, broadened, or partially held copy. The workflow stops at governed release of that packet revision; it does not adjudicate the concession, notify the customer, grant environment access, enable log transfer, or direct downstream remediation.
 
+```mermaid
+flowchart TD
+    A["Exact recommendation packet<br>revision prepared"]
+    B["Recommendation lineage chain<br>and packet hash verified"]
+    C["Residency scope and approval-ready<br>hold state checked"]
+    D["Restricted board-lane release<br>manifest assembled"]
+    E["Named support release owner<br>approves manifest"]
+    F["Exact packet revision released to<br>restricted sovereign-support exception board lane"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+```
+
 ## Target systems / source systems
 
 - Sovereign diagnostic-access recommendation workspace holding the current packet revision, bounded concession options, blocked-path notes, lineage references, and superseded drafts
