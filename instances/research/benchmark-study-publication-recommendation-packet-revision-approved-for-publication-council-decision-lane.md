@@ -12,6 +12,25 @@ Research.
 
 A research publication workflow has already prepared one exact recommendation packet revision for an external benchmark-study release. The packet narrows the bounded options to publish the workshop paper and approved abstract as scoped, narrow the release to the cleared workload set and claim bundle, or escalate to chief research and legal review, and it keeps blocked paths such as a broader vendor-comparison blog post or public artifact release before rights clearance explicit. Before that exact packet revision can enter the restricted publication council decision lane, a named research release owner must approve the council scope, embargo window, and manifest binding so reviewers receive the governed recommendation artifact rather than a stale or broadened copy. The workflow stops at governed release of that packet revision; it does not decide whether publication proceeds, submit the paper, or disclose the benchmark externally.
 
+```mermaid
+flowchart TD
+    ready["Exact benchmark-study publication<br>recommendation packet revision ready"]
+    verify["Verify packet hash, bounded publication options,<br>and blocked paths against current revision"]
+    scope["Confirm publication council lane, embargo window,<br>and manifest binding remain in scope"]
+    approve["Named research release owner<br>reviews approval or hold state"]
+    hold["Hold packet revision for manual follow-up,<br>manifest correction, or supersession"]
+    release["Release exact packet revision to publication council lane<br>with publish, narrow, or escalate options"]
+    record["Record manifest-bound handoff and block forwarding<br>outside approved publication council audience"]
+    ready --> verify
+    verify --> scope
+    verify --> hold
+    scope --> approve
+    scope --> hold
+    approve --> release
+    approve --> hold
+    release --> record
+```
+
 ## Target systems / source systems
 
 - Publication recommendation workspace holding the current packet revision, bounded claim and option set, blocked-release notes, and superseded drafts
