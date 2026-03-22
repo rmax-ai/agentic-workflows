@@ -37,6 +37,45 @@ This grounds the pattern in compliance work where the valuable artifact is one c
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    SPI["Vendor subprocess inventory"]
+    TIQ["Transfer-impact questionnaire<br>store"]
+    ANNEX["Approved annex repository"]
+    JMAP["Jurisdiction-mapping service"]
+    POL["Privacy taxonomy tables,<br>approved transfer-mechanism registry,<br>and review-schema policy tables"]
+    AGENT["Tool-using single agent"]
+
+    subgraph RDR["Restricted downstream review boundary"]
+        STAGE["Restricted transfer-assessment<br>staging store"]
+        DELTA["Delta lineage trace"]
+        AUDIT["Lineage and audit store"]
+        REVIEW["Privacy compliance reviewers"]
+    end
+
+    EXQ["Exception queue"]
+    PC["Privacy compliance"]
+    COUNSEL["Privacy counsel intake prep"]
+    VG["Vendor-governance follow-up"]
+
+    SPI --> AGENT
+    TIQ --> AGENT
+    ANNEX --> AGENT
+    JMAP --> AGENT
+    POL --> AGENT
+    STAGE --> AGENT
+    AGENT --> STAGE
+    AGENT --> DELTA
+    AGENT --> AUDIT
+    DELTA --> AUDIT
+    STAGE --> REVIEW
+    DELTA --> REVIEW
+    AGENT --> EXQ
+    EXQ --> PC
+    EXQ --> COUNSEL
+    EXQ --> VG
+```
+
 - Event-driven monitoring should listen only to approved annex, subprocess-inventory, jurisdiction-mapping, and exception-lineage updates that are authorized to refresh the staged transfer-assessment review record.
 - A tool-using single agent can re-read the changed transfer bundle, compare the current authoritative source state against the prior staged version, rebuild the structured review record, and emit a delta trace plus supersession markers.
 - Automatic refresh should stay bounded to approved overwrite rules for staged transfer-review fields; conflicting annex versions, privacy-scope changes, missing source lineage, or schema-breaking questionnaire updates should route to exceptions instead of forcing a new current record.
