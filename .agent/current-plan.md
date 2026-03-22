@@ -4,10 +4,10 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement deepened the thinner `research` slice through `instances/research/high-consequence-pathogen-near-miss-exposure-triage-packet-approved-for-restricted-biosafety-oversight-review-dispatch.md`, adding a materially distinct third research grounding for `approval-gated-triage-dispatch`.
-- Result check: the new research example stayed bounded at one already-triaged biosafety near-miss packet, one restricted oversight lane, explicit approval and hold state, and append-only dispatch lineage while avoiding exposure adjudication, corrective-action planning, regulator notification, personnel communication, or laboratory execution.
-- Read-first set used this iteration: this plan; `data/patterns/monitor-detect-triage/approval-gated-triage-dispatch.yaml`; `instances/research/approved-secondary-dataset-access-request-triage-packet-for-restricted-governance-review-dispatch.md`; `instances/research/benchmark-study-disclosure-risk-triage-packet-approved-for-restricted-disclosure-governance-review-dispatch.md`; the relevant monitor-family notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-034024.md`.
-- Boundary check: the new example preserved one exact pathogen-study near-miss triage packet revision, one biosafety-review audience boundary, freshness and minimization holds, and one governed dispatch release while stopping before exposure determination, containment action selection, medical follow-up, regulator communication, or downstream execution.
+- Target for this iteration: Phase 7 structural refinement should deepen the thinner `engineering` slice through one new `instances/engineering/` example linked to `authoritative-change-coordination-refresh`.
+- Scope guard: keep the batch instance-only and planning-family bounded by refreshing one already-issued coordination package after authoritative timing, delegate, or readiness movement; do not reopen schema, vocabularies, views, or canonical pattern metadata unless the read-first pass surfaces directly coupled drift.
+- Read-first set for the next authoring step: this plan; `data/patterns/plan-coordinate-schedule/authoritative-change-coordination-refresh.yaml`; `instances/engineering/release-readiness-review-coordination-refresh-after-approver-window-change.md`; `instances/compliance/control-remediation-sign-off-review-coordination-refresh-after-validation-slip.md`; `instances/finance/treasury-collateral-substitution-review-coordination-refresh-after-custodian-cutoff-shift.md`; the relevant planning-family notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-034614.md`.
+- Boundary check for the planned example: preserve one exact engineering coordination packet, one explicit adoption or exception checkpoint, targeted participant deltas, and append-only refresh lineage while stopping before broad replanning, recommendation, approval adjudication, or downstream release or infrastructure execution.
 
 ## Current phase
 
@@ -18,16 +18,16 @@ This file is the rolling control document for the next bounded batch. Detailed e
   the highest-leverage refinement pressure inside the current
   matrix.
 - Canonical pattern coverage spans all nine pattern families, all tracked architecture types, and the full `low` / `moderate` / `high` / `critical` risk ladder.
-- Grounded coverage now spans two hundred seventy-eight examples across all seven modeled domains, with `finance`, `operations`, `research`, `support`, and `hr` at forty grounded examples and `engineering` plus `compliance` at thirty-nine; Phase 7 should keep favoring structurally distinct refinements inside those now-shared thinnest domains rather than immediately revisiting the just-deepened research triage-dispatch, coordination-refresh, recommendation-release, command-window resequencing, schedule replanning, approval-packet, collaboration-release, briefing-release, verification, transformation, or contingency-activation slices.
+- Grounded coverage now spans two hundred seventy-eight examples across all seven modeled domains, with `finance`, `operations`, `research`, `support`, and `hr` at forty grounded examples and `engineering` plus `compliance` at thirty-nine; Phase 7 should keep favoring structurally distinct refinements inside those now-shared thinnest domains rather than immediately revisiting the just-deepened research triage-dispatch or reopening the excluded approval-bound, verification, transformation, collaboration-release, briefing-release, or contingency-activation slices.
 - Browse artifacts remain derived from canonical pattern truth and should only change when a new grounding exposes genuine drift.
 - The validation and publication baseline remains `uv run python scripts/python/validate_yaml.py`, `uv run python scripts/python/build_site_docs.py`, and `uv run mkdocs build`.
 
 ## Ordered tasks
 
-1. Continue Phase 7 with one instance-only refinement in one of the now-thinnest domains (`engineering` or `compliance`) by deepening a structurally distinct planning or adjacent approval-bound slice outside the just-completed research triage-dispatch example.
+1. Continue Phase 7 with one instance-only refinement in `engineering` by deepening `authoritative-change-coordination-refresh` through a materially distinct coordination-refresh scenario rather than another release-readiness variant.
 2. Keep the batch instance-only and outside `approval-gated-recommendation-release`, `critical-command-window-resequencing`, `schedule-adjustment-and-replanning`, `approval-packet-generation`, `approval-gated-collaborative-artifact-release`, `approval-gated-briefing-release`, `evidence-gated-verification-for-release`, `approval-gated-transformation-release`, and `contingency-plan-activation-gate`; do not reopen schema, vocabularies, views, or canonical pattern metadata unless the read-first pass surfaces a directly coupled drift that would otherwise leave the repository inconsistent.
-3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the next content change.
-4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the next dated file under `.agent/iterations/2026/` after verification.
+3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
+4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the dated summary file `20260322-035223.md` after verification.
 
 ## Recent checkpoints
 
