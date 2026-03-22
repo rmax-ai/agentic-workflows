@@ -12,6 +12,18 @@ Engineering.
 
 An open-source program manager, a build systems engineer, and a release compliance analyst are co-producing one governed license clarification packet because a planned internal component update now pulls in transitive dependencies whose lineage, vendored source fragments, notice obligations, and prior exception history are only partially reconciled across build metadata and third-party source snapshots. Agents help reconcile SBOM revisions, dependency-graph diffs, package metadata, repository notices, and reviewer comments into the shared packet while preserving which lineage questions, notice-scope objections, and vendored-fragment concerns remain unresolved and which residual disagreements the human artifact owner accepted explicitly. The workflow ends only when the named engineering release owner approves that exact packet revision for one restricted open-source review intake lane, where downstream reviewers may decide whether the package set is ready for formal open-source governance review or needs narrower scope. It does not adjudicate license obligations, publish notices, remove dependencies, authorize release shipment, or decide the downstream review outcome.
 
+```mermaid
+flowchart TD
+    start["Planned component update<br>surfaces transitive dependency questions"] --> packet["Co-produce one governed<br>license clarification packet"]
+    packet --> reconcile["Reconcile SBOM revisions,<br>dependency diffs, notices,<br>and exception history"]
+    reconcile --> preserve["Keep unresolved lineage,<br>notice-scope, and vendored-fragment<br>concerns visible in the packet"]
+    preserve --> approve{"Named engineering release owner<br>approves this exact packet revision<br>for one restricted intake lane?"}
+    approve -->|"No"| hold["Hold release or supersede<br>the packet revision"]
+    hold --> reconcile
+    approve -->|"Yes"| handoff["Release exact packet revision<br>to the restricted open-source<br>review intake lane"]
+    handoff --> stop["Workflow stops at intake handoff,<br>not adjudication, notice publication,<br>dependency removal, or shipment"]
+```
+
 ## Target systems / source systems
 
 - Governed engineering collaboration workspace holding the transitive-dependency license clarification packet, revision history, objection ledger, and release-manifest draft
