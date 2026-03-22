@@ -12,6 +12,16 @@ Engineering.
 
 A platform engineering pipeline marks a new hardened internal container base image as published after image build, signature attachment, and catalog-update steps report success for revision `runtime-base:2026-03-18`. Application teams and service owners still need to know whether that claimed publication state is actually true across the approved internal registry, signed digest manifest, and base-image catalog surfaces before they rely on the image as the current approved foundation for routine development work. The workflow verifies the publication claim against those authoritative sources and emits a bounded confirmed, disproved, or inconclusive verdict; it must not republish the image, approve workload rollout, reopen vulnerability review, or trigger downstream rebuilds.
 
+```mermaid
+flowchart TD
+    start["Publication-complete claim recorded<br>for runtime-base:2026-03-18"] --> gather["Check approved registry, signed manifest,<br>catalog, and mirror-status evidence"]
+    gather --> match{"Tag, digest, signature,<br>and freshness align?"}
+    match -->|"Yes"| confirmed["Emit confirmed verdict<br>with verification audit log"]
+    match -->|"No"| lag{"Only mirror or cache propagation<br>is still inside allowed lag?"}
+    lag -->|"Yes"| inconclusive["Emit inconclusive verdict<br>with bounded follow-up record"]
+    lag -->|"No"| disproved["Emit disproved verdict<br>with verification audit log"]
+```
+
 ## Target systems / source systems
 
 - Internal container registry that records the published base-image tag, immutable digest, and repository visibility state
