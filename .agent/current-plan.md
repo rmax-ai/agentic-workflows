@@ -4,10 +4,9 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Iteration focus
 
-- Completed target: Phase 7 structural refinement deepened the thinner `engineering` slice through `instances/engineering/platform-network-segmentation-exception-review-coordination-refresh-after-architecture-board-materials-lock-shift.md`, adding a materially distinct second engineering grounding for `authoritative-change-coordination-refresh`.
-- Result check: the new engineering example stayed bounded at one already-issued architecture-board coordination packet, one explicit infrastructure-governance owner adoption or exception checkpoint, targeted participant deltas, and append-only refresh lineage while avoiding broad replanning, exception recommendation revision, board adjudication, or downstream network-policy execution.
-- Read-first set used this iteration: this plan; `data/patterns/plan-coordinate-schedule/authoritative-change-coordination-refresh.yaml`; `instances/engineering/release-readiness-review-coordination-refresh-after-approver-window-change.md`; `instances/compliance/control-remediation-sign-off-review-coordination-refresh-after-validation-slip.md`; `instances/finance/treasury-collateral-substitution-review-coordination-refresh-after-custodian-cutoff-shift.md`; `instances/engineering/database-upgrade-exception-recommendation-packet-revision-approved-for-architecture-board-decision-lane.md`; the relevant planning-family notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-034614.md`.
-- Boundary check: the new example preserved one exact network-segmentation exception review packet, one architecture-board audience boundary, materials-lock and readiness freshness visibility, and one governed coordination-state refresh while stopping before exception-rationale rewriting, variance acceptance, board decision-making, or any infrastructure change execution.
+- Planned target: Phase 7 structural refinement should deepen the now-thinnest `compliance` slice through one materially distinct second compliance grounding for `approval-centered-collaboration`.
+- Read-first set for this iteration: this plan; `data/patterns/human-agent-collaborative-work/approval-centered-collaboration.yaml`; `instances/compliance/regulator-reporting-timeline-exception-package-readiness-loop.md`; the other domain anchors for `approval-centered-collaboration`; the relevant Phase 7 notes in `.agent/backlog.yaml`; the current counts and gap notes in `.agent/ontology-status.yaml`; `.agent/coverage-matrix.yaml`; and `20260322-035223.md`.
+- Boundary check: the new compliance example must stay at one governed review-cycle artifact, preserve reviewer objections and approval ownership explicitly, and stop at readiness recommendation plus handoff control rather than crossing into approval adjudication, regulator communication, policy interpretation, or downstream execution.
 
 ## Current phase
 
@@ -24,7 +23,7 @@ This file is the rolling control document for the next bounded batch. Detailed e
 
 ## Ordered tasks
 
-1. Continue Phase 7 with one instance-only refinement in `compliance` by deepening a structurally distinct planning or adjacent approval-bound slice outside the just-completed engineering coordination-refresh example.
+1. Continue Phase 7 with one instance-only refinement in `compliance` by deepening a structurally distinct `approval-centered-collaboration` slice outside the recently refreshed planning and dispatch surfaces.
 2. Keep the batch instance-only and outside `approval-gated-recommendation-release`, `critical-command-window-resequencing`, `schedule-adjustment-and-replanning`, `approval-packet-generation`, `approval-gated-collaborative-artifact-release`, `approval-gated-briefing-release`, `evidence-gated-verification-for-release`, `approval-gated-transformation-release`, and `contingency-plan-activation-gate`; do not reopen schema, vocabularies, views, or canonical pattern metadata unless the read-first pass surfaces a directly coupled drift that would otherwise leave the repository inconsistent.
 3. Validate YAML, rebuild derived site docs, and run the MkDocs build after the content change.
 4. Refresh `.agent/current-plan.md`, `.agent/ontology-status.yaml`, `.agent/coverage-matrix.yaml`, and the dated summary file `20260322-035223.md` after verification.
