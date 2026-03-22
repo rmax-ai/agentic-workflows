@@ -12,6 +12,24 @@ Research for pre-publication benchmark governance.
 
 An applied research program manager needs to schedule a publication-readiness review for an internal benchmark study before the team can submit a workshop abstract and circulate the headline results to product leadership. The meeting must include the study lead, the reproducibility reviewer, the privacy reviewer, the dataset licensing owner, and the research communications partner because the review sits inside a five-business-day embargo window between final result freeze and external abstract submission. The workflow is about constructing a viable slot across San Francisco, New York, and London calendars, placing reversible holds, and escalating quickly when no in-policy overlap exists rather than guessing at attendee substitutions, relaxing the embargo window, or making the final meeting commitment without human confirmation.
 
+```mermaid
+flowchart TD
+    A["Scheduling request<br>within the allowed review window"]
+    B["Gather required roles<br>and time constraints"]
+    C["Collect free-busy, timezone,<br>and working-hour limits"]
+    D["Find a viable slot<br>that covers required attendees"]
+    E["Place tentative holds<br>on the best viable slot"]
+    F["Escalate when no in-policy slot<br>or no acceptable overlap exists"]
+    G["Human confirms the selected slot<br>before the invite becomes final"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    D --> F
+    E --> G
+```
+
 ## Target systems / source systems
 
 - Publication-governance tracker with study stage, embargo dates, abstract deadline, and required review roles
