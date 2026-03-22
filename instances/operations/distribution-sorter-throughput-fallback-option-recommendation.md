@@ -12,6 +12,22 @@ Operations.
 
 A regional distribution hub is entering an evening peak with one sorter lane running below expected throughput after repeated sensor resets. The duty supervisor has a documented local authority band that allows only a limited set of fallback options, such as capped overtime, bounded overflow transfer to a nearby hub, or continuing at reduced throughput for lower-priority volume, while larger vendor-callout spend, cold-chain handling changes, or cross-region service-commitment exceptions require higher approval. The workflow must rank the viable in-band recovery options, show which fallback paths are blocked by spend, safety, and service guardrails, and package escalation only if the local menu no longer covers the case before anyone dispatches labor, reroutes loads, or changes customer commitments.
 
+```mermaid
+flowchart TD
+    A["Sorter throughput variance<br>and local context"]
+    B["Delegated fallback menu<br>and guardrails"]
+    C["Compare fallback options<br>to local authority limits"]
+    D["Rank viable in-band<br>recovery options"]
+    E["Record allowed, conditional,<br>and blocked paths"]
+    F["Package escalation for<br>out-of-band case"]
+    A --> C
+    B --> C
+    C -->|"viable in-band options remain"| D
+    C --> E
+    C -->|"no in-band option remains"| F
+    D --> E
+```
+
 ## Target systems / source systems
 
 - Hub operations dashboard, current backlog metrics, sorter health notes, and shift staffing record
