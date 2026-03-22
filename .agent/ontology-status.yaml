@@ -38,7 +38,7 @@ inventory:
   vocabulary_files: 6
   view_files: 5
   pattern_files: 49
-  instance_files: 306
+  instance_files: 307
   pattern_family_docs: 9
   glossary_files: 1
 coverage_totals:
@@ -63,7 +63,7 @@ pattern_counts_by_family:
   human-agent-collaborative-work: 5
 instance_counts_by_domain:
   engineering: 42
-  finance: 42
+  finance: 43
   compliance: 47
   operations: 44
   research: 44
@@ -72,7 +72,8 @@ instance_counts_by_domain:
 consistency_notes:
   - "The repository now has a GitHub Pages workflow at `.github/workflows/publish-site.yml`, and that deployment layer remains valid only because it runs the same validation, generation, and MkDocs build path used locally before publishing `build/site` as a disposable artifact."
   - "The repository now has a derived MkDocs publication layer through `mkdocs.yml` and `scripts/python/build_site_docs.py`, and that layer remains valid only because it rebuilds reader-facing Markdown from canonical docs, patterns, views, vocabularies, instances, and schema assets without introducing a second source of truth."
-  - "The repository now has three hundred six grounded examples across all seven currently modeled domains, with `compliance` at forty-seven; `support` at forty-five; `research` and `operations` at forty-four; `engineering`, `finance`, and `hr` at forty-two. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "The repository now has three hundred seven grounded examples across all seven currently modeled domains, with `compliance` at forty-seven; `support` at forty-five; `research` and `operations` at forty-four; `finance` at forty-three; and `engineering` plus `hr` at forty-two. Phase 7 should keep favoring structurally distinct slice diversification rather than simple domain-count rebalancing while staying grounded in validation-backed repository counts."
+  - "`change-triggered-representation-refresh` now has additional `finance` grounding through a borrowing-base certificate review package refresh after collateral schedule update, deepening that moderate-risk transform-family refresh slice beyond quarter-close covenant staging by centering one exact asset-based-lending review package with receivables and inventory schedule lineage, approved reserve and concentration-haircut changes, field-level delta trace, exception-held blockers, and a named credit-officer plus facility-agent review lane rather than lender submission, borrowing requests, treasury availability posting, or downstream execution."
   - "`approval-packet-generation` now has explicit `engineering` grounding through a production artifact-signing key-rotation deferral approval-packet example, deepening that high-risk gather-family approval-bound slice beyond compliance legal-hold and biometric-retention cases plus operations vapor-recovery deviation coverage by centering one exact cryptography-governance packet with key-inventory lineage, HSM attestation evidence, ceremony-readiness blockers, dependency-status traces, scoped exception visibility, and a named board-review handoff rather than deferral recommendation, approval adjudication, key-rotation scheduling, or downstream release execution."
   - "`crisis-briefing-evidence-synthesis` now has its first `finance` grounding through a coordinated account-takeover payment ring fraud-command bridge crisis briefing example, deepening that critical gather/synthesize slice beyond engineering outage, operations cold-chain, and support executive-bridge coverage by centering one exact cross-channel fraud-command brief with affected-account scope, outbound-payment state, beneficiary-cluster overlap, authentication-compromise evidence, analyst-confirmed case lineage, and explicit unresolved exposure questions rather than payment blocking, reimbursement choice, suspicious-activity filing, law-enforcement contact, regulator communication, or downstream execution."
   - "`critical-channel-safe-state-packaging` now has its first `compliance` grounding through a multinational distributor bribery response channel-safe case package example, deepening that critical transform slice beyond finance liquidity stress, operations contamination containment, and support severity-one service-state coverage by centering one exact anti-bribery response package with jurisdiction buckets, distributor aliases, payment-pattern bands, preservation-status fields, privileged and whistleblower hold placeholders, and manifest-bound release rather than crisis briefing, culpability assessment, regulator communication, or downstream remediation execution."
