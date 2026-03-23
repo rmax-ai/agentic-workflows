@@ -45,6 +45,34 @@ This grounds the pattern in a finance workflow where the governance problem is c
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    WS["Governed finance collaboration workspace<br>holding the clarification packet,<br>revision history, and objection ledger"]
+    REV["Revenue sub-ledger, contract management,<br>and order management systems"]
+    POL["ASC 606 policy repository,<br>revenue-recognition playbook,<br>and precedent register"]
+    BILL["Billing-schedule, deferred-revenue,<br>and financial-close systems"]
+    CONTROL["Clarification packet release control<br>for the exact revision,<br>residual caveats, and lane boundary"]
+    MAN["Release manifest and approval-routing tooling<br>for signer state, lane scope,<br>and supersession holds"]
+    AUD["Audit and retention systems"]
+    LANE["Bounded technical-accounting<br>review intake lane"]
+    STOP["Stop before classification adjudication,<br>revenue-entry changes, policy guidance,<br>or auditor and customer communication"]
+
+    subgraph APPROVAL["Finance policy approval boundary"]
+        OWNER["Named finance policy<br>release owner"]
+    end
+
+    WS -->|"Provides packet revision,<br>open questions, and accepted caveats"| CONTROL
+    REV -->|"Provides contract terms,<br>modification history, and allocation evidence"| CONTROL
+    POL -->|"Provides ASC 606 criteria,<br>classification rules, and precedents"| CONTROL
+    BILL -->|"Provides billing schedules,<br>deferred balances, and period-cut traceability"| CONTROL
+    CONTROL -->|"Prepares exact revision release state,<br>hold reasons, and intake-lane binding"| MAN
+    CONTROL -->|"Stores superseded revisions,<br>residual objections, and blocked-release reasons"| AUD
+    MAN -->|"Records signer approvals,<br>lane scope, and handoff traceability"| AUD
+    MAN -->|"Routes one exact approved revision<br>for human release decision"| OWNER
+    OWNER -->|"Approves release only into one bounded<br>technical-accounting intake lane"| LANE
+    LANE -->|"Stops at governed intake handoff"| STOP
+```
+
 - Approval-gated execution fits because the clarification packet can be collaboration-ready while still blocked from technical-accounting review intake until the human release owner approves the exact revision with its accepted residual caveats.
 - Human-in-the-loop control is required because only accountable finance policy and technical-accounting leaders may accept residual classification uncertainty, confirm audience scope, and authorize the packet's release boundary without that approval being treated as a revenue recognition determination.
 - Agents may reconcile contract modification evidence, compare performance-obligation split alternatives, normalize objection wording across reviewer comments, and maintain the release trace, but they must not resolve classification disputes, adjust sub-ledger entries, or trigger any downstream revenue action.
