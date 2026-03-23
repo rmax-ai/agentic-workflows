@@ -42,6 +42,32 @@ This grounds `risk-alert-triage` in HR work where calendar reminders alone are n
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph fam["Monitor / detect / triage boundary"]
+        cop["Credentialing operations<br>platform"]
+        reg["State licensing board and<br>professional registry feeds"]
+        hris["HRIS"]
+        lms["Learning-management<br>system"]
+        acc["Identity, badge, and<br>workforce-access systems"]
+        agt["Tool-using agent for continuous<br>alert clustering, enrichment,<br>and source-precedence triage"]
+        que["HR credentialing<br>case queue"]
+        evi["Audit-grade<br>evidence store"]
+
+        cop -->|"Credential inventory, expiration dates,<br>restricted scopes, and prior overrides"| agt
+        reg -->|"Authoritative license status, restrictions,<br>renewal dates, and verification timestamps"| agt
+        hris -->|"Job, facility, leave, and<br>manager context"| agt
+        lms -->|"Training completion, recertification windows,<br>and transcript references"| agt
+        acc -->|"Role activation and return-to-duty<br>signals that reopen alert clusters"| agt
+        evi -->|"Persistent cluster lineage,<br>prior triage history, and blocker state"| agt
+        agt -->|"Prioritized triage packet with<br>urgency, confidence, and blocker notes"| que
+        agt -->|"Merged alert lineage, source precedence decisions,<br>and evidence revisions"| evi
+    end
+
+    rev["HR credentialing, labor-compliance,<br>and occupational-health review boundary"]
+    que -->|"Approval-gated routing<br>into human review"| rev
+```
+
 - Event-driven monitoring should continuously ingest registry status changes, LMS recertification events, HRIS role moves, return-to-duty signals, and credentialing-system updates, then reopen, merge, or reprioritize alert clusters as evidence changes.
 - A tool-using single agent can correlate worker identities across credentialing, HRIS, registry, and LMS systems; suppress duplicate reminder chatter; apply explicit source precedence; and publish a prioritized queue with urgency drivers and evidence confidence notes.
 - Human-in-the-loop review should remain mandatory for any alert involving an authoritative restriction, a primary-source lapse within a protected review window, a conflict between authoritative and internal records, or unresolved blocker conditions such as registry outages, unmatched license numbers, or missing continuing-education verification.
