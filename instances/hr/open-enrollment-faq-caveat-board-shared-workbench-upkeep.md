@@ -46,6 +46,35 @@ This grounds the pattern in a low-risk HR collaboration loop where the maintaine
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph up["Internal shared-workbench upkeep"]
+        ann["HR annotation and review surface<br>small edits, caveats, and hold notes"]
+        agt["Bounded single agent<br>refreshes sources, normalizes caveats,<br>and updates owners plus hold markers"]
+        brd["Shared open enrollment FAQ caveat board<br>topic sections, owner fields,<br>blocker tags, and revision history"]
+        reg["Visible register of unresolved<br>policy-interpretation questions and holds"]
+    end
+    subgraph src["Linked source systems"]
+        pol["Internal benefits policy repository<br>plan summaries, enrollment guidance,<br>and approved portal instruction notes"]
+        car["Carrier or vendor operations notes workspace<br>approved clarifications, effective dates,<br>and linked source references"]
+        art["Screenshot and artifact store<br>topic-level caveat references<br>and reviewer-comment artifacts"]
+    end
+    subgraph hum["Human review boundary"]
+        rev["Benefits specialists, policy owners,<br>regional HR partners, and communications reviewers"]
+    end
+
+    ann -->|"small edit events"| agt
+    brd -->|"board field changes"| agt
+    pol -->|"policy and portal-note refresh"| agt
+    car -->|"carrier clarification refresh"| agt
+    art -->|"artifact refresh"| agt
+    agt -->|"bounded board updates<br>links, dedupes, owners, and blocker tags"| brd
+    agt -->|"carries forward unresolved items<br>and hold markers"| reg
+    reg -->|"stays visible on the shared board"| brd
+    brd -->|"routes interpretation or employee-facing wording questions for review"| rev
+    rev -->|"reviews held items and named ownership decisions"| brd
+```
+
 - Event-driven monitoring fits because upkeep should react when policy notes, carrier clarifications, screenshots, or board fields change.
 - A tool-using single agent can refresh source links, normalize duplicated caveat text, and keep ownership and blocker markers synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when a note changes policy interpretation, sounds employee-facing, or could remove a caveat that a benefits owner still considers unresolved.
