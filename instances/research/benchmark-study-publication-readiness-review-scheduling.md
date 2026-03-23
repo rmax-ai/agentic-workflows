@@ -44,6 +44,27 @@ This grounds the scheduling pattern in a research workflow where the main value 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    PGT["Publication-governance tracker<br>study stage, embargo dates, required review roles"]
+    TC["Team calendars<br>free-busy and timezone limits"]
+    MC["Milestone calendar<br>freeze window and abstract deadline constraints"]
+    SA["Scheduling agent<br>bounded slot ranking and hold orchestration"]
+    CT["Calendar tools<br>tentative holds and draft invite packet"]
+    CW["Coordination workspace<br>candidate slots, rationale, and confirmation status"]
+    HF["Human final confirmation<br>research program manager or study lead"]
+
+    PGT -->|"Provides<br>window and role rules"| SA
+    TC -->|"Provides<br>availability constraints"| SA
+    MC -->|"Provides<br>deadline and blackout constraints"| SA
+    SA -->|"Places<br>tentative holds"| CT
+    CT -->|"Returns<br>hold status"| SA
+    SA -->|"Records<br>candidate slots and escalations"| CW
+    SA -->|"Presents<br>best viable slot"| HF
+    HF -->|"Approves<br>final confirmation"| CT
+    HF -->|"Records<br>final confirmation status"| CW
+```
+
 - A tool-using single agent gathers free-busy availability, embargo-window constraints, abstract-deadline metadata, required-attendee rules, and timezone preferences from approved research systems.
 - Bounded delegation fits because the agent can rank feasible slots, place short-lived tentative holds, and draft a meeting packet linked to the publication-governance record, but it should not move the abstract deadline, replace a required reviewer silently, or confirm the final review invite without the research program manager's approval.
 - Human checkpoints remain necessary when no compliant overlap exists before the embargo expires, when only after-hours options remain for a required reviewer, or when a proposed delegate would change who owns privacy, licensing, or reproducibility sign-off in the meeting.
