@@ -39,6 +39,28 @@ This grounds the transform pattern in research governance work where the valuabl
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph SOURCE["Source packet inputs"]
+        DOCS["Protocol repository<br>Amendment drafting workspace<br>Study operations tracker<br>Controlled document store"]
+        AUX["Site readiness logs<br>Participant-material libraries<br>Adverse-event review notes<br>Sponsor-condition trackers"]
+    end
+    REF["Approved reference data<br>Study ids, site codes, amendment classes,<br>document types, intake-lane labels"]
+    subgraph LANE["Restricted pre-submission lane"]
+        AGENT["Tool-using single agent<br>Assemble packet, extract intake fields,<br>compare against the current approved baseline"]
+        STAGING["Restricted research-governance pre-submission staging system<br>One structured intake record + transformation trace<br>Lane: Human Subjects Pre-Submission Intake"]
+        EXQ["Exception queue<br>Governance intake coordinators,<br>privacy review, or protocol-operations follow-up"]
+    end
+    OWNERS["Human research-governance owners"]
+    DOCS --> AGENT
+    AUX --> AGENT
+    REF --> AGENT
+    AGENT --> STAGING
+    AGENT --> EXQ
+    STAGING --> OWNERS
+    EXQ --> OWNERS
+```
+
 - A tool-using single agent can assemble the amendment packet, extract structured intake fields, compare the redlined protocol against the current approved baseline, and emit one restricted pre-submission intake record plus a transformation trace.
 - The target handoff should remain a single governed artifact in staging that includes lane ownership, blocker state, source inventory, and delta lineage rather than a draft submission package or reviewer-facing narrative.
 - Approved reference data may normalize study ids, site codes, amendment classes, document types, and intake-lane labels, but unsupported inference about ethics risk level, sponsor acceptance, site implementation readiness, or whether a missing signoff is waivable should force exception routing.
