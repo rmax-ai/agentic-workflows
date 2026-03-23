@@ -37,6 +37,26 @@ This example shows the scheduling pattern in a people-sensitive workflow where c
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    ATS["Applicant tracking system<br>stage, SLA clock, interview plan,<br>and required panel roles"]
+    REQ["Recruiter scheduling request<br>candidate availability, modality,<br>and accommodation notes"]
+    CAL["Interviewer and hiring-manager calendars<br>working hours and existing holds"]
+    FAIR["Interviewer pool fairness roster<br>load-balancing and off-hours metadata"]
+    TOOLS["Calendar and video-meeting tools<br>tentative holds and draft meeting shells"]
+    COMM["Recruiting communication templates<br>and internal coordination channel"]
+    APPROVAL["Human approval boundary<br>recruiter or hiring-manager review<br>for policy or fairness exceptions"]
+
+    ATS -->|"provides stage, SLA, and panel-role context to"| TOOLS
+    REQ -->|"provides candidate windows and notes to"| TOOLS
+    CAL -->|"provides working-hour-aware availability to"| TOOLS
+    FAIR -->|"provides load-balancing checks to"| TOOLS
+    TOOLS -->|"places tentative holds and drafts proposal details in"| COMM
+    CAL -->|"surfaces out-of-hours conflicts for"| APPROVAL
+    FAIR -->|"surfaces fairness conflicts for"| APPROVAL
+    TOOLS -->|"routes policy or fairness exception cases to"| APPROVAL
+```
+
 - A tool-using single agent reads candidate availability, interviewer calendars, timezone rules, and panel-role requirements, then proposes viable interview sequences.
 - Bounded delegation fits because the agent can reserve tentative interviewer blocks, hold a recruiting closeout slot, and draft timezone-normalized invites, but it should not bypass accommodation requirements, assign an interviewer outside approved load-balancing rules, or confirm an out-of-hours loop without recruiter or hiring-manager approval.
 - Human review remains necessary when only unfair or out-of-policy slots are available, when a required interviewer needs substitution, or when the candidate asks for changes that would breach the recruiting SLA unless an exception is approved.
