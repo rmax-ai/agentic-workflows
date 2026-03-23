@@ -43,6 +43,46 @@ This grounds the pattern in a support crisis where leadership needs a high-confi
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph boundary["Approved retrieval boundary"]
+        support["Support case management<br>severity-one bridge records<br>and escalation tracker"]
+        account["CRM and entitlement systems<br>support tier, named contacts,<br>and exception flags"]
+        product["Product incident tracker<br>engineering status feed,<br>and workaround notes"]
+        security["Identity audit records<br>and security-handling runbooks"]
+        continuity["Prior bridge summaries<br>communications draft tracker,<br>and open-questions register"]
+    end
+
+    orchestrator["Orchestrated multi-agent<br>workflow"]
+    entitlement["Account and entitlement<br>retrieval"]
+    incident["Incident-status<br>verification"]
+    constraints["Security-constraint<br>assembly"]
+    compose["Final brief<br>composition"]
+    ledger["Crisis-state ledger<br>with source trace"]
+    guardrails["Brief guardrails<br>block unsupported concessions,<br>blame, and commitments"]
+    review["Human review<br>for each bridge brief"]
+    workspace["Executive support bridge workspace<br>reviewed briefs, restricted notes,<br>and superseded updates"]
+
+    support -- "Account scope<br>and bridge state" --> entitlement
+    account -- "Entitlements<br>and obligations" --> entitlement
+    product -- "Incident status<br>and workaround validation" --> incident
+    security -- "Verification rules<br>and restricted actions" --> constraints
+    continuity -- "Provisional observations<br>and open questions" --> ledger
+
+    orchestrator -- "Coordinate" --> entitlement
+    orchestrator -- "Coordinate" --> incident
+    orchestrator -- "Coordinate" --> constraints
+    orchestrator -- "Coordinate" --> compose
+
+    entitlement -- "Entitlement facts<br>and exceptions" --> ledger
+    incident -- "Verified<br>incident state" --> ledger
+    constraints -- "Security-handling<br>constraints" --> ledger
+    ledger -- "Traceable crisis state" --> compose
+    compose -- "Bounded draft brief" --> guardrails
+    guardrails -- "Reviewer-ready brief" --> review
+    review -- "Approved brief" --> workspace
+```
+
 - An orchestrated multi-agent workflow can separate account and entitlement retrieval, incident-status verification, security-constraint assembly, and final brief composition while maintaining one crisis-state ledger.
 - Human-in-the-loop review should remain mandatory for each executive bridge brief because customer-impact wording, workaround readiness, and contractual obligations can materially influence downstream communication and commercial decisions.
 - The workflow should preserve a trace that distinguishes executed entitlement facts, approved account exceptions, verified product-incident status, and provisional bridge observations awaiting confirmation.
