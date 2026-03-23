@@ -39,6 +39,33 @@ This grounds the pattern in research with a materially different attestation pro
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph readonly["Read-only evidence sources"]
+        irb["IRB protocol registry<br>protocol amendment and lineage evidence"]
+        consent["Consent repository<br>reuse boundaries and addendum evidence"]
+        transcripts["Restricted transcript repository<br>quote lineage and redaction context"]
+        manifest["Corpus manifest store<br>packet revision and corpus scope evidence"]
+        qa["Redaction QA workspace<br>masking-rule history and sample findings"]
+        access["Access-certification exports<br>role transition and access-review evidence"]
+        policy["Data-governance policy library<br>de-identification thresholds and escalation criteria"]
+        exceptions["Exception register<br>rare-quotation and attestation freshness context"]
+    end
+
+    packet["One reviewable rationale packet"]
+    review["Dr. Lena Ortiz<br>human review"]
+
+    irb -- "Provides protocol evidence" --> packet
+    consent -- "Provides consent-boundary evidence" --> packet
+    transcripts -- "Provides restricted-corpus context" --> packet
+    manifest -- "Provides manifest and revision evidence" --> packet
+    qa -- "Provides masking-rule and QA evidence" --> packet
+    access -- "Provides certification-drift evidence" --> packet
+    policy -- "Provides requirement thresholds" --> packet
+    exceptions -- "Provides bounded exception context" --> packet
+    packet -- "Supports approve, remediate,<br>or escalate recommendation" --> review
+```
+
 - A tool-using single agent can retrieve the exact packet revision, align requirement identifiers to protocol and consent sources, compare redaction QA evidence with the active `2.4` masking rules, and assemble one reviewable rationale packet for Dr. Ortiz.
 - Human-in-the-loop review is required because the named owner must decide whether partial evidence is acceptable, whether the consent-language ambiguity stays within delegated interpretation bounds, or whether escalation is necessary.
 - Read-only integration with protocol, transcript, QA, and access-governance systems is preferable so the workflow cannot mutate corpus contents, update approvals, certify access, or record the attestation automatically.
