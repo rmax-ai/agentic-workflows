@@ -40,6 +40,23 @@ This grounds the pattern in operations where a live facility change may already 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    packet["Approved cutover packet store<br>routing profile, protected zones,<br>fallback plan"]
+    telemetry["Sorter telemetry sources<br>sensor health, jam dashboards,<br>backlog monitors"]
+    safety["Safety and fallback evidence<br>interlocks, maintenance holds,<br>restore validation"]
+    verifier["Evidence-gated verification<br>checks scope, backlog,<br>interlocks, and lineage"]
+    approval["Approval workspace<br>human review boundary<br>site and safety leads"]
+    audit["Audit store<br>telemetry snapshots, hold reasons,<br>approval decisions"]
+
+    packet -->|"approved packet"| verifier
+    telemetry -->|"current telemetry evidence"| verifier
+    safety -->|"interlock and fallback evidence"| verifier
+    verifier -->|"verification packet"| approval
+    verifier -->|"evidence lineage"| audit
+    approval -->|"approval or hold record"| audit
+```
+
 - Approval-gated execution fits because the packet becomes ready for use only after site leaders approve a fresh verification verdict.
 - Human-in-the-loop review should remain routine because safety and operations leads must interpret held conditions before any live sorter activation proceeds.
 - Durable verification state should track superseded telemetry snapshots, repeated safety holds, and packet revisions so later approvals remain auditable.
