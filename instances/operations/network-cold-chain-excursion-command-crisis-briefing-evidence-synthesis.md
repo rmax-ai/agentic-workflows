@@ -45,6 +45,27 @@ This grounds the pattern in an operations crisis where many live data feeds matt
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph approved["Approved operations, quality,<br>and safety repositories"]
+        telemetry["Cold-chain sensor telemetry platform<br>excursion alarms and calibration-history records"]
+        logistics["Warehouse management,<br>shipment-tracking, and route-manifest systems"]
+        policy["Quality-hold system,<br>product disposition rules, and regulatory playbooks"]
+        facilities["Facility maintenance logs,<br>backup-power status, staffing rosters, and manual field check-ins"]
+        prior["Prior command briefs<br>and unresolved-question tracker"]
+    end
+
+    telemetry -->|"provides calibrated sensor evidence"| retrieve["Orchestrated multi-agent design<br>telemetry validation, shipment-and-inventory retrieval,<br>and policy-context assembly"]
+    logistics -->|"provides inventory location<br>and transit status"| retrieve
+    policy -->|"provides approved hold rules<br>and regulatory context"| retrieve
+    facilities -->|"provides facility conditions<br>and manual field check-ins"| retrieve
+    prior -->|"provides prior brief continuity<br>and open questions"| retrieve
+    retrieve -->|"updates one shared command-state model"| state["Shared command-state model<br>provenance and freshness trace"]
+    state -->|"feeds final briefing composition"| compose["Final briefing composition<br>review-ready crisis brief"]
+    compose -->|"submits the brief for review"| review["Human reviewer<br>scope and evidence framing"]
+    review -->|"hands off approved crisis brief<br>and supersession-ready record"| workspace["Operations command workspace<br>reviewed crisis briefs, restricted annexes, and superseded versions"]
+```
+
 - An orchestrated multi-agent design can split telemetry validation, shipment-and-inventory retrieval, policy-context assembly, and final briefing composition across specialized roles while preserving one shared command-state model.
 - Human-in-the-loop review should remain mandatory because affected-product counts, manual temperature overrides, and regulator-facing statements can have safety and compliance consequences if overstated.
 - The workflow should maintain a provenance and freshness trace that distinguishes calibrated sensor evidence, system-of-record inventory state, approved hold policies, and lower-authority site commentary.
