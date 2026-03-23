@@ -38,6 +38,17 @@ This grounds the pattern in HR people-data governance rather than accommodation 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["HRIS, document-management,<br>and regional personnel-file index systems"] -->|"authoritative inventories<br>and source references"| D["Governed HR collaboration workspace<br>with packet, objection ledger,<br>and release-manifest draft"]
+    B["Global mobility, vendor-management,<br>and data-processing-agreement repositories"] -->|"platform constraints,<br>subprocessor status,<br>and retention obligations"| D
+    C["Privacy-governance, records-retention,<br>and localization-policy systems"] -->|"required signers,<br>audience scope,<br>and intake-lane rules"| D
+    D -->|"submit exact packet revision"| E["HR privacy release owner"]
+    E -->|"approve exact revision<br>for one restricted intake lane"| F["Restricted HR privacy review intake lane"]
+    D -->|"revision lineage,<br>held-release reasons,<br>and accepted objections"| G["Audit, approval-routing,<br>and supersession logs"]
+    E -->|"approval decision<br>and handoff traceability"| G
+```
+
 - Approval-gated execution fits because the transfer-exception packet can be collaboration-ready while still blocked from HR privacy intake until the human release owner approves the exact revision.
 - Human-in-the-loop control is required because only accountable HR privacy and records-governance leaders may accept residual disagreement, confirm audience scope, and authorize release of the packet itself.
 - Agents may crosswalk record inventories, refresh transfer-mechanism references, normalize disputed wording, and maintain the release trace, but they must not approve the cross-border transfer, contact employees, or launch downstream data movement.
