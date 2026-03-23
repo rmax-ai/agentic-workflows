@@ -42,6 +42,29 @@ This grounds the pattern in support where the reusable challenge is release cont
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Packet and evidence systems"]
+        workspace["Audit-export remedy recommendation workspace<br>current packet revision and blocked-access notes"]
+        records["Cited support and compliance records<br>case, archive history, retention, privacy, contract, exceptions"]
+    end
+    subgraph controls["Release governance controls"]
+        owner["Named support<br>release owner"]
+        policy["Governance repository<br>board lane, recipients, timing window"]
+        routing["Approval manifest and routing tooling<br>governed release agent"]
+    end
+    board["Restricted account-governance board<br>decision lane"]
+    ledger["Audit and supersession ledger"]
+
+    records -->|"cited evidence"| workspace
+    workspace -->|"exact packet revision"| routing
+    owner -->|"release approval"| routing
+    policy -->|"authorized audience and expiry rules"| routing
+    routing -->|"governed packet handoff<br>manifest and packet hash"| board
+    routing -->|"blocked forwarding attempts"| ledger
+    workspace -->|"superseded drafts"| ledger
+```
+
 - Approval-gated execution fits because the recommendation packet remains blocked until a named support owner authorizes release into the restricted account-governance board decision lane.
 - Human-in-the-loop review remains necessary because only accountable support and data-governance owners should confirm audience scope, expiry, and blocked-access visibility without turning the release into approval of the remedy itself.
 - A governed agent can verify packet hashes, assemble the manifest, and block broadened distribution, but it should not execute the export, approve exceptional data access, or send remediation commitments to the customer.
