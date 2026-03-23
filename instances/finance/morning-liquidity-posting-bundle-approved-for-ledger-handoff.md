@@ -40,6 +40,25 @@ This grounds the pattern in finance work where downstream reliance depends on on
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph release["Approval-gated ledger handoff boundary"]
+        staging["Governed staging store<br>for posting-ready bundle and lineage trace"]
+        manifest["Manifest service<br>for handoff manifest"]
+        approval["Controller approval tooling"]
+        hold["Hold and exception queue<br>for lineage, coverage, and balance conflicts"]
+        staging --> manifest
+        staging --> hold
+        manifest --> approval
+        hold -- "Held items<br>for controller review" --> approval
+    end
+
+    sources["Treasury cash-position, settlement,<br>collateral, and facility systems"] --> staging
+    refs["Manual-adjustment approvals,<br>entity hierarchy, and posting-code tables"] --> staging
+    controllers["Treasury controllers"] --> approval
+    approval -- "Approved posting bundle<br>and manifest" --> handoff["Controlled ledger handoff channel"]
+```
+
 - Approval-gated execution fits because the package is assembled for one specific ledger handoff boundary but remains blocked until controller approval is attached to the manifest.
 - Human-in-the-loop governance is required because controllers must adjudicate held adjustments, downstream boundary scope, and any entity-coverage exceptions before release.
 - The workflow should produce the posting-ready bundle, lineage trace, hold register, and manifest only; it should not post balances, recommend funding actions, or certify that broader treasury decisions should proceed.
