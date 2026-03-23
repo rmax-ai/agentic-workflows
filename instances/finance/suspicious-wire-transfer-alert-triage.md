@@ -38,6 +38,19 @@ This instance grounds the pattern in a finance setting where speed, explainabili
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Transaction-monitoring alert stream<br>and scoring pipeline"] -->|"emits alert"| B["Alert enrichment and triage"]
+    C["Customer profile, KYC,<br>and historical payment-behavior records"] -->|"provides context"| B
+    D["Beneficiary screening, sanctions,<br>and adverse-media results"] -->|"provides screening context"| B
+    E["Wire-approval workflow logs<br>and analyst review notes"] -->|"provides approval context"| B
+    F["Treasury case-management queue<br>and prior alert dispositions"] -->|"provides prior case state"| B
+    B -->|"routes triage packet"| F
+    B -->|"routes severe or policy-conflicted alerts"| G["Analyst review queue"]
+    G -->|"submits reviewed case"| H["Authorized reviewer confirmation"]
+    H -->|"records approved escalation or suppression"| F
+```
+
 - Event-driven monitoring ingests alert signals continuously and enriches them with customer, beneficiary, and prior-case context.
 - Human-in-the-loop review stays embedded for severe, low-confidence, or policy-conflicted cases that could affect funds movement or regulatory reporting.
 - Approval-gated routing keeps automated scoring advisory until an authorized reviewer confirms escalation, suppression, or downstream action.
