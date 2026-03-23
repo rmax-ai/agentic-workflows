@@ -39,6 +39,44 @@ This grounds the pattern in a support severe-case setting where the reusable sha
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Timeline["Support case-management timelines<br>chronology + containment status"]
+    Session["Privileged-session tooling + remote-screen-share logs + escalation notes<br>operator actions + session replay references + access-path evidence"]
+    Governance["Tenant registry + entitlement records + account-governance repositories<br>affected-account mappings + contractual constraints + reviewer boundaries"]
+    AnnexStore["Restricted annex store<br>tenant-identifying detail + session replay references + privileged-access-path notes"]
+    Audit["Audit and access-control systems<br>revision logs + annex retrievals + release approvals + manual overrides"]
+    Handoff["Bounded downstream handoff boundary<br>privacy + product-security + account-governance review"]
+
+    subgraph Room["Restricted support-trust collaboration room"]
+        Human["Senior support trust manager<br>human artifact owner"]
+        Agents["Orchestrated agent roles<br>chronology refresh + objection normalization + trace upkeep"]
+        Workspace["Protected account-impact packet workspace<br>shared room state + release guards"]
+        Packet["Main account-impact packet<br>shared narrative + contested exposure scope"]
+        Register["Disagreement register<br>open objections + evidence sufficiency gaps"]
+        AnnexMap["Annex map<br>restricted references + promotion controls"]
+        Release["Release-state controls<br>held state + readiness record + human approval"]
+
+        Human -->|"owns collaboration room"| Workspace
+        Agents -->|"draft revisions + maintain trace"| Workspace
+        Workspace -->|"updates"| Packet
+        Workspace -->|"keeps disagreement visible"| Register
+        Workspace -->|"tracks annex boundaries"| AnnexMap
+        Human -->|"approves readiness"| Release
+        Workspace -->|"current packet state"| Release
+    end
+
+    Timeline -->|"chronology updates"| Agents
+    Session -->|"privileged-session evidence"| Agents
+    Governance -->|"affected-account constraints + reviewer boundaries"| Human
+    Governance -->|"tenant mapping + governance rules"| Agents
+    AnnexStore -->|"restricted annex material"| AnnexMap
+    Workspace -->|"revision + scope-change events"| Audit
+    AnnexStore -->|"annex retrieval events"| Audit
+    Release -->|"release approvals + manual overrides"| Audit
+    Release -->|"handoff-ready packet + register + annex map"| Handoff
+```
+
 - Human-in-the-loop collaboration should remain primary because only accountable support-trust, privacy, and legal owners can accept disputed exposure language, narrow annex exposure, and release the packet into the next critical review lane.
 - An orchestrated multi-agent setup fits when separate agent roles refresh chronology evidence, normalize reviewer objections, maintain annex boundaries, and preserve the protected trace across successive revisions.
 - Agents may draft revisions, reconcile evidence references, and maintain readiness state, but selecting disclosure authorities, contacting affected customers, changing support-access privileges, or initiating remediation work should remain outside the room and explicitly human-controlled.
