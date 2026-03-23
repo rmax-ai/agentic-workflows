@@ -53,6 +53,32 @@ This instance grounds the pattern in research without drifting into paper drafti
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Study governance tracker<br>artifact-freeze checklist<br>publication-gate policy library"]
+    B["Experiment tracker<br>rerun evidence store<br>reproducibility verification reports"]
+    C["Dataset inventory<br>license register<br>privacy or disclosure review notes"]
+    D["Submission calendar<br>reviewer comment log<br>prior artifact-gate exception register"]
+    E["Internal research archive<br>draft figures<br>prompt-set references<br>approved disclosure boundaries"]
+    F["Gate evidence"]
+    G["Blocker register"]
+    H["Artifact-freeze readiness gate recommender"]
+    I["Governed recommendation handoff boundary"]
+    J["Research governance panel"]
+
+    A --> F
+    B --> F
+    C --> F
+    C --> G
+    D --> F
+    D --> G
+    E --> F
+    F --> H
+    G --> H
+    H --> I
+    I --> J
+```
+
 - Event-driven monitoring fits because reproducibility reruns, license-status changes, privacy review updates, and deadline thresholds should trigger a refreshed gate recommendation as soon as the gate context materially changes.
 - Human-in-the-loop review is mandatory because the workflow should advise on proceed, hold, narrow, or escalate posture, not approve the submission, edit the artifact package, or disclose the study externally.
 - Read-only integration with experiment, licensing, review, and archive systems is preferable so the agent cannot silently convert a readiness recommendation into an irreversible publication action.
