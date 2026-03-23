@@ -42,6 +42,34 @@ This grounds the pattern in finance where the main challenge is adapting existin
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    bridge["Treasury bridge workspace<br>declared severe status, queue state,<br>active payment and collateral holds"]
+    evidence["Cash-position, payment-obligation,<br>collateral, and settlement evidence feeds"]
+    history["Manual override and escalation history<br>treasury supervisors, controller reviewers,<br>and prior stress events"]
+    guardrails["Emergency governance rules<br>protected payment classes, market-close buffers,<br>reserve-capacity limits, rollback triggers"]
+
+    subgraph adaptation["Severe-mode adaptation boundary"]
+        agents["Orchestrated multi-agent coordination<br>cash review, protected-class validation,<br>severe-mode simulation, rollback packaging"]
+        packet["Temporary optimization-state packet<br>protected review lanes, deferred low-value work,<br>expiry and rollback metadata"]
+    end
+
+    subgraph governance["Governance review boundary"]
+        leaders["Treasury and finance leadership review<br>adopt, reject, extend, or restore state"]
+        audit["Versioned prioritization and audit systems<br>baseline and severe-mode states,<br>adoption, extension, and rollback lineage"]
+    end
+
+    bridge -->|"Declared severe context<br>and current queue state"| agents
+    evidence -->|"Current liquidity and<br>deadline evidence"| agents
+    history -->|"Override clusters<br>and prior stress memory"| agents
+    guardrails -->|"Hard constraints<br>and trigger rules"| agents
+    agents -->|"Bounded recommendation"| packet
+    packet -->|"Review packet with<br>expiry metadata"| leaders
+    packet -->|"Candidate state<br>and lineage"| audit
+    leaders -->|"Adoption, extension,<br>or rollback decisions"| audit
+    audit -->|"Baseline or active<br>priority state"| bridge
+```
+
 - Orchestrated multi-agent coordination fits because cash-state telemetry review, protected payment-class validation, severe-mode simulation, and rollback packaging benefit from distinct roles over one shared bridge state.
 - Human-in-the-loop review is required because treasury and finance leaders must explicitly adopt or reject any temporary reprioritization that changes how scarce review capacity is reserved during the stress period.
 - Human-directed autonomy fits because the workflow should recommend temporary buffers, lane protections, and low-consequence deferrals without deciding whether to draw facilities, restrict payments, or escalate authority.
