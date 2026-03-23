@@ -41,6 +41,21 @@ This grounds the pattern in the specific engineering challenge of controlling vi
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Per-service rollback runbooks,<br>reversion checkpoints,<br>dependency-state snapshots,<br>and incident-evidence records"] -- "Provide rollback evidence" --> B["Governed reliability briefing workspace"]
+    C["Unresolved-risk register"] -- "Provides freshness-bound<br>open-risk items" --> B
+    B -- "Supplies exact briefing revision<br>and rollback-annex version manifest" --> D["Governed agent"]
+    C -- "Supplies unresolved-risk<br>freshness timestamps" --> D
+    D -- "Assembles release manifest<br>and compares revision ids" --> E["Approval manifest system"]
+    E -- "Presents exact revision id,<br>rollback-annex profile,<br>hold state, and permitted lane" --> F["Named reliability<br>program owner"]
+    F -- "Approves bounded council circulation" --> G["Platform-reliability council<br>circulation tooling"]
+    G -- "Releases approved packet<br>to named recipients" --> H["Restricted platform-reliability<br>council lane"]
+    E -- "Records approver, exact revision id,<br>and attachment profile" --> I["Audit log and<br>supersession tracker"]
+    G -- "Enforces expiry windows<br>and blocked redistribution" --> I
+    I -- "Blocks stale reuse after<br>changed dependency state,<br>new reversion evidence, or<br>resolved rollback-blocking question" --> J["Hold state and block<br>older superseded revisions"]
+```
+
 - Approval-gated execution fits because the rollback-readiness briefing remains held until the reliability program owner approves one exact revision, confirms the rollback-annex profile, and authorizes platform-reliability council circulation.
 - Human-in-the-loop review is necessary because only accountable reliability leadership should accept residual rollback-blocking uncertainty, confirm which unresolved-risk entries are still open, and authorize a high-consequence context packet into a council lane.
 - A governed agent can assemble the release manifest, compare revision ids against the rollback-annex version manifest, validate freshness timestamps on open risk items, and block older superseded revisions, but it should not rewrite rollback-risk judgments, resolve blocking questions autonomously, or extend distribution beyond the named council audience.
