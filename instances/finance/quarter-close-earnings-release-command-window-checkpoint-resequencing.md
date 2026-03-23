@@ -37,6 +37,18 @@ This grounds the pattern in a finance reporting workflow where the urgent proble
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Earnings-release command workspace<br>Declared quarter-close scope, checkpoint order,<br>timing boundaries, and prior command packets"] -->|"Provides current command-window state"| M["Orchestrated multi-agent workflow<br>Close-state intake, protected-cutoff checking,<br>checkpoint resequencing, participant-delta assembly,<br>and command-packet publication"]
+    B["Consolidation close tracker<br>Disclosure-controls checklist<br>Legal-readiness tracker"] -->|"Publishes authoritative readiness and dependency changes"| M
+    C["Exchange calendar<br>Filing-deadline monitor<br>Release-room timing register"] -->|"Defines narrowed external cutoff<br>and protected internal windows"| M
+    D["Governance roster<br>Delegate records<br>On-call schedules"] -->|"Supplies approved owner,<br>delegate, and roster changes"| M
+    M -->|"Preserves one authoritative checkpoint ledger<br>with explicit hold states and participant deltas"| A
+    M -->|"Records superseded timelines,<br>explicit holds, and packet lineage"| E["Audit and notification tooling"]
+    M -->|"Hands one updated command packet<br>for human adoption"| F["Finance release lead"]
+    F -->|"Adopts the materially changed checkpoint order<br>before consequential release-room coordination"| A
+```
+
 - An orchestrated multi-agent workflow can separate authoritative close-state intake, protected-cutoff checking, checkpoint resequencing, participant-delta assembly, and command-packet publication while preserving one shared command ledger.
 - Human-in-the-loop control fits because finance release leadership must adopt any materially changed checkpoint order before the new packet becomes authoritative for consequential release-room coordination.
 - The workflow should preserve explicit hold states when the consolidation correction, delegate authority, or legal and disclosure readiness do not yet support an in-policy checkpoint move.
