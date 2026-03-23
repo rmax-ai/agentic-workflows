@@ -52,6 +52,32 @@ This grounds `incident-root-cause-analysis` in research work where the central p
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    tracker["Experiment tracker entries,<br>run manifests, seed values,<br>and benchmark summary tables"]
+    dataset["Dataset registry snapshots,<br>redaction-change records,<br>corpus manifests, and lineage"]
+    harness["Evaluation harness commits,<br>container-image digests,<br>tokenizer versions, and notebooks"]
+    serving["Retrieval index build logs,<br>model registry records,<br>and model-serving telemetry"]
+    review["Research review comments,<br>governance meeting notes,<br>and issue records"]
+    artifacts["Experiment and harness<br>reconciliation flow"]
+    lineage["Dataset and corpus<br>lineage reconstruction flow"]
+    telemetry["Retrieval and serving<br>verification flow"]
+    case["Shared investigation state<br>competing hypotheses,<br>supporting and disconfirming evidence,<br>timeline normalization, and open gaps"]
+    human["Research review<br>human validation"]
+    narrative["Validated root-cause narrative<br>with residual uncertainty"]
+
+    tracker -->|"Run evidence"| artifacts
+    harness -->|"Code and metric evidence"| artifacts
+    dataset -->|"Snapshot and lineage evidence"| lineage
+    serving -->|"Index and serving evidence"| telemetry
+    review -->|"Escalation context"| case
+    artifacts -->|"Reconciled experiment evidence"| case
+    lineage -->|"Dataset and corpus findings"| case
+    telemetry -->|"Serving-path findings"| case
+    case -->|"Hypothesis set and cited evidence"| human
+    human -->|"Validated narrative"| narrative
+```
+
 - An orchestrated multi-agent workflow can separate experiment-artifact retrieval, dataset-lineage reconstruction, and serving-stack verification while preserving one normalized investigation record.
 - Shared case memory should retain candidate explanations, confirming and disconfirming evidence, timestamp-normalization choices, and unresolved gaps across research engineering and evaluation-review handoffs.
 - Human-in-the-loop review remains necessary before declaring the primary cause, deciding whether the benchmark claim is invalidated, or approving any rerun, study correction, or downstream communication based on the investigation.
