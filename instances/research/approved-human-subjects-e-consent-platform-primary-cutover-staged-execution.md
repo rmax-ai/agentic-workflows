@@ -44,6 +44,49 @@ This grounds the pattern in a research workflow where the consequential action i
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph Approved["Approved content boundary"]
+        IRB["IRB-approved consent package<br>and site-activation roster"]
+    end
+
+    subgraph Governed["Governed change-control boundary"]
+        GC["Governed change-control workspace<br>`HS-ECONSENT-PRIMARY-CUTOVER-EXEC-v4`<br>rollback criteria and blocker register"]
+        HOLD["Protected hold checkpoints<br>staged activation<br>primary promotion<br>rollback / legacy retirement"]
+        AUTH["Human hold-release authority<br>named release authorities<br>and research platform owner"]
+    end
+
+    subgraph Live["Live e-consent execution boundary"]
+        CP["Routing and control plane<br>site cohort activation<br>primary promotion / retirement"]
+        NEW["New e-consent platform<br>dark release to primary path"]
+        LEG["Legacy e-consent platform<br>fallback hot path"]
+        PART["Participant registry<br>and enrollment workflow"]
+        SIGN["Signature capture<br>and consent rendering / storage"]
+    end
+
+    subgraph Evidence["Monitoring and evidence boundary"]
+        OBS["Monitoring, audit, and evidence systems<br>parity snapshots and execution ledger"]
+    end
+
+    IRB --> GC
+    GC --> HOLD
+    AUTH --> HOLD
+    HOLD --> CP
+    CP --> NEW
+    CP --> LEG
+    NEW --> PART
+    LEG --> PART
+    NEW --> SIGN
+    LEG --> SIGN
+    CP --> OBS
+    NEW --> OBS
+    LEG --> OBS
+    PART --> OBS
+    SIGN --> OBS
+    OBS --> GC
+    OBS --> AUTH
+```
+
 - Orchestrated multi-agent coordination fits because preflight validation, site activation control, participant-state parity checking, and rollback-readiness verification usually require distinct research systems and operational roles over one shared execution ledger.
 - Human-in-the-loop holds should remain standard before the new platform becomes the primary consent path and again before the legacy path is retired, because those stages materially reduce reversibility.
 - Exception-gated autonomy is appropriate because automation may advance through limited activation when parity and telemetry remain inside approved bounds, but missing assent artifacts, signature-capture degradation, or rollback-readiness loss should force a visible hold or rollback packet.
