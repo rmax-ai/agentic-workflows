@@ -38,6 +38,32 @@ This is a representative case where fluent summarization is not enough. The valu
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    PL["Policy library"]
+    DI["Data inventory<br>and system catalog"]
+    JR["Jurisdiction regulatory text<br>and guidance"]
+    AU["Audit findings<br>and control evidence"]
+    LM["Legal memos<br>and exception register"]
+    AR["Approved retention sources<br>trust boundary"]
+    GS["Grounded synthesis<br>with citation verification"]
+    UQ["Unresolved conflict surfacing<br>and open questions"]
+    ET["Evidence trace<br>claim-to-source mapping"]
+    HR["Mandatory human legal,<br>privacy, and records review"]
+
+    PL -->|"approved source"| AR
+    DI -->|"approved source"| AR
+    JR -->|"approved source"| AR
+    AU -->|"approved source"| AR
+    LM -->|"approved source"| AR
+    AR -->|"scoped retrieval"| GS
+    GS -->|"inspectable citations"| ET
+    GS -->|"contradictions and gaps"| UQ
+    GS -->|"draft synthesis"| HR
+    ET -->|"provenance for review"| HR
+    UQ -->|"requires legal resolution"| HR
+```
+
 - A tool-using single agent handles scoped retrieval, note consolidation, and draft synthesis across approved corpora.
 - Human-in-the-loop review stays mandatory for source-boundary decisions, interpretation of conflicting obligations, and sign-off on the final brief.
 - The workflow maintains an evidence trace that maps each retention claim to the cited regulation, policy clause, or audit artifact.
