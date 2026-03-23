@@ -38,6 +38,24 @@ This grounds the pattern in engineering where the hard problem is not creating t
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    sources["Benchmark, canary, rollback-readiness,<br>and dependency-exception records"] -->|"Authoritative evidence,<br>caveats, and rollback context"| workspace["Governed release-briefing workspace<br>holding the current approved draft,<br>prior superseded revisions,<br>and attached provenance ledger"]
+    agent["Governed agent"] -->|"Assemble release manifest,<br>compare revision ids, and<br>check freshness state"| manifest["Approval manifest system<br>recording the release owner,<br>exact revision id, hold state,<br>and permitted board-briefing lane"]
+    workspace -->|"Exact briefing revision,<br>provenance ledger, and<br>superseded revision context"| manifest
+    owner["Named release owner"] -->|"Approve audience scope,<br>freshness window, and<br>supersession boundary"| manifest
+    manifest -->|"Approved board lane,<br>release disposition, and<br>freshness controls"| routing["Architecture board circulation tooling<br>enforcing named recipients,<br>confidentiality scope,<br>and expiry for released briefings"]
+    workspace -->|"Reviewed briefing revision<br>for bounded circulation"| routing
+    subgraph board["Restricted architecture board lane"]
+        lane["Named architecture board recipients"]
+    end
+    routing -->|"Bounded circulation of<br>the exact approved revision"| lane
+    workspace -->|"Revision lineage and<br>provenance state"| audit["Audit log and supersession tracker<br>used to block stale briefing reuse<br>after new evidence changes the package"]
+    manifest -->|"Hold state, approved lane,<br>and revision identity"| audit
+    routing -->|"Release trace, expiry events,<br>and blocked redistribution attempts"| audit
+    audit -->|"Stale-copy blocks and<br>supersession state"| routing
+```
+
 - Approval-gated execution fits because the briefing remains held until the release owner approves one exact revision for the restricted architecture board lane.
 - Human-in-the-loop review remains necessary because only accountable release leadership should accept residual uncertainty, confirm redactions, and authorize circulation of high-consequence launch context.
 - A governed agent can assemble the release manifest, compare revision ids, and block superseded copies, but it should not rewrite the risk judgment or broaden distribution beyond the approved board audience.
