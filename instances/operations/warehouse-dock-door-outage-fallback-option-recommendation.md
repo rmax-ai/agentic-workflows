@@ -42,6 +42,43 @@ This grounds the pattern in warehouse inbound operations without drifting into s
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    IS["Inbound supervisor"]
+    RE["Regional escalation<br>authority"]
+
+    subgraph WS["Warehouse source systems"]
+        DSB["Dock scheduling board<br>and trailer appointment queue"]
+        IWP["Inbound wave plan<br>and yard-position snapshot"]
+        FM["Freight mix data"]
+        LS["Shift labor roster<br>and adjacent door availability"]
+        FI["Facilities incident notes<br>and expected repair timing"]
+        RL["Prior dock-outage recommendation logs<br>and override requests"]
+    end
+
+    subgraph GB["Delegated local recovery<br>governance boundary"]
+        DRM["Delegated local recovery matrix<br>and regional escalation criteria"]
+        AG["Tool-using single agent<br>for bounded option ranking"]
+        BR["Guardrail and boundary register"]
+        EP["Escalation-ready<br>exception packet"]
+        AL["Recommendation audit log"]
+    end
+
+    IS -->|"submits outage case"| AG
+    DSB -->|"provides queue state"| AG
+    IWP -->|"provides door and yard context"| AG
+    FM -->|"provides freight constraints"| AG
+    LS -->|"provides labor and capacity limits"| AG
+    FI -->|"provides repair timing evidence"| AG
+    RL -->|"provides prior recommendation history"| AG
+    DRM -->|"provides allowed options<br>and hard guardrails"| AG
+    AG -->|"returns ranked in-band options"| IS
+    AG -->|"records allowed, conditional,<br>and blocked paths"| BR
+    AG -->|"writes recommendation history"| AL
+    AG -->|"packages out-of-band case"| EP
+    EP -->|"routes escalation packet"| RE
+```
+
 - A tool-using single agent can compare queue pressure, freight constraints, door availability, labor limits, and repair estimates against the approved fallback menu and produce one explainable ranking for local review.
 - Human-in-the-loop review still matters because the inbound supervisor decides whether to accept the recommended in-band option or escalate when all defensible paths move outside delegated authority.
 - Read-only integration with dock scheduling, labor, yard-management, and facilities systems is preferable so the workflow cannot silently rebook appointments, release overtime, or dispatch third-party labor.
