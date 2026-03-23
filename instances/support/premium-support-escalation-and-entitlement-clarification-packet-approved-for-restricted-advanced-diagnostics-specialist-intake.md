@@ -44,6 +44,38 @@ This grounds the pattern in support through a governed escalation-and-entitlemen
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    CRE["Contract, renewal, and<br>entitlement systems"]
+    CASE["Case-management, secure-upload approval,<br>and diagnostic inventory systems"]
+    RO["Elena Park<br>Director of Premium Support<br>Escalation Governance"]
+    RT["Restricted advanced diagnostics specialist<br>intake-routing and approval systems"]
+    RL["Bounded restricted advanced diagnostics<br>specialist intake lane"]
+    AR["Audit, retention, and<br>access-governance systems"]
+    SB["Collaborative artifact release boundary<br>stops before entitlement adjudication,<br>specialist assignment, or live diagnostics"]
+
+    subgraph WS["Governed support collaboration workspace"]
+        PK["Premium support escalation and<br>entitlement clarification packet"]
+        RH["Revision history"]
+        OL["Objection ledger"]
+        RM["Release-manifest state"]
+    end
+
+    CRE -->|"signed order form, premium addendum,<br>renewal status, entitlement scope,<br>and named-contact records"| PK
+    CASE -->|"case chronology, approved artifact references,<br>environment metadata, secure-upload state,<br>and diagnostic inventory"| PK
+    PK -->|"records updates"| RH
+    PK -->|"preserves unresolved caveats"| OL
+    PK -->|"binds exact revision"| RM
+    RH -->|"superseded packet revisions"| AR
+    OL -->|"accepted residual objections"| AR
+    RM -->|"blocked-release reasons<br>and downstream traceability"| AR
+    PK -->|"exact packet revision"| RO
+    RM -->|"release manifest"| RO
+    RO -->|"approves one bounded release"| RT
+    RT -->|"routes approved packet revision"| RL
+    RL -->|"workflow stops here"| SB
+```
+
 - Approval-gated execution fits because the clarification packet can be collaboration-ready while still blocked from restricted advanced diagnostics specialist intake until the human release owner approves the exact revision with its accepted residual caveats.
 - Human-in-the-loop control is required because only accountable support governance owners may accept residual ambiguity about entitlement scope, named-contact authority, and specialist-lane audience without that approval being treated as specialist assignment or entitlement adjudication.
 - Agents may compare contract snapshots, refresh policy citations, normalize objection wording, and maintain revision lineage and release trace, but they must not decide whether the customer is ultimately entitled, promise specialist coverage, alter account status, or trigger live diagnostics.
