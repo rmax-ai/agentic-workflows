@@ -37,6 +37,36 @@ This grounds the optimization pattern in a treasury control setting where queue 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    queue["Treasury exception management queue<br>current exceptions, aging,<br>assignments, manual overrides"]
+    evidence["Central-bank and nostro evidence views<br>authoritative balances and<br>incoming-funding confidence"]
+    guardrails["Contingency standard,<br>threshold schedule,<br>protected-priority taxonomy"]
+    history["Historical outcome store<br>prior packets v2-v4,<br>override history, rollback memory"]
+
+    subgraph tuning["Bounded queue-tuning boundary<br>Intraday-Liquidity-Exception-Queue-Tuning-Packet-v4"]
+        agent["Tool-using single agent<br>bounded queue reprioritization"]
+        packet["Packet v4<br>ranked queue rationale<br>and lineage references"]
+    end
+
+    subgraph oversight["Oversight review boundary"]
+        dashboard["Treasury governance dashboard<br>inspect packet, freeze tuning,<br>restore last trusted policy"]
+        owner["Marisol Vega<br>Head of Intraday Liquidity<br>Contingency Oversight"]
+    end
+
+    queue -->|"Current queue state"| agent
+    evidence -->|"Highest-precedence<br>evidence"| agent
+    guardrails -->|"Approved bounds and<br>protected classes"| agent
+    history -->|"Outcome memory,<br>packet lineage, rollback state"| agent
+    agent -->|"Bounded tuning result"| packet
+    agent -->|"In-policy queue<br>recommendation"| queue
+    packet -->|"Publish packet<br>for inspection"| dashboard
+    queue -->|"Aging and override<br>outcomes"| history
+    dashboard -->|"Freeze or restore<br>last trusted policy"| queue
+    dashboard -->|"Review and rollback<br>decisions"| history
+    owner -->|"Oversight review<br>and accountability"| dashboard
+```
+
 - Event-driven monitoring should trigger queue reevaluation when new contingency exceptions enter the backlog, statement refreshes materially change evidence confidence, aging bands are crossed, or reviewers repeatedly override the current order.
 - A tool-using single agent can recompute bounded prioritization weights, generate exception-level rationale, and publish the revised queue recommendation inside `Intraday-Liquidity-Exception-Queue-Tuning-Packet-v4` without changing treasury policy or executing downstream liquidity actions.
 - Exception-gated autonomy fits because in-policy ranking changes can be applied within preapproved bounds, but any tuning change that would alter protected-priority handling, contingency-review thresholds, or evidence-confidence tolerances should require explicit treasury oversight review.
