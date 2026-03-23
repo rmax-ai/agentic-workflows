@@ -35,6 +35,15 @@ This grounds the pattern in HR where the hard governance step is releasing one e
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Notice, jurisdiction, privacy, and annex<br>repositories cited by the briefing"] -->|"Provide cited source material and<br>annex context for the exact revision"| B["Restricted briefing workspace<br>stores the synthesized revision,<br>annex bindings, and provenance"]
+    B -->|"Submit exact revision id, annex profile,<br>and freshness context for gated release"| C["Approval manifest service<br>binds disposition, council lane,<br>and freshness deadline"]
+    C -->|"Authorize one bounded release manifest<br>for restricted council circulation"| D["Circulation tooling<br>delivers only to named labor governance<br>council recipients with expiry controls"]
+    D -->|"Record release events, blocked forwarding,<br>and expiry outcomes"| E["Audit and supersession tracker<br>preserves lineage and supersession state"]
+    E -->|"Feed supersession status and release-state<br>history back into governed workspace controls"| B
+```
+
 - Approval-gated execution fits because the monitoring-notice compliance briefing remains held until the HR labor governance owner approves one exact revision for the restricted labor governance council lane.
 - Human-in-the-loop review is necessary because only accountable HR leadership should accept residual notice uncertainty, confirm audience scope and annex handling, and authorize circulation of sensitive workforce-monitoring context.
 - A governed agent can assemble the release manifest, compare revision lineage, and block stale reuse or forwarding, but it should not determine notice sufficiency, resolve labor objections, or trigger employee communications, works-council outreach, or monitoring-system changes.
