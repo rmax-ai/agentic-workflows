@@ -36,6 +36,38 @@ This grounds the pattern in HR without drifting into higher-risk employee admini
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    rev["Restricted occupational-health or<br>leave-program review system"]
+    trk["Leave case tracker or<br>return-to-work coordination record"]
+    que["Restricted review queue"]
+    arc["Archive or evidence store"]
+    aud["Audit store"]
+    hrc["Internal HR coordinator<br>notification channel"]
+
+    subgraph bw["Bounded closure worker"]
+        ev["Event-driven completion worker"]
+        chk{"Case identifier,<br>disposition version,<br>packet references, and leave-episode mapping still match?"}
+        sync["Idempotent closure synchronization"]
+        stop["Manual follow-up<br>and stop"]
+        ev -->|"Re-read source state"| chk
+        chk -->|"Match"| sync
+        chk -->|"Reopened, drifted,<br>or out of scope"| stop
+    end
+
+    rev -->|"Accepted-disposition event"| ev
+    rev -->|"Authoritative source recheck"| chk
+    trk -->|"Leave-episode mapping lookup"| chk
+    arc -->|"Final packet and closure-note<br>reference lookup"| chk
+    sync -->|"Review-complete state sync"| trk
+    sync -->|"Restricted review queue closure"| que
+    sync -->|"Archive references attached"| arc
+    sync -->|"Completion trace and<br>idempotency markers"| aud
+    sync -->|"Closure-complete notice"| hrc
+    stop -->|"Manual follow-up record"| aud
+    stop -->|"Manual follow-up notice"| hrc
+```
+
 - An event-driven completion worker can subscribe to accepted-disposition events from the restricted review system and start the closure sequence only for approved post-decision states.
 - The worker should re-read the current source record before writing anywhere so a reopened case, superseded packet reference, or changed disposition is not propagated from a stale event.
 - Durable completion state should track queue closure, tracker synchronization, archive linkage, notification delivery, and skipped idempotent actions because duplicate events or partial retries are normal operational conditions.
