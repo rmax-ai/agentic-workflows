@@ -47,6 +47,45 @@ This grounds the pattern in a finance workflow where the high-stakes action is n
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    CCR["Treasury change-control record<br>approved cutover window, thresholds, scope, rollback plan"]
+    FEEDS["Bank-statement / ERP<br>cash-position feeds"]
+    NEW["New cash forecasting engine"]
+    LEG["Legacy forecast workflow"]
+    FWB["Funding workbench"]
+    LIQ["Liquidity dashboard"]
+    DAT["Downstream approval tooling"]
+    MON["Monitoring and reconciliation systems"]
+    AUD["Audit store"]
+
+    subgraph HOLD["Human-in-the-loop holds<br>treasury authority releases"]
+        AUTH["Protected hold-release decisions"]
+    end
+
+    CCR -->|"Sets approved window,<br>thresholds, and rollback plan"| NEW
+    CCR -->|"Keeps fallback scope<br>and restoration path active"| LEG
+    FEEDS -->|"Provide cash-position inputs"| NEW
+    FEEDS -->|"Preserve fallback inputs"| LEG
+    NEW -->|"Primary forecast path"| FWB
+    NEW -->|"Authoritative morning forecast"| LIQ
+    NEW -->|"Primary source-of-truth signal"| DAT
+    LEG -->|"Rollback-ready forecast path"| FWB
+    LEG -->|"Fallback liquidity view"| LIQ
+    LEG -->|"Fallback source-of-truth signal"| DAT
+    NEW -->|"Variance, latency,<br>and override telemetry"| MON
+    LEG -->|"Comparison baseline"| MON
+    CCR -->|"Approved change record"| AUTH
+    MON -->|"Checkpoint evidence<br>and divergence findings"| AUTH
+    AUTH -->|"Hold / release direction"| NEW
+    AUTH -->|"Hold / restore direction"| LEG
+    CCR -->|"Approved plan and scope"| AUD
+    NEW -->|"Stage evidence<br>and promotion state"| AUD
+    LEG -->|"Fallback restoration steps"| AUD
+    MON -->|"Reconciliation evidence"| AUD
+    AUTH -->|"Hold releases and accountable authority"| AUD
+```
+
 - Orchestrated multi-agent coordination fits because preflight validation, feed-quality checking, variance verification, and authoritative-source promotion often belong to distinct treasury or platform roles.
 - Human-in-the-loop holds should remain standard before the new forecast becomes authoritative for downstream funding actions and again before the legacy process is retired from the morning cycle.
 - Exception-gated autonomy keeps the workflow bounded: it may move from shadow mode to limited activation automatically when tolerance bands remain healthy, but desk-level overrides, missing statements, or widening forecast variance should force a visible hold.
