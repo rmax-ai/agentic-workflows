@@ -48,6 +48,29 @@ This grounds the collaboration pattern in support work where the governed artifa
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    H["Sovereign support clarification lead"]
+    S["Support case timeline<br>secure attachment store"]
+    X["Audit-export orchestration logs"]
+    R["Residency inventory and<br>storage-location registries"]
+    T["Retention-policy tables<br>evidence-store controls"]
+    P["Restricted intake prerequisites<br>internal policy guidance"]
+    subgraph G["Governed support workspace"]
+        C["Copilot agent"]
+        W["Support workbench<br>clarification package, blockers, revision lineage"]
+    end
+
+    H -->|"directs and approves"| W
+    C -->|"reads case context"| S
+    C -->|"pulls export traces"| X
+    C -->|"checks source precedence"| R
+    C -->|"maps retention evidence"| T
+    C -->|"applies package requirements"| P
+    C -->|"updates draft state"| W
+    W -->|"keeps human-visible ownership"| H
+```
+
 - Human-in-the-loop collaboration should remain primary because residency interpretation, source precedence, and any statement that could shape restricted compliance-review posture require accountable support ownership.
 - A tool-using single agent can retrieve export traces, compare residency inventory snapshots, refresh the claim-to-source matrix, and propose successive rewrites for the shared clarification package inside one governed workspace.
 - The copilot may update the internal package, blocker register, and revision notes, but authorizing restricted intake, granting export access, changing retention settings, or sending any customer-facing statement should remain explicitly human-gated and outside this workflow.
