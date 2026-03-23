@@ -40,6 +40,37 @@ This grounds the execution pattern in an operations workflow where the browser s
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph gov["Approval and safety boundary"]
+        case["Operations work-management system<br>dispatch request, incident command,<br>safety, and spend approvals"]
+        packet["Approved emergency scope packet<br>hazard assessment, permit-to-work,<br>and asset-location references"]
+        refs["Controlled operations references<br>approved vendor roster, rate-card policy,<br>site access instructions, and contacts"]
+    end
+
+    exec["Operations coordinator or<br>tool-using execution agent"]
+
+    subgraph portal_boundary["Browser-only vendor portal boundary"]
+        portal["Vendor mobilization portal<br>dispatch submission and site-access request"]
+    end
+
+    evidence["Masked evidence store<br>screenshots, approval artifacts,<br>portal references, and halt notes"]
+
+    subgraph handoff["Human review and handoff boundary"]
+        review["Incident commander, site safety lead,<br>spend approver, or operations leadership<br>approval refresh, takeover, or reconciliation"]
+    end
+
+    case -- "Current approval state<br>and dispatch record" --> exec
+    packet -- "Approved scope, permits,<br>and hazard controls" --> exec
+    refs -- "Vendor, pricing, and<br>access constraints" --> exec
+    exec -- "Validated dispatch entry<br>and attachment upload" --> portal
+    portal -- "Live portal state<br>and confirmation signals" --> exec
+    exec -- "Masked evidence bundle" --> evidence
+    exec -- "Stale approval, permit mismatch,<br>or ambiguous portal state" --> review
+    review -- "Approval refresh or<br>takeover decision" --> case
+    review -- "Reconciliation notes<br>and halt outcome" --> evidence
+```
+
 - Approval-gated execution should assemble the dispatch packet, verify that incident command, safety, and spend approvals are still current, and block final commit until those approvals are rechecked immediately before submit.
 - A tool-using single agent can navigate the vendor portal, populate incident, access, and crew-request fields, upload the approved safety and scope attachments, and capture masked evidence at each gated checkpoint.
 - Human-in-the-loop control should remain standard for changed hazard conditions, permit expiration, unexpected premium-rate warnings, site-access mismatches, or any portal prompt that suggests the request would authorize work outside the approved emergency scope.
