@@ -38,6 +38,27 @@ This grounds the pattern in a premium-support workflow where the key deliverable
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph BOUNDARY["Approved sovereign source boundary<br>support + legal + entitlement + sovereign-service repositories"]
+        CLM["Contract lifecycle repository<br>sovereign support rider + premium-support addendum + evidence-handling annex + countersignature metadata"]
+        ENT["CRM + entitlement systems<br>active premium-support tier + sovereign scope + named contacts + region restrictions"]
+        RES["Sovereign service description library + product residency matrix<br>logging locality + operator-access + evidence movement constraints"]
+        EVID["Evidence-handling standards + secure diagnostic collection policy<br>chain-of-custody procedures + retention controls"]
+        LEGAL["Legal interpretation memo archive + approved exception register<br>sovereign logging guidance + evidentiary export rules"]
+        HISTORY["Prior executive review briefs + revision ledger<br>`r2` + `r3` lineage + superseded revisions"]
+    end
+
+    CLM -->|"binding terms + countersigned clause evidence"| WS["Restricted executive service review workspace<br>`Sovereign-Logging-Obligations-Brief-r4` + evidence trace + source precedence map"]
+    ENT -->|"active entitlement + sovereign-scope state"| WS
+    RES -->|"current locality + residency control evidence"| WS
+    EVID -->|"handling standards + custody requirements"| WS
+    LEGAL -->|"approved interpretation + exception context"| WS
+    HISTORY -->|"revision deltas + prior-brief lineage"| WS
+    WS -->|"conflicting sovereign language,<br>stale snapshots, or unsigned annex questions"| REVIEW["Human-in-the-loop review<br>Marta Iliev + legal reviewer checkpoint"]
+    REVIEW -->|"review notes + confirmed precedence decisions"| WS
+```
+
 - A tool-using single agent can retrieve the approved sovereign source set, extract obligation claims, verify citations, and assemble a bounded synthesis with claim-to-source mappings.
 - Human-in-the-loop review should remain mandatory for source-boundary confirmation, interpretation of conflicting sovereign handling language, and any downstream use in executive or customer-facing settings.
 - The workflow should preserve a structured evidence trace that distinguishes binding executed terms, current policy and service-description controls, approved legal interpretation, and lower-authority operational context.
