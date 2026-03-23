@@ -49,6 +49,25 @@ This grounds the pattern in support where the released object is a versioned rev
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    replay["Replay and shadow-analysis workspace<br>reopen history, overrides, callbacks, privacy findings"]
+    registry["Versioned support quality-review scoring registry<br>live profile, candidate revision hash, prior trusted revisions"]
+    manifest["Support approval and manifest tooling<br>bounded review-program authorization"]
+    director["Director of Support Quality"]
+    rollback["Audit, rollback, and restoration controls<br>release history and restore target"]
+    review["Bounded enterprise case-quality review surfaces<br>dashboards, supervisor oversight, specialist-audit queues"]
+
+    replay --> manifest
+    registry --> manifest
+    director --> manifest
+    manifest --> registry
+    registry --> review
+    registry --> rollback
+    manifest --> rollback
+    rollback --> registry
+```
+
 - Approval-gated execution fits because the scoring revision can be technically ready in the registry while activation remains blocked until a named support quality owner approves that exact version and bounded review-program scope.
 - Human-in-the-loop review remains necessary because accountable support leaders must accept the trade-offs among escaped-quality risk, privacy-sensitive coverage, and specialist-review load before bounded live use begins.
 - A governed release agent can compare revision hashes, verify replay evidence, register expiry and rollback conditions, and write the audit trace, but it should not reroute tickets, assign reviewers to individual cases, or send customer-facing actions.
