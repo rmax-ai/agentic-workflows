@@ -47,6 +47,30 @@ This grounds the pattern in research work where people often rely on a tracker s
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    owner["Benchmark-study owner"]
+    tracker["Study workflow tracker or event feed<br>artifact-freeze-complete claim and retries"]
+    agent["Tool-using verification agent"]
+    registry["Benchmark artifact registry<br>freeze status and expected artifact inventory"]
+    manifest["Immutable object-store manifest<br>checksums, write-once retention markers,<br>and bundle timestamps"]
+    packet["Governance review packet workspace<br>frozen artifact bundle and source manifest ids"]
+    verdict["Verification verdict<br>confirmed, disproved, or inconclusive"]
+    subgraph followup["Audit and follow-up<br>boundary"]
+        coordinators["Governance coordinators"]
+        audit["Verification audit store<br>evidence checks, verdict history,<br>and manual follow-up records"]
+    end
+
+    owner --> tracker
+    tracker --> agent
+    registry --> agent
+    manifest --> agent
+    packet --> agent
+    agent --> verdict
+    verdict --> coordinators
+    verdict --> audit
+```
+
 - Event-driven monitoring fits because the verification run should begin when the freeze-complete claim is recorded, not only when a reviewer later notices uncertainty.
 - A tool-using single agent can query the artifact registry, validate manifest hashes and retention markers, compare review-packet references, and emit one evidence-backed verdict.
 - Bounded delegation is suitable because research governance owners can predefine the required corroborating evidence and tolerated lag while humans retain authority over any study approval, rerun, or packet correction.
