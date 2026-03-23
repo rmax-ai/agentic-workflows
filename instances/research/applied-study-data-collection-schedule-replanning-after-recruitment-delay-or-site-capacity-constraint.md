@@ -51,6 +51,28 @@ This grounds the replanning pattern in research operations where the main proble
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    SOP["Study-operations planner<br>approved baseline collection schedule,<br>site-level recruitment targets,<br>cohort milestones, and prior versions"]
+    DASH["Recruitment dashboards,<br>screening logs, and<br>site-capacity trackers"]
+    EDC["Electronic data capture and<br>specimen-tracking systems"]
+    CAL["Internal analysis-planning calendar<br>or milestone register"]
+    PLAN["Planning and coordination tools<br>that model dependency shifts,<br>site-specific impacts, and<br>versioned replanning packets"]
+    WORK["Restricted study-coordination workspace<br>for rationale, unresolved blockers,<br>stakeholder acknowledgements, and<br>adoption status"]
+
+    subgraph HUMAN["Human adoption boundary"]
+        OWNERS["Study operations lead,<br>principal investigator delegate, or<br>data management owner"]
+    end
+
+    SOP -- "Baseline schedule,<br>targets, milestones, and versions" --> PLAN
+    DASH -- "Current accrual velocity,<br>coverage, capacity, and blocked visit slots" --> PLAN
+    EDC -- "Completed visits,<br>protocol-window deadlines,<br>readiness, and collection cutoffs" --> PLAN
+    CAL -- "Fixed interim data-cut handoff,<br>cleaning checkpoints, and review dates" --> PLAN
+    PLAN -- "Recommendation-only revised timeline,<br>site-specific impacts, and<br>rejected alternatives" --> WORK
+    WORK -- "Coordination-ready replanning packet,<br>blockers, and adoption status" --> OWNERS
+    OWNERS -- "Human adoption or escalation<br>recorded without execution" --> WORK
+```
+
 - An orchestrated multi-agent workflow fits because one role can refresh recruitment, visit-window, and site-capacity state, another can test candidate schedules against fixed data-cut and protocol-window constraints, and another can package the accepted replanning proposal with site-specific impacts and unresolved blockers.
 - Human-in-the-loop adoption remains necessary because the study operations lead, principal investigator delegate, or data management owner must approve any material movement of cohort milestones, site sequencing, or downstream handoff timing before the revised schedule becomes authoritative.
 - Recommendation-only autonomy is the right ceiling: the workflow can propose a feasible updated collection timeline and identify dependency risk, but it should not alter visit-window rules, authorize enrollment-policy changes, approve a protocol amendment, or trigger site execution steps.
