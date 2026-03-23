@@ -39,6 +39,30 @@ This grounds the pattern in research governance where the consequential act is c
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    C["IRB amendment registry<br>approved protocol repository<br>consent-document archive"]
+    E["Protocol deviation ledger<br>participant complaint case system<br>DSMB minute repository<br>site-monitor follow-up tracker"]
+    L["Restricted IRB chair circulation lane"]
+
+    subgraph B["Governed release boundary"]
+        A["Dr. Miriam Kline<br>Director of Research Ethics Governance"]
+        W["Research ethics briefing workspace<br>HSEO-Restricted-Brief-v4<br>source-precedence appendix, blockers,<br>and supersession state"]
+        M["Approval manifest and audit services"]
+        T["Restricted dissemination and acknowledgement tooling"]
+    end
+
+    C --> W
+    E --> W
+    W --> A
+    A --> M
+    W --> M
+    M --> T
+    W --> T
+    T --> L
+    T --> M
+```
+
 - Approval-gated execution fits because the briefing remains held until the named ethics governance owner authorizes one exact revision for the restricted IRB chair circulation lane.
 - Human-in-the-loop review is necessary because only accountable research ethics leadership should accept residual uncertainty, confirm audience scope, and approve expiry for a high-consequence human-subjects oversight brief.
 - A governed agent can compare revision lineage, assemble the release manifest, and block superseded or broadened distribution, but it should not reinterpret protocol compliance, recommend corrective action, or trigger downstream ethics workflow steps.
