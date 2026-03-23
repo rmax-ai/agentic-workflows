@@ -42,6 +42,21 @@ This grounds the pattern in an HR workflow where several coupled review surfaces
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    CMS["Leave and accommodation<br>case-management system"] -->|"active case states,<br>urgency scores, follow-up timers,<br>and routing outputs"| Agts["Orchestrated retuning agents"]
+    Repo["HRIS, absence-management,<br>and policy repositories"] -->|"worker context,<br>protected-leave rules,<br>and case metadata"| Agts
+    Hist["Outcome and override history<br>overrides, reopens, missed windows,<br>escalations, and rollback events"] -->|"cross-surface outcomes<br>and override signals"| Agts
+    Reg["Shared parameter registry<br>active bundle, fairness caps,<br>evidence floors, and version history"] -->|"current bundle and<br>protected bounds"| Agts
+    Agts -->|"candidate bundle version"| Sim["Replay workspace"]
+    Sim -->|"cohort replay results<br>and trade-off evidence"| Agts
+    Agts -->|"governed retuning recommendation,<br>candidate bundle version,<br>and deferred changes"| Pkt["Shared retuning packet / trace state<br>recommendation package, lineage,<br>and prior-version context"]
+    Pkt -->|"trade-offs, replay evidence,<br>and version lineage"| Dash["Governance dashboard<br>bundle trade-offs, deferred changes,<br>and restore controls"]
+    Lead["People-operations governance lead<br>with HR and employee-relations leads"] -->|"inspect, adopt, defer, reject,<br>or retain prior trusted version"| Dash
+    Dash -->|"decision record and<br>prior-version reference"| Pkt
+    Dash -->|"human adoption / revert boundary<br>stop before live execution"| Bound["Workflow-family boundary<br>recommendation package and<br>candidate bundle version only"]
+```
+
 - Orchestrated multi-agent coordination fits because separate roles can analyze outcome drift, test protected-worker fairness constraints, replay candidate bundles, and assemble one auditable retuning packet over shared state.
 - Human-in-the-loop review should be standard because HR governance owners must explicitly accept or reject bundle changes before any live optimization state is updated.
 - Recommendation-only autonomy keeps the workflow bounded: it can recommend how urgency weights, evidence floors, and follow-up buffers should move together, but it must not activate those changes or decide individual cases.
