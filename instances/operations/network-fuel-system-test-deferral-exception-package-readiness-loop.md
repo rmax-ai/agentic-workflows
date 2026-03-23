@@ -42,6 +42,39 @@ This grounds the pattern in an operations workflow where the core challenge is m
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph collaboration["Governed operations review workspace<br>packet-readiness collaboration"]
+        manager["Field operations continuity manager"]
+        reviewers["Safety, facilities engineering, quality,<br>and business-continuity reviewers"]
+        owner["Named approval owner"]
+        packet["Draft test-deferral packet<br>reviewer comments, readiness status,<br>and named handoff ownership"]
+        agents["Orchestrated agent roles<br>refresh evidence, preserve objections,<br>rewrite packet sections, and update the ledger"]
+        manager -->|"coordinates revisions<br>and checkpoints"| packet
+        reviewers -->|"challenge evidence<br>and temporary safeguards"| packet
+        owner -->|"accepts readiness posture<br>and controls handoff"| packet
+        agents -->|"prepare revisions, summaries,<br>and ledger updates"| packet
+    end
+
+    subgraph sources["Target systems and source systems"]
+        cmms["Computerized maintenance management system<br>scheduled test records, inspection results,<br>open work orders, and deferred-maintenance history"]
+        safety["Safety and environmental records<br>hazard assessments, permit constraints,<br>incident history, and temporary-control checklists"]
+        continuity["Business-continuity planning systems<br>site criticality tiers, backup-power dependencies,<br>severe-weather forecasts, and continuity playbooks"]
+        engineering["Quality and facilities engineering repositories<br>test standards, equipment certifications,<br>vendor service reports, and approval-threshold guidance"]
+    end
+
+    subgraph handoff["Formal decision review intake"]
+        queue["Approval-routing queue<br>final human-approved packet, unresolved reviewer issues,<br>and next approval owner"]
+    end
+
+    cmms -->|"supplies maintenance evidence<br>and test history"| packet
+    safety -->|"supplies hazard, permit,<br>and control evidence"| packet
+    continuity -->|"supplies continuity dependencies<br>and weather constraints"| packet
+    engineering -->|"supplies standards, certifications,<br>and review guidance"| packet
+    packet -->|"hands off final packet,<br>unresolved issues, and ownership state"| queue
+    owner -->|"authorizes governed handoff<br>to the queue"| queue
+```
+
 - Human-in-the-loop collaboration should remain primary because safety posture, operational risk tolerance, and continuity tradeoffs require accountable facilities and operations ownership.
 - An orchestrated multi-agent setup fits when separate agent roles refresh maintenance evidence, normalize reviewer objections, verify policy completeness, and maintain the shared handoff ledger across several revision cycles.
 - Agents may prepare revised packet sections, evidence-response matrices, and readiness summaries, but final approval routing, maintenance schedule changes, and any site execution decisions should remain explicitly human-controlled.
