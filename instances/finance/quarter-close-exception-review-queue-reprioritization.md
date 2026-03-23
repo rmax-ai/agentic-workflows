@@ -41,6 +41,35 @@ This grounds the optimization pattern in a finance workflow where queue order af
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph Sources["Finance source systems and records"]
+        A["Close-management tracker<br>open exceptions, checkpoints, owner assignments, aging, and queue order"]
+        B["ERP, reconciliation, and consolidation systems<br>balances, journal status, entity metadata, materiality thresholds, and exception tags"]
+        C["Controls and sign-off workflow<br>certification dependencies, disclosure-impact flags, covenant-review linkage, and unresolved control exceptions"]
+        D["Historical QA and outcome store<br>reopened exceptions, late-close incidents, supervisor overrides, post-close adjustments, and review-cycle timing"]
+        E["Reviewer-capacity view<br>controllership coverage, entity expertise, after-hours constraints, and staffing gaps"]
+    end
+    subgraph Loop["Bounded reprioritization loop"]
+        F["Queue reprioritization agent<br>recomputes bounded ranking and exception-level rationale"]
+        G["Optimized review queue<br>revised ranked exceptions for controller review flow"]
+    end
+    H["Queue governance dashboard<br>inspect ranking changes, freeze tuning, pin exceptions, and restore the last trusted policy"]
+    I["Finance supervisors, controller, or close lead<br>review out-of-bounds changes and overrides"]
+
+    A -- "open queue state and close checkpoints" --> F
+    B -- "materiality and exception context" --> F
+    C -- "sign-off, disclosure, and covenant dependencies" --> F
+    D -- "reopen, override, and late-close feedback" --> F
+    E -- "reviewer capacity constraints" --> F
+    F -- "revised ranking and rationale" --> G
+    F -- "ranking changes and guardrail results" --> H
+    G -- "published queue order" --> A
+    H -- "freeze, pin, and rollback controls" --> F
+    I -- "approval or override decisions" --> H
+    H -- "override and rollback records" --> D
+```
+
 - Event-driven monitoring should trigger queue reevaluation when close checkpoints approach, protected-priority exceptions enter the backlog, reopen rates climb, or supervisors repeatedly override the current order.
 - A tool-using single agent can recompute bounded prioritization weights, simulate the effect on close-critical aging and reviewer load, and publish a revised ranked queue with exception-level rationale for supervisory inspection.
 - Exception-gated autonomy fits because in-policy tuning can adjust ordering automatically within preapproved ranges, but changes that materially alter deadline buffers, materiality thresholds, fairness balancing, or protected-priority handling should require controller or close-lead review before activation.
