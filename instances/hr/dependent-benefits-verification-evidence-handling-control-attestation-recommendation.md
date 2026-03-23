@@ -39,6 +39,17 @@ This grounds the pattern in HR through a control-attestation problem that is mat
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    W["Benefits governance workspace<br>packet revision, checklists,<br>and recommendation packet"] --> A["Tool-using single agent<br>read-only retrieval,<br>requirement mapping, and rationale assembly"]
+    P["Policy repository<br>active standard, retention schedule,<br>plan evidence rules, and exception memo"] --> A
+    D["Restricted document vault<br>redacted samples, archive-segregation records,<br>and evidence lineage"] --> A
+    I["Identity-governance and reviewer-certification systems<br>reviewer scope, verifier rotation,<br>and certification state"] --> A
+    S["Purge/carrier/audit stores<br>purge confirmations, masked transfer samples,<br>and audit traces"] --> A
+    A --> H["Human-in-the-loop review<br>Elena Brooks, Samir Patel,<br>and Janelle Wu"]
+    H --> W
+```
+
 - A tool-using single agent can retrieve the exact packet revision, align each evidence-handling requirement to the active standard, retention schedule, plan evidence rules, access-certification records, purge logs, and carrier-transfer samples, and assemble one reviewable rationale packet.
 - Human-in-the-loop review is required because Elena Brooks remains accountable for the attestation recommendation outcome and Samir Patel plus Janelle Wu must decide whether masking ambiguity, reviewer-scope drift, or exception use stays within delegated interpretation bounds.
 - Read-only integration with benefits governance, policy, document-vault, identity-governance, and purge-log systems is preferable so the workflow cannot silently approve the attestation, alter reviewer access, delete evidence, change retention settings, or trigger downstream benefits processing.
