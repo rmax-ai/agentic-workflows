@@ -43,6 +43,28 @@ This shows an operations case where the gathered and synthesized artifact alread
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    sources["Operations and quality systems<br>whose authoritative facts are already<br>referenced in the prepared briefing revision"] -->|"Provide cited facts and<br>source updates"| workspace["Restricted command-briefing workspace<br>with the synthesized command summary,<br>annex redactions, superseded revisions,<br>and provenance trace"]
+    subgraph approval["Command owner<br>approval boundary"]
+        agent["Governed agent"]
+        manifest["Approval and hold-state service<br>recording the command owner,<br>release manifest, lane boundary,<br>and blocked dissemination attempts"]
+    end
+    workspace -->|"Provide exact briefing revision,<br>annex handling, and provenance trace"| manifest
+    owner["Command owner"] -->|"Approve visibility scope,<br>freshness cutoff, and<br>internal-only annex handling"| manifest
+    agent -->|"Maintain manifest state and<br>compare revision lineage"| manifest
+    agent -->|"Block expired copies and<br>out-of-bound dissemination"| circulation["Regional command circulation tooling<br>controlling audience scope,<br>internal-only distribution,<br>and expiry of released briefings"]
+    manifest -->|"Bind approved lane,<br>hold state, and freshness window"| circulation
+    workspace -->|"Release reviewed briefing revision<br>for bounded circulation"| circulation
+    subgraph lane["Regional command lane"]
+        readers["Regional leaders"]
+    end
+    circulation -->|"Circulate one exact briefing revision<br>inside the approved lane"| readers
+    workspace -->|"Preserve released, held,<br>and superseded revisions"| audit["Audit and retention systems<br>preserving which command revision was<br>released, held, or superseded<br>as the excursion evolves"]
+    manifest -->|"Record release manifest,<br>lane boundary, and hold state"| audit
+    circulation -->|"Log released briefings, expiry,<br>and blocked dissemination attempts"| audit
+```
+
 - Approval-gated execution fits because the command briefing must stay held until a named owner approves one exact revision for one regional command lane.
 - Human-in-the-loop review is required because the approver must accept unresolved containment questions, confirm annex scope, and decide whether the current revision is still fresh enough to circulate.
 - A governed agent can maintain manifest state, compare revision lineage, and block expired copies, but it should not infer disposal advice, reroute plans, or regulator-trigger decisions from the briefing.
