@@ -53,6 +53,36 @@ This grounds `incident-root-cause-analysis` in HR work where the hard problem is
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph wf["Incident root-cause analysis<br>workflow-family boundary"]
+        lcm["Leave case management<br>records and return approvals"]
+        idx["Document/index history<br>and specialist notes"]
+        hri["HRIS worker-status history<br>and effective-dated audits"]
+        pay["Payroll previews, retro logs,<br>and cut-off calendars"]
+        tks["Timekeeping punches and<br>scheduling edits"]
+        ben["Benefits state and<br>integration replay logs"]
+        doc["Secure document repository<br>entries and release evidence"]
+        rec["Shared investigation record<br>and case memory"]
+        hyp["Hypothesis and evidence<br>reconciliation"]
+    end
+
+    subgraph rvw["Human review and verification boundary"]
+        hum["Accountable human review<br>before pay, leave, benefits,<br>or employee communication action"]
+    end
+
+    lcm -->|"Pull leave-case history<br>and return approvals into"| rec
+    idx -->|"Add document lineage,<br>index timing, and notes to"| rec
+    hri -->|"Contribute status changes<br>and audit trails to"| rec
+    pay -->|"Contribute payroll results,<br>retro triggers, and cut-off facts to"| rec
+    tks -->|"Contribute punches,<br>absence codes, and schedule edits to"| rec
+    ben -->|"Contribute eligibility state<br>and replay history to"| rec
+    doc -->|"Contribute clinician releases and<br>return confirmations to"| rec
+    rec -->|"Provide normalized timeline,<br>cited evidence, and open gaps to"| hyp
+    hyp -->|"Return ranked explanations,<br>disconfirming checks, and uncertainty to"| rec
+    rec -->|"Present defensible narrative,<br>reconciled timeline, and next checks to"| hum
+```
+
 - An orchestrated multi-agent workflow can separate leave-case retrieval, effective-dated timeline reconstruction, payroll-result reconciliation, and integration-log verification while preserving one normalized investigation record.
 - Shared case memory should retain candidate explanations, supporting and disconfirming evidence, timestamp-normalization decisions, and unresolved gaps across leave, payroll, HRIS, and benefits handoffs.
 - Human-in-the-loop review remains necessary before declaring the primary cause, classifying the issue as a payroll error versus leave-record integrity failure, or authorizing any retro pay, leave-balance correction, benefits reinstatement, or employee-facing explanation.
