@@ -40,6 +40,39 @@ This grounds the pattern in HR where the hard problem is not deciding whether em
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Target systems / source systems"]
+        playbooks["Payroll continuity playbooks<br>and outage workspace"]
+        trusted["Trusted payroll snapshot,<br>frozen gross-to-net export,<br>distribution state, exception roster,<br>and bank cutoff systems"]
+        readiness["Payroll operations rosters,<br>treasury dual-control calendars,<br>identity-verification procedures,<br>and secure media custody logs"]
+    end
+
+    subgraph gate["Semi-monthly payroll bank-file<br>continuity activation gate"]
+        planner["Approval-gated continuity<br>packet preparation"]
+        ledger["Readiness ledger"]
+        holds["Hold register"]
+        packet["Approval-gated continuity packet"]
+    end
+
+    approver["Payroll continuity leadership<br>approval owner"]
+    audit["Approval-routing and audit systems"]
+    stop["Stop before manual bank-file generation,<br>payroll release, employee notice,<br>or downstream system updates"]
+
+    playbooks -->|"Provides declared fallback scope,<br>prior packet versions, and protected<br>payment boundaries"| planner
+    trusted -->|"Provides frozen pay-group references,<br>gross-to-net context, exception coverage,<br>distribution state, and bank cutoff commitments"| planner
+    readiness -->|"Provides dual-control staffing coverage,<br>payee-verification safeguards,<br>and custody-readiness inputs"| planner
+    planner -->|"Updates current readiness state"| ledger
+    planner -->|"Keeps staffing, stale-snapshot,<br>payee-verification, bank-cutoff,<br>and hold blockers visible"| holds
+    planner -->|"Assembles approval packet"| packet
+    packet -->|"Sends packet for human review"| approver
+    packet -->|"Captures packet version"| audit
+    ledger -->|"Captures readiness state"| audit
+    holds -->|"Captures hold state"| audit
+    approver -->|"Captures human sign-off"| audit
+    audit -->|"Preserves the planning boundary<br>before downstream action"| stop
+```
+
 - Approval-gated execution fits because the manual payroll continuity mode may be operationally prepared while still blocked until payroll leadership approves the packet.
 - The readiness ledger should tie frozen pay-group scope, dual-control staffing, employee-identity and payee-account safeguards, bank cutoff commitments, and statutory or garnishment holds to one current packet version.
 - Explicit holds should remain visible whenever staffing coverage, payee verification, bank acknowledgements, or protected payroll holds are incomplete rather than being compressed into a nominally ready packet.
