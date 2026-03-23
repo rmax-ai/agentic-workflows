@@ -41,6 +41,19 @@ This grounds `anomaly-detection-review` in HR work where the early-warning probl
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["HRIS and workforce-management systems"] -->|"stream worker updates"| D["Event-driven monitoring"]
+    B["Leave, payroll-interface, and case-management tools"] -->|"stream override, leave-return, and payroll-interface signals"| D
+    D -->|"open or merge anomaly clusters"| E["Tool-using single agent"]
+    A -->|"lookup worker identifiers and history"| E
+    B -->|"lookup approved windows,<br>prior notes, and case history"| E
+    C["Identity, role, and access metadata"] -->|"lookup update-path context"| E
+    F["Approved change windows and<br>restricted-field rules"] -->|"constrain checks"| E
+    E -->|"publish prioritized review packet"| G["Restricted HR review queue"]
+    E -->|"escalate sensitive or<br>higher-consequence cases"| H["Accountable humans"]
+```
+
 - Event-driven monitoring should continuously ingest effective-dated worker updates, override events, leave-return changes, and payroll-interface signals, then reopen or merge anomaly clusters as new evidence arrives.
 - A tool-using single agent can correlate worker identifiers across HRIS, leave, and payroll-interface systems; check approved change windows and restricted-field rules; attach bounded context; and publish a prioritized review packet with explicit anomaly drivers.
 - Bounded delegation fits because routine mid-severity anomaly packets can route into a preapproved restricted HR review queue without case-by-case authorization, while higher-consequence or sensitive cases still escalate to accountable humans.
