@@ -42,6 +42,29 @@ This grounds the pattern in a research workflow where the important action is no
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    R["Research review system<br>authoritative approved disposition event"]
+    W["Event-driven completion worker<br>rechecks current disposition and study identifier"]
+    C["Internal benchmark-study registry or catalog<br>approved study record"]
+    E["Evidence archive<br>final review packet and approved artifact hashes"]
+    N["Team notification channel or workflow queue<br>review closure complete signal"]
+    A["Audit store<br>completion traces and idempotency decisions"]
+
+    subgraph HFB["Human follow-up boundary"]
+        H["Manual follow-up<br>when disposition or packet hashes conflict"]
+    end
+
+    R -->|"Approved disposition event"| W
+    W -->|"Recheck current disposition<br>and study identifier"| R
+    W -->|"Update approved status<br>and attach final packet hash"| C
+    W -->|"Archive approved evidence bundle"| E
+    W -->|"Record completion trace<br>and idempotency outcome"| A
+    W -->|"Send review closure complete signal"| N
+    W -->|"Escalate disposition or hash conflicts"| H
+    H -->|"Log manual follow-up record"| A
+```
+
 - An event-driven completion worker can subscribe to approved-disposition events from the review system and start the downstream closure sequence only for allowed study states.
 - The worker should re-read the current disposition before updating the registry or archive so a revoked or superseded decision is not propagated from a stale event.
 - Completion state should be durable and idempotent because the same event may be delivered more than once or the archive step may succeed before notification is retried.
