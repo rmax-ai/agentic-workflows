@@ -57,6 +57,32 @@ This grounds the collaboration pattern in an HR workflow where the governed arti
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    H["HR case owner<br>frames the memo task, reviews drafts,<br>and approves consequential steps"]
+    W["Controlled HR accommodations workspace<br>draft memo, reviewer comments, handoff state,<br>and approval routing"]
+    C["HR case-management system<br>request chronology, interactive-process notes,<br>prior outreach, and decision checkpoints"]
+    J["HRIS and job architecture records<br>role, reporting line, location assignment,<br>job profile, and essential-function summaries"]
+    R["Secure accommodation-document repository<br>clinician letters, functional restriction summaries,<br>occupational health notes, and prior agreements"]
+    P["Hybrid-work policy library<br>attendance guidance, site-presence requirements,<br>and approved exception standards"]
+    V["Reviewers<br>HR business partner, employment counsel,<br>and occupational health reviewers"]
+    G["Human approval controls<br>final accommodation decision, outbound statements,<br>and case disposition remain human-gated"]
+    B["Communication boundary<br>only human-approved memo materials<br>may leave the controlled workspace"]
+    S["Secure employee communication channel and document store<br>retain the final human-approved memo,<br>attachments, and employee-facing response"]
+
+    H -->|"frame work and review drafts"| W
+    W -->|"retrieve chronology and case state"| C
+    W -->|"retrieve role and job context"| J
+    W -->|"retrieve restrictions and prior agreements"| R
+    W -->|"retrieve policy language and standards"| P
+    W -->|"route draft memo and open questions"| V
+    V -->|"return reviewer comments and narrowed wording"| W
+    H -->|"approve or hold consequential steps"| G
+    W -->|"submit final draft packet for approval"| G
+    G -->|"authorize release across the boundary"| B
+    B -->|"allow only human-approved materials"| S
+```
+
 - Human-in-the-loop collaboration should remain primary because accommodation sufficiency, undue-hardship reasoning, and employee-facing commitments require accountable HR and legal ownership.
 - A tool-using single agent can retrieve policy excerpts, maintain a claim-to-source matrix, organize the interactive-process timeline, and propose successive rewrites for the shared memo inside one governed workspace.
 - The copilot may update draft sections, open-questions logs, and evidence checklists, but issuing a final accommodation decision, contacting the employee with binding commitments, or recording the official case disposition should remain explicitly human-gated.
