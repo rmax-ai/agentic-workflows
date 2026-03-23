@@ -39,6 +39,21 @@ This grounds the pattern in support work where teams need a current structured e
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    sources["Ticketing, entitlement, incident,<br>and diagnostic-upload systems"]
+    refs["Product taxonomy, service-tier registry,<br>and structured escalation schema"]
+    staging["Support escalation staging system"]
+    lineage["Lineage store"]
+    exceptions["Exception queue"]
+
+    sources -->|"versioned authoritative updates"| staging
+    refs -->|"normalization and validation rules"| staging
+    lineage -->|"prior staged versions,<br>source pointers, and<br>overwrite history"| staging
+    staging -->|"updated lineage and delta trace"| lineage
+    staging -->|"conflicting entitlement,<br>severity, or diagnostic evidence"| exceptions
+```
+
 - Event-driven monitoring should trigger refresh on approved ticket, entitlement, incident-link, and diagnostic-bundle updates tied to the staged escalation record.
 - A tool-using single agent can usually compare the previous staged package to current source state, rebuild the structured record, and emit a human-readable delta trace plus machine-usable lineage updates.
 - Automatic refresh should be allowed for stable field updates, but conflicting severity signals, unclear entitlement corrections, or corrupted log uploads should move to exception review.
