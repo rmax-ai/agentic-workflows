@@ -37,6 +37,39 @@ This grounds `anomaly-detection-review` in engineering work where the early-warn
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph monitoring["Event-driven monitoring"]
+        catalog["Service-catalog snapshots<br>canonical service identity<br>and declared owners"]
+        paging["Escalation-policy exports<br>paging coverage state"]
+        repo["Repository metadata<br>`CODEOWNERS` and service mappings"]
+        directory["Team-directory aliases<br>approved team names<br>and merge history"]
+        policy["Ownership-governance policy version<br>and approved review-window state"]
+        agent["Tool-using single agent<br>correlates identifiers<br>and checks source precedence"]
+        packet["Anomaly cluster and review packet<br>duplicate suppression<br>and uncertainty markers"]
+    end
+
+    subgraph governance["Preapproved platform-governance review lane"]
+        queue["Restricted platform-governance<br>review queue"]
+        audit["Audit storage<br>packet revisions<br>and routing history"]
+    end
+
+    subgraph humancontrol["Explicit human control"]
+        human["Accountable human review intake<br>Alex Romero"]
+    end
+
+    catalog --> agent
+    paging --> agent
+    repo --> agent
+    directory --> agent
+    policy --> agent
+    agent --> packet
+    packet --> queue
+    packet --> audit
+    queue --> audit
+    queue --> human
+```
+
 - Event-driven monitoring should continuously ingest service-catalog revisions, escalation-policy exports, repository ownership changes, and team-directory updates, then reopen or merge anomaly clusters as new context arrives.
 - A tool-using single agent can correlate service identifiers across catalog, paging, repository, and directory systems; check the approved source-precedence order; and publish one bounded anomaly review packet with explicit uncertainty markers.
 - Bounded delegation fits because routine mid-severity ownership-drift packets can route into a preapproved platform-governance review lane without case-by-case authorization, while higher-consequence cases still escalate to accountable humans before any operational ownership or paging change occurs.
