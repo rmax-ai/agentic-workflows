@@ -40,6 +40,27 @@ This grounds the pattern in an HR workflow where teams need timely contextual br
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph boundary["Governance boundary"]
+        feed["Change notification feed<br>authoritative leave-intake package publication event"]
+        policy["HR policy repository<br>current approved package,<br>superseded versions, and publication metadata"]
+        templates["Case-management template library<br>intake questionnaires,<br>document-request templates, and handoff checklists"]
+        legal["Legal-guidance archive and<br>jurisdiction mapping table<br>leave notice and document-collection rules"]
+        vendor["Vendor workflow knowledge base<br>leave-administration intake paths<br>and approved operational notes"]
+        workspace["People operations briefing workspace<br>digests, source traces,<br>and unresolved questions"]
+    end
+
+    coordinators["Human coordinators for<br>downstream interpretation"]
+
+    feed -->|"Triggers bounded digest refresh"| workspace
+    policy -->|"Provides current and prior<br>approved policy package"| workspace
+    templates -->|"Provides referenced intake<br>templates and checklists"| workspace
+    legal -->|"Provides approved guidance<br>and jurisdiction mappings"| workspace
+    vendor -->|"Provides approved vendor notes"| workspace
+    workspace -->|"Publishes briefing artifact<br>and open questions only"| coordinators
+```
+
 - Event-driven monitoring is a good fit because the workflow should refresh the digest when the approved leave-intake package changes, not only during manual policy review cadences.
 - A tool-using single agent can compare policy versions, retrieve linked templates and jurisdiction notes, and publish a people-operations briefing with versioned source traceability.
 - Bounded delegation fits because policy owners can define the source bundle and publication rules while human coordinators remain responsible for any downstream case interpretation or action.
