@@ -47,6 +47,41 @@ This grounds the pattern in an HR workflow where a publication-complete claim ca
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph trg["Claim trigger boundary"]
+        trk["People programs workflow tracker<br>or event feed"]
+    end
+
+    subgraph src["Approved handbook surfaces"]
+        repo["Internal job architecture handbook<br>repository"]
+        portal["Manager self-service portal"]
+        cache["Content-delivery cache<br>or mirror-status service"]
+        idx["Internal search-index<br>status endpoint"]
+    end
+
+    subgraph ver["Claimed-state verification boundary"]
+        run["Verification run"]
+        log["Verification audit log"]
+        follow["Bounded follow-up record"]
+    end
+
+    subgraph hum["Human-controlled follow-up boundary"]
+        gov["HR governance owners"]
+    end
+
+    trk -->|"opens verification for<br>the claimed publication state"| run
+    run -->|"reads approved revision<br>and publication metadata"| repo
+    run -->|"checks served handbook<br>revision and effective date"| portal
+    run -->|"checks propagation status<br>for supported portal surfaces"| cache
+    run -->|"checks indexed revision<br>and freshness timestamp"| idx
+    log -->|"supplies prior verdict history<br>and duplicate-claim context"| run
+    run -->|"writes evidence trace<br>and verdict history"| log
+    run -->|"creates inconclusive<br>bounded follow-up when needed"| follow
+    follow -->|"preserves the bounded<br>follow-up record"| log
+    follow -->|"hands off for human-controlled<br>review only"| gov
+```
+
 - Event-driven monitoring fits because the verification run should begin when the handbook-publication-complete claim is recorded rather than only after managers notice mismatched content.
 - A tool-using single agent can compare handbook identifiers, revision markers, effective dates, cache state, and search-index freshness across the approved internal surfaces while applying propagation tolerances.
 - Bounded delegation is appropriate because HR governance owners can predefine the authoritative handbook systems, tolerated lag windows, and required corroborating fields while humans retain authority over any republish, policy clarification, or downstream notification.
