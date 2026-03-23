@@ -40,6 +40,43 @@ This grounds the pattern in a research crisis where leadership needs one provena
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Restricted evidence systems"]
+        registry["Restricted-release registry,<br>export manifests, and<br>transfer-approval records"]
+        audit["Query, download, workspace-access,<br>and data-egress audit systems"]
+        consent["IRB protocol repository,<br>consent-version archive,<br>data-use agreement ledger,<br>and withdrawal registry"]
+        disclosure["Disclosure-control baseline repository,<br>publication-support workspace,<br>and collaborator submission trackers"]
+        prior["Prior command briefs,<br>correction logs, and<br>restricted annex references"]
+    end
+
+    subgraph synth["Bounded crisis-briefing synthesis"]
+        orchestrator["Orchestrated multi-agent workflow<br>retrieval, verification, and composition roles"]
+        ledger["Shared crisis-state ledger<br>source-ranked claims,<br>blockers, and freshness markers"]
+        brief["RDR-ReID-Command-Brief-r4<br>review-ready command brief"]
+    end
+
+    subgraph governance["Governance boundary"]
+        controls["Approved retrieval boundary<br>source precedence and<br>restricted-annex controls"]
+        reviewer["Dr. Leila Haddad<br>human brief owner review"]
+        workspace["Restricted research command-bridge workspace<br>brief history, approvals,<br>and supersession record"]
+        stop["Stop boundary<br>no notification, revocation,<br>investigation, or live containment"]
+    end
+
+    registry -->|"provides cohort scope<br>and dissemination state"| orchestrator
+    audit -->|"provides access,<br>query, and egress evidence"| orchestrator
+    consent -->|"provides consent,<br>restriction, and withdrawal state"| orchestrator
+    disclosure -->|"provides disclosure-control,<br>preprint, and collaborator status"| orchestrator
+    prior -->|"provides brief lineage<br>and prior corrections"| orchestrator
+    controls -->|"limits admissible sources,<br>audience scope, and labeling"| orchestrator
+    orchestrator -->|"updates source-ranked claims<br>and visible blockers"| ledger
+    ledger -->|"feeds review-ready synthesis"| brief
+    brief -->|"submits command brief"| reviewer
+    reviewer -->|"approves current revision<br>and supersession record"| workspace
+    reviewer -->|"returns stale or conflicting<br>claims for refresh"| orchestrator
+    workspace -->|"hands off reviewed brief<br>within bounded scope"| stop
+```
+
 - An orchestrated multi-agent workflow can separate release-registry retrieval, audit-log verification, consent-and-sharing-restriction assembly, collaborator-material status collection, and final command-brief composition while maintaining one shared crisis-state ledger.
 - Human-in-the-loop review should remain mandatory for each command-bridge revision because affected-cohort scope, dissemination wording, and collaborator-status claims can materially influence downstream privacy, ethics, and publication decisions.
 - The workflow should preserve claim-level provenance and freshness markers that distinguish authoritative release and audit evidence, approved governance constraints, and lower-authority bridge observations awaiting confirmation.
