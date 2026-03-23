@@ -40,6 +40,24 @@ This grounds the recommendation pattern in HR through an internal retention gove
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    wk["Total rewards governance workspace<br>`Retention-Exception-Packet-v5` lineage,<br>reviewer notes, blocker tracking,<br>and the retention exception checklist"]
+    mv["Marisol Vega<br>Senior Director of Executive Compensation Governance"]
+    pol["Compensation policy repository<br>`EC-17`, `EQUITY-EX-4.2`,<br>and `DAR-2026-02`"] -->|"Defines policy, exception, and<br>delegated authority bounds"| wk
+    eq["Internal-equity calibration and<br>job-architecture records<br>frozen peer-comparison evidence"] -->|"Supplies internal-equity and level-fit context"| wk
+    fin["Finance planning ledger<br>budget-release state `TRB-FY26-Q1`<br>and tranche-funding assumptions"] -->|"Provides recommendation budget context"| wk
+    hist["Historical retention exception register<br>and conflict-of-interest<br>attestation records"] -->|"Adds precedent and disclosure checks"| wk
+    wk -->|"Presents support, narrow, or escalate<br>recommendation paths with cited blockers"| mv
+    mv -->|"Reviews the recommendation packet only<br>within the recommendation lane"| wk
+    subgraph rec["Recommendation-only governance boundary"]
+        wk
+        subgraph human["Human review boundary"]
+            mv
+        end
+    end
+```
+
 - A recommendation-only workflow can retrieve the exact retention packet revision, align it to current compensation policy, authority thresholds, internal-equity evidence, budget state, and historical precedent, and assemble one inspectable option set for review.
 - Human-in-the-loop review is mandatory because Marisol Vega remains accountable for the recommendation lane and must decide whether unresolved equity, funding, or conflict-of-interest blockers require narrowing or escalation.
 - Read-only integration with compensation, finance, job architecture, and governance systems is preferable so the workflow cannot convert a recommendation into an approved retention action, payroll change, or equity issuance event.
