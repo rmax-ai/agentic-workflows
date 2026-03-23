@@ -41,6 +41,23 @@ This grounds the pattern in a support setting that is materially different from 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    workspace["Internal support runbook<br>workspace"]
+    refs["Observability or log-query<br>reference library"]
+    annotations["Escalation review<br>annotation surface"]
+    owners["Support operations<br>ownership directory"]
+    board["Shared diagnostic-runbook<br>caveat board"]
+    review["Human review<br>boundary"]
+
+    workspace -->|"Draft procedures, prerequisite notes,<br>and step-level source links"| board
+    refs -->|"Query templates, signal definitions,<br>and tool deprecation notes"| board
+    annotations -->|"Small edits, cautions,<br>and handoff notes"| board
+    owners -->|"Steward, backup reviewer,<br>and escalation-contact assignments"| board
+    board -->|"Surface disputed caveats, posture-sensitive edits,<br>or live-case execution questions"| review
+    review -->|"Confirm held interpretation changes<br>or keep caveats on hold"| board
+```
+
 - Event-driven monitoring fits because upkeep should react when runbook notes, observability references, reviewer comments, or board fields change.
 - A tool-using single agent can refresh source links, normalize duplicate caveat wording, and keep ownership plus hold markers synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when a note would reinterpret support guidance, remove a caveat still under dispute, or make the board sound like approved execution guidance for a live incident.
