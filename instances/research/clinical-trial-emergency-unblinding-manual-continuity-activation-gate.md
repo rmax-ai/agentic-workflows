@@ -40,6 +40,15 @@ This grounds the pattern in research where the hard problem is not deciding whet
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Clinical trial continuity playbooks<br>and outage workspace"] -->|"Declared scope,<br>fallback boundary, and<br>prior packet context"| D["Readiness ledger and<br>approval-gated packet assembly"]
+    B["Trusted outage-state,<br>code-custody, identity-mapping, and<br>protocol-condition references"] -->|"Current authoritative inputs for<br>custody, linkage, and<br>eligibility readiness"| D
+    C["On-call medical monitor,<br>pharmacy coverage, delegate calendars, and<br>dual-review commitments"] -->|"Named coverage and<br>timing commitments"| D
+    D -->|"Current packet version,<br>explicit holds, and<br>lineage updates"| E["Approval-routing and<br>audit systems"]
+    E -->|"Approved packet and<br>sign-off record for<br>downstream governed steps"| F["Restricted study-governance tooling"]
+```
+
 - Approval-gated execution fits because the manual emergency-unblinding continuity mode may be technically prepared while still blocked until clinical research safety leadership approves the packet.
 - The readiness ledger should tie code-list custody, medical monitor coverage, pharmacy availability, participant-identity controls, protocol-condition references, and audit-trail readiness to one current packet version.
 - Explicit holds should remain visible whenever custody evidence, dual-review staffing, participant linkage, or sponsor-safety constraints are incomplete rather than being compressed into a nominally ready packet.
