@@ -40,6 +40,32 @@ This grounds the pattern in finance where the hard problem is not recalculating 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    PLAY["Treasury and clearing continuity<br>playbooks"]
+    REFS["Trusted margin obligation,<br>legal-entity funding, beneficiary master,<br>and settlement-account references"]
+    CTRL["Wire-template readiness records,<br>callback controls, signer rosters,<br>delegate calendars, and cutoff trackers"]
+    PACKET["Manual-wire continuity<br>activation packet assembler"]
+    LEDGER["Readiness ledger and<br>explicit hold register"]
+    AUDIT["Approval-routing and audit<br>systems"]
+    STOP["Stop before clearinghouse or bank contact,<br>manual wire release, cash-truth restoration,<br>or downstream continuity execution"]
+
+    subgraph GATE["Human approval<br>boundary"]
+        APPROVER["Treasury and clearing<br>continuity owner"]
+    end
+
+    PLAY -->|"Provides declared disruption scope,<br>prior packets, and manual-wire rules"| PACKET
+    REFS -->|"Provides trusted margin obligation,<br>legal-entity scope, beneficiary-template context,<br>and settlement-account references"| PACKET
+    CTRL -->|"Provides signer coverage, callback readiness,<br>posting holds, confirmation-log readiness,<br>and cutoff timing"| PACKET
+    AUDIT -->|"Supplies packet lineage,<br>open holds, and prior sign-off state"| PACKET
+    PACKET -->|"Writes current packet status,<br>lineage, and blocker state"| AUDIT
+    PACKET -->|"Maintains explicit stale-snapshot,<br>beneficiary-template, signer, callback,<br>posting, and confirmation blockers"| LEDGER
+    PACKET -->|"Routes approval-ready packet"| APPROVER
+    LEDGER -->|"Keeps visible hold state attached to<br>the current readiness packet"| APPROVER
+    APPROVER -->|"Reviews the packet at the activation boundary<br>without initiating the continuity path"| STOP
+    LEDGER -->|"Prevents downstream continuity action<br>while holds remain unresolved"| STOP
+```
+
 - Approval-gated execution fits because the manual wire continuity path may be fully prepared while the settlement action remains blocked until named treasury and clearing leadership approve the packet.
 - The readiness ledger should tie the authoritative margin snapshot, beneficiary-template status, signer coverage, callback controls, cutoff timing, and confirmation-log readiness to one current packet version.
 - Explicit holds should remain visible whenever signer availability, cutoff coverage, callback discipline, or posting-control readiness is incomplete rather than being compressed into a nominally ready packet.
