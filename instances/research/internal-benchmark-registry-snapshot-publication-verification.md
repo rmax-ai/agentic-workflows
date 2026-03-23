@@ -47,6 +47,23 @@ This grounds the pattern in a research-governance workflow where a registry snap
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    C["Research-governance coordinator"] --> E["Registry publication event feed<br>or workflow tracker"]
+    subgraph V["Verification boundary<br>claimed-state verification"]
+        A["Verification agent<br>tool-using single agent"]
+        P["Verification policy<br>authoritative surfaces and lag windows"]
+        L["Verification audit log<br>evidence checks verdict history<br>follow-up records"]
+    end
+    E --> A
+    P --> A
+    A --> R["Internal benchmark registry<br>published snapshot state"]
+    A --> M["Governed snapshot manifest store<br>bundle id checksum set export timestamp"]
+    A --> D["Internal research discovery portal<br>snapshot revision and governance-tag summary"]
+    A --> L
+    L --> U["Lab leads and benchmark-review coordinators"]
+```
+
 - Event-driven monitoring fits because the verification run should begin when the snapshot-publication-complete claim is recorded rather than only after researchers notice mismatched benchmark counts.
 - A tool-using single agent can compare snapshot ids, manifest checksums, inventory totals, timestamps, and governance-tag summaries across the approved registry surfaces while applying allowed propagation tolerances.
 - Bounded delegation is appropriate because research-governance owners can predefine the authoritative registry systems, required corroborating fields, and acceptable lag windows while humans retain authority over any republication, benchmark adjudication, or remediation.
