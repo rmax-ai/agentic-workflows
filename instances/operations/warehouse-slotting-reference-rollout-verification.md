@@ -47,6 +47,22 @@ This instance shows low-risk verification in operations without drifting into br
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    trigger["Rollout event feed / workflow tracker<br>records the rollout-complete claim"]
+    sources["Approved evidence sources<br>operations content repository, kiosk content service,<br>scanner help-card distribution system, printable sheet archive"]
+    policy["Approved lag policy<br>and authoritative-surface rules"]
+    state["Verification log / state<br>evidence checks, lag assessments,<br>verdict, follow-up record"]
+    human["Site-lead and regional-operations<br>follow-up boundary"]
+
+    trigger -->|"provides claim context"| state
+    trigger -->|"starts bounded verification"| sources
+    state -->|"reuses prior verification history"| policy
+    sources -->|"supplies bundle versions<br>and sync timestamps"| policy
+    policy -->|"writes confirmed, disproved,<br>or inconclusive result"| state
+    policy -->|"routes only stale or ambiguous<br>follow-up for human action"| human
+```
+
 - Event-driven monitoring is appropriate because the workflow begins from the recorded rollout-complete claim and immediately checks whether the expected reference state now exists.
 - A tool-using single agent can compare bundle versions across the content repository, kiosk service, scanner help-card system, and printable archive while applying approved lag tolerances.
 - Bounded delegation fits because operations owners can define the in-scope surfaces and acceptable sync windows in advance while humans decide whether any stale rollout requires manual republishing or local follow-up.
