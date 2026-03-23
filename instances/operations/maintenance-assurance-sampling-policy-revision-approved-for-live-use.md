@@ -45,6 +45,30 @@ This grounds the pattern in operations without sliding into execution. The relea
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Lead["Operations assurance lead"]
+    Replay["Replay and findings workspace<br>audit defects, escaped issues,<br>reviewer-capacity data, outage-season history"]
+    Policy["Versioned assurance-policy store<br>current live policy, candidate revision,<br>protected-floor settings, prior trusted revisions"]
+    Audit["Audit, rollback, and backfill-control systems<br>restore prior policy, trigger extra review"]
+    Consumers["Spot-check selection services<br>and governance dashboards"]
+    subgraph Boundary["Approval boundary<br>exact revision, program scope,<br>validity window, rollback packet"]
+        Release["Governed release agent<br>compares evidence, registers restore target,<br>records approval lineage"]
+        Approval["Approval and manifest tooling<br>binds one revision to live scope<br>and bounded review window"]
+        Approver["Assurance approver"]
+    end
+    Lead -->|"Prepares candidate revision"| Policy
+    Replay -->|"Provides replay evidence and guardrail data"| Release
+    Policy -->|"Supplies live, candidate, and prior policy state"| Release
+    Release -->|"Writes manifest for exact revision"| Approval
+    Approver -->|"Approves or rejects bounded live use"| Approval
+    Approval -->|"Approved exact revision, scope, and window"| Release
+    Release -->|"Activates approved revision with protected floors"| Policy
+    Policy -->|"Publishes active sampling policy"| Consumers
+    Release -->|"Records approval lineage and restore target"| Audit
+    Audit -->|"Restores prior trusted policy or triggers backfill controls"| Policy
+```
+
 - Approval-gated execution fits because the sampling revision can be activated in the policy store only after assurance leadership approves that exact version and review-program scope.
 - Human-in-the-loop review should remain normal because leaders must explicitly accept the change in live oversight coverage, protected-floor handling, and validity timing.
 - A governed release agent can compare the candidate revision to replay evidence, register the restore target, and record the approval lineage, but it should not assign specific reviewers or expand the release into operational maintenance execution.
