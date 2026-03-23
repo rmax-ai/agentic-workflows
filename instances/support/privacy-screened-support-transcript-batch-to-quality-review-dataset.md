@@ -39,6 +39,35 @@ This grounds the transform pattern in a support workflow where the value comes f
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph RESTRICTED["Restricted incident workspace"]
+        REPO["Support ticketing and transcript repositories<br>chats bridge notes attachments and incident summaries"]
+        AGENTS["Orchestrated transformation agents<br>parsing privacy screening redaction<br>and quality-tag packaging"]
+    end
+
+    DETECT["Privacy and secret-detection tooling<br>credentials tenant identifiers email addresses<br>network details and infrastructure clues"]
+    REGISTRY["Quality-review schema registry<br>issue taxonomy response stages<br>impact buckets and release constraints"]
+    QUEUE["Support leadership privacy and security<br>exception queue"]
+    REVIEW["Review workbench<br>borderline masking semantic-loss review<br>and manifest approval"]
+    STAGING["Governed staging store<br>release-safe dataset redaction trace<br>and batch approval manifest"]
+    STOP["Stop at internal quality-review dataset<br>no live incident action or external sharing"]
+
+    REPO -->|"Provides restricted transcript batch"| AGENTS
+    AGENTS -->|"Uses detection services"| DETECT
+    DETECT -->|"Returns secret and identifier findings"| AGENTS
+    REGISTRY -->|"Provides approved schema taxonomy
+and release rules"| AGENTS
+    AGENTS -->|"Routes low-confidence masking
+and semantic-loss cases"| QUEUE
+    QUEUE -->|"Presents flagged records"| REVIEW
+    REVIEW -->|"Returns reviewed corrections
+and release approval"| AGENTS
+    AGENTS -->|"Writes release-safe dataset
+trace and manifest"| STAGING
+    STAGING -->|"Limits handoff to internal quality review"| STOP
+```
+
 - An orchestrated multi-agent workflow can separate transcript parsing, secret and identifier detection, policy-constrained redaction, and structured quality-tag packaging while preserving clear audit boundaries.
 - Human reviewers should stay in the normal loop to resolve borderline environment references, judge whether a generalized excerpt still reveals a customer, and approve the release-safe manifest for quality-review use.
 - The workflow should stop at an internal quality-review dataset and reviewed manifest rather than creating customer-facing summaries, triggering engineering work, or updating incident status in live systems.
