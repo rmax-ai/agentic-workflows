@@ -45,6 +45,18 @@ This grounds the pattern in operations where one shared optimization bundle shap
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Warehouse,<br>transportation, and quality systems"] -->|"Hub, facility, product, and exception context"| E["Replay and simulation workspace"]
+    B["Cold-chain review platform"] -->|"Current shared-surface outputs<br>for candidate bundle analysis"| E
+    C["Outcome history store"] -->|"Historical outcomes, overrides,<br>and rollback events"| E
+    D["Shared parameter registry"] -->|"Active shared bundle,<br>protected parameters, and fairness caps"| E
+    E -->|"Candidate bundle analysis,<br>guardrail checks, and replay results"| F["Governance dashboard"]
+    F -->|"Human adoption, deferred changes,<br>and restore decisions"| D
+    D -->|"Adopted shared bundle version<br>for propagation checks"| B
+    B -->|"Version acknowledgments<br>and rollback visibility"| F
+```
+
 - Orchestrated multi-agent coordination fits because separate roles can analyze cross-surface outcome drift, test hub-type fairness constraints, replay candidate bundles, and assemble one auditable retuning packet over shared cold-chain state.
 - Human-in-the-loop review should remain standard because cold-chain governance owners must explicitly adopt, narrow, defer, or reject bundle changes before any shared optimization state becomes active.
 - Recommendation-only autonomy keeps the boundary clean: the workflow can compare candidate bundle versions and surface trade-offs, but it must not activate live queue changes, decide individual lot treatment, or reschedule inspections on its own.
