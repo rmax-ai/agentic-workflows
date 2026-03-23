@@ -48,6 +48,33 @@ This grounds the pattern in a research-methods setting that is materially differ
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph upkeep["Bounded methodology-board upkeep"]
+        monitor["Event-driven<br>monitoring"]
+        agent["Tool-using<br>upkeep agent"]
+        board["Shared methodology caveat board<br>with wave rows, owner fields,<br>hold tags, and revision history"]
+        register["Visible unresolved-caveat<br>register"]
+    end
+
+    repo["Survey instrument and protocol repository<br>with questionnaire versions,<br>translation files, and methods memos"]
+    ops["Fieldwork operations log<br>with deployment dates, incident annotations,<br>and response summaries"]
+    review["Reproducibility review surface<br>for comparability caveats,<br>source links, and follow-up comments"]
+    catalog["Internal study metadata catalog<br>for weighting plans, codebook revisions,<br>and wave documentation snapshots"]
+    humans["Methods owners, statisticians,<br>fieldwork coordinators, instrument owners,<br>reproducibility reviewers, and study coordinator"]
+
+    repo -->|"Protocol and memo updates"| monitor
+    ops -->|"Fieldwork and site-update signals"| monitor
+    review -->|"Reviewer caveats and comment changes"| monitor
+    board -->|"Current rows, ownership,<br>and hold state"| agent
+    catalog -->|"Weighting and documentation references"| agent
+    monitor -->|"Refresh cycle"| agent
+    humans -->|"Ownership handoffs<br>and review notes"| review
+    agent -->|"Refreshes links, normalizes notes,<br>and updates board fields"| board
+    agent -->|"Carries forward unresolved<br>comparability questions"| register
+    agent -->|"Interpretation-heavy or publication-adjacent<br>changes held for review"| humans
+```
+
 - Event-driven monitoring fits because upkeep should react when protocol notes, fieldwork logs, reviewer comments, or board fields change.
 - A tool-using single agent can refresh source references, normalize overlapping caveat wording, and keep ownership plus hold markers synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when a note would reinterpret methodology, collapse a contested caveat, or make the board sound like an analysis or publication decision.
