@@ -40,6 +40,34 @@ This grounds the pattern in high-consequence operations where the hard problem i
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph boundary["Evidence-gated verification boundary"]
+        workspace["Restricted transfer-control workspace<br>approved packet revision,<br>superseded drafts, lane scope,<br>and prior hold history"]
+        valve["Valve-position historian<br>and alarm-state feeds"]
+        pressure["Line-pressure telemetry<br>and equalization check logs"]
+        readiness["Maintenance readiness records<br>and emergency bypass test evidence"]
+        permit["Lockout / isolation<br>permit systems"]
+        manifest["Approval manifest service<br>named terminal and safety approvers"]
+        verifier["Verification service<br>evidence, freshness, and<br>scope-boundary checks"]
+        packet["Approval-ready verification packet<br>verified / held / insufficient verdict"]
+        audit["Audit store<br>evidence timestamps, verdict lineage,<br>boundary checks, and blocked reuse"]
+
+        workspace --> verifier
+        valve --> verifier
+        pressure --> verifier
+        readiness --> verifier
+        permit --> verifier
+        manifest --> verifier
+        verifier --> packet
+        verifier --> audit
+    end
+
+    approvers["Terminal operations and<br>process-safety approvers"] --> packet
+    packet --> handoff["Restricted approval handoff<br>for one exact packet revision"]
+    handoff --> stop["Stop before permit refresh,<br>crew dispatch, or live<br>manifold action"]
+```
+
 - Approval-gated execution fits because the verification packet can be assembled automatically while transfer authorization remains concretely blocked until a named terminal or safety approver releases that exact packet revision.
 - Human-in-the-loop review should remain mandatory because terminal operations, maintenance, and process-safety owners must interpret held conditions before anyone relies on the packet for a consequential handoff.
 - Durable verification state should preserve superseded verdicts, repeated release holds, and packet-version lineage so later reviewers can distinguish genuine evidence refresh from repeated checks on a previously blocked revision.
