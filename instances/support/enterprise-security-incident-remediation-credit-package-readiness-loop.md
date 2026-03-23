@@ -45,6 +45,32 @@ This grounds the pattern in a support workflow where the hard work is repeated a
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Case["Support case-management + escalation timeline systems<br>incident chronology + customer commitments + prior updates + severity records"]
+    Security["Security incident records + access-review evidence stores<br>containment status + validated findings + affected-scope summaries + approved customer-disclosure guidance"]
+    Revenue["CRM + contract + revenue-operations systems<br>service-level commitments + negotiated credit terms + renewal context + delegated approval thresholds"]
+    Policy["Legal + policy repositories<br>breach-communication rules + customer-remediation playbooks + exception criteria + required reviewer authorities"]
+    Queue["Approval-routing queue<br>formal decision review"]
+
+    subgraph Workspace["Governed support review workspace"]
+        Packet["Draft remediation-and-credit packet<br>current packet content + evidence responses"]
+        Ledger["Objection-and-handoff ledger<br>reviewer objections + comment history + named handoff ownership"]
+        Readiness["Readiness state<br>approval-readiness checkpoint + unresolved issues"]
+
+        Packet -->|"packet revisions + evidence links"| Ledger
+        Ledger -->|"checkpoint ownership + open blockers"| Readiness
+    end
+
+    Case -->|"incident chronology + case evidence"| Packet
+    Security -->|"validated findings + disclosure guidance"| Packet
+    Revenue -->|"contract terms + credit rationale inputs + approval thresholds"| Packet
+    Revenue -->|"delegated approval thresholds"| Readiness
+    Policy -->|"review rules + reviewer authorities"| Readiness
+    Packet -->|"human-approved packet"| Queue
+    Ledger -->|"unresolved reviewer issues + next approval owner"| Queue
+```
+
 - Human-in-the-loop collaboration should remain primary because customer remediation posture, disclosure boundaries, and commercial concessions require accountable support, legal, security, and revenue ownership.
 - An orchestrated multi-agent setup fits when separate agent roles refresh incident evidence, reconcile reviewer objections, verify contract and approval-threshold requirements, and maintain the shared handoff ledger across several revision rounds.
 - Agents may prepare revised packet sections, evidence-response tables, and readiness summaries, but outbound customer offers, legal admissions, contract amendments, and final approval routing should remain explicitly human-controlled.
