@@ -70,6 +70,34 @@ This instance grounds `readiness-gate-disposition-recommendation` in support thr
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    packet["SSEI-Residency-Activation-Gate-v4<br>with v2 and v3 lineage,<br>delegated authority snapshot,<br>and signed activation-gate definition"]
+    residency["Frozen sovereign tenant roster,<br>entitlement-to-residency mapping,<br>residency-qualified analyst roster,<br>and temporary override register"]
+    controls["Routing-policy baseline,<br>pinned DLP profile bundle,<br>in-region KMS binding snapshot,<br>object-lock snapshot,<br>and failback drill evidence"]
+    artifacts["Restricted malware-scanning attestations,<br>artifact-class handling standard,<br>and sovereign support control baseline"]
+    context["Readiness dashboards,<br>queue telemetry,<br>enclave health panels,<br>activation-calendar checkpoint,<br>and prior gate-review notes"]
+    owner["Jonas Eberle<br>packet-integrity and evidence-freshness owner"]
+
+    subgraph boundary["Sovereign support readiness<br>recommendation boundary"]
+        agent["Event-driven recommendation workflow<br>with read-only support, entitlement,<br>routing, storage-control, privacy,<br>and governance integrations"]
+        recommendation["Disposition packet,<br>blocker register,<br>and readiness rationale"]
+        audit["Disposition audit log<br>for trigger events,<br>evidence versions,<br>and recommendation revisions"]
+        review["Sofia Marku<br>human gate-owner review"]
+    end
+
+    packet --> agent
+    residency --> agent
+    controls --> agent
+    artifacts --> agent
+    context --> agent
+    owner --> recommendation
+    agent --> recommendation
+    agent --> audit
+    recommendation --> review
+    review -. "Stops before intake-routing change,<br>non-resident analyst access,<br>customer notice, and live evidence movement" .-> downstream["Downstream routing, analyst-scope,<br>customer-notice, and evidence-movement actions"]
+```
+
 - Event-driven monitoring fits because failback-evidence expiry, entitlement-to-residency mapping changes, malware-scanning attestation updates, and activation-window pressure should trigger a refreshed gate recommendation immediately.
 - Human-in-the-loop review is mandatory because the workflow should advise on proceed, hold, narrow, or escalate posture, not approve the activation, broaden analyst scope, notify customers, or move live evidence.
 - Read-only integration with entitlement, routing, storage-control, privacy, and governance systems is preferable so the agent cannot silently convert a recommendation packet into an active support-routing change.
