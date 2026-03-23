@@ -76,6 +76,19 @@ Intercompany netting breaks at month-end are high-stakes because an unresolved s
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    netting["Netting engine settlement file,<br>confirmation records, and<br>locked FX reference rate"] -->|"Provides current-cycle netting positions,<br>settlement instruction, and<br>authoritative rate context"| lanes["Multi-agent investigation lanes:<br>evidence retrieval, subledger reconciliation,<br>and hypothesis verification"]
+    erp["Entity ERP subledger snapshots<br>with posting timestamps and<br>journal metadata"] -->|"Provides entity-pair subledger positions,<br>cutoff timestamps, and<br>journal lineage"| lanes
+    logs["Submission logs, treasury FX history,<br>and operations notes"] -->|"Provides resubmission events,<br>timeout context, and<br>late-payable clues"| lanes
+    lanes -->|"Records candidate causes,<br>evidence links, and<br>open checks by entity pair"| memory["Shared case memory for<br>hypotheses, FX normalization,<br>and unresolved break components"]
+    memory -->|"Returns prior findings,<br>source precedence, and<br>pending verification state"| lanes
+    lanes -->|"Assembles break attribution,<br>supporting evidence, and<br>residual uncertainty"| packet["Investigation packet for<br>intercompany operations and<br>regional finance handoffs"]
+    memory -->|"Supplies hypothesis lineage<br>and cited open items"| packet
+    packet -->|"Routes the evidence-backed packet to<br>Kai Brandt for adjudication"| review["Kai Brandt human review<br>boundary"]
+    review -->|"Stops at human-owned settlement correction,<br>dispute escalation, or<br>supervised resubmission decisions"| stop["Stop boundary:<br>No agent-driven settlement correction,<br>dispute escalation, or journal action"]
+```
+
 - An orchestrated multi-agent flow can separate netting-engine evidence retrieval, cross-entity subledger reconciliation, and hypothesis verification so each reasoning step remains attributable and inspectable.
 - Shared case memory should preserve candidate causes, confirming and disconfirming evidence per entity pair, FX-rate normalization choices, and open break components across handoffs between intercompany operations, regional finance teams, and the netting center.
 - Human-in-the-loop review must remain mandatory before any settlement instruction is corrected, any entity is notified of a disputed balance, or any consolidation journal is adjusted as a result of the investigation's findings.
