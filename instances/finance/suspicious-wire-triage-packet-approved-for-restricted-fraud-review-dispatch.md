@@ -38,6 +38,27 @@ This grounds `approval-gated-triage-dispatch` in finance work where there is a r
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    packet["Transaction-monitoring and case-management systems<br>holding the exact suspicious-wire packet revision"]
+    context["KYC, beneficiary-screening, and payment-approval systems<br>freshness and held-context references"]
+    queue["Restricted fraud-review queue<br>and dispatch-manifest service"]
+    audit["Audit and hold-tracking stores<br>supersession, stale-context holds, and overrides"]
+
+    subgraph boundary["Approval boundary"]
+        gate["Approval-gated dispatch workflow<br>releases one exact packet revision"]
+        approval["Approval-routing tooling<br>dual-control signer state and queue boundary"]
+    end
+
+    packet -->|"Exact triaged packet<br>and duplicate lineage"| gate
+    context -->|"Beneficiary-screening freshness<br>and payment-approval context"| gate
+    gate -->|"Manifest-ready approval request<br>for one restricted lane"| approval
+    approval -->|"Dual-control sign-off<br>or approval hold state"| gate
+    gate -->|"Released exact packet revision<br>and bounded dispatch manifest"| queue
+    gate -->|"Stale-context holds, blocked attempts,<br>and override audit events"| audit
+    audit -->|"Visible supersession and hold state<br>before release"| gate
+```
+
 - Event-driven monitoring fits because packet freshness, beneficiary-screening status, and signer state can change continuously while the case sits at the dispatch gate.
 - Approval-gated execution fits because the triaged case is ready for restricted-lane release but remains concretely blocked until the required dual-control approval is attached to the manifest.
 - Human-in-the-loop review should remain in the normal path because the dispatch gate can expose a sensitive payment case to a downstream lane with consequential powers even though this workflow still stops short of action.
