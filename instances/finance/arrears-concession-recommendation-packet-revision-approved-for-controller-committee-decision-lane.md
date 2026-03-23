@@ -38,6 +38,18 @@ This grounds the pattern in finance where the governance problem is not to adjud
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    S["AR aging, contract terms, payment-history,<br>dispute, and exposure systems"] -->|"Refresh cited arrears evidence"| W["Collections recommendation workspace<br>with the current packet revision,<br>bounded option set, and superseded drafts"]
+    P["Concessions policy and authority repository<br>with committee lane, recipients,<br>funding-day validity, and release approver"] -->|"Defines lane scope,<br>expiry window, and approver rules"| M["Approval manifest and committee-routing tooling<br>for the exact packet hash,<br>committee audience, and blocked reuse"]
+    W -->|"Provides the packet revision,<br>blocked-term rationale, and prior lineage"| M
+    A["Named finance approver"] -->|"Approves committee scope,<br>release manifest, and blocked reuse constraints"| M
+    M -->|"Routes one exact approved revision"| C["Controller committee decision lane"]
+    W -->|"Preserves superseded drafts<br>and refreshed-state holds"| U["Audit and supersession systems"]
+    M -->|"Records release lineage,<br>recipient scope, and reuse blocks"| U
+    C -->|"Stops at governed recommendation review"| X["Stop before concession adjudication,<br>billing record updates, or customer communication"]
+```
+
 - Approval-gated execution fits because the recommendation packet remains in a held state until a named finance approver authorizes release into the controller committee lane.
 - Human-in-the-loop review is necessary because only accountable finance leadership should confirm that release scope, expiry, and blocked-option visibility are correct without treating that approval as concession adjudication.
 - A governed agent can assemble the release manifest, verify packet and option-set hashes, and block stale recirculation, but it should not change receivables records or signal that the customer request has been approved.
