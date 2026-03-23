@@ -38,6 +38,74 @@ This grounds the pattern in engineering software-supply-chain governance rather 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    ospm["Open-source program<br>manager"]
+    bse["Build systems engineer"]
+    rca["Release compliance<br>analyst"]
+    owner["Named engineering<br>release owner"]
+
+    subgraph collab["Governed engineering collaboration workspace"]
+        packet["Transitive-dependency license<br>clarification packet"]
+        ledger["Objection ledger"]
+        manifest["Release-manifest draft"]
+    end
+
+    subgraph evidence["Build, SBOM, and provenance sources"]
+        build["Build graph"]
+        registry["Package registry"]
+        sbom["SBOM generation"]
+        provenance["Provenance attestation"]
+    end
+
+    subgraph context["Notice and exception context stores"]
+        repos["Source repositories"]
+        notices["Third-party notice inventories"]
+        exceptions["Archived exception packets"]
+        waivers["Policy waiver records"]
+    end
+
+    subgraph controls["Restricted intake controls"]
+        policy["Open-source governance policy"]
+        routing["Restricted intake-routing systems"]
+        access["Access-control systems"]
+        lane["Restricted open-source<br>review intake lane"]
+    end
+
+    subgraph trace["Audit and approval logs"]
+        logs["Audit, approval-routing,<br>and supersession logs"]
+    end
+
+    ospm -- "Co-produces" --> packet
+    bse -- "Co-produces" --> packet
+    rca -- "Co-produces" --> packet
+
+    build -- "Supplies dependency lineage to" --> packet
+    registry -- "Supplies package metadata to" --> packet
+    sbom -- "Supplies SBOM revisions to" --> packet
+    provenance -- "Supplies provenance evidence to" --> packet
+
+    repos -- "Supplies vendored-source references to" --> packet
+    notices -- "Supplies notice context to" --> packet
+    exceptions -- "Supplies prior exception context to" --> packet
+    waivers -- "Supplies waiver evidence to" --> packet
+
+    packet -- "Keeps unresolved concerns in" --> ledger
+    packet -- "Binds release scope in" --> manifest
+    packet -- "Submitted for approval to" --> owner
+    packet -- "Released after approval into" --> lane
+
+    policy -- "Defines required signers for" --> owner
+    routing -- "Routes approved packet into" --> lane
+    access -- "Restricts audience for" --> lane
+    owner -- "Approves exact packet revision for" --> lane
+
+    ledger -- "Accepted residual objections logged in" --> logs
+    manifest -- "Covered dependency scope logged in" --> logs
+    lane -- "Downstream handoff traceability logged in" --> logs
+    owner -- "Approval decision logged in" --> logs
+```
+
 - Approval-gated execution fits because the license clarification packet can be collaboration-ready while still blocked from restricted open-source review intake until the human release owner approves the exact revision.
 - Human-in-the-loop control is required because only accountable engineering and open-source governance leaders may accept residual disagreement, confirm audience scope, and authorize release of the packet itself.
 - Agents may crosswalk dependency lineage, refresh SBOM evidence, normalize disputed notice references, and maintain the release trace, but they must not decide license obligations, publish notices, remove packages, or authorize shipment.
