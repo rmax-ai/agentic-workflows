@@ -48,6 +48,27 @@ This grounds the pattern in research where the difficult problem is not assembli
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph approver_boundary["Named human approver<br>boundary"]
+        approver["Named research governance<br>approver"]
+    end
+
+    workspace["Restricted publication-integrity workspace<br>approved packet revision, superseded drafts,<br>reviewer assignments, and prior hold history"]
+    evidence["Benchmark claim registry<br>experiment rerun-manifest repository<br>annex checksum store"]
+    policy["Dataset-rights ledger<br>disclosure-review tracker<br>embargo-control register<br>audience-scope policy records"]
+    manifest["Approval manifest service<br>release authority for one exact<br>packet revision"]
+    audit["Audit store<br>evidence timestamps, verdicts,<br>release-hold state changes, and<br>blocked superseded packet reuse"]
+
+    evidence --> workspace
+    policy --> workspace
+    workspace --> approver
+    approver --> manifest
+    manifest --> workspace
+    workspace --> audit
+    manifest --> audit
+```
+
 - Approval-gated execution fits because the verification packet can be assembled automatically while downstream integrity-review intake remains blocked until a named research governance approver releases that exact packet revision.
 - Human-in-the-loop review should remain mandatory because publication-operations, rights, and disclosure owners must interpret held conditions before anyone relies on the packet for a consequential review handoff.
 - Durable verification state should preserve superseded verdicts, repeated release holds, and packet-version lineage so later reviewers can distinguish genuine evidence refresh from duplicate verification noise.
