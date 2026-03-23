@@ -43,6 +43,25 @@ This grounds `anomaly-detection-review` in research work where the hard problem 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    ET["Experiment tracking<br>Run metadata, metric histories, and rerun outcomes"]
+    AR["Artifact registry<br>Model, dataset, prompt-set, and evaluation lineage"]
+    GT["Governance tools<br>Variance bands, study-plan updates, and reviewer notes"]
+    AQ["Anomaly review agent<br>Correlate drift, bound context, and prioritize the packet"]
+    RQ["Review queue<br>Access-controlled review for governance and integrity leads"]
+    subgraph EB["Audit-grade evidence boundary<br>Restricted evidence capture"]
+        EV["Evidence store<br>Scores, contextual lookups, merges, and routing history"]
+    end
+
+    ET -- "metric and rerun context" --> AQ
+    AR -- "artifact lineage" --> AQ
+    GT -- "policy and review context" --> AQ
+    AQ -- "prioritized review packet" --> RQ
+    AQ -- "audit trail" --> EV
+    RQ -- "review dispositions" --> EV
+```
+
 - Event-driven monitoring should continuously ingest rerun results, benchmark metric deltas, provenance-check failures, and planned-study updates, then reopen or merge anomaly clusters as fresh evidence arrives.
 - A tool-using single agent can correlate study identifiers across experiment, artifact, and governance systems; compare the anomaly against approved variance bands; attach bounded lineage context; and publish a prioritized review packet with explicit uncertainty markers.
 - Bounded delegation fits because in-policy mid-severity drift packets can route into a preapproved research review queue without case-by-case approval, while higher-consequence anomalies still escalate to humans before any claim, disclosure, or publication action is taken.
