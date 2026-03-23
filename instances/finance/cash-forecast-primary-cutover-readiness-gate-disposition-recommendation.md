@@ -44,6 +44,20 @@ This instance grounds the pattern in finance where the main challenge is not exe
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Treasury program tracker,<br>cutover gate checklist,<br>and delegated finance authority matrix"] -->|"Read-only gate context"| F["Cutover readiness<br>recommendation workflow"]
+    B["Cash-forecast shadow run history,<br>reconciliation dashboards,<br>and model validation evidence store"] -->|"Read-only evidence"| F
+    C["Control-attestation repository,<br>segregation-of-duties policy references,<br>and exception register"] -->|"Read-only control signals"| F
+    D["Quarter-close calendar,<br>liquidity planning deadlines,<br>and prior cutover review records"] -->|"Timing and review context"| F
+    E["Regional entity onboarding status,<br>data-quality issue tracker,<br>and downstream reporting dependency map"] -->|"Scope and dependency context"| F
+    F --> G["Recommended disposition packet:<br>full primary cutover,<br>narrow regional go-live,<br>hold, or escalate"]
+    G --> H["Treasury transformation steering group<br>approval boundary"]
+    H --> I["Approved disposition handoff<br>for governed next-step action"]
+    H --> J["Request more evidence<br>or bounded escalation review"]
+    F -.-> K["Stop boundary:<br>no direct system-of-record switch,<br>treasury reporting finalization,<br>or control waiver"]
+```
+
 - Event-driven monitoring fits because reconciliation variance movements, attestation expiry, and quarter-close timing changes should trigger a refreshed readiness recommendation instead of relying on static gate packets.
 - Human-in-the-loop review is mandatory because the workflow should advise on the cutover disposition, not change the primary system of record, finalize treasury reporting, or waive control requirements.
 - Read-only integration with treasury planning, validation, control, and policy systems is preferable so the agent cannot silently convert a recommendation into a live finance process change.
