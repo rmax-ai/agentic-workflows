@@ -48,6 +48,16 @@ This instance grounds the recommendation pattern in research where the hard prob
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    BW["Benchmark workspace<br>and draft publication scope"] -->|"Read-only context"| RA["Recommendation workflow<br>retrieval, synthesis, and policy checks"]
+    EE["Experiment evidence<br>and reproducibility records"] -->|"Read-only evidence"| RA
+    LP["Licensing and disclosure<br>policy sources"] -->|"Policy constraints"| RA
+    RI["Reviewer inputs<br>and caveats"] -->|"Governance concerns"| RA
+    RA -->|"Ranked options"| RP["Ranked recommendation packet<br>with rationale, caveats, and escalation triggers"]
+    RP -->|"Human review"| HR["Human research-governance review<br>for support, narrowing, or escalation"]
+```
+
 - A recommendation-only workflow can retrieve publication policy thresholds, experiment evidence, licensing constraints, precedent exceptions, and reviewer concerns into one ranked option set for research leadership review.
 - Human-in-the-loop review is mandatory because the workflow should advise on publication posture and escalation triggers, not approve the paper, submit the abstract, edit the public blog, or brief external parties.
 - Read-only integration with experiment tracking, document repositories, governance records, and policy systems is preferable so the agent cannot silently convert a recommendation into a released artifact or an irreversible external commitment.
