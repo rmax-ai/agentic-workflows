@@ -40,6 +40,23 @@ This grounds the pattern in an operations setting where the urgent problem is no
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    telemetry["Building-management, gas-detection,<br>compressor-control, and emergency-shutdown telemetry"] -->|"Detector spikes, ventilation faults,<br>and loop shutdown signals"| triage["Corroboration, duplicate-handling,<br>and escalation-packet orchestration"]
+    worker["Worker-safety, badge, duress,<br>radio check-in, and incident intake"] -->|"Worker observations and<br>manual hazard confirmations"| triage
+    maintenance["Maintenance, inspection,<br>and contractor-work systems"] -->|"Open leak history, deferred work,<br>and sensor calibration context"| triage
+    warehouse["Warehouse-management, trailer-temperature,<br>shipment-priority, and dock operations"] -->|"Shipment exposure and<br>cold-chain risk context"| triage
+    triage -->|"Linked evidence, unresolved uncertainty,<br>and duplicate-aware case updates"| case_tooling["Critical operations case-management<br>and escalation-routing tooling"]
+    policy["Versioned escalation thresholds,<br>affected-zone scoping, and watch-state rules"] -->|"Governed routing and<br>retention constraints"| case_tooling
+    case_tooling -->|"Packet revisions, duplicate lineage,<br>and controlled references"| audit["Triage decision log and<br>lineage store"]
+    subgraph boundary["Human-controlled safety command boundary"]
+        lane["Safety command review lane"]
+        leaders["Safety and duty leadership"]
+    end
+    case_tooling -->|"Corroborated packet and minimized queue view"| lane
+    lane -->|"Human review and<br>command intake"| leaders
+```
+
 - Event-driven monitoring fits because gas detectors, equipment shutdowns, manual safety observations, and shipment-exposure signals can arrive asynchronously and materially change corroboration within minutes.
 - Orchestrated multi-agent or staged service roles fit because telemetry review, maintenance-context retrieval, worker-safety linkage, duplicate handling, and escalation-packet assembly are specialized tasks that need one shared critical-case state.
 - Human-in-the-loop review remains necessary because even a recommendation-only critical packet can rapidly influence consequential evacuation, shutdown, labor-safety, and customer-service decisions.
