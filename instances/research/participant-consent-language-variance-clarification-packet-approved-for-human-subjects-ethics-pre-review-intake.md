@@ -39,6 +39,20 @@ This grounds the pattern in research governance work outside benchmark-publicati
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Sources["Protocol repository<br>master consent library<br>translated consent files<br>site implementation trackers"] --> Workspace["Governed research collaboration workspace<br>clarification packet<br>revision history<br>objection ledger<br>release-manifest state"]
+    Inputs["Translation vendor notes<br>participant-support issue logs<br>study operations comments"] --> Workspace
+    Policy["Human-subjects governance policy<br>pre-review intake rules<br>privacy controls"] --> Workspace
+    Collaborators["Principal investigator<br>clinical research operations lead<br>human-subjects governance partners"] --> Workspace
+    Agent["Agent support<br>consent-variant comparison<br>evidence-link refresh<br>release-trace maintenance"] --> Workspace
+    Workspace --> Owner["Named research release owner"]
+    Workspace --> Routing["Approval-routing<br>audit<br>retention systems"]
+    Policy --> Routing
+    Owner --> Routing
+    Routing --> Lane["Human-subjects ethics pre-review<br>intake lane"]
+```
+
 - Approval-gated execution fits because the clarification packet can be collaboration-ready while still blocked from ethics intake until the human release owner approves the exact revision.
 - Human-in-the-loop control is required because only accountable research leaders may accept residual disagreement, confirm participant-safety wording scope, and authorize the packet's release boundary.
 - Agents may compare consent variants, refresh evidence links, and maintain the release trace, but they must not decide ethics acceptability, notify sites, or file the amendment.
