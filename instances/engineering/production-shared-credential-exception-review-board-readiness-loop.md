@@ -41,6 +41,37 @@ This grounds the pattern in an engineering workflow where the core challenge is 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph collaboration["Governed collaboration boundary"]
+        engineer["Staff security engineer"]
+        owner["Named approval owner"]
+        workspace["Engineering review workspace<br>with draft packet and handoff ledger"]
+        agents["Orchestrated agent roles<br>normalize comments, verify evidence freshness,<br>check policy completeness, and update the ledger"]
+        engineer -->|"reviews and revises"| workspace
+        owner -->|"accepts readiness and controls handoff"| workspace
+        agents -->|"prepare revisions and summaries"| workspace
+    end
+
+    subgraph sources["Source systems and evidence stores"]
+        findings["Security findings tracker"]
+        standards["Architecture standards repository"]
+        delivery["CI, deployment, and service-ownership records"]
+        evidence["Secrets-management and access-review<br>evidence stores"]
+    end
+
+    subgraph board["Formal governance boundary"]
+        queue["Review-board intake queue"]
+    end
+
+    findings -->|"control gaps and exception history"| workspace
+    standards -->|"policy and submission requirements"| workspace
+    delivery -->|"migration blockers and rollback constraints"| workspace
+    evidence -->|"rotation, access, and monitoring evidence"| workspace
+    workspace -->|"human-approved packet, ownership transfer,<br>and follow-up checkpoints"| queue
+    owner -->|"authorizes board handoff"| queue
+```
+
 - Human-in-the-loop collaboration should remain primary because residual-risk acceptance, compensating-control credibility, and board-readiness handoff require named engineering and security ownership.
 - An orchestrated multi-agent setup fits well when separate agent roles normalize reviewer comments, verify evidence freshness, check policy completeness, and update the shared handoff ledger without collapsing disagreement.
 - Agents may prepare revised packet sections, evidence-response tables, and readiness summaries, but routing the package into formal board review or changing the final approval owner should remain explicitly human-controlled.
