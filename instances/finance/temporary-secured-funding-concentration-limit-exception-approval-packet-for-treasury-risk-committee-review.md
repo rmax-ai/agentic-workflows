@@ -40,6 +40,27 @@ This grounds `approval-packet-generation` in a finance workflow where the hard p
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    WS["Treasury risk exception workspace<br>holding the scoped request, packet draft,<br>provenance index, exception register, and handoff status"]
+    POLICY["Treasury risk policy library<br>with concentration standard TR-LIM-14,<br>authority matrices, and intake criteria"]
+    COLLATERAL["Tri-party collateral management<br>and custodian inventory systems"]
+    DESK["Secured funding desk blotters,<br>dealer exposure ladders,<br>and treasury cash-position systems"]
+    SETTLEMENT["Settlement-operations and fail-monitoring systems"]
+    PRIOR["Prior exception repository<br>and committee intake records"]
+    REVIEW["Accountable treasury risk owner review<br>of packet completeness, provenance visibility,<br>and named reviewer handoff"]
+    STOP["Stop at packet generation and handoff<br>before committee adjudication, funding recommendations,<br>collateral substitutions, notifications, or cash movement"]
+
+    POLICY -->|"Provides policy clauses,<br>disclosure rules, and reviewer criteria"| WS
+    COLLATERAL -->|"Provides pledged-position snapshots,<br>eligibility tags, haircuts, and cutoff windows"| WS
+    DESK -->|"Provides repo allocations, utilization ladders,<br>trapped-cash balances, and affiliate assumptions"| WS
+    SETTLEMENT -->|"Provides fail history, pending substitutions,<br>and legal or account-control prerequisites"| WS
+    PRIOR -->|"Provides prior packets, challenge history,<br>and accepted intake expectations"| WS
+    WS -->|"Assembles the packet with source-linked claims,<br>visible blockers, and handoff state"| REVIEW
+    REVIEW -->|"Confirms accountable packet and handoff record<br>without deciding the exception outcome"| PRIOR
+    PRIOR -->|"Preserves the packet handoff for committee intake<br>and stops at review routing only"| STOP
+```
+
 - Orchestrated multi-agent retrieval and synthesis fit because concentration-policy clauses, dealer utilization data, custodian inventory snapshots, legal prerequisites, and settlement evidence often live in separate systems and require coordinated packet assembly.
 - Human-in-the-loop checkpoints should remain mandatory so an accountable treasury risk owner can confirm the exception scope, required reviewers, and whether unresolved evidence gaps are acceptable to surface in the packet before handoff.
 - Agents may reconcile dealer and affiliate identifiers, align cash, collateral, and cutoff timelines, and draft packet sections, but they should not decide whether the concentration breach is tolerable, recommend a substitute funding path, alter authority thresholds, or trigger downstream trading, collateral, legal, or settlement actions.
