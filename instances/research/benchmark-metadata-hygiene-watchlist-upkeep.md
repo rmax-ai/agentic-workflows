@@ -40,6 +40,28 @@ This grounds `explainable-watchlist-maintenance` in research work where recurrin
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    reg["Experiment and benchmark registries<br>study metadata, suite identifiers,<br>annotation history, and review-window markers"]
+    refs["Dataset-card, artifact-catalog,<br>and result-dashboard systems<br>link integrity and metadata freshness signals"]
+    notes["Prior reviewer-note store<br>deferments, resolved metadata gaps,<br>and bounded owner comments"]
+    queue["Internal stewardship backlog or watchlist<br>routine metadata upkeep queue"]
+    audit["Audit log<br>watchlist updates, suppressions,<br>removals, and exception escalations"]
+    stewards["Methods stewards<br>and study coordinators"]
+
+    subgraph scope["Approved low-risk<br>metadata hygiene scope"]
+        agent["Tool-using single agent<br>merge recurring signals, attach bounded context,<br>and maintain an explainable watchlist"]
+    end
+
+    reg -- "Recurring metadata signals<br>and review-window context" --> agent
+    refs -- "Link integrity and metadata freshness signals" --> agent
+    notes -- "Prior deferments, resolved gaps,<br>and bounded owner comments" --> agent
+    agent -- "Routine metadata hygiene queue<br>and watchlist updates" --> queue
+    agent -- "Watchlist updates, suppressions,<br>removals, and exception escalations" --> audit
+    queue -- "Scheduled upkeep review" --> stewards
+    audit -- "Explainable watchlist history" --> stewards
+```
+
 - Event-driven monitoring fits because the watchlist should refresh as registry updates, metadata fixes, and recurring gap signals arrive across benchmark portfolios.
 - A tool-using single agent can merge repeated metadata hygiene signals, check recent healthy-state evidence, attach bounded stewardship context, and maintain a routine methods-review queue.
 - Exception-gated autonomy is appropriate because normal low-stakes watchlist updates can run autonomously, while signals that touch protected unpublished material, repeated unresolved age, or claim-sensitive benchmark releases should escalate.
