@@ -42,6 +42,20 @@ This grounds the pattern in research governance work focused on sensitive-method
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    source["Secure protocol repository<br>study records<br>biosafety minutes<br>containment-control files"] --> workspace["Governed research methods workspace<br>clarification packet<br>revision history<br>objection ledger"]
+    draft["Supplement draft annotations<br>red-team notes<br>instrument logs<br>reviewer comments"] --> workspace
+    policy["Dual-use governance policy<br>restricted intake rules<br>access-control systems"] --> workspace
+    collaborators["Principal investigator<br>biosafety officer<br>methods-governance lead"] --> workspace
+    agent["Agent support<br>version comparison<br>evidence-link refresh<br>release-trace maintenance"] --> workspace
+    workspace --> routing["Approval-routing<br>audit<br>retention systems"]
+    policy --> routing
+    workspace --> owner["Named research release owner"]
+    owner --> routing
+    routing --> intake["Restricted dual-use review<br>intake lane"]
+```
+
 - Approval-gated execution fits because the clarification packet can be collaboration-ready while still blocked from restricted dual-use intake until the human release owner approves the exact revision.
 - Human-in-the-loop control is required because only accountable research and biosafety leaders may accept residual disclosure risk, confirm audience scope, and authorize the packet's release boundary.
 - Agents may compare protocol versions, refresh containment evidence links, and maintain the release trace, but they must not decide dual-use acceptability, negotiate external sharing terms, or submit the study materials onward.
