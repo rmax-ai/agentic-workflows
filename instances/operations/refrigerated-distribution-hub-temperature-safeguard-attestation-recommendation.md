@@ -39,6 +39,38 @@ This grounds the pattern in operations where the valuable work is a bounded reco
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Lead["Operations assurance lead"]
+    subgraph Sources["Read-only evidence sources"]
+        Monitor["Building management system and cold-chain monitoring platform<br>zone temperatures, alarm routing,<br>acknowledgement logs, probe inventory"]
+        Cal["Calibration certificate repository and maintenance records<br>probe replacements, validation reports,<br>approved service notes"]
+        Power["Facility resilience and backup-power test workspace<br>generator tests, failover checks,<br>maintenance exceptions"]
+        Quality["Quality review tracker<br>excursion investigations, corrective actions,<br>prior quarterly outcomes, reviewer notes"]
+        Controls["Internal operations controls library<br>attestation checklist, evidence freshness rules,<br>compensating-control limits, escalation thresholds"]
+    end
+    subgraph Workflow["Recommendation workflow boundary"]
+        Agent["Tool-using single agent<br>maps requirements to evidence,<br>checks freshness and exception bounds,<br>assembles rationale packet"]
+        Packet["Reviewable rationale packet<br>approve, remediate, or escalate recommendation<br>with requirement-to-evidence traceability"]
+    end
+    subgraph Review["Human review boundary"]
+        Reviewers["Quality and facility-safety reviewers<br>and attestation owner"]
+        Decision["Human attestation sign-off<br>or follow-up decision"]
+    end
+    Guardrail["Read-only integrations only<br>no alarm changes, investigation closure,<br>or attestation approval by the workflow"]
+
+    Lead --> Agent
+    Monitor --> Agent
+    Cal --> Agent
+    Power --> Agent
+    Quality --> Agent
+    Controls --> Agent
+    Agent --> Packet
+    Packet --> Reviewers
+    Reviewers --> Decision
+    Guardrail -.-> Agent
+```
+
 - A tool-using single agent can retrieve the current attestation checklist, correlate calibration and alarm evidence, compare exception age against policy thresholds, and assemble one reviewable rationale packet.
 - Human-in-the-loop review is required because quality or facility-safety owners must decide whether partial evidence is acceptable, whether a compensating control still fits policy, or whether the case must escalate.
 - Read-only integration with monitoring, maintenance, and quality systems is preferable so the workflow cannot alter alarms, close investigations, or mark the attestation approved.
