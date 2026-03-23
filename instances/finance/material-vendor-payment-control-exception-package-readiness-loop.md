@@ -41,6 +41,25 @@ This grounds the pattern in a finance workflow where the governed artifact is an
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Assistant controller<br>exception package owner"] -->|"maintains draft and ownership"| B["Governed finance review workspace<br>packet + comments + readiness + handoff ledger"]
+    C["Required reviewers<br>AP leadership + procurement + treasury + internal controls"] -->|"challenge packet and log objections"| B
+    D["Agent orchestration<br>evidence refresh + objection normalization + packet drafting"] -->|"updates bounded collaboration state"| B
+    E["ERP and payables records<br>invoice terms + PO status + vendor master + prior exceptions"] -->|"supplies payment evidence"| D
+    F["Procurement and contract repository<br>order forms + renewal clauses + prepayment terms"] -->|"supplies contract evidence"| D
+    G["Treasury workpapers<br>cash forecast + liquidity posture + quarter-end constraints"] -->|"supplies funding evidence"| D
+    H["Internal-controls library<br>payment rules + segregation-of-duties requirements + approver mappings"] -->|"supplies control requirements"| D
+    B -->|"shows current packet, objections, and ownership"| I{"Evidence current<br>and objections visible?"}
+    I -->|"No"| J["Hold boundary<br>stay in readiness collaboration<br>until gaps and objections are explicit"]
+    J -->|"returns for revision"| B
+    I -->|"Yes"| K{"Assistant controller and<br>named finance owner accept<br>controller/CFO handoff?"}
+    K -->|"No"| J
+    K -->|"Yes"| L["Approval-routing queue<br>package + unresolved issues + named approval owner"]
+    L -->|"stops at formal review intake"| M["Out of scope<br>no payment release<br>no approval-authority change"]
+    N["Escalation condition<br>fraud risk + sanctions concern + contract noncompliance + material control deficiency"] -->|"pause and route to issue-management review"| J
+```
+
 - Human-in-the-loop collaboration should remain primary because control exceptions, quarter-end liquidity posture, and compensating-control acceptance require accountable finance leadership judgment.
 - An orchestrated multi-agent setup is useful when separate agent roles refresh payment evidence, normalize reviewer objections, verify policy requirements, and maintain the approval-handoff ledger across multiple review rounds.
 - Agents may update the packet draft, source-response matrix, and readiness summary, but releasing funds, changing approval authority, or marking the exception approved should remain outside the workflow and explicitly human-gated.
