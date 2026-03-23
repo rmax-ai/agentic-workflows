@@ -41,6 +41,32 @@ This grounds the pattern in a finance workflow where the evidence problem is dis
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    WC["Restricted covenant-compliance workspace<br>approved packet revision, prior certificate versions,<br>signatory roster, and open hold history"]
+    EVID["Financial-ratio calculation ledger and<br>audited or reviewed financial statement repository"]
+    AUTH["Named-officer authority register and<br>signatory-delegation records"]
+    BOUND["Lender-reporting-lane boundary manifest and<br>credit-agreement schedule-of-covenants"]
+    VERIFY["Approved covenant-compliance certificate<br>packet evidence gate verification"]
+    MAN["Approval manifest service"]
+    AUD["Audit store"]
+    LANE["Protected lender-reporting<br>review lane"]
+
+    subgraph GATE["Compliance officer<br>release boundary"]
+        CO["Compliance officer approval gate"]
+    end
+
+    WC -->|"Provides approved packet revision,<br>prior lineage, and hold history"| VERIFY
+    EVID -->|"Provides ratio inputs,<br>statement cut-off evidence,<br>and comparison lineage"| VERIFY
+    AUTH -->|"Provides current officer authority<br>and delegation evidence"| VERIFY
+    BOUND -->|"Provides lane eligibility,<br>covenant schedule scope,<br>and review-boundary rules"| VERIFY
+    AUD -->|"Supplies prior verdict lineage,<br>evidence timestamps, and<br>superseded-revision blocks"| VERIFY
+    VERIFY -->|"Stores verified or held verdicts,<br>signatory checks, and<br>blocked revision reuse"| AUD
+    VERIFY -->|"Publishes approval-ready packet<br>with certificate-lineage trace"| MAN
+    MAN -->|"Routes one exact packet revision<br>to authorized compliance officers"| CO
+    CO -->|"Releases only the verified revision<br>into the protected review lane"| LANE
+```
+
 - Approval-gated execution fits because the verification packet can be assembled automatically while the restricted lender-reporting review intake remains blocked until a compliance officer explicitly releases that exact certificate revision.
 - Human-in-the-loop review should remain mandatory because compliance officers must interpret held conditions such as ratio-input staleness, an amended covenant schedule, or a lapsed signatory delegation before downstream reporting reliance can proceed.
 - Durable verification state should preserve superseded verdicts, repeated hold reasons, and certificate-version lineage so later approvers can distinguish genuine evidence refresh from a resubmission of a previously blocked revision.
