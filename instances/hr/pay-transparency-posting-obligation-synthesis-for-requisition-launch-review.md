@@ -38,6 +38,29 @@ This grounds the gather/synthesize pattern in an HR workflow where fluent summar
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph S["Approved HR, legal, and compensation retrieval boundary"]
+        ATS["Applicant tracking system<br>and requisition-intake record"]
+        COMP["Compensation architecture repository<br>and governance policies"]
+        LAW["Primary-source statutory text,<br>labor department guidance,<br>and regulator FAQs"]
+        POLICY["Internal recruiting policy library,<br>posting templates, and employer-brand standards"]
+        EXCEPT["Approved legal memo archive,<br>applicable labor guidance,<br>and exception register"]
+    end
+
+    AGENT["Tool-using synthesis agent"]
+    WORKSPACE["Controlled HR policy review workspace<br>with cited brief, evidence trace,<br>and open-questions log"]
+    REVIEWERS["Recruiting, compensation,<br>and employment-counsel reviewers"]
+
+    ATS -->|"retrieve requisition scope<br>and posting channels"| AGENT
+    COMP -->|"retrieve salary-band<br>and governance inputs"| AGENT
+    LAW -->|"retrieve jurisdiction obligations<br>and effective-date context"| AGENT
+    POLICY -->|"retrieve internal posting policy<br>and template constraints"| AGENT
+    EXCEPT -->|"retrieve approved exceptions<br>and prior legal guidance"| AGENT
+    AGENT -->|"store verified synthesis,<br>citations, and open questions"| WORKSPACE
+    REVIEWERS -->|"inspect evidence trace<br>and resolve conflicts"| WORKSPACE
+```
+
 - A tool-using single agent can retrieve the approved requisition metadata, compensation-policy artifacts, primary-source legal materials, and current posting templates, then assemble a structured synthesis with claim-to-source mappings.
 - Human-in-the-loop review should remain mandatory for conflicts between statutes, regulator guidance, internal compensation policy, and role-location assumptions, especially when the requisition spans multiple jurisdictions or remote-work interpretations.
 - The workflow should preserve an evidence trace that distinguishes binding legal text, regulator interpretation, approved internal policy, and lower-authority contextual materials such as template language or recruiter playbooks.
