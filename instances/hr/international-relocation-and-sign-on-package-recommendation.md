@@ -40,6 +40,30 @@ This instance grounds the recommendation pattern in HR without drifting into sou
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    ats["Applicant tracking record,<br>approved requisition level,<br>and recruiter negotiation notes"]
+    comp["Compensation-band policy,<br>exception approval matrix,<br>and internal-equity comparison data"]
+    mob["Global mobility policy,<br>tax and immigration guidance,<br>and relocation vendor cost estimates"]
+    hist["Historical exception register<br>for sign-on, housing,<br>and long-term incentive precedents"]
+    stake["Stakeholder inputs from hiring executive,<br>HR business partner, compensation lead,<br>mobility team, finance, and employment counsel"]
+
+    subgraph rec["Recommendation-only review boundary"]
+        wk["Package recommendation workspace<br>policy checks, precedent fit,<br>ranked options, and escalation rationale"]
+    end
+
+    subgraph hum["Human review boundary"]
+        rev["Hiring executive, HR business partner,<br>compensation lead, mobility team,<br>finance, and employment counsel"]
+    end
+
+    ats -->|"provides candidate, role,<br>and negotiation context"| wk
+    comp -->|"provides band guardrails,<br>approval thresholds, and equity checks"| wk
+    mob -->|"provides mobility entitlements,<br>tax and immigration constraints,<br>and vendor costs"| wk
+    hist -->|"provides precedent comparisons<br>and prior exception rationale"| wk
+    stake -->|"provides business context,<br>risk notes, and trade-offs"| wk
+    wk -->|"routes a recommendation packet<br>for support, counter, or escalation review"| rev
+```
+
 - A recommendation-only workflow can retrieve approved role level, compensation guardrails, mobility entitlements, precedent exceptions, and stakeholder comments into one ranked option set for governed review.
 - Human-in-the-loop review is mandatory because the workflow should advise on package structure and escalation triggers, not approve compensation exceptions, authorize immigration commitments, or issue the offer.
 - Read-only integration with the applicant tracking system, compensation tools, mobility repositories, and approval records is preferable so the agent cannot silently alter candidate terms or convert a recommendation into a live commitment.
