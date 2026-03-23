@@ -38,6 +38,27 @@ This grounds `approval-gated-triage-dispatch` in HR work where there is a meanin
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    packet["HR accommodations case-management and intake-triage systems<br>holding the exact accommodation packet revision"]
+    context["HRIS, job-architecture, site-safety, and restricted medical repositories<br>freshness checks, essential-function references, and cited annex links"]
+    queue["Restricted occupational-health review queue<br>and dispatch-manifest service"]
+    audit["Audit and hold-tracking stores<br>supersession, medical-privacy holds, stale-context blocks, and overrides"]
+
+    subgraph boundary["Restricted dispatch boundary"]
+        gate["Approval-gated dispatch workflow<br>releases one exact packet revision"]
+        approval["Approval-routing tooling<br>signer identity, reviewer scope, and lane boundary"]
+    end
+
+    packet -->|"Exact triaged packet,<br>duplicate lineage, and revision state"| gate
+    context -->|"Essential-function freshness,<br>worksite constraints, and annex status"| gate
+    gate -->|"Manifest-ready approval request<br>for one restricted occupational-health lane"| approval
+    approval -->|"Approved signer state<br>or scope and hold status"| gate
+    gate -->|"Released exact packet revision<br>and bounded dispatch manifest"| queue
+    gate -->|"Privacy holds, stale-context blocks,<br>and override audit events"| audit
+    audit -->|"Visible supersession and hold state<br>before release"| gate
+```
+
 - Event-driven monitoring fits because provider documentation, essential-function mappings, and worksite constraints can change while the packet waits at the dispatch gate.
 - Approval-gated execution fits because the triaged packet is prepared for one restricted occupational-health review lane but remains concretely blocked until the required accommodations approver signs the exact packet revision and reviewer scope.
 - Human-in-the-loop review should remain in the normal path because releasing the packet into an occupational-health lane changes who may inspect protected medical information even though this workflow still stops short of any accommodation decision.
