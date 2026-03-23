@@ -38,6 +38,40 @@ This grounds the pattern in HR work where the consequential review judgment is a
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    RVS["Restricted credential-compliance review system<br>accepted final disposition record"]
+    CT["Internal credential-compliance tracker"]
+    EL["Credential exception ledger"]
+    PQ["Restricted post-review queue"]
+    EA["Archive or evidence store"]
+    AS["Audit store"]
+    NC["Internal credential-compliance coordinator<br>notification channel"]
+
+    subgraph BW["Bounded closure worker"]
+        EV["Event-driven closure worker"]
+        VAL{"Case identifier,<br>disposition version,<br>archive references, and<br>credential-episode mapping valid?"}
+        SYNC["Idempotent closure sync"]
+        MF["Manual follow-up packet<br>and halt"]
+        EV -->|"re-read authoritative source state"| VAL
+        VAL -->|"valid"| SYNC
+        VAL -->|"invalid"| MF
+    end
+
+    RVS -->|"accepted final-disposition event"| EV
+    RVS -->|"authoritative record recheck"| VAL
+    CT -->|"credential-episode mapping lookup"| VAL
+    EL -->|"credential-episode mapping lookup"| VAL
+    EA -->|"approved archive reference lookup"| VAL
+    SYNC -->|"restricted queue item closure"| PQ
+    SYNC -->|"review-complete state"| CT
+    SYNC -->|"review-complete state"| EL
+    SYNC -->|"final review memo<br>and evidence references"| EA
+    SYNC -->|"completion state<br>and idempotency markers"| AS
+    SYNC -->|"closure propagation complete"| NC
+    MF -->|"manual follow-up record"| AS
+```
+
 - An event-driven completion worker can subscribe to accepted final-disposition events from the restricted credential review system and start the closure sequence only for approved post-decision states.
 - The worker should re-read the current source record before writing anywhere so a reopened credential case, superseded disposition, or changed archive reference is not propagated from a stale event.
 - Durable completion state should track queue closure, credential-tracker synchronization, exception-ledger synchronization, archive linkage, notification delivery, and skipped idempotent actions because duplicate events or partial retries are normal operational conditions.
