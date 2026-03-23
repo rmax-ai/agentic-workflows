@@ -45,6 +45,33 @@ This grounds the pattern in finance valuation governance rather than revenue rec
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    WS["Governed finance collaboration workspace<br>holding the clarification packet,<br>revision history, and objection ledger"]
+    MODEL["Valuation model platform,<br>model-version registry,<br>and calibration workpapers"]
+    MARKET["Market-data, broker-quote,<br>and comparable-transaction repositories"]
+    POLICY["Valuation policy library,<br>model risk guidance,<br>and prior challenge registers"]
+    AGENT["Agent support for model-version deltas,<br>comparable evidence refresh,<br>objection normalization, and release trace"]
+    CONTROL["Clarification packet release control<br>for the exact revision,<br>accepted caveats, and lane boundary"]
+    MAN["Approval-routing, audit, and retention systems<br>for signer state, blocked-release reasons,<br>and superseded revisions"]
+    LANE["Bounded restricted valuation-policy<br>review intake lane"]
+    STOP["Stop before valuation adjudication,<br>reserve posting, hierarchy assignment,<br>auditor briefing, or investor disclosure"]
+
+    subgraph APPROVAL["Valuation governance approval boundary"]
+        OWNER["Named valuation governance<br>release owner"]
+    end
+
+    AGENT -->|"Maintains reconciled packet state<br>and release trace under human control"| WS
+    WS -->|"Provides packet revision,<br>open disagreements, and accepted caveats"| CONTROL
+    MODEL -->|"Provides scenario outputs,<br>parameter lineage, and calibration evidence"| CONTROL
+    MARKET -->|"Provides observable inputs,<br>stale comparables, and challenge evidence"| CONTROL
+    POLICY -->|"Provides policy criteria,<br>calibration tolerances, and prior objections"| CONTROL
+    CONTROL -->|"Prepares exact revision release state,<br>hold reasons, and intake-lane binding"| MAN
+    MAN -->|"Routes one exact packet revision<br>for human release decision"| OWNER
+    OWNER -->|"Approves release only into one bounded<br>valuation-policy review intake lane"| LANE
+    LANE -->|"Stops at governed intake handoff"| STOP
+```
+
 - Approval-gated execution fits because the clarification packet can be collaboration-ready while still blocked from restricted valuation-policy review intake until the human release owner approves the exact revision with its accepted residual caveats.
 - Human-in-the-loop control is required because only accountable valuation governance and finance-policy leaders may accept residual assumption uncertainty, confirm audience scope, and authorize the packet's release boundary without that approval being treated as a valuation sign-off.
 - Agents may reconcile model-version deltas, refresh comparable-transaction evidence, normalize objection wording across valuation and control reviewers, and maintain the release trace, but they must not resolve assumption disputes, choose the valuation outcome, or trigger downstream accounting or disclosure action.
