@@ -40,6 +40,31 @@ This grounds `explainable-watchlist-maintenance` in engineering work where many 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    ci["CI and build-observability systems<br>warning signatures, retry history,<br>run outcomes, and release-train labels"]
+    repo["Repository ownership catalogs<br>and dependency metadata"]
+    exc["Approved deprecation<br>exception registers"]
+    policy["Policy configuration source<br>watchlist scope and escalation rules"]
+    board["Release-engineering hygiene board<br>or backlog for weekly cleanup review"]
+    audit["Searchable audit store<br>watchlist merges, suppressions,<br>removals, and queue publication history"]
+    releng["Release-engineering team"]
+
+    subgraph scope["Approved low-risk<br>watchlist scope"]
+        agent["Tool-using single agent<br>correlate signatures, check scope,<br>and maintain one explainable watchlist"]
+    end
+
+    ci -- "Recurring warning signatures<br>and healthy-run updates" --> agent
+    repo -- "Owner and dependency context" --> agent
+    exc -- "Approved exception windows<br>and prior suppression history" --> agent
+    policy -- "Approved watchlist scope<br>and escalation thresholds" --> agent
+    agent -- "Weekly hygiene queue<br>with owner and recurrence context" --> board
+    agent -- "Watchlist merges, suppressions,<br>removals, and publication history" --> audit
+    agent -- "Bounded escalation when spread,<br>release impact, or policy risk exceeds scope" --> releng
+    board -- "Weekly cleanup review" --> releng
+    audit -- "Explainable watchlist history<br>for release-engineering review" --> releng
+```
+
 - Event-driven monitoring fits because watchlist state should refresh whenever new CI runs emit recurring warning signatures or healthy runs show that a stale item can age out.
 - A tool-using single agent can correlate warning signatures across repositories, check release-train context and approved exception windows, and maintain one explainable hygiene watchlist.
 - Exception-gated autonomy is appropriate because routine low-stakes watchlist updates can happen automatically, while cross-repository spread, protected release windows, or signals that start affecting blocking checks should escalate out of delegated scope.
