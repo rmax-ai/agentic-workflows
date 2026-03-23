@@ -57,6 +57,17 @@ This grounds `critical-signal-corroboration-triage` in support through a severe 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Support-console audit ledger<br>and diagnostic-export ledger"] -->|"authoritative evidence"| E["Critical corroboration workflow<br>over shared packet state"]
+    B["Tenant-entitlement snapshots<br>and restricted-case roster"] -->|"authorization context"| E
+    C["IdP session chain<br>and workstation attestation"] -->|"session continuity"| E
+    D["DLP near-miss, note-redaction,<br>customer-report, and watch-state signals"] -->|"secondary corroboration"| E
+    E -->|"exact packet revision"| F["Support-Tenant-Boundary-<br>Corroboration-Packet-v3"]
+    F -->|"restricted routing"| G["Restricted support misuse<br>response-governance lane"]
+    F -->|"review with explicit uncertainty"| H["Human-in-the-loop<br>support trust reviewer"]
+```
+
 - Event-driven monitoring fits because support-console activity, export staging, DLP near-misses, note-redaction events, and customer reports arrive asynchronously and can materially change corroboration within minutes.
 - An orchestrated multi-agent or staged-service design fits because audit retrieval, roster and entitlement verification, duplicate-lineage maintenance, and packet assembly are specialized steps that must converge on one shared critical-case state.
 - Human-in-the-loop review remains mandatory because routing `Support-Tenant-Boundary-Corroboration-Packet-v3` into the restricted misuse lane can rapidly influence downstream access-control, privacy, and product-security decisions even though this workflow itself does not take those actions.
