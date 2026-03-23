@@ -61,6 +61,22 @@ If the warehouse booking export and carrier manifest disagree on a required iden
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Carrier delivery-manifest intake store<br>shipment-line detail, service levels,<br>and stop-sequence metadata"]
+    B["Warehouse booking and appointment systems<br>booking ids, dock windows,<br>and route-leg references"]
+    C["Approved warehouse-reference sources<br>facility codes, owner aliases,<br>handling taxonomy, route-lane lookup,<br>and service-level vocabulary"]
+    D["Staging-only normalization path<br>apply source precedence, preserve raw values,<br>and emit Warehouse-Shipment-Manifest-<br>Normalization-Packet-v3 with manifest-row lineage"]
+    E["Operations staging store<br>normalized packet, trace,<br>per-field lineage, reference versions,<br>and unresolved-field markers"]
+    F["Exception workspace<br>unsupported aliases, stale snapshots,<br>missing crosswalks, and conflicts"]
+
+    A -->|"Carrier manifest rows<br>and raw source values"| D
+    B -->|"Booking, appointment,<br>and route context"| D
+    C -->|"Approved mappings<br>and canonical identifiers"| D
+    D -->|"Normalized packet, trace,<br>and lineage-aware staging output"| E
+    D -->|"Exception bundle with<br>raw values and blocker tags"| F
+```
+
 - A tool-using single agent can ingest the frozen manifest batch, apply source-precedence rules, query approved lookups, and write the normalized packet, trace, and exception bundle in one bounded batch loop.
 - The target schema should keep raw observed values separate from normalized and enriched fields so downstream consumers can distinguish carrier-provided metadata from warehouse-approved canonical identifiers.
 - Reference enrichment may safely add canonical facility codes, route-lane ids, service-level identifiers, and handling-class taxonomy values, but unsupported inference about shipment readiness, dock assignment quality, diversion need, or partner performance must remain out of scope.
