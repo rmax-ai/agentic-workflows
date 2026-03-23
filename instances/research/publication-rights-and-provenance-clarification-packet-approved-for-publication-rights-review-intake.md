@@ -40,6 +40,29 @@ This grounds the pattern in research governance work focused on publication-righ
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Research publications lead,<br>data steward, and repository<br>governance partners"]
+    B["Governed research publication workspace<br>holding the publication rights and provenance<br>clarification packet, revision history,<br>objection ledger, and release-manifest state"]
+    C["Institutional repository records,<br>specimen-image catalogs,<br>contributor-agreement stores, and<br>prior publication clearance files"]
+    D["Manuscript asset inventory,<br>annotation lineage logs,<br>consortium transfer notes, and<br>hold-state trackers"]
+    E["Publication-rights policy,<br>restricted review-intake rules, and<br>access-control systems"]
+    F["Approval-routing, audit, and<br>retention systems"]
+    G["Named research release owner"]
+    H["Bounded publication-rights<br>review intake lane"]
+
+    A -- "Co-produce and reconcile<br>the clarification packet" --> B
+    C -- "Provide authoritative provenance<br>and reuse evidence" --> B
+    D -- "Supply disputed ownership claims,<br>missing-chain details, and restrictions" --> B
+    E -- "Constrain required signers,<br>audience scope, and release boundary" --> B
+    B -- "Record superseded revisions,<br>accepted residual disagreement,<br>and blocked-release causes" --> F
+    B -- "Present exact packet revision and<br>residual uncertainty for approval" --> G
+    E -- "Define approval and intake<br>routing controls" --> F
+    F -- "Route approval state and<br>release traceability" --> G
+    G -- "Approve release of the exact revision" --> F
+    F -- "Release approved packet into<br>one bounded intake lane" --> H
+```
+
 - Approval-gated execution fits because the clarification packet can be collaboration-ready while still blocked from publication-rights intake until the human release owner approves the exact revision.
 - Human-in-the-loop control is required because only accountable research leaders may accept residual provenance uncertainty, confirm audience scope, and authorize the packet's release boundary.
 - Agents may crosswalk lineage records, refresh evidence links, and maintain the release trace, but they must not decide reuse eligibility, negotiate contributor rights, or release manuscript materials.
