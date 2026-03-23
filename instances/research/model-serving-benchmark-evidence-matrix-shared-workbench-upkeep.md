@@ -46,6 +46,31 @@ This grounds the pattern in a low-risk research setting where the agent is not d
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph boundary["Bounded shared workbench upkeep"]
+        monitor["Event-driven<br>monitoring"]
+        agent["Tool-using<br>upkeep agent"]
+        matrix["Shared benchmark evidence matrix<br>with owners and revision history"]
+    end
+
+    tracker["Experiment tracker<br>run ids, hardware metadata, and benchmark results"]
+    notebooks["Evaluation notebook repository<br>and metric dashboards"]
+    notes["Reviewer annotation surface<br>methodology and comparability questions"]
+    sources["Internal source register<br>vendor documentation and environment notes"]
+    humans["Analysts, reproducibility reviewers,<br>and experiment owners"]
+
+    tracker -->|"New run ids and metadata updates"| monitor
+    notebooks -->|"Linked notebook and dashboard updates"| monitor
+    notes -->|"Reviewer comments and<br>open questions"| monitor
+    sources -->|"Referenced source and<br>environment note updates"| monitor
+    monitor -->|"Refresh cycle"| agent
+    matrix -->|"Current rows, owners,<br>caveats, and lineage"| agent
+    agent -->|"Synchronized fields, links,<br>and normalized notes"| matrix
+    humans -->|"Section ownership changes<br>and contested findings"| notes
+    agent -->|"Boundary-triggering interpretation<br>held for human review"| humans
+```
+
 - Event-driven monitoring fits because the upkeep loop should react when new benchmark runs, reviewer comments, or matrix field changes appear.
 - A tool-using single agent can refresh run metadata, normalize duplicated notes, and update open-question markers in one bounded workbench.
 - Human-in-the-loop review remains necessary when a change would reinterpret a disputed result, collapse a caveat, or promote matrix content into a board-facing deliverable.
