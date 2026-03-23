@@ -39,6 +39,36 @@ This grounds the pattern in a research-governance workflow where the urgent task
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    registry["Benchmark registry<br>version-of-record pointer"]
+    manifest["Corpus-lineage manifest store<br>revision lineage and exclusion-list delta"]
+    snapshot["Immutable object-snapshot index<br>shard hashes and active membership"]
+    packet["Governed benchmark control packet<br>Benchmark-Corpus-Lineage-Reconciliation-Packet-v3"]
+    leila["Benchmark Integrity Steward<br>Leila Narang"]
+
+    subgraph boundary["Governed reconciliation boundary"]
+        workspace["Reconciliation workspace"]
+        blockers["Visible blocker state"]
+        correction["Correction-package state"]
+        verify["Post-reconciliation<br>verification path"]
+    end
+
+    registry -->|"pinned registry record"| workspace
+    manifest -->|"pinned lineage manifest evidence"| workspace
+    snapshot -->|"pinned shard-hash evidence"| workspace
+    packet -->|"pinned packet scope and references"| workspace
+    workspace -->|"keeps unresolved discrepancies in"| blockers
+    workspace -->|"stages reversible updates in"| correction
+    workspace -->|"runs authoritative checks through"| verify
+    verify -->|"confirms reflected corpus state in"| registry
+    verify -->|"confirms reflected lineage in"| manifest
+    verify -->|"confirms reflected snapshot membership in"| snapshot
+    verify -->|"confirms reflected packet references in"| packet
+    blockers -->|"escalates blocker review to"| leila
+    correction -->|"submits correction-ready packet to"| leila
+```
+
 - A tool-using single agent can gather the registry record, lineage manifest chain, snapshot-index evidence, and packet `Benchmark-Corpus-Lineage-Reconciliation-Packet-v3` into one bounded reconciliation run for the affected corpus.
 - Human-in-the-loop review should remain standard when lineage ancestry is ambiguous, shard-hash mismatches cross the approved tolerance, or a proposed correction would alter the accepted version-of-record pointer for a governed benchmark.
 - The workflow should perform authoritative post-reconciliation verification against the registry, lineage store, snapshot index, and packet references before marking packet `Benchmark-Corpus-Lineage-Reconciliation-Packet-v3` correction-ready, then stop before benchmark release, dataset rewrite, evaluation rerun, or broader research operations.
