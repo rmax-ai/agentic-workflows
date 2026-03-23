@@ -38,6 +38,29 @@ This grounds `approval-gated-triage-dispatch` in HR work where there is a meanin
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    packet["Already-triaged work-authorization lapse packet<br>awaiting one approved dispatch revision"]
+    systems["HR compliance case-management and alert-triage systems<br>packet lineage and dispatch-gate state"]
+    evidence["HRIS, immigration-vendor, and document repositories<br>freshness, employer-entity, and reverification references"]
+    queue["Restricted immigration-compliance review queue<br>and dispatch-manifest service"]
+    audit["Audit and hold-tracking stores<br>supersession, privacy holds, and overrides"]
+
+    subgraph boundary["Approval boundary"]
+        gate["Approval-gated dispatch workflow<br>releases one exact packet revision"]
+        approval["Approval-routing tooling<br>reviewer identity, signer state, and lane scope"]
+    end
+
+    packet -->|"Exact triaged packet revision<br>ready for governed release"| gate
+    systems -->|"Packet lineage, alert context,<br>and case-management state"| gate
+    evidence -->|"Freshness checks, employer references,<br>and redaction-ready evidence links"| gate
+    gate -->|"Manifest-ready release request<br>for one restricted review lane"| approval
+    approval -->|"Approved signer state<br>or bounded dispatch hold"| gate
+    gate -->|"Released packet revision<br>and restricted dispatch manifest"| queue
+    gate -->|"Privacy holds, stale-document blocks,<br>and override events"| audit
+    audit -->|"Visible supersession and hold state<br>before any lane release"| gate
+```
+
 - Event-driven monitoring fits because vendor case status, reverification evidence, and job-change context can change while the packet waits at the dispatch gate.
 - Approval-gated execution fits because the triaged packet is ready for restricted-lane release but remains concretely blocked until the required HR compliance approval is attached to the manifest.
 - Human-in-the-loop review should remain in the normal path because releasing the packet into immigration-compliance review changes who can see and act on sensitive worker information even though this workflow still stops short of action.
