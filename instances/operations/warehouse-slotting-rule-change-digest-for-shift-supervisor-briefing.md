@@ -42,6 +42,23 @@ This grounds the pattern in an operations workflow where the trigger is a bounde
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    E["Change notification feed<br>authoritative slotting-package publication event"] -->|"Triggers<br>brief refresh"| A["Tool-using single agent<br>change-context briefing workflow"]
+    subgraph B["Approved source boundary<br>controlled slotting and waiver sources"]
+        R["Warehouse management rules repository<br>current and prior slotting packages"]
+        W["Site exception register<br>approved temporary waivers"]
+        F["Facility configuration inventory<br>aisle classes and local variants"]
+        P["Controlled operations playbook library<br>standard exception guidance"]
+    end
+    R -->|"Provides<br>versioned ruleset delta"| A
+    W -->|"Provides<br>approved local waiver context"| A
+    F -->|"Provides<br>facility metadata"| A
+    P -->|"Provides<br>carry-forward guidance"| A
+    A -->|"Publishes<br>change digest and open questions"| S["Shift-briefing workspace<br>digest, source links, unresolved questions"]
+    S -->|"Consumed by"| U["Shift supervisors<br>and site leads"]
+```
+
 - Event-driven monitoring fits because the workflow starts from the authoritative slotting-package publication event and refreshes the digest only when the approved bundle changes.
 - A tool-using single agent can compare the new and prior rulesets, retrieve applicable site waivers and facility metadata, and publish a supervisor-ready change digest with source traceability.
 - Bounded delegation is appropriate because operations owners can predefine the source bundle, template, and audience while humans retain control over any downstream staffing, slotting override, or exception request.
