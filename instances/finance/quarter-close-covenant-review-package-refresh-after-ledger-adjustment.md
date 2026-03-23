@@ -37,6 +37,30 @@ This grounds the pattern in finance work where downstream users depend on a curr
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Sources["General ledger, consolidation,<br>treasury-workbook, and debt-schedule systems"]
+    Policy["Controlled covenant-definition tables,<br>entity hierarchies, and<br>close-calendar metadata"]
+    Exceptions["Exception queue<br>controller, treasury, or<br>accounting-policy follow-up"]
+    Review["Treasury and controller reviewers"]
+    Limit["Workflow limit<br>refresh staged covenant package only<br>no lender-facing output,<br>covenant recommendations,<br>or filing actions"]
+    subgraph Refresh["Covenant refresh boundary"]
+        Agent["Tool-using single agent<br>re-read changed source bundle,<br>recompute staged covenant fields,<br>compare prior and current ratios,<br>and emit delta trace"]
+        Staging["Quarter-close covenant review<br>staging store"]
+        Lineage["Lineage and audit store<br>prior staged package versions,<br>refreshed ratio calculations,<br>and overwrite decisions"]
+    end
+
+    Sources -->|"Provides approved adjustments<br>and versioned support files"| Agent
+    Policy -->|"Provides field mapping,<br>validation, and close-cycle metadata"| Agent
+    Staging -->|"Provides prior staged covenant package"| Agent
+    Lineage -->|"Provides prior versions,<br>ratio lineage, and overwrite history"| Agent
+    Agent -->|"Writes refreshed covenant package"| Staging
+    Agent -->|"Updates delta trace,<br>refreshed ratios, and overwrite decisions"| Lineage
+    Staging -->|"Publishes one current package"| Review
+    Agent -->|"Routes unsupported workbook edits,<br>missing adjustment lineage, or<br>conflicting entity mappings"| Exceptions
+    Agent -->|"Stops at refreshed review staging<br>and exception handling only"| Limit
+```
+
 - Event-driven monitoring should listen only to approved close-cycle source changes such as posted journal entries, refreshed debt schedules, and finalized treasury support workbooks.
 - A tool-using single agent can re-read the changed source bundle, recompute staged covenant fields, compare old and new ratios, and publish an updated package plus delta trace.
 - Automatic refresh should remain bounded to approved recalculation logic; unsupported manual workbook edits, missing adjustment lineage, or conflicting entity mappings should escalate.
