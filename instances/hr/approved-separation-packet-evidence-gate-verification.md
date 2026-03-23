@@ -40,6 +40,29 @@ This grounds the pattern in HR where a separation packet may already be approved
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    case["Restricted employee-relations<br>case workspace"]
+    legal["E-signature store, legal-review tracker,<br>and policy acknowledgment records"]
+    payroll["Payroll final-pay worksheet,<br>severance-calculation controls,<br>and benefits-continuation notice sources"]
+    manifest["Approval manifest service"]
+    verify["Approval-gated<br>verification flow"]
+    approver["Human-in-the-loop<br>release approval"]
+    hold["Held state and<br>manual follow-up"]
+    audit["Audit store"]
+
+    case -->|"provide approved packet<br>revision and hold history"| verify
+    legal -->|"confirm signature validity,<br>revocation timing, and packet terms"| verify
+    payroll -->|"supply final-pay lineage<br>and notice-version evidence"| verify
+    manifest -->|"define named HR release<br>approvers and lane boundary"| verify
+    manifest -->|"authorize release decision<br>for one packet revision"| approver
+    verify -->|"present exact packet revision<br>for release decision"| approver
+    verify -->|"route held or insufficient cases"| hold
+    verify -->|"record verdicts, evidence lineage,<br>and hold-state changes"| audit
+    approver -->|"record release approval<br>or continued hold"| audit
+    hold -->|"return manual follow-up<br>obligations"| case
+```
+
 - Approval-gated execution fits because the verification packet can be assembled automatically while downstream separation administration remains concretely blocked until a named HR approver releases that exact packet revision.
 - Human-in-the-loop review should remain mandatory because employee-relations, payroll, and legal owners must interpret held conditions before anyone relies on the packet for a consequential downstream step.
 - Durable verification state should preserve superseded verdicts, repeated release holds, and packet-version lineage so later reviewers can distinguish genuine evidence refresh from duplicate review noise.
