@@ -40,6 +40,27 @@ This grounds `explainable-watchlist-maintenance` in support work where recurring
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    analytics["Help-center analytics<br>article views, abandonment signals,<br>feedback scores, and zero-result searches"]
+    telemetry["Bot and self-serve telemetry<br>topic classifications, fallback rates,<br>and bounded interaction metadata"]
+    kb["Knowledge-base repository<br>article revision history, locale ownership,<br>and prior content-maintenance notes"]
+    agent["Watchlist upkeep agent<br>merge duplicate signals, enrich bounded context,<br>and explain retention or removal"]
+    queue["Internal content-ops watchlist or backlog<br>bounded queue views for weekly documentation review"]
+    owners["Documentation owners and knowledge-operations leads<br>scheduled content-maintenance review"]
+    audit["Audit-grade log<br>watchlist merges, suppressions,<br>removals, and exception escalations"]
+    boundary["Exception gate and adjacent governed workflows<br>protected-account indicators, outage-linked spikes,<br>or active severity drift leave low-stakes scope"]
+
+    analytics -->|"Repeated article exits, feedback drops,<br>and zero-result search clusters"| agent
+    telemetry -->|"Topic classifications, fallback rates,<br>and bounded bot interaction evidence"| agent
+    kb -->|"Revision history, locale ownership,<br>and prior content-owner notes"| agent
+    agent -->|"Explainable watchlist items and routine backlog entries"| queue
+    queue -->|"Bounded queue views and references<br>for scheduled review"| owners
+    owners -->|"Reviewer notes, approved suppressions,<br>and removal feedback"| queue
+    agent -->|"Merge rationale, healthy-window evidence,<br>and exception history"| audit
+    agent -->|"Signals that cross the approved watchlist boundary"| boundary
+```
+
 - Event-driven monitoring fits because watchlist entries should refresh as new article-feedback clusters, search patterns, and bot fallback signals arrive.
 - A tool-using single agent can merge confusion signals by topic and locale, attach bounded article-history context, and publish one routine content-maintenance queue.
 - Exception-gated autonomy works because routine low-severity watchlist updates can proceed without approval, while protected-account indicators, outage-linked spikes, or signals that resemble active severity drift should escalate to adjacent workflows.
