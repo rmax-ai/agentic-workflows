@@ -70,6 +70,34 @@ This instance grounds `readiness-gate-disposition-recommendation` in engineering
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    H["Hana Okafor<br>Director of Service Mesh Readiness"]
+    W["Service mesh mTLS-enforcement<br>readiness recommendation workflow"]
+    P["`Service-Mesh-mTLS-Enforcement-Gate-Packet-v4`"]
+    I["`mesh-enforcement-targets-2026-04-18.csv`<br>and service catalog export"]
+    C["Workload compatibility ledger"]
+    R["Rollback rehearsal evidence<br>and `mesh-mtls-canary-2026-04-11T00Z-2026-04-13T00Z`"]
+    A["`Mesh-Gate-Authority-Snapshot-2026-04-12`<br>and signed gate definition<br>for the `platform transport-security review lane`"]
+    S["Certificate-chain exception register<br>and east-west authorization-policy baseline"]
+    D["Proceed / hold / narrow / escalate<br>recommendation"]
+    B["Stop before any enforcement flag,<br>deployment order, traffic policy change,<br>or live mTLS execution"]
+    G["Omar Bennett<br>Chair of the Platform Transport Security Gate"]
+
+    H -->|"Accountable for packet quality"| P
+    P -->|"Refreshes and evaluates"| W
+    I -->|"Read-only evidence"| W
+    C -->|"Read-only evidence"| W
+    R -->|"Read-only evidence"| W
+    A -->|"Authority bounds"| W
+    S -->|"Read-only controls"| W
+    W -->|"Updates with rationale"| P
+    W -->|"Produces"| D
+    W -->|"Stops before"| B
+    D -->|"Handed off for governed review"| G
+    P -->|"Submitted with refreshed evidence"| G
+```
+
 - Event-driven monitoring fits because rollback-evidence expiry, compatibility-ledger changes, policy acknowledgment updates, and certificate-exception deadlines should trigger a refreshed gate recommendation immediately.
 - Human-in-the-loop review is mandatory because the workflow should advise on proceed, hold, narrow, or escalate posture, not approve the cutover, redefine workload scope, schedule the checkpoint, or start enforcement.
 - Read-only integration with service catalog, mesh policy, observability, and security-governance systems is preferable so the agent cannot silently convert a recommendation packet into a live traffic-policy change.
