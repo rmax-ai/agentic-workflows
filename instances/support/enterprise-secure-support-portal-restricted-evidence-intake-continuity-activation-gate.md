@@ -40,6 +40,18 @@ This grounds the pattern in support where the hard problem is not deciding wheth
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    refs["Trusted portal outage-state,<br>customer contact-governance, named escalation roster,<br>and restricted evidence classification systems"] --> workspace["Enterprise support continuity playbooks<br>and outage workspace with declared portal-outage scope,<br>named-account coverage model, prior packet versions,<br>and restricted evidence-intake boundaries"]
+    readiness["Secure evidence-transfer readiness records<br>for preprovisioned upload vaults, escrowed encrypted mailboxes,<br>checksum tooling, custody-log templates,<br>and access-control bindings that remain disabled until approval"] --> workspace
+
+    subgraph gate["Restricted evidence-intake<br>planning gate"]
+        workspace --> approval["Approval-routing and audit systems<br>capturing packet versions, open holds,<br>resource commitments, and human sign-off"]
+    end
+
+    approval -. "Stops before customer callback,<br>vendor notice timing, and downstream case handling" .-> comms["Restricted communication-planning tools<br>for customer callback timing, vendor-support notice timing,<br>and downstream case-handling steps"]
+```
+
 - Approval-gated execution fits because the restricted evidence-intake continuity mode may be technically prepared while still blocked until enterprise support continuity leadership approves the packet.
 - The readiness ledger should tie named-account coverage, approved requester verification controls, channel-readiness checks, custody-log readiness, and explicit holds to one current packet version.
 - Explicit holds should remain visible whenever account coverage, callback verification rules, restricted upload paths, or custody controls are incomplete rather than being compressed into a nominally ready packet.
