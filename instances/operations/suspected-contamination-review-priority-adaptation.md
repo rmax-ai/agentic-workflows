@@ -46,6 +46,29 @@ This grounds the pattern in operations where the hard problem is adapting existi
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    dashboard["Command dashboard<br>and active review backlogs"]
+    feeds["Traceability, quality-event,<br>inspection, and route-exposure feeds"]
+    telemetry["Override history, aging telemetry,<br>and prior rollback records"]
+    rules["Emergency safety and quality<br>governance rules"]
+    workspace["Severe-mode priority<br>adaptation workspace"]
+    leaders["Operations, quality, and safety<br>leaders"]
+    policy["Versioned queue-policy<br>system"]
+    audit["Versioned audit<br>trail"]
+
+    dashboard -->|"Declared scope, holds,<br>and current queue state"| workspace
+    feeds -->|"Traceability gaps, facility events,<br>and spread-risk evidence"| workspace
+    telemetry -->|"Override clusters, aging drift,<br>and rollback evidence"| workspace
+    rules -->|"Protected classes, reserve floors,<br>and expiry rules"| workspace
+    workspace -->|"Candidate severe-mode policy,<br>trade-offs, and rollback packet"| leaders
+    leaders -->|"Adopt or extend<br>temporary prioritization"| policy
+    leaders -->|"Reject changes or<br>restore trusted baseline"| policy
+    policy -->|"Active baseline or severe-mode<br>queue policy"| dashboard
+    policy -->|"Policy versions, expiry state,<br>and rollback actions"| audit
+    leaders -->|"Adoption, extension, rejection,<br>and rollback decisions"| audit
+```
+
 - Orchestrated multi-agent coordination fits because telemetry review, protected-lane checking, severe-mode simulation, and rollback packaging can be separated while keeping one coherent contamination-response state.
 - Human-in-the-loop review is required because quality and safety leaders must explicitly adopt, extend, or reject any temporary reprioritization that affects protected contamination-review work.
 - Human-directed autonomy keeps the workflow bounded: it can recommend temporary lane reservations and urgency weights, but it must not choose the incident authority, sequence field actions, or release or hold product directly.
