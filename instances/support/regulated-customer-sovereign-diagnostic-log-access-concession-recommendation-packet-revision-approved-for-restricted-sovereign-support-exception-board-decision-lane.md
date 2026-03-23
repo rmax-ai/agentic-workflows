@@ -41,6 +41,29 @@ This grounds the pattern in support where the reusable challenge is release cont
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Packet and evidence systems"]
+        workspace["Sovereign diagnostic-access recommendation workspace<br>current packet revision and blocked-path notes"]
+        records["Cited support chronology and evidence<br>log-index manifests, minimization notes,<br>key-custody attestations, classifications, precedents"]
+    end
+    subgraph controls["Release governance controls"]
+        owner["Named support<br>release owner"]
+        policy["Governance repository<br>board lane, recipients, expiry, hold-state rules"]
+        routing["Approval manifest and restricted-routing tooling<br>governed release agent"]
+    end
+    board["Restricted sovereign-support exception board<br>decision lane"]
+    ledger["Audit and supersession ledger"]
+
+    records -->|"cited evidence"| workspace
+    workspace -->|"exact packet revision<br>lineage references"| routing
+    owner -->|"release approval"| routing
+    policy -->|"residency-qualified audience<br>expiry and hold-state rules"| routing
+    routing -->|"governed packet handoff<br>manifest, packet hash,<br>lineage digest"| board
+    routing -->|"blocked forwarding attempts"| ledger
+    workspace -->|"superseded drafts and revision changes"| ledger
+```
+
 - Approval-gated execution fits because the recommendation packet remains blocked until a named support owner authorizes release into the restricted sovereign-support exception board decision lane.
 - Human-in-the-loop review remains necessary because only accountable support and sovereign-governance owners should confirm lineage integrity, residency-bound audience scope, blocked-option visibility, and hold-state readiness without turning packet release into approval of the concession itself.
 - A governed agent can verify packet hashes, compare lineage references, assemble the manifest, and block broadened distribution, but it should not grant log access, open support channels to non-resident staff, approve the exception, or trigger operational changes.
