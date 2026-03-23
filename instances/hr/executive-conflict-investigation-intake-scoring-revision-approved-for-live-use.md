@@ -41,6 +41,24 @@ This grounds the pattern in an HR governance lane that is materially different f
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Replay["Replay and shadow-analysis workspace<br>with intake history, supervisor overrides,<br>protected-case misses, and fairness checks"]
+    Lineage["Org-chart and lineage stores<br>with executive reporting lines,<br>access scope, and prior-case references"]
+    Approval["Approval, manifest, and delta-ledger tooling<br>binding one exact revision,<br>lane scope, and validity window"]
+    Audit["Audit, rollback, and restoration controls<br>with restore target, expiry,<br>and rollback packet"]
+    Registry["Versioned intake-scoring registry<br>with live, candidate, and prior trusted revisions"]
+    Dashboards["Restricted intake dashboards<br>and oversight surfaces"]
+
+    Replay -->|"Supplies replay evidence<br>and guardrail checks"| Approval
+    Lineage -->|"Supplies org-chart provenance<br>and prior-case lineage"| Approval
+    Registry -->|"Supplies live profile,<br>candidate hash, and restore target"| Approval
+    Approval -->|"Releases only the approved<br>scoring revision"| Registry
+    Approval -->|"Writes manifest, delta lineage,<br>and validity window"| Audit
+    Audit -->|"Restores the prior trusted profile<br>on rollback or expiry"| Registry
+    Registry -->|"Publishes the active scoring policy"| Dashboards
+```
+
 - Approval-gated execution fits because the scoring revision can be technically ready in the registry while activation remains blocked until a named employee-relations owner approves that exact version and restricted intake-lane scope.
 - Human-in-the-loop review remains necessary because accountable HR risk leaders must accept the trade-offs among protected-case sensitivity, reviewer burden, and fairness posture before bounded live use begins.
 - A governed release agent can compare revision hashes, verify provenance snapshots, surface unresolved blockers, register the restore target, and write the audit trace, but it should not assign investigators, contact executives or reporters, decide retaliation findings, or trigger downstream case actions.
