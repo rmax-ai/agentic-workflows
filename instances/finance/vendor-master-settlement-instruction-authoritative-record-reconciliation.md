@@ -45,6 +45,21 @@ This grounds the pattern in a finance workflow where the urgent problem is not d
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    erp["ERP vendor master<br>and integration logs"] -->|"vendor records<br>and active remittance fields"| ag["Reconciliation agent"]
+    tre["Treasury settlement-instruction repository"] -->|"approved instruction snapshots<br>and effective-date history"| ag
+    hsh["Approved bank-account hash register"] -->|"bank-account hash checks"| ag
+    cb["Callback-verification case log"] -->|"ownership evidence<br>and prior approvals"| ag
+    pay["Payment-run staging tables<br>and supplier mappings"] -->|"pending-payment context"| ag
+    ag -->|"superseded values<br>precedence logic<br>and rollback references"| mem["Reconciliation workspace<br>and discrepancy ledger"]
+    ag -->|"unresolved conflicts<br>and payment-sensitive cases"| exq["Explicit exception queue"]
+    exq -->|"review and adjudication"| hum["AP and treasury owners"]
+    hum -->|"approved resolutions<br>or hold decisions"| mem
+    mem -->|"staged correction package<br>for controlled record repair"| pkg["Correction-ready package"]
+    pkg -->|"stop before bank-change submission<br>or payment-batch release"| stop["Controlled handoff"]
+```
+
 - A tool-using single agent can fetch vendor-master extracts, treasury instruction snapshots, callback-verification records, and payment-staging references into one bounded reconciliation run.
 - Human-in-the-loop review should remain standard for mismatched legal-entity mappings, conflicting effective dates, account-ownership ambiguity, or any case where a proposed correction would affect a pending high-value payment.
 - The workflow should stop at the reconciled remittance ledger, unresolved exception queue, and staged correction package rather than submitting bank changes, approving payment release, or redesigning supplier-governance controls.
