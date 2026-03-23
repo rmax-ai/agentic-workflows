@@ -39,6 +39,32 @@ This grounds the pattern in ABL credit operations where a stale or incorrectly r
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Schedules["Receivables aging, inventory valuation,<br>and field-count systems"]
+    Policy["Credit-officer reserve tables,<br>concentration-limit registry,<br>and dilution-rate files"]
+    Formula["Facility formula repository and<br>eligibility-criteria definitions"]
+    Exceptions["Exception queue<br>credit-operations or credit-officer follow-up"]
+    Review["ABL credit officer and<br>facility-agent review lane"]
+    Limit["Workflow limit<br>refresh staged BBC package only<br>no signed certificate submission,<br>borrowing request, or treasury availability update"]
+    subgraph Refresh["BBC refresh boundary"]
+        Agent["Refresh agent<br>re-read changed schedules, recompute availability,<br>compare prior state, and emit delta trace"]
+        Staging["BBC staging store<br>prior and refreshed certificate package"]
+        Lineage["Lineage and audit store<br>prior versions, refresh traces,<br>and superseded reserve values"]
+    end
+
+    Schedules -->|"Provides authoritative restated schedules<br>and approved cost corrections"| Agent
+    Policy -->|"Provides approved reserves,<br>concentration haircuts, and dilution inputs"| Agent
+    Formula -->|"Provides facility formula rules<br>and eligibility mappings"| Agent
+    Staging -->|"Provides prior staged BBC package"| Agent
+    Lineage -->|"Provides version lineage<br>and prior field-level traces"| Agent
+    Agent -->|"Writes refreshed BBC package"| Staging
+    Agent -->|"Updates delta trace,<br>lineage, and superseded values"| Lineage
+    Staging -->|"Publishes one current package"| Review
+    Agent -->|"Routes unreconciled schedules,<br>reserve disputes, or formula mismatches"| Exceptions
+    Agent -->|"Stops at staged refresh and review routing only"| Limit
+```
+
 - Event-driven monitoring should trigger refresh only on authoritative schedule postings such as approved aging restatements, signed inventory certifications, and credit-officer reserve decisions, not on draft worksheet saves or unresolved dispute flags.
 - A tool-using single agent can re-read the changed source schedules, recompute each availability tier against the approved facility formula, compare old and new availability lines, and publish an updated package with a delta trace.
 - Automatic refresh is appropriate when the schedule change maps cleanly to a defined facility-formula field and the resulting availability change stays within policy thresholds; concentration-limit breaches, reserve disputes, or schema-breaking schedule restructures should route to exception review.
