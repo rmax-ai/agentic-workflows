@@ -47,6 +47,32 @@ This grounds the pattern in a tightly bounded operations collaboration workflow 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph readiness["Governed readiness collaboration boundary"]
+        owner["Daniel Ibarra<br/>Regional Sortation Safety<br/>Readiness Manager"]
+        reviewers["Named reviewers<br/>Priya Shah<br/>Marcus Delerme<br/>Tessa Nolan"]
+        agents["Agent support<br/>evidence refresh + objection preservation<br/>handoff ledger maintenance"]
+        workspace["Governed operations review workspace<br/>Sorter-Light-Curtain-Bypass-Exception-Packet-v4<br/>comments + blockers + handoff ledger"]
+    end
+    plc["Warehouse controls historian<br/>and PLC fault archive"]
+    maint["Maintenance management system<br/>asset record + ticket + lockout-tagout status"]
+    ehs["EHS and machine-safeguarding repository<br/>MS-447 + SAFE-EXC-12 + spotter plan"]
+    oem["OEM service documentation store<br/>SB-LC-208 + service advisories"]
+    ops["Operations performance dashboard<br/>backlog + lane utilization + contingency routing"]
+    boundary["Stop boundary<br/>formal safety approval review<br/>remains outside this workflow"]
+
+    plc -- "supplies frozen fault evidence to" --> agents
+    maint -- "supplies maintenance and lockout-tagout facts to" --> agents
+    ehs -- "supplies policy and safeguarding requirements to" --> agents
+    oem -- "supplies bulletin evidence to" --> agents
+    ops -- "supplies throughput impact evidence to" --> agents
+    agents -- "refreshes evidence and drafts packet updates in" --> workspace
+    reviewers -- "challenge wording, evidence quality, and blockers in" --> workspace
+    owner -- "keeps readiness ownership and handoff state in" --> workspace
+    workspace -- "stops at readiness handoff before" --> boundary
+```
+
 - Human-in-the-loop collaboration should remain primary because temporary safeguarding posture, residual worker-exposure judgment, and readiness for formal exception review require accountable operations and EHS ownership.
 - An orchestrated multi-agent setup fits when separate agent roles refresh authoritative policy references, reconcile PLC and maintenance evidence, normalize reviewer objections, and maintain the approval-readiness handoff ledger across multiple packet revisions.
 - Agents may draft revised packet sections, blocker summaries, and evidence-response tables, but exception adjudication, approval release, bypass activation, maintenance dispatch, and lane restart must remain outside this workflow and explicitly human-controlled.
