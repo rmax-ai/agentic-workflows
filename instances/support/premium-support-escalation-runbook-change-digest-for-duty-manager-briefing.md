@@ -41,6 +41,16 @@ This grounds the pattern in a support workflow where the real need is rapid cont
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    feed["Change notification<br>feed"] --> agent["Bounded digest agent<br>compare runbook revision,<br>baseline, and support context"]
+    runbook["Runbook repository<br>approved playbook,<br>history, and publication metadata"] --> agent
+    crm["CRM / entitlement system<br>premium tier and account<br>scope records"] --> agent
+    registry["Known-issue / product-ownership<br>registry"] --> agent
+    exceptions["Approved exception<br>register"] --> agent
+    agent --> workspace["Controlled support handoff<br>workspace for duty-manager digests"]
+```
+
 - Event-driven monitoring fits because the digest should refresh when the approved runbook revision lands, not only after a human remembers to check the repository.
 - A tool-using single agent can compare runbook versions, retrieve linked entitlement and ownership context, and publish a concise handoff brief with claim-to-source mappings.
 - Bounded delegation works well because support operations can predefine the source boundary and template while humans still decide how any live escalation should be handled.
