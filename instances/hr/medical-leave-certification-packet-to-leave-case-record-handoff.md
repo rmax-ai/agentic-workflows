@@ -40,6 +40,37 @@ This grounds the transform pattern in an HR workflow where the valuable handoff 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph INTAKE["Approved leave-intake boundary"]
+        SRC["Employee portal, HR leave inbox,<br>and restricted document repository"]
+    end
+
+    subgraph XFORM["Bounded transformation boundary"]
+        AGENT["Leave packet transformation agent"]
+    end
+
+    OCR["OCR and document-parsing service"]
+    REF["HRIS worker master, employer-entity roster,<br>leave-policy reference tables, and<br>approved leave-reason taxonomy"]
+    STAGE["Leave-management or HR case-intake<br>staging system"]
+    STOP["Reviewable staged leave-case handoff<br>no adjudication, payroll update,<br>or employee communication"]
+
+    subgraph REVIEW["Exception review boundary"]
+        EXQ["Leave administrator or employee-relations<br>exception queue"]
+        REV["Leave administrator or<br>employee-relations reviewer"]
+    end
+
+    SRC -->|"Provides leave request forms,<br>clinician certifications, discharge papers,<br>faxed notes, and identity evidence"| AGENT
+    AGENT -->|"Uses handwritten-certification and<br>mixed-packet parsing"| OCR
+    OCR -->|"Returns extracted text, document inventory,<br>and confidence signals"| AGENT
+    REF -->|"Provides approved worker, employer,<br>leave-policy, and taxonomy references"| AGENT
+    AGENT -->|"Writes staged leave-case fields,<br>privacy tags, uncertainty flags,<br>and source-evidence links"| STAGE
+    STAGE -->|"Stops at reviewable case-intake staging"| STOP
+    AGENT -->|"Routes contradictions, missing information,<br>privacy-scope issues, and unsupported inference"| EXQ
+    EXQ -->|"Queues exception packets<br>for human review"| REV
+    REV -->|"Returns reviewed corrections<br>or continued hold decisions"| AGENT
+```
+
 - A tool-using single agent can assemble the packet, extract candidate case fields, normalize employee and employer identifiers against approved reference data, and emit a structured leave-case staging record plus transformation trace.
 - The workflow should write only to a reviewable staging area in the leave case-management system rather than opening an adjudicated leave event, changing attendance status, or notifying payroll.
 - Approved reference data may standardize employer entity, work location, leave-reason categories, and document types, but unsupported inference about medical severity, eligibility, protected-status qualification, or expected return date should force exception routing.
