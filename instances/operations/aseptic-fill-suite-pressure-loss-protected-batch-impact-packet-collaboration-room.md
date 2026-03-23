@@ -37,6 +37,19 @@ This grounds the pattern in a critical operations workflow where the hard proble
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    EM["Qualified environmental-monitoring historian<br>and building-management telemetry with differential-pressure alarms,<br>recovery timestamps, room status, and calibration references"] -->|"provides authoritative timeline evidence"| ROOM["Restricted manufacturing severe-case collaboration room with one batch-impact packet,<br>blocker ledger, annex map, release-state record,<br>and append-only revision history"]
+    BATCH["Electronic batch record, line-clearance system,<br>and lot-genealogy records with batch state,<br>intervention timing, exposure windows, and affected-lot freeze status"] -->|"provides next-ranked batch-state evidence"| ROOM
+    SUPPORT["Deviation-management, sample-chain, and sterile-operations repositories with SOP versions,<br>microbiology status, reviewer comments,<br>and supporting governed context"] -->|"adds governed supporting context"| ROOM
+    ROOM -->|"stores restricted references,<br>badge traces, and video pointers"| ANNEX["Restricted annex store with operator access traces,<br>intervention video references, and incubator-status detail"]
+    ANNEX -->|"returns need-to-know annex material"| ROOM
+    ROOM -->|"logs revision lineage, access changes,<br>and release approvals"| AUDIT["Access-control logs and audit systems"]
+    OWNER["Marisol Vega<br>as human artifact owner"] -->|"accepts disputed wording,<br>keeps blockers visible, and decides readiness"| ROOM
+    ROOM -->|"presents packet, blocker ledger,<br>annex map, and release state"| OWNER
+    OWNER -->|"authorizes bounded handoff"| BOUNDARY["Release boundary to downstream human review lanes for sterility assurance,<br>site quality, and executive manufacturing-risk review"]
+```
+
 - Human-in-the-loop collaboration should remain primary because only accountable manufacturing and quality leaders can decide whether disputed sterility language, residual blockers, and restricted annex exposure are acceptable for handoff.
 - An orchestrated multi-agent setup fits when separate agent roles refresh environmental evidence, reconcile batch-record deltas, normalize reviewer objections, maintain annex boundaries, and preserve append-only packet lineage across revisions.
 - Agents may rewrite sections, refresh citations, and keep blocker state synchronized, but recommending batch disposition, resequencing restart windows, contacting regulators, or directing containment work should remain outside the room and explicitly human-controlled.
