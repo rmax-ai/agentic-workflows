@@ -40,6 +40,28 @@ This instance shows a finance case where the approval-gated step is not a recomm
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Steward["Controllership optimization steward"]
+    Controller["Controller"]
+    Replay["Close replay workspace<br>with controller overrides,<br>late-close incidents, and fairness checks"]
+    Approval["Controller approval and<br>manifest tooling"]
+    Audit["Audit and rollback services"]
+    subgraph LiveScope["Bounded live current close cycle"]
+        Registry["Shared close-control<br>parameter registry"]
+        Surfaces["Close-review queues,<br>disclosure-support surfaces,<br>and evidence-sufficiency screens"]
+    end
+
+    Steward -->|"Submits exact bundle revision<br>for the current cycle"| Approval
+    Replay -->|"Provides simulation evidence<br>and guardrail checks"| Approval
+    Controller -->|"Approves exact revision<br>for bounded live use"| Approval
+    Approval -->|"Activates approved bundle revision"| Registry
+    Registry -->|"Publishes active bundle"| Surfaces
+    Approval -->|"Records manifest, expiry,<br>and rollback packet"| Audit
+    Replay -->|"Tracks override, aging,<br>and fairness signals"| Audit
+    Audit -->|"Restores prior trusted bundle<br>on rollback or expiry"| Registry
+```
+
 - Approval-gated execution fits because the bundle revision can be activated through the shared registry only after the controller signs the release manifest for that exact cycle-bound version.
 - Human-in-the-loop review is necessary because the controller must explicitly accept the trade-offs among throughput, protected-entity handling, and fairness posture before the revision becomes live.
 - A governed release agent can verify the revision id, compare it with simulation evidence, record the prior trusted bundle, and arm expiry and rollback controls, but it should not reinterpret accounting policy or broaden the live scope to other close cycles.
