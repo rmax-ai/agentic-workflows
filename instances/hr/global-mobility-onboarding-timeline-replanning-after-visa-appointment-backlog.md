@@ -52,6 +52,51 @@ This grounds the replanning pattern in HR global mobility where timing pressure 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph wb["Replanning workflow boundary"]
+        orch["Schedule replanning<br>orchestrator"]
+        eval["Constraint and milestone<br>evaluation"]
+        pack["Coordination-ready packet<br>assembler"]
+    end
+
+    cms["Global mobility case<br>management system"]
+    app["Consulate appointment portal<br>or immigration tracking system"]
+    auth["Document authentication and<br>apostille queue"]
+    vend["Relocation vendor<br>coordination system"]
+    itt["IT provisioning tracker"]
+    cal["HR calendar and stakeholder<br>availability register"]
+    plan["Planning and coordination<br>workspace"]
+
+    subgraph hb["Human adoption boundary"]
+        gms["Global mobility specialist"]
+        hrbp["HR business partner"]
+        hm["Hiring manager"]
+        itl["IT provisioning lead"]
+    end
+
+    cms -- "provides baseline schedule,<br>fixed gates, and buffer policy" --> orch
+    app -- "provides appointment slots,<br>wait times, and lodgment status" --> orch
+    auth -- "provides notarization status<br>and lead times" --> orch
+    vend -- "provides move-window and<br>capacity constraints" --> orch
+    itt -- "provides provisioning gates<br>and pre-start lead times" --> orch
+    cal -- "provides review windows<br>and cohort anchors" --> orch
+
+    orch -- "tests revised milestone<br>sequences" --> eval
+    eval -- "returns feasible proposal,<br>fixed gates, and residual risk" --> pack
+    pack -- "records revised schedule,<br>rationale, and blockers" --> plan
+
+    plan -- "routes coordination-ready<br>handoff" --> gms
+    plan -- "routes policy and timing<br>review" --> hrbp
+    plan -- "routes Day 1 impact<br>review" --> hm
+    plan -- "routes IT gate impact<br>review" --> itl
+
+    gms -- "adopts or escalates<br>within policy authority" --> plan
+    hrbp -- "confirms timing and<br>policy fit" --> plan
+    hm -- "confirms hiring-plan<br>alignment" --> plan
+    itl -- "confirms provisioning<br>feasibility" --> plan
+```
+
 - An orchestrated multi-agent workflow fits because one role can refresh current appointment and authentication state from external queues and vendor systems, another can test candidate schedules against fixed Day 1 anchors and pre-clearance lead-time rules, and another can package the accepted replanning proposal with downstream impacts and unresolved blockers for human review.
 - Human-in-the-loop adoption remains necessary because the global mobility specialist, HR business partner, and hiring manager must jointly accept any consequential shift in the Day 1 date, milestone resequencing, or vendor-coordination window before the revised schedule becomes authoritative and any communication to the candidate can begin.
 - Recommendation-only autonomy is the right ceiling: the workflow can propose a feasible revised milestone order and surface at-risk downstream gates, but it should not determine immigration eligibility, select a visa pathway, issue a candidate-facing communication, amend the employment offer, execute a relocation booking, or make payroll-setup decisions.
