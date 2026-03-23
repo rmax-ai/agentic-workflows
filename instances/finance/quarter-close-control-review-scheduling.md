@@ -41,6 +41,28 @@ This grounds the scheduling pattern in a finance workflow where the main value i
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    tracker["Close-management tracker<br>quarter-close milestone calendar,<br>required review roles, and sign-off deadlines"]
+    calendars["Team calendars<br>controllership, treasury accounting,<br>SEC reporting, internal controls,<br>and finance systems availability"]
+    closecal["Finance close calendar<br>blackout periods for board-material preparation,<br>disclosure reviews, and locked close checkpoints"]
+    scheduler["Quarter-close review scheduling agent<br>slot search, policy checks,<br>and tentative hold orchestration"]
+    tools["Calendar and meeting tools<br>tentative holds, delegate-aware invites,<br>and reversible drafts"]
+    workspace["Finance coordination workspace<br>attendee exceptions, rationale,<br>and final confirmation status"]
+    owner["Close coordinator or assistant controller<br>final confirmation checkpoint"]
+    exceptions["Finance-owner exception review<br>no in-policy overlap, after-hours options,<br>or authority-changing substitute requests"]
+
+    tracker -->|"Provides milestone calendar,<br>required roles, and sign-off deadlines"| scheduler
+    calendars -->|"Provides attendee availability for<br>required finance reviewers"| scheduler
+    closecal -->|"Provides blackout periods and<br>locked close checkpoints"| scheduler
+    scheduler -->|"Places reversible holds and<br>delegate-aware draft invites"| tools
+    tools -->|"Returns tentative hold state and<br>draft invite details"| scheduler
+    scheduler -->|"Logs attendee exceptions, rationale,<br>and confirmation status"| workspace
+    scheduler -->|"Presents the selected slot for<br>final human confirmation"| owner
+    owner -->|"Returns confirmation or release decision<br>before the invite becomes authoritative"| scheduler
+    scheduler -->|"Routes no in-policy overlap,<br>after-hours, or authority-changing<br>substitute cases"| exceptions
+```
+
 - A tool-using single agent gathers free-busy availability, close-calendar milestones, timezone metadata, and required-attendee rules from approved finance systems.
 - Bounded delegation fits because the agent can rank feasible slots, place short-lived tentative holds, and draft a meeting packet linked to the close checklist, but it should not move a sign-off deadline, replace a required control owner silently, or confirm the final review invite without the finance owner's approval.
 - Human checkpoints remain necessary when no compliant overlap exists before the close deadline, when only after-hours options remain for a required participant, or when a proposed delegate would change review authority.
