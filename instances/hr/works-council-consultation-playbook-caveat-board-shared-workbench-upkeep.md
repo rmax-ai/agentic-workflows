@@ -49,6 +49,35 @@ This grounds the pattern in an HR labor-relations upkeep surface where the maint
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph up["Internal shared-workbench upkeep"]
+        ann["Labor-relations review and annotation surface<br>small edits, caveats, blocker notes,<br>and ownership handoff comments"]
+        agt["Bounded single agent<br>applies source precedence, refreshes references,<br>normalizes duplicate caveats, and updates owners plus holds"]
+        brd["Shared works-council consultation playbook caveat board<br>prerequisite-state columns, blocker tags,<br>source-precedence markers, ownership fields,<br>and append-only revision history"]
+        reg["Visible hold register<br>unresolved local issues,<br>timing questions, and blockers"]
+    end
+    subgraph src["Linked source systems"]
+        pol["Internal labor-relations policy repository<br>approved playbook versions, country addenda,<br>trigger categories, and annex references"]
+        tmp["Consultation-template workspace<br>approved template revisions,<br>localized translation templates, and steward notes"]
+        cal["Calendar and planning annotations feed<br>consultation-window reminders,<br>review checkpoints, and schedule notes"]
+    end
+    subgraph hum["Human review boundary<br>no legal interpretation, consultation strategy,<br>notice issuance, or downstream execution"]
+        own["Marta Keller, regional labor partners,<br>policy owners, template stewards,<br>and program reviewers"]
+    end
+
+    ann -->|"small edit events"| agt
+    brd -->|"board field changes and prior lineage"| agt
+    pol -->|"authoritative policy and addendum refresh"| agt
+    tmp -->|"template revision and mismatch notes"| agt
+    cal -->|"non-authoritative reminders"| agt
+    agt -->|"bounded board updates<br>references, prerequisite state, dedupes,<br>ownership, and visible blockers"| brd
+    agt -->|"carries forward unresolved local issues<br>and hold markers"| reg
+    reg -->|"stays visible on the shared board"| brd
+    reg -->|"routes held boundary-triggering updates"| own
+    own -->|"reviews held items and owner decisions"| brd
+```
+
 - Event-driven monitoring fits because upkeep should react when approved labor-relations policy, country addenda, template revisions, or board fields change.
 - A tool-using single agent can refresh source links, reconcile prerequisite metadata, normalize duplicate caveat wording, and keep blocker plus lineage fields synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when an update would resolve a local notice-timing dispute, reinterpret labor-relations policy, clear a blocker tied to missing annex approval, or make the artifact sound like consultation advice or notice-ready content.
