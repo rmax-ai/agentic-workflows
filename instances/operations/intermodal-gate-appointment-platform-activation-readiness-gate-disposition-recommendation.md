@@ -53,6 +53,27 @@ This instance grounds the pattern in operations through one exact activation-rea
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    tracker["Terminal activation gate tracker"]
+    policy["Delegated authority matrix<br>and policy library"]
+    carrier["Carrier master and appointment-platform replay dashboard<br>with lane validation reports"]
+    fallback["Fallback drill/rollback<br>evidence stores"]
+    yard["Yard-capacity baseline<br>and customs exception matrix"]
+    agent["Read-only<br>recommendation agent"]
+    lineage["Packet lineage/<br>audit log"]
+    reviewers["Human review lane<br>recipients"]
+
+    tracker -->|"Activation packet<br>state"| agent
+    policy -->|"Authority thresholds<br>and policy rules"| agent
+    carrier -->|"Replay status and<br>lane validation evidence"| agent
+    fallback -->|"Fallback freshness and<br>rollback drill evidence"| agent
+    yard -->|"Capacity baseline and<br>customs exceptions"| agent
+    agent -->|"Recommendation packet<br>and rationale"| reviewers
+    agent -->|"Recommendation lineage and<br>evidence snapshot"| lineage
+    lineage -->|"Reviewable packet<br>history"| reviewers
+```
+
 - Event-driven monitoring fits because EDI replay failures, fallback-drill expiry, customs-exception updates, and calendar pressure should trigger a refreshed activation recommendation as soon as the gate context materially changes.
 - Human-in-the-loop review is mandatory because the workflow should advise on the gate disposition, not approve the system-of-record switch, release appointment slots, notify carriers, or activate live terminal lanes.
 - Read-only integration with terminal, carrier, customs, and policy systems is preferable so the agent cannot silently convert a readiness recommendation into a live operating change.
