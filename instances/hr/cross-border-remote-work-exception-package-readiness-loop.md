@@ -39,6 +39,15 @@ This grounds the pattern in an HR workflow where the hard work is repeated appro
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    HRIS["HRIS and worker-profile records<br>employing entity, role sensitivity,<br>and prior exception history"] -->|"worker and role evidence"| WORKSPACE["Governed HR review workspace<br>draft exception packet, comment history,<br>readiness status, and handoff ownership"]
+    REQUEST["Remote-work request intake and<br>travel-attestation records<br>host country, planned dates,<br>business rationale, and supporting documents"] -->|"request facts and attestations"| WORKSPACE
+    POLICY["Policy, legal, and global-mobility repositories<br>country rules, exception criteria,<br>approval order, and reviewer authorities"] -->|"policy and jurisdiction constraints"| WORKSPACE
+    SECURITY["Security and data-handling systems<br>access scope, data-classification requirements,<br>regional restrictions, and prior control exceptions"] -->|"security and data-handling constraints"| WORKSPACE
+    WORKSPACE -->|"ready packet, unresolved issues,<br>and named handoff ownership"| QUEUE["Approval-routing queue<br>formal human decision review starts after transfer"]
+```
+
 - Human-in-the-loop collaboration should remain primary because location exceptions, jurisdiction-sensitive policy interpretation, and data-access exposure require accountable HR, legal, security, and people-operations judgment.
 - An orchestrated multi-agent setup fits when separate agent roles refresh itinerary and worker-profile evidence, normalize reviewer objections, verify policy and approval-order completeness, and maintain the shared handoff ledger across several revision rounds.
 - Agents may prepare revised packet sections, evidence-response tables, and readiness summaries, but granting the exception or triggering downstream operational changes should remain outside the workflow and explicitly human-controlled.
