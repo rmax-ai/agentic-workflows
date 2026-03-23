@@ -41,6 +41,36 @@ This grounds the pattern in an engineering-governance lane where the maintained 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Policy["Platform standards repository<br>current runtime support-window policy, retirement milestones, and clarifications"]
+    Inventory["Service catalog and runtime inventory<br>deployed runtime versions, owning teams, and evidence timestamps"]
+    Analysis["Dependency and build-analysis workspace<br>blocker notes and unresolved migration questions"]
+    Annotations["Engineering annotation surface<br>small edits, caveats, and ownership handoff notes"]
+
+    subgraph Lane["Engineering governance lane"]
+        Board["Shared runtime-exception caveat board<br>bounded upkeep workbench"]
+        History["Append-only revision history"]
+        Hold["Explicit hold register<br>unresolved migration questions"]
+
+        subgraph Review["Human review boundary"]
+            Priya["Platform Standards Steward<br>Priya Raman"]
+            Owner["Named service owner"]
+        end
+    end
+
+    Policy -- "Refresh policy links" --> Board
+    Inventory -- "Refresh runtime and owner state" --> Board
+    Analysis -- "Carry blocker and migration context" --> Board
+    Annotations -- "Apply bounded small updates" --> Board
+    Board -- "Write row changes" --> History
+    Board -- "Carry forward open questions" --> Hold
+    Board -- "Route upkeep-only review" --> Priya
+    Board -- "Route row-specific review" --> Owner
+    Priya -- "Confirm bounded upkeep update" --> Board
+    Owner -- "Confirm owner or caveat update" --> Board
+```
+
 - Event-driven monitoring fits because upkeep should react when runtime inventories, policy clarifications, reviewer comments, or owner assignments change.
 - A tool-using single agent can refresh policy links, reconcile row metadata, normalize duplicate blocker notes, and keep lineage plus hold markers synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when an update would clear a blocker, reinterpret the platform standard, or make a row sound like an approved exception instead of an internal caveat.
