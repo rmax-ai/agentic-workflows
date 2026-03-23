@@ -45,6 +45,19 @@ This grounds the pattern in a support workflow where the urgent problem is not d
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    CRM["CRM account-contact records<br>contract renewal snapshots + named-contact history"] -->|"contact roster + effective-date evidence"| WS["Governed reconciliation workspace<br>comparison logic + discrepancy ledger + shared reconciliation memory"]
+    ENT["Support-entitlement service<br>authorized roles + tenant scope + support-plan levels"] -->|"eligibility scope + plan-state evidence"| WS
+    PORTAL["Secure support portal contact directory<br>case-access control lists + escalation-request metadata"] -->|"portal roster + access metadata"| WS
+    IDV["Identity-verification ledger<br>domain checks + proofing events + deactivation markers"] -->|"verification evidence + contact-reference ids"| WS
+    RULES["Approved source-precedence,<br>freshness, and field-eligibility rules"] -->|"governed reconciliation rules"| WS
+    WS -->|"conflicting identity, deactivation timing,<br>or support-plan scope mismatches"| REVIEW["Human-in-the-loop review<br>support-operations + account-governance owners"]
+    REVIEW -->|"approved adjudication or hold decision"| WS
+    WS -->|"reconciled eligibility ledger + unresolved exceptions<br>+ staged correction package"| OUTPUT["Bounded handoff outputs<br>trusted eligibility state + correction-ready package"]
+    OUTPUT -->|"workflow stops here"| STOP["Stop boundary<br>no restricted-case release<br>no escalation acceptance"]
+```
+
 - A tool-using single agent can gather CRM contact extracts, entitlement-service snapshots, portal roster records, and identity-verification entries into one bounded reconciliation run.
 - Human-in-the-loop review should remain standard for conflicting contact identity, disputed deactivation timing, support-plan scope mismatches, or any case where a proposed correction would change who may access restricted case details or open a governed escalation path.
 - The workflow should stop at the reconciled support-contact eligibility ledger, unresolved exception queue, and staged correction package rather than granting portal access, accepting a new severity escalation, contacting the customer, or directing contract-policy follow-up.
