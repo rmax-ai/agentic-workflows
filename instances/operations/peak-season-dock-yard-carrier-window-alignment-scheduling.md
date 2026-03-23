@@ -49,6 +49,47 @@ This grounds the scheduling pattern in a dock-and-yard operations workflow where
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph Sources["Authoritative source systems"]
+        readiness["Holiday-volume readiness board<br>coordination-required gate<br>required review roles"]
+        lock_calendar["Carrier appointment lock calendar<br>latest compliant review slot<br>protected gate-buffer windows"]
+        backup_roster["Approved backup roster<br>allowed alternates by role"]
+        availability["Policy-bound availability state<br>shift calendars, working-hour rules<br>meal, handoff, blackout holds"]
+    end
+
+    subgraph Workflow["Scheduling workflow boundary"]
+        coordinator["Peak-operations coordinator"]
+        agent["Tool-using single agent<br>gathers precedence-ordered inputs<br>ranks viable same-day slots"]
+        packet["Coordination packet<br>tentative slot, visible blockers<br>revision lineage"]
+        log["Coordination log<br>rejected-slot reasoning<br>source-precedence trace"]
+    end
+
+    subgraph Tools["Operational tooling and record systems"]
+        calendar_tools["Meeting and calendar tools<br>reversible holds<br>timezone-normalized invite drafts"]
+        workspace["Peak-operations coordination workspace<br>packet, blocker notes<br>superseded slot revisions"]
+    end
+
+    participants["Required review participants<br>yard flow lead, dock operations supervisor<br>carrier appointment desk lead, linehaul dispatch liaison<br>gate security supervisor"]
+    approver["Elena Morales<br>Director of Peak Operations Coordination"]
+    guardrails["Governance guardrails<br>do not move carrier appointment locks<br>do not approve unlisted backups<br>do not turn scheduling into labor or shipment execution"]
+
+    coordinator --> agent
+    readiness --> agent
+    lock_calendar --> agent
+    backup_roster --> agent
+    availability --> agent
+    guardrails -.-> agent
+    agent --> packet
+    agent --> log
+    agent --> calendar_tools
+    calendar_tools --> participants
+    packet --> approver
+    approver --> workspace
+    packet --> workspace
+    log --> workspace
+```
+
 - A tool-using single agent gathers the coordination-required state, appointment-lock window, backup coverage, and policy-bound availability metadata, then ranks viable slots and drafts one scheduling packet with an attached coordination log.
 - Bounded delegation fits because the agent can place short-lived tentative holds, preserve rejected-slot reasoning, and maintain revision lineage, but it should not move carrier appointment locks, approve an unlisted backup, or turn the packet into a dock assignment or carrier instruction.
 - Human checkpoints remain necessary when no compliant overlap exists before the protected appointment-lock buffer, when yard-density telemetry is stale, when the gate staffing state is no longer in an allowed posture, or when Elena Morales must approve a material attendee exception.
