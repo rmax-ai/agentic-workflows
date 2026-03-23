@@ -40,6 +40,33 @@ This grounds `risk-alert-triage` in research work where the hard problem is not 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Benchmark study workspace<br>draft papers, slide decks, sharing records"]
+    B["Experiment-tracking and reproducibility systems<br>rerun outcomes, failed replication alerts"]
+    C["Dataset inventory and license registry<br>partner-data terms, vendor restrictions"]
+    D["Publication-governance workflow<br>embargo dates, claim boundaries, exception history"]
+    E["Document-access telemetry and external-review intake<br>link creation, exports, reviewer requests"]
+    F["Merged alert cluster<br>by study, claim set, or disclosure window"]
+    G["Policy context<br>scope, sensitivity, restrictions, embargo posture"]
+    H["Prioritized triage queue<br>severity, rationale, queue placement"]
+    I["Audit-grade case queue and evidence store<br>alert lineage, suppression rationale, routing history"]
+
+    subgraph J["Human escalation boundary<br>research governance, publication review, legal and communications"]
+        K["Human reviewers<br>governed escalation intake"]
+    end
+
+    A --> F
+    B --> F
+    E --> F
+    F --> G
+    C --> G
+    D --> G
+    G --> H
+    H --> I
+    I --> K
+```
+
 - Event-driven monitoring should continuously ingest benchmark artifact activity, embargo-state changes, reproducibility alerts, dataset-rights updates, and external-review requests, then reopen or merge alert clusters as new evidence arrives.
 - A tool-using single agent can correlate study identifiers across experiment, artifact, and governance systems; suppress duplicate notifications from the same disclosure thread; attach policy-relevant context; and publish a prioritized queue with explicit urgency drivers.
 - Human-in-the-loop review should remain mandatory for any alert that could trigger external sharing restrictions, legal review, partner notification, executive communications review, or a change to what benchmark claims may be discussed outside the approved group.
