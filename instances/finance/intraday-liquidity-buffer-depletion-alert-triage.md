@@ -42,6 +42,34 @@ This grounds `risk-alert-triage` in a finance setting where the hard problem is 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph monitor["Event-driven monitoring"]
+        cb["Central-bank settlement<br>statements"]
+        nostro["Nostro / concentration-bank<br>feeds"]
+        queue["Payment-hub and treasury<br>queue systems"]
+        market["CCP / CLS notice feeds"]
+        workbench["Treasury management<br>workbench"]
+        agent["Tool-using correlation<br>and enrichment agent"]
+        case["Audit-grade evidence store<br>and case queue"]
+
+        cb -->|"balance confirmations"| agent
+        nostro -->|"cash positions and freshness"| agent
+        queue -->|"queued obligations and cutoffs"| agent
+        market -->|"margin and pay-in notices"| agent
+        workbench -->|"projections, mappings,<br>and watch status"| agent
+        case -->|"prior lineage and blocker state"| agent
+        agent -->|"prioritized triage packets,<br>routing rationale, and evidence"| case
+    end
+
+    subgraph review["Human-in-the-loop review<br>approval-gated escalation boundary"]
+        reviewers["Treasury controller<br>Liquidity risk reviewer<br>Regional funding lead"]
+    end
+
+    case -->|"urgent or standard review queue"| reviewers
+    reviewers -->|"review actions, approvals,<br>and human overrides"| case
+```
+
 - Event-driven monitoring should continuously ingest settlement postings, bank-balance updates, queue changes, market-infrastructure notices, and cutoff-calendar transitions, then reopen, merge, or reprioritize alert clusters as evidence changes.
 - A tool-using single agent can correlate entity and account identifiers across bank, payment, and treasury systems; suppress duplicate low-value liquidity chatter; apply explicit source precedence; and publish a prioritized queue with urgency drivers and blocker visibility.
 - Human-in-the-loop review should remain mandatory for any alert involving an authoritative protected-buffer breach, material uncertainty about incoming funding, conflicts between authoritative and internal records, or blocker conditions such as stale bank statements, missing margin acknowledgments, or facility-limit ambiguity.
