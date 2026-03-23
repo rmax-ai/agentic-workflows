@@ -48,6 +48,28 @@ This grounds the pattern in a treasury workflow where one current coordination p
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    tracker["Treasury funding workflow record<br>approved review window, required roles,<br>and current coordination status"]
+    custodian["Custodian and collateral operations systems<br>authoritative cutoff updates, settlement checkpoints,<br>and eligibility extract timing"]
+    calendars["Team calendars and approved delegate mappings<br>treasury operations, collateral management,<br>liquidity risk, secured funding, and finance systems support"]
+    refresh["Collateral substitution review refresh<br>guardrail checks, packet delta preparation,<br>and adoption-or-exception routing"]
+    workspace["Treasury coordination workspace<br>packet versions, acknowledgements,<br>exceptions, and refresh lineage"]
+    notices["Meeting and notification tools<br>role-targeted updates and authoritative<br>invite-history preservation"]
+    owner["Treasury operations owner or designated<br>secured-funding coordinator adoption checkpoint"]
+    exceptions["Exception checkpoint<br>cutoff breach, missing delegate coverage,<br>or other out-of-policy refresh cases"]
+
+    tracker -->|"Provides approved review window, required roles,<br>and current coordination state"| refresh
+    custodian -->|"Provides authoritative cutoff shifts, settlement checkpoints,<br>and latest eligibility timing"| refresh
+    calendars -->|"Provides attendee availability<br>and approved delegate coverage"| refresh
+    workspace -->|"Provides packet history, acknowledgements,<br>exceptions, and existing lineage"| refresh
+    refresh -->|"Writes refreshed packet state,<br>lineage updates, and exception status"| workspace
+    refresh -->|"Issues role-targeted delta notices<br>and updated review packet delivery"| notices
+    refresh -->|"Presents materially changed timing,<br>delegate, or cutoff impact for adoption"| owner
+    owner -->|"Returns adoption or hold outcome<br>for the changed coordination state"| refresh
+    refresh -->|"Routes cutoff breach, unsupported delegate change,<br>or other out-of-policy refresh cases"| exceptions
+```
+
 - Event-driven monitoring should react only to approved custodian-cutoff updates, posted eligibility-timing changes, and governed delegate-state changes that affect the issued review packet.
 - Exception-gated autonomy fits because packet refresh, tentative-hold revision, targeted notice issuance, and lineage updates can proceed automatically when changes stay inside approved funding and authority guardrails.
 - The treasury operations owner or designated secured-funding coordinator should adopt any materially changed meeting time, required-attendee substitution, or cutoff-sensitive shift before the refreshed packet becomes authoritative.
