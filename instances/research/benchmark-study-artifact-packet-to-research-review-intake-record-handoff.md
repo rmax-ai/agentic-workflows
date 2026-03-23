@@ -42,6 +42,20 @@ This grounds the transform pattern in a research workflow where the key output i
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Benchmarking squad<br>submission packet"] --> B["Shared research workspace,<br>experiment tracker, and artifact repository"]
+    B --> C["Parsing and extraction<br>service"]
+    C --> D["Transformation agent"]
+    E["Dataset registry, license records,<br>annotator archive, and model card workspace"] --> D
+    D --> F["Research review staging system<br>intake area"]
+    D --> G["Transformation trace"]
+    subgraph H["Exception-routing boundary"]
+        I["Reproducibility, legal, privacy,<br>or benchmark-methodology queue"]
+    end
+    D --> I
+```
+
 - A tool-using single agent can gather the packet, extract candidate study fields, normalize dataset and model identifiers against approved registries, and emit a structured research-review staging record plus a transformation trace.
 - The workflow should write only to a reviewable intake area rather than generating a submission package, updating any public benchmark surface, or signaling publication approval.
 - Approved reference data may standardize benchmark-suite names, dataset versions, metric identifiers, artifact types, and owning team metadata, but unsupported inference about missing dataset rights, unstated prompt versions, or whether a chart reflects the final experiment set should force exception routing.
