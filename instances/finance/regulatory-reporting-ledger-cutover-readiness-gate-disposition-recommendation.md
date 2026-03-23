@@ -44,6 +44,20 @@ This instance grounds the pattern in finance with a release-readiness surface di
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Regulatory reporting cutover gate tracker,<br>delegated finance change-authority matrix,<br>and month-end reporting calendar"] -->|"Read-only gate context"| F["Ledger cutover readiness<br>recommendation workflow"]
+    B["Parallel-run reconciliation dashboards,<br>legal-entity balance validation reports,<br>and source-to-schedule mapping register"] -->|"Read-only reconciliation and mapping evidence"| F
+    C["Fallback extraction rehearsal logs,<br>control-attestation repository,<br>and evidence-freshness monitor<br>for the legacy reporting path"] -->|"Read-only fallback and control evidence"| F
+    D["Reviewer comment history,<br>prior gate packet revisions,<br>and issue register"] -->|"Blocker and review lineage"| F
+    E["Reporting policy baseline,<br>jurisdiction addenda,<br>and restricted audit log preserving packet lineage<br>and human acceptance history"] -->|"Policy thresholds and audit context"| F
+    F --> G["Recommended gate disposition packet:<br>proceed as scoped,<br>hold, narrow to domestic entities,<br>or escalate"]
+    G --> H["Controllership change board<br>acceptance boundary"]
+    H --> I["Accepted disposition handoff<br>for governed downstream action"]
+    H --> J["Request evidence refresh<br>or higher-authority review"]
+    F -.-> K["Stop boundary:<br>no ledger-of-record switch,<br>reporting calendar change,<br>or filing attestation routing"]
+```
+
 - Event-driven monitoring fits because reconciliation drift, evidence-freshness expiry, and mapping-addendum status changes should trigger a refreshed readiness recommendation instead of waiting for a manual gate meeting.
 - Human-in-the-loop review is mandatory because the workflow should advise on the gate disposition, not approve the ledger-of-record change, update the reporting calendar, or release any regulatory filing artifact.
 - Read-only integration with reporting, reconciliation, evidence, and policy systems is preferable so the agent cannot silently convert a recommendation into a reporting production change.
