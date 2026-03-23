@@ -39,6 +39,30 @@ This grounds the pattern in finance with a scenario materially different from pr
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    analyst["Controllership analyst"]
+    agent["Tool-using single agent<br>attestation reviewer"]
+    erp["ERP journal-entry workflow reports"]
+    controls["Close-controls workspace"]
+    access["Identity-governance and finance<br>access-certification exports"]
+    archive["Subledger and archive repositories"]
+    policy["Policy library and<br>exception register"]
+    packet["Reviewable rationale packet<br>and requirement mapping"]
+    reviewer["Controller or delegated<br>finance owner"]
+    boundary["Read-only boundary and workflow stop<br>no journal approval, role change,<br>evidence refresh, or attestation recording"]
+
+    analyst -->|"Starts attestation review"| agent
+    erp -->|"Read-only journal evidence"| agent
+    controls -->|"Checklist and review context"| agent
+    access -->|"Approver-role and rotation evidence"| agent
+    archive -->|"Support packages and trace records"| agent
+    policy -->|"Rules, thresholds, and exceptions"| agent
+    agent -->|"Assembles"| packet
+    packet -->|"Human review required"| reviewer
+    agent -->|"Stops before governed actions"| boundary
+```
+
 - A tool-using single agent can retrieve the fixed attestation checklist, reconcile sampled journals with support packages and certification exports, compare exception scope against current close-desk coverage, and assemble one reviewable rationale packet.
 - Human-in-the-loop review is required because a controller or delegated finance owner must decide whether partial evidence is acceptable, whether the exception still fits policy, or whether the packet should escalate.
 - Read-only integration with ERP, close-controls, archive, and access-governance systems is preferable so the workflow cannot approve journals, alter role assignments, refresh evidence, or record the attestation automatically.
