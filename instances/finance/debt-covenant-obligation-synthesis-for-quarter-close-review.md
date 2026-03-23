@@ -38,6 +38,23 @@ This grounds the gather/synthesize pattern in a finance workflow where fluent su
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    LEGAL["Legal document repository<br>executed agreements, amendments,<br>waiver letters, side letters, and lender notices"] -->|"binding covenant text<br>and amendment lineage"| SYNTH["Tool-using synthesis agent<br>for quarter-close covenant obligation review"]
+    FINANCE["Finance evidence sources<br>ERP or consolidation exports,<br>account-mapping workpapers, treasury workbook,<br>prior compliance certificates, and close checklist artifacts"] -->|"current-quarter calculation support"| SYNTH
+    DISCLOSE["Disclosure and interpretation sources<br>SEC filing archive, disclosure-support repository,<br>legal memo library, and waiver register"] -->|"prior-period precedent<br>and interpretation context"| SYNTH
+    SYNTH -->|"writes claim-to-source mappings,<br>verified obligations, and open questions"| WORKSPACE["Controlled finance review workspace<br>cited synthesis brief and evidence trace"]
+
+    subgraph REVIEW["Human controller and legal<br>review boundary"]
+        HUMAN["Controller and legal review<br>amendment precedence, ambiguous carve-outs,<br>and citation completeness"]
+        HOLD["Hold state<br>legal or controller follow-up needed"]
+    end
+
+    WORKSPACE -->|"presents review-ready synthesis"| HUMAN
+    HUMAN -->|"accepts verified obligations<br>for quarter-close reviewers"| OUTPUT["Controller, treasury, and disclosure reviewers<br>reviewed covenant obligation brief"]
+    HUMAN -->|"routes unresolved interpretation,<br>missing waivers, or source conflicts"| HOLD
+```
+
 - A tool-using single agent can retrieve the active agreement set, extract candidate covenant clauses and deadlines, connect them to the current quarter's calculation support, and assemble a reviewable synthesis with claim-to-source mappings.
 - Human-in-the-loop review should remain mandatory for amendment precedence, legal interpretation of ambiguous carve-outs, and confirmation that the brief is complete enough for quarter-close use.
 - The workflow should preserve an evidence trace that distinguishes binding agreement language, internal calculation support, prior-period precedent, and unresolved interpretation notes.
