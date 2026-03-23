@@ -39,6 +39,31 @@ This grounds the pattern in a finance workflow where the hard problem is not dia
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    treasury["Treasury management system cash snapshots,<br>entity funding ledgers, and<br>bridge workspace records"] -->|"cash positions and bridge context"| compare["Treasury-ledger comparison"]
+    bank["Bank confirmations, payment-rail settlement<br>acknowledgements, and<br>facility status feeds"] -->|"bank and facility evidence"| retrieve["Bank and facility retrieval"]
+    collateral["Collateral and margin systems"] -->|"encumbrance and margin state"| compare
+    manual["Manual adjustment logs and<br>desk attestations"] -->|"manual changes and attestations"| compare
+    retrieve -->|"confirmed balances, settlement state,<br>and availability timestamps"| compare
+
+    subgraph restore["Truth-restoration workflow family boundary"]
+        compare -->|"reconciled positions and detected conflicts"| holds["Provisional hold classification"]
+        compare -->|"trusted positions and cited source lineage"| record["Shared truth-restoration record:<br>authoritative liquidity ledger +<br>hold register + superseded views +<br>reviewer rationale"]
+        holds -->|"held items and conflict reasons"| record
+        record -->|"human-reviewable state package"| packet["Bridge handoff packet assembly"]
+    end
+
+    subgraph review["Human review boundary"]
+        reviewers["Treasury, control, and<br>risk reviewers"]
+    end
+
+    record -->|"source precedence and ledger acceptance"| reviewers
+    packet -->|"trusted-state handoff packet"| reviewers
+    reviewers -->|"acceptance decisions and rationale"| record
+    reviewers -->|"keeps the workflow at the trusted-state ledger,<br>unresolved hold register, and<br>handoff packet"| stop["Stop boundary:<br>No autonomous liquidity action<br>or transfer initiation"]
+```
+
 - An orchestrated multi-agent design can separate bank and facility retrieval, treasury-ledger comparison, hold classification, and handoff-packet assembly while preserving one shared truth-restoration record.
 - Human reviewers should remain in the normal loop to confirm source precedence, accept the authoritative liquidity ledger, and decide whether provisional items are safe to treat as binding.
 - The workflow should stop at the trusted-state ledger, unresolved hold register, and bridge handoff packet rather than recommending liquidity actions or initiating transfers automatically.
@@ -57,4 +82,3 @@ This grounds the pattern in a finance workflow where the hard problem is not dia
 - Agreement between the workflow's reconciled liquidity picture and the final treasury-accepted current-state view for the bridge window
 - Percentage of materially unresolved positions surfaced in the hold register rather than flattened into a single balance
 - Reliability of the workflow when source timestamps drift, manual adjustments arrive late, or facility state changes during repeated bridge updates
-
