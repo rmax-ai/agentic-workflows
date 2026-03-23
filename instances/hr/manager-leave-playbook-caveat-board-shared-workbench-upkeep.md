@@ -44,6 +44,36 @@ This grounds the pattern in a low-risk HR collaboration loop where the maintaine
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Internal leave policy repository<br>approved leave guidance,<br>jurisdiction notes, and manager playbook references"]
+    B["Leave administration knowledge workspace<br>vendor handoff notes, effective dates,<br>and approved process clarifications"]
+    C["Screenshot and artifact store<br>decision-tree images,<br>topic-level caveat artifacts, and reviewer comments"]
+    D["HR annotation or review surface<br>small edits, caveats,<br>ownership changes, and hold notes"]
+    E["Event-driven monitoring<br>reacts when policy notes, vendor clarifications,<br>screenshots, or board fields change"]
+    F["Tool-using single agent<br>bounded upkeep only: refreshes links,<br>normalizes duplicate caveats,<br>and updates owner plus hold markers"]
+    G["Shared manager leave playbook caveat board<br>topic sections, owner fields,<br>blocker tags, and revision history"]
+    H["Visible open-questions register<br>unresolved policy-boundary questions<br>and hold state"]
+    I["Human review boundary<br>leave program owners, regional HR partners,<br>absence administrators, and training reviewers"]
+
+    A -->|"Approved leave guidance changes"| E
+    B -->|"Vendor or process-note changes"| E
+    C -->|"Screenshot or artifact refreshes"| E
+    D -->|"Reviewer edits and hold notes"| E
+    G -->|"Board field changes"| E
+    E -->|"Trigger bounded upkeep"| F
+    A -->|"Approved source references"| F
+    B -->|"Clarification and handoff context"| F
+    C -->|"Artifact reference updates"| F
+    D -->|"Reviewer notes and ownership changes"| F
+    G -->|"Prior board state and history"| F
+    F -->|"Refresh in-scope board fields only"| G
+    F -->|"Carry unresolved questions forward"| H
+    H -->|"Keep blockers visible on the board"| G
+    F -->|"Route policy-interpretation or release-adjacent edits"| I
+    I -->|"Resolve held items and ownership decisions"| G
+```
+
 - Event-driven monitoring fits because upkeep should react when leave-policy notes, jurisdiction references, screenshots, or board fields change.
 - A tool-using single agent can refresh source links, normalize duplicated caveat text, and keep ownership plus hold markers synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when a note changes leave-policy interpretation, sounds ready for manager-facing release, or could remove a caveat that a human owner still considers unresolved.
