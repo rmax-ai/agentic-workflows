@@ -41,6 +41,24 @@ This grounds the pattern in internal operational upkeep rather than scheduling w
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+  subgraph upkeep["Approved workbench-upkeep boundary"]
+    agent["Workbench upkeep agent"]
+    board["Shared rollout caveat board<br>facility sections, ownership fields,<br>unblock status, and revision history"]
+    hold["Hold register<br>unresolved local questions"]
+  end
+
+  site["Site leads"] -->|"Add caveat notes<br>screenshots, and clarifications"| comments["Operations comment stream<br>or annotation surface"]
+  owners["Central operations owners<br>and documentation stewards"] -->|"Maintain waiver notes<br>and section ownership changes"| board
+  comments -->|"Surface bounded updates"| agent
+  rules["Warehouse rules repository<br>approved slotting reference package"] -->|"Provide rule-package references"| agent
+  waivers["Site waiver register<br>approved temporary exceptions<br>and expiry dates"] -->|"Provide waiver status<br>and local handling notes"| agent
+  config["Facility configuration inventory<br>aisle classes, scanner profiles,<br>overflow zones, and site identifiers"] -->|"Provide facility mapping"| agent
+  agent -->|"Refresh links, normalize duplicate notes,<br>and update blocked-versus-cleared fields"| board
+  agent -->|"Preserve unresolved questions<br>that remain on hold"| hold
+```
+
 - Event-driven monitoring is a good fit because the board should refresh when site notes, waiver records, or linked rule references change.
 - A tool-using single agent can reconcile lightweight edits, refresh section links, and keep the hold-state register synchronized inside one shared board.
 - Human-in-the-loop review remains necessary whenever a caveat looks resolved only because local context is missing or when someone tries to turn the board into an execution-ready task list.
