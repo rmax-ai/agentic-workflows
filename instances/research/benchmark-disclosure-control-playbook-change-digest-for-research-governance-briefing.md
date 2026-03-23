@@ -43,6 +43,31 @@ This grounds the pattern in a research-governance workflow where the central nee
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    F["Authoritative change<br>notification feed"]
+    A["Tool-using single agent<br>digest assembler"]
+    W["Research governance<br>workspace"]
+    G["Research governance<br>leads"]
+
+    subgraph S["Approved source boundary"]
+        R["Benchmark disclosure-control<br>playbook repository"]
+        B["Prior baseline archive"]
+        E["Disclosure-control<br>exception register"]
+        T["Benchmark artifact<br>taxonomy"]
+        C["Disclosure-control<br>checklist library"]
+    end
+
+    F -->|"Approved revision event"| A
+    R -->|"Revised playbook<br>and metadata"| A
+    B -->|"Prior approved baseline<br>and digest references"| A
+    E -->|"Active carve-outs<br>and exception lineage"| A
+    T -->|"Authoritative labels<br>and evidence classes"| A
+    C -->|"Approved checkpoints<br>and attachments"| A
+    A -->|"Publishes<br>Benchmark-Disclosure-Control-Change-Brief-r4"| W
+    W -->|"Informational briefing"| G
+```
+
 - Event-driven monitoring fits because the digest should refresh from the authoritative playbook approval event instead of from ad hoc reviewer requests or informal workspace chatter.
 - A tool-using single agent can compare the revised playbook with the prior approved baseline, retrieve the narrow surrounding control set, and assemble `Benchmark-Disclosure-Control-Change-Brief-r4` with claim-to-source traceability.
 - Bounded delegation works because research governance can predefine the approved source boundary, digest template, and audience while humans retain responsibility for any downstream publication, exception, or disclosure decisions.
