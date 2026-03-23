@@ -45,6 +45,35 @@ This instance grounds the pattern in HR by restoring one defensible dependent-co
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    ben["Benefits-administration<br>enrollment records"]
+    car["Carrier eligibility<br>ledger"]
+    dep["Dependent-verification<br>case records"]
+    hris["HRIS life-event<br>entries"]
+    mem["Shared reconciliation memory<br>or rollback references"]
+    review["Human review<br>path"]
+    rec["Reconciled<br>ledger"]
+    exc["Unresolved exception<br>queue"]
+    pkg["Staged correction<br>package"]
+
+    subgraph flow["Tool-using single agent<br>reconciliation flow"]
+        workspace["Audit / reconciliation<br>workspace tooling"]
+    end
+
+    ben -->|"Provides enrollment state"| workspace
+    car -->|"Provides eligibility state"| workspace
+    dep -->|"Provides verification evidence"| workspace
+    hris -->|"Provides life-event state"| workspace
+    mem -->|"Restores prior adjudications<br>and rollback references"| workspace
+    workspace -->|"Persists superseded values,<br>rule use, and rollback references"| mem
+    workspace -->|"Routes ambiguous conflicts<br>for review"| review
+    review -->|"Returns approved resolution<br>or hold state"| workspace
+    workspace -->|"Publishes restored current state"| rec
+    workspace -->|"Keeps unresolved conflicts visible"| exc
+    workspace -->|"Stages correction-ready handoff"| pkg
+```
+
 - A tool-using single agent can assemble enrollment, carrier, verification, and HRIS state into one bounded reconciliation run.
 - Human-in-the-loop review remains standard for identity conflicts, disputed qualifying-event dates, missing verification evidence, or any correction that would change current coverage state.
 - The workflow stops at the reconciled ledger, unresolved exception queue, and staged correction package rather than deduction changes, carrier updates, or appeal decisions.
