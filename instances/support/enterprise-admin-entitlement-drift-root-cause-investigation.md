@@ -51,6 +51,23 @@ This grounds `incident-root-cause-analysis` in support work where the hard probl
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    case["Support case history<br>and workaround records"] --> case_agent["Case-history<br>retrieval"]
+    entitlement["Entitlement telemetry,<br>migration events, and snapshots"] --> entitlement_agent["Entitlement timeline<br>reconstruction"]
+    identity["Identity sync,<br>group mappings, and audit logs"] --> identity_agent["Identity-audit<br>reconciliation"]
+    config["Configuration history<br>and shard settings"] --> verify_agent["Hypothesis<br>verification"]
+    notes["Responder notes<br>and engineering updates"] --> verify_agent
+    subgraph orchestration["Orchestrated multi-agent<br>investigation flow"]
+        case_agent --> record["Shared case memory<br>and investigation record"]
+        entitlement_agent --> record
+        identity_agent --> record
+        verify_agent --> record
+    end
+    record --> review["Human review across support,<br>identity, and product handoffs"]
+    review --> gate["Cause declaration and<br>corrective action approval"]
+```
+
 - An orchestrated multi-agent flow can separate case-history retrieval, entitlement timeline reconstruction, identity-audit reconciliation, and hypothesis verification while preserving one shared investigation record.
 - Shared case memory should retain competing explanations, confirming and disconfirming evidence, timestamp normalization choices, and open questions across support, identity, and product handoffs.
 - Human-in-the-loop review remains necessary before declaring the primary cause, treating the issue as unauthorized access or mere configuration drift, or approving any corrective entitlement or role-restoration action.
