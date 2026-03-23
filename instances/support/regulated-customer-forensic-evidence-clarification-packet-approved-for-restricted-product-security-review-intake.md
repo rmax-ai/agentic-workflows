@@ -51,17 +51,17 @@ flowchart LR
     I["Restricted product security<br>review intake lane"]
     J["Audit, retention, and<br>access-control systems"]
 
-    A -->|"\"Co-produce and reconcile<br>packet content\""| E
-    B -->|"\"Co-produce and reconcile<br>packet content\""| E
-    C -->|"\"Review handling constraints<br>and objections\""| E
-    D -->|"\"Approve exact packet revision<br>for release\""| H
-    F -->|"\"Provide chronology, evidence inventory,<br>hash references, and redaction lineage\""| E
-    G -->|"\"Define allowed artifact scope,<br>reviewer audience, and signer requirements\""| E
-    G -->|"\"Constrain approved reviewer lane<br>and release conditions\""| H
-    E -->|"\"Bind exact packet revision<br>and release manifest state\""| H
-    H -->|"\"Release one approved packet revision\""| I
-    E -->|"\"Preserve superseded revisions,<br>accepted objections, and blocked releases\""| J
-    H -->|"\"Record downstream handoff<br>traceability\""| J
+    A -->|"Co-produce and reconcile<br>packet content"| E
+    B -->|"Co-produce and reconcile<br>packet content"| E
+    C -->|"Review handling constraints<br>and objections"| E
+    D -->|"Approve exact packet revision<br>for release"| H
+    F -->|"Provide chronology, evidence inventory,<br>hash references, and redaction lineage"| E
+    G -->|"Define allowed artifact scope,<br>reviewer audience, and signer requirements"| E
+    G -->|"Constrain approved reviewer lane<br>and release conditions"| H
+    E -->|"Bind exact packet revision<br>and release manifest state"| H
+    H -->|"Release one approved packet revision"| I
+    E -->|"Preserve superseded revisions,<br>accepted objections, and blocked releases"| J
+    H -->|"Record downstream handoff<br>traceability"| J
 ```
 
 - Approval-gated execution fits because the clarification packet can be collaboration-ready while still blocked from restricted product security intake until the human release owner approves the exact revision.
