@@ -40,6 +40,28 @@ This grounds `anomaly-detection-review` in research work where the early-warning
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Experiment tracking<br>and benchmark orchestration"]
+    B["Environment provenance<br>stores"]
+    C["Infrastructure change<br>records"]
+    D["Research governance<br>and review tooling"]
+    E["Tool-using single agent<br>within bounded delegation"]
+    F["Access-controlled<br>review queue"]
+    G["Audit-grade evidence<br>storage"]
+    H["Research governance,<br>benchmark platform owners,<br>or reproducibility reviewers"]
+
+    A -->|"run manifests<br>and rerun schedules"| E
+    B -->|"digests, hashes,<br>and placements"| E
+    C -->|"maintenance windows<br>and exceptions"| E
+    D -->|"approved baseline,<br>claim sensitivity,<br>and prior dispositions"| E
+    E -->|"prioritized anomaly<br>packet"| F
+    E -->|"lineage, suppressions,<br>and routing history"| G
+    F -->|"review packet"| H
+    E -->|"uncertain or higher-<br>consequence cases"| H
+    H -->|"reviewer overrides"| G
+```
+
 - Event-driven monitoring should continuously ingest run-manifest changes, environment provenance updates, scheduler placement events, and maintenance annotations, then reopen or merge anomaly clusters as fresh evidence arrives.
 - A tool-using single agent can correlate benchmark identifiers across experiment, environment, infrastructure, and governance systems; compare the anomaly against the approved evaluation baseline; attach bounded provenance context; and publish a prioritized review packet with explicit inconsistency drivers.
 - Bounded delegation fits because in-policy mid-severity environment anomaly packets can route into a preapproved research review queue without case-by-case approval, while uncertain or higher-consequence cases still escalate to accountable humans before any rerun, claim, or infrastructure action occurs.
