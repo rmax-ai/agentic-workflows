@@ -52,6 +52,34 @@ This grounds the pattern in an engineering governance surface where the maintain
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Service ownership and escalation standard repository<br>authoritative owner-role taxonomy and escalation requirements"]
+    B["Active service catalog export snapshot<br>service ids, owning teams, and escalation metadata"]
+    C["On-call directory roster export snapshot<br>current primary, secondary, and managerial contacts"]
+    D["Incident-routing policy clarification register<br>approved clarification notes and policy caveats"]
+    E["Engineering reviewer annotation surface<br>small edits, caveats, alias notes, and handoff comments"]
+    F["Event-driven monitoring<br>reacts when source snapshots, clarifications,<br>or reviewer notes change"]
+    G["Tool-using single agent<br>refreshes source links, reconciles row metadata,<br>normalizes caveat wording, and maintains blocker plus lineage fields"]
+    H["Service-Catalog-Escalation-Caveat-Board-r6<br>bounded shared board with prerequisite state,<br>blocker tags, source-precedence markers, and append-only history"]
+    I["Mara Iqbal and the service-governance team<br>predefine allowable field updates, source-precedence rules,<br>alias-resolution markers, and hold conditions"]
+    J["Human-in-the-loop review<br>required when an update would reinterpret the standard,<br>clear an unconfirmed-approver blocker, or resemble a paging-policy<br>or service-tier change"]
+    K["Stop and hand off to an adjacent workflow<br>if work becomes recommendation, approval, publication,<br>policy editing, or execution"]
+
+    A -->|"Source changes"| F
+    B -->|"Snapshot refreshes"| F
+    C -->|"Roster updates"| F
+    D -->|"Clarification changes"| F
+    E -->|"Reviewer note changes"| F
+    F -->|"Trigger bounded upkeep"| G
+    I -->|"Bounded delegation controls"| G
+    G -->|"Synchronize approved board fields"| H
+    G -->|"Flag interpretation-sensitive updates"| J
+    J -->|"Confirm bounded corrections"| H
+    G -->|"Route out-of-boundary work"| K
+    J -->|"Escalate non-upkeep changes"| K
+```
+
 - Event-driven monitoring fits because upkeep should react when the ownership standard, catalog export, on-call roster snapshot, policy clarification bundle, or reviewer notes change.
 - A tool-using single agent can refresh source links, reconcile row metadata, normalize duplicate caveat wording, and keep blocker plus lineage fields synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when an update would reinterpret the ownership standard, clear a blocker tied to an unconfirmed approver, or make a row sound like an approved paging-policy or service-tier change.
