@@ -39,6 +39,32 @@ This grounds the pattern in support through a low-risk but governance-heavy inte
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph A["Recommendation boundary"]
+        B["Tool-using<br>single agent"]
+        C["Premium-support governance workspace<br>holding `SDUH-Control-Attestation-Packet-v4`,<br>prior packet revisions, reviewer annotations,<br>and the quarterly attestation checklist"]
+        D["Priya Desai<br>Director of Support Data Handling Governance"]
+        E["Marco Alvarez<br>Senior Support Security Reviewer"]
+        F["Tessa Nguyen<br>Privacy Operations Counsel"]
+    end
+
+    G["Contract and customer-data-handling repository<br>with the signed diagnostic-data handling addendum,<br>approved regional-processing terms,<br>subcontractor restrictions, and retention commitments"]
+    H["Secure-upload platform configuration store<br>with region-pinning settings,<br>upload-window controls, malware-scan policy versions,<br>encryption configuration, and workflow release `suw-4.6` state"]
+    I["Access-governance, reviewer-certification,<br>and chain-of-custody systems<br>showing approved reviewers, subcontractor status,<br>just-in-time access grants, artifact transfer lineage,<br>and prior attestation outcomes"]
+    J["Evidence-retention and purge-verification logs<br>recording upload expiration, deletion confirmations,<br>exception windows, and unresolved purge failures"]
+
+    C -->|"Read exact packet revision,<br>prior revisions, and checklist context"| B
+    G -->|"Read governing policy<br>and contractual requirements"| B
+    H -->|"Read secure-upload configuration,<br>region-pinning, and policy state"| B
+    I -->|"Read reviewer scope,<br>access evidence, and custody lineage"| B
+    J -->|"Read retention and purge<br>verification evidence"| B
+    B -->|"Assemble one reviewable<br>rationale packet"| C
+    C -->|"Present recommendation packet<br>for accountable review"| D
+    C -->|"Present recommendation packet<br>for accountable review"| E
+    C -->|"Present recommendation packet<br>for accountable review"| F
+```
+
 - A tool-using single agent can retrieve the exact packet revision, align each requirement to the signed addendum, active support standard, current upload-lane configuration, reviewer-certification evidence, and purge logs, and assemble one reviewable rationale packet.
 - Human-in-the-loop review is required because Priya Desai remains accountable for the recommendation outcome and Marco Alvarez plus Tessa Nguyen must decide whether ambiguous residency or reviewer-scope evidence stays within delegated interpretation bounds.
 - Read-only integration with support governance, contract, upload-platform, access-governance, and retention systems is preferable so the workflow cannot silently approve the attestation, expand access, alter retention timers, or reactivate customer upload paths.
