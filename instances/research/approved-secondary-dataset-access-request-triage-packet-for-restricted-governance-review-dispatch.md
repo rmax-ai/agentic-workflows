@@ -48,6 +48,29 @@ This grounds `approval-gated-triage-dispatch` in a research-governance setting t
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Secondary-use intake and triage systems<br>exact triage packet, duplicate lineage, requester metadata"]
+    B["Protocol, consent, data-use,<br>and sponsor registries"]
+    C["Secure-enclave capability registry<br>and dataset inventory"]
+    D["Restricted dispatch boundary<br>freshness, redaction, scope, and lane checks"]
+    E["Approval-routing, audit,<br>and hold-tracking systems"]
+    F["Research-governance approver"]
+    G["Dispatch-manifest service"]
+    H["Restricted governance<br>review queue"]
+
+    A -- "Provide exact triage packet<br>and packet revision state" --> D
+    B -- "Provide cited references<br>for freshness and scope checks" --> D
+    C -- "Provide enclave and dataset<br>boundary context" --> D
+    E -- "Provide current holds,<br>signer state, and audit context" --> D
+    D -- "Submit one packet revision<br>for named approval" --> F
+    F -- "Record signed approval<br>for one review-lane release" --> E
+    E -- "Return approval status,<br>holds, and release eligibility" --> D
+    D -- "Bind approved packet revision<br>to one dispatch manifest" --> G
+    G -- "Release approved packet revision<br>into the protected review lane" --> H
+    G -- "Write dispatch lineage<br>and release record" --> E
+```
+
 - Event-driven monitoring fits because consent references, sponsor restrictions, requester affiliation, enclave readiness, or packet freshness can change while the already-triaged request waits at the dispatch gate.
 - Approval-gated execution fits because the packet is prepared for one bounded governance lane but remains concretely blocked until the required research-governance signer approves that exact revision and queue boundary.
 - Human-in-the-loop review should stay on the normal path because dispatch into a restricted secondary-use governance lane changes who may inspect sensitive request context even though this workflow still stops short of granting access or choosing conditions.
