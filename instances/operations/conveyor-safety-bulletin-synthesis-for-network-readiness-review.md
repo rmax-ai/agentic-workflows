@@ -45,6 +45,29 @@ This grounds the gather/synthesize family in an operations setting where the rea
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["OEM bulletin portal<br>and field service advisory library"]
+    B["CMMS inspection history<br>maintenance records, and site waiver register"]
+    C["Asset inventory and equipment-configuration database<br>installed models and serial ranges by site"]
+    D["Parts availability dashboard<br>approved substitute-parts list, and vendor escalation notices"]
+    E["EHS notice repository<br>and controlled incident-summary archive"]
+    F["Tool-using synthesis agent<br>retrieve evidence, map applicability,<br>and assemble cited operating context"]
+    G["Operations readiness-review workspace<br>or reliability briefing repository"]
+    H["Site-by-site evidence trace<br>mandatory restrictions, mitigations,<br>verification records, and open gaps"]
+    I["Human-in-the-loop review boundary<br>conflicts, incomplete configuration data,<br>and safety-sensitive operating restrictions"]
+
+    A -->|"provide approved bulletins"| F
+    B -->|"provide inspection and waiver status"| F
+    C -->|"provide installed asset context"| F
+    D -->|"provide parts and substitute context"| F
+    E -->|"provide mitigation references"| F
+    F -->|"publish cited synthesis"| G
+    F -->|"record claim-to-source mapping"| H
+    G -->|"present brief for reviewer inspection"| I
+    H -->|"support provenance inspection"| I
+```
+
 - A tool-using single agent can retrieve applicable bulletins, map them to installed equipment populations, pull current inspection and waiver status, and draft a structured synthesis with claim-to-source traceability.
 - Human-in-the-loop review should remain required when OEM guidance conflicts with local waivers, when asset configuration data is incomplete, or when the brief could affect safety-sensitive operating restrictions.
 - The workflow should maintain a site-by-site evidence trace that distinguishes mandatory OEM requirements, locally approved temporary mitigations, completed verification records, and unresolved data gaps.
