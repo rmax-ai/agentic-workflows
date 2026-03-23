@@ -42,6 +42,43 @@ This grounds the pattern in consequential research operations where the workflow
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph Control["Directed containment boundary"]
+        LEAD["Biosafety lead<br>directed next-step authority"]
+        AGENT["Tool-using execution agent<br>bounded live containment actions<br>and post-step verification"]
+    end
+
+    subgraph State["Authoritative state boundary"]
+        TELE["Freezer telemetry systems<br>temperature, door, and compressor state"]
+        INV["Specimen inventory and custody records<br>identity, rack location, and access holds"]
+        BACKUP["Qualified backup-capacity and transfer controls<br>eligible slots and transfer checklist state"]
+        ASSAY["Assay-hold scheduling queue<br>pending and paused downstream pulls"]
+    end
+
+    subgraph Audit["Audit and handoff boundary"]
+        LEDGER["Audit and incident ledgers<br>step history, probe evidence,<br>and verified current state"]
+        PACKET["Takeover packet<br>current freezer state, moved and unmoved sets,<br>pending holds, and blocked next actions"]
+        TAKEOVER["Facilities engineering or<br>institutional biosafety oversight"]
+    end
+
+    LEAD -->|"Names one bounded<br>containment step"| AGENT
+    TELE -->|"Alarm, recovery, and<br>independent probe readings"| AGENT
+    INV -->|"Specimen identity,<br>location, and custody state"| AGENT
+    BACKUP -->|"Qualified capacity and<br>transfer constraints"| AGENT
+    ASSAY -->|"Assay pulls to<br>place on hold"| AGENT
+    AGENT -->|"Directed hold, transfer, and<br>custody updates"| INV
+    AGENT -->|"Directed backup-unit<br>transfer confirmations"| BACKUP
+    AGENT -->|"Directed assay-hold<br>scheduling updates"| ASSAY
+    AGENT -->|"Instruction, action,<br>and verification trace"| LEDGER
+    TELE -->|"Telemetry evidence"| LEDGER
+    INV -->|"Custody evidence"| LEDGER
+    BACKUP -->|"Transfer-control evidence"| LEDGER
+    ASSAY -->|"Hold-status evidence"| LEDGER
+    LEDGER -->|"Takeover-safe state and<br>evidence references"| PACKET
+    PACKET -->|"Handoff path"| TAKEOVER
+```
+
 - A tool-using single agent can read freezer telemetry, place study and assay holds, update specimen-location records, capture probe results, and maintain the authoritative step ledger after each directed action.
 - Human-in-the-loop control is mandatory because the biosafety lead decides which specimen groups remain in scope, whether backup capacity is acceptable for a given move, and when a branch must pause instead of continuing salvage activity.
 - The workflow should emit takeover-ready state whenever facilities engineering must assume responsibility for equipment recovery or institutional biosafety oversight must take over because containment conditions or policy boundaries have changed.
