@@ -40,6 +40,25 @@ This grounds `approval-packet-generation` in an operations workflow where the ha
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Terminal operations governance lead<br>confirms request scope, required reviewers,<br>and packet boundary"] --> B["Terminal operations exception workspace<br>scoped deviation request, packet draft,<br>completeness checklist, and handoff status"]
+    C["Environmental permit, operating-procedure,<br>and policy libraries"] --> F["Orchestrated multi-agent packet assembly<br>retrieve evidence, align timelines,<br>and draft packet sections"]
+    D["Process historian, emissions-monitoring,<br>and portable-gas-detection systems"] --> F
+    E["Computerized maintenance management,<br>reliability, berth, cargo, incident,<br>shift-supervision, and prior exception systems"] --> F
+    B --> F
+    subgraph G["Approval packet generation and handoff boundary"]
+        direction LR
+        F --> H["Approval packet"]
+        F --> I["Provenance index<br>every consequential claim linked to source evidence"]
+        F --> J["Exception register<br>disputed assumptions, missing checks,<br>and incomplete attestations stay visible"]
+        H --> K["Handoff record<br>named process-safety committee reviewers,<br>packet version, completeness state,<br>and unresolved blockers"]
+        I --> K
+        J --> K
+    end
+    K -- "Packet generation stops at handoff<br>with no approval decision, loading authorization,<br>regulator notice, or maintenance execution" --> L["Review-routing queue<br>for process-safety committee evaluation"]
+```
+
 - Orchestrated multi-agent retrieval and synthesis fit because permit clauses, historian telemetry, maintenance findings, and staffing evidence often live in separate systems and require coordinated packet assembly.
 - Human-in-the-loop checkpoints should remain mandatory so an accountable terminal operations owner can confirm request scope, required reviewers, and whether unresolved evidence gaps are acceptable to surface in the packet before handoff.
 - Agents may reconcile monitor identifiers, align outage and telemetry timelines, and draft packet sections, but they should not decide whether emissions risk is acceptable, set the temporary operating envelope, approve vessel loading, or trigger downstream regulator or maintenance actions.
