@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Pattern-first ontology of agentic workflows" name="description"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>Fixed-income voice-capture retention gap root-cause investigation - Agentic Workflows</title>
+<link href="../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#fixed-income-voice-capture-retention-gap-root-cause-investigation">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Agentic Workflows" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Agentic Workflows">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Fixed-income voice-capture retention gap root-cause investigation
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to system preference" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to system preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Agentic Workflows" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Agentic Workflows">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Agentic Workflows
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../ontology/">
+<span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/ontology/">
+<span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/schema/">
+<span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/index-tree/">
+<span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/contribution-guide/">
+<span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../pattern-families/">
+<span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../patterns/">
+<span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../browse/">
+<span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../vocabularies/">
+<span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../schema/">
+<span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linked-patterns">
+<span class="md-ellipsis">
+      
+        Linked pattern(s)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#domain">
+<span class="md-ellipsis">
+      
+        Domain
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scenario-summary">
+<span class="md-ellipsis">
+      
+        Scenario summary
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#target-systems-source-systems">
+<span class="md-ellipsis">
+      
+        Target systems / source systems
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#visible-blockers-unresolved-items">
+<span class="md-ellipsis">
+      
+        Visible blockers / unresolved items
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#revision-lineage">
+<span class="md-ellipsis">
+      
+        Revision lineage
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-this-instance-matters">
+<span class="md-ellipsis">
+      
+        Why this instance matters
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#likely-architecture-choices">
+<span class="md-ellipsis">
+      
+        Likely architecture choices
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#governance-notes">
+<span class="md-ellipsis">
+      
+        Governance notes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#evaluation-considerations">
+<span class="md-ellipsis">
+      
+        Evaluation considerations
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="fixed-income-voice-capture-retention-gap-root-cause-investigation">Fixed-income voice-capture retention gap root-cause investigation<a class="headerlink" href="#fixed-income-voice-capture-retention-gap-root-cause-investigation" title="Permanent link">¶</a></h1>
+<blockquote>
+<p>Canonical pattern(s): <a href="../../../patterns/investigate-reconcile-verify/incident-root-cause-analysis/">Incident root cause analysis</a>
+Source Markdown: <code>instances/compliance/fixed-income-voice-capture-retention-gap-root-cause-investigation.md</code></p>
+</blockquote>
+<h2 id="linked-patterns">Linked pattern(s)<a class="headerlink" href="#linked-patterns" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>incident-root-cause-analysis</code></li>
+</ul>
+<h2 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">¶</a></h2>
+<p>Compliance.</p>
+<h2 id="scenario-summary">Scenario summary<a class="headerlink" href="#scenario-summary" title="Permanent link">¶</a></h2>
+<p>A books-and-records surveillance alert identifies that a bounded set of fixed-income trading desk voice recordings from 2026-02-11 through 2026-02-13 is missing or inaccessible in the archive of record even though desk activity, order blotter references, and supervisor review notes indicate the calls occurred. This instance is bounded to one governed investigation packet, <code>FIVR-Retention-Gap-Investigation-v3</code>, owned by Monica Reyes, Director of Communications Records Governance. The investigation reconciles recorder export manifests, archive ingest state, legal-hold population, retention-control baselines, connector and certificate change history, and lower-precedence desk notes into an evidence-backed explanation of why the recordings were unavailable, which causal hypotheses remain unresolved, and what uncertainty must stay visible before any human decides on remediation, policy interpretation, regulator response, or records-restoration action.</p>
+<p><strong>Prerequisite state that must be confirmed before narrowing hypotheses:</strong>
+- The affected date range, desk scope, and line or turret population are sealed for <code>FIVR-Retention-Gap-Investigation-v3</code>; any newly discovered recordings must be logged as scope amendments rather than silently absorbed.
+- The legal-hold population for the impacted fixed-income rates and credit desks is frozen and exported so the investigation does not confuse hold-scope gaps with archive-ingest failures.
+- An inventory snapshot of recorder appliances, turret aliases, soft-turret endpoints, and archive connectors has been exported and timestamped for the incident window.
+- Certificate rollover history, connector deployment history, and recorder clock-synchronization evidence for the affected period have been captured in read-only form.
+- The current retention-policy baseline and books-and-records schedule version applicable to fixed-income voice capture during the incident window are identified and fixed for the packet.</p>
+<div class="mermaid">flowchart TD
+    A["Voice-retention gap detected for fixed-income desk recordings&lt;br&gt;during sealed investigation window"]
+    B["Confirm packet identity, owner, prerequisite state,&lt;br&gt;and source-precedence register for FIVR-Retention-Gap-Investigation-v3"]
+    C["Collect authoritative recorder manifests, archive ingest ledger,&lt;br&gt;legal-hold registry, retention baseline, and change history"]
+    D["Normalize timestamps, turret aliases, line identifiers,&lt;br&gt;and archive object references into one reconciled timeline"]
+    E{"Authoritative evidence complete enough&lt;br&gt;to test causal hypotheses?"}
+    F["Stop causal narrowing, log blockers, and preserve explicit uncertainty&lt;br&gt;about missing manifests, hold scope, or ingest acknowledgements"]
+    G["Test hypothesis 1:&lt;br&gt;turret alias mapping drift hid recordings from archive lookup or hold association"]
+    H["Test hypothesis 2:&lt;br&gt;connector certificate change interrupted archive ingest or object finalization"]
+    I["Test hypothesis 3:&lt;br&gt;recorder clock skew broke sequence alignment between manifests and ingest ledger"]
+    J["Test hypothesis 4:&lt;br&gt;partial retry behavior plus stale desk inventory records made recordings appear missing"]
+    K["Compare supporting and disconfirming evidence across all hypotheses;&lt;br&gt;attribute each missing or inaccessible recording cohort or hold open"]
+    L{"Each affected recording cohort explained&lt;br&gt;by one evidence-backed cause or explicit unresolved state?"}
+    M["Produce governed investigation packet with ranked causes,&lt;br&gt;open blockers, revision lineage, and residual uncertainty notes"]
+    N["Escalate packet to Monica Reyes for human-owned decisions on remediation,&lt;br&gt;restoration attempts, regulator communications, or policy interpretation"]
+
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D
+    D --&gt; E
+    E --&gt;|"No"| F
+    F --&gt; N
+    E --&gt;|"Yes"| G
+    E --&gt;|"Yes"| H
+    E --&gt;|"Yes"| I
+    E --&gt;|"Yes"| J
+    G --&gt; K
+    H --&gt; K
+    I --&gt; K
+    J --&gt; K
+    K --&gt; L
+    L --&gt;|"Yes"| M
+    L --&gt;|"No"| M
+    M --&gt; N
+</div>
+<h2 id="target-systems-source-systems">Target systems / source systems<a class="headerlink" href="#target-systems-source-systems" title="Permanent link">¶</a></h2>
+<p><strong>Authoritative (highest precedence):</strong>
+- Recorder export manifests from the fixed-income turret and voice-capture estate for the sealed incident window, including channel identifiers, start and stop timestamps, file hashes, recorder node IDs, and export-completion status.
+- Archive ingest ledger and immutable-storage receipt records showing object creation, checksum validation, retention-class assignment, ingest retry outcomes, and retrieval-index state for the same recordings.
+- Legal-hold registry entries governing the affected traders, supervisors, shared desk lines, and turret aliases during the incident window.
+- Approved retention-policy baseline and books-and-records schedule in force for fixed-income voice capture during the relevant period, including any desk-specific retention exceptions already approved before the gap.</p>
+<p><strong>Secondary and contextual (lower precedence unless promoted):</strong>
+- Connector deployment tickets, certificate rollover records, recorder health telemetry, retry logs, and queue-monitoring extracts that may explain ingest interruption or delayed object finalization.
+- Desk inventory records, supervised line-assignment sheets, and desk notes that help map trader identity, turret alias, and shared-line usage when authoritative identifiers are incomplete.
+- Surveillance case notes and supervisor review annotations that show which communications were expected to be retrievable and when the gap was first noticed.</p>
+<p><strong>Excluded from authoritative use without explicit promotion by the named owner:</strong>
+- Informal trader or supervisor chat recollections about whether a particular call was recorded.
+- Reconstructed call lists from order blotters, CRM notes, or personal calendars that are not tied back to a recorder manifest or archive object reference.
+- Vendor verbal assurances about connector health that are not backed by retained ticket evidence, certificate records, or system telemetry.</p>
+<h2 id="visible-blockers-unresolved-items">Visible blockers / unresolved items<a class="headerlink" href="#visible-blockers-unresolved-items" title="Permanent link">¶</a></h2>
+<ul>
+<li>Turret alias mapping drift across two shared fixed-income sales banks means several recorder channel IDs do not cleanly join to the current desk inventory snapshot.</li>
+<li>Recorder clock skew of up to 94 seconds on one London capture node weakens direct timestamp matching between export manifests and archive ingest ledger events.</li>
+<li>Partial retry logs exist for the archive connector queue, but one retry shard for 2026-02-12 03:00-05:00 UTC is missing final acknowledgement records.</li>
+<li>Desk inventory records for two decommissioned soft-turret profiles appear stale, so presence or absence of expected recordings for those profiles remains uncertain.</li>
+</ul>
+<h2 id="revision-lineage">Revision lineage<a class="headerlink" href="#revision-lineage" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>v1</code> established the sealed investigation scope, initial list of missing or inaccessible recordings, and the first hypothesis set covering ingest failure, retention misclassification, and lookup mismatch.</li>
+<li><code>v2</code> added the frozen legal-hold population, recorder inventory snapshot, and change-ticket timeline for the certificate rollover and connector deployment sequence.</li>
+<li><code>v3</code> is the governed packet for review: it adds explicit source precedence, hash-linked recorder manifest references, blocker visibility, and a reconciled explanation ledger that distinguishes evidenced causes from unresolved cohorts.</li>
+</ul>
+<h2 id="why-this-instance-matters">Why this instance matters<a class="headerlink" href="#why-this-instance-matters" title="Permanent link">¶</a></h2>
+<p>Fixed-income voice-capture gaps sit at the intersection of communications surveillance, books-and-records retention, legal hold, and infrastructure control evidence. The hard problem is not deciding how to repair the archive or what to tell a regulator; it is determining, under audit pressure, whether recordings were never captured, captured but not ingested, ingested but not retrievable, or incorrectly excluded from hold and retention paths. This instance makes the family boundary explicit by ending at one inspectable investigation packet with source precedence, visible blockers, named ownership, and revision-aware uncertainty rather than a remediation plan, policy rewrite, disciplinary assessment, or external filing decision.</p>
+<h2 id="likely-architecture-choices">Likely architecture choices<a class="headerlink" href="#likely-architecture-choices" title="Permanent link">¶</a></h2>
+<div class="mermaid">flowchart LR
+    subgraph AUTH["Authoritative read-only evidence"]
+        RM["Recorder export manifests&lt;br&gt;from the fixed-income voice-capture estate"]
+        AL["Archive ingest ledger and&lt;br&gt;immutable-storage receipt records"]
+        LH["Legal-hold registry"]
+        RB["Approved retention-policy baseline and&lt;br&gt;books-and-records schedule"]
+    end
+
+    subgraph SEC["Secondary contextual evidence"]
+        CH["Connector deployment tickets,&lt;br&gt;certificate rollover records, telemetry, and retry logs"]
+        CTX["Desk inventory records,&lt;br&gt;line-assignment sheets, and surveillance notes"]
+    end
+
+    subgraph ORCH["Orchestrated investigation workspace"]
+        COORD["Multi-agent investigation orchestrator"]
+        MRG["Recorder-manifest retrieval"]
+        ARC["Archive-ledger reconciliation"]
+        RET["Retention-and-hold baseline verification"]
+        HIS["Change-history analysis"]
+        PKT["Shared investigation record&lt;br&gt;FIVR-Retention-Gap-Investigation-v3"]
+    end
+
+    subgraph GOV["Human approval boundary"]
+        OWN["Monica Reyes&lt;br&gt;Director of Communications Records Governance"]
+        PROMO["Approval gate for source promotion"]
+        USE["Approval gate for downstream use"]
+        DOWN["Human-owned downstream workflows&lt;br&gt;for remediation, disciplinary use, or regulator-facing use"]
+    end
+
+    RM --&gt;|"Read-only manifest evidence"| MRG
+    AL --&gt;|"Hash-linked ingest and receipt evidence"| ARC
+    LH --&gt;|"Frozen hold population"| RET
+    RB --&gt;|"Approved retention baseline"| RET
+    CH --&gt;|"Change-history evidence"| HIS
+    CTX --&gt;|"Lower-precedence contextual evidence"| PROMO
+
+    COORD --&gt;|"Coordinates retrieval and joins"| MRG
+    COORD --&gt;|"Coordinates retrieval and joins"| ARC
+    COORD --&gt;|"Coordinates retrieval and joins"| RET
+    COORD --&gt;|"Coordinates retrieval and joins"| HIS
+
+    MRG --&gt;|"Manifest references and cohort joins"| PKT
+    ARC --&gt;|"Object state and retrieval-index findings"| PKT
+    RET --&gt;|"Hold-scope and retention checks"| PKT
+    HIS --&gt;|"Certificate and connector findings"| PKT
+    PROMO --&gt;|"Explicitly promoted secondary evidence"| PKT
+
+    OWN --&gt;|"Approves source promotion"| PROMO
+    PKT --&gt;|"Findings held at the investigation boundary"| USE
+    OWN --&gt;|"Approves downstream use"| USE
+    USE --&gt;|"Released only after human review"| DOWN
+</div>
+<ul>
+<li>An orchestrated multi-agent design can separate recorder-manifest retrieval, archive-ledger reconciliation, retention-and-hold baseline verification, and change-history analysis while preserving one shared investigation record.</li>
+<li>Shared case memory should preserve cohort-level hypotheses, manifest-to-object joins, timestamp-normalization decisions, blocker status, and rejected explanations so later reviewers can inspect how the packet evolved from <code>v1</code> to <code>v3</code>.</li>
+<li>Human-in-the-loop review is required before promoting any secondary evidence to authoritative use, declaring the primary root cause for all affected cohorts, or using the findings in remediation, disciplinary, or regulator-facing workflows.</li>
+<li>Evidence collection paths should remain read-only and hash-linked where possible so the packet can survive later audit or litigation scrutiny.</li>
+</ul>
+<h2 id="governance-notes">Governance notes<a class="headerlink" href="#governance-notes" title="Permanent link">¶</a></h2>
+<ul>
+<li>Preserve immutable references to recorder manifests, archive-ingest entries, legal-hold exports, and retention baselines; do not restate values without citing the underlying artifact and timestamp.</li>
+<li>Distinguish observed states from inferred causes: an inaccessible archive object is not automatically evidence of failed capture, and a missing hold association is not automatically evidence of policy noncompliance without source-backed confirmation.</li>
+<li>If blocker resolution would require promotion of desk notes, chat fragments, or vendor commentary, Monica Reyes must approve that promotion explicitly inside the packet rather than allowing silent source-precedence drift.</li>
+<li>The workflow must stop at the investigation boundary. Archive replay, retention reclassification, regulator notification, policy edits, employee guidance, and remediation prioritization remain human-owned downstream actions.</li>
+<li>Access to raw voice-recording references, hold populations, and desk attribution evidence should remain restricted to authorized communications-records governance, surveillance investigations, and legal reviewers.</li>
+<li>Residual uncertainty must remain visible if clock skew, missing retry acknowledgements, or alias drift prevent a single-cause conclusion for one or more recording cohorts.</li>
+</ul>
+<h2 id="evaluation-considerations">Evaluation considerations<a class="headerlink" href="#evaluation-considerations" title="Permanent link">¶</a></h2>
+<ul>
+<li>Time to first evidence-backed explanation for the largest missing or inaccessible recording cohort, with cited recorder manifest and archive-ledger references.</li>
+<li>Percentage of affected recording cohorts that can be attributed to capture absence, ingest interruption, retrieval-index mismatch, or explicitly unresolved state without collapsing uncertainty.</li>
+<li>Completeness of the reconciled timeline across recorder export, archive ingest, legal-hold scope, retention controls, and certificate or connector changes.</li>
+<li>Whether source precedence is preserved under pressure, especially when desk notes or supervisor recollections appear to contradict authoritative manifests.</li>
+<li>Whether the packet gives Monica Reyes enough inspected evidence and visible blockers to decide what human-led follow-up is required without the agent making that downstream decision.</li>
+</ul>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>

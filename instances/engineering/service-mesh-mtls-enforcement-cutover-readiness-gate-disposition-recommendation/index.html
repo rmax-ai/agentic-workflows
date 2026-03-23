@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Pattern-first ontology of agentic workflows" name="description"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>Service mesh mTLS enforcement cutover readiness gate disposition recommendation - Agentic Workflows</title>
+<link href="../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#service-mesh-mtls-enforcement-cutover-readiness-gate-disposition-recommendation">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Agentic Workflows" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Agentic Workflows">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Service mesh mTLS enforcement cutover readiness gate disposition recommendation
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to system preference" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to system preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Agentic Workflows" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Agentic Workflows">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Agentic Workflows
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../ontology/">
+<span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/ontology/">
+<span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/schema/">
+<span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/index-tree/">
+<span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/contribution-guide/">
+<span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../pattern-families/">
+<span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../patterns/">
+<span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../browse/">
+<span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../vocabularies/">
+<span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../schema/">
+<span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linked-patterns">
+<span class="md-ellipsis">
+      
+        Linked pattern(s)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#domain">
+<span class="md-ellipsis">
+      
+        Domain
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scenario-summary">
+<span class="md-ellipsis">
+      
+        Scenario summary
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#target-systems-source-systems">
+<span class="md-ellipsis">
+      
+        Target systems / source systems
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-this-instance-matters">
+<span class="md-ellipsis">
+      
+        Why this instance matters
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#likely-architecture-choices">
+<span class="md-ellipsis">
+      
+        Likely architecture choices
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#governance-notes">
+<span class="md-ellipsis">
+      
+        Governance notes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#evaluation-considerations">
+<span class="md-ellipsis">
+      
+        Evaluation considerations
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="service-mesh-mtls-enforcement-cutover-readiness-gate-disposition-recommendation">Service mesh mTLS enforcement cutover readiness gate disposition recommendation<a class="headerlink" href="#service-mesh-mtls-enforcement-cutover-readiness-gate-disposition-recommendation" title="Permanent link">¶</a></h1>
+<blockquote>
+<p>Canonical pattern(s): <a href="../../../patterns/recommend-decide-escalate/readiness-gate-disposition-recommendation/">Readiness gate disposition recommendation</a>
+Source Markdown: <code>instances/engineering/service-mesh-mtls-enforcement-cutover-readiness-gate-disposition-recommendation.md</code></p>
+</blockquote>
+<h2 id="linked-patterns">Linked pattern(s)<a class="headerlink" href="#linked-patterns" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>readiness-gate-disposition-recommendation</code></li>
+</ul>
+<h2 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">¶</a></h2>
+<p>Engineering.</p>
+<h2 id="scenario-summary">Scenario summary<a class="headerlink" href="#scenario-summary" title="Permanent link">¶</a></h2>
+<p>A platform security readiness board is re-evaluating whether the governed packet <code>Service-Mesh-mTLS-Enforcement-Gate-Packet-v4</code> is ready to pass its production mTLS-enforcement cutover gate before the platform-wide plaintext-retirement checkpoint for east-west service traffic. Since the previous packet revision, rollback drill evidence for the legacy gRPC settlement adapter path has aged beyond the fourteen-day freshness window, the frozen workload-compatibility inventory still shows unresolved sidecar behavior for a bounded subset of stateful workloads, the east-west authorization acknowledgment for the data-platform namespace remains unsigned, and two temporary certificate-chain exceptions will expire before the proposed checkpoint. A narrower recommendation limited to the validated stateless payments, identity, and edge-routing workloads may still be feasible. The workflow must recommend whether engineering should proceed as scoped, hold for refreshed evidence and blocker closure, narrow the cutover to the validated workload subset, or escalate because rollback confidence, compatibility uncertainty, policy-acknowledgment gaps, or delegated gate-authority thresholds no longer fit local control before any enforcement flag is flipped, deployment order is set, traffic policy is changed, or live mTLS execution begins. Accountability for packet quality remains with Hana Okafor, Director of Service Mesh Readiness, rather than deployment approval, workload-scope adjudication, scheduling, or execution.</p>
+<p><strong>Prerequisite state that must be confirmed before a disposition can be narrowed or advanced:</strong>
+- The in-scope workload list is frozen in <code>mesh-enforcement-targets-2026-04-18.csv</code> and matches the service catalog export attached to packet <code>Service-Mesh-mTLS-Enforcement-Gate-Packet-v4</code>.
+- The canary telemetry window <code>mesh-mtls-canary-2026-04-11T00Z-2026-04-13T00Z</code> is captured, sealed read-only, and mapped to the exact workloads proposed for the gate.
+- Current rollback rehearsal evidence for the Envoy policy-reversal path and legacy sidecar bypass path is present, versioned, and still inside the policy freshness limit unless explicitly surfaced as a blocker.
+- Delegated authority snapshot <code>Mesh-Gate-Authority-Snapshot-2026-04-12</code> is attached and confirms which proceed, hold, narrow, or escalation paths Hana Okafor may package for the human gate owner.
+- The temporary certificate-chain exception register and east-west authorization-policy baseline are pinned to the active review window so later edits cannot silently change the packet basis.</p>
+<div class="mermaid">flowchart TD
+    A["Refresh `Service-Mesh-mTLS-Enforcement-Gate-Packet-v4`&lt;br&gt;with the latest rollback, compatibility,&lt;br&gt;policy, and certificate-chain evidence"]
+    B["Apply source-precedence tiers,&lt;br&gt;confirm prerequisite frozen or live-control state,&lt;br&gt;and surface visible blockers"]
+    C{"All non-waivable controls are current&lt;br&gt;for the full target-workload scope?"}
+    D{"A narrower stateless-workload subset&lt;br&gt;can satisfy policy, rollback, and authority bounds&lt;br&gt;while legacy workloads stay isolated?"}
+    E{"Remaining issues are refreshable blockers&lt;br&gt;that still stay within mesh-readiness control?"}
+    P["Recommend proceed as scoped&lt;br&gt;for the current mTLS-enforcement gate"]
+    N["Recommend narrow&lt;br&gt;to the validated stateless workload subset"]
+    H["Recommend hold&lt;br&gt;for refreshed rollback, policy, or certificate evidence"]
+    X["Recommend escalate&lt;br&gt;because authority or non-waivable thresholds are exceeded"]
+    J["Hand off the packet, blocker register,&lt;br&gt;and rationale to the human gate owner"]
+
+    A --&gt; B
+    B --&gt; C
+    C --&gt;|"Yes"| P
+    C --&gt;|"No"| D
+    D --&gt;|"Yes"| N
+    D --&gt;|"No"| E
+    E --&gt;|"Yes"| H
+    E --&gt;|"No"| X
+    P --&gt; J
+    N --&gt; J
+    H --&gt; J
+    X --&gt; J
+</div>
+<h2 id="target-systems-source-systems">Target systems / source systems<a class="headerlink" href="#target-systems-source-systems" title="Permanent link">¶</a></h2>
+<p><strong>Authoritative (highest precedence):</strong>
+- <code>Service-Mesh-mTLS-Enforcement-Gate-Packet-v4</code>, prior packet revision <code>Service-Mesh-mTLS-Enforcement-Gate-Packet-v3</code>, the delegated authority snapshot, and the signed gate definition for the <code>platform transport-security review lane</code>
+- The frozen target-workload inventory, current service catalog ownership export, and workload compatibility ledger covering sidecar mode, ambient readiness, and exception status by namespace
+- Rollback rehearsal evidence for policy reversal and legacy sidecar bypass, captured canary telemetry for the named review window, and the current east-west authorization-policy baseline
+- The certificate-chain exception register, mesh trust-domain policy thresholds, and signed security-control standard governing required mTLS coverage</p>
+<p><strong>Operational and contextual (secondary precedence):</strong>
+- Namespace readiness dashboards, synthetic check summaries, dependency topology views, and control-plane health panels used to interpret current packet evidence
+- Reviewer annotations from platform security, traffic management, and workload owners attached to packet <code>v3</code> and the working draft for <code>v4</code>
+- The change-calendar checkpoint record and prior gate-review notes that explain why the current packet returned for refresh</p>
+<p><strong>Excluded from authoritative use without explicit promotion:</strong>
+- Daily migration standup notes, informal Slack threads, or screenshots that are not linked back to the packet, compatibility ledger, or rollback evidence store
+- Verbal assurances from workload owners that a namespace is "probably safe" unless that claim appears in the frozen compatibility inventory or signed reviewer annotation
+- Draft deployment runbooks, scheduling proposals, or rollout sequencing suggestions created for downstream cutover execution</p>
+<h2 id="why-this-instance-matters">Why this instance matters<a class="headerlink" href="#why-this-instance-matters" title="Permanent link">¶</a></h2>
+<p>This instance grounds <code>readiness-gate-disposition-recommendation</code> in engineering through one exact service-mesh enforcement gate packet rather than through synthesis, collaborative upkeep, release execution, or approval submission. The hard problem is not deciding the deployment order or forcing a cutover plan; it is refreshing one governed readiness judgment as rollback proof, workload compatibility evidence, policy acknowledgment state, and certificate exceptions shift around a known gate. The example is structurally distinct from the earlier payments cutover lane because the readiness question turns on transport-security enforcement over a frozen workload inventory, live canary telemetry, and explicit policy acknowledgments rather than schema compatibility or merchant segmentation.</p>
+<h2 id="likely-architecture-choices">Likely architecture choices<a class="headerlink" href="#likely-architecture-choices" title="Permanent link">¶</a></h2>
+<div class="mermaid">flowchart LR
+    H["Hana Okafor&lt;br&gt;Director of Service Mesh Readiness"]
+    W["Service mesh mTLS-enforcement&lt;br&gt;readiness recommendation workflow"]
+    P["Service-Mesh-mTLS-Enforcement-Gate-Packet-v4"]
+    I["mesh-enforcement-targets-2026-04-18.csv&lt;br&gt;and service catalog export"]
+    C["Workload compatibility ledger"]
+    R["Rollback rehearsal evidence&lt;br&gt;and mesh-mtls-canary-2026-04-11T00Z-2026-04-13T00Z"]
+    A["Mesh-Gate-Authority-Snapshot-2026-04-12&lt;br&gt;and signed gate definition&lt;br&gt;for the platform transport-security review lane"]
+    S["Certificate-chain exception register&lt;br&gt;and east-west authorization-policy baseline"]
+    D["Proceed / hold / narrow / escalate&lt;br&gt;recommendation"]
+    B["Stop before any enforcement flag,&lt;br&gt;deployment order, traffic policy change,&lt;br&gt;or live mTLS execution"]
+    G["Omar Bennett&lt;br&gt;Chair of the Platform Transport Security Gate"]
+
+    H --&gt;|"Accountable for packet quality"| P
+    P --&gt;|"Refreshes and evaluates"| W
+    I --&gt;|"Read-only evidence"| W
+    C --&gt;|"Read-only evidence"| W
+    R --&gt;|"Read-only evidence"| W
+    A --&gt;|"Authority bounds"| W
+    S --&gt;|"Read-only controls"| W
+    W --&gt;|"Updates with rationale"| P
+    W --&gt;|"Produces"| D
+    W --&gt;|"Stops before"| B
+    D --&gt;|"Handed off for governed review"| G
+    P --&gt;|"Submitted with refreshed evidence"| G
+</div>
+<ul>
+<li>Event-driven monitoring fits because rollback-evidence expiry, compatibility-ledger changes, policy acknowledgment updates, and certificate-exception deadlines should trigger a refreshed gate recommendation immediately.</li>
+<li>Human-in-the-loop review is mandatory because the workflow should advise on proceed, hold, narrow, or escalate posture, not approve the cutover, redefine workload scope, schedule the checkpoint, or start enforcement.</li>
+<li>Read-only integration with service catalog, mesh policy, observability, and security-governance systems is preferable so the agent cannot silently convert a recommendation packet into a live traffic-policy change.</li>
+</ul>
+<h2 id="governance-notes">Governance notes<a class="headerlink" href="#governance-notes" title="Permanent link">¶</a></h2>
+<ul>
+<li>The workflow should stay centered on one inspectable artifact, <code>Service-Mesh-mTLS-Enforcement-Gate-Packet-v4</code>, with recommendation lineage preserved back to <code>Service-Mesh-mTLS-Enforcement-Gate-Packet-v2</code> and <code>v3</code>, including accepted and rejected narrowing proposals plus the evidence delta that changed the recommended disposition.</li>
+<li>Source precedence must remain explicit: the signed gate packet, delegated authority snapshot, frozen workload inventory, rollback evidence, canary telemetry window, policy baseline, and certificate-exception register outrank readiness standups, namespace chat, or unverified owner commentary. Lower-precedence material can contextualize the packet but cannot silently override blockers.</li>
+<li>Prerequisite frozen or live-control state must stay visible in the packet, including the frozen target-workload list, sealed canary telemetry window, current rollback drill evidence, active authority snapshot, and pinned certificate-exception plus policy baselines for the review window.</li>
+<li>Visible blockers should remain concrete and named, including stale rollback proof for the legacy gRPC settlement adapter path, unresolved sidecar compatibility for the <code>payments-ledger-sync</code> and <code>orders-journal-writer</code> workloads, the unsigned east-west policy acknowledgment for the <code>data-platform</code> namespace, and certificate-chain exceptions <code>mesh-cert-exc-117</code> and <code>mesh-cert-exc-122</code> that expire before the checkpoint; any narrow recommendation must show exactly which namespaces and workloads stay out of scope.</li>
+<li>The human decision lane should remain concrete: Omar Bennett, Chair of the Platform Transport Security Gate, receives the packet for governed disposition review while Hana Okafor remains the named owner accountable for packet integrity, blocker visibility, and evidence freshness rather than the gate decision itself.</li>
+<li>The boundary must remain clear: the workflow does not approve the gate, adjudicate long-term workload scope, schedule the cutover, alter traffic policies, rotate certificates, or execute the enforcement change.</li>
+</ul>
+<h2 id="evaluation-considerations">Evaluation considerations<a class="headerlink" href="#evaluation-considerations" title="Permanent link">¶</a></h2>
+<ul>
+<li>Reviewer agreement with the recommended proceed, hold, narrow, or escalate disposition before any mTLS-enforcement flag change or policy promotion is authorized</li>
+<li>Rate at which stale rollback proof, unresolved compatibility gaps, unsigned policy acknowledgments, or expiring certificate exceptions are surfaced before the governed gate checkpoint</li>
+<li>Quality of traceability linking source-precedence tiers, prerequisite state, blocker visibility, revision lineage, and named ownership to the disposition recommendation</li>
+<li>Stability of recommendations when compatibility evidence, telemetry health, rollback freshness, or certificate-exception state changes during the final gate window</li>
+</ul>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>

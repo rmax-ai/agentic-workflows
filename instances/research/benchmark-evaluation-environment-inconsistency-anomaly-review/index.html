@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Pattern-first ontology of agentic workflows" name="description"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>Benchmark evaluation environment inconsistency anomaly review - Agentic Workflows</title>
+<link href="../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#benchmark-evaluation-environment-inconsistency-anomaly-review">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Agentic Workflows" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Agentic Workflows">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Benchmark evaluation environment inconsistency anomaly review
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to system preference" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to system preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Agentic Workflows" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Agentic Workflows">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Agentic Workflows
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../ontology/">
+<span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/ontology/">
+<span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/schema/">
+<span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/index-tree/">
+<span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/contribution-guide/">
+<span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../pattern-families/">
+<span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../patterns/">
+<span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../browse/">
+<span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../vocabularies/">
+<span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../schema/">
+<span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linked-patterns">
+<span class="md-ellipsis">
+      
+        Linked pattern(s)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#domain">
+<span class="md-ellipsis">
+      
+        Domain
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scenario-summary">
+<span class="md-ellipsis">
+      
+        Scenario summary
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#target-systems-source-systems">
+<span class="md-ellipsis">
+      
+        Target systems / source systems
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-this-instance-matters">
+<span class="md-ellipsis">
+      
+        Why this instance matters
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#likely-architecture-choices">
+<span class="md-ellipsis">
+      
+        Likely architecture choices
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#governance-notes">
+<span class="md-ellipsis">
+      
+        Governance notes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#evaluation-considerations">
+<span class="md-ellipsis">
+      
+        Evaluation considerations
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="benchmark-evaluation-environment-inconsistency-anomaly-review">Benchmark evaluation environment inconsistency anomaly review<a class="headerlink" href="#benchmark-evaluation-environment-inconsistency-anomaly-review" title="Permanent link">¶</a></h1>
+<blockquote>
+<p>Canonical pattern(s): <a href="../../../patterns/monitor-detect-triage/anomaly-detection-review/">Anomaly detection review</a>
+Source Markdown: <code>instances/research/benchmark-evaluation-environment-inconsistency-anomaly-review.md</code></p>
+</blockquote>
+<h2 id="linked-patterns">Linked pattern(s)<a class="headerlink" href="#linked-patterns" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>anomaly-detection-review</code></li>
+</ul>
+<h2 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">¶</a></h2>
+<p>Research.</p>
+<h2 id="scenario-summary">Scenario summary<a class="headerlink" href="#scenario-summary" title="Permanent link">¶</a></h2>
+<p>A research evaluation governance team monitors scheduled benchmark reruns, environment manifests, container digests, accelerator assignments, tokenizer and runtime versions, queue-worker placement, and reviewer notes to detect mid-severity evaluation-environment anomalies before they harden into a formal reproducibility incident or publication-integrity escalation. The workflow must collapse duplicate anomalies tied to the same study, benchmark suite, and review window; enrich each case with the approved evaluation baseline, planned infrastructure changes, environment provenance gaps, prior reviewer dispositions, and claim sensitivity; and then prioritize which unexplained inconsistencies deserve human review. A case should enter the review queue when, for example, nominally identical benchmark runs alternate between two accelerator classes without an approved migration note, the same prompt cohort is evaluated under mismatched tokenizer or runtime hashes during a release-sensitive review window, or evaluation jobs spill across regions with different container digests even though the study manifest still records one canonical environment. The goal is an explainable anomaly review packet for research governance, benchmark platform owners, or reproducibility reviewers, not to authorize reruns, diagnose root cause, reconfigure infrastructure, or decide publication posture automatically.</p>
+<div class="mermaid">flowchart TD
+    A["Anomaly signal ingestion&lt;br&gt;Run manifests, environment provenance, placement, and reviewer notes"]
+    B["Duplicate merge&lt;br&gt;Collapse cases by study, benchmark suite, and review window"]
+    C["Baseline/context enrichment&lt;br&gt;Attach approved baseline, change records, provenance gaps, prior dispositions, and claim sensitivity"]
+    D["Prioritization&lt;br&gt;Rank unexplained inconsistencies by impact, confidence, and review urgency"]
+    E["Human review routing&lt;br&gt;Send explainable packet to research governance, benchmark platform owners, or reproducibility reviewers"]
+
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D
+    D --&gt; E
+</div>
+<h2 id="target-systems-source-systems">Target systems / source systems<a class="headerlink" href="#target-systems-source-systems" title="Permanent link">¶</a></h2>
+<ul>
+<li>Experiment-tracking and benchmark orchestration systems with run manifests, benchmark cohort identifiers, seed policies, and rerun schedules</li>
+<li>Environment provenance stores with container-image digests, accelerator class assignments, region placement, runtime and tokenizer hashes, and dependency-lock snapshots</li>
+<li>Infrastructure change records with approved maintenance windows, planned cluster migrations, queue-routing policies, and temporary exception notes</li>
+<li>Research governance and review tooling with variance bands, reviewer comments, benchmark claim sensitivity, and prior anomaly dispositions</li>
+<li>Access-controlled review queues and audit-grade evidence storage preserving anomaly lineage, suppressions, queue movements, routed packets, and reviewer overrides</li>
+</ul>
+<h2 id="why-this-instance-matters">Why this instance matters<a class="headerlink" href="#why-this-instance-matters" title="Permanent link">¶</a></h2>
+<p>This grounds <code>anomaly-detection-review</code> in research work where the early-warning problem is not yet explaining why a replication changed, but noticing when the evaluation environment itself appears to be drifting away from the approved baseline in ways that deserve governed human attention. A weak workflow would either flood reviewers with every benign scheduler fluctuation and maintenance artifact or miss the one recurring inconsistency pattern that later undermines confidence in a benchmark claim. The instance stays inside monitor/detect/triage because the agentic work is continuous anomaly watching, bounded context assembly, duplicate suppression, prioritization, and routing into human review rather than rerun authorization, platform remediation, claim adjudication, or retrospective investigation.</p>
+<h2 id="likely-architecture-choices">Likely architecture choices<a class="headerlink" href="#likely-architecture-choices" title="Permanent link">¶</a></h2>
+<div class="mermaid">flowchart LR
+    A["Experiment tracking&lt;br&gt;and benchmark orchestration"]
+    B["Environment provenance&lt;br&gt;stores"]
+    C["Infrastructure change&lt;br&gt;records"]
+    D["Research governance&lt;br&gt;and review tooling"]
+    E["Tool-using single agent&lt;br&gt;within bounded delegation"]
+    F["Access-controlled&lt;br&gt;review queue"]
+    G["Audit-grade evidence&lt;br&gt;storage"]
+    H["Research governance,&lt;br&gt;benchmark platform owners,&lt;br&gt;or reproducibility reviewers"]
+
+    A --&gt;|"run manifests&lt;br&gt;and rerun schedules"| E
+    B --&gt;|"digests, hashes,&lt;br&gt;and placements"| E
+    C --&gt;|"maintenance windows&lt;br&gt;and exceptions"| E
+    D --&gt;|"approved baseline,&lt;br&gt;claim sensitivity,&lt;br&gt;and prior dispositions"| E
+    E --&gt;|"prioritized anomaly&lt;br&gt;packet"| F
+    E --&gt;|"lineage, suppressions,&lt;br&gt;and routing history"| G
+    F --&gt;|"review packet"| H
+    E --&gt;|"uncertain or higher-&lt;br&gt;consequence cases"| H
+    H --&gt;|"reviewer overrides"| G
+</div>
+<ul>
+<li>Event-driven monitoring should continuously ingest run-manifest changes, environment provenance updates, scheduler placement events, and maintenance annotations, then reopen or merge anomaly clusters as fresh evidence arrives.</li>
+<li>A tool-using single agent can correlate benchmark identifiers across experiment, environment, infrastructure, and governance systems; compare the anomaly against the approved evaluation baseline; attach bounded provenance context; and publish a prioritized review packet with explicit inconsistency drivers.</li>
+<li>Bounded delegation fits because in-policy mid-severity environment anomaly packets can route into a preapproved research review queue without case-by-case approval, while uncertain or higher-consequence cases still escalate to accountable humans before any rerun, claim, or infrastructure action occurs.</li>
+<li>Root-cause analysis, rerun planning, environment rollback, and publication or disclosure decisions should remain downstream human-owned workflows.</li>
+</ul>
+<h2 id="governance-notes">Governance notes<a class="headerlink" href="#governance-notes" title="Permanent link">¶</a></h2>
+<ul>
+<li>Review packets should distinguish observed environment inconsistencies, approved maintenance or migration context, known benign exceptions, and unresolved provenance gaps so reviewers can see what is signal versus uncertainty.</li>
+<li>Sensitive unpublished benchmark outputs, prompt sets, infrastructure topology details, reviewer identities, and partner-restricted environment information should be minimized in broad queue views while remaining traceable in restricted evidence systems.</li>
+<li>Reversibility should remain explicit: queue placement, anomaly labels, and packet contents can be recomputed as late environment metadata arrives or temporary exceptions are documented, but missed review windows may be only partially recoverable once benchmark claims are reused or review deadlines pass.</li>
+<li>Approval boundaries must remain firm: only authorized benchmark platform owners, research governance reviewers, or designated reproducibility leads may decide whether the anomaly triggers reruns, environment changes, publication holds, or deeper investigation.</li>
+<li>Auditability should preserve source timestamps, baseline-environment versions, suppression rationale, duplicate handling, reviewer overrides, and routing history so later controls review can reconstruct why an environment inconsistency did or did not receive prompt human attention.</li>
+</ul>
+<h2 id="evaluation-considerations">Evaluation considerations<a class="headerlink" href="#evaluation-considerations" title="Permanent link">¶</a></h2>
+<ul>
+<li>Recall of historically meaningful evaluation-environment inconsistency anomalies that should have reached human review before benchmark reuse or publication-readiness pressure increased</li>
+<li>Reduction in duplicate reviewer work from merged scheduler, provenance, and runtime-version anomalies without lowering capture of genuinely important inconsistencies</li>
+<li>Median time from first anomalous environment signal to a review packet containing approved-baseline context, provenance references, unresolved uncertainty, and routing rationale</li>
+<li>Reviewer override rate for anomaly packets that were over-ranked because expected maintenance looked anomalous or under-ranked because cross-system environment context was not assembled clearly enough</li>
+<li>Auditability of suppression, merge, and routing decisions during reproducibility review, platform-controls testing, or internal benchmark-governance retrospectives</li>
+</ul>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>

@@ -1,0 +1,503 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Pattern-first ontology of agentic workflows" name="description"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>Restricted production crash-dump redaction exposure root-cause investigation - Agentic Workflows</title>
+<link href="../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#restricted-production-crash-dump-redaction-exposure-root-cause-investigation">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Agentic Workflows" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Agentic Workflows">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Restricted production crash-dump redaction exposure root-cause investigation
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to system preference" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to system preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Agentic Workflows" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Agentic Workflows">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Agentic Workflows
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../ontology/">
+<span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/ontology/">
+<span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/schema/">
+<span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/index-tree/">
+<span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/contribution-guide/">
+<span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../pattern-families/">
+<span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../patterns/">
+<span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../browse/">
+<span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../vocabularies/">
+<span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../schema/">
+<span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linked-patterns">
+<span class="md-ellipsis">
+      
+        Linked pattern(s)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#domain">
+<span class="md-ellipsis">
+      
+        Domain
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scenario-summary">
+<span class="md-ellipsis">
+      
+        Scenario summary
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#target-systems-source-systems">
+<span class="md-ellipsis">
+      
+        Target systems / source systems
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-this-instance-matters">
+<span class="md-ellipsis">
+      
+        Why this instance matters
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#likely-architecture-choices">
+<span class="md-ellipsis">
+      
+        Likely architecture choices
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#governance-notes">
+<span class="md-ellipsis">
+      
+        Governance notes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#evaluation-considerations">
+<span class="md-ellipsis">
+      
+        Evaluation considerations
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="restricted-production-crash-dump-redaction-exposure-root-cause-investigation">Restricted production crash-dump redaction exposure root-cause investigation<a class="headerlink" href="#restricted-production-crash-dump-redaction-exposure-root-cause-investigation" title="Permanent link">¶</a></h1>
+<blockquote>
+<p>Canonical pattern(s): <a href="../../../patterns/investigate-reconcile-verify/incident-root-cause-analysis/">Incident root cause analysis</a>
+Source Markdown: <code>instances/engineering/restricted-production-crash-dump-redaction-exposure-root-cause-investigation.md</code></p>
+</blockquote>
+<h2 id="linked-patterns">Linked pattern(s)<a class="headerlink" href="#linked-patterns" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>incident-root-cause-analysis</code></li>
+</ul>
+<h2 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">¶</a></h2>
+<p>Engineering.</p>
+<h2 id="scenario-summary">Scenario summary<a class="headerlink" href="#scenario-summary" title="Permanent link">¶</a></h2>
+<p>During a severity-one production reliability incident, a restricted debugging lane receives a crash-dump evidence package that should contain only approved redacted memory regions and symbolized stack context. Minutes later, privacy engineering detects that one attachment in the restricted workspace contains raw stack fragments and session-token residue that were absent from the first reviewed package manifest, while the crash-dump lineage record also shows a mismatch between the redacted package hash, the object-store version now linked to the workspace, and the policy bundle digest that should have governed sanitization. The engineering organization must determine which evidence-backed explanation best accounts for both the sensitive-data exposure and the lineage drift without assuming the problem was only a viewer glitch or a simple operator mistake. Plausible competing causes include a stale redaction-policy bundle replayed by one worker pool after a region failover, a manual debugger export that bypassed the expected redaction gate during a live-control override, a symbolization backfill job that reattached raw memory segments to the already-redacted package, or an evidence-manifest reindex event that linked the restricted workspace to the wrong object version after quarantine promotion. The investigation stays bounded to one exact governed artifact, <code>Crash-Dump-Exposure-Lineage-RCA-Packet-v5</code>, owned by Priya Nand, Director of Restricted Debugging Integrity, and ends at a ranked explanation set with explicit uncertainty rather than exposure declaration, customer or regulator communication, debugger-access restoration, policy rewrite, remediation execution, deployment, or other downstream action.</p>
+<p><strong>Prerequisite state that must be confirmed before narrowing hypotheses:</strong>
+- The affected crash-dump identifiers, restricted workspace id, and incident window are frozen so no new attachments, exports, or workspace relinks can enter scope without citation.
+- Read-only investigation mode is active on the crash-dump vault, redaction pipeline workspace, and evidence-manifest store, except for append-only packet updates in <code>Crash-Dump-Exposure-Lineage-RCA-Packet-v5</code>.
+- Object-retention hold and audit-log preservation are active for all raw and redacted dump objects, symbolization artifacts, and manifest revisions in the incident window.
+- The approved redaction-policy bundle snapshot, worker-image digest set, and prior packet revision <code>Crash-Dump-Exposure-Lineage-RCA-Packet-v4</code> are preserved and timestamped.
+- The current restricted-workspace export, access-control snapshot, and reviewer-observation ledger have been captured so later UI or permission changes do not rewrite the investigation baseline.</p>
+<div class="mermaid">flowchart TD
+    A["Restricted crash-dump workspace shows&lt;br&gt;unexpected raw stack fragments and&lt;br&gt;lineage drift during a Sev-1 investigation"]
+    B["Open exact investigation artifact&lt;br&gt;`Crash-Dump-Exposure-Lineage-RCA-Packet-v5`;&lt;br&gt;confirm frozen state, retention hold,&lt;br&gt;and preserved policy snapshot"]
+    C["Normalize timestamps across vault audit log,&lt;br&gt;redaction-execution ledger, object-store versions,&lt;br&gt;manifest revisions, access-control events,&lt;br&gt;and reviewer observations"]
+    D{"Frozen-state prerequisites and&lt;br&gt;authoritative evidence complete enough&lt;br&gt;to test competing causes?"}
+    E["Hold causal ranking;&lt;br&gt;record missing artifacts, stale snapshots,&lt;br&gt;and blocked lineage links in packet v5"]
+    F["Test hypothesis 1:&lt;br&gt;stale redaction-policy bundle replayed&lt;br&gt;after worker-pool failover"]
+    G["Test hypothesis 2:&lt;br&gt;manual debugger export bypassed&lt;br&gt;the expected redaction gate"]
+    H["Test hypothesis 3:&lt;br&gt;symbolization backfill reattached&lt;br&gt;raw memory segments after redaction"]
+    I["Test hypothesis 4:&lt;br&gt;manifest reindex linked the workspace&lt;br&gt;to the wrong object version"]
+    J["Compare supporting and disconfirming evidence;&lt;br&gt;preserve source precedence and keep&lt;br&gt;multiple plausible explanations visible"]
+    K{"One explanation best fits both&lt;br&gt;the exposure symptom and lineage drift&lt;br&gt;with cited artifacts?"}
+    L["Document residual uncertainty,&lt;br&gt;visible blockers, and hypothesis ranking&lt;br&gt;without declaring remediation"]
+    M["Escalate packet v5 to Priya Nand&lt;br&gt;for human-owned adjudication of the investigation record"]
+
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D
+    D --&gt;|"No"| E
+    E --&gt; M
+    D --&gt;|"Yes"| F
+    D --&gt;|"Yes"| G
+    D --&gt;|"Yes"| H
+    D --&gt;|"Yes"| I
+    F --&gt; J
+    G --&gt; J
+    H --&gt; J
+    I --&gt; J
+    J --&gt; K
+    K --&gt;|"No"| L
+    L --&gt; M
+    K --&gt;|"Yes"| M
+</div>
+<h2 id="target-systems-source-systems">Target systems / source systems<a class="headerlink" href="#target-systems-source-systems" title="Permanent link">¶</a></h2>
+<p><strong>Authoritative (highest precedence):</strong>
+- Crash-dump vault audit ledger for the affected dump set, including raw-object creation, quarantine transitions, redacted-object publication, access grants, export actions, and immutable actor timestamps
+- Redaction-pipeline execution ledger and worker attestation records, including policy-bundle digest, worker-image digest, sanitizer stage outputs, symbolization job ids, and append-only step lineage
+- Evidence-manifest and object-store version history for the restricted workspace package, including manifest revisions, object-version identifiers, attachment hashes, delete markers, and retention-hold state
+- Approved redaction-policy bundle snapshot and restricted-debugging control-state record captured for the incident window</p>
+<p><strong>Operational and contextual (secondary precedence):</strong>
+- Restricted privacy-engineering workspace views, reviewer-observation ledger, and prior packet revision <code>Crash-Dump-Exposure-Lineage-RCA-Packet-v4</code>
+- Access-proxy telemetry, worker-pool health dashboards, failover alerts, symbol server job traces, and manifest reindex queue telemetry
+- Responder bridge notes from privacy engineering, production reliability, and crash forensics staff documenting what they observed before and after the discrepancy surfaced</p>
+<p><strong>Excluded from authoritative use without explicit promotion:</strong>
+- Screenshots or copied dump fragments that are not linked to the vault audit ledger, object-version history, or manifest revision record
+- Informal chat claims about what the package contained unless they match reviewer-observation entries or immutable access events
+- Later remediation tickets, policy edits, access-restoration steps, or customer-notification drafts created after the frozen investigation window</p>
+<h2 id="why-this-instance-matters">Why this instance matters<a class="headerlink" href="#why-this-instance-matters" title="Permanent link">¶</a></h2>
+<p>This grounds <code>incident-root-cause-analysis</code> in engineering through a high-governance debugging incident where the investigation problem is not generic service latency or a simple missing log, but the need to explain how sensitive crash evidence appeared in a restricted workspace while package lineage simultaneously drifted across multiple authoritative systems. The instance is structurally distinct from the existing payments latency investigation because it centers one exact RCA packet revision, explicit source precedence between vault, execution, manifest, and policy records, frozen investigative control state before hypothesis narrowing, visible blockers that can stop causal ranking, and revision-aware lineage from <code>v4</code> to <code>v5</code>. It is also distinct from neighboring engineering collaboration, readiness, browser-submission, synthesis, and runbook examples because the workflow stays inside evidence-backed causal diagnosis only, ending before privacy adjudication, debugger access decisions, remediation planning, or live operational change.</p>
+<h2 id="likely-architecture-choices">Likely architecture choices<a class="headerlink" href="#likely-architecture-choices" title="Permanent link">¶</a></h2>
+<div class="mermaid">flowchart LR
+    responders["Privacy engineering,&lt;br&gt;production reliability, and&lt;br&gt;crash forensics responders"] --&gt;|"Review competing causes,&lt;br&gt;source precedence, and&lt;br&gt;packet updates"| packet["Crash-Dump-Exposure-Lineage-RCA-Packet-v5&lt;br&gt;shared RCA packet"]
+    controls["Frozen incident window,&lt;br&gt;read-only investigation mode,&lt;br&gt;retention hold, and&lt;br&gt;audit-log preservation"] --&gt;|"Bound scope and&lt;br&gt;govern evidence access"| agents["Orchestrated multi-agent flow"]
+    vault["Crash-dump vault&lt;br&gt;audit ledger"] --&gt;|"Raw-object creation,&lt;br&gt;quarantine transitions,&lt;br&gt;redacted publication,&lt;br&gt;access grants, and exports"| agents
+    pipeline["Redaction-pipeline execution ledger&lt;br&gt;and worker attestation records"] --&gt;|"Policy-bundle digest,&lt;br&gt;worker-image digest,&lt;br&gt;sanitizer outputs, and&lt;br&gt;symbolization lineage"| agents
+    manifest["Evidence-manifest and&lt;br&gt;object-store version history"] --&gt;|"Manifest revisions,&lt;br&gt;object versions,&lt;br&gt;attachment hashes, and&lt;br&gt;retention-hold state"| agents
+    policy["Approved redaction-policy bundle snapshot&lt;br&gt;and restricted-debugging control-state record"] --&gt;|"Policy snapshot and&lt;br&gt;control-state baseline"| agents
+    context["Reviewer-observation ledger,&lt;br&gt;restricted workspace views,&lt;br&gt;prior packet revision&lt;br&gt;Crash-Dump-Exposure-Lineage-RCA-Packet-v4,&lt;br&gt;and responder bridge notes"] --&gt;|"Secondary context,&lt;br&gt;packet lineage inputs, and&lt;br&gt;observed discrepancies"| agents
+    telemetry["Access-proxy telemetry,&lt;br&gt;worker-pool health dashboards,&lt;br&gt;failover alerts, symbol server job traces,&lt;br&gt;and manifest reindex queue telemetry"] --&gt;|"Corroborating signals for&lt;br&gt;failover, export, backfill, and&lt;br&gt;reindex hypotheses"| agents
+    agents --&gt;|"Frozen-state checks,&lt;br&gt;blocker status, rejected explanations,&lt;br&gt;and ranked explanations with&lt;br&gt;explicit uncertainty"| packet
+    packet --&gt;|"Human adjudication of the&lt;br&gt;investigation record"| owner["Priya Nand,&lt;br&gt;Director of Restricted&lt;br&gt;Debugging Integrity"]
+    owner --&gt;|"Stop at ranked explanations;&lt;br&gt;do not perform exposure declaration,&lt;br&gt;customer communication,&lt;br&gt;access restoration, remediation,&lt;br&gt;or deployment"| boundary["Bounded investigation outcome"]
+</div>
+<ul>
+<li>An orchestrated multi-agent flow can separate vault-audit retrieval, redaction-lineage reconstruction, manifest-version comparison, and hypothesis verification while preserving one shared RCA packet.</li>
+<li>Shared case memory should retain source-precedence decisions, frozen-state checks, blocker status, rejected explanations, and packet lineage from <code>v4</code> to <code>v5</code> so later reviewers can inspect how the investigation evolved.</li>
+<li>Human-in-the-loop review remains mandatory before any explanation is treated as the primary cause because the packet may affect restricted-debugging governance, privacy handling, and downstream containment or disclosure decisions.</li>
+<li>Read-only integrations should be preferred for crash-dump vault, redaction pipeline, manifest store, and access-control evidence collection so the investigation does not mutate the state it is attempting to explain.</li>
+</ul>
+<h2 id="governance-notes">Governance notes<a class="headerlink" href="#governance-notes" title="Permanent link">¶</a></h2>
+<ul>
+<li>The investigation record should cite the exact authoritative artifact behind each claim and state clearly when reviewer observations or dashboard views conflict with vault, pipeline, manifest, or policy records rather than smoothing those conflicts away.</li>
+<li>Source precedence must remain explicit: vault audit history, redaction-execution lineage, object-version history, and the captured policy snapshot outrank workspace views, health dashboards, job traces, and human notes; lower-precedence evidence can contextualize but not silently override the authoritative record.</li>
+<li>Visible blockers such as a missing worker-log shard, stale policy-bundle digest from one failover region, an unlinked manual export session, or absent reviewer-observation linkage should remain in packet <code>v5</code> instead of being normalized into a single-cause story.</li>
+<li>Revision-aware lineage should show what changed from <code>Crash-Dump-Exposure-Lineage-RCA-Packet-v4</code> to <code>v5</code>, including newly attached evidence links, demoted hypotheses, and still-open uncertainty, so later review can audit the reasoning path.</li>
+<li>Priya Nand remains the named human owner for the investigation packet; exposure declaration, customer or regulator communication, debugger-access restoration, policy changes, code fixes, and broader incident handling are separate downstream decisions that this workflow does not perform.</li>
+<li>Access to raw crash fragments, symbolization outputs, policy digests, and restricted-workspace evidence should remain limited to the approved privacy engineering and forensics investigation group during the RCA process.</li>
+</ul>
+<h2 id="evaluation-considerations">Evaluation considerations<a class="headerlink" href="#evaluation-considerations" title="Permanent link">¶</a></h2>
+<ul>
+<li>Time to first evidence-backed explanation that accounts for both the unexpected raw-data exposure and the package-lineage drift with cited authoritative artifacts</li>
+<li>Whether prerequisite frozen-state checks and source-precedence rules prevent the workflow from ranking causes before vault, execution, manifest, and policy snapshots are complete</li>
+<li>Agreement between the workflow's ranked hypothesis set and Priya Nand's final accepted investigation conclusion, including whether residual uncertainty was preserved when one cause could not be fully isolated</li>
+<li>Rate at which missing worker lineage, stale policy snapshots, unsupported observer claims, or ambiguous manifest relinks surface as explicit blockers rather than being normalized into overconfident conclusions</li>
+<li>Inspectability of packet lineage from <code>v4</code> to <code>v5</code>, including which hypotheses were strengthened, weakened, or left open as new evidence was reconciled</li>
+</ul>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>

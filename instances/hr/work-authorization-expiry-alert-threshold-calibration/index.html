@@ -1,0 +1,655 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Pattern-first ontology of agentic workflows" name="description"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>Work authorization expiry alert threshold calibration - Agentic Workflows</title>
+<link href="../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#work-authorization-expiry-alert-threshold-calibration">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Agentic Workflows" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Agentic Workflows">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Agentic Workflows
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Work authorization expiry alert threshold calibration
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to system preference" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to system preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Agentic Workflows" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Agentic Workflows">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Agentic Workflows
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../ontology/">
+<span class="md-ellipsis">
+    
+  
+    Ontology
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Ontology
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/ontology/">
+<span class="md-ellipsis">
+    
+  
+    Ontology model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/schema/">
+<span class="md-ellipsis">
+    
+  
+    Canonical pattern schema guide
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/index-tree/">
+<span class="md-ellipsis">
+    
+  
+    Proposed browse tree
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ontology/contribution-guide/">
+<span class="md-ellipsis">
+    
+  
+    Contribution guide
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../pattern-families/">
+<span class="md-ellipsis">
+    
+  
+    Pattern Families
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../patterns/">
+<span class="md-ellipsis">
+    
+  
+    Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../browse/">
+<span class="md-ellipsis">
+    
+  
+    Browse
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    
+  
+    Instances
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../vocabularies/">
+<span class="md-ellipsis">
+    
+  
+    Vocabularies
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../schema/">
+<span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linked-patterns">
+<span class="md-ellipsis">
+      
+        Linked pattern(s)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#domain">
+<span class="md-ellipsis">
+      
+        Domain
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scenario-summary">
+<span class="md-ellipsis">
+      
+        Scenario summary
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#target-systems-source-systems">
+<span class="md-ellipsis">
+      
+        Target systems / source systems
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-this-instance-matters">
+<span class="md-ellipsis">
+      
+        Why this instance matters
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#authoritative-source-precedence">
+<span class="md-ellipsis">
+      
+        Authoritative source precedence
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisite-state">
+<span class="md-ellipsis">
+      
+        Prerequisite state
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#freeze-and-rollback-triggers">
+<span class="md-ellipsis">
+      
+        Freeze and rollback triggers
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#visible-blockers">
+<span class="md-ellipsis">
+      
+        Visible blockers
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#named-human-ownership">
+<span class="md-ellipsis">
+      
+        Named human ownership
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#likely-architecture-choices">
+<span class="md-ellipsis">
+      
+        Likely architecture choices
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#governance-notes">
+<span class="md-ellipsis">
+      
+        Governance notes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#evaluation-considerations">
+<span class="md-ellipsis">
+      
+        Evaluation considerations
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="work-authorization-expiry-alert-threshold-calibration">Work authorization expiry alert threshold calibration<a class="headerlink" href="#work-authorization-expiry-alert-threshold-calibration" title="Permanent link">¶</a></h1>
+<blockquote>
+<p>Canonical pattern(s): <a href="../../../patterns/optimize-adapt/adaptive-threshold-calibration/">Adaptive threshold calibration</a>
+Source Markdown: <code>instances/hr/work-authorization-expiry-alert-threshold-calibration.md</code></p>
+</blockquote>
+<h2 id="linked-patterns">Linked pattern(s)<a class="headerlink" href="#linked-patterns" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>adaptive-threshold-calibration</code></li>
+</ul>
+<h2 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">¶</a></h2>
+<p>HR.</p>
+<h2 id="scenario-summary">Scenario summary<a class="headerlink" href="#scenario-summary" title="Permanent link">¶</a></h2>
+<p>An HR immigration compliance team maintains one exact governed calibration artifact,
+<code>WA-Expiry-Threshold-Calibration-Record-v3</code>, which controls when upcoming work-
+authorization expiry cases enter standard and urgent human-review lanes. The current
+threshold policy raises a standard alert 150 days before recorded expiry and an urgent
+alert 75 days before expiry when no authoritative renewal evidence is present, but the
+last two quarters show persistent nuisance volume for workers already covered by
+automatic-extension rules or recently receipted renewals while several short-validity job-
+change cases were surfaced later than reviewers wanted. The calibration workflow must
+retune only those future alert thresholds inside pre-approved day-range limits, preserve
+protected minimum lead-time floors for high-interruption-risk categories, require reviewed
+outcome volume plus no-alert backcheck evidence before changing anything, and record
+why any candidate move was applied, deferred, or rolled back. Source precedence is
+explicit: the approved immigration compliance standard, employer-entity-specific work-
+authorization rule matrix, and authoritative immigration case-system snapshots outrank
+HRIS convenience extracts, manager notes, and worker-uploaded provisional receipts.
+Prerequisite state is fixed before calibration begins: the active threshold baseline,
+current employer-entity routing rules, the frozen trailing review window, and the last
+trusted calibration record from <code>v2</code>. Visible blockers remain visible rather than being
+smoothed into the model, and the workflow stops hard at publishing or deferring
+<code>WA-Expiry-Threshold-Calibration-Record-v3</code> rather than triaging live cases, notifying
+workers, assigning reviewers, changing employment status, or directing downstream legal
+or payroll action. Named human owner: Neha Patel, Director of Work Authorization
+Compliance.</p>
+<div class="mermaid">flowchart TD
+    A["Reviewed expiry-alert outcomes, no-alert backchecks,&lt;br/&gt;and active threshold baseline"] --&gt; B["Check evidence floor, source freshness,&lt;br/&gt;and protected-category coverage gates"]
+    B --&gt; C{"Enough reliable evidence&lt;br/&gt;to retune thresholds?"}
+    C -- "No" --&gt; D["Hold current threshold policy&lt;br/&gt;and record deferred calibration"]
+    C -- "Yes" --&gt; E["Propose bounded day-threshold moves&lt;br/&gt;for standard and urgent alert lanes"]
+    E --&gt; F{"Within delegated day ranges,&lt;br/&gt;protected floors, and drift guardrails?"}
+    F -- "No" --&gt; G["Freeze autonomous change and queue&lt;br/&gt;owner review package"]
+    F -- "Yes" --&gt; H["Publish `WA-Expiry-Threshold-Calibration-Record-v3`&lt;br/&gt;with rationale, blockers, and prior-version link"]
+    H --&gt; I["Watch next review window for nuisance alerts,&lt;br/&gt;late detections, and rollback triggers"]
+    I --&gt; J{"Alert quality improves without&lt;br/&gt;coverage loss?"}
+    J -- "No" --&gt; K["Rollback to last trusted threshold record&lt;br/&gt;and flag calibration cycle for review"]
+    J -- "Yes" --&gt; L["Keep calibrated threshold policy&lt;br/&gt;and continue cumulative drift tracking"]
+</div>
+<h2 id="target-systems-source-systems">Target systems / source systems<a class="headerlink" href="#target-systems-source-systems" title="Permanent link">¶</a></h2>
+<ul>
+<li>Immigration compliance policy registry holding the active expiry-alert threshold policy,
+  employer-entity rule matrix, protected minimum lead-time floors, prior calibration
+  records, and delegated adjustment bounds</li>
+<li>Immigration case-management system or vendor portal with visa category, expiration date,
+  receipt status, filing milestones, automatic-extension eligibility, and authoritative
+  renewal evidence timestamps</li>
+<li>HRIS worker master, employer entity, work location, effective-dated job changes, and
+  leave or return-to-work state used to detect contexts that alter lead-time risk</li>
+<li>Alert outcome store with reviewed nuisance-alert dispositions, confirmed late-detection
+  incidents, no-alert backcheck results, suppression overrides, and reviewer comments</li>
+<li>Compliance governance dashboard used to inspect proposed threshold moves, freeze
+  autonomous tuning, compare <code>v3</code> against <code>v2</code>, and restore the last trusted threshold
+  record quickly</li>
+</ul>
+<h2 id="why-this-instance-matters">Why this instance matters<a class="headerlink" href="#why-this-instance-matters" title="Permanent link">¶</a></h2>
+<p>This grounds <code>adaptive-threshold-calibration</code> in HR compliance without drifting into live
+immigration case handling. The output is a governed threshold calibration record that
+changes only when future expiry signals enter standard or urgent review lanes; it does not
+decide whether any worker is authorized, which case should be worked first, whether a
+manager or employee must be contacted, or whether any filing or employment action should
+occur. That boundary keeps the adaptation loop low risk, reversible, and distinct from the
+existing HR alert-triage and closure examples in adjacent slices.</p>
+<h2 id="authoritative-source-precedence">Authoritative source precedence<a class="headerlink" href="#authoritative-source-precedence" title="Permanent link">¶</a></h2>
+<ol>
+<li>Approved immigration compliance standard and delegated threshold-adjustment bounds
+   maintained in the policy registry</li>
+<li>Employer-entity-specific work-authorization rule matrix covering reverification timing,
+   automatic-extension treatment, and protected category floors</li>
+<li>Authoritative immigration case-management snapshots and vendor receipt-status updates
+   with verification timestamps</li>
+<li>Effective-dated HRIS worker, employer-entity, and job-change records needed to interpret
+   expiry risk context</li>
+<li>Reviewed alert outcome history and no-alert backcheck results from the compliance
+   evidence store</li>
+<li>Lower-precedence manager notes, worker-uploaded provisional receipts, and queue comments
+   used only as contextual hints and never as sole grounds to relax a protected threshold</li>
+</ol>
+<h2 id="prerequisite-state">Prerequisite state<a class="headerlink" href="#prerequisite-state" title="Permanent link">¶</a></h2>
+<ul>
+<li>Active threshold baseline <code>wa-expiry-threshold-policy-v2</code> is pinned before any
+  recalibration run starts</li>
+<li>Frozen trailing 90-day review window with closed alert outcomes and no-alert backchecks
+  has been quality-checked for disposition completeness</li>
+<li>Current employer-entity routing rules and automatic-extension matrix are confirmed as the
+  effective governance baseline for the calibration window</li>
+<li>Last trusted calibration artifact <code>WA-Expiry-Threshold-Calibration-Record-v2</code> is
+  available for direct comparison and fast rollback</li>
+<li>Protected-category floor table is current for high-interruption-risk cohorts such as
+  expiring temporary work permits with no extension bridge, location-sensitive visa
+  transfers, and employer-specific authorizations nearing reverification deadlines</li>
+</ul>
+<h2 id="freeze-and-rollback-triggers">Freeze and rollback triggers<a class="headerlink" href="#freeze-and-rollback-triggers" title="Permanent link">¶</a></h2>
+<p>Freeze autonomous tuning and require Neha Patel review when:
+- A proposed standard or urgent threshold move would exceed the delegated ten-day step
+  limit for one calibration cycle
+- A proposed change would lower any protected cohort below its minimum lead-time floor
+- Evidence quality drops below the required minimum, including incomplete case dispositions,
+  missing no-alert backchecks, or stale authoritative case snapshots
+- Cumulative drift from the trusted baseline reaches 20 days in one direction even if each
+  individual step stayed in bounds
+- Employer-entity rules, reverification timing policy, or automatic-extension handling were
+  updated during the review window and the calibration assumptions may now be stale</p>
+<p>Rollback automatically to <code>WA-Expiry-Threshold-Calibration-Record-v2</code> when:
+- Confirmed late-detection incidents rise for any protected cohort in the first monitored
+  window after a threshold relaxation
+- Reviewer overrides to pull cases forward increase by more than 25 per cent over the
+  prior trusted window, suggesting the new thresholds are surfacing cases too late
+- A source-system correction reveals that the calibration run relied on materially stale
+  receipt-status or expiry-date evidence</p>
+<h2 id="visible-blockers">Visible blockers<a class="headerlink" href="#visible-blockers" title="Permanent link">¶</a></h2>
+<ul>
+<li>Stale immigration vendor receipt-status feed for one employer entity may understate
+  already-filed renewal coverage</li>
+<li>Unresolved mismatch between HRIS work-location changes and immigration case locations for
+  recent intra-company transfers</li>
+<li>Missing no-alert backcheck sample for one short-validity visa cohort leaves downward
+  tuning unsupported</li>
+<li>Pending legal-policy clarification on a newly introduced automatic-extension category
+  means that cohort must stay frozen at the current threshold until the rule matrix is
+  updated</li>
+</ul>
+<h2 id="named-human-ownership">Named human ownership<a class="headerlink" href="#named-human-ownership" title="Permanent link">¶</a></h2>
+<ul>
+<li>Neha Patel, Director of Work Authorization Compliance: accountable owner for threshold
+  governance, freeze decisions, rollback authorization, and review of any out-of-bounds or
+  low-confidence calibration package</li>
+<li>Global Mobility Operations Manager: maintains employer-entity routing rules, validates
+  vendor feed freshness, and confirms whether rule-matrix changes invalidate the current
+  calibration window</li>
+<li>HRIS Compliance Data Steward: monitors worker master and location-change data quality,
+  escalates mismatches that would make threshold tuning unreliable, and preserves the
+  lineage between alert outcomes and worker records</li>
+</ul>
+<h2 id="likely-architecture-choices">Likely architecture choices<a class="headerlink" href="#likely-architecture-choices" title="Permanent link">¶</a></h2>
+<div class="mermaid">flowchart LR
+    CASE["Immigration case-management snapshots&lt;br&gt;expiry dates, receipt status,&lt;br&gt;filing milestones, and renewal evidence"]
+    HRIS["HRIS context&lt;br&gt;worker master, employer entity,&lt;br&gt;location, and effective-dated job changes"]
+    OUTCOMES["Alert outcome store&lt;br&gt;reviewed nuisance alerts, late detections,&lt;br&gt;no-alert backchecks, and overrides"]
+    DASH["Compliance governance dashboard&lt;br&gt;review, freeze, compare `v3` to `v2`,&lt;br&gt;and restore the last trusted record quickly"]
+    STOP["Workflow-family boundary&lt;br&gt;stop at threshold-policy publication,&lt;br&gt;defer, or rollback"]
+
+    subgraph CAL["Adaptive threshold-calibration boundary"]
+        AGENT["Threshold calibration agent&lt;br&gt;checks evidence quality, delegated bounds,&lt;br&gt;protected floors, and cumulative drift"]
+        REG["Policy registry&lt;br&gt;active threshold policy, delegated bounds,&lt;br&gt;protected floors, and prior calibration records"]
+        PUB["Versioned calibration record publication&lt;br&gt;`WA-Expiry-Threshold-Calibration-Record-v3`"]
+        HOLD["Deferred and blocked move record&lt;br&gt;unsupported or out-of-bounds threshold moves"]
+    end
+
+    CASE --&gt;|"authoritative case snapshots"| AGENT
+    HRIS --&gt;|"risk-context updates"| AGENT
+    OUTCOMES --&gt;|"reviewed outcomes and backchecks"| AGENT
+    REG --&gt;|"active policy, bounds, floors, and `v2` lineage"| AGENT
+    AGENT --&gt;|"publishes approved `v3` record"| PUB
+    AGENT --&gt;|"writes deferred or blocked moves"| HOLD
+    PUB --&gt;|"registers versioned calibration lineage"| REG
+    PUB --&gt;|"shows `v3` rationale and diff vs `v2`"| DASH
+    HOLD --&gt;|"surfaces blocked and deferred rationale"| DASH
+    DASH --&gt;|"freeze or fast rollback to `v2`"| REG
+    PUB -.-&gt;|"bounded stop before triage or downstream action"| STOP
+</div>
+<ul>
+<li>Event-driven monitoring should trigger recalibration only after enough reviewed alert
+  outcomes and no-alert backchecks accumulate for a protected review window, not when a
+  single week of renewal receipts temporarily lowers nuisance volume.</li>
+<li>A tool-using single agent can compare observed nuisance and late-detection patterns,
+  compute within-bounds day-threshold moves, publish <code>WA-Expiry-Threshold-Calibration-
+  Record-v3</code>, and write the blocked or deferred moves into the calibration audit record.</li>
+<li>Human-in-the-loop review should remain normal whenever a proposed move approaches a
+  protected lead-time floor, cumulative drift grows large, or employer-rule changes make the
+  feedback window hard to trust.</li>
+<li>Fast rollback should remain configuration-only: restoring <code>v2</code> must not require code
+  deployment, queue reconfiguration, or reprocessing past alert decisions.</li>
+</ul>
+<h2 id="governance-notes">Governance notes<a class="headerlink" href="#governance-notes" title="Permanent link">¶</a></h2>
+<ul>
+<li>Protected cohorts such as employer-specific work authorizations nearing lapse, short-
+  validity transfer cases, and categories without an automatic extension bridge should keep
+  minimum lead-time floors that autonomous tuning cannot relax.</li>
+<li>Calibration logs should capture the baseline thresholds, proposed and applied day values,
+  source snapshots consulted, blocked moves, visible blockers, cumulative drift, and exact
+  rollback trigger if one occurs.</li>
+<li>Privacy controls should aggregate signal quality at the cohort level in ordinary tuning
+  logs; individual worker names, immigration identifiers, passport data, and document images
+  should stay in restricted evidence systems.</li>
+<li>The workflow must stop at threshold calibration and versioned policy publication. It must
+  not reprioritize the live case queue, assign reviewers, send outreach, submit filings,
+  change work eligibility, or adjudicate any underlying immigration case.</li>
+<li>Revision-aware lineage should remain explicit: <code>WA-Expiry-Threshold-Calibration-Record-v3</code>
+  supersedes <code>v2</code>, and reviewers should be able to compare the new rationale, bounds, and
+  blockers directly against that prior trusted record.</li>
+</ul>
+<h2 id="evaluation-considerations">Evaluation considerations<a class="headerlink" href="#evaluation-considerations" title="Permanent link">¶</a></h2>
+<ul>
+<li>Reduction in reviewed nuisance work-authorization expiry alerts without a corresponding
+  increase in confirmed late-detection incidents after <code>v3</code> is applied</li>
+<li>Percentage of calibration cycles correctly deferred because source freshness, disposition
+  completeness, or no-alert backcheck volume was too weak to justify a threshold move</li>
+<li>Frequency of owner freezes or rollbacks caused by protected-floor proximity, rule-matrix
+  changes, or cumulative drift approaching the delegated limit</li>
+<li>Time required to restore the prior trusted threshold record after post-change evidence
+  shows weaker coverage than expected</li>
+</ul>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>
