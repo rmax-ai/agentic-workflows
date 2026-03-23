@@ -48,6 +48,28 @@ This grounds the pattern in a research-governance setting that is materially dif
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Internal consent and study-governance<br>repository"]
+    B["Dataset inventory or enclave-access<br>register"]
+    C["Reviewer annotation surface"]
+    D["Secure research artifact catalog"]
+    E["Shared data-use restriction board"]
+    F["Ownership and hold markers"]
+    G["Unresolved-question register"]
+    H["Human stewardship review"]
+
+    A -->|"Approved consent and protocol references"| E
+    B -->|"Subset identifiers and enclave-boundary metadata"| E
+    C -->|"Reviewer caveats and handoff notes"| E
+    D -->|"Linked transcript, codebook, and extract references"| E
+    E -->|"Maintain visible owner and hold state"| F
+    E -->|"Carry forward interpretation gaps"| G
+    F -->|"Surface contested or held changes"| H
+    G -->|"Escalate unresolved scope questions"| H
+    H -->|"Confirm bounded internal upkeep updates"| E
+```
+
 - Event-driven monitoring fits because upkeep should react when consent references, enclave metadata, reviewer notes, or board fields change.
 - A tool-using single agent can refresh source links, normalize duplicate restriction wording, and keep ownership plus hold markers synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when a note would reinterpret consent scope, clear a restriction that is still contested, or make the board sound like an approved reuse decision.
