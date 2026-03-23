@@ -42,6 +42,36 @@ This grounds `risk-alert-triage` in HR work where the risk is not only missing a
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph monitor["Monitor / detect / triage boundary"]
+        hris["HRIS worker master, employer entity,<br>location, and job-change signals"]
+        vendor["Immigration case system or vendor portal<br>with expiry, receipt, and renewal updates"]
+        intake["Manager and HR intake channels<br>for transfers, promotions, and leave returns"]
+        docs["Document and identity repositories<br>with authorization evidence and attachments"]
+        state["Alert cluster state"]
+        agent["Tool-using correlation, enrichment,<br>and policy-routing agent"]
+        queue["Prioritized work-authorization<br>triage queue"]
+        audit["Audit-grade<br>evidence store"]
+
+        hris -->|"Continuous signal ingestion and correlation<br>by worker and employer context"| state
+        vendor -->|"Expiry, renewal, and case-status signals<br>deduplicated by authorization window"| state
+        intake -->|"Change events that reopen or merge<br>alert clusters"| state
+        docs -->|"Document references and reverification evidence<br>linked to active clusters"| state
+        state -->|"Cluster lineage, deduplicated reminders,<br>and open-case memory"| agent
+        audit -->|"Prior evidence, prior routing,<br>and policy-version history"| agent
+        agent -->|"Enriched alerts with policy checks,<br>urgency tiers, and routing rationale"| queue
+        agent -->|"Merged lineage, suppression reasons,<br>and evidence references"| audit
+    end
+
+    subgraph review["Restricted urgent-human-review lanes"]
+        urgent["HR compliance specialist<br>Immigration coordinator<br>Designated legal liaison"]
+    end
+
+    queue -->|"Urgent or low-confidence cases<br>released for restricted human review"| urgent
+    urgent -->|"Reviewer overrides, approvals,<br>and escalation outcomes"| audit
+```
+
 - Event-driven monitoring should continuously ingest date-based expiry signals, job and location changes, vendor case updates, and reverification status changes, then reopen or merge alert clusters as new evidence arrives.
 - A tool-using single agent can correlate worker records across HRIS and immigration systems, suppress duplicate reminder chatter for cases already under active review, attach policy-relevant context, and publish a prioritized queue with explicit urgency drivers.
 - Human-in-the-loop review should remain mandatory for any alert involving potential work interruption, conflicting eligibility evidence, protected leave overlap, missing identity documentation, or uncertainty about the lawful path forward.
