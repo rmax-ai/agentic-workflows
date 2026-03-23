@@ -49,6 +49,25 @@ This grounds the pattern in a research-governance workflow where the pressing pr
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    ops["Research operations<br>or reconciliation steward"] --> agent["Tool-using single agent<br>bounded reconciliation run"]
+    protocol["Protocol registry<br>and amendment records"] --> agent
+    consent["Participant consent ledger"] --> agent
+    custody["Biospecimen custody inventory"] --> agent
+    intake["Study-operations intake tracker"] --> agent
+    agent --> memory["Shared reconciliation memory<br>precedence logic, adjudications,<br>exceptions, and rollback references"]
+    memory --> agent
+    agent --> review["Human-in-the-loop review<br>for disputed eligibility changes"]
+    review --> agent
+    agent --> verify["Authoritative post-reconciliation verification"]
+    protocol --> verify
+    consent --> verify
+    custody --> verify
+    verify --> package["Staged correction package<br>ready for approved use"]
+    package --> stop["Bounded stop before assay launch,<br>dataset release, participant outreach,<br>or broader study-operations execution"]
+```
+
 - A tool-using single agent can gather protocol-registry extracts, consent-ledger records, custody-inventory snapshots, and intake-tracker entries into one bounded reconciliation run for each affected participant-sample set.
 - Human-in-the-loop review should remain standard for disputed withdrawal timing, participant-identity or specimen-linkage ambiguity, conflicting amendment applicability, or any case where a proposed correction would change governed secondary-use eligibility.
 - The workflow should perform authoritative post-reconciliation verification against the approved registry, consent, and custody surfaces before marking the staged correction package ready, then stop before assay launch, dataset release, participant outreach, or broader study-operations execution.
