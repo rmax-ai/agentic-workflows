@@ -40,6 +40,37 @@ This grounds the pattern in engineering where the released artifact is clearly a
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Steward["Optimization steward"]
+    Replay["Replay and shadow-analysis workspace"]
+    Governance["Governance limit:<br>release scoring revision only,<br>not release go/no-go, deployment, or paging"]
+    subgraph ApprovalBoundary["Approval-gated control boundary"]
+        Manager["Release manager"]
+        Approval["Approval and manifest tooling"]
+        Audit["Audit and rollback systems"]
+        Hold["Hold release until manifest gaps,<br>hash mismatches, or approval denial clear"]
+    end
+    subgraph LiveBoundary["Bounded live scoring surface<br>for the payments-platform cohort"]
+        Registry["Versioned release-review<br>scoring registry"]
+        Dashboards["Release-review dashboards<br>and queue surfaces"]
+    end
+    Teams["Release engineering<br>and reliability teams"]
+
+    Steward -->|"prepares exact scoring revision,<br>validity window, and rollback packet"| Approval
+    Replay -->|"supplies replay, canary, override,<br>and missed-review evidence"| Approval
+    Registry -->|"provides live profile,<br>candidate hash, and prior trusted versions"| Approval
+    Manager -->|"approves or denies exact revision,<br>cohort scope, and review window"| Approval
+    Governance -->|"constrains activation scope<br>and workflow boundary"| Approval
+    Approval -->|"manifest gaps, verification failures,<br>or denial"| Hold
+    Approval -->|"approved activation manifest"| Registry
+    Approval -->|"writes approval lineage,<br>guardrails, and rollback target"| Audit
+    Registry -->|"serves active scoring policy"| Dashboards
+    Dashboards -->|"surfaces prioritized review items"| Teams
+    Dashboards -->|"queue-aging and canary-drift telemetry"| Audit
+    Audit -->|"restores prior trusted profile on expiry<br>or guardrail breach"| Registry
+```
+
 - Approval-gated execution fits because the scoring revision is technically ready to activate, but the live switch remains blocked until a named release manager approves that exact version and bounded cohort scope.
 - Human-in-the-loop review remains normal because release leadership must accept the trade-off of noisier or quieter review routing and confirm the validity window, guardrails, and rollback target before activation.
 - A governed agent can assemble the manifest, compare revision hashes, verify replay evidence, and write the audit trace, but it should not broaden the cohort, reuse stale approval, or turn the scoring release into deployment execution.
