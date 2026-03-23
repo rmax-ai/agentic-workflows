@@ -42,6 +42,21 @@ This grounds the execution pattern in a support workflow where the browser submi
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Case["Escalation / incident case system<br>incident command + security + customer-account approvals"] -->|"approved request + segregation-of-duties evidence"| Gate["Approval-gated submission boundary<br>recheck tenant, incident, scope, expiry, and approval state"]
+    Packet["Approved emergency access packet<br>tenant context + temporary privilege scope + expiration window"] -->|"approved restoration packet"| Gate
+    Tenant["Tenant master record"] -->|"tenant identity reference"| Gate
+    Timeline["Incident timeline"] -->|"live incident reference"| Gate
+    Identity["Identity-assurance evidence<br>requesting customer administrator"] -->|"requester validation evidence"| Gate
+    IAM["IAM records<br>current tenant-admin state + privilege-expiration policy + approval controls"] -->|"admin state + policy controls"| Gate
+    Gate -->|"approved browser submission path"| Console["Browser-only emergency admin console<br>tenant verification + restoration form + confirmation screens"]
+    Gate -->|"mismatch or ambiguity"| Takeover["Human takeover<br>halt without submission + preserve current state"]
+    Console -->|"masked screenshots + approval references + confirmation artifacts"| Evidence["Evidence store<br>confirmation artifacts + exception notes"]
+    Console -->|"scope drift or ambiguous confirmation"| Takeover
+    Takeover -->|"takeover notes + preserved context"| Evidence
+```
+
 - Approval-gated execution should assemble the restoration packet, verify that incident command, security, and customer-account approvals remain current, and block final commit until those approvals are rechecked immediately before submit.
 - A tool-using single agent can navigate the emergency admin console, populate tenant and privilege-restoration fields, upload or reference the approved incident packet, and capture masked evidence at each gated checkpoint.
 - Human-in-the-loop control should remain standard for mismatched tenant identifiers, scope-expansion prompts, failed identity checks, unusual privilege duration requests, or any warning that the action would bypass the approved emergency boundary.
