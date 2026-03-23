@@ -39,6 +39,40 @@ This grounds the pattern in HR work where the consequential benefits-review judg
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    RVS["Restricted benefits-verification review system<br>accepted final disposition record"]
+    BT["Internal benefits exception tracker"]
+    DL["Dependent-verification case ledger"]
+    PQ["Restricted post-review queue"]
+    EA["Archive or evidence store"]
+    AS["Audit store"]
+    NC["Internal benefits operations coordinator<br>notification channel"]
+
+    subgraph BW["Bounded closure worker"]
+        EV["Event-driven closure worker"]
+        VAL{"Worker-household case identifier,<br>disposition version,<br>archive references,<br>verification-episode mapping, and<br>closure scope valid?"}
+        SYNC["Idempotent closure sync"]
+        MF["Manual follow-up packet<br>and halt"]
+        EV -->|"re-read authoritative source state"| VAL
+        VAL -->|"valid"| SYNC
+        VAL -->|"invalid"| MF
+    end
+
+    RVS -->|"accepted final-disposition event"| EV
+    RVS -->|"authoritative record recheck"| VAL
+    BT -->|"verification-episode mapping lookup"| VAL
+    DL -->|"verification-episode mapping lookup"| VAL
+    EA -->|"approved archive reference lookup"| VAL
+    SYNC -->|"restricted queue item closure"| PQ
+    SYNC -->|"review-complete state"| BT
+    SYNC -->|"review-complete state"| DL
+    SYNC -->|"final review memo<br>and evidence references"| EA
+    SYNC -->|"completion state<br>and idempotency markers"| AS
+    SYNC -->|"closure propagation complete"| NC
+    MF -->|"manual follow-up record"| AS
+```
+
 - An event-driven completion worker can subscribe to accepted final-disposition events from the restricted benefits review system and start the closure sequence only for approved post-decision states.
 - The worker should re-read the current source record before writing anywhere so a reopened verification case, superseded disposition, or changed archive reference is not propagated from a stale event.
 - Durable completion state should track queue closure, exception-tracker synchronization, verification-ledger synchronization, archive linkage, notification delivery, and skipped idempotent actions because duplicate events or partial retries are normal operational conditions.
