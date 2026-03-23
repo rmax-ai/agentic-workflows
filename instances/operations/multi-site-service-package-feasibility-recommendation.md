@@ -39,6 +39,41 @@ This instance grounds the recommendation pattern in operations where the decisio
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Desk["Operations services desk"]
+
+    subgraph Sources["Read-only source systems and stores"]
+        CRM["CRM opportunity record<br>draft services package<br>customer rollout assumptions"]
+        Capacity["Capacity-planning model<br>technician skill matrix<br>regional coverage forecasts"]
+        Field["Field-service history<br>subcontractor rate cards<br>overtime or travel policy thresholds"]
+        Inventory["Spare-parts inventory position<br>supplier lead-time data<br>staging-cost estimates"]
+        Approvals["Approval matrix<br>prior exception register<br>implementation-risk notes from<br>operations leadership"]
+    end
+
+    subgraph Workflow["Recommendation-only workflow boundary"]
+        Retrieve["Retrieve demand, staffing,<br>cost, inventory, and precedent inputs"]
+        Recommend["Rank package options<br>and prepare recommendation packet<br>with escalation path"]
+        Guardrails["Governance constraints:<br>read-only integration<br>no booked work<br>no purchase commitments<br>no customer-facing promises"]
+    end
+
+    subgraph ReviewBoundary["Human approval boundary"]
+        Reviewers["Authorized operations reviewers"]
+        Leadership["Operations leadership"]
+    end
+
+    Desk -->|"Requests feasibility recommendation"| Retrieve
+    CRM -->|"Read-only context"| Retrieve
+    Capacity -->|"Read-only context"| Retrieve
+    Field -->|"Read-only context"| Retrieve
+    Inventory -->|"Read-only context"| Retrieve
+    Approvals -->|"Read-only context"| Retrieve
+    Retrieve -->|"Evidence bundle"| Recommend
+    Guardrails -.->|"Constrains"| Recommend
+    Recommend -->|"Recommendation-only output"| Reviewers
+    Recommend -->|"Out-of-band exception path"| Leadership
+```
+
 - A recommendation-only workflow can retrieve demand assumptions, staffing coverage, subcontractor cost exposure, inventory readiness, and precedent exceptions into one ranked option set for operations review.
 - Human-in-the-loop review is mandatory because the workflow should advise on feasible package shapes and escalation paths, not approve service commitments or launch the rollout.
 - Read-only integration with CRM, workforce-planning, inventory, and approval systems is preferable so the agent cannot convert a recommendation into booked work, purchase commitments, or customer-facing promises.
