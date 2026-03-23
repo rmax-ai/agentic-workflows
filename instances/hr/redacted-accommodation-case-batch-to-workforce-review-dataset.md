@@ -39,6 +39,30 @@ This grounds the transform pattern in an HR setting where governance stakeholder
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    src["Restricted HR case-management<br>repository"]
+    tool["Redaction and de-identification<br>tooling"]
+    reg["Workforce-governance schema<br>registry"]
+    stage["Review workbench and staging store<br>for redacted dataset, trace,<br>and approval manifest"]
+    queue["HR privacy, employee relations, and<br>legal exception queue"]
+
+    subgraph rev["Human privacy, employee relations,<br>and legal review boundary"]
+        human["Human privacy, employee relations,<br>and legal review"]
+    end
+
+    stop["Stop before workforce policy review,<br>case adjudication, or<br>operational action"]
+
+    src -->|"restricted case notes, attachments,<br>and timeline updates"| tool
+    reg -->|"approved review fields,<br>taxonomies, and release rules"| tool
+    tool -->|"redacted workforce-review dataset,<br>trace links, and approval manifest"| stage
+    tool -->|"residual-risk, lossiness,<br>and policy-conflict cases"| queue
+    queue -->|"routes flagged records"| human
+    human -->|"returns reviewed corrections<br>for bounded rework"| tool
+    stage -->|"presents staged dataset, trace,<br>and manifest for sign-off"| human
+    human -->|"approves reviewed staging handoff"| stop
+```
+
 - An orchestrated multi-agent workflow can divide narrative segmentation, medical-detail detection, category normalization, and residual-risk validation so sensitive handling remains explicit and auditable.
 - Human reviewers should remain in the normal loop because accommodation data often contains nuanced contextual clues that automated detectors cannot safely release without HR privacy and legal judgment.
 - The workflow should emit only a release-safe governance dataset and reviewed manifest rather than updating live employee records, issuing policy findings, or sending materials to managers or vendors.
