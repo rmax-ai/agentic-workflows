@@ -40,6 +40,30 @@ This grounds the pattern in finance where the main challenge is proving that a c
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    WS["Treasury posting packet and<br>controller review workspace"]
+    EVID["Bank statement feeds,<br>cash-position snapshots, and<br>reconciliation tooling"]
+    CTRL["Adjustment approval records,<br>policy thresholds, and<br>posting-boundary controls"]
+    VERIFY["Approved morning liquidity posting<br>evidence gate verification"]
+    APP["Controller approval system"]
+    AUD["Audit store"]
+    RELY["Authoritative morning view<br>reliance boundary"]
+
+    subgraph GATE["Controller approval<br>boundary"]
+        CO["Controller approval gate"]
+    end
+
+    WS -->|"Provides candidate entity scope,<br>manual adjustments, and<br>downstream consumer list"| VERIFY
+    EVID -->|"Provides current balance evidence,<br>statement freshness, and<br>timing confirmation"| VERIFY
+    CTRL -->|"Provides adjustment approvals,<br>policy thresholds, and<br>protected posting boundaries"| VERIFY
+    AUD -->|"Supplies prior verdict lineage,<br>scope-drift checks, and<br>hold history"| VERIFY
+    VERIFY -->|"Stores evidence timestamps,<br>hold reasons, and<br>verification outcomes"| AUD
+    VERIFY -->|"Publishes approval-ready packet<br>with evidence lineage"| APP
+    APP -->|"Routes the verified packet to<br>authorized treasury controllers"| CO
+    CO -->|"Releases the packet for authoritative<br>morning-view reliance only after approval"| RELY
+```
+
 - Approval-gated execution fits because the verified packet remains blocked from authoritative downstream use until a controller explicitly approves reliance.
 - Human-in-the-loop review is mandatory because unresolved gaps, protected-entity scope changes, and high-impact posting holds require controller judgment in the normal flow.
 - Shared verification history should preserve prior held verdicts and refreshed evidence so reviewers can tell whether the packet genuinely converged or merely accumulated noise.
