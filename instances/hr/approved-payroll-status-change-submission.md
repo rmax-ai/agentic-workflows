@@ -38,6 +38,20 @@ This grounds the execution pattern in a sensitive HR workflow where the system a
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    case["HR case-management system<br>with verified approvals"] -- "provides approval state" --> packet["Approval-gated execution packet<br>or final verification step"]
+    master["Employee master-data and approved<br>compensation change form"] -- "provides approved fields" --> packet
+    rules["Payroll calendar, effective-date,<br>tax, and deduction reference tables"] -- "provides rule checks" --> packet
+    packet -- "unlocks bounded submission" --> agent["Tool-using single agent<br>browser runner"]
+    agent -- "submits approved change" --> portal["Browser-only HRIS / payroll portal"]
+    portal -- "returns live form state<br>and confirmation" --> agent
+    agent -- "captures screenshots,<br>confirmation, and notes" --> evidence["Evidence store"]
+    agent -- "requests review or takeover<br>on mismatch or ambiguity" --> human["Human-in-the-loop review<br>or takeover path"]
+    human -- "resumes from saved state<br>or blocks submission" --> portal
+    human -- "records takeover outcome" --> evidence
+```
+
 - Approval-gated execution should prepare the submission packet, verify current approvals, and block final commit until all required sign-offs are rechecked.
 - A tool-using single agent can navigate the browser workflow, populate fields, upload support documents, and capture evidence at each checkpoint.
 - Human-in-the-loop control remains standard for ambiguous effective dates, portal layout drift, failed validations, or any mismatch between approved compensation terms and live form values.
