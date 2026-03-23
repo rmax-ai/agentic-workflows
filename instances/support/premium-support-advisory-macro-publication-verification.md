@@ -50,6 +50,24 @@ This grounds the pattern in a support workflow where a published-state claim can
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    tracker["Knowledge-operations workflow tracker<br>or event feed"]
+    verifier["Tool-using verification agent<br>event-driven bounded delegation"]
+    repo["Macro source repository<br>approved revision and visibility state"]
+    library["Agent-assist macro library<br>published revision availability"]
+    suggestion["Support-console suggestion service<br>eligible revision state"]
+    audit["Verification audit log<br>evidence checks and verdicts"]
+    guard["Governance stop and human control boundary<br>no macro edits republish or customer communication"]
+
+    tracker --> verifier
+    repo --> verifier
+    library --> verifier
+    suggestion --> verifier
+    verifier --> audit
+    verifier --> guard
+```
+
 - Event-driven monitoring fits because the verification run should begin when the macro publication-complete claim is recorded rather than only after agents notice a stale suggestion.
 - A tool-using single agent can compare macro ids, revision markers, visibility flags, and freshness timestamps across the approved internal support systems while applying allowed propagation tolerances.
 - Bounded delegation is appropriate because support governance owners can predefine the authoritative macro surfaces, required corroborating fields, and acceptable lag windows while humans retain authority over any macro edits, republish actions, or customer communication.
