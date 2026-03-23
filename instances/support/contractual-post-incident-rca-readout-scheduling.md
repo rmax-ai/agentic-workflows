@@ -46,6 +46,30 @@ This grounds the scheduling pattern in a support workflow that is customer-facin
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    ER["Support escalation record<br>contractual deadline, required roles, and customer-safe status"]
+    CA["Calendars<br>internal and customer free-busy plus handoff-window constraints"]
+    IR["Interpreter roster<br>approved language coverage and availability windows"]
+    AR["Customer account record<br>timezone, CAB blackout periods, and readout modality"]
+    SA["Scheduling agent<br>bounded slot ranking and hold orchestration"]
+    MT["Calendar and meeting tools<br>tentative holds and reversible draft invite state"]
+    LC["Leadership exception channel<br>rejected slots, exception requests, and approval status"]
+    HF["Human final-confirmation boundary<br>premium support manager or escalation manager"]
+
+    ER -->|"Provides<br>deadline and role rules"| SA
+    CA -->|"Provides<br>availability constraints"| SA
+    IR -->|"Provides<br>interpreter coverage windows"| SA
+    AR -->|"Provides<br>blackout and timezone metadata"| SA
+    SA -->|"Places<br>tentative holds"| MT
+    MT -->|"Returns<br>hold status"| SA
+    SA -->|"Records<br>rejected slots and exception requests"| LC
+    LC -->|"Returns<br>approval status or stop"| SA
+    SA -->|"Presents<br>best compliant slot"| HF
+    HF -->|"Approves<br>customer-facing confirmation"| MT
+    HF -->|"Records<br>final confirmation status"| LC
+```
+
 - A tool-using single agent gathers free-busy availability, the contractual readout deadline, interpreter coverage, customer blackout metadata, and support-hours policy from approved systems.
 - Bounded delegation fits because the agent can rank feasible slots, place short-lived tentative holds, and draft a timezone-normalized invite packet, but it should not bypass required customer-facing roles, book outside support coverage hours, or confirm the final readout without the premium support manager's approval.
 - Human checkpoints remain necessary when no compliant overlap exists before the contractual deadline, when the only feasible slot crosses the engineer's protected handoff window, or when the interpreter or customer asks for a time that would require an exception to published coverage policy.
