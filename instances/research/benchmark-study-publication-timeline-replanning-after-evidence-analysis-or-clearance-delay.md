@@ -49,6 +49,26 @@ This grounds the replanning pattern in research work where the main problem is r
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    PGT["Publication-governance tracker<br>baseline timeline, required review checkpoints,<br>and prior schedule versions"]
+    EWB["Experiment / evidence workboard<br>rerun status, claim readiness,<br>and reproducibility checklist"]
+    DGQ["Data-governance clearance queue<br>approval status, dependencies,<br>and earliest allowed release date"]
+    RCW["Research program calendar / coordination workspace<br>reviewer availability, handoffs,<br>and internal publication checkpoints"]
+    CTRL["Constraint guardrails<br>fixed abstract deadline, non-waivable review steps,<br>and recommendation-only boundary"]
+    ORCH["Replanning orchestration<br>refresh dependency state and recompute<br>feasible publication timeline options"]
+    PACK["Replanning / packet assembly<br>revised timeline, impact ledger,<br>and unresolved blockers"]
+    HUMAN["Human adoption boundary<br>study lead or research program manager<br>accepts the revised plan"]
+
+    PGT -->|"Refresh baseline schedule"| ORCH
+    EWB -->|"Refresh evidence status"| ORCH
+    DGQ -->|"Refresh clearance state"| ORCH
+    RCW -->|"Refresh reviewer and handoff availability"| ORCH
+    CTRL -->|"Constrain replanning"| ORCH
+    ORCH -->|"Produce coordination-ready revision"| PACK
+    PACK -->|"Route for human adoption"| HUMAN
+```
+
 - An orchestrated multi-agent workflow fits because one role can refresh dependency state from evidence-analysis and clearance systems, another can test revised milestone feasibility against hard deadlines, and another can package the accepted candidate timeline with explicit impacts and unresolved blockers.
 - Human-in-the-loop adoption remains necessary because the study lead or research program manager must approve any consequential change to review timing, reviewer sequencing, communications prep, or internal deadline compression before the revised timeline becomes authoritative.
 - Recommendation-only autonomy is the right ceiling: the workflow can propose revised milestone order, identify at-risk downstream checkpoints, and prepare the handoff packet, but it should not waive data-governance clearance, shorten mandatory reproducibility review below policy minimums, or convert the replanning packet into a publication go/no-go decision.
