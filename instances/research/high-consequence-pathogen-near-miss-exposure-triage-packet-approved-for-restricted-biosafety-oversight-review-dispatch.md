@@ -49,6 +49,34 @@ This grounds `approval-gated-triage-dispatch` in a research-governance setting t
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph upstream["Upstream packet and cited-reference systems"]
+        triage["Incident intake and<br>triage systems"]
+        refs["Access-control, training,<br>fit-test, telemetry,<br>inventory, sample-chain,<br>and protocol registry systems"]
+    end
+
+    approver["Named biosafety<br>approver"]
+
+    subgraph controls["Governed dispatch controls"]
+        routing["Approval-routing system"]
+        audit["Audit and hold-tracking<br>systems"]
+        manifest["Dispatch-manifest<br>service"]
+    end
+
+    subgraph lane["Restricted biosafety oversight<br>review lane"]
+        queue["Restricted oversight<br>review queue"]
+    end
+
+    triage --> routing
+    refs --> routing
+    approver --> routing
+    audit --> routing
+    routing --> audit
+    routing --> manifest
+    manifest --> queue
+```
+
 - Event-driven monitoring fits because containment telemetry, inventory custody state, training currency, or packet freshness can change while the already-triaged near-miss waits at the dispatch gate.
 - Approval-gated execution fits because the packet is prepared for one bounded biosafety oversight lane but remains concretely blocked until the required biosafety approver signs for that exact revision and queue boundary.
 - Human-in-the-loop review should stay on the normal path because dispatch into a restricted containment-governance lane changes who may inspect sensitive pathogen and personnel context even though this workflow still stops short of deciding response or action.
