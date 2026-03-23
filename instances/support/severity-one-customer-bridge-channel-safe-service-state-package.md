@@ -39,6 +39,29 @@ This grounds the pattern in a support workflow where the hard problem is transfo
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    sources["Incident, service-health, entitlement,<br>dependency, and workaround systems"]
+    policy["Security policy, disclosure profile,<br>and customer-safe rendering tables"]
+    reviewers["Incident command, support leadership,<br>security, and legal reviewers"]
+    reviewQueue["Release review queue"]
+    bridge["Customer-facing bridge"]
+    boundary["Governed packaging boundary<br>stops before concessions,<br>external commitments, or remediation"]
+
+    subgraph workspace["Bridge-package workspace and lineage store"]
+        package["Channel-safe service-state package<br>and release manifest"]
+        annex["Restricted annexes and<br>supersession history"]
+    end
+
+    sources -->|"authoritative outage, impact,<br>and workaround state"| package
+    policy -->|"permitted fields, hold rules,<br>and status-code mappings"| package
+    package -->|"held-detail placeholders<br>and withheld internals"| annex
+    reviewers -->|"approve release scope"| reviewQueue
+    package -->|"package revision and manifest"| reviewQueue
+    reviewQueue -->|"sanctioned package for sharing"| bridge
+    boundary -.->|"workflow scope"| reviewQueue
+```
+
 - An orchestrated multi-agent workflow can divide authoritative-state retrieval, customer-safe rendering, held-detail validation, and manifest publication while keeping each transformation stage inspectable.
 - Human reviewers should remain embedded because incident command, security, and account leadership must approve what leaves the internal bridge and what stays in restricted annexes.
 - The workflow should stop at the customer-safe structured package and release manifest rather than recommending service credits, drafting commitments, or triggering remediation execution.
