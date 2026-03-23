@@ -38,6 +38,43 @@ This grounds the pattern in support where the reusable challenge is collaborativ
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    SR["Incident timeline, case-management,<br>entitlement, and account-review systems"]
+    GR["Contract-guidance, support-policy,<br>and executive-review governance repositories"]
+    CR["Premium support lead,<br>incident communications manager,<br>and customer-success reviewers"]
+    RO["Named support release owner"]
+    RT["Approval and routing tooling"]
+    EL["Bounded executive customer review<br>intake lane"]
+    AU["Audit, retention, and<br>access-control systems"]
+    SB["Collaborative artifact release boundary<br>stops before customer disclosure,<br>credits, or remediation execution"]
+
+    subgraph WS["Governed support collaboration workspace"]
+        PK["Outage disclosure packet"]
+        CT["Comment threads"]
+        OL["Objection ledger"]
+        RM["Release-manifest draft"]
+    end
+
+    CR -->|"co-produces one governed packet"| PK
+    SR -->|"impact evidence, customer commitments,<br>and prior communication context"| PK
+    GR -->|"contract caveats"| PK
+    GR -->|"required signers, audience scope,<br>and intake-lane constraints"| RM
+    PK -->|"captures review discussion"| CT
+    CT -->|"supports packet revisions"| PK
+    PK -->|"preserves unresolved objections"| OL
+    PK -->|"binds exact revision"| RM
+    OL -->|"accepted residual disagreement"| RM
+    PK -->|"packet revision"| RO
+    RM -->|"release-manifest draft"| RO
+    RO -->|"approves one exact revision"| RT
+    RT -->|"releases approved packet revision"| EL
+    PK -->|"superseded packet versions"| AU
+    OL -->|"accepted residual disagreement"| AU
+    RM -->|"blocked-release causes"| AU
+    EL -->|"workflow stops here"| SB
+```
+
 - Approval-gated execution fits because the packet can be collaboration-complete while still blocked from executive customer review until the human release owner approves the exact revision.
 - Human-in-the-loop control is necessary because only accountable support and communications leaders may accept residual disagreement, confirm customer-safe audience scope, and authorize the release boundary.
 - Agents may refresh chronology evidence, compare wording variants, and maintain the release trace, but they must not approve customer messaging, grant credits, or initiate remediation work.
