@@ -48,6 +48,32 @@ This grounds the pattern in a support crisis where the hardest part is not resto
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph B["Approved support, compliance, reliability,<br>and account-management systems"]
+        CASE["Premium-support case management,<br>severity-one bridge records,<br>and account-escalation tracker"]
+        CRM["CRM and contractual-obligation systems"]
+        ARCH["Archive-export service incident tracker,<br>job telemetry dashboards,<br>backlog or replay status feeds,<br>and workaround validation notes"]
+        RET["Retention-integrity audit logs,<br>object-store replication status,<br>custody-chain controls,<br>and approved compliance-policy references"]
+        PRIOR["Prior executive bridge summaries,<br>disclosure-draft tracker,<br>and open-questions register"]
+    end
+    ORCH["Orchestrated multi-agent workflow<br>account-and-obligation retrieval,<br>archive-status verification,<br>retention-integrity evidence assembly,<br>and final brief composition"]
+    LEDGER["Crisis-state ledger and trace<br>executed commitments,<br>verified integrity checks,<br>approved incident-status updates,<br>and provisional observations"]
+    GUARD["Brief guardrails<br>block unsupported recovery commitments,<br>disclosure advice,<br>and root-cause claims"]
+    REVIEW["Human-in-the-loop review<br>mandatory for each executive bridge brief"]
+    WORKSPACE["Executive support bridge workspace<br>reviewed briefs,<br>restricted annexes,<br>and superseded updates"]
+
+    CASE --> ORCH
+    CRM --> ORCH
+    ARCH --> ORCH
+    RET --> ORCH
+    PRIOR --> ORCH
+    ORCH --> LEDGER
+    LEDGER --> GUARD
+    GUARD --> REVIEW
+    REVIEW --> WORKSPACE
+```
+
 - An orchestrated multi-agent workflow can separate account-and-obligation retrieval, archive-status verification, retention-integrity evidence assembly, and final brief composition while maintaining one crisis-state ledger.
 - Human-in-the-loop review should remain mandatory for each executive bridge brief because archive-completeness wording, legal-deadline framing, and workaround readiness can materially affect downstream disclosure and customer-risk decisions.
 - The workflow should preserve a trace that distinguishes executed contractual commitments, verified archive-integrity checks, approved incident-status updates, and provisional bridge observations awaiting confirmation.
