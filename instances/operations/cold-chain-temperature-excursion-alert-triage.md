@@ -51,6 +51,28 @@ This grounds the pattern in an operations environment where a large share of inc
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["IoT telemetry pipeline<br>temperature, door, power, and location events"]
+    B["Transportation or warehouse system<br>shipment stage and facility context"]
+    C["Equipment-maintenance history<br>calibration, fault, and incident context"]
+    D["Product and quality rules<br>excursion thresholds and sensitivity tiers"]
+    E["Cold-chain alert triage<br>detect, enrich, deduplicate,<br>prioritize, and route with explainable severity"]
+    F["Incident or exception-management queue<br>prioritized cases for operations or quality review"]
+    G["Audit and evidence store<br>alert lineage, rationale, and approval records"]
+    H["Human escalation review<br>approval-gated escalation boundary"]
+
+    A -->|"emit alert signals"| E
+    B -->|"add shipment context"| E
+    C -->|"add sensor-health context"| E
+    D -->|"apply triage rules"| E
+    E -->|"route prioritized alert"| F
+    E -->|"store evidence and deduplication rationale"| G
+    F -->|"submit high-severity case"| H
+    G -->|"provide case evidence"| H
+    H -->|"record escalation approval or deferral"| G
+```
+
 - Event-driven monitoring should continuously evaluate telemetry streams, reopening or merging cases as sensor conditions change and as the same asset emits repeated threshold breaches.
 - Human-in-the-loop review should remain embedded for high-severity excursions, disputed sensor-health situations, and any recommendation that could trigger product hold, disposal, or customer-facing escalation.
 - A tool-using single agent can correlate signals across sensors on the same asset, suppress obvious duplicate chatter, attach shipment and maintenance context, and publish a prioritized queue with explainable severity bands and routing suggestions.
