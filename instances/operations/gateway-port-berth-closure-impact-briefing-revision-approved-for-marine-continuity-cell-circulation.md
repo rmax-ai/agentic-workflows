@@ -41,6 +41,24 @@ This grounds the pattern in operations where the hard governance step is releasi
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    sources["Terminal-status, crane-operations,<br>yard-capacity, hydrographic survey,<br>and hazardous-cargo control sources"] -->|"support cited conditions"| workspace["Restricted operations briefing workspace"]
+    workspace -->|"preserve superseded revisions<br>and provenance lineage"| audit["Audit and supersession tracker"]
+    sources -->|"trigger status corrections<br>or newer survey inputs"| audit
+    workspace -->|"provide approved briefing<br>package for circulation"| circulation["Marine continuity cell<br>circulation tooling"]
+    subgraph approval["Terminal operations director<br>approval boundary"]
+        agent["Governed agent<br>support"]
+        manifest["Approval manifest service"]
+    end
+    workspace -->|"provide exact revision,<br>annex state, and provenance"| manifest
+    agent -->|"assemble manifest and<br>compare revision lineage"| manifest
+    agent -->|"block stale reuse<br>or forwarding"| circulation
+    manifest -->|"bind approved lane,<br>expiry, and hold or release state"| circulation
+    manifest -->|"record release lineage<br>and expiry state"| audit
+    circulation -->|"log circulation and<br>blocked forwarding attempts"| audit
+```
+
 - Approval-gated execution fits because the berth-closure briefing remains held until the terminal operations director approves one exact revision for the restricted marine continuity cell lane.
 - Human-in-the-loop review is necessary because only accountable operations leadership should accept unresolved survey uncertainty, confirm cargo-detail handling, and authorize circulation of sensitive terminal context.
 - A governed agent can assemble the release manifest, compare revision lineage, and block stale reuse or forwarding, but it should not recommend rerouting, assign recovery work, or trigger downstream port-operations actions.
