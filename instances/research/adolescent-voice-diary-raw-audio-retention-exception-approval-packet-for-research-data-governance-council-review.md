@@ -40,6 +40,47 @@ This grounds `approval-packet-generation` in a research-governance workflow wher
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Priya["Priya Nandakumar<br>as packet owner"]
+    Protocol["Study protocol<br>registry"]
+    Consent["Consent<br>repository"]
+    Withdrawal["Withdrawal<br>ledger"]
+    IRB["IRB continuing-review<br>system"]
+    Inventory["Restricted media<br>inventory"]
+    Vault["Cold-vault storage<br>platform"]
+    Erase["Secure-erase orchestration logs<br>and purge-telemetry dashboards"]
+    Transcript["Transcription quality-control<br>tracker"]
+    Derivatives["Derivative-embedding inventory<br>and approved analysis workspace"]
+    Policy["Research data governance<br>policy library"]
+    Routing["Council routing<br>rules"]
+    Archive["Prior exception archive<br>and returned-for-rework notes"]
+    Queue["Review-routing queue"]
+
+    subgraph Workspace["Research data-governance exception workspace<br>for packet generation and handoff only"]
+        Packet["AVD-Retention-Exception-Packet-v4<br>draft"]
+        Checklist["Completeness checklist<br>and blocker register"]
+        Handoff["Handoff state<br>and provenance index"]
+    end
+
+    Protocol --> Packet
+    Consent --> Packet
+    Withdrawal --> Checklist
+    IRB --> Packet
+    Inventory --> Checklist
+    Vault --> Checklist
+    Erase --> Checklist
+    Transcript --> Packet
+    Derivatives --> Checklist
+    Policy -->|"defines mandatory sections"| Checklist
+    Routing -->|"sets reviewer routing"| Handoff
+    Archive -->|"preserves revision lineage"| Packet
+    Priya -->|"confirms scope and handoff"| Handoff
+    Packet --> Handoff
+    Checklist --> Handoff
+    Handoff -->|"bounded transfer"| Queue
+```
+
 - Orchestrated multi-agent retrieval and synthesis fit because protocol conditions, consent limits, IRB requirements, storage telemetry, and derivative-disposal evidence usually live in separate systems and need coordinated packet assembly.
 - Human-in-the-loop checkpoints should remain mandatory so Priya Nandakumar can confirm packet scope, reviewer routing, and whether unresolved disposal or withdrawal gaps are acceptable to surface in the packet before handoff.
 - Agents may reconcile recording identifiers, align retention and purge timelines, and draft packet sections, but they should not decide whether the exception is acceptable, extend the retention period, authorize research reuse, or trigger deletion, protocol, or site actions.
