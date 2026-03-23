@@ -39,6 +39,19 @@ This grounds the pattern in an HR severe-case setting where the reusable shape i
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    CASE["Employee-relations case records,<br>prior protected workplace-conduct files,<br>and investigation chronology tools"] -->|"provides case evidence"| ROOM["Restricted employee-relations collaboration room with the main threat-assessment packet,<br>disagreement register, annex map, and release-state controls"]
+    SECURITY["Site-security and workplace-access systems with badge activity,<br>visitor logs, camera-review references,<br>and restricted physical-security notes"] -->|"provides security evidence"| ROOM
+    POLICY["Policy, legal, and delegation repositories defining threat-assessment documentation rules,<br>reviewer-scope boundaries, protected-case handling,<br>and downstream handoff criteria"] -->|"defines room rules"| ROOM
+    ROOM -->|"stores restricted annex references and material"| ANNEX["Restricted annex store"]
+    ANNEX -->|"returns need-to-know annex material"| ROOM
+    ROOM -->|"logs revisions, access changes,<br>release approvals, and manual overrides"| AUDIT["Audit systems and release-state controls"]
+    OWNER["Senior employee relations director<br>as human artifact owner"] -->|"accepts disputed wording,<br>narrows annex exposure, and decides readiness"| ROOM
+    ROOM -->|"presents packet, disagreement register,<br>and annex map for review"| OWNER
+    OWNER -->|"authorizes bounded handoff"| BOUNDARY["Release boundary to downstream human-controlled<br>workplace safety and legal review workflows"]
+```
+
 - Human-in-the-loop collaboration should remain primary because only accountable employee-relations and legal owners can accept disputed threat language, narrow annex exposure, and release the packet into the next critical review lane.
 - An orchestrated multi-agent setup fits when separate agent roles refresh chronology evidence, normalize reviewer objections, maintain annex boundaries, and preserve the protected trace across successive revisions.
 - Agents may draft revisions, reconcile evidence references, and maintain readiness state, but selecting protective measures, contacting employees or witnesses, initiating leave or discipline actions, or coordinating with law enforcement should remain outside the room and explicitly human-controlled.
