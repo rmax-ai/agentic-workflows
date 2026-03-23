@@ -34,6 +34,22 @@ This grounds the pattern in HR where the hard governance step is controlling vis
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    S["Policy repository, regional handbook snapshots,<br>vendor intake-script records, and leave-compliance control logs"] -->|"Already cited by the prepared briefing"| W["Restricted HR briefing workspace<br>synthesized briefing revision + redaction notes + provenance ledger"]
+    W -->|"Route exact revision for governed release review"| H["HR governance owner"]
+    H -->|"Approve or hold one exact revision"| M["Approval manifest service<br>approver + revision id + council lane + hold or release disposition"]
+    H -->|"Record hold or supersession state"| A["Audit and supersession tracker<br>blocked dissemination attempts + supersession state"]
+    M -->|"Write release disposition"| A
+    subgraph L["Restricted people policy council lane"]
+        C["People policy council circulation tooling<br>named recipients + confidentiality banners + expiry or reuse limits"]
+        R["Restricted people policy council<br>approved readers"]
+        M -->|"Bind approved council lane and expiry"| C
+        C -->|"Circulate reviewed context package"| R
+    end
+    C -->|"Log blocked forwarding attempts and expiry state"| A
+```
+
 - Approval-gated execution fits because the compliance briefing remains held until the HR governance owner approves one exact revision for the restricted people policy council lane.
 - Human-in-the-loop review is necessary because only accountable HR leadership should accept residual compliance uncertainty, confirm protected-detail handling, and authorize circulation of sensitive workforce-policy context.
 - A governed agent can assemble the release manifest, compare revision lineage, and block superseded copies, but it should not decide the policy remedy, assess individual leave cases, or trigger downstream handbook or communication changes.
