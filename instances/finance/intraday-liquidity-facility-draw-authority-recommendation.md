@@ -53,6 +53,39 @@ This grounds the pattern in finance where the key challenge is not restoring the
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    cash["Cash-state / settlement /<br>collateral systems"]
+    authority["Authority matrix"]
+    deadlines["Payment-obligation and<br>deadline tracker"]
+    prior["Prior contingency cases,<br>audit records, and restricted<br>review channels"]
+
+    subgraph bridge["Treasury bridge workspace"]
+        ledger["Critical bridge ledger<br>severity + hold state + prior packets"]
+        orchestrator["Authority-recommendation workflow<br>retrieval + delegation check +<br>option narrowing + packet assembly"]
+        handoff["Recommendation / handoff boundary<br>bounded options only"]
+    end
+
+    subgraph humans["Human authority lanes"]
+        treasury["Treasury funding desk"]
+        finance["CFO-led liquidity committee"]
+        risk["Executive risk authority"]
+        legal["Legal authority"]
+    end
+
+    ledger -->|"Active case state"| orchestrator
+    cash -->|"Cash, settlement, and collateral evidence"| orchestrator
+    authority -->|"Limits, triggers, and sign-off thresholds"| orchestrator
+    deadlines -->|"Deadline and communication constraints"| orchestrator
+    prior -->|"Prior cases and restricted review context"| orchestrator
+    orchestrator -->|"Updates recommendation state"| ledger
+    orchestrator -->|"Produces bounded packet"| handoff
+    handoff -->|"Desk-lane review"| treasury
+    handoff -->|"Committee-lane review"| finance
+    handoff -->|"Restricted review"| risk
+    handoff -->|"Restricted review"| legal
+```
+
 - An orchestrated multi-agent workflow can split cash and collateral evidence retrieval, delegation checking, option narrowing, and packet assembly while preserving one critical-case ledger.
 - Human-in-the-loop review is mandatory because the workflow should advise on authority ownership and allowable decision paths, not trigger funding, hold payments, or contact lenders.
 - Human-directed autonomy fits because treasury, finance, risk, and legal authorities must explicitly adopt the decision lane before a market-sensitive action is even considered.
