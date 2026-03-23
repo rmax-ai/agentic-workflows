@@ -39,6 +39,18 @@ This grounds the gather/synthesize pattern in HR program governance rather than 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Approved HR, procurement, legal,<br>and vendor-governance repositories"] -->|"retrieve approved sources"| C["Tool-using single agent"]
+    B["Source-precedence, effective-date,<br>and trust-boundary controls"] -->|"govern retrieval and synthesis"| C
+    C -->|"assemble review-ready obligations brief"| D["Controlled HR program-review workspace"]
+    C -->|"preserve claim-to-source mappings"| E["Evidence trace"]
+    C -->|"escalate conflicts, ambiguity,<br>or coverage gaps"| F["Global Contingent Workforce Governance Lead<br>human review"]
+    D -->|"provide cited obligations framing"| F
+    E -->|"support provenance inspection"| F
+    F -->|"workflow boundary: stop before classification,<br>extension approval, vendor action, or conversion recommendation"| G["Review-ready obligations synthesis boundary"]
+```
+
 - A tool-using single agent can retrieve approved roster data, engagement artifacts, policy materials, supplier attestations, and primary-source legal guidance, then assemble a structured obligations brief with claim-to-source mappings and explicit source-precedence annotations.
 - Human-in-the-loop review should remain mandatory for conflicts between statute, regulator guidance, internal policy, and supplier representations, especially where jurisdiction-specific tenure clocks, supervision tests, or effective dates do not align cleanly.
 - The workflow should preserve an evidence trace that distinguishes binding legal text, current internal governance policy, executed supplier commitments, and lower-authority contextual materials such as training decks or manager FAQs.
