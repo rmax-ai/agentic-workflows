@@ -40,6 +40,27 @@ This grounds the transform pattern in a support workflow where the valuable outp
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    specialist["Support specialist<br>Submits outage evidence packet"]
+    packet["Shared support inbox, ticketing platform,<br>and secure attachment store"]
+    agent["Tool-using single agent<br>Creates structured escalation staging record<br>with transformation trace"]
+    parser["Document-parsing or extraction service<br>Reads ticket exports, screenshots,<br>and escalation attachments"]
+    refs["CRM entitlement record, tenant registry,<br>support-plan mapping table,<br>and named-contact roster"]
+    checks["Schema, provenance, privacy,<br>and confidence checks"]
+    staging["Support case-management or severity-escalation<br>staging system review queue"]
+    exception["Exception queue<br>Support duty-manager review"]
+
+    specialist -->|"Submit packet"| packet
+    packet -->|"Provide source evidence"| agent
+    agent -->|"Use parsing tools"| parser
+    parser -->|"Return extracted candidate fields"| agent
+    refs -->|"Provide approved normalization data"| agent
+    agent -->|"Apply required field and policy checks"| checks
+    checks -->|"Hand off in-policy staged record"| staging
+    checks -->|"Route conflicting or low-confidence packet"| exception
+```
+
 - A tool-using single agent can collect the packet, extract candidate tenant, timing, entitlement, and impact fields, normalize them to the escalation schema, and emit a structured staging record with a transformation trace.
 - The workflow should stage output in a reviewable support escalation queue rather than opening a live severity bridge or notifying downstream responders directly.
 - Approved reference data may normalize tenant identifiers, support-plan names, environment labels, contact roles, and time zones, but unsupported inference about outage scope, customer priority status, or missing entitlement evidence should force exception routing.
