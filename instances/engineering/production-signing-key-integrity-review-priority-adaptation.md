@@ -42,6 +42,21 @@ This grounds the pattern in engineering without drifting into authority recommen
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    W["Critical security workspace<br>declared severe scope, active review backlogs,<br>and current hold state"] --> O
+    E["Artifact lineage inventory, signing-service telemetry,<br>package publication history, and blast-radius analysis views"] --> O
+    Q["Release-freeze exception queue,<br>trust-impact assessment board,<br>and override history from prior severe review cycles"] --> O
+    G["Emergency governance rules<br>protected review lanes, restricted annex handling,<br>expiry timing, and rollback triggers"] --> O
+    G --> P
+    subgraph B["Emergency prioritization-state recommendation<br>with expiry / rollback controls"]
+        O["Orchestrated multi-agent coordination"] --> P["Temporary emergency prioritization state"]
+    end
+    P --> H["Platform security and release-engineering leaders"]
+    H --> A["Queue-state versioning and audit systems"]
+    A --> W
+```
+
 - Orchestrated multi-agent coordination fits because separate roles can analyze override clusters, validate protected review classes, simulate severe-mode queue states, and package rollback controls over one shared critical-case state.
 - Human-in-the-loop review is mandatory because platform security and release-engineering leaders must explicitly adopt, extend, or reject the emergency prioritization state before it influences live queues.
 - Human-directed autonomy keeps the boundary clean: the workflow can recommend protected-lane capacity reservations and temporary urgency weights, but it must not revoke keys, freeze releases, or choose the incident authority lane.
