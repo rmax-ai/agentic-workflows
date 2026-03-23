@@ -48,6 +48,28 @@ This grounds the pattern in engineering work where the main need is not initial 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    change["Change-management record<br>approved cutover window, required review roles,<br>and current owner confirmation state"]
+    calendars["Team calendars, delegate mappings,<br>and on-call scheduling metadata for<br>release engineering, security review,<br>database migration, and site reliability"]
+    readiness["CI and readiness systems<br>authoritative evidence-ready timestamps"]
+    refresh["Release-readiness coordination refresh<br>event-driven monitoring, role checks,<br>and schedule validation"]
+    workspace["Release coordination workspace<br>tentative holds, acknowledgements,<br>refresh lineage, and current packet state"]
+    notices["Notification channel or meeting system<br>targeted attendee updates and<br>authoritative invite history"]
+    owner["Release owner<br>adoption checkpoint"]
+    exceptions["Bounded exception routing<br>freeze-window risk, missing approved delegate<br>coverage, and out-of-policy refresh cases"]
+
+    change -->|"Provides approved cutover window,<br>required roles, and current owner state"| refresh
+    calendars -->|"Provides attendee availability,<br>delegate eligibility, and on-call coverage"| refresh
+    readiness -->|"Provides authoritative evidence-ready<br>timing constraints"| refresh
+    workspace -->|"Provides tentative hold state,<br>acknowledgements, and lineage"| refresh
+    refresh -->|"Writes refreshed packet state,<br>tentative hold updates, and lineage"| workspace
+    refresh -->|"Issues participant-specific timing,<br>delegate, and readiness deltas"| notices
+    refresh -->|"Presents materially changed timing<br>or attendee state for adoption"| owner
+    owner -->|"Returns adoption or tentative-hold<br>outcome for the refreshed packet"| refresh
+    refresh -->|"Routes freeze-window conflicts,<br>delegate-coverage gaps, or other<br>out-of-policy refresh conditions"| exceptions
+```
+
 - Event-driven monitoring should react only to approved delegate-state updates, authoritative evidence-ready changes, and governed calendar updates that affect the issued review checkpoint.
 - Exception-gated autonomy fits because the workflow can refresh the packet, revise the tentative hold, and notify affected participants automatically when changes stay inside the approved cutover window and role boundaries.
 - The release owner should adopt any changed meeting time, required-attendee substitution, or freeze-window edge case before the refreshed packet becomes authoritative.
