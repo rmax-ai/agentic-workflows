@@ -46,6 +46,16 @@ This grounds the scheduling pattern in treasury collateral operations where a na
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Collateral workflow tracker<br>ready-for-review gate and required reviewer roles"] -->|"1. scheduling allowed<br>only when packet is ready"| F["Treasury coordination workspace<br>inspectable scheduling packet and coordination log,<br>revision lineage, and Maya Chen confirmation checkpoint"]
+    B["Custodian cutoff calendar<br>latest feasible review boundary and protected buffers"] -->|"2. latest compliant review window"| F
+    C["Delegate roster<br>approved backup coverage for required reviewer roles"] -->|"3. approved role coverage"| F
+    D["Policy-bound availability state<br>compliant slot ranking after the first three sources agree"] -->|"4. ranked candidate slots"| F
+    F -->|"tentative hold request<br>only"| E["Meeting/calendar tools<br>reversible hold and tentative invite draft only"]
+    E -->|"tentative status returned<br>to the packet"| F
+```
+
 - A tool-using single agent gathers the ready-for-review state, cutoff window, delegate coverage, and policy-bound availability metadata, then ranks viable slots and drafts one scheduling packet with an attached coordination log.
 - Bounded delegation fits because the agent can place short-lived tentative holds, preserve rejected-slot reasoning, and maintain revision lineage, but it should not move the custodian cutoff, approve an unlisted delegate, or turn the packet into a settlement or counterparty instruction.
 - Human checkpoints remain necessary when no compliant overlap exists before the protected cutoff buffer, when the eligibility refresh is stale, when the funding window is no longer in an allowed state, or when Maya Chen must approve a material attendee exception.
