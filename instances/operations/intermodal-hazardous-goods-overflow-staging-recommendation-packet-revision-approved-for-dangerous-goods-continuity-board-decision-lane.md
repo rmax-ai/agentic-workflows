@@ -39,6 +39,23 @@ This grounds the pattern in operations where the governance challenge is not dec
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    yard["Yard occupancy, container location,<br>compatibility, and inspection records"] -->|"Cited operating state"| workspace["Hazardous-goods recommendation<br>workspace"]
+    workspace -->|"Packet revision<br>and container scope"| agent["Governed agent<br>support"]
+    governance["Dangerous-goods governance<br>repository"] -->|"Lane, recipient,<br>and expiry rules"| manifest["Approval manifest and<br>restricted-routing tooling"]
+    governance -->|"Named release<br>authority"| owner["Named operations<br>release owner"]
+    agent -->|"Packet hash checks,<br>manifest assembly,<br>and routing guardrails"| manifest
+    subgraph boundary["Dangerous-goods continuity<br>board lane boundary"]
+        lane["Dangerous-goods continuity<br>board lane"]
+    end
+    manifest -->|"Approval request"| owner
+    owner -->|"Approve exact<br>release terms"| manifest
+    manifest -->|"Approved packet route"| lane
+    manifest -->|"Blocked forwarding,<br>holds, and supersession"| ledger["Audit and supersession<br>ledger"]
+    ledger -->|"Release history<br>and superseded revisions"| workspace
+```
+
 - Approval-gated execution fits because the recommendation packet remains held until a named operations owner authorizes release into the dangerous goods continuity board decision lane.
 - Human-in-the-loop review remains necessary because only accountable operations and safety governance owners should confirm lane scope, expiry timing, and blocked-option visibility without collapsing the workflow into overflow-staging approval itself.
 - A governed agent can compare packet hashes, assemble the manifest, and block broadened distribution, but it should not authorize hazardous-goods staging, re-slot containers, notify carriers, or create yard-execution tasks.
