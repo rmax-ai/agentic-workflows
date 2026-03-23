@@ -45,6 +45,27 @@ This grounds the pattern in a low-risk HR workflow where a publication-complete 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    trk["People-policy workflow tracker<br>or event feed"]
+    repo["Approved handbook<br>repository"]
+    intranet["Intranet handbook<br>service"]
+    mirror["Mirror or cache-status<br>surface"]
+    idx["Search-index status<br>endpoint"]
+    log["Verification<br>audit log"]
+
+    subgraph hum["Human-controlled follow-up boundary"]
+        follow["Bounded human-controlled<br>follow-up"]
+    end
+
+    trk -->|"Claim context"| log
+    repo -->|"Approved revision and<br>effective-date metadata"| log
+    intranet -->|"Served guidance page<br>revision"| log
+    mirror -->|"Propagation status for<br>supported surfaces"| log
+    idx -->|"Indexed revision and<br>freshness timestamp"| log
+    log -->|"Bounded follow-up<br>context when needed"| follow
+```
+
 - Event-driven monitoring fits because the verification run should begin when the publication-complete claim is recorded rather than only after a partner notices inconsistent handbook behavior.
 - A tool-using single agent can compare page identifiers, revision markers, effective dates, cache freshness, and search-index state across the approved handbook systems while applying propagation tolerances.
 - Bounded delegation is appropriate because HR governance owners can predefine the authoritative handbook surfaces, acceptable lag windows, and required corroborating fields while humans retain authority over any republish, policy interpretation, or employee communication.
