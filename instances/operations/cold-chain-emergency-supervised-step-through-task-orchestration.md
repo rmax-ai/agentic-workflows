@@ -53,6 +53,20 @@ This grounds the pattern in an operations scenario where the outcome is executed
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    dirlog["Supervisor direction log"] -->|"Directed emergency step"| agent["Human-directed execution agent"]
+    boundary["Containment boundary<br>and emergency SOP constraints"] -->|"Allowed scope and no-go rules"| agent
+    tower["Cold-chain control tower<br>and route-execution systems"] -->|"Trailer state and route context"| agent
+    quality["Quality-hold, lot genealogy,<br>and chain-of-custody systems"] -->|"Hold and custody state"| agent
+    capacity["Carrier dispatch tools<br>and site-capacity dashboards"] -->|"Carrier and facility constraints"| agent
+    agent -->|"Approved reroute and status updates"| tower
+    agent -->|"Hold, genealogy, and custody updates"| quality
+    agent -->|"Dispatch requests and facility coordination"| capacity
+    agent -->|"Evidence, action trace,<br>and state snapshots"| audit["Audit and evidence store"]
+    agent -->|"Escalation-ready handoff state"| packet["Takeover-packet boundary"]
+```
+
 - A tool-using single agent can update hold codes, dispatch probe checks, write reroute actions, and capture current quality and shipment state after each directed step.
 - Human-in-the-loop control is required because the cold-chain lead decides which lots can move, which facilities may receive them, and when changing field conditions require a new branch or full stop.
 - The workflow should generate resumable takeover packets whenever a product-quality lead, transportation manager, or site commander must assume control of one branch of the response.
