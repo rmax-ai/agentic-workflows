@@ -48,6 +48,40 @@ This grounds the pattern in support through a bounded diagnostic-accommodation r
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    timeline["Premium-support case timeline,<br>incident notes, request history, and severity context"]
+    authority["Delegated support authority matrix<br>telemetry options, retention caps, and blocked actions"]
+    policy["Observability and evidence-collection policy library<br>tenant scope, privacy, and regional handling rules"]
+    records["Entitlement and exception records<br>contract addenda and prior accommodations"]
+    audit["Recommendation and override audit logs<br>decision trace and boundary evidence"]
+
+    subgraph local["Human local review<br>delegated support boundary"]
+        workspace["Bounded recommendation workspace<br>ranked local options and blocked-path register"]
+        manager["Premium-support escalation manager"]
+        local_option["Local in-band accommodation recommendation"]
+        workspace --> manager
+        manager --> local_option
+    end
+
+    subgraph escalation["Escalation boundary<br>higher approval required"]
+        criteria["Security, privacy, and engineering<br>escalation criteria"]
+        packet["Escalation packet<br>for higher-approval review"]
+        criteria --> packet
+    end
+
+    timeline --> workspace
+    authority --> workspace
+    policy --> workspace
+    records --> workspace
+    authority --> manager
+    policy --> manager
+    manager --> criteria
+    workspace --> audit
+    manager --> audit
+    packet --> audit
+```
+
 - A tool-using single agent can retrieve the authority matrix, current case evidence, data-handling guardrails, prior exceptions, and entitlement context and turn them into one bounded ranking of diagnostic accommodation options.
 - Human-in-the-loop review still matters because the support escalation manager or duty lead decides whether to accept the recommended in-band option locally or send the case upward for broader data-access approval.
 - Read-only integration with case, observability, entitlement, privacy, and escalation systems is preferable so the workflow cannot silently enable telemetry, extend retention, or request privileged engineering access.
