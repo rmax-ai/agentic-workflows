@@ -42,6 +42,28 @@ This grounds `human-directed-task-orchestration` in a finance scenario where the
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    lead["Nadia Ferreira<br>Global Treasury Payment Controls Lead"]
+    agent["Tool-using single agent<br>for directed containment execution"]
+    authority["Signer roster, emergency payment-control procedure,<br>and queue-freeze authority matrix"]
+    pf["Payment factory control console<br>urgent-payment batch record, queue hold controls,<br>and callback correlation state"]
+    bank["Bank acknowledgment gateway<br>and treasury bank-connect monitor"]
+    erp["ERP payables run view<br>and supplier-payment register"]
+    ledger["Supplier-Payment-Batch-Containment-Ledger-USB-4471<br>append-only directives, actions, blockers,<br>and takeover packets"]
+    takeover["Bank operations or fraud-risk control"]
+
+    lead -->|"Directs each consequential containment step"| agent
+    authority -->|"Defines allowed scope,<br>prerequisites, and stop conditions"| agent
+    agent -->|"Places holds, freezes the queue,<br>and reads current payment-factory state"| pf
+    pf -->|"Current queue state,<br>hold status, and callback correlation"| agent
+    bank -->|"Authoritative submit, receive, reject,<br>and settlement-boundary acknowledgments"| agent
+    erp -.->|"Lower-precedence payment-run reference<br>and batch-lock context"| agent
+    agent -->|"Appends directives, evidence,<br>verification, and blockers"| ledger
+    ledger -->|"Current containment state<br>and verified lineage"| lead
+    ledger -->|"Provides the takeover packet with current evidence,<br>partial actions, and blockers"| takeover
+```
+
 - A tool-using single agent can execute the directed holds and queue-freeze actions, read bank-ack and payment-factory state, update the append-only containment ledger, and package verified takeover context.
 - Human-in-the-loop control is mandatory because Nadia Ferreira must direct every consequential next step, confirm whether containment scope still holds, and decide when a branch leaves payment-controls authority.
 - The workflow should expose a takeover-safe packet for bank operations or fraud-risk control whenever the evidence shows a payment may have crossed the instructed boundary or external action is required.
