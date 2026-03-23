@@ -47,6 +47,28 @@ This grounds the pattern in cold-chain cross-dock operations through a delegated
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    wh["Warehouse execution and cross-dock<br>visibility systems"]
+    telem["Cold-chain monitoring<br>platform"]
+    rules["Delegated recovery matrix<br>and SKU stability rules"]
+    audit["Recommendation audit log<br>and prior override history"]
+
+    subgraph review["Elena Torres local review boundary"]
+        agent["Tool-using single agent<br>for delegated option ranking"]
+        packet["`RCC-Excursion-Option-Packet-v4`<br>recommendation packet"]
+        human["Elena Torres<br>human review"]
+    end
+
+    wh -->|"Read-only roster and capacity"| agent
+    telem -->|"Read-only telemetry and lineage"| agent
+    rules -->|"Authority bands and product guardrails"| agent
+    audit -->|"Prior overrides and escalation templates"| agent
+    agent -->|"Bounded fallback ranking"| packet
+    packet -->|"Inspectable recommendation"| human
+    agent -.->|"Recommendation log update"| audit
+```
+
 - A tool-using single agent can retrieve the delegated recovery matrix, excursion telemetry, SKU stability rules, capacity state, and prior overrides and turn them into one bounded fallback ranking for Elena Torres to inspect.
 - Human-in-the-loop review remains necessary because the named local owner decides whether the ranked in-band recommendation is acceptable inside delegated cross-dock authority or whether escalation packaging is required.
 - Read-only integration with warehouse, telemetry, product-quality, and governance systems is preferable so the workflow cannot silently release product, move inventory, reassign labor, alter appointments, or trigger downstream carrier actions.
