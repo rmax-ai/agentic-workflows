@@ -44,6 +44,19 @@ This grounds the pattern in a support workflow centered on revised evidence-hand
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    feed["Change-notification<br>feed"] --> agent["Bounded digest agent<br>compare revision, baseline,<br>and control context"]
+    guidance["Guidance repository<br>approved guide revision<br>and publication metadata"] --> agent
+    baseline["Prior baseline<br>archive"] --> agent
+    checklist["Checklist<br>library"] --> agent
+    retention["Retention / quarantine<br>register"] --> agent
+    taxonomy["Taxonomy<br>table"] --> agent
+    access["Access-control<br>matrix"] --> agent
+    agent --> workspace["Briefing workspace<br>Diagnostic-Bundle-Evidence-Handling-<br>Change-Brief-r4"]
+    workspace --> stop["Bounded briefing<br>stop"]
+```
+
 - Event-driven monitoring fits because the digest should refresh from the authoritative guide publication event instead of waiting for manual policy review or ad hoc lead questions.
 - A tool-using single agent can compare the revised guide with the prior approved baseline, retrieve the narrow surrounding control set, and assemble `Diagnostic-Bundle-Evidence-Handling-Change-Brief-r4` with claim-to-source traceability.
 - Bounded delegation works because support governance can predefine the allowed source boundary, digest template, and audience while humans remain responsible for any downstream evidence-handling interpretation or case-specific action.
