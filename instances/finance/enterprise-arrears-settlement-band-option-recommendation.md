@@ -41,6 +41,20 @@ This grounds the pattern in finance where the hard problem is not adjudicating a
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["AR aging dashboard,<br>invoice record,<br>dispute notes, and collector work queue"] -->|"Read-only overdue case evidence"| F["Delegated settlement<br>option-ranking workflow"]
+    B["Contracted payment terms,<br>late-fee policy, and delegated<br>settlement authority matrix"] -->|"Read-only policy guardrails"| F
+    C["Customer account history,<br>prior waivers, collections notes,<br>and credit-risk flags"] -->|"Read-only account context"| F
+    D["Treasury or controller escalation criteria,<br>precedent settlement cases,<br>and write-off guardrails"] -->|"Escalation and precedent context"| F
+    F -->|"Produces bounded option ranking"| G["Recommendation packet:<br>in-band options,<br>blocked terms, or escalation-ready case"]
+    F -->|"Writes rationale and threshold trace"| H["Recommendation log<br>and audit trail"]
+    G -->|"Routes for governed judgment"| I["Collector or finance lead<br>decision boundary"]
+    I -->|"Accepts local review path"| J["In-band recommendation review"]
+    I -->|"Sends out-of-band case upward"| K["Treasury/controller<br>escalation lane"]
+    F -.->|"Stops before billing mutation,<br>customer commitment, or write-off action"| L["Boundary guardrail"]
+```
+
 - A tool-using single agent can retrieve the authority bands, payment history, precedent cases, and current exposure values and turn them into one bounded settlement option ranking.
 - Human-in-the-loop review still matters because the collector or finance lead chooses whether to accept the in-band recommendation locally or send the case upward for a larger concession review.
 - Read-only integration with billing, contract, and collections systems is preferable so the recommendation workflow cannot silently waive fees, change payment dates, or post write-offs.
