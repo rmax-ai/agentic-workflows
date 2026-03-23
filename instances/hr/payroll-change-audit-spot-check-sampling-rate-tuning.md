@@ -163,6 +163,31 @@ Rollback is triggered automatically when:
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph AUTO["Autonomous tuning boundary"]
+        TUNER["Sampling-rate tuning agent<br>Checks bounds, capacity, cooldowns,<br>and writes policy updates plus audit trace"]
+    end
+    subgraph HUMAN["Human governance boundary"]
+        WORKSPACE["Governance workspace<br>Compensation Compliance Lead review,<br>freeze, and restore controls"]
+    end
+
+    PAYROLL["Payroll system of record<br>Completed payroll change cohorts<br>and authorization metadata"]
+    FINDINGS["Audit findings store<br>Defect classes, overrides,<br>and back-out history"]
+    CAPACITY["Reviewer-capacity dashboard<br>Four-person team load<br>and 240-record ceiling"]
+    CALENDAR["Payroll-close calendar<br>Close weeks, blackout windows,<br>and gate dates"]
+    POLICY["Compensation policy registry<br>Active sampling policy, floors,<br>versions, and delegated bounds"]
+
+    PAYROLL -->|"sample cohorts"| TUNER
+    FINDINGS -->|"defect signals"| TUNER
+    CAPACITY -->|"capacity limits"| TUNER
+    CALENDAR -->|"blackout status"| TUNER
+    POLICY -->|"active policy / bounds"| TUNER
+    TUNER -->|"updated policy / audit trace"| POLICY
+    TUNER -->|"sampled run logs"| WORKSPACE
+    WORKSPACE -->|"freeze / restore actions"| POLICY
+```
+
 - Event-driven monitoring should trigger reevaluation at the end of each payroll close cycle
   when new defect signals, back-out events, and reviewer overrides are committed to the
   findings store.
