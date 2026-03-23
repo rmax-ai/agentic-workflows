@@ -41,6 +41,19 @@ This grounds the pattern in operations without drifting into live alert handling
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    T["Telemetry pipeline<br>loading-bay readings and door-open intervals"] --> Q["Quality-review workspace<br>reviewed alerts, backchecks, and completeness gates"]
+    M["Maintenance and sensor-health records<br>faults, deferred work, and firmware drift"] --> Q
+    subgraph C["Bounded policy-threshold calibration loop"]
+        Q -- "Reviewed evidence for one<br>persistence-threshold policy" --> P["Threshold-policy store<br>active threshold, approved bounds,<br>protected floors, and prior trusted version"]
+        P -- "Current threshold, approved bounds,<br>and protected-floor constraints" --> Q
+        Q -- "Review when floor proximity,<br>mixed evidence, or drift warnings appear" --> D["Audit and rollback dashboard<br>review package, drift history, and rollback controls"]
+        D -- "Approve bounded update<br>or restore prior trusted threshold" --> P
+        P -- "Threshold history<br>and cumulative drift" --> D
+    end
+```
+
 - Event-driven monitoring should trigger recalibration only after enough reviewed excursion outcomes accumulate for a depot and product lane, not every time a single noisy transfer wave occurs.
 - A tool-using single agent can read reviewed outcomes, compute a within-bounds threshold move, update the policy store, and write the calibration record when feedback-quality gates pass.
 - Human-in-the-loop review should remain normal when a proposed move approaches a protected floor, when cumulative drift reaches the delegated warning band, or when evidence quality is mixed across depots.
