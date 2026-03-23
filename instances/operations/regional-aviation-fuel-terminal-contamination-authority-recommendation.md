@@ -53,6 +53,37 @@ This grounds the critical recommendation pattern in operations without drifting 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph S["Operations evidence and policy sources"]
+        Q["Terminal control and quality systems<br>tank genealogy, inline-sensor telemetry,<br>sample chain-of-custody, and loading history"]
+        A["Airport stock and demand dashboards<br>dispatch schedules, substitution constraints,<br>and continuity-threshold ledgers"]
+        D["Safety, continuity, and delegation matrix<br>terminal authority limits, enterprise fuel-supply decision rights,<br>and executive escalation triggers"]
+        R["Prior fuel-quality incidents<br>restricted annex tooling,<br>and audit logs"]
+    end
+
+    subgraph W["Workflow boundary: recommend authority only"]
+        L["Critical operations workspace / shared critical-case ledger<br>declared contamination scope, current hold state,<br>and prior packet revisions"]
+        O["Orchestrated multi-agent workflow<br>quality-evidence retrieval,<br>authority-matrix checking, option narrowing,<br>and packet assembly"]
+        P["Authority recommendation packet<br>bounded options, blocked lower-authority paths,<br>evidence lineage, and annex references"]
+    end
+
+    subgraph H["Human review and acceptance boundary"]
+        U["Named human authority review<br>terminal incident authority, enterprise fuel-supply command,<br>or executive safety and continuity authority"]
+    end
+
+    X["Blocked in this workflow<br>no fuel release, no dispatch reroute,<br>and no airport conservation posture direction"]
+
+    Q --> O
+    A --> O
+    D --> O
+    R --> O
+    L <--> O
+    O --> P
+    P --> U
+    P -.-> X
+```
+
 - An orchestrated multi-agent workflow can separate quality-evidence retrieval, authority-matrix checking, option narrowing, and packet assembly while preserving one shared critical-case ledger.
 - Human-in-the-loop review is mandatory because the workflow should recommend the correct decision owner and bounded option set, not release fuel, suspend dispatches, or set airport conservation posture.
 - Human-directed autonomy fits because terminal, enterprise fuel-supply, and executive continuity leaders must explicitly accept the authority lane before any irreversible supply decision is considered.
