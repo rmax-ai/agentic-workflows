@@ -37,6 +37,39 @@ This grounds the pattern in a finance workflow where the main value is keeping o
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Ledgers["Intraday liquidity and<br>treasury ledgers"]
+    AnnexRepo["Market-sensitive annex<br>repository"]
+    Policy["Finance-control, risk-policy,<br>and delegation repositories"]
+    Audit["Audit<br>systems"]
+
+    subgraph Room["Restricted treasury<br>collaboration room"]
+        Human["Assistant treasurer<br>artifact owner"]
+        Agents["Agents"]
+        Workspace["Protected funding review<br>packet workspace"]
+        Packet["Main funding<br>packet"]
+        Ledger["Disagreement<br>ledger"]
+        AnnexRefs["Restricted annex<br>references"]
+        Release["Human release-state<br>record"]
+
+        Human --> Workspace
+        Agents --> Workspace
+        Workspace --> Packet
+        Workspace --> Ledger
+        Workspace --> AnnexRefs
+        Human --> Release
+        Workspace --> Release
+    end
+
+    Ledgers --> Agents
+    AnnexRepo --> AnnexRefs
+    Policy --> Human
+    Policy --> Agents
+    Workspace --> Audit
+    AnnexRepo --> Audit
+```
+
 - Human-in-the-loop collaboration should remain primary because only accountable treasury and finance leaders can decide whether disputed language, confidential annex exposure, and release timing are acceptable.
 - An orchestrated multi-agent setup fits when separate agent roles refresh liquidity evidence, compare wording changes, track annex sensitivity, and maintain the protected trace across successive updates.
 - Agents may update schedules, reconcile comments, and surface held-state causes, but selecting the authority lane, opening market communications, or initiating funding operations should remain explicitly human-gated and external to the room.
