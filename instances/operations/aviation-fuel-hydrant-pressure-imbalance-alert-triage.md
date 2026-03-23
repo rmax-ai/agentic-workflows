@@ -42,6 +42,19 @@ This grounds `risk-alert-triage` in an operations environment where the hard pro
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Hydrant SCADA<br>pressure and valve-state telemetry"] -->|"authoritative loop state"| F["Correlation and triage agent"]
+    B["Pit monitoring<br>flow readings and calibration state"] -->|"pit evidence and blockers"| F
+    C["Permit and isolation ledger<br>acknowledgments and safe boundaries"] -->|"approved isolation context"| F
+    D["Dispatch assignments<br>departure-bank demand updates"] -->|"turn exposure context"| F
+    E["Tank-farm reconciliation<br>supply-path lag indicators"] -->|"supply context and blockers"| F
+    subgraph G["Governed triage boundary"]
+        F -->|"source precedence,<br>deduplication, and blocker visibility"| H["Audit-grade triage queue<br>with evidence packet"]
+    end
+    H -->|"approval-gated escalation<br>recommendation"| I["Hydrant control supervisor,<br>fueling coordination lead,<br>or airfield duty manager"]
+```
+
 - Event-driven monitoring should continuously ingest SCADA telemetry, pit-flow changes, permit acknowledgments, dispatch assignment shifts, and tank-farm reconciliation updates, then reopen, merge, or reprioritize alert clusters as evidence changes.
 - A tool-using single agent can correlate hydrant loop identifiers across SCADA, permit, dispatch, and fueling records; suppress duplicate pressure-chatter bursts; apply explicit source precedence; and publish a prioritized queue with urgency drivers and blocker visibility.
 - Human-in-the-loop review should remain mandatory for any alert involving authoritative out-of-band pressure behavior during active fueling windows, conflicts between telemetry and approved isolation state, or blocker conditions such as stale pit calibration, incomplete permit acknowledgment, or missing demand refresh.
