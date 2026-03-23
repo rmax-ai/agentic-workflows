@@ -41,6 +41,19 @@ This grounds the pattern in an operations governance surface where the maintaine
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    BR["OEM and fleet-safety bulletin repository"] -->|"Refresh bulletin revision,<br>clarifications, and fitment rules"| AG["Bounded upkeep agent"]
+    INV["Fleet asset inventory and<br>VIN decoding register"] -->|"Refresh vehicle scope,<br>depot assignment, and sync state"| AG
+    CMMS["Computerized maintenance management system<br>and temporary-deferral register"] -->|"Refresh maintenance evidence,<br>prior deferral links, and parts notes"| AG
+    ANN["Depot annotation and<br>photo-review surface"] -->|"Provide small edits, caveats,<br>handoff notes, and fitment questions"| AG
+    subgraph GB["Approved shared-workbench upkeep boundary"]
+        AG -->|"Update source-precedence links,<br>row fields, hold markers, and lineage"| BOARD["Shared bulletin-applicability caveat board<br>with blocker tags and append-only revision history"]
+        BOARD -->|"Expose blockers, unresolved questions,<br>and named ownership"| HUM["Fleet Safety Standards Steward Elena Ortiz<br>and named depot owners"]
+        HUM -->|"Review blocker-clearing, applicability,<br>and deferral-adjacent changes"| AG
+    end
+```
+
 - Event-driven monitoring fits because upkeep should react when bulletin clarifications, VIN-inventory mappings, maintenance-history evidence, or depot comments change.
 - A tool-using single agent can refresh source links, reconcile row metadata, normalize duplicate caveat wording, and keep hold markers plus lineage synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when an update would clear a blocker, reinterpret bulletin applicability, or make a row sound like an approved repair or deferral decision.
