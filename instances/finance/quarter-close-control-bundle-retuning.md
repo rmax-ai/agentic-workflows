@@ -45,6 +45,24 @@ This grounds the pattern in a finance workflow where the main adaptation problem
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Tracker["Close-management tracker"] -->|"close exceptions,<br>aging signals, and scoring outputs"| Agents["Orchestrated retuning agents"]
+    ERP["ERP, consolidation, and<br>disclosure-support systems"] -->|"materiality indicators,<br>covenant linkage, and entity metadata"| Agents
+    Outcome["Outcome and override store"] -->|"controller overrides,<br>late-close incidents, and rollback records"| Agents
+    Registry["Shared parameter registry"] -->|"active bundle,<br>protected settings, and version lineage"| Agents
+    Agents -->|"candidate bundle changes"| Sim["Simulation workspace"]
+    Sim -->|"replay results across prior<br>quarter-close cycles"| Agents
+    Agents -->|"governed retuning packet and<br>candidate bundle version"| Dashboard["Governance dashboard"]
+    Steward["Controllership<br>optimization steward"] -->|"proposes and reviews retuning"| Dashboard
+    subgraph Governance["Controllership governance"]
+        Dashboard
+        Reviewers["Controller reviewers"]
+    end
+    Reviewers -->|"adopt, narrow,<br>defer, or reject"| Dashboard
+    Dashboard -->|"adopted bundle or revert decision"| Registry
+```
+
 - Orchestrated multi-agent coordination fits because separate roles can analyze cross-surface telemetry, test fairness and protected-priority guardrails, simulate candidate bundles, and assemble one retuning package over shared close-state history.
 - Human-in-the-loop operation should remain normal because the controller or close lead must explicitly adopt, narrow, defer, or reject the proposed bundle before it becomes active shared state.
 - Recommendation-only autonomy keeps the ontology boundary clean: the workflow can compare bundle versions and recommend the safest retuning path, but it should not activate parameters or reinterpret close policy on its own.
