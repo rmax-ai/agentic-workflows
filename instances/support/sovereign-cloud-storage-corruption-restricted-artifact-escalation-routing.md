@@ -42,6 +42,32 @@ This grounds the pattern in support through a high-consequence routing problem w
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    lead["Sovereign-cloud<br>support lead"]
+    case["Sovereign-cloud support case system<br>severity history, incident notes,<br>customer-impact timeline,<br>and ownership state"]
+    artifacts["Artifact catalog and evidence manifest<br>requested crash dumps, trace bundles,<br>region tags, encryption status,<br>and retention windows"]
+    policy["Sovereignty, privacy, and data-handling policy library<br>in-region processing rules,<br>transfer prohibitions, and approved reviewer classes"]
+    security["Product security and restricted-vendor intake criteria<br>elevated handling risk,<br>artifact-access triggers, and protected channels"]
+    account["Executive-account governance records<br>contractual deadlines, named-account commitments,<br>prior exceptions, and escalation thresholds"]
+    audit["Audit logs<br>earlier artifact-access requests,<br>denied transfers, and prior governed handoff decisions"]
+    subgraph boundary["Governed escalation-routing boundary"]
+        orchestrator["Orchestrated recommendation workflow"]
+        packet["Escalation-route packet<br>preferred authority path,<br>alternate governed routes,<br>and blocked local-only paths"]
+        review["Privacy, security, or executive-account<br>human authority review<br>before any artifact transfer,<br>vendor sharing, or customer commitment"]
+    end
+
+    lead -->|"reviews case posture<br>and requested path"| orchestrator
+    case -->|"read-only case state"| orchestrator
+    artifacts -->|"artifact classification<br>and residency signals"| orchestrator
+    policy -->|"sovereignty and privacy constraints"| orchestrator
+    security -->|"restricted-artifact and vendor-access triggers"| orchestrator
+    account -->|"contract and deadline thresholds"| orchestrator
+    audit -->|"prior denials and handoff lineage"| orchestrator
+    orchestrator -->|"ranked route recommendation<br>and evidence packet"| packet
+    packet -->|"governed authority checkpoint"| review
+```
+
 - A recommendation-only workflow can combine case severity, artifact metadata, sovereignty policy triggers, security review criteria, and executive-account thresholds into one ranked escalation-route recommendation.
 - Human-in-the-loop review is mandatory because privacy, security, and executive-account authorities must decide whether to accept the recommended route and what downstream handling to authorize.
 - Read-only integration with case, artifact, policy, security, and account-governance systems is preferable so the workflow cannot export artifacts, approve vendor intake, change access controls, or communicate commitments on its own.
