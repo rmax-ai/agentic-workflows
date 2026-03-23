@@ -44,6 +44,48 @@ This grounds the pattern in support through a governed calculation-clarification
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    CM["Case-management system"]
+    UT["Uptime telemetry system"]
+    MC["Maintenance-calendar system"]
+    ES["Entitlement system"]
+    CL["Contract clause library"]
+    PR["Service-credit policy references"]
+    BW["Billing worksheet repositories"]
+    RO["Named support release owner"]
+    RA["Restricted account-governance<br>intake-routing and approval systems"]
+    RL["Bounded restricted account-governance<br>review intake lane"]
+    AR["Audit, retention, and<br>access-governance systems"]
+    SB["Collaborative artifact release boundary<br>stops before credit decision or billing execution"]
+
+    subgraph WS["Governed support collaboration workspace"]
+        CP["Contractual service-credit calculation<br>clarification packet"]
+        RH["Revision history"]
+        OL["Objection ledger"]
+        RM["Release-manifest state"]
+    end
+
+    CM -->|"incident chronology"| CP
+    UT -->|"outage-duration evidence"| CP
+    MC -->|"excluded maintenance intervals"| CP
+    ES -->|"service-tier commitments<br>and prior exception history"| CP
+    CL -->|"clause interpretations"| CP
+    PR -->|"service-credit policy logic"| CP
+    BW -->|"worksheet lineage"| CP
+    CP -->|"records updates"| RH
+    CP -->|"preserves disagreements"| OL
+    CP -->|"binds exact revision"| RM
+    RH -->|"retained with release trace"| AR
+    OL -->|"accepted residual objections"| AR
+    RM -->|"blocked-release reasons<br>and handoff traceability"| AR
+    CP -->|"exact packet revision"| RO
+    RM -->|"release manifest"| RO
+    RO -->|"approves one bounded release"| RA
+    RA -->|"routes approved packet revision"| RL
+    RL -->|"workflow stops here"| SB
+```
+
 - Approval-gated execution fits because the clarification packet can be collaboration-ready while still blocked from restricted account-governance intake until the human release owner approves the exact revision with its accepted residual caveats.
 - Human-in-the-loop control is required because only accountable support and account-governance owners may accept residual contractual ambiguity, confirm reviewer scope, and authorize the packet's release boundary without that approval being treated as a credit decision.
 - Agents may reconcile ticket chronology, compare worksheet versions, refresh clause references, and maintain the release trace, but they must not decide whether a credit is owed, recommend concessions, or trigger billing changes.
