@@ -44,6 +44,32 @@ This shows optimize/adapt in a research setting where the key problem is governe
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    intake["Benchmark-program intake<br>and review systems"]
+    docs["Research artifact<br>and documentation stores"]
+    history["Outcome history"]
+    registry["Shared parameter registry"]
+    subgraph analysis["Retuning workspace"]
+        agents["Orchestrated analysis agents<br>for outcome analysis, guardrail checking,<br>historical replay, and package assembly"]
+        replay["Simulation and replay workspace"]
+    end
+    subgraph governance["Human-in-the-loop governance"]
+        dash["Governance dashboard"]
+        stewards["Research leads and<br>integrity reviewers"]
+    end
+
+    intake -->|"study metadata and review state"| agents
+    docs -->|"reproducibility evidence<br>and reviewer annotations"| agents
+    history -->|"override, delay, and rollback history"| agents
+    registry -->|"active bundle and protected constraints"| agents
+    agents -->|"candidate bundle tests"| replay
+    replay -->|"replay results"| dash
+    agents -->|"retuning package<br>and deferred changes"| dash
+    dash -->|"trade-off review"| stewards
+    stewards -->|"adopt or defer next bundle version"| registry
+```
+
 - Orchestrated multi-agent coordination is useful because different roles can specialize in outcome analysis, reproducibility guardrail checking, historical replay, and package assembly while working from one shared bundle history.
 - Human-in-the-loop review should be normal because research integrity owners must decide whether proposed bundle trade-offs are acceptable before any shared tuning state changes.
 - Recommendation-only autonomy is appropriate because the system should surface better bundle options and explicit trade-offs, but final adoption must remain with human stewards responsible for integrity and disclosure posture.
