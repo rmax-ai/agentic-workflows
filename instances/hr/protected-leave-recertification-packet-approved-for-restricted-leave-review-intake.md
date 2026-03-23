@@ -37,6 +37,37 @@ This grounds the pattern in HR work where the governed output is one downstream-
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph SOURCE["Authoritative leave-source boundary"]
+        CASE["Leave-management case record,<br>recertification schedule tracker,<br>and secure document repository"]
+        REF["HRIS worker master,<br>approved leave taxonomy, and<br>restricted review-lane policy tables"]
+    end
+
+    subgraph XFORM["Approval-gated transformation-release boundary"]
+        STAGE["Governed staging store for one<br>recertification intake packet revision,<br>lineage trace, privacy tags,<br>and held-annex markers"]
+        MAN["Manifest service for exact version,<br>audience scope, held-annex state,<br>and single-lane binding"]
+        APPROVAL["Approval tooling for<br>leave-program reviewers"]
+    end
+
+    HOLD["Hold and exception queue for<br>provider-lineage gaps, stale case references,<br>audience-scope conflicts,<br>and privacy-tag mismatches"]
+
+    subgraph LANE["Restricted downstream boundary"]
+        INTAKE["Single restricted leave-review<br>intake lane"]
+    end
+
+    STOP["Stop before restricted review,<br>eligibility, outreach, payroll,<br>or scheduling action"]
+
+    CASE -->|"Supplies active case state,<br>clinician materials, schedule updates,<br>and receipt logs"| STAGE
+    REF -->|"Supplies normalized worker, leave-episode,<br>taxonomy, and intake-scope references"| STAGE
+    STAGE -->|"Records exact packet revision,<br>lineage, privacy tags,<br>and held-annex markers"| MAN
+    STAGE -->|"Routes unresolved lineage, case-reference,<br>scope, and privacy issues"| HOLD
+    HOLD -->|"Blocks release while any<br>required hold remains open"| APPROVAL
+    MAN -->|"Presents exact revision, hold state,<br>and lane binding for sign-off"| APPROVAL
+    APPROVAL -->|"Approves one exact packet revision<br>for one restricted intake lane"| INTAKE
+    INTAKE -->|"Stops at governed intake handoff"| STOP
+```
+
 - Approval-gated execution fits because the recertification packet may be technically complete for one restricted intake lane while remaining blocked until a leave-program reviewer approves the exact version and audience scope in the manifest.
 - Human-in-the-loop governance is required because accountable HR reviewers must confirm privacy tags, held medical annexes, and the single downstream intake boundary before release.
 - The workflow should emit only the transformed recertification packet, transformation trace, hold register, and approval manifest rather than an eligibility recommendation, occupational health determination, employee notice, payroll instruction, or schedule change.
