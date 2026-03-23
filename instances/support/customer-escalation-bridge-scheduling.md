@@ -45,6 +45,22 @@ This grounds the pattern in a customer-facing coordination problem where delay, 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph boundary["Bounded delegation<br>for bridge scheduling"]
+        agent["Scheduling agent"]
+    end
+
+    manager["Support escalation manager"] -->|"Initiates bridge request"| agent
+    ticket["Support incident ticket"] -->|"Severity, account tier,<br>required roles"| agent
+    calendars["Team calendars and<br>on-call roster"] -->|"Free-busy, working hours,<br>current responders"| agent
+    crm["CRM account record"] -->|"Customer contacts, timezone,<br>bridge preferences"| agent
+    agent -->|"Tentative hold and<br>invite packet"| platform["Calendar system and<br>video meeting platform"]
+    agent -->|"Escalation updates"| messaging["Incident room<br>messaging channel"]
+    agent -->|"Escalate out-of-policy or<br>no-overlap cases"| checkpoint["Incident leadership and<br>human checkpoint"]
+    checkpoint -->|"Approve substitutions or<br>exception handling"| agent
+```
+
 - A tool-using single agent gathers free-busy data, current on-call assignments, customer timezone metadata, and bridge preferences from approved systems.
 - Bounded delegation fits because the agent can rank feasible bridge times, place short-lived tentative holds, and prepare an invite packet, but it should not move executive incident reviews, override protected focus blocks, or commit to an out-of-hours customer call without escalation.
 - Human checkpoints remain for cases where the customer requests a time outside internal policy, a required internal responder has no overlap with the customer window, or incident leadership wants to substitute attendees before the bridge is confirmed.
