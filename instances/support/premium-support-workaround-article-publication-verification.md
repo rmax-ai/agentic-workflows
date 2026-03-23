@@ -54,6 +54,16 @@ This grounds the pattern in support work where a publication-complete claim can 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    claim["Publication-complete claim feed<br>approved workaround article revision"] -->|"Triggers verification"| verifier["Verification workflow<br>bounded publication-state verdicting"]
+    kb["Internal support knowledge base<br>approved article revision and status"] -->|"Provides approved article evidence"| verifier
+    help["Customer help-center publishing service<br>live revision and locale coverage"] -->|"Provides external publication evidence"| verifier
+    link["Article-linking service<br>agent suggestion availability state"] -->|"Provides support-console availability evidence"| verifier
+    verifier -->|"Records verdict and evidence trace"| log["Verification log<br>evidence checks and verdict history"]
+    log -->|"Preserves prior checks for duplicate claims"| verifier
+```
+
 - Event-driven monitoring fits because the verification run begins from the recorded publication-complete claim and immediately checks the approved support surfaces.
 - A tool-using single agent can compare article ids and revisions across the internal KB, customer help center, and suggestion service while applying approved cache and indexing tolerances.
 - Bounded delegation is appropriate because support owners can predefine the required evidence sources and acceptable lag, while humans retain control over any republish, customer notification, or escalation.
