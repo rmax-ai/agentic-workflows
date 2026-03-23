@@ -42,6 +42,31 @@ This grounds the optimization pattern in a support setting where queue order dir
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Q["Queue state<br>severity, tier, SLA age, incident linkage"]
+    H["Outcome history<br>reopens, overrides, escalation outcomes"]
+    S["Staffing context<br>identity-specialist coverage"]
+    G["Policy guardrails<br>security, fairness, contract thresholds"]
+    O["Bounded optimizer<br>retune ranking weights in approved range"]
+    P["Ranked queue publication<br>revised order plus rationale"]
+    A["Audit log / dashboard<br>tuning changes and rollback history"]
+    R["Rollback / freeze controls<br>last trusted tuning available"]
+    U["Support supervisor"]
+
+    Q -- "supplies backlog state" --> O
+    H -- "supplies outcome signals" --> O
+    S -- "supplies staffing context" --> O
+    G -- "constrains tuning" --> O
+    O -- "publishes ranked queue" --> P
+    O -- "records tuning rationale" --> A
+    P -- "logs published ranking" --> A
+    A -- "surfaces audit trail" --> U
+    U -- "freezes or rolls back" --> R
+    R -- "reinstates trusted ranking" --> P
+    R -- "blocks further tuning" --> O
+```
+
 - Event-driven monitoring should trigger reevaluation when outage-linked tickets arrive, SLA bands are crossed, reopen rates spike, or supervisors repeatedly override the current ranking.
 - A tool-using single agent can recompute bounded prioritization weights, generate a revised ranked queue with rationale, and publish a review packet without changing the underlying business policy.
 - Exception-gated autonomy fits because small in-policy tuning changes can be applied automatically, but larger shifts that alter protected-priority handling or materially change queue behavior should require supervisory approval.
