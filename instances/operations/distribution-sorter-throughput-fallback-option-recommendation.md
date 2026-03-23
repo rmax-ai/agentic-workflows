@@ -41,6 +41,17 @@ flowchart TD
 This grounds the pattern in operations without drifting into command-window planning or actual dispatch. The value is identifying which local recovery option stays inside the duty supervisor's preapproved envelope, which seemingly attractive options are actually escalation-only, and when local authority is exhausted even though the situation has not yet become a critical command case.
 
 ## Likely architecture choices
+```mermaid
+flowchart LR
+    ops["Operations dashboard<br>and backlog metrics"] -->|"read-only signals"| rank["Tool-using single agent<br>for fallback ranking"]
+    matrix["Delegated recovery-option<br>matrix"] -->|"authority bounds"| rank
+    service["Service-level exposure<br>and downstream capacity signals"] -->|"current constraints"| rank
+    prior["Prior outcomes<br>and guardrails"] -->|"precedent and limits"| rank
+    log["Recommendation log<br>and exception tracker"] -->|"earlier fallback<br>and override history"| rank
+    rank -->|"recommendation packet"| review["Duty supervisor<br>human-review boundary"]
+    rank -->|"current recommendation<br>record"| log
+    review -->|"accepted option<br>or escalation request"| log
+```
 
 - A tool-using single agent can compare backlog, staffing, and capacity signals against the bounded recovery menu and produce one explainable fallback ranking quickly enough for local use.
 - Human-in-the-loop review still matters because the duty supervisor decides whether to accept the recommended local option or escalate when all viable paths are out of band.
