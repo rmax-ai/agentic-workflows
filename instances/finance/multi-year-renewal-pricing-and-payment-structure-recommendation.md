@@ -39,6 +39,32 @@ This instance grounds the recommendation pattern in finance without collapsing i
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    FinanceLead["Human finance lead"]
+    CustomerCommitment["Customer commitment"]
+
+    subgraph ReadOnly["Read-only integration boundary"]
+        CRM["CRM opportunity record<br>renewal quote drafts<br>customer negotiation notes"]
+        CPQ["CPQ pricing guardrails<br>delegated authority matrix<br>historical renewal precedents"]
+        Planning["Margin model<br>revenue-planning workbook<br>commission-impact analysis"]
+        Collections["Billing, collections<br>customer credit-risk records"]
+        Contracting["Contracting guidance<br>multi-year commitments<br>invoicing cadence<br>fallback terms"]
+    end
+
+    subgraph Workflow["Recommendation-only workflow"]
+        Packet["Ranked option set<br>recommendation packet"]
+    end
+
+    CRM -->|"Read-only inputs"| Packet
+    CPQ -->|"Policy and precedent inputs"| Packet
+    Planning -->|"Margin and planning inputs"| Packet
+    Collections -->|"Payment behavior and credit inputs"| Packet
+    Contracting -->|"Term guidance inputs"| Packet
+    Packet -->|"Recommendation for review"| FinanceLead
+    FinanceLead -->|"Decision before customer commitment"| CustomerCommitment
+```
+
 - A recommendation-only workflow can retrieve current pricing policy, renewal history, credit exposure, and revenue-treatment guidance into one ranked option set for finance review.
 - Human-in-the-loop review remains mandatory because the workflow should advise on acceptable structures and escalation triggers, not approve the concession or modify the live quote.
 - Read-only integration with CRM, CPQ, collections, and planning systems is preferable so the agent cannot silently alter commercial records while preparing its recommendation packet.
