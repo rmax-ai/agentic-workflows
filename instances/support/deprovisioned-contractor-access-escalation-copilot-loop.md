@@ -41,6 +41,29 @@ This grounds the collaboration pattern in support work where the hard part is no
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    lead["Support lead"]
+    copilot["Copilot agent"]
+    workbench["Shared case workspace<br>drafts and open questions"]
+    case["Support case history<br>and escalation timeline"]
+    identity["Identity status<br>and session logs"]
+    audit["Attachment storage<br>audit trail"]
+    kb["Deprovisioning knowledge base<br>and edge cases"]
+    queue["Engineering or security<br>escalation queue"]
+    outbound["Outbound update tools<br>email, status page, account settings"]
+
+    lead -->|"Sets scope and reviews"| workbench
+    copilot -->|"Maintains shared artifact"| workbench
+    copilot -->|"Retrieves ticket history"| case
+    copilot -->|"Checks deactivation evidence"| identity
+    copilot -->|"Checks attachment events"| audit
+    copilot -->|"Consults guidance"| kb
+    workbench -->|"Drafts and handoff packet"| lead
+    lead -->|"Approves escalation"| queue
+    lead -->|"Human-gated updates only"| outbound
+```
+
 - Human-in-the-loop collaboration should remain the default because customer-facing language, exposure interpretation, and escalation scope all require an accountable support lead.
 - A tool-using single agent can retrieve ticket history, pull relevant log excerpts, maintain an open-questions list, and propose revised message drafts inside one shared workbench.
 - Write access to outbound email, status-page tooling, or customer account settings should stay human-gated so the copilot cannot independently send updates or make containment claims.
