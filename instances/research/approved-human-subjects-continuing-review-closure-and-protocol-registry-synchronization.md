@@ -44,6 +44,32 @@ This grounds the pattern in a research workflow that is distinct from benchmark 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Restricted ethics or research-compliance<br>workflow system"]
+    subgraph B["Low-risk post-decision<br>closure bookkeeping scope"]
+        W["Event-driven completion<br>worker"]
+        Q["Annual review<br>queue"]
+        R["Internal protocol registry or<br>study-operations tracker"]
+        E["Archive or<br>evidence store"]
+        N["Study-operations<br>notification channel"]
+        U["Audit store"]
+    end
+    subgraph H["Human follow-up<br>boundary for mismatches"]
+        M["Human follow-up"]
+    end
+
+    A -->|"Approved continuing-review<br>event"| W
+    W -->|"Re-read and verify<br>source record"| A
+    W -->|"Close queue item"| Q
+    W -->|"Sync review-complete<br>state"| R
+    W -->|"Attach approval letter and<br>packet references"| E
+    W -->|"Notify closure propagation<br>complete"| N
+    W -->|"Record completion state and<br>idempotency markers"| U
+    W -->|"Route mismatches"| M
+    M -->|"Record manual<br>follow-up"| U
+```
+
 - An event-driven completion worker can subscribe to approved continuing-review events from the ethics workflow and start the closure sequence only for allowed post-decision states.
 - The worker should re-read the current source record before writing anywhere so a reopened protocol, superseded approval term, or changed packet reference is not propagated from a stale event.
 - Durable completion state should track queue closure, protocol-registry synchronization, archive linkage, notification delivery, and skipped idempotent actions because duplicate events or partial retries are normal operational conditions.
