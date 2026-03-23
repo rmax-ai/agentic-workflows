@@ -43,6 +43,36 @@ This grounds `approval-gated-triage-dispatch` in a support-owned severe-case set
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph upstream["Severe-support packet and<br>cited-reference systems"]
+        triage["Severe-support incident intake and<br>triage systems"]
+        session["Privileged support session broker,<br>break-glass access ledger,<br>remote-support console telemetry,<br>and identity-provider audit systems"]
+        tenant["Tenant registry, entitlement,<br>and support-account governance systems"]
+    end
+
+    approver["Named support trust<br>approver"]
+
+    subgraph controls["Governed dispatch controls"]
+        routing["Approval-routing system"]
+        audit["Audit and hold-tracking<br>systems"]
+        manifest["Dispatch-manifest<br>service"]
+    end
+
+    subgraph lane["One-lane restricted<br>dispatch boundary"]
+        queue["Restricted product-security<br>review queue"]
+    end
+
+    triage -->|"exact packet revision +<br>duplicate-lineage state"| routing
+    session -->|"session-use, operator, and<br>identity evidence references"| routing
+    tenant -->|"tenant scope + reviewer<br>minimization constraints"| routing
+    approver -->|"dispatch approval for one<br>packet revision + lane"| routing
+    audit -->|"hold state + supersession +<br>manual-override lineage"| routing
+    routing -->|"approval, blocked-attempt, and<br>hold-status updates"| audit
+    routing -->|"approved packet revision +<br>single-lane release boundary"| manifest
+    manifest -->|"exact packet revision +<br>approved restricted dispatch"| queue
+```
+
 - Event-driven monitoring fits because privileged-session evidence freshness, duplicate merges, tenant-impact references, and reviewer-roster state can change while the already-triaged packet waits at the dispatch gate.
 - Approval-gated execution fits because the packet is prepared for one restricted product security review lane but remains concretely blocked until the required support trust approver signs the manifest for that exact revision and lane boundary.
 - Human-in-the-loop review should remain on the normal path because releasing a severe support packet into a restricted security lane changes who may inspect tenant and privileged-access context even though this workflow still stops short of deciding incident posture or response.
