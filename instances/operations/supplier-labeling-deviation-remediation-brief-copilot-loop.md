@@ -39,6 +39,28 @@ This grounds the collaboration pattern in operations work where the governed art
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    receiving["Warehouse and receiving-exception systems<br>affected loads, ASN mismatches,<br>quarantine holds, and relabel impact"]
+    quality["Quality and nonconformance system<br>incident records, severity coding,<br>corrective-action history"]
+    evidence["Dock-photo repository and<br>scan-log evidence"]
+    supplierrefs["Supplier relationship and contract sources<br>packaging specifications, prior commitments,<br>and contact history"]
+    workbench["Shared operations workbench<br>draft brief, comments,<br>and evidence checklist"]
+    reviewers["Procurement, warehouse leadership,<br>and quality reviewers"]
+    manager["Operations manager approval<br>and outbound wording control"]
+    store["Controlled evidence package store<br>final brief, attachments,<br>and acknowledgement trail"]
+    release["Supplier-facing remediation brief<br>released only after human approval"]
+
+    receiving -->|"Shipment exceptions and<br>operational impact evidence"| workbench
+    quality -->|"Incident history and<br>approval context"| workbench
+    evidence -->|"Label images, scans,<br>and timestamped notes"| workbench
+    supplierrefs -->|"Specifications, terms,<br>and prior commitments"| workbench
+    reviewers -->|"Revision requests and<br>narrowing feedback"| workbench
+    workbench -->|"Draft brief and<br>internal approval summary"| manager
+    manager -->|"Approved packet and<br>retention trail"| store
+    manager -->|"Approved supplier-facing wording<br>for external release"| release
+```
+
 - Human-in-the-loop collaboration should remain primary because deviation interpretation, escalation posture, and final supplier-facing commitments require accountable operations ownership.
 - A tool-using single agent can retrieve receiving exceptions, organize photo and scan evidence, maintain an open-issues matrix, and propose successive rewrites for the shared brief inside one governed workspace.
 - The copilot may update the draft brief and evidence checklist, but transmitting the brief to the supplier, recording final corrective-action acceptance, or issuing commercial recovery claims should remain explicitly human-gated.
