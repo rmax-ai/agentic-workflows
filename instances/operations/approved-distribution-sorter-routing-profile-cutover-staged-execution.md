@@ -44,6 +44,47 @@ This grounds the pattern in an operations workflow where the action changes live
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph GOV["Governance and protected hold boundary"]
+        CR["Approved change record<br>routing profile, zone order, safety limits,<br>rollback triggers, and named release authorities"]
+        H1["Site leadership and safety hold<br>before widening activation scope"]
+        H2["Site leadership and safety hold<br>before retiring the prior routing profile"]
+    end
+
+    subgraph EXEC["Cutover execution boundary"]
+        ORCH["Cutover orchestrator and<br>authoritative stage ledger"]
+        SC["Warehouse or sorter control system"]
+        FP["Fallback routing profile and<br>restore permissions"]
+    end
+
+    subgraph OBS["Telemetry and readiness boundary"]
+        TEL["Sensor, conveyor, jam, and<br>throughput telemetry"]
+        BD["Workload and backlog dashboards"]
+    end
+
+    AUD["Audit and evidence store"]
+
+    CR -- "Approved scope, zone order, and limits" --> ORCH
+    CR -- "Hold policy and named authorities" --> H1
+    CR -- "Retirement guard and named authorities" --> H2
+    CR -- "Approved package reference" --> AUD
+    ORCH -- "Staged routing-profile commands" --> SC
+    ORCH -- "Rollback-readiness checks" --> FP
+    FP -- "Fallback profile state and restore proof" --> ORCH
+    SC -- "Current sorter state" --> TEL
+    TEL -- "Checkpoint telemetry" --> ORCH
+    BD -- "Backlog tolerance evidence" --> ORCH
+    ORCH -- "Zone-by-zone stage state" --> AUD
+    FP -- "Restore readiness evidence" --> AUD
+    ORCH -- "Checkpoint evidence for review" --> H1
+    ORCH -- "Final stability evidence for review" --> H2
+    H1 -- "Release or hold decision" --> ORCH
+    H1 -- "Hold outcome and justification" --> AUD
+    H2 -- "Release or hold decision" --> ORCH
+    H2 -- "Retirement decision and justification" --> AUD
+```
+
 - Orchestrated multi-agent coordination fits because control-system execution, telemetry verification, safety monitoring, and rollback-readiness checking should share one authoritative stage ledger.
 - Human-in-the-loop holds should remain normal before widening activation from one sorter zone to the full facility and before retiring the prior routing profile from the console.
 - Exception-gated autonomy is appropriate because the workflow may advance within approved throughput and safety thresholds, but jam-rate spikes, misroute drift, or degraded fallback health should force a visible stop.
