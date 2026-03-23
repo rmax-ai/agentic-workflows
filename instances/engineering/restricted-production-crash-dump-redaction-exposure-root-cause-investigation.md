@@ -80,13 +80,13 @@ This grounds `incident-root-cause-analysis` in engineering through a high-govern
 
 ```mermaid
 flowchart LR
-    responders["Privacy engineering,<br>production reliability, and<br>crash forensics responders"] -->|"Review competing causes,<br>source precedence, and<br>packet updates"| packet["`Crash-Dump-Exposure-Lineage-RCA-Packet-v5`<br>shared RCA packet"]
+    responders["Privacy engineering,<br>production reliability, and<br>crash forensics responders"] -->|"Review competing causes,<br>source precedence, and<br>packet updates"| packet["Crash-Dump-Exposure-Lineage-RCA-Packet-v5<br>shared RCA packet"]
     controls["Frozen incident window,<br>read-only investigation mode,<br>retention hold, and<br>audit-log preservation"] -->|"Bound scope and<br>govern evidence access"| agents["Orchestrated multi-agent flow"]
     vault["Crash-dump vault<br>audit ledger"] -->|"Raw-object creation,<br>quarantine transitions,<br>redacted publication,<br>access grants, and exports"| agents
     pipeline["Redaction-pipeline execution ledger<br>and worker attestation records"] -->|"Policy-bundle digest,<br>worker-image digest,<br>sanitizer outputs, and<br>symbolization lineage"| agents
     manifest["Evidence-manifest and<br>object-store version history"] -->|"Manifest revisions,<br>object versions,<br>attachment hashes, and<br>retention-hold state"| agents
     policy["Approved redaction-policy bundle snapshot<br>and restricted-debugging control-state record"] -->|"Policy snapshot and<br>control-state baseline"| agents
-    context["Reviewer-observation ledger,<br>restricted workspace views,<br>prior packet revision<br>`Crash-Dump-Exposure-Lineage-RCA-Packet-v4`,<br>and responder bridge notes"] -->|"Secondary context,<br>packet lineage inputs, and<br>observed discrepancies"| agents
+    context["Reviewer-observation ledger,<br>restricted workspace views,<br>prior packet revision<br>Crash-Dump-Exposure-Lineage-RCA-Packet-v4,<br>and responder bridge notes"] -->|"Secondary context,<br>packet lineage inputs, and<br>observed discrepancies"| agents
     telemetry["Access-proxy telemetry,<br>worker-pool health dashboards,<br>failover alerts, symbol server job traces,<br>and manifest reindex queue telemetry"] -->|"Corroborating signals for<br>failover, export, backfill, and<br>reindex hypotheses"| agents
     agents -->|"Frozen-state checks,<br>blocker status, rejected explanations,<br>and ranked explanations with<br>explicit uncertainty"| packet
     packet -->|"Human adjudication of the<br>investigation record"| owner["Priya Nand,<br>Director of Restricted<br>Debugging Integrity"]
