@@ -40,6 +40,22 @@ This grounds the pattern in support work where the important output is one downs
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    sources["Support case timeline,<br>bridge notes, and secure attachment store"] --> staging["Governed staging store<br>for vendor-escalation packet assembly"]
+    refs["Tenant registry, entitlement mapping,<br>federation inventory, and plan tables"] --> staging
+
+    subgraph release["Restricted vendor intake<br>approval boundary"]
+        staging --> manifest["Manifest service<br>for approval-bound packet release"]
+        staging --> hold["Hold and exception queue<br>for unsanitized annexes, scope drift,<br>and identifier mismatches"]
+        manifest --> approval["Support escalation owner<br>approval tooling"]
+        hold -- "Held annexes and exceptions<br>for review" --> approval
+    end
+
+    owners["Named support escalation owners"] --> approval
+    approval -- "Approved packet revision<br>and manifest" --> intake["Restricted vendor-support<br>intake queue"]
+```
+
 - Approval-gated execution fits because the vendor-escalation packet may be technically complete for one restricted intake lane while remaining blocked until a named support escalation owner approves the exact version and audience scope in the manifest.
 - Human-in-the-loop governance is required because accountable support reviewers must confirm privacy-safe diagnostics, held annexes, and the single downstream intake boundary before release.
 - The workflow should emit only the transformed vendor-escalation packet, transformation trace, hold register, and approval manifest rather than a severity recommendation, commercial concession proposal, vendor-priority request, customer update, or remediation command.
