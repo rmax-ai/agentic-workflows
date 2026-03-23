@@ -49,6 +49,18 @@ This instance grounds the pattern in a finance workflow where the central task i
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    workspace["Treasury management system<br>reconciliation workspace"]
+    memory["Shared case memory for<br>evidence links, hypotheses, and<br>investigation state"]
+    bank["Bank statement feeds,<br>SWIFT acknowledgements, and<br>host-to-host transmission logs"] -->|"Retrieval agents pull bank evidence,<br>transmission status, and<br>statement timing into the investigation"| workspace
+    erp["ERP cash ledger postings<br>and intercompany funding journals"] -->|"Reconciliation agents align ledger entries,<br>journal lineage, and<br>posting timestamps"| workspace
+    fx["FX sweep instructions,<br>settlement confirmations, and<br>payment operations notes"] -->|"Verification agents test late sweep and<br>manual-operations hypotheses against<br>independent confirmations"| workspace
+    change["Change tickets for bank-connectivity updates<br>and treasury operations handoff logs"] -->|"Change-history retrieval adds cutoff shifts,<br>connectivity updates, and<br>handoff context"| workspace
+    workspace -->|"Stores candidate explanations,<br>unmatched cash movements,<br>and normalized timestamps"| memory
+    memory -->|"Returns prior hypotheses,<br>open evidence gaps, and<br>analyst rationale for review loops"| workspace
+```
+
 - An orchestrated multi-agent flow can separate bank-evidence retrieval, ledger timeline normalization, and hypothesis verification so reconciliation logic stays inspectable.
 - Shared case memory should preserve candidate explanations, unmatched transactions, timestamp adjustments, and analyst rationale across treasury and controllership handoffs.
 - Human-in-the-loop review remains necessary before declaring the primary cause, booking correcting entries, or certifying that close controls can proceed.
