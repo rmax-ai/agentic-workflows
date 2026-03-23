@@ -41,6 +41,28 @@ This grounds the pattern in a finance workflow where participants depend on one 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    tracker["Close-management tracker<br>authoritative milestone calendar,<br>required review roles, prior coordination status,<br>and protected blackout interval"]
+    calendars["Team calendars and delegate records<br>controllership, treasury accounting,<br>SEC reporting, internal controls,<br>and finance systems"]
+    consolidation["Consolidation and close-status systems<br>approved timing shifts affecting<br>when the control review may occur"]
+    refresh["Quarter-close control-review refresh<br>event-driven monitoring, guardrail checks,<br>and packet delta preparation"]
+    workspace["Finance coordination workspace<br>invite status, acknowledgements,<br>exceptions, and refresh lineage"]
+    notices["Messaging or meeting tools<br>role-targeted change notices and<br>review packet reissue delivery"]
+    owner["Assistant controller or designated<br>close owner adoption checkpoint"]
+    exceptions["Exception review<br>no-feasible-window, delegate-conflict,<br>or blackout-boundary routing"]
+
+    tracker -->|"Provides milestone calendar, required roles,<br>prior coordination state, and blackout constraints"| refresh
+    calendars -->|"Provides attendee availability<br>and approved delegate coverage"| refresh
+    consolidation -->|"Provides approved timing shifts that move<br>the valid control-review window"| refresh
+    workspace -->|"Provides current invite status,<br>acknowledgements, exceptions,<br>and existing lineage"| refresh
+    refresh -->|"Writes refreshed packet state,<br>lineage updates, and exception status"| workspace
+    refresh -->|"Issues role-targeted delta notices<br>and updated review packet delivery"| notices
+    refresh -->|"Presents materially changed timing,<br>delegate, or blackout impact for adoption"| owner
+    owner -->|"Returns adoption or hold outcome<br>for the changed coordination state"| refresh
+    refresh -->|"Routes no-feasible-window, delegate-conflict,<br>or blackout-boundary cases"| exceptions
+```
+
 - Event-driven monitoring should subscribe to approved close-calendar updates, posted consolidation timing shifts, and controlled delegate-state changes that affect the issued review packet.
 - Exception-gated autonomy fits because routine packet refresh, targeted notice issuance, and lineage updates can happen automatically when changes remain inside approved close guardrails.
 - The assistant controller or designated close owner should adopt any materially changed meeting time, protected-window impact, or required-attendee substitution before the refreshed packet becomes authoritative.
