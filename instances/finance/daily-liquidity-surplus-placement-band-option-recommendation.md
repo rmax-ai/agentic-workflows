@@ -47,6 +47,36 @@ This grounds the pattern in corporate treasury rather than collections or custom
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph S["Read-only source boundary"]
+        T["Treasury management system cash-position dashboard,<br>concentration-account balances,<br>intraday funding ledger, and liquidity buffer view"]
+        P["Signed short-term investment policy,<br>delegated placement matrix,<br>concentration-limit register, and blocked-instrument list"]
+        E["Money market fund entitlement register,<br>tri-party repo counterparty roster,<br>collateral eligibility notes, and cutoff calendar"]
+        F["Forecast workspace for payroll,<br>tax, debt-service, and intercompany projections"]
+    end
+
+    subgraph G["Governed recommendation boundary"]
+        W["Delegated overnight placement workspace<br>for `DLP-Option-Packet-v3` option ranking"]
+        A["Recommendation audit trail,<br>prior override ledger,<br>and exception-packet templates"]
+    end
+
+    subgraph H["Human review boundary"]
+        R["Rina Patel or delegated treasury owner"]
+        U["Assistant treasurer"]
+    end
+
+    R -->|"Starts bounded overnight review"| W
+    T -->|"Read-only treasury position<br>and buffer state"| W
+    P -->|"Read-only policy,<br>band, and limit guardrails"| W
+    E -->|"Read-only eligibility,<br>counterparty, and cutoff state"| W
+    F -->|"Read-only forecast durability context"| W
+    W -->|"Returns ranked in-band options<br>with blocker visibility"| R
+    W -->|"Writes lineage, overrides,<br>and escalation evidence"| A
+    W -->|"Packages escalation only when no defensible<br>overnight option remains"| U
+    W -.->|"Stops before trade approval,<br>placement booking, sweep changes,<br>bank notice, or settlement instructions"| X["Workflow stop boundary"]
+```
+
 - A tool-using single agent can retrieve the investment policy, current limit usage, concentration-account position, eligible placement roster, and forecast assumptions and turn them into one bounded overnight option ranking.
 - Human-in-the-loop review remains necessary because Rina Patel or another delegated treasury owner decides whether the ranked in-band recommendation is acceptable locally or whether the packet should escalate when all safe options are exhausted.
 - Read-only integration with treasury, bank-connectivity, policy, and limit systems is preferable so the workflow cannot silently book a placement, alter sweep rules, release settlement instructions, or expand delegated tenor limits.
