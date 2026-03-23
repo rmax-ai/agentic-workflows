@@ -44,6 +44,33 @@ This grounds the pattern in operations while keeping the boundary clear. The wor
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Leaders["Operations leaders"]
+    Reviewers["Assurance analysts<br>and safety specialists"]
+    Workspace["Governance and audit workspace<br>sampled tuning review, freeze autonomous changes,<br>restore last trusted policy"]
+
+    subgraph Boundary["Preapproved autonomous tuning boundary"]
+        Policy["Maintenance-assurance policy store<br>active sampling rates, protected asset classes,<br>prior configuration versions"]
+        Records["Work-order, inspection, and asset systems<br>completed maintenance records, vendor identifiers,<br>site metadata, candidate spot-check cohorts"]
+        History["Findings history<br>audit defects, documentation escapes,<br>supervisor overrides, prior backfill results"]
+        Capacity["Reviewer-capacity dashboard<br>reviewer capacity and seasonal workload pressure"]
+        Tuner["Tool-using tuning agent<br>bounded sampling moves only;<br>protected floors and reviewer-load ceilings enforced"]
+        Audit["Sampling change record<br>blocked moves, rollback status,<br>minimized copied worker detail"]
+    end
+
+    Policy -->|"current policy and bounds"| Tuner
+    Records -->|"candidate cohorts"| Tuner
+    History -->|"finding yield and escape signals"| Tuner
+    Capacity -->|"reviewer-load context"| Tuner
+    Tuner -->|"versioned sampling update"| Policy
+    Tuner -->|"audit trace"| Audit
+    Audit -->|"sampled tuning runs"| Workspace
+    Workspace -->|"freeze or restore action"| Policy
+    Leaders -->|"review and intervention"| Workspace
+    Reviewers -->|"availability context"| Capacity
+```
+
 - Event-driven monitoring should trigger reevaluation when audit findings cluster around a vendor, asset class, site, or shift pattern, or when reviewer capacity changes during outage season.
 - A tool-using single agent can compute bounded sampling moves, enforce protected asset-class floors and reviewer-load ceilings, update the sampling policy, and write the audit trace.
 - Autonomous-with-audit fits because in-policy spot-check changes can run automatically, while assurance leaders review sampled tuning cycles and intervene when escaped documentation defects or fairness concerns rise.
