@@ -45,6 +45,32 @@ This grounds the transform pattern in an operations workflow where the valuable 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph INTAKE["Packet intake boundary"]
+        SRC["Operations inbox and document repository<br>inspection PDF, site photos, manager email,<br>shift checklist, and repair-history spreadsheet"]
+    end
+
+    OCR["OCR and document-parsing service<br>marked-up inspection PDFs and<br>handwritten mitigation checklists"]
+    REF["Approved normalization references<br>asset registry, site map, location codes,<br>contractor roster, and failure taxonomy"]
+    XFORM["Maintenance handoff transformation agent<br>extract packet facts, normalize against references,<br>and apply the CMMS intake contract"]
+    STAGE["CMMS staging output<br>reviewable corrective-maintenance handoff,<br>trace, uncertainty flags, and evidence links"]
+
+    subgraph REVIEW["Planner-review exception boundary"]
+        EXQ["Operations exception queue"]
+        PLNR["Maintenance planner reviewer"]
+    end
+
+    SRC -->|"Supplies packet documents<br>and source evidence"| XFORM
+    XFORM -->|"Uses OCR for scans,<br>markup, and handwriting"| OCR
+    OCR -->|"Returns extracted text,<br>layout cues, and confidence signals"| XFORM
+    REF -->|"Provides approved site, location,<br>contractor, and failure references"| XFORM
+    XFORM -->|"Writes staging-only CMMS record,<br>trace, and unresolved-field markers"| STAGE
+    XFORM -->|"Routes conflicts, missing fields,<br>and unsupported inference"| EXQ
+    EXQ -->|"Queues exception packets<br>for planner review"| PLNR
+    PLNR -->|"Returns reviewed corrections<br>or continued hold decisions"| XFORM
+```
+
 - A tool-using single agent can assemble the packet, extract candidate location and defect details, normalize site and asset identifiers against the CMMS contract, and emit a structured work-order package with a transformation trace.
 - The handoff schema should require explicit confidence or review flags for root-cause, severity, and access-window fields so downstream planners can distinguish verified intake facts from provisional interpretations.
 - Approved reference data may standardize location codes, roof-section names, contractor identifiers, and failure categories, but unsupported guesses about hidden damage extent or repair method should be prohibited.
