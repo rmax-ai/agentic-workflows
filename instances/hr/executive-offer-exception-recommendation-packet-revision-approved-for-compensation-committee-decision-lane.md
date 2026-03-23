@@ -37,6 +37,27 @@ This grounds the pattern in HR where the governance problem is not to adjudicate
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    src["Applicant-tracking, compensation-band,<br>internal-equity, relocation-policy,<br>and precedent records"] -->|"Cited by the packet revision"| wk["Executive offer-exception workspace<br>current packet revision, bounded options,<br>blocked-term rationale, and superseded drafts"]
+    gov["Governance repository<br>named compensation committee lane,<br>authorized recipients, release expiry,<br>and the accountable release owner"] -->|"Defines lane, recipients, and expiry controls"| man["Approval manifest and committee-routing tooling<br>exact packet hash, committee audience,<br>and blocked forwarding attempts"]
+    gov -->|"Names the accountable approver"| own["Named total-rewards release owner"]
+    wk -->|"Supplies the exact packet revision<br>for governed release"| man
+    own -->|"Approves or withholds release<br>into the committee lane"| man
+    wk -->|"Holds superseded revisions when state,<br>scope, or evidence changes"| led["Audit and supersession ledger<br>released packet id, superseded drafts,<br>and blocked redistribution attempts"]
+    man -->|"Records manifest, approval outcome,<br>and blocked forwarding attempts"| led
+    subgraph rel["Governed recommendation release boundary"]
+        wk
+        own
+        man
+        led
+    end
+    subgraph lane["Restricted compensation committee lane"]
+        cc["Named compensation committee recipients<br>receive the approved packet revision only"]
+    end
+    man -->|"Releases the approved packet revision<br>through the exact manifest only"| cc
+```
+
 - Approval-gated execution fits because the recommendation packet remains held until a named total-rewards owner authorizes release into the compensation committee decision lane.
 - Human-in-the-loop review remains necessary because only accountable HR and compensation leaders should confirm audience scope, expiry, and blocked-term visibility without collapsing the workflow into offer approval itself.
 - A governed agent can compare packet hashes, assemble the manifest, and block broadened distribution, but it should not approve compensation exceptions, issue the offer letter, or update HR systems with candidate terms.
