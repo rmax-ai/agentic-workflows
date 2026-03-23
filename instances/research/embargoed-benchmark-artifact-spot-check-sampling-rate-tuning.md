@@ -47,6 +47,26 @@ This grounds the pattern in research without drifting into publication dispositi
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    registry["Benchmark artifact registry<br>Study metadata, embargo dates,<br>rerun status, and artifact cohorts"]
+    findings["Review findings history<br>Defects, override decisions,<br>and backfill discoveries"]
+    roster["Reviewer-capacity and<br>conflict-management roster"]
+    policy["Research review policy store<br>Baseline rates, protected floors,<br>cooldown rules, and versions"]
+    tuner["Sampling-rate tuning agent<br>Bounded cohort analysis<br>and policy update loop"]
+    governance["Governance workspace<br>Research-integrity leads review,<br>freeze, and restore controls"]
+
+    registry -->|"Cohort definitions<br>and triggers"| tuner
+    findings -->|"Yield and escaped-issue<br>signals"| tuner
+    roster -->|"Capacity and conflict<br>constraints"| tuner
+    policy -->|"Active policy<br>and guardrails"| tuner
+    tuner -->|"Bounded sampling-rate<br>updates"| policy
+    tuner -->|"Sampled tuning runs<br>and audit context"| governance
+    policy -->|"Version history<br>and rollback target"| governance
+    governance -->|"Freeze, resume,<br>or restore decisions"| tuner
+    governance -->|"Restore last trusted policy"| policy
+```
+
 - Event-driven monitoring should trigger reevaluation when rerun failures cluster, embargo milestones near, or backfill review discovers escaped artifact defects.
 - A tool-using single agent can inspect cohort-level findings, compare candidate sampling changes against protected floors and reviewer-load ceilings, and apply only the moves that stay inside delegated bounds.
 - Autonomous-with-audit fits because in-policy sampling adjustments can run automatically, while research-integrity leads review sampled tuning cycles and freeze the loop when regime changes make recent findings unreliable.
