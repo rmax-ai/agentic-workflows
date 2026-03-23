@@ -39,6 +39,37 @@ This grounds the optimization pattern in an HR workflow where queue order affect
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph WF["Optimize / adapt workflow boundary"]
+        Agent["Optimization agent<br>bounded queue reprioritization"]
+        Controls["Protected-priority, fairness,<br>and workload-balance guardrails"]
+        Audit["Optimization audit trail<br>signals, checks, and ranking updates"]
+    end
+    subgraph Freeze["Supervisor freeze / revert boundary"]
+        Dashboard["Queue governance dashboard<br>ranking inspection and restore controls"]
+        Supervisor["Leave-program supervisor<br>freeze, pin, and revert authority"]
+    end
+    Queue["Leave case-management system<br>open queue, due clocks, and assignments"]
+    HRIS["HRIS and attendance systems<br>leave history and intermittent corrections"]
+    Docs["Secure leave-document repository<br>receipts, notices, and return-to-work notes"]
+    Outcomes["Historical QA and outcome store<br>reopens, overrides, and corrections"]
+    Capacity["Workforce-capacity view<br>caseload, language, and jurisdiction coverage"]
+
+    Queue -->|"Provides active queue state"| Agent
+    HRIS -->|"Provides case context"| Agent
+    Docs -->|"Provides documentation-aging signals"| Agent
+    Outcomes -->|"Provides outcome feedback"| Agent
+    Capacity -->|"Provides staffing context"| Agent
+    Agent -->|"Checks ranking changes against"| Controls
+    Controls -->|"Constrains revised ordering"| Agent
+    Agent -->|"Publishes revised ranked queue"| Queue
+    Agent -->|"Records rationale and checks"| Audit
+    Agent -->|"Sends ranking updates and drift signals"| Dashboard
+    Supervisor -->|"Freezes tuning or restores policy"| Dashboard
+    Dashboard -->|"Applies approved freeze or revert"| Queue
+```
+
 - Event-driven monitoring should trigger queue reevaluation when callback commitments near breach, recertification deadlines tighten, reopen rates climb, specialist capacity shifts, or supervisors repeatedly override the current ordering.
 - A tool-using single agent can recompute bounded prioritization weights, simulate the impact on service-level attainment and specialist workload balance, and publish a revised ranked queue with case-level rationale for supervisory inspection.
 - Exception-gated autonomy fits because in-policy tuning can adjust ordering automatically within preapproved ranges, but changes that materially alter protected-priority handling, deadline buffers, fairness thresholds, or specialist load caps should require leave-program supervisor review before activation.
