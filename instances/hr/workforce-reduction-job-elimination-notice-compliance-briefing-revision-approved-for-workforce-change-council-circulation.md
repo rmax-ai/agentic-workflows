@@ -38,6 +38,28 @@ This grounds the pattern in HR with a workforce-reduction scenario that is struc
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Workforce-change authorization record,<br>frozen affected-position register,<br>jurisdiction notice-obligation matrix,<br>works-council consultation ledger,<br>and approved notice-template repository"]
+    B["Restricted HR briefing workspace<br>storing WFR-Notice-Compliance-Brief-r4,<br>returned revisions, annex bindings,<br>blocker state, and provenance lineage"]
+    C["HR workforce governance owner"]
+    D["Approval manifest service<br>recording exact revision id,<br>approved council lane, annex boundary,<br>freshness deadline, and hold or release disposition"]
+    E["Workforce change council circulation tooling<br>enforcing named recipients, confidentiality banners,<br>expiry controls, and blocked forwarding"]
+    F["Restricted workforce change council lane"]
+    G["Audit and supersession tracker"]
+    H["Explicit hold or release disposition"]
+
+    A -->|"Cited inputs and source precedence"| B
+    B -->|"Exact revision, annex bindings,<br>blocker state, and provenance lineage"| D
+    C -->|"Approves audience scope, freshness window,<br>annex boundary, and hold versus release state"| D
+    D -->|"Explicit release disposition"| E
+    D -->|"Explicit hold disposition"| H
+    E -->|"Approved council lane circulation"| F
+    D -->|"Approver, exact revision id,<br>approved council lane, annex boundary,<br>freshness deadline, and disposition"| G
+    E -->|"Blocked forwarding attempts and expiry events"| G
+    B -->|"Release lineage and supersession state"| G
+```
+
 - Approval-gated execution fits because the notice compliance briefing remains held until the HR workforce governance owner approves one exact revision for the restricted workforce change council lane.
 - Human-in-the-loop review is necessary because only accountable HR leadership should accept residual consultation and timing caveats, confirm annex scope, and authorize circulation of sensitive workforce-reduction context.
 - A governed agent can assemble the release manifest, compare lineage, enforce source precedence checks, and block stale reuse or forwarding, but it should not determine legal sufficiency, choose notice timing, trigger communications, or launch downstream payroll or separation workflows.
