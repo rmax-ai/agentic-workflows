@@ -53,6 +53,41 @@ This grounds the critical recommendation pattern in engineering without drifting
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Teams["Platform engineering,<br>product security,<br>legal, and trust teams"]
+    Incident["Security incident command workspace<br>declared critical scope,<br>containment notes,<br>prior packet revisions"]
+    KeyData["Hardware security module audit logs,<br>key-custody records,<br>signing-service telemetry,<br>artifact lineage inventory"]
+    ReleaseData["Software release catalog,<br>package publication history,<br>release-hold policies,<br>emergency revocation runbooks"]
+    AuthorityData["Executive cyber, legal, and trust<br>authority matrix,<br>emergency delegation state,<br>protected review-channel rules"]
+    ImpactData["Customer-impact estimates,<br>support-obligation notes,<br>approved disclosure constraints"]
+
+    subgraph Boundary["Authority recommendation workflow"]
+        Orchestrator["Orchestrated multi-agent workflow"]
+        SevereState[("Shared severe-case state")]
+        Custody["Custody-evidence retrieval"]
+        Authority["Authority-matrix checking"]
+        Options["Option narrowing"]
+        Packet["Authority recommendation packet assembly"]
+
+        Orchestrator --> Custody
+        Orchestrator --> Authority
+        Orchestrator --> Options
+        Custody --> SevereState
+        Authority --> SevereState
+        Options --> SevereState
+        SevereState --> Packet
+    end
+
+    Teams --> Orchestrator
+    Incident --> Custody
+    KeyData --> Custody
+    ReleaseData --> Options
+    AuthorityData --> Authority
+    ImpactData --> Authority
+    ImpactData --> Options
+```
+
 - An orchestrated multi-agent workflow can separate custody-evidence retrieval, authority-matrix checking, option narrowing, and packet assembly while preserving one shared severe-case state.
 - Human-in-the-loop review is mandatory because the workflow should recommend the correct decision owner and bounded option set, not revoke the key, freeze release systems, or authorize customer communication.
 - Human-directed autonomy fits because executive cyber, legal, and trust leaders must explicitly accept the authority lane before any irreversible revocation or disclosure action is considered.
