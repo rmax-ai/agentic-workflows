@@ -40,6 +40,30 @@ This grounds the pattern in engineering work where the real need is not another 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Evidence["CI and artifact systems<br>rerun results, manifests,<br>provenance attestations, and package hashes"]
+    Records["Change-management, incident-history,<br>and rollback-plan records"]
+    Reviewers["Governance reviewers<br>architecture, security, and operations"]
+    Exceptions["Exception queue<br>security, release engineering,<br>or reviewer follow-up"]
+    Limit["Governance limit<br>refresh only staged record and lineage trace<br>no release disposition, deployment schedule,<br>or production control"]
+    subgraph RefreshBoundary["Staging refresh boundary"]
+        Refresh["Refresh agent<br>re-read changed evidence, compare prior state,<br>rebuild staged package, and emit deltas"]
+        Staging["Release-review staging system<br>prior and refreshed structured record"]
+        Lineage["Schema registry and lineage store<br>schema versions and field-level source references"]
+    end
+
+    Evidence -->|"Provides authoritative CI reruns,<br>manifest changes, and package hashes"| Refresh
+    Records -->|"Provides ticket metadata,<br>incident history, and rollback updates"| Refresh
+    Staging -->|"Provides prior staged review record"| Refresh
+    Lineage -->|"Provides schema rules<br>and existing lineage state"| Refresh
+    Refresh -->|"Writes refreshed staged review record"| Staging
+    Refresh -->|"Updates field-level lineage<br>and delta trace"| Lineage
+    Staging -->|"Publishes one current package"| Reviewers
+    Refresh -->|"Routes conflicting manifests,<br>missing evidence links, or schema-breaking changes"| Exceptions
+    Refresh -->|"Stays bounded to staging refresh only"| Limit
+```
+
 - Event-driven monitoring should trigger refresh when authoritative CI reruns, manifest updates, or change-ticket corrections affect fields carried in the staged review record.
 - A tool-using single agent can usually re-read the changed evidence bundle, compare it to the previous staged version, rebuild the structured package, and emit a reviewer-facing delta trace.
 - Automatic refresh is appropriate for in-policy source changes, but conflicting artifact hashes, incompatible schema updates, or ambiguous rollback evidence should route to exception review.
