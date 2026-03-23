@@ -38,6 +38,39 @@ This grounds the pattern in an engineering case where the hard problem is mainta
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Incident["Incident and forensic<br>systems"]
+    Annex["Secure annex<br>repository"]
+    Policy["Release-governance and<br>platform-policy repositories"]
+    Audit["Audit and access-log<br>systems"]
+
+    subgraph Room["Protected packet collaboration room"]
+        Human["Human artifact<br>owner"]
+        Agents["Agents"]
+        Workspace["Restricted severe-case<br>collaboration workspace"]
+        Packet["Main review<br>packet"]
+        Ledger["Disagreement<br>ledger"]
+        AnnexMap["Annex<br>map"]
+        Release["Release-state<br>controls"]
+
+        Human --> Workspace
+        Agents --> Workspace
+        Workspace --> Packet
+        Workspace --> Ledger
+        Workspace --> AnnexMap
+        Workspace --> Release
+    end
+
+    Incident --> Agents
+    Annex --> Agents
+    Annex --> Human
+    Policy --> Human
+    Policy --> Agents
+    Workspace --> Audit
+    Annex --> Audit
+```
+
 - Human-in-the-loop collaboration should remain primary because only named security and legal owners can accept contested framing, narrow annex exposure, and release the packet into the next critical workflow.
 - An orchestrated multi-agent setup fits when separate agent roles refresh forensic evidence, normalize reviewer objections, track annex boundaries, and update the protected trace without flattening disagreement.
 - Agents may rewrite sections, refresh evidence links, and maintain the disagreement ledger, but choosing the deciding authority, launching revocation sequencing, or executing customer communication should remain outside the room and explicitly human-controlled.
