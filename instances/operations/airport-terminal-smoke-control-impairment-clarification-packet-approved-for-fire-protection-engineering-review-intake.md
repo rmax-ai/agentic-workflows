@@ -37,6 +37,28 @@ This grounds the pattern in facilities-heavy operations governance rather than r
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Building automation, fire alarm,<br>smoke-control test, and computerized<br>maintenance management systems"]
+    B["Terminal occupancy schedules,<br>concourse egress maps,<br>fire-watch planning logs,<br>and continuity constraints"]
+    C["Facilities duty manager,<br>terminal continuity lead,<br>fire-life-safety governance partners,<br>and agent support"]
+    D["Governed facilities-operations<br>collaboration workspace:<br>clarification packet,<br>objection ledger,<br>revision history,<br>and release-manifest state"]
+    E["Fire-protection engineering policy,<br>airport life-safety governance rules,<br>and restricted review-intake controls"]
+    F["Approval-routing, audit,<br>and retention systems"]
+    G["Named operations<br>release owner"]
+    H["Bounded fire-protection engineering<br>review-intake lane"]
+
+    A -->|"Provide fault records,<br>alarm history,<br>inspection evidence,<br>and corrective-work lineage"| D
+    B -->|"Provide occupancy assumptions,<br>egress context,<br>coverage gaps,<br>and traveler-density caveats"| D
+    C -->|"Co-produce the packet,<br>reconcile objections,<br>and maintain release trace"| D
+    E -->|"Provide signer rules,<br>audience constraints,<br>and single-lane boundaries"| D
+    D -->|"Submit exact packet revision,<br>residual objections,<br>and release-manifest state"| F
+    F -->|"Route approval package<br>for release decision"| G
+    G -->|"Approve one exact revision<br>for one bounded intake lane"| F
+    F -->|"Record approval, supersession,<br>and handoff trace"| D
+    F -->|"Release only approved revision"| H
+```
+
 - Approval-gated execution fits because the clarification packet can be collaboration-ready while still blocked from fire-protection engineering intake until the human release owner approves the exact revision.
 - Human-in-the-loop control is required because only accountable facilities and terminal-operations leaders may accept residual life-safety uncertainty, confirm audience scope, and authorize the packet's release boundary.
 - Agents may compare fault logs, refresh evidence links, normalize objection wording, and maintain the release trace, but they must not decide impairment acceptability, open the engineering review outcome, or trigger field actions.
