@@ -37,6 +37,21 @@ This grounds the pattern in HR work where the consequential accommodation review
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    review["Restricted workplace-accommodation<br>review system"] -->|"Authoritative final-disposition<br>event"| worker["Event-driven completion<br>worker"]
+    worker -->|"Request source re-read"| validate["Source re-read<br>validation"]
+    review -->|"Current case, disposition version,<br>and archive references"| validate
+    validate -->|"Mismatch, reopened case,<br>or mapping drift"| follow["Manual<br>follow-up"]
+    validate -->|"Verified source state"| sync["Idempotent closure<br>sync"]
+    sync -->|"Close queue item"| queue["Restricted post-review<br>queue"]
+    sync -->|"Set review-complete state"| tracker["Accommodation<br>case tracker"]
+    sync -->|"Set review-complete state"| ledger["Accommodation<br>ledger"]
+    sync -->|"Attach approved archive refs"| archive["Archive / evidence<br>store"]
+    sync -->|"Record completion trace<br>and idempotency markers"| audit["Audit<br>store"]
+    sync -->|"Send closure-complete<br>notification"| notify["HR accommodation coordinator<br>notification channel"]
+```
+
 - An event-driven completion worker can subscribe to accepted or deferred final-disposition events from the restricted review system and start the closure sequence only for approved post-decision states.
 - The worker should re-read the current source record before writing anywhere so a reopened accommodation case, superseded disposition, or changed archive reference is not propagated from a stale event.
 - Durable completion state should track queue closure, case-tracker synchronization, accommodation-ledger synchronization, archive linkage, notification delivery, and skipped idempotent actions because duplicate events or partial retries are normal operational conditions.
