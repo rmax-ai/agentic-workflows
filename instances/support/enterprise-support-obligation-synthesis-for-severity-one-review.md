@@ -49,6 +49,25 @@ This grounds the gather/synthesize pattern in a support workflow where the highe
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph BOUNDARY["Approved source boundary<br>support + legal + revenue-operations repositories"]
+        CLM["Contract lifecycle management repository<br>executed agreements + order forms + support exhibits + renewal records"]
+        CRM["CRM account record + entitlement system<br>active SKUs + support tier + named contacts + service-window metadata"]
+        POLICY["Support policy library<br>severity definitions + communication cadence rules + legacy-offer mappings"]
+        EXCEPTIONS["Approved commercial-exception register + legal memo archive<br>non-standard commitments + carve-outs"]
+        HISTORY["Historical severity-one case archive + prior service-credit correspondence repository<br>previously invoked terms + account context"]
+    end
+
+    CLM -->|"binding terms + supersession evidence"| WS["Controlled support review workspace<br>cited obligations brief + evidence trace + claim-to-source mappings"]
+    CRM -->|"active entitlement + account-state evidence"| WS
+    POLICY -->|"current policy defaults + legacy mappings"| WS
+    EXCEPTIONS -->|"approved exceptions + interpretation artifacts"| WS
+    HISTORY -->|"prior-case context + cited precedent"| WS
+    WS -->|"ambiguous scope, exclusions,<br>or non-standard clause questions"| REVIEW["Human-in-the-loop review<br>support leadership + legal + account-team reviewers"]
+    REVIEW -->|"review notes + source challenges"| WS
+```
+
 - A tool-using single agent can retrieve the active contract stack, support-policy references, entitlement records, and approved exception artifacts, then assemble a reviewable synthesis with claim-to-source mappings.
 - Human-in-the-loop review should remain mandatory for ambiguous product-scope questions, interpretation of non-standard clauses, and any synthesis that will inform customer-facing commitments or legal escalation.
 - The workflow should preserve an evidence trace that distinguishes binding executed terms, current standard support policy, approved account-specific exceptions, and unresolved coverage questions.
