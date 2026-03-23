@@ -44,6 +44,24 @@ This grounds the pattern in research work where the valuable artifact is one cur
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Approved rerun-manifest,<br>methods-annex, dataset-version,<br>and exception-lineage updates"]
+    B["Event-driven<br>monitoring"]
+    C["Tool-using<br>refresh agent"]
+    D["Restricted staged<br>intake store"]
+    E["Controlled benchmark taxonomy,<br>metric registry, and<br>intake-schema policies"]
+    F["Lineage and<br>audit store"]
+    G["Exception<br>queue"]
+    A --> B
+    B --> C
+    D --> C
+    E --> C
+    C --> D
+    C --> F
+    C --> G
+```
+
 - Event-driven monitoring should listen only to approved rerun-manifest, methods-annex, dataset-registry, and exception-lineage updates that are authorized to refresh the staged research-review intake record.
 - A tool-using single agent can re-read the changed benchmark-study bundle, compare the current authoritative source state against the prior staged version, rebuild the structured intake record, and emit a delta trace plus supersession markers.
 - Automatic refresh should stay bounded to approved overwrite rules for staged research-review fields; conflicting rerun manifests, unresolved dataset-version changes, missing source lineage, or schema-breaking annex updates should route to exceptions instead of forcing a new current record.
