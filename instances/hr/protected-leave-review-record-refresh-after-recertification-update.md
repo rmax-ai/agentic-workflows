@@ -37,6 +37,34 @@ This grounds the pattern in HR work where the valuable artifact is one current s
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    C["Leave-management case system"]
+    D["Secure medical-document repository"]
+    P["Employee portal"]
+    R["Receipt-log service"]
+    H["HRIS worker master"]
+    T["Leave taxonomy and review-schema<br>policy tables"]
+    Q["Exception queue<br>leave-program, employee-relations,<br>or designated medical-review follow-up"]
+    subgraph B["Restricted leave-review refresh boundary"]
+        A["Bounded refresh agent<br>on approved source change,<br>re-read current case bundle,<br>compare prior and current values,<br>and apply allowed overwrite rules"]
+        S["Restricted leave-review staging store<br>prior and refreshed staged record"]
+        L["Lineage and audit store<br>prior versions, superseded values,<br>trigger ids, and refresh decisions"]
+    end
+
+    C -->|"Provides current leave-case state<br>and superseding certification version"| A
+    D -->|"Provides recertification documents<br>and provider provenance"| A
+    P -->|"Provides corrected treatment dates<br>and employee-entered updates"| A
+    R -->|"Provides receipt metadata<br>and late faxed-note lineage"| A
+    H -->|"Provides worker identifiers<br>and audience-scope normalization"| A
+    T -->|"Provides leave taxonomy,<br>review schema, and overwrite rules"| A
+    S -->|"Provides prior staged leave-review record"| A
+    L -->|"Provides prior lineage,<br>supersession history, and trigger ids"| A
+    A -->|"Writes refreshed staged leave-review record<br>with carried-forward values"| S
+    A -->|"Updates field-level delta lineage,<br>supersession markers, and refresh decisions"| L
+    A -->|"Routes conflicting medical timing,<br>missing provenance, or policy-disallowed overwrite logic"| Q
+```
+
 - Event-driven monitoring should listen only to approved recertification, case-record, receipt-lineage, and employee-portal updates that are authorized to refresh the staged leave-review record.
 - A tool-using single agent can re-read the changed case bundle, compare the current authoritative source state against the prior staged version, rebuild the structured review record, and emit a delta trace plus supersession markers.
 - Automatic refresh should stay bounded to approved overwrite rules for staged review fields; conflicting provider dates, privacy-scope changes, missing source lineage, or schema-breaking case updates should route to exceptions instead of forcing a new current record.
