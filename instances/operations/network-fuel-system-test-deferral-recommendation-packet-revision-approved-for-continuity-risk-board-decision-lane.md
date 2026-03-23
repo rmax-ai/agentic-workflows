@@ -44,6 +44,23 @@ This grounds the pattern in operations where the governance problem is not to ad
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    records["Maintenance scheduling, generator and tank inspection,<br>depot criticality, weather, and vendor-availability records"] -->|"Cited operating state"| workspace["Test-deferral recommendation<br>workspace"]
+    workspace -->|"Packet revision<br>and depot scope"| agent["Governed agent<br>support"]
+    governance["Governance repository"] -->|"Lane, recipient,<br>and expiry rules"| manifest["Approval manifest and board-routing<br>tooling for exact packet hash,<br>depot scope, and board audience"]
+    governance -->|"Named release<br>authority"| owner["Named operations<br>release owner"]
+    agent -->|"Packet hash checks,<br>manifest assembly,<br>and routing guardrails"| manifest
+    subgraph boundary["Continuity risk board<br>decision lane boundary"]
+        lane["Continuity risk board<br>decision lane"]
+    end
+    manifest -->|"Approval request"| owner
+    owner -->|"Approve exact<br>release terms"| manifest
+    manifest -->|"Approved packet route"| lane
+    manifest -->|"Blocked forwarding,<br>holds, and supersession"| ledger["Audit and supersession<br>ledger"]
+    ledger -->|"Release history<br>and superseded revisions"| workspace
+```
+
 - Approval-gated execution fits because the recommendation packet remains held until a named operations owner authorizes release into the continuity risk board decision lane.
 - Human-in-the-loop review remains necessary because only accountable operations and safety governance owners should confirm lane scope, expiry, and blocked-option visibility without collapsing the workflow into deferral approval itself.
 - A governed agent can compare packet hashes, assemble the manifest, and block broadened distribution, but it should not authorize the test deferral, modify maintenance schedules, or create dispatch tasks.
