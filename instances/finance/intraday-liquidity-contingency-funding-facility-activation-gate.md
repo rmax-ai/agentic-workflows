@@ -40,6 +40,34 @@ This grounds the pattern in finance where the hard problem is not deciding wheth
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    PLAY["Treasury contingency playbook<br>and bridge workspace"]
+    AUTH["Authoritative cash-state,<br>collateral, and payment-priority<br>systems"]
+    CTRL["Lender notice trackers,<br>delegate rosters, calendars,<br>and control-review schedules"]
+    COMM["Restricted market-open and lender<br>communication-planning tools"]
+    PACKET["Funding-facility activation<br>packet assembler"]
+    LEDGER["Readiness ledger and<br>explicit hold register"]
+    AUDIT["Approval-routing and<br>audit systems"]
+    STOP["Stop before facility draw,<br>payment release, authority recommendation,<br>or cash-state re-verification"]
+
+    subgraph GATE["Human approval<br>boundary"]
+        APPROVER["Treasury leadership<br>approval gate"]
+    end
+
+    PLAY -->|"Provides declared fallback scope,<br>prior gate packets, and protected<br>liquidity thresholds"| PACKET
+    AUTH -->|"Provides authoritative cash state,<br>collateral readiness, and payment-priority<br>hold references"| PACKET
+    CTRL -->|"Provides lender notice windows,<br>delegate coverage, and control-review<br>staffing constraints"| PACKET
+    COMM -->|"Provides restricted timing windows for<br>market-open and lender communications"| PACKET
+    AUDIT -->|"Supplies packet lineage,<br>open holds, and prior sign-off state"| PACKET
+    PACKET -->|"Writes current packet version,<br>lineage, and blocker state"| AUDIT
+    PACKET -->|"Maintains collateral, lender-callback,<br>dual-control, and protected payment-hold<br>blockers"| LEDGER
+    PACKET -->|"Routes approval-ready packet"| APPROVER
+    LEDGER -->|"Keeps explicit hold state attached to<br>the current activation packet"| APPROVER
+    APPROVER -->|"Reviews the packet at the activation gate<br>without initiating the funding facility"| STOP
+    LEDGER -->|"Prevents downstream action<br>while holds remain unresolved"| STOP
+```
+
 - Approval-gated execution fits because the packet may be technically activation-ready while the facility draw remains concretely blocked until treasury leadership signs off.
 - The workflow should preserve one readiness ledger tying collateral checkpoints, lender windows, control coverage, and protected payment holds to the latest packet version.
 - Explicit holds should remain visible whenever callback windows, dual-control staffing, or queue protections are incomplete rather than being compressed into a nominally ready packet.
