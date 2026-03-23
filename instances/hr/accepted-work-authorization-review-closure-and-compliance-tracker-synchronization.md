@@ -38,6 +38,19 @@ This grounds the pattern in HR work where the consequential review judgment is a
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    review["Restricted immigration-compliance<br>or work-authorization review system"] -->|"Accepted disposition event"| worker["Event-driven completion<br>worker"]
+    worker -->|"Re-read current case state"| validate["Re-read validation"]
+    validate -->|"Verified case id, disposition version,<br>and archive references"| sync["Idempotent closure<br>sync"]
+    validate -->|"Mismatch, missing mapping,<br>or reopened case"| followup["Manual follow-up"]
+    sync -->|"Close restricted queue item"| queue["Restricted post-review<br>queue"]
+    sync -->|"Write review-complete state"| tracker["Compliance tracker or<br>reverification ledger"]
+    sync -->|"Attach approved archive references"| archive["Archive or<br>evidence store"]
+    sync -->|"Record completion state<br>and idempotency markers"| audit["Audit store"]
+    sync -->|"Send closure-complete notice"| notify["Coordinator notification<br>channel"]
+```
+
 - An event-driven completion worker can subscribe to accepted work-authorization review events from the restricted review system and start the closure sequence only for approved post-decision states.
 - The worker should re-read the current source record before writing anywhere so a reopened case, superseded disposition, or changed archive reference is not propagated from a stale event.
 - Durable completion state should track queue closure, compliance-tracker synchronization, archive linkage, notification delivery, and skipped idempotent actions because duplicate events or partial retries are normal operational conditions.
