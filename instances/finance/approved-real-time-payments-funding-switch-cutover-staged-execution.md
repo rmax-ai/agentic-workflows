@@ -47,6 +47,37 @@ This grounds the pattern in a finance workflow where the high-stakes action is a
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    CCR["Payments and treasury<br>change-control record"]
+    CTRL["Funding-switch<br>control plane"]
+    NEW["New real-time payments<br>funding switch"]
+    LEG["Legacy real-time payments<br>funding switch"]
+    LIQ["Settlement account monitors,<br>liquidity ledgers, and rail-status feeds"]
+    VER["Reconciliation, duplicate-detection,<br>posting, and replay-protection systems"]
+    AUD["Audit store"]
+
+    subgraph HOLD["Human-in-the-loop holds<br>treasury, payments risk, and change authorities"]
+        AUTH["Protected hold-release<br>and rollback decisions"]
+    end
+
+    CCR -->|"Sets approved cutover window,<br>protected scope, and rollback plan"| CTRL
+    CCR -->|"Defines hold boundaries<br>and accountable authorities"| AUTH
+    CTRL -->|"Routes approved cohort<br>and promoted live scope"| NEW
+    CTRL -->|"Preserves rollback-ready<br>legacy path"| LEG
+    LIQ -->|"Preflight balance, rail-health,<br>and live funding signals"| NEW
+    LIQ -->|"Fallback funding and<br>connectivity baseline"| LEG
+    NEW -->|"Acknowledgement, posting,<br>duplicate, and replay signals"| VER
+    LEG -->|"Parity and rollback-health<br>comparison signals"| VER
+    LIQ -->|"Prefunding and rail-status<br>checkpoint evidence"| AUTH
+    VER -->|"Checkpoint evidence and<br>ambiguous-state stop signals"| AUTH
+    AUTH -->|"Hold / release / restore direction"| CTRL
+    CCR -->|"Approved package<br>and execution scope"| AUD
+    CTRL -->|"Stage transitions and<br>fallback restoration steps"| AUD
+    VER -->|"Verification evidence<br>and checkpoint lineage"| AUD
+    AUTH -->|"Hold releases and<br>rollback decisions"| AUD
+```
+
 - Orchestrated multi-agent coordination fits because preflight validation, payment-rail verification, liquidity monitoring, and rollback-readiness checking often belong to separate payments, treasury, and platform roles.
 - Human-in-the-loop holds should remain standard before promotion expands from the first approved originator cohort to the broader live rail scope and again before the legacy switch path is retired.
 - Exception-gated autonomy keeps the workflow bounded: it may advance automatically through shadow checks and the first limited activation when thresholds remain healthy, but acknowledgement drift, duplicate-prevention ambiguity, or prefunding deterioration should force a visible hold or rollback packet.
