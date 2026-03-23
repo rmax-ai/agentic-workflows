@@ -40,6 +40,23 @@ This grounds the pattern in support work where the important output is one downs
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Support case timeline,<br>secure attachment store, and bridge notes"]
+    B["Export orchestration records,<br>residency inventory, key metadata,<br>and retention-policy tables"]
+    C["Governed staging store<br>and manifest service"]
+    D["Hold and exception queue"]
+    E["Approval tooling for<br>sovereign-support and privacy owners"]
+    F["Restricted sovereign-compliance<br>intake queue"]
+
+    A -->|"authoritative chronology<br>and approved diagnostics"| C
+    B -->|"normalized identifiers,<br>residency fields, and key-custody inputs"| C
+    C -->|"held annexes, stale attestations,<br>and mapping drift"| D
+    C -->|"packet, trace, hold register,<br>and manifest draft"| E
+    E -->|"signed exact version,<br>audience scope, and intake boundary"| C
+    C -->|"approved packet revision<br>for one restricted intake lane"| F
+```
+
 - Approval-gated execution fits because the sovereign-compliance packet may be technically complete for one restricted intake lane while remaining blocked until named support and privacy owners approve the exact version and audience scope in the manifest.
 - Human-in-the-loop governance is required because accountable reviewers must confirm residency-safe diagnostics, held annexes, key-custody references, and the single downstream intake boundary before release.
 - The workflow should emit only the transformed sovereign-compliance packet, transformation trace, hold register, lineage links, and approval manifest rather than a residency recommendation, exception decision, customer response draft, export enablement request, or remediation task.
