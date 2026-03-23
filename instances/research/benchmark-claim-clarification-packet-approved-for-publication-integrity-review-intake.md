@@ -40,6 +40,28 @@ This shows a research workflow where the core reusable challenge is collaborativ
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Evidence["Experiment tracker, rerun logs,<br>notebook revisions, and hardware metadata stores"]
+    Policy["Publication-policy, disclosure-review,<br>and partner-obligation repositories"]
+    Workspace["Governed publication workspace holding one exact<br>claim-clarification packet revision, objection ledger,<br>and release-manifest state"]
+    Owner["Human research release owner"]
+    Routing["Approval and intake-routing tooling"]
+    Boundary["Bounded publication integrity<br>review release boundary"]
+    Lane["Publication integrity review intake lane"]
+    Audit["Audit, retention, and<br>access-control systems"]
+
+    Evidence --> Workspace
+    Policy --> Workspace
+    Workspace --> Owner
+    Workspace --> Routing
+    Owner --> Routing
+    Routing --> Boundary
+    Boundary --> Lane
+    Workspace --> Audit
+    Routing --> Audit
+```
+
 - Approval-gated execution fits because the packet can be collaboration-ready before it is allowed to cross into the publication integrity intake boundary.
 - Human-in-the-loop control remains essential because only accountable research owners may accept residual disagreement, confirm embargo-safe audience scope, and authorize the release boundary.
 - Agents may refresh rerun evidence, compare wording alternatives, and maintain the release trace, but they must not decide publication readiness, submit the manuscript, or publish benchmark artifacts.
