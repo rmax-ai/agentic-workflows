@@ -42,6 +42,27 @@ This grounds the optimization pattern in a research workflow where queue order s
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    intake["Research review intake system<br>active backlog and current queue order"]
+    artifacts["Experiment-tracking and artifact store<br>rerun outcomes and validation defects"]
+    register["Publication-governance register<br>embargo terms and escalation history"]
+    roster["Reviewer-capacity and expertise roster<br>specialist availability and current load"]
+    agent["Queue reprioritization agent<br>bounded weight tuning and latency simulation"]
+    dashboard["Queue audit dashboard<br>logic inspection, freeze, and restore controls"]
+    leads["Research-governance leads<br>exception approval and rollback oversight"]
+
+    intake -->|"Queue state"| agent
+    artifacts -->|"Reproducibility signals"| agent
+    register -->|"Embargo and disclosure rules"| agent
+    roster -->|"Capacity and expertise changes"| agent
+    agent -->|"Revised ranked queue<br>with study-level rationale"| intake
+    agent -->|"Tuning history and guardrail checks"| dashboard
+    dashboard -->|"Freeze or restore<br>last trusted policy"| agent
+    agent -->|"Escalate material fairness<br>or embargo changes"| leads
+    leads -->|"Approve, reject,<br>or require rollback"| agent
+```
+
 - Event-driven monitoring should trigger queue reevaluation when rerun failures appear, embargo milestones approach, reviewer overrides accumulate, or specialist review capacity changes materially.
 - A tool-using single agent can recompute bounded prioritization weights, simulate the effect on validation latency and reviewer load, and publish a revised ranked queue with study-level rationale.
 - Exception-gated autonomy fits because in-policy tuning can adjust ordering automatically within approved ranges, but changes that materially alter fairness balancing, embargo buffers, or protected review classes should require research-governance approval.
