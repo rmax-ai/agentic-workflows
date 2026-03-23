@@ -45,6 +45,25 @@ This grounds the pattern in support where the reusable challenge is release cont
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    records["Incident, entitlement, contract, renewal,<br>precedent, and executive account-review records"]
+    workspace["Recovery-package recommendation workspace<br>current packet revision and bounded options"]
+    governance["Governance repository<br>lane, recipients, expiry, release owner"]
+    approver["Named support release owner"]
+    routing["Approval manifest and routing tooling<br>packet hash, lane scope, blocked forwarding"]
+    lane["Executive customer-review decision lane"]
+    audit["Audit and supersession ledger<br>release history and held revisions"]
+
+    records --> workspace
+    workspace --> routing
+    governance --> routing
+    approver --> routing
+    routing --> lane
+    workspace --> audit
+    routing --> audit
+```
+
 - Approval-gated execution fits because the recommendation packet remains blocked until a named support owner authorizes release into the executive customer-review decision lane.
 - Human-in-the-loop review remains necessary because only accountable support and commercial governance owners should confirm audience scope, expiry, and blocked-term visibility without turning the release into approval of the remedy itself.
 - A governed agent can verify packet hashes, assemble the manifest, and block broadened distribution, but it should not post credits, approve commercial concessions, or send recovery commitments to the customer.
