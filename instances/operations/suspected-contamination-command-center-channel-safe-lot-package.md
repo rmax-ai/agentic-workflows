@@ -41,6 +41,22 @@ This grounds the pattern in an operations workflow where the urgent need is a st
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph trust["Approved trust boundary<br>critical channel-safe lot packaging"]
+        auth["Authoritative state sources<br>genealogy, quality holds,<br>warehouse positions"] --> staging["Secure staging workspace<br>command-center lot package,<br>lineage trace, and supersession state"]
+        telemetry["Telemetry and shipment inputs<br>temperature, route, and<br>in-transit hold status"] --> staging
+        policy["Legal and disclosure-policy controls<br>facility aliases, audience boundaries,<br>and hold-release criteria"] --> staging
+        refs["Approved reference tables<br>product families and<br>partner-safe facility aliases"] --> staging
+        staging --> annex["Held-detail annexes<br>unresolved genealogy branches and<br>restricted facility detail"]
+        annex --> review["Review queue escalation<br>quality, legal, and supply-chain leadership"]
+        review --> staging
+        staging --> manifest["Release-manifest publication<br>package version, audience boundary,<br>and supersession record"]
+        annex --> manifest
+        manifest --> package["Channel-safe lot package<br>for bounded command-center coordination"]
+    end
+```
+
 - An orchestrated multi-agent design can separate authoritative genealogy retrieval, partner-safe rendering, held-branch validation, and release-manifest publication while preserving clear trust boundaries.
 - Human reviewers should stay in the loop because legal and quality owners must decide when unresolved lot branches, specific facility names, or early telemetry anomalies are safe to expose beyond the command center.
 - The workflow should emit only the governed lot package, held-detail register, and manifest rather than recommending recall scope, approving partner notifications, or triggering routing changes.
