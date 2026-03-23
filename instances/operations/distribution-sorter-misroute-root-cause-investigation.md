@@ -40,6 +40,40 @@ This grounds `incident-root-cause-analysis` in an operations workflow where the 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+WCS["Warehouse control system<br>routing tables and sort-plan history"]
+PLC["PLC and conveyor controls logs"]
+SCAN["Scanner evidence store<br>image-quality metrics and parcel images"]
+WMS["Warehouse-management system<br>shipment assignments and lane manifests"]
+CMMS["CMMS work orders<br>technician notes and parts history"]
+SHIFT["Shift notes and supervisor handoffs"]
+
+subgraph WS["Shared investigation workspace"]
+RETRIEVE["Evidence retrieval roles"]
+TIMELINE["Reconciled incident timeline"]
+HYP["Competing-hypothesis set<br>supporting and weakening evidence"]
+RECORD["Shared investigation record"]
+end
+
+subgraph GOV["Human governance boundary"]
+REVIEW["Human review of root-cause conclusions"]
+end
+
+WCS -->|"provides evidence"| RETRIEVE
+PLC -->|"provides evidence"| RETRIEVE
+SCAN -->|"provides evidence"| RETRIEVE
+WMS -->|"provides evidence"| RETRIEVE
+CMMS -->|"provides evidence"| RETRIEVE
+SHIFT -->|"provides evidence"| RETRIEVE
+RETRIEVE -->|"normalizes inputs into"| TIMELINE
+RETRIEVE -->|"adds evidence links to"| RECORD
+TIMELINE -->|"tests and updates"| HYP
+HYP -->|"stores rationale in"| RECORD
+RECORD -->|"presents investigation state to"| REVIEW
+HYP -->|"keeps competing explanations visible for"| REVIEW
+```
+
 - An orchestrated multi-agent design can separate controls-log retrieval, parcel-level timeline reconstruction, and hypothesis verification while preserving one shared investigation record.
 - Shared case memory should keep competing explanations visible, including evidence that supports or weakens each one, rather than collapsing early onto the first credible cause.
 - Human-in-the-loop review remains necessary before declaring the primary root cause, deciding whether the sorter can be returned to normal operating mode, or authorizing customer-commitment updates tied to shipment recovery.
