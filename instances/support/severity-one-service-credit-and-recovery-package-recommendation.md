@@ -42,6 +42,30 @@ This instance grounds the recommendation family in support without drifting into
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    team["Support account escalation team"]
+    incident["Severity-one incident record,<br>customer escalation timeline,<br>and outage impact summary"]
+    entitlement["Support entitlement system,<br>premium-support terms,<br>and service-credit policy library"]
+    crm["CRM account record,<br>renewal stage,<br>strategic account notes,<br>and prior concession history"]
+    policy["Finance approval matrix,<br>concession thresholds,<br>historical recovery-package precedents,<br>legal guidance,<br>exception register,<br>and contract amendments"]
+    external["Finance, legal, and account reviewers"]
+    subgraph support["Support recommendation boundary"]
+        agent["Tool-using single agent<br>recovery-package recommendation workflow"]
+        packet["Recommendation packet<br>in-policy, conditional,<br>and blocked concession paths"]
+        review["Support leadership reviewers"]
+    end
+
+    team --> agent
+    incident --> agent
+    entitlement --> agent
+    crm --> agent
+    policy --> agent
+    agent --> packet
+    packet --> review
+    review --> external
+```
+
 - A recommendation-only workflow can retrieve outage facts, entitlement terms, prior concessions, approval thresholds, and stakeholder notes into one ranked option set for support leadership review.
 - Human-in-the-loop review is mandatory because the workflow should advise on concession structure and escalation triggers, not approve credits, amend support commitments, or send the offer to the customer.
 - Read-only integration with incident, CRM, entitlement, finance, and contract systems is preferable so the agent cannot silently convert a recommendation into billing changes, contract edits, or customer-facing promises.
