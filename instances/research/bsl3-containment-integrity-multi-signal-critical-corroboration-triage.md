@@ -42,6 +42,21 @@ This grounds the pattern in a research setting where the urgent problem is not o
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    BMS["Building-management and pressure<br>monitoring systems"] --> Intake["Event-driven severe-signal intake"]
+    HEPA["HEPA telemetry"] --> Intake
+    Access["Access-control and airlock systems"] --> Intake
+    Decon["Decontamination registers"] --> Intake
+    Custody["Specimen custody tracking"] --> Intake
+    Incident["Incident intake and reporting"] --> Intake
+    Intake --> Corroboration["Corroboration, retrieval, and<br>duplicate-aware linkage"]
+    Corroboration --> CaseState["Critical biosafety case-management<br>and escalation-routing tooling<br>with shared critical-case state"]
+    CaseState --> Policy["Policy threshold checks and<br>escalation-packet assembly"]
+    Policy --> CaseState
+    CaseState --> Human["Human-controlled biosafety<br>command lane"]
+```
+
 - Event-driven monitoring fits because pressure differentials, HEPA resistance trends, airlock faults, decontamination register entries, and specimen custody gaps can arrive asynchronously and materially change the corroboration picture within minutes of each other.
 - Orchestrated multi-agent or staged service roles fit because building-system telemetry review, custody-gap retrieval, incident-report deduplication, policy threshold checks, and escalation-packet assembly are specialized tasks that must converge on one shared critical-case state without any single subsystem signal dominating prematurely.
 - Human-in-the-loop review remains necessary because even a recommendation-only critical escalation packet can rapidly influence consequential containment, personnel, experiment, and facility decisions that the workflow must not trigger autonomously.
