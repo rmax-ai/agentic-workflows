@@ -41,6 +41,17 @@ This grounds the pattern in research where the hard problem is not diagnosing th
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    W["Continuity playbooks<br>incident workspace<br>declared freezer scope and prior holds"] --> P["Preservation continuity packet<br>readiness ledger<br>hold register"]
+    I["Authoritative LIMS inventory<br>rack maps"] --> P
+    T["Calibrated alarm and probe telemetry"] --> P
+    S["Approved preservation SOPs<br>biosafety classes<br>consent and material-transfer rules<br>exposure-time controls"] --> P
+    R["On-call rosters<br>backup-capacity ledger<br>dry-ice or liquid-nitrogen reserves<br>transport dewar records<br>custody-form templates"] --> P
+    P --> A["Approval-routing and audit systems<br>packet versions, open holds,<br>source-refresh timestamps,<br>reserved capacity evidence"]
+    A --> H{"Dr. Elena Marquez<br>Director of Biorepository Continuity<br>human approval gate"}
+```
+
 - Approval-gated execution fits because the biospecimen-preservation continuity mode may be fully prepared while still blocked until named biorepository continuity leadership approves the packet.
 - The readiness ledger should tie authoritative freezer scope, specimen-priority cohorts, backup-capacity reservations, dry-ice or liquid-nitrogen readiness, retrieval-team coverage, exposure-timer controls, and custody-form packet version to one current packet revision.
 - Explicit holds should remain visible whenever rack-map alignment, label legibility, consent or material-transfer restrictions, backup-capacity qualification, or transport-vessel readiness is incomplete rather than being compressed into a nominally ready packet.
