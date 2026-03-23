@@ -38,6 +38,23 @@ This grounds the pattern in engineering with a cryptography-governance scenario 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    sources["Certificate issuance policy repository,<br>locked issuance request record,<br>certificate-profile registry,<br>HSM custody and ceremony ledger,<br>enterprise CA issuance transcript archive,<br>and package-signing service identity inventory"] -->|"Authoritative policy,<br>request, and evidence inputs"| workspace["Restricted engineering briefing workspace<br>holding Prod-Signing-Issuance-Control-Brief-r4,<br>prior returned revisions, annex bindings,<br>blocker state, and provenance lineage"]
+    agent["Governed agent"] -->|"Assemble release manifest,<br>compare lineage, and<br>check source precedence"| manifest["Approval manifest service<br>recording the release cryptography owner,<br>exact revision id, approved board lane,<br>annex boundary, freshness deadline,<br>and hold or release disposition"]
+    workspace -->|"Exact briefing revision,<br>annex bindings, blocker state,<br>and revision lineage"| manifest
+    owner["Named release<br>cryptography owner"] -->|"Approve audience scope,<br>freshness window,<br>annex boundary, and<br>hold or release state"| manifest
+    manifest -->|"Approved board lane,<br>release disposition, and<br>freshness controls"| routing["Cryptography governance board circulation tooling<br>enforcing named recipients,<br>confidentiality banners, expiry controls,<br>and blocked forwarding outside<br>the approved lane"]
+    workspace -->|"Reviewed briefing revision<br>for bounded circulation"| routing
+    subgraph board["Restricted cryptography governance board lane"]
+        lane["Named security engineering,<br>release integrity,<br>certificate operations, and<br>executive governance recipients"]
+    end
+    routing -->|"Bounded circulation of<br>the exact approved revision"| lane
+    workspace -->|"Release lineage and<br>supersession context"| audit["Audit and supersession tracker<br>preserving release lineage,<br>blocked dissemination attempts,<br>and expiry events"]
+    manifest -->|"Hold or release decisions,<br>board lane, and<br>freshness deadlines"| audit
+    routing -->|"Dissemination trace and<br>blocked forwarding attempts"| audit
+```
+
 - Approval-gated execution fits because the issuance control briefing remains held until the release cryptography owner approves one exact revision for the restricted cryptography governance board lane.
 - Human-in-the-loop review is necessary because only accountable engineering leadership should accept residual custody and trust-chain caveats, confirm annex scope, and authorize circulation of sensitive production certificate context.
 - A governed agent can assemble the release manifest, compare lineage, enforce source precedence checks, and block stale reuse or forwarding, but it should not approve issuance, resolve certificate-profile disputes, trigger PKI changes, or launch downstream signing or release workflows.
