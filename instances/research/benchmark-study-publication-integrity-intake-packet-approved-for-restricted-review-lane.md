@@ -43,6 +43,25 @@ This grounds the pattern in research work where the main output is one downstrea
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph release["Approval-gated restricted review boundary"]
+        staging["Governed staging store<br>for one intake packet revision<br>and transformation trace"]
+        hold["Hold queue<br>for lineage gaps, rights conflicts,<br>and scope mismatches"]
+        manifest["Manifest service<br>for packet version, lane scope,<br>and held annex record"]
+        approval["Research governance<br>approval tooling"]
+        staging --> hold
+        staging --> manifest
+        hold --> manifest
+        manifest --> approval
+    end
+
+    sources["Benchmark claim, rerun, and metadata registries"] --> staging
+    controls["Rights ledger and disclosure-control systems"] --> staging
+    reviewers["Named research governance reviewers"] --> approval
+    approval --> lane["Restricted publication-integrity<br>review intake lane"]
+```
+
 - Approval-gated execution fits because the publication-integrity intake packet may be technically complete for one restricted review lane while remaining blocked until a named research governance reviewer approves the exact version and audience scope in the manifest.
 - Human-in-the-loop governance is required because accountable reviewers must confirm disclosure tags, held evidence annexes, and the single downstream intake boundary before release.
 - The workflow should emit only the transformed publication-integrity packet, transformation trace, hold register, and approval manifest rather than a claim recommendation, publication readiness judgment, manuscript package, or external disclosure artifact.
