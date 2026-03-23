@@ -39,6 +39,40 @@ This grounds `risk-alert-triage` in engineering operations where the hard proble
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph SRC["Release and signal source boundary"]
+        deploy["CI/CD and deployment-control systems<br>release ids, rollout stages, feature-flag changes,<br>approver records, and rollback artifacts"]
+        obs["Observability platforms<br>SLIs, canary comparisons, trace summaries,<br>alert history, and saturation metrics"]
+        catalog["Service catalog and dependency graph<br>criticality tiers, owning teams,<br>downstream dependencies, and maintenance windows"]
+        change["Change-management and incident-management systems<br>prior release exceptions, active incidents,<br>suppression windows, and escalation paths"]
+        support["Support and status-signal feeds<br>customer complaints, synthetic failures,<br>and region-specific degradation indicators"]
+    end
+
+    subgraph TRIAGE["Release regression triage boundary"]
+        monitor["Event-driven monitoring and scoring service<br>reopen, merge, and re-rank alert clusters<br>as rollout evidence changes"]
+        agent["Triage agent<br>correlate deploy metadata with SLI regressions,<br>suppress duplicate detector chatter,<br>and attach ownership and rollback context"]
+        queue["Prioritized triage queue and packet state<br>threshold hits, blast radius,<br>routing rationale, and release-wave lineage"]
+    end
+
+    subgraph GOV["Governed escalation and audit boundary"]
+        review["Human review lane<br>on-call owner, release manager,<br>or incident lead"]
+        audit["Audit and evidence stores<br>raw alert lineage, threshold versions,<br>merge decisions, routing rationale,<br>and escalation approvals"]
+    end
+
+    deploy -- "Release metadata, rollout state,<br>and rollback readiness" --> monitor
+    obs -- "SLI regressions, canary deltas,<br>and alert history" --> monitor
+    support -- "Customer-impact signals<br>and region degradation" --> monitor
+    catalog -- "Service criticality,<br>ownership, and dependencies" --> agent
+    change -- "Incident context,<br>suppression windows, and escalation paths" --> agent
+    monitor -- "Merged release-wave alerts<br>and threshold hits" --> agent
+    agent -- "Prioritized queue<br>and triage packet" --> queue
+    queue -- "Urgent cases needing<br>governed escalation" --> review
+    review -- "Escalation approval,<br>hold, or reroute" --> queue
+    queue -- "Lineage, threshold versions,<br>and routing evidence" --> audit
+    review -- "Human approvals<br>and overrides" --> audit
+```
+
 - Event-driven monitoring should continuously score deployment and telemetry events, then reopen, merge, or re-rank alert clusters as rollout stages progress and new evidence arrives.
 - A tool-using single agent can correlate deploy metadata with SLI regressions, suppress duplicate detector chatter from the same release, attach ownership and rollback context, and publish a prioritized queue with explicit threshold hits.
 - Human-in-the-loop review should remain mandatory for alerts that could trigger rollback, feature disablement, incident declaration, or customer-facing status changes.
