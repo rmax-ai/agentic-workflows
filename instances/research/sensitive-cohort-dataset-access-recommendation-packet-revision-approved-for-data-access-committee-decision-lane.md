@@ -47,6 +47,35 @@ This grounds the pattern in research where the reusable governance problem is no
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    protocol["Protocol registry"]
+    consent["Consent constraint<br>records"]
+    privacy["Privacy-risk<br>assessments"]
+    questionnaires["Collaborator security<br>questionnaires"]
+    workspace["Data access recommendation<br>workspace"]
+    governance["Research governance<br>repository"]
+    owner["Named research governance<br>owner"]
+    manifest["Approval manifest and<br>restricted-routing tooling"]
+    committee["Named data access committee<br>decision lane"]
+    ledger["Audit and supersession<br>ledger"]
+
+    protocol -->|"Provides current protocol scope"| workspace
+    consent -->|"Provides consent constraints"| workspace
+    privacy -->|"Provides privacy-risk findings"| workspace
+    questionnaires -->|"Provides collaborator control evidence"| workspace
+    workspace -->|"Presents one exact recommendation<br>packet revision"| owner
+    governance -->|"Defines lane scope, recipients,<br>review window, and owner"| owner
+    workspace -->|"Supplies packet revision id and<br>bounded option set"| manifest
+    governance -->|"Supplies named committee lane<br>and release controls"| manifest
+    owner -->|"Approves governed release<br>or holds revision"| manifest
+    governance -->|"Defines approved committee lane"| committee
+    manifest -->|"Routes one approved packet revision<br>into one decision lane"| committee
+    manifest -->|"Records release state and<br>blocked forwarding attempts"| ledger
+    workspace -->|"Records superseded drafts and<br>hold state"| ledger
+    owner -->|"Records approval, hold, or<br>supersession actions"| ledger
+```
+
 - Approval-gated execution fits because the recommendation packet remains held until a named research governance owner authorizes release into the data access committee decision lane.
 - Human-in-the-loop review remains necessary because only accountable data-governance owners should confirm recipient scope, expiry timing, and blocked-access visibility without collapsing the workflow into access approval itself.
 - A governed agent can verify packet hashes, assemble the release manifest, and block broadened distribution, but it should not approve dataset access, provision research infrastructure, or rewrite the recommendation.
