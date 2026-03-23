@@ -19,6 +19,7 @@
 - `scripts/run-mermaid-illustration-forever.sh` — optional wrapper for repeated Mermaid illustration batches with a stop-file check.
 - `scripts/python/validate_yaml.py` — uv-managed Python helper that validates repository YAML files without relying on ad hoc Ruby.
 - `scripts/python/build_site_docs.py` — uv-managed Python helper that regenerates the MkDocs input tree in `build/site-docs` from canonical Markdown, YAML, instance, and schema sources.
+- `scripts/python/publish_site_via_gh_pages.py` — uv-managed Python helper that runs `gh-pages` from a temporary npm workspace so local branch-based Pages publishing works in this Python-only repository.
 - `.github/workflows/publish-site.yml` — GitHub Actions workflow that validates YAML, regenerates `build/site-docs`, builds `build/site`, and deploys the generated site through GitHub Pages.
 
 ## Derived publication layer

@@ -121,6 +121,12 @@ GitHub Pages deployment:
 2. Push to `main` or run the `Publish Site` workflow manually.
 3. The workflow at `.github/workflows/publish-site.yml` validates YAML, regenerates `build/site-docs`, builds the site, and deploys `build/site`.
 
+Local `gh-pages` helper:
+
+1. `uv run python scripts/python/publish_site_via_gh_pages.py`
+2. Add `--push` to actually push the generated `gh-pages` commit.
+3. Optional overrides: `--site-dir`, `--repo`, `--remote`, `--branch`, and `--gh-pages-version`.
+
 Keep shell entrypoints thin and put reusable repository logic in checked-in Python helpers instead of ad hoc interpreter snippets.
 
 ## Status
