@@ -77,6 +77,40 @@ This grounds `incident-root-cause-analysis` in support through a severe escalati
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Nadia["Nadia Petrov<br>human owner"]
+
+    subgraph Boundary["Restricted sovereign investigation boundary"]
+        Orchestrator["Investigation orchestrator"]
+        CaseAudit["Case-audit retrieval"]
+        EvidenceLineage["Evidence-lineage reconstruction"]
+        RoutingState["Routing-state reconciliation"]
+        Packet["Shared RCA packet<br>Sovereign-Sev1-Evidence-Lineage-and-Routing-RCA-Packet-v5<br>with lineage from v4"]
+    end
+
+    subgraph Sources["Governed evidence sources"]
+        CaseLedger["Support case audit ledger"]
+        EvidenceStore["Evidence object-store version history<br>and retention-hold records"]
+        PolicyState["Routing-policy snapshot<br>and entitlement-state record"]
+        Workspace["Restricted escalation workspace<br>and sealed responder notes"]
+    end
+
+    Nadia -->|"reviews ranked explanations and uncertainty in"| Packet
+    Orchestrator -->|"coordinates"| CaseAudit
+    Orchestrator -->|"coordinates"| EvidenceLineage
+    Orchestrator -->|"coordinates"| RoutingState
+    CaseAudit -->|"reads in read-only mode"| CaseLedger
+    EvidenceLineage -->|"reads in read-only mode"| EvidenceStore
+    RoutingState -->|"reads in read-only mode"| PolicyState
+    RoutingState -->|"uses contextual notes from"| Workspace
+    CaseAudit -->|"adds authoritative event lineage to"| Packet
+    EvidenceLineage -->|"adds authoritative bundle lineage to"| Packet
+    RoutingState -->|"adds authoritative routing analysis and blockers to"| Packet
+    Workspace -->|"adds secondary context to"| Packet
+    Orchestrator -->|"preserves source precedence and hypothesis state in"| Packet
+```
+
 - An orchestrated multi-agent flow can separate case-audit retrieval, evidence-lineage reconstruction, routing-state reconciliation, and hypothesis verification while preserving one shared RCA packet.
 - Shared case memory should retain source-precedence decisions, frozen-state checks, rejected explanations, open blockers, and the packet lineage from `v4` to `v5` so later reviewers can see how the investigation evolved.
 - Human-in-the-loop review remains mandatory before any explanation is treated as the primary cause because the packet may affect sovereign support accountability, restricted-lane governance, and any downstream restoration or routing decisions.
