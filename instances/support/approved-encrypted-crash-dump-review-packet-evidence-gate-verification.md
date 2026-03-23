@@ -41,6 +41,19 @@ This grounds the pattern in support where the hard problem is not assembling a n
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Workspace["Restricted support diagnostics workspace<br>approved crash-dump review packet revision + superseded packet versions + hold history + reviewer assignments"] -->|"approved packet revision + reviewer assignments"| Gate["Evidence-gated verification boundary<br>recheck hash lineage + authorization freshness + sanitization validity + escrow custody + build alignment + named reviewer scope"]
+    Artifact["Secure artifact vault + checksum registry + attachment-sanitization manifest store<br>encrypted dump bundle + immutable hash lineage + redaction support"] -->|"hash lineage + sanitization evidence"| Gate
+    Authorization["Customer disclosure authorization ledger + case-governance records + retention-bound handling policy references<br>named review purpose + freshness window"] -->|"authorization state + policy references"| Gate
+    Custody["Decryption-escrow custody register + key-release approval records + appliance build inventory<br>key-control lineage + product-version alignment"] -->|"custody lineage + build alignment"| Gate
+    Manifest["Approval manifest service<br>named support privacy and advanced-diagnostics reviewers + exact packet revision release scope"] -->|"reviewer boundary + release scope"| Gate
+    Gate -->|"verified, held, or insufficient verdict + evidence lineage + release-hold state"| Audit["Audit store<br>evidence timestamps + verdicts + reviewer-boundary checks + blocked reuse of superseded packet revisions"]
+    Gate -->|"approval-ready verified packet"| Approvers["Named support privacy and diagnostics approvers"]
+    Gate -->|"held or insufficient verdict"| Stop["Stop before restricted review intake<br>no artifact access widening + no live analysis"]
+    Approvers -->|"approved exact packet revision only"| Boundary["Restricted advanced-diagnostics review lane boundary<br>downstream intake remains outside this workflow"]
+```
+
 - Approval-gated execution fits because the verification packet can be assembled automatically while restricted advanced-diagnostics intake remains concretely blocked until named support privacy and diagnostics approvers release that exact packet revision.
 - Human-in-the-loop review should remain mandatory because privacy, support, and advanced-diagnostics owners must interpret held conditions before anyone relies on the packet for a consequential review handoff.
 - Durable verification state should preserve superseded verdicts, repeated release holds, packet-version lineage, and escrow-custody changes so later reviewers can distinguish genuine evidence refresh from duplicate checks on a previously blocked revision.
