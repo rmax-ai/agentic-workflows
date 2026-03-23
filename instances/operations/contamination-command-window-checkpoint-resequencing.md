@@ -38,6 +38,18 @@ This grounds the pattern in an operations safety workflow where the critical nee
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Laboratory, facility, and carrier-hold systems<br>authoritative readiness and dependency changes"] --> D["Command workspace resequencing flow<br>candidate packet and delta review"]
+    B["Delegate rosters, calendars, and on-call schedules<br>approved owners and after-hours delegates"] --> D
+    C["Command-center incident record<br>declared scope, protected checkpoints,<br>and superseded timeline lineage"] --> D
+    D --> E{"Protected checkpoint boundary<br>resequence or keep explicit hold?"}
+    E --> F{"Human adoption boundary<br>operations, quality, and legal approve?"}
+    F --> G["Command-center incident record<br>one authoritative checkpoint ledger<br>with explicit holds and lineage"]
+    G --> H["Command workspace<br>current packet, acknowledgements,<br>and held checkpoints"]
+    H --> I["Notification tooling<br>targeted checkpoint deltas<br>for affected owners"]
+```
+
 - An orchestrated multi-agent design can separate authoritative readiness intake, protected-checkpoint validation, resequencing, and packet publication while preserving one shared command-window ledger.
 - Human-directed control fits because operations, quality, and legal leadership must adopt any changed checkpoint order before the new packet becomes authoritative for severe-event coordination.
 - The workflow should retain superseded timeline lineage and pending acknowledgements so facility teams and partner-facing owners can see which sequence is current.
