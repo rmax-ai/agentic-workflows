@@ -42,6 +42,53 @@ This grounds the pattern in HR through a governance-heavy protected-concern case
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    specialist["Regional people-operations<br>intake specialist"]
+    policy["HR anti-retaliation, executive-case handling,<br>protected-channel, and no-local-review policy libraries"]
+
+    subgraph src["Protected intake and read-only evidence sources"]
+        intake["Protected HR case-intake and hotline-linked concern system<br>original disclosure references, intake chronology,<br>current ownership state, restricted visibility"]
+        hris["HRIS, org-hierarchy, delegation, and conflict-of-interest records<br>respondent seniority, reporting relationships,<br>local HR alignment, executive routing constraints"]
+        logs["Identity, approval-workflow, calendaring, and access-history logs<br>removed approvals, meeting-access changes,<br>workflow reassignment timing"]
+        prior["Prior protected-case routing records<br>reviewer handoff logs and packet templates"]
+    end
+
+    subgraph route["Governed recommendation workspace"]
+        review["Read-only evidence review<br>disclosure linkage, org-chart conflict signals,<br>access-change chronology, ownership lineage"]
+        check["Policy and authority checks<br>protected-channel triggers, executive conflicts,<br>permitted reviewer classes, blocked regional paths"]
+        pack["Escalation recommendation and packet assembly<br>preferred route, alternate governed routes,<br>blocked lower-authority paths, evidence packet"]
+    end
+
+    subgraph lanes["Restricted human authority lanes"]
+        er["Employee-relations investigations leaders"]
+        ethics["Ethics-and-compliance owners"]
+        corp["Corporate HR governance authorities"]
+    end
+
+    subgraph blocked["Blocked lower-authority paths"]
+        local["Local HR business-partner triage"]
+        line["Line-manager mediation"]
+        regional["Regional people-operations closure"]
+    end
+
+    specialist -->|"bounded routing preparation"| review
+    intake -->|"read-only disclosure linkage<br>and ownership state"| review
+    hris -->|"read-only org and authority context"| review
+    logs -->|"read-only access-change chronology"| review
+    prior -->|"packet standards and handoff precedent"| pack
+    policy -->|"mandatory escalation triggers<br>and authority rules"| check
+    review -->|"source-backed conflict and retaliation signals"| check
+    review -->|"minimized evidence references"| pack
+    check -->|"recommended authority constraints<br>and blocked path rationale"| pack
+    check -->|"blocked by protected-review rules"| local
+    check -->|"blocked by executive-conflict rules"| line
+    check -->|"blocked by no-local-review policy"| regional
+    pack -->|"retaliation-primary route recommendation"| er
+    pack -->|"disclosure-control protected-review recommendation"| ethics
+    pack -->|"executive-conflict governance recommendation"| corp
+```
+
 - A recommendation-only workflow can combine disclosure linkage, org-conflict signals, access-change chronology, current ownership state, and escalation-policy triggers into one ranked routing recommendation.
 - Human-in-the-loop review is mandatory because employee-relations investigations leaders, ethics-and-compliance owners, or corporate HR governance authorities must decide whether to accept the recommended lane and what downstream handling is authorized.
 - Read-only integration with intake, HRIS, access-log, calendar, and policy systems is preferable so the workflow cannot open a formal investigation, change case visibility, notify the employee, alert executives, or assign corrective tasks on its own.
