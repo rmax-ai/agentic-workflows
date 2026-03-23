@@ -40,6 +40,19 @@ This grounds `approval-gated-triage-dispatch` in operations work where severe mo
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Triaged packet store<br>and sensor evidence"] -- "Supplies exact triaged<br>packet revision" --> E["Dispatch-manifest tooling"]
+    B["Shipment, facility, route,<br>and quality references<br>attached to packet"] -- "Provide freshness,<br>scope, and hold context" --> D["Hold-tracking store"]
+    A -- "Requests approval for<br>one packet revision" --> C["Duty-manager approval system"]
+    C -- "Authorizes one lane<br>and shift window" --> E
+    D -- "Blocks or clears release<br>within approved scope" --> E
+    E -- "Releases one bounded packet<br>into protected intake lane" --> F["Network command-center<br>intake queue"]
+    E -- "Writes dispatch manifest<br>for approved release" --> G["Audit store"]
+    C -- "Records signer identity<br>and approval boundary" --> G
+    D -- "Preserves holds,<br>conflicts, and overrides" --> G
+```
+
 - Event-driven monitoring fits because sensor state, shipment exposure, and command-window availability can change while the packet waits at the dispatch gate.
 - Approval-gated execution fits because the packet is ready for network command-center intake but stays blocked until the duty manager approves the exact facility scope and lane boundary.
 - Human-in-the-loop review should remain in the normal path because a released command-center packet can mobilize downstream responders even though this workflow itself does not trigger the reroute or product decision.
