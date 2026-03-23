@@ -47,6 +47,26 @@ This grounds the pattern in a finance workflow where the governed object is not 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Nadia Karim<br>allowance governance owner"] -->|"sets readiness posture"| B["Governed finance review workspace<br>packet v4 + blocker and handoff ledger"]
+    C["Required reviewers<br>controllership + credit risk + model risk + FP&A + loan review"] -->|"challenge wording, evidence, and blockers"| B
+    D["Agent orchestration<br>evidence refresh + objection preservation + packet drafting"] -->|"updates bounded collaboration state"| B
+    E["Policy and approval repository<br>ACL-METH-07 + OVERLAY-12 + prior committee return memo"] -->|"provides highest-precedence guidance"| D
+    F["CECL model-run repository<br>locked run + sensitivities + execution metadata"] -->|"supplies model evidence"| D
+    G["Loan accounting close workspace<br>frozen subledger + segmentation + reconciliation state"] -->|"confirms prerequisite freeze state"| D
+    H["Commercial credit-risk systems<br>criticized-loan reviews + ratings + collateral + concentrations"] -->|"supplies credit evidence and blocker facts"| D
+    I["FP&A and macro workpapers<br>downside scenario assumptions + concentration analysis"] -->|"supplies scenario and narrative evidence"| D
+    B -->|"surfaces current packet, blockers, and ownership"| J{"Prerequisites current<br>and blockers explicit?"}
+    J -->|"No"| K["Hold boundary<br>stay in readiness collaboration<br>until gaps and objections remain visible"]
+    K -->|"returns for revision"| B
+    J -->|"Yes"| L{"Nadia Karim accepts<br>committee-intake readiness?"}
+    L -->|"No"| K
+    L -->|"Yes"| M["Stop boundary<br>ready for formal allowance committee intake only"]
+    M -->|"stops before downstream action"| N["Out of scope<br>no overlay adjudication<br>no reserve booking or reporting"]
+    O["Escalation condition<br>source-data integrity failure<br>unauthorized model-use change<br>material financial-control deficiency"] -->|"pauses collaboration and escalates"| K
+```
+
 - Human-in-the-loop collaboration should remain primary because allowance methodology interpretation, portfolio risk framing, and readiness for committee intake require accountable finance leadership judgment.
 - An orchestrated multi-agent setup fits when separate agent roles refresh policy references, reconcile credit and model evidence, normalize reviewer objections, and maintain the approval-readiness handoff ledger across multiple packet revisions.
 - Agents may draft revised packet sections, blocker summaries, and evidence-response tables, but overlay approval, reserve booking, quarter-close sign-off, regulatory reporting, and external communication must remain outside this workflow and explicitly human-controlled.
