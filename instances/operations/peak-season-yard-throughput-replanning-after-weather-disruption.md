@@ -50,6 +50,36 @@ This grounds the replanning pattern in operations where the problem is restoring
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Yard replanning inputs"]
+        yard["Yard-management<br>system"]
+        ops["Gate, dock, and labor<br>dashboards"]
+        dispatch["Linehaul schedule and<br>dispatch systems"]
+        weather["Safety and weather<br>feeds"]
+    end
+
+    subgraph workflow["Recommendation-only<br>replanning workflow"]
+        refresh["State refresh<br>role"]
+        check["Constraint-checking role<br>safety holds, fixed departures,<br>cold-chain windows,<br>labor-exposure rules"]
+        package["Packet assembly role<br>revised wave sequence,<br>held trailers, and<br>residual service risk"]
+    end
+
+    workspace["Coordination workspace<br>rationale, blockers,<br>stakeholder acknowledgements,<br>and adoption status"]
+    reviewers["Yard control lead,<br>dock manager,<br>linehaul dispatcher,<br>safety coordinator,<br>and regional network planner"]
+
+    yard -->|"Approved peak plan,<br>trailer locations,<br>dock assignments, and<br>prior versions"| refresh
+    ops -->|"Queue depth,<br>door productivity,<br>spotter availability, and<br>weather restrictions"| refresh
+    dispatch -->|"Fixed departures,<br>overflow options, and<br>protected moves"| refresh
+    weather -->|"Lightning, ice, wind, and<br>movement-hold constraints"| check
+    refresh -->|"Current yard and<br>departure state"| check
+    check -->|"Feasible revised plan<br>with explicit holds"| package
+    check -->|"Stale, unsafe, or<br>infeasible conditions"| reviewers
+    package -->|"Coordination-ready packet"| workspace
+    workspace -->|"Adoption review"| reviewers
+    reviewers -->|"Adopt or escalate<br>within planning authority"| workspace
+```
+
 - An orchestrated multi-agent workflow fits because one role can refresh yard and departure state, another can test candidate sequences against safety and fixed-cut constraints, and another can package the accepted replanning result with explicit holds and downstream impacts.
 - Human-in-the-loop adoption remains necessary because the yard control lead, linehaul dispatcher, or regional network planner must accept any consequential shift in wave order, overflow usage, or dock-turn expectations before the revised plan becomes authoritative.
 - Recommendation-only autonomy is the right ceiling: the workflow can propose a feasible revised sequence and surface blocked alternatives, but it should not waive safety holds, change customer commitments, authorize off-network reroutes, or execute trailer movement.
