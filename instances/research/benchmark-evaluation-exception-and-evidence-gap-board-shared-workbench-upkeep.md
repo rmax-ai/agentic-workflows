@@ -47,6 +47,31 @@ This grounds the pattern in a research governance surface where the maintained a
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph boundary["Bounded shared workbench upkeep"]
+        monitor["Event-driven<br>monitoring"]
+        agent["Tool-using<br>upkeep agent"]
+        board["Shared benchmark-exception<br>evidence-gap board"]
+    end
+
+    rules["Approved benchmark-evaluation standard<br>and exception-rules repository"]
+    runs["Benchmark registry and<br>frozen run-manifest store"]
+    env["Environment attestation and<br>reproducibility record store"]
+    notes["Reviewer annotation<br>surface"]
+    humans["Benchmark owners, reproducibility reviewers,<br>methods stewards, and platform evaluators"]
+
+    rules -->|"Rule and criteria updates"| monitor
+    runs -->|"Run-manifest and registry updates"| monitor
+    env -->|"Attestation and provenance updates"| monitor
+    notes -->|"Small edits and<br>evidence-gap comments"| monitor
+    monitor -->|"Refresh cycle"| agent
+    board -->|"Current row state,<br>hold markers, and lineage"| agent
+    agent -->|"Refreshes fields, links,<br>and normalized notes"| board
+    humans -->|"Ownership handoffs<br>and reviewer notes"| notes
+    agent -->|"Boundary-triggering changes<br>held for human review"| humans
+```
+
 - Event-driven monitoring fits because upkeep should react when approved benchmark rules, run-manifest snapshots, environment attestations, or reviewer notes change.
 - A tool-using single agent can refresh source links, reconcile row metadata, normalize duplicate evidence-gap wording, and keep hold-state plus ownership markers synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when an update would reinterpret comparability criteria, clear a blocker tied to missing evidence, or make a row sound like an adjudicated exception or benchmark recommendation.
