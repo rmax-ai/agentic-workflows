@@ -47,6 +47,34 @@ This grounds the pattern in a finance governance surface where the maintained ar
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Treasury collateral policy repository<br>approved policy version, concentration rules,<br>haircut-methodology references, and lien requirements"]
+    B["Custodian eligibility schedule and pledge-control register<br>authoritative eligibility codes, settlement-location constraints,<br>cutoff metadata, and control-account requirements"]
+    C["Collateral inventory and haircut snapshot store<br>positions, valuation timestamps, pricing-source identifiers,<br>and margining attributes"]
+    D["Treasury annotation and review surface<br>small edits, caveat notes, blocker comments,<br>and confirmed ownership handoff markers"]
+    E["Event-driven monitoring<br>reacts when policy, custodian, snapshot,<br>or review-surface changes arrive"]
+    F["Tool-using single agent<br>bounded upkeep only: applies source precedence,<br>refreshes links, normalizes duplicate caveats,<br>and updates confirmed owner fields"]
+    G["Shared collateral-eligibility caveat board<br>prerequisite-state columns, blocker tags,<br>source-precedence markers, and append-only lineage"]
+    H["Visible hold register<br>open documentation, concentration-limit,<br>pricing-source, and ownership questions"]
+
+    A -->|"Approved policy changes"| E
+    B -->|"Authoritative custodian updates"| E
+    C -->|"Inventory and haircut refreshes"| E
+    D -->|"Reviewer note or handoff changes"| E
+    E -->|"Trigger bounded upkeep"| F
+    A -->|"Highest-precedence policy facts"| F
+    B -->|"Highest-precedence custodian facts"| F
+    C -->|"Lower-precedence inventory context"| F
+    D -->|"Lowest-precedence caveats and comments"| F
+    G -->|"Prior row state and lineage"| F
+    F -->|"Refresh in-scope board fields only"| G
+    F -->|"Carry unresolved blockers forward"| H
+    F -->|"Route interpretation-sensitive or boundary-nearing edits"| D
+    D -->|"Confirm in-scope corrections only"| G
+    D -->|"Keep unresolved questions visible"| H
+```
+
 - Event-driven monitoring fits because upkeep should react when approved collateral policy, custodian schedules, inventory snapshots, or reviewer notes change.
 - A tool-using single agent can refresh source links, reconcile row metadata, normalize duplicate caveat wording, and keep blocker plus lineage fields synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when an update would reinterpret eligibility criteria, clear a blocker tied to missing documentation, or make a row sound like an approved substitution or settlement instruction.
