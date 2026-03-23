@@ -45,6 +45,34 @@ This grounds the transform pattern in a finance workflow where the real value is
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    DOCS["Shared AP inbox and<br>document repository"]
+    OCR["OCR or document-parsing<br>service"]
+    REF["Vendor master, purchase orders,<br>shipment-receipt log, currency tables,<br>and tax reference tables"]
+    AGENT["Invoice packet transformation agent"]
+    TRACE["Transformation trace store"]
+    STAGE["Reviewable ERP or AP<br>import staging area"]
+    STOP["AP staging only<br>no posting or payment release"]
+
+    subgraph REVIEW["AP exception review<br>boundary"]
+        EXQ["AP exception queue"]
+        ANALYST["AP operations analyst"]
+    end
+
+    DOCS -->|"Provides invoice PDFs,<br>broker spreadsheets, and<br>warehouse annotations"| AGENT
+    AGENT -->|"Uses OCR for scanned freight invoices<br>and annotated attachments"| OCR
+    OCR -->|"Returns extracted text,<br>line items, and confidence signals"| AGENT
+    REF -->|"Provides approved vendor, PO,<br>receipt, currency, and tax references"| AGENT
+    AGENT -->|"Stores field-level provenance,<br>normalization actions, and hold reasons"| TRACE
+    AGENT -->|"Publishes staged payable header,<br>line items, and trace links"| STAGE
+    STAGE -->|"Stops at reviewable import staging<br>before posting or payment release"| STOP
+    AGENT -->|"Routes low-confidence OCR, total mismatches,<br>new remittance details, and unmatched references"| EXQ
+    EXQ -->|"Queues exception packets<br>for AP review"| ANALYST
+    ANALYST -->|"Returns reviewed corrections<br>or continued holds"| AGENT
+    TRACE -->|"Supports source-span review<br>during exception handling"| ANALYST
+```
+
 - A tool-using single agent can orchestrate document parsing, line-item normalization, purchase-order matching, and packaging of the structured payable record plus transformation trace.
 - The workflow should stage output in a reviewable AP import area rather than writing directly into posted voucher tables.
 - Approved reference data from the vendor master, currency tables, and purchase-order system should support normalization, but unsupported inference about missing vendor ids or shipment links should force exception routing.
