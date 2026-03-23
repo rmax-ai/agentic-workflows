@@ -46,6 +46,40 @@ This grounds the transform pattern in an engineering workflow where the useful d
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Source evidence boundary"]
+        packet["Deployment-readiness packet<br>manifest and linked evidence"]
+        build["CI/CD pipeline records,<br>artifact registry, and provenance store"]
+        tests["Test-report storage<br>unit, integration, load, smoke,<br>and canary evidence"]
+        security["Security and supply-chain systems<br>SBOMs, scans, attestations,<br>and policy-check summaries"]
+        context["Configuration diffs, rollback runbooks,<br>incident archive, and service catalog metadata"]
+    end
+
+    agent["Tool-using transformation agent<br>schema-aligned extraction, normalization,<br>provenance capture, and contradiction handling"]
+
+    subgraph staging["Staging-only review boundary"]
+        schema["Versioned intake schema<br>required release-review fields"]
+        record["Deployment-review staging system<br>structured record, source links,<br>and transformation trace"]
+        hold["Exception queue<br>required-field gaps, contradictions,<br>timestamp failures, or overexposure"]
+        reviewers["Release manager, service owner,<br>and security reviewer"]
+    end
+
+    stop["Staging handoff stop boundary<br>no gate opening, change-window scheduling,<br>or rollout authorization"]
+
+    packet -->|"Packet intake and linked exports"| agent
+    build -->|"Build metadata, artifact digests,<br>and promotion evidence"| agent
+    tests -->|"Test inventories and candidate results"| agent
+    security -->|"SBOM, vulnerability, attestation,<br>and policy markers"| agent
+    context -->|"Rollback, config, incident,<br>and service metadata"| agent
+    schema -->|"Required field contract<br>and schema version"| agent
+    agent -->|"Structured staging record<br>with field-level provenance"| record
+    agent -->|"Held packet bundle<br>for inspection and restaging"| hold
+    hold -->|"Held packet for inspection"| reviewers
+    reviewers -->|"Exception findings<br>for restaging"| agent
+    record -->|"Staging-only handoff"| stop
+```
+
 - A tool-using single agent can collect the packet, extract candidate release fields, normalize service identifiers and artifact metadata against approved registries, and emit a structured deployment-review staging record plus transformation trace.
 - The workflow should write only to a reviewable staging area and must stop before creating a change ticket, moving artifacts to a production promotion lane, notifying downstream responders, or recording approval outcomes.
 - Approved reference data may standardize service names, repository identifiers, environment labels, artifact types, test-suite identifiers, and vulnerability-severity taxonomies, but unsupported inference about rollout safety, waived defects, or whether missing evidence is acceptable should force exception routing.
