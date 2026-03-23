@@ -53,6 +53,26 @@ This grounds the pattern in HR labor-governance rather than accommodation handli
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Works-council correspondence archive<br>and labor-relations case-management system"]
+    B["HR data-inventory register,<br>data-processing agreement repository,<br>and platform vendor documentation"]
+    C["Labor-relations policy library,<br>employee-monitoring governance rules,<br>and works-council consultation-procedure definitions"]
+    D["Governed HR collaboration workspace:<br>clarification packet,<br>objection ledger,<br>revision history,<br>and release-manifest draft"]
+    E["Audit, supersession,<br>and approval-routing systems"]
+    F["Named labor-relations<br>release owner"]
+    G["Restricted labor-relations<br>review-intake lane"]
+
+    A -->|"Provide objection letters,<br>prior consultation records,<br>and deadline state"| D
+    B -->|"Provide data definitions,<br>annex versions,<br>and pseudonymisation parameters"| D
+    C -->|"Provide notice standards,<br>audience constraints,<br>and procedure rules"| D
+    D -->|"Submit exact packet revision,<br>residual objections,<br>and release manifest"| E
+    E -->|"Route approval package<br>for release decision"| F
+    F -->|"Approve one exact revision<br>for one restricted lane"| E
+    E -->|"Record approval, supersession,<br>and handoff trace"| D
+    E -->|"Release only approved revision"| G
+```
+
 - Approval-gated execution fits because the clarification packet can be collaboration-complete while still blocked from the restricted labor-relations intake lane until the human release owner approves the exact revision with its accepted residual caveats.
 - Human-in-the-loop control is required because only accountable labor-relations and HR policy leaders may accept residual objection visibility, confirm audience scope boundaries, and authorize handoff to a review lane whose outcome may affect co-determination obligations.
 - Agents may cross-reference data-category inventories, reconcile annex version discrepancies, normalize disputed wording, flag unanswered scope questions, and maintain the release trace, but they must not determine whether the consultation notice is legally sufficient, respond to the works council, or trigger platform deployment or configuration steps.
