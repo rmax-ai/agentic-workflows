@@ -40,6 +40,29 @@ This grounds `anomaly-detection-review` in support work where the early-warning 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    CASE["Support ticketing, chat, and case-routing platforms<br>severity history, queue assignments, response timestamps, paging events, and escalation notes"]
+    ENT["CRM, entitlement, and support-program systems<br>approved response-obligation profiles, named-escalation rosters, and effective-date snapshots"]
+    ROSTER["Workforce-management, on-call, and roster-sync systems<br>coverage calendars, paging rotations, schedule exceptions, and roster change logs"]
+    AGENT["Obligation-drift anomaly review agent<br>event-driven monitoring, duplicate clustering,<br>bounded context assembly, and prioritization"]
+    EVID["Audit-grade evidence storage<br>anomaly lineage, suppressions, routed packets,<br>reviewer actions, and governing policy versions"]
+
+    subgraph REVIEW["Restricted human review boundary"]
+        QUEUE["Restricted support-governance review queue<br>prioritized anomaly packets for governed review"]
+        HUMAN["Support operations leads, service-governance reviewers,<br>and premium-support program owners"]
+    end
+
+    CASE -->|"Streams<br>routing, response, and paging events"| AGENT
+    ENT -->|"Provides<br>obligation and roster context"| AGENT
+    ROSTER -->|"Provides<br>coverage and roster-change context"| AGENT
+    EVID -->|"Provides<br>prior suppressions and reviewer notes"| AGENT
+    AGENT -->|"Writes<br>merged anomaly lineage and review packet evidence"| EVID
+    AGENT -->|"Queues<br>deduplicated obligation-drift packets"| QUEUE
+    QUEUE -->|"Routes<br>bounded packets to accountable humans"| HUMAN
+    HUMAN -->|"Records<br>reviewer actions and suppressions"| EVID
+```
+
 - Event-driven monitoring should continuously ingest case-routing changes, response-timer breaches, roster-sync events, paging logs, and entitlement-snapshot updates, then reopen or merge anomaly clusters as fresh evidence arrives.
 - A tool-using single agent can correlate account, support-program, and escalation identifiers across support, CRM, and roster systems; attach bounded obligation context; and publish a prioritized review packet with explicit anomaly drivers.
 - Bounded delegation fits because routine mid-severity obligation-drift packets can route into a preapproved support-governance review queue without case-by-case authorization, while uncertain or higher-consequence cases still escalate to accountable humans.
