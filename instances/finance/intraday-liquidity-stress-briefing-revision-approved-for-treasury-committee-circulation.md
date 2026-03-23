@@ -38,6 +38,24 @@ This grounds the pattern in finance where visibility of a synthesized context ar
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    sources["Cash-position, facility, exposure,<br>and covenant-monitoring systems"] -->|"Provide cited liquidity,<br>headroom, and caveat inputs"| workspace["Treasury briefing workspace<br>storing the synthesized stress summary,<br>revision history, caveat register,<br>and source-timestamp trace"]
+    workspace -->|"Exact briefing revision,<br>lineage, and timestamp trace"| agent["Governed agent"]
+    agent -->|"Prepare release manifest,<br>compare revision lineage,<br>and check supersession state"| manifest["Approval manifest service<br>recording the controller approver,<br>exact revision id, lane scope,<br>and blocked recirculation attempts"]
+    controller["Controller reviewer"] -->|"Approve confidentiality scope,<br>freshness window, and<br>supersession state"| manifest
+    manifest -->|"Approved lane scope,<br>expiry, and release controls"| circulation["Committee circulation tooling<br>enforcing named treasury recipients,<br>confidentiality banners,<br>and expiry or reuse restrictions"]
+    workspace -->|"Reviewed briefing revision<br>for bounded circulation"| circulation
+    subgraph committee["Restricted treasury committee lane"]
+        readers["Named treasury committee recipients"]
+    end
+    circulation -->|"Release exact approved revision<br>for committee visibility only"| readers
+    workspace -->|"Revision history and<br>source-timestamp lineage"| audit["Audit and retention systems<br>preserving release lineage when newer<br>exposure numbers or caveats supersede<br>a pending briefing"]
+    manifest -->|"Approver, revision id,<br>lane scope, and blocked attempts"| audit
+    circulation -->|"Release trace, expiry events,<br>and blocked reuse activity"| audit
+    audit -->|"Supersession state and<br>retention lineage"| circulation
+```
+
 - Approval-gated execution fits because the briefing remains in a held state until the controller approves one exact revision for the restricted treasury committee lane.
 - Human-in-the-loop review is necessary because only accountable finance leadership should authorize confidentiality scope, accept residual caveats, and approve expiry for a market-sensitive context brief.
 - A governed agent can prepare the release manifest, compare revision lineage, and prevent stale recirculation, but it should not convert the briefing into a funding recommendation or trigger downstream transactions.
