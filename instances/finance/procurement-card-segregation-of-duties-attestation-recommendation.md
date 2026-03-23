@@ -49,6 +49,32 @@ This grounds the pattern in finance where the key job is evaluating whether a bo
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    analyst["Finance controls analyst"]
+    controller["Controller or delegated<br>finance owner"]
+
+    subgraph readonly["Read-only system access"]
+        erp["ERP and expense-management<br>workflow reports"]
+        portal["Procurement-card administration<br>portal"]
+        library["Finance controls library"]
+        archive["Internal audit and prior-quarter<br>review archive"]
+    end
+
+    subgraph workspace["Governed finance review workspace"]
+        agent["Tool-using<br>single agent"]
+        packet["Attestation packet, requirement mapping,<br>and escalation notes"]
+    end
+
+    analyst -- "Provides review context" --> agent
+    erp -- "Supplies approval and<br>statement-review evidence" --> agent
+    portal -- "Supplies roster, delegated approver,<br>and training exports" --> agent
+    library -- "Supplies checklist, exception rules,<br>and freshness thresholds" --> agent
+    archive -- "Supplies prior exceptions,<br>commitments, and comments" --> agent
+    agent -- "Assembles recommendation<br>and rationale" --> packet
+    packet -- "Supports controller review" --> controller
+```
+
 - A tool-using single agent can reconcile approval-separation reports, training exports, sample evidence, and exception history into one reviewable requirement map.
 - Human-in-the-loop review should remain primary because the controller or delegated finance owner must decide whether partial evidence is acceptable or whether remediation is required before sign-off.
 - Read-only system access is preferable so the workflow cannot approve transactions, edit approver assignments, or record the attestation automatically.
