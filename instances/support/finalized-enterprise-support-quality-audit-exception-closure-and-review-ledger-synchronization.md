@@ -45,6 +45,33 @@ This grounds the pattern in a support workflow that is materially different from
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Support quality review<br>system"]
+    B["Completion worker"]
+    C{"Source revalidation<br>matches current record?"}
+    D["Restricted post-review<br>queue"]
+    E["Quality review ledger<br>and exception tracker"]
+    F["Archive / evidence<br>store"]
+    G["Audit store"]
+    H["Internal support quality<br>operations notification channel"]
+    I["Support quality operations<br>coordinator"]
+    J["Manual follow-up<br>boundary"]
+
+    A -->|"Final closure-approved<br>event"| B
+    B -->|"Re-read current source record"| A
+    B -->|"Compare event to<br>current source state"| C
+    A -->|"Current identifiers,<br>version, and archive refs"| C
+    C -->|"Match"| D
+    C -->|"Reopened, changed,<br>or mismapped"| J
+    D -->|"Close queue item"| E
+    E -->|"Sync review-complete state"| F
+    F -->|"Attach approved<br>archive references"| G
+    G -->|"Persist durable completion<br>state and idempotency"| H
+    H -->|"Notify closure propagation<br>complete"| I
+    J -->|"Route human follow-up"| I
+```
+
 - An event-driven completion worker can subscribe to final closure-approved disposition events from the support quality review system and start the closure sequence only for approved post-decision states.
 - The worker should re-read the current source record before writing anywhere so a reopened exception, superseded disposition, or changed archive reference is not propagated from a stale event.
 - Durable completion state should track queue closure, ledger synchronization, archive linkage, notification delivery, and skipped idempotent actions because duplicate events or partial retries are normal operational conditions.
