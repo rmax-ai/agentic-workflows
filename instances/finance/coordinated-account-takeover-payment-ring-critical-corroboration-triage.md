@@ -40,6 +40,20 @@ This instance grounds the pattern in a finance setting where the highest-risk pr
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    signals["Real-time payment, identity, and<br>account-behavior signal pipelines"] --> orchestrator["Corroboration and triage orchestrator"]
+    customer["Customer profile, KYC, beneficiary, and<br>account-behavior stores"] --> orchestrator
+    links["Entity-link analysis, mule-account watchlists,<br>and prior fraud-case systems"] --> orchestrator
+    policy["Critical-threshold, duplicate-handling,<br>and routing policy controls"] --> orchestrator
+    orchestrator --> watch["Severe triage queue<br>and watch state"]
+    orchestrator --> packet["Critical escalation packet assembly"]
+    active["Critical fraud case-management<br>and escalation-routing state"] --> orchestrator
+    packet --> boundary["Human-controlled fraud command lane"]
+    active --> boundary
+    boundary --> stop["Stop boundary:<br>No funds hold, customer outreach,<br>SAR filing, law-enforcement contact,<br>or live response execution"]
+```
+
 - Event-driven monitoring fits because severe payment, identity, and behavior signals can arrive asynchronously and need re-correlation as new evidence lands.
 - Orchestrated multi-agent or staged service roles fit because payment analysis, identity corroboration, entity-link review, duplicate handling, and escalation-packet assembly are specialized but must converge on one shared case state.
 - Human-in-the-loop review remains necessary because a critical fraud-command escalation can rapidly influence consequential downstream decisions even though this workflow itself stays bounded at recommendation-only triage.
