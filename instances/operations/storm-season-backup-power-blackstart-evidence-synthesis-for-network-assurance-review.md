@@ -63,6 +63,27 @@ This grounds the gather/synthesize family in an operations assurance setting whe
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    standards["Approved resilience standard,<br>blackstart procedures, and<br>one-line diagram library"]
+    maintenance["CMMS maintenance proof<br>load-bank tests, ATS inspections,<br>and corrective exceptions"]
+    fuel["Fuel-quality repository<br>polishing certificates, tank tests,<br>and vendor acknowledgments"]
+    telemetry["SCADA, UPS runtime, and<br>emergency-lighting evidence"]
+    workforce["Qualification rosters and<br>restricted exception register"]
+    workspace["Restricted assurance workspace<br>cited brief revision, source precedence,<br>and blocker tracking"]
+    reviewers["Facilities, maintenance, and<br>continuity reviewers"]
+    brief["Storm-Season-Blackstart-<br>Assurance-Brief-v3<br>with evidence trace"]
+
+    standards -->|"Required evidence rules<br>and approved references"| workspace
+    maintenance -->|"Signed maintenance proof<br>and open exceptions"| workspace
+    fuel -->|"Fuel-integrity evidence<br>and freshness state"| workspace
+    telemetry -->|"Runtime, alarm, and<br>life-safety support evidence"| workspace
+    workforce -->|"Coverage qualifications<br>and active restrictions"| workspace
+    workspace -->|"Cited claims, blockers,<br>and source mappings"| reviewers
+    reviewers -->|"Resolve conflicts, confirm scope,<br>and accept bounded synthesis"| workspace
+    workspace -->|"Approved briefing-ready synthesis<br>and inspectable citations"| brief
+```
+
 - A tool-using single agent can retrieve the approved resilience standard, site procedures, maintenance proof, fuel-integrity evidence, alarm-history extracts, and qualification rosters, then draft a structured synthesis with claim-to-source mappings.
 - Human-in-the-loop review should remain mandatory when one-line diagrams and CMMS records disagree, when exception-register language is ambiguous, or when a blocker could materially change the assurance interpretation for a site.
 - The workflow should maintain site-by-site evidence state that separates verified prerequisites, formally approved temporary impairments, inherited prior-brief lineage, and unresolved proof gaps.
