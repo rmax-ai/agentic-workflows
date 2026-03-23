@@ -48,6 +48,35 @@ This grounds the pattern in an HR workflow where the difficult work is making a 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    HRBP["Human HRBP"]
+    OWNER["Named approval owner"]
+    REVIEWERS["Finance, talent, and executive reviewers"]
+    ORCH["Agent orchestration layer"]
+    WORKSPACE["Governed HR review workspace<br>draft packet, comments, readiness status,<br>and handoff ownership"]
+    WFP["Workforce-planning and org-design records"]
+    RECRUIT["Recruiting and internal-mobility systems"]
+    HRIS["HRIS and compensation-planning records"]
+    POLICY["Policy and delegation repositories"]
+    CONTROL["Human-controlled readiness and handoff gate"]
+    QUEUE["Executive approval-routing queue"]
+    BOUNDARY["Handoff boundary:<br>formal decision review starts after transfer"]
+
+    HRBP -->|"maintains and revises packet in"| WORKSPACE
+    REVIEWERS -->|"log objections and review comments in"| WORKSPACE
+    ORCH -->|"updates packet support and ledger in"| WORKSPACE
+    WFP -->|"provides planning evidence to"| ORCH
+    RECRUIT -->|"provides pipeline and mobility evidence to"| ORCH
+    HRIS -->|"provides role and compensation evidence to"| ORCH
+    POLICY -->|"provides freeze rules and approval order to"| ORCH
+    WORKSPACE -->|"packet, objections, and readiness state to"| CONTROL
+    HRBP -->|"co-decides readiness at"| CONTROL
+    OWNER -->|"co-decides readiness at"| CONTROL
+    CONTROL -->|"transfers approved handoff package to"| QUEUE
+    QUEUE -->|"begins formal decision review at"| BOUNDARY
+```
+
 - Human-in-the-loop collaboration should remain primary because workforce-priority tradeoffs, freeze-policy interpretation, and executive escalation posture require accountable HR and finance ownership.
 - An orchestrated multi-agent setup fits when separate agent roles refresh workforce evidence, reconcile reviewer objections, check approval-order completeness, and maintain the shared handoff ledger across multiple revision rounds.
 - Agents may prepare revised packet sections, evidence-response tables, and readiness summaries, but opening a requisition, granting the exception, or changing the final approval owner should remain explicitly human-controlled.
