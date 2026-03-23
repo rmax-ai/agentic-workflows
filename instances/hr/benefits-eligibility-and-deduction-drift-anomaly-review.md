@@ -37,6 +37,29 @@ This grounds `anomaly-detection-review` in HR work where the early-warning probl
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph family["Monitor / detect / triage family boundary"]
+        hris["HRIS and benefits-administration systems"]
+        payroll["Payroll deduction and interface systems"]
+        carrier["Carrier-feed, enrollment,<br>and case-management tools"]
+        controls["Eligibility rules,<br>approved event windows,<br>and sensitive-data rules"]
+        agent["Tool-using anomaly review agent"]
+        queue["Restricted review queue"]
+        evidence["Audit-grade evidence storage"]
+
+        hris -->|"Eligibility status,<br>coverage, and event metadata"| agent
+        payroll -->|"Deduction history,<br>retro adjustments, and payroll calendars"| agent
+        carrier -->|"Carrier acknowledgments,<br>file rejects, and prior dispositions"| agent
+        controls -->|"Constraint and context checks"| agent
+        agent -->|"Prioritized anomaly review packet"| queue
+        agent -->|"Anomaly lineage,<br>suppression, and routing history"| evidence
+    end
+
+    reviewers["Benefits operations leads,<br>payroll liaisons, and people-compliance reviewers"]
+    queue -->|"Restricted human review handoff"| reviewers
+```
+
 - Event-driven monitoring should continuously ingest eligibility updates, deduction changes, carrier-file responses, and qualifying-life-event edits, then reopen or merge anomaly clusters as new evidence arrives.
 - A tool-using single agent can correlate worker and plan identifiers across HRIS, payroll, and benefits systems; check approved event windows and sensitive-data rules; attach bounded context; and publish a prioritized review packet with explicit anomaly drivers.
 - Bounded delegation fits because routine mid-severity anomaly packets can route into a preapproved restricted benefits review queue without case-by-case authorization, while higher-consequence or protected cases still escalate to accountable humans.
