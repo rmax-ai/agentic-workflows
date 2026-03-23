@@ -38,6 +38,20 @@ This grounds the transform pattern in a research workflow where the central chal
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    repository["Restricted research repository<br>transcripts notes consent records screen-capture excerpts"]
+    tooling["De-identification and transcript-processing tooling<br>entity detection policy-constrained generalization"]
+    registry["Study-operations schema registry<br>dataset contract demographic buckets issue taxonomy"]
+    exception["Privacy ethics reproducibility<br>exception queue"]
+    staging["Reviewer workbench and governed staging store<br>de-identified dataset transformation trace approval manifest"]
+    repository -->|"Sensitive batch"| tooling
+    registry -->|"Schema and approved buckets"| tooling
+    tooling -->|"De-identified dataset<br>and transformation trace"| staging
+    tooling -->|"Residual disclosure and<br>semantic-loss findings"| exception
+    exception -->|"Reviewed exceptions for<br>release-safe staging"| staging
+```
+
 - An orchestrated multi-agent design can separate transcript segmentation, sensitive-entity detection, policy-constrained generalization, and release-package validation so each stage exposes its reasoning and residual-risk findings.
 - Human reviewers should remain embedded in the loop to resolve borderline disclosures, assess whether a coded excerpt still reveals a participant or employer indirectly, and approve the final release-safe staging manifest.
 - The workflow should stop at a restricted review dataset and manifest rather than creating publication assets, updating any public benchmark or paper workspace, or sending material to external collaborators automatically.
