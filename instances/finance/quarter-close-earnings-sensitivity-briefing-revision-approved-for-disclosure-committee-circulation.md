@@ -35,6 +35,18 @@ This grounds the pattern in finance where the governed step is releasing one exa
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Consolidation, close-adjustment, covenant-monitoring,<br>and segment-reporting systems"] -->|"Cited inputs and metrics"| B["Restricted finance briefing workspace<br>with briefing revision, prior revisions,<br>caveat register, and provenance ledger"]
+    B -->|"Exact revision and provenance"| C["Approval manifest service<br>with approver, revision id, approved lane,<br>freshness deadline, and hold or release state"]
+    D["Named corporate controller"] -->|"Approves audience scope,<br>freshness window, and supersession state"| C
+    C -->|"Approved lane and release state"| E["Disclosure committee circulation tooling<br>with named recipients, internal-use banners,<br>expiry controls, and blocked forwarding"]
+    E -->|"Circulates approved revision"| F["Restricted disclosure committee lane"]
+    C -->|"Hold, release, expiry,<br>and supersession record"| G["Audit and supersession tracker<br>with release lineage, expiry events,<br>and blocked reuse or forwarding attempts"]
+    E -->|"Blocked forwarding or reuse attempts"| G
+    B -->|"Prior revisions and supersession context"| G
+```
+
 - Approval-gated execution fits because the briefing remains held until the corporate controller approves one exact revision for the restricted disclosure committee lane.
 - Human-in-the-loop review is necessary because only accountable finance leadership should accept residual adjustment uncertainty, confirm audience scope, and authorize circulation of market-sensitive internal context.
 - A governed agent can assemble the release manifest, compare revision lineage, and block stale reuse or forwarding, but it should not decide disclosure language, approve external messaging, or trigger downstream filing or investor-relations work.
