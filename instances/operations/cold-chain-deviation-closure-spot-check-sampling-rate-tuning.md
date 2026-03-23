@@ -74,6 +74,25 @@ Each committed sampling-policy revision is recorded as a versioned snapshot in t
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    metadata["Deviation management system<br>closed-packet cohort metadata"] --> tuner
+    findings["Quality-review findings history<br>yield, escapes, and inspection linkages"] --> tuner
+    capacity["Auditor and quality-specialist capacity register<br>reviewer availability and backlog"] --> tuner
+
+    subgraph boundary["Governed spot-check tuning boundary"]
+        policy["Quality policy store<br>active rates, protected floors,<br>rollback snapshots, and version lineage"]
+        tuner["Sampling-rate tuning service<br>bounded cohort move computation"]
+        workspace["Governance and change-control workspace<br>sampled runs, freeze controls,<br>and rollback packets"]
+    end
+
+    policy --> tuner
+    tuner --> policy
+    tuner --> workspace
+    oversight["Qualified person / Quality Director<br>sampled oversight, freeze, and restore authority"] --> workspace
+    workspace --> policy
+```
+
 - Event-driven monitoring should trigger reevaluation when quality-review findings cluster around a carrier, deviation type, or site, when seasonal disruption events inflate short-term finding rates, or when auditor capacity drops materially due to scheduled inspection commitments.
 - A tool-using single agent can compute bounded sampling moves, enforce protected-class floors and reviewer-load ceilings, write the versioned policy update, and append the structured change record.
 - Autonomous-with-audit fits because in-policy spot-check coverage changes can apply automatically, while the quality director reviews sampled tuning cycles and freezes the loop when regulatory inspection periods or regime changes make recent signals unreliable.
