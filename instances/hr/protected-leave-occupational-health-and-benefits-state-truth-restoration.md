@@ -38,6 +38,31 @@ This grounds the pattern in an HR workflow where the urgent need is one trusted 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph WF["Workflow-family boundary"]
+        subgraph RE["Restricted evidence boundary"]
+            LC["Leave case system<br>records and timeline"]
+            OH["Occupational-health<br>review tracker"]
+            BA["Benefits administration<br>ledger"]
+            HR["HRIS and HR case<br>notes"]
+            ASL["Authoritative-state<br>ledger"]
+            HOLD["Hold register"]
+        end
+        subgraph HB["Human review boundary"]
+            REV["Human reviewers"]
+        end
+    end
+
+    LC -->|"protected-leave<br>status claims"| ASL
+    OH -->|"review status and<br>effective dates"| ASL
+    BA -->|"continuation and<br>eligibility state"| ASL
+    HR -->|"cross-reference and<br>lagging state claims"| ASL
+    ASL -->|"trusted current-state<br>view"| REV
+    ASL -->|"unresolved conflicts<br>and lineage"| HOLD
+    HOLD -->|"explicit holds and<br>discrepancy detail"| REV
+```
+
 - An orchestrated multi-agent workflow can separate restricted leave retrieval, occupational-health comparison, benefits-state reconciliation, and hold-register assembly while preserving one shared authoritative-state ledger.
 - Human reviewers should remain in the loop to confirm which restricted systems outrank lagging HR or vendor views, accept the trusted current-state picture, and decide how unresolved holds are handled downstream.
 - The workflow should stop at the trusted-state ledger, unresolved discrepancy register, and restricted HR handoff packet rather than determining accommodation scope, setting return-to-work dates, changing payroll or access, or notifying the employee.
