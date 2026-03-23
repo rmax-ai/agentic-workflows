@@ -45,6 +45,16 @@ This grounds the pattern in research where the governance problem is not to adju
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    records["Cited research records<br>experiment, reproducibility, rights,<br>communications, partner review"] -->|"supports current packet revision"| workspace["Publication recommendation workspace<br>exact packet revision, bounded options,<br>blocked-release notes, superseded drafts"]
+    governance["Publication governance repository<br>council lane, approved recipients,<br>embargo timing, release owner"] -->|"defines lane and release constraints"| routing["Approval manifest and council-routing tooling<br>packet hash, audience binding,<br>blocked forwarding controls"]
+    workspace -->|"provides exact packet revision"| routing
+    owner["Named research release owner"] -->|"approves or holds exact release"| routing
+    routing -->|"records release or hold state"| ledger["Audit and supersession ledger<br>handoff record, superseded revisions,<br>blocked forwarding attempts"]
+    routing -->|"releases exact packet revision"| council["Publication council decision lane<br>bounded recommendation packet revision"]
+```
+
 - Approval-gated execution fits because the recommendation packet remains held until a named research owner authorizes release into the publication council decision lane.
 - Human-in-the-loop review remains necessary because only accountable publication governance owners should confirm embargo scope, audience, and blocked-claim visibility without collapsing the workflow into publication approval itself.
 - A governed agent can compare packet hashes, assemble the release manifest, and block broadened distribution, but it should not submit the paper, approve the benchmark claims, or release the study artifacts externally.
