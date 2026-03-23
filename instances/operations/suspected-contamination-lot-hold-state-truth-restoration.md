@@ -50,6 +50,28 @@ This grounds the pattern in an operations workflow where the urgent task is rest
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    genealogy["Genealogy, quality, and<br>facility-hold systems"]
+    logistics["Warehouse, shipment-manifest,<br>and carrier-status systems"]
+    reviews["Lab review records,<br>incident workbenches, and<br>manual containment attestations"]
+    lagging["Lagging partner-tracking or<br>distribution-status views"]
+    workspace["Command-center truth-restoration workspace<br>trusted containment ledger,<br>unresolved hold register, and case memory"]
+    reviewers["Quality, operations, and legal<br>reviewers"]
+    packet["State-restoration handoff packet<br>for downstream human decisions"]
+    audit["Audit and hold-register tooling<br>authoritative-state acceptance,<br>superseded views, and rationale"]
+
+    genealogy -->|"Authoritative lot, quarantine,<br>and facility-hold state"| workspace
+    logistics -->|"Inventory movement and<br>in-transit hold evidence"| workspace
+    reviews -->|"Review findings and<br>manual containment attestations"| workspace
+    lagging -->|"Conflicting downstream views<br>kept visible for comparison"| workspace
+    workspace -->|"Trusted ledger and<br>unresolved branch register"| reviewers
+    reviewers -->|"Accepted current-state decisions<br>and protected conflict resolution"| workspace
+    workspace -->|"Bounded trusted-state packet<br>with unresolved ambiguity"| packet
+    workspace -->|"Lineage, hold reasons,<br>and superseded snapshots"| audit
+    reviewers -->|"Authoritative-state acceptance<br>and hold approvals"| audit
+```
+
 - An orchestrated multi-agent workflow can separate genealogy retrieval, warehouse and shipment comparison, hold-branch classification, and handoff-packet assembly while maintaining one command-center truth ledger.
 - Human reviewers should remain in the loop to confirm which sources outrank lagging partner views, accept the authoritative containment picture, and decide how unresolved branches are treated downstream.
 - The workflow should stop at the trusted-state ledger, unresolved hold register, and command-center handoff packet rather than recommending recall scope, issuing partner instructions, or changing inventory state automatically.
