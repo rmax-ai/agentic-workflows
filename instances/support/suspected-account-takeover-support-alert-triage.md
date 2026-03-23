@@ -42,6 +42,35 @@ This grounds `risk-alert-triage` in support work where the hard problem is conve
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Support and identity source systems"]
+        ticket["Support ticketing and<br>live-chat platform"]
+        telemetry["Identity and access<br>telemetry"]
+        crm["CRM and entitlement<br>records"]
+    end
+
+    subgraph control["Governed takeover triage boundary"]
+        triage["Support takeover triage agent<br>over merged alert clusters"]
+        queue["Case-management queue<br>with standard and urgent lanes"]
+        evidence["Audit-grade evidence store"]
+    end
+
+    subgraph human["Human urgent-review boundary"]
+        reviewers["Support security specialists,<br>incident managers, and<br>customer escalation leads"]
+        approval["Human urgent-review<br>approval path"]
+    end
+
+    ticket -- "ticket severity, contact identity,<br>tenant history, and escalation notes" --> triage
+    telemetry -- "failed logins, MFA resets,<br>privileged sessions, IP reputation,<br>and geo-velocity anomalies" --> triage
+    crm -- "account tier, named administrators,<br>verified contacts, and prior takeover history" --> triage
+    triage -- "prioritized triage packet +<br>routing rationale" --> queue
+    triage -- "triggering signals, merged lineage,<br>threshold hits, and approval steps" --> evidence
+    queue -- "triage packets for human review" --> reviewers
+    reviewers -- "human urgent-review decisions" --> approval
+    reviewers -- "reviewer actions +<br>approval state" --> evidence
+```
+
 - Event-driven monitoring should continuously score new ticket, chat, and identity events, then reopen or merge alert clusters as additional evidence arrives.
 - A tool-using single agent can normalize contact identity, correlate support interactions with tenant login anomalies, attach prior-case context, and publish a prioritized triage packet with explicit threshold hits.
 - Human-in-the-loop review should remain mandatory for any alert that could trigger account lockdown, customer-facing compromise language, or escalation into the formal security incident process.
