@@ -49,6 +49,34 @@ This grounds the pattern in operations where the value is assembling one coheren
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Network continuity runbooks<br>and operations command workspace"]
+    B["Facility-status, carrier-commitment,<br>dock-capacity, and monitoring systems"]
+    C["Quality-review records,<br>delegate rosters, and scheduling tools"]
+    H["Restricted communications tools<br>for customer-impact and partner-notice timing"]
+
+    subgraph P["Reroute preparation and<br>approval-gated publication boundary"]
+        D["Lane-by-lane reroute<br>readiness ledger"]
+        E["Activation-ready reroute packet"]
+        F["Open holds and packet lineage<br>in approval-routing and audit systems"]
+        G["Human network-operations<br>approval gate"]
+        I["Approved activation-ready<br>reroute packet"]
+    end
+
+    A -- "Provides declared reroute scope,<br>prior packet versions, and product-age constraints" --> D
+    B -- "Supplies authoritative facility, carrier,<br>capacity, and monitoring inputs" --> D
+    C -- "Adds quality state, delegate coverage,<br>and scheduling commitments" --> D
+    D -- "Links trailer commitments, receiving-site capacity,<br>quality checkpoints, monitoring coverage,<br>and protected holds" --> E
+    D -- "Preserves blocked lanes,<br>unmet prerequisites, and revisions" --> F
+    F -- "Shows open holds and lineage<br>to the approval lane" --> G
+    E -- "Submits one reroute activation packet<br>for human authorization" --> G
+    G -- "Leaves blocked packets pending<br>with visible holds" --> F
+    G -- "Approves publication of<br>the reroute activation packet" --> I
+    I -- "Records final authorization<br>and packet lineage" --> F
+    I -- "Keeps customer-impact and partner-notice timing<br>downstream of the planning gate" --> H
+```
+
 - Approval-gated execution fits because the reroute may be fully prepared in systems while still blocked pending a human operations approval.
 - The readiness ledger should link trailer, carrier, receiving-site, monitoring, and quality checkpoints so network leadership can see which lanes are actually activation-ready.
 - Holds should remain explicit for missing receiving capacity, incomplete quality release, or unconfirmed temperature-monitoring coverage.
