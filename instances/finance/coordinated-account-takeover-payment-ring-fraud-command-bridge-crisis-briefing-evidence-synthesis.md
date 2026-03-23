@@ -44,6 +44,29 @@ This grounds the pattern in a finance crisis where the immediate need is not ano
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    payments["Real-time payment-monitoring,<br>wire, ACH, and instant-payment systems"] -->|"supply affected-account scope<br>and outbound payment state"| orchestrator["Fraud crisis-brief<br>synthesis orchestrator"]
+    identity["Identity, authentication, device-fingerprint,<br>and session-risk systems"] -->|"provide compromise evidence<br>and session anomalies"| orchestrator
+    customer["Customer profile, KYC,<br>beneficiary-management, and<br>account-relationship systems"] -->|"define ownership, destinations,<br>and protected-customer constraints"| orchestrator
+    links["Entity-link analysis, mule-account watchlists,<br>and prior fraud-case systems"] -->|"add beneficiary overlap<br>and analyst-confirmed lineage"| orchestrator
+    continuity["Prior fraud-command briefs,<br>open-questions register, and<br>reviewer correction log"] -->|"preserve continuity across<br>rapid bridge updates"| orchestrator
+    controls["Source-authority, provenance,<br>freshness, and retrieval-boundary controls"] -->|"govern admissible evidence<br>and statement labeling"| orchestrator
+    orchestrator -->|"maintains shared crisis state"| ledger["Shared crisis-state ledger"]
+    orchestrator -->|"assembles current brief<br>and restricted annexes"| packet["Crisis briefing packet"]
+    ledger -->|"carries open questions,<br>superseded claims, and trace data"| packet
+    subgraph ApprovalBoundary["Mandatory human review boundary"]
+        reviewer["Fraud-command brief reviewer"]
+        workspace["Fraud-command bridge workspace"]
+        hold["Hold release until affected-account scope,<br>payment-state claims, provenance,<br>and unresolved questions are acceptable"]
+    end
+    packet -->|"submits reviewed brief"| reviewer
+    reviewer -->|"approves reviewed brief,<br>annexes, and handoff record"| workspace
+    reviewer -->|"rejects pending correction<br>or evidence refresh"| hold
+    hold -->|"returns corrections and refreshed evidence"| orchestrator
+    workspace -->|"publishes reviewed crisis brief<br>for bridge coordination only"| stop["Stop boundary:<br>No payment blocking, reimbursement choice,<br>suspicious-activity filing, law-enforcement contact,<br>regulator communication, or live customer response"]
+```
+
 - An orchestrated multi-agent workflow can separate payment-state retrieval, identity-compromise verification, beneficiary-link assembly, and final fraud-bridge brief composition while maintaining one shared crisis-state ledger.
 - Human-in-the-loop review should remain mandatory for each fraud-command brief because affected-account counts, payment-state claims, and beneficiary-cluster descriptions can materially influence downstream fraud, legal, and customer-response decisions.
 - The workflow should preserve a provenance and freshness trace that distinguishes authoritative payment and authentication records, governed customer-reference data, analyst-reviewed case lineage, and lower-authority bridge observations awaiting confirmation.
