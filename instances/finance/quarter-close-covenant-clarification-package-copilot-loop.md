@@ -41,6 +41,21 @@ This grounds the collaboration pattern in a finance workflow where the governed 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    LD["Legal document repository<br>credit agreement, amendments, waiver letters,<br>lender notices, and prior certificates"] --> AG["Tool-using copilot agent<br>retrieves source excerpts, refreshes calculations,<br>and updates the shared clarification package"]
+    CM["Treasury covenant model and close workpapers<br>calculation bridge, trial balance extracts,<br>and account-mapping support"] --> AG
+    CA["Cash management and bank account records<br>restricted-cash designations, liquidity support,<br>and asset-sale proceeds tracking"] --> AG
+    IT["Internal issue tracker or close checklist<br>open interpretation questions, reviewer decisions,<br>and evidence requests"] --> AG
+    CW["Controlled treasury workbench<br>clarification memo draft, reviewer comments,<br>approval routing, and handoff status"] -->|"draft context, reviewer comments,<br>and handoff state"| AG
+    AG -->|"draft updates, evidence links,<br>and open-items status"| CW
+    subgraph HAG["Human approval gate"]
+        HR["Lead treasury analyst and treasury leadership<br>approve outbound statements and commitments<br>with controllership and legal review input"]
+    end
+    CW -->|"review routing, comments,<br>and approval decisions"| HR
+    HR -->|"approved package only"| LC["Secure lender correspondence channel or document portal<br>final human-approved response package<br>and attachments"]
+```
+
 - Human-in-the-loop collaboration should remain primary because covenant interpretation, disclosure posture, and any lender-facing commitment require accountable treasury, controllership, and legal ownership.
 - A tool-using single agent can retrieve agreement excerpts, refresh the calculation bridge, maintain a claim-to-source matrix, and propose successive rewrites for the shared clarification package inside one governed workspace.
 - The copilot may update drafts, evidence checklists, and unresolved-issues logs, but sending anything to lenders, certifying covenant compliance, or recording a final interpretation in a system of record should remain explicitly human-gated.
