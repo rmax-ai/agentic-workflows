@@ -49,6 +49,30 @@ This grounds the pattern in research where the released object remains a version
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Lead["Research integrity lead"]
+    Replay["Replay and shadow-evaluation workspace<br>rerun outcomes, reviewer overrides,<br>disclosure-risk findings, and rollback history"]
+    Registry["Versioned replication-review scoring registry<br>active live profile, candidate revision hash,<br>protected integrity floors, and prior trusted revisions"]
+    Audit["Audit, rollback, and restore services<br>approval trace, restore target,<br>and rollback or expiry actions"]
+    Consumers["Replication-review dashboards,<br>publication-integrity queues,<br>and benchmark oversight surfaces"]
+    subgraph Boundary["Approval boundary<br>exact scoring revision, benchmark-program scope,<br>validity window, and rollback packet"]
+        Release["Governed release agent<br>verifies hash, replay evidence,<br>and restore readiness"]
+        Approval["Research approval and manifest tooling<br>binds one revision to bounded live use"]
+        Approver["Named research approver"]
+    end
+    Lead -->|"Prepares candidate revision"| Registry
+    Replay -->|"Provides replay evidence and guardrail signals"| Release
+    Registry -->|"Supplies live, candidate, and prior scoring state"| Release
+    Release -->|"Writes manifest for exact revision"| Approval
+    Approver -->|"Approves or rejects bounded live use"| Approval
+    Approval -->|"Approved revision, scope, and validity window"| Release
+    Release -->|"Activates approved scoring revision"| Registry
+    Registry -->|"Publishes active scoring policy"| Consumers
+    Release -->|"Records audit lineage and restore target"| Audit
+    Audit -->|"Restores prior trusted profile on rollback or expiry"| Registry
+```
+
 - Approval-gated execution fits because the scoring revision can be prepared and technically ready, but the live switch remains blocked until a named research integrity owner approves that exact version and program scope.
 - Human-in-the-loop review remains necessary because accountable stewards must accept the trade-offs among rerun sensitivity, governance-heavy dataset protection, and reviewer workload before bounded live use begins.
 - A governed release agent can compare revision hashes, verify replay evidence, register rollback conditions, and maintain the audit trace, but it should not decide whether a study may publish, alter benchmark claims, or release any artifact outside the review system.
