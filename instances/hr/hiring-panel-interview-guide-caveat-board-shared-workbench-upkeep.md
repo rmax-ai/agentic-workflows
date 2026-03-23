@@ -37,6 +37,35 @@ This grounds the pattern in a low-risk HR collaboration loop where the maintaine
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph up["Internal shared-workbench upkeep"]
+        ann["HR or recruiting annotation surface<br>small edits, caveats, and hold notes"]
+        agt["Bounded single agent<br>refreshes links, normalizes notes,<br>and updates owners plus hold markers"]
+        brd["Shared interview-guide caveat board<br>topic sections, owner fields,<br>blocker tags, and revision history"]
+        reg["Visible register of unresolved<br>local-guidance questions and hold markers"]
+    end
+    subgraph src["Linked source systems"]
+        std["Internal interviewing standards repository<br>approved scorecard guidance,<br>interviewer instructions, and template notes"]
+        pol["Regional recruiting policy workspace<br>locale-specific caveats,<br>effective dates, and source references"]
+        art["Screenshot and artifact store<br>topic-level caveat references<br>and reviewer-comment artifacts"]
+    end
+    subgraph hum["Human review boundary"]
+        rev["Recruiting operations leads,<br>regional HR partners,<br>training reviewers, and program owners"]
+    end
+
+    ann -->|"small edit events"| agt
+    brd -->|"board field changes"| agt
+    std -->|"linked source refresh"| agt
+    pol -->|"regional caveat refresh"| agt
+    art -->|"artifact refresh"| agt
+    agt -->|"bounded board updates<br>links, dedupes, owners, and blocker tags"| brd
+    agt -->|"carries forward unresolved items<br>and hold markers"| reg
+    reg -->|"stays visible on the shared board"| brd
+    brd -->|"routes interpretation, approval,<br>or release questions for review"| rev
+    rev -->|"reviews held items and named ownership decisions"| brd
+```
+
 - Event-driven monitoring fits because upkeep should react when interviewing-standard notes, regional caveats, screenshots, or board fields change.
 - A tool-using single agent can refresh source links, normalize duplicated caveat text, and keep ownership plus hold markers synchronized inside one bounded board.
 - Human-in-the-loop review remains necessary when a note changes interview-policy interpretation, sounds ready for interviewer-facing release, or could remove a caveat that a human owner still considers unresolved.
