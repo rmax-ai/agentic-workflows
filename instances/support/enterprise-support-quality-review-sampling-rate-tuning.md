@@ -47,6 +47,25 @@ This grounds the pattern in a support workflow where the change is a governed ov
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    CS["Support QA configuration store<br>active sample policy, protected-cohort floors,<br>and prior policy versions"]
+    TS["Ticketing and transcript systems<br>resolved-case metadata, escalation paths,<br>incident linkage, and spot-check candidates"]
+    FS["Quality-review findings store<br>coaching defects, reopen data,<br>complaint callbacks, and override history"]
+    RD["Reviewer-capacity dashboard<br>available QA analysts, restricted-review cohorts,<br>and current audit backlog"]
+    AG["Sampling-tuning agent<br>bounded rate analysis,<br>policy updates, and audit writing"]
+    GW["Governance and audit workspace<br>sampled tuning-run review, freeze controls,<br>and last-trusted-policy restoration"]
+
+    CS -->|"Provides<br>active policy and prior versions"| AG
+    TS -->|"Provides<br>candidate cohorts and case signals"| AG
+    FS -->|"Provides<br>defect yield and escape history"| AG
+    RD -->|"Provides<br>reviewer-load constraints"| AG
+    AG -->|"Writes<br>tuned sampling policy"| CS
+    AG -->|"Appends<br>audit trace and sampled runs"| GW
+    GW -->|"Applies<br>freeze or restore decisions"| CS
+    GW -->|"Constrains<br>autonomous tuning"| AG
+```
+
 - Event-driven monitoring should trigger reevaluation when quality findings cluster, reopened escalations rise, or reviewer-capacity changes materially.
 - A tool-using single agent can compare bounded sampling moves against protected-class floors and reviewer-load ceilings, apply the approved policy change, and append the audit record.
 - Autonomous-with-audit fits because in-policy sampling changes can happen automatically, while support leaders review sampled runs and freeze the loop if escaped issues or fairness concerns rise.
