@@ -44,6 +44,41 @@ This grounds the execution pattern in a research workflow where the browser subm
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph Approved["Approved amendment boundary"]
+        PACKET["Approved amendment packet<br>protocol, consent, and disclosure materials"]
+        PRIV["Privacy, data-use, and<br>external-transfer records"]
+    end
+
+    subgraph Governed["Study-governance approval boundary"]
+        SYS["Study-governance or research-operations system<br>amendment request, approvals, and protocol version history"]
+        GATE["Principal investigator, privacy reviewer,<br>and research-compliance approval gate"]
+    end
+
+    subgraph Portal["Browser submission boundary"]
+        AGENT["Tool-using submission executor<br>browser navigation, field entry,<br>uploads, and checkpoint capture"]
+        IRB["Browser-only IRB portal<br>protocol summary, risk-change justification,<br>uploads, disclosures, and attestation tabs"]
+    end
+
+    subgraph Evidence["Evidence and takeover boundary"]
+        STORE["Masked evidence store<br>screenshots, upload hashes,<br>submission references, and exception notes"]
+        HUMAN["Human takeover path<br>for ambiguous portal state"]
+    end
+
+    SYS -->|"Current request and<br>protocol version history"| GATE
+    PACKET -->|"Approved packet revision<br>and study identifiers"| GATE
+    PRIV -->|"Privacy and external-transfer<br>checks"| GATE
+    GATE -->|"Submission authority"| AGENT
+    PACKET -->|"Approved protocol,<br>consent, and disclosure files"| AGENT
+    PRIV -->|"Allowed privacy and<br>data-sharing context"| AGENT
+    AGENT -->|"Populate fields and<br>upload approved materials"| IRB
+    IRB -->|"Live portal state and<br>validation messages"| AGENT
+    AGENT -->|"Capture masked checkpoints and<br>confirmation artifacts"| STORE
+    AGENT -->|"Escalate ambiguous portal state"| HUMAN
+    HUMAN -->|"Takeover notes and<br>final disposition"| STORE
+```
+
 - Approval-gated execution should assemble the amendment packet, verify that principal investigator, privacy, and research-compliance approvals are still current, and block final commit until those approvals are rechecked immediately before submit.
 - A tool-using single agent can navigate the IRB portal, populate protocol-change fields, upload the approved consent and disclosure documents, and capture masked evidence at each gated checkpoint.
 - Human-in-the-loop control should remain standard for changed risk classifications, unexpected requests for additional disclosures, participant-population mismatches, missing attachment versions, or any portal warning that the amendment would supersede a different active protocol record than the approved packet references.
