@@ -42,6 +42,23 @@ This scenario is collaborative, but it stays low-risk because the maintained art
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    workspace["Internal knowledge-base staging<br>workspace"]
+    tracker["Product issue tracker<br>or bug record"]
+    artifacts["Screenshot or diagnostic<br>artifact store"]
+    review_surface["Documentation review<br>or annotation surface"]
+    board["Shared workaround-article<br>staging board"]
+    humans["Product specialists, support leads,<br>documentation reviewers, and product owner"]
+
+    workspace -->|"Current workaround draft,<br>source references, and section context"| board
+    tracker -->|"Confirmed symptoms, affected versions,<br>engineering notes, and log signatures"| board
+    artifacts -->|"Screenshot references and diagnostic artifacts<br>for staged troubleshooting steps"| board
+    review_surface -->|"Small edits, caution notes,<br>and blocker comments"| board
+    board -->|"Surface supportability questions,<br>customer-facing wording changes, and publication blockers"| humans
+    humans -->|"Confirm safe wording, section ownership,<br>and held publication blockers"| board
+```
+
 - Event-driven monitoring fits because upkeep should react whenever article comments, linked issue state, or staging-board fields change.
 - A tool-using single agent can refresh screenshots, normalize troubleshooting-step structure, and keep blocker labels current in one bounded workbench.
 - Human-in-the-loop review is required when wording could become customer-facing advice, when a caveat changes support posture, or when the board suggests a workaround is fully validated.
