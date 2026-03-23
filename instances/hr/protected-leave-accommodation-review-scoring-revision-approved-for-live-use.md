@@ -41,6 +41,31 @@ This grounds the pattern in HR without drifting into case adjudication. The rele
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["People-operations governance lead"]
+    B["Replay and shadow-analysis workspace<br>reopen history, overrides, fairness checks,<br>and specialist-review outcomes"]
+    subgraph C["Approval-gated optimization-state release boundary"]
+        D["Governed release agent"]
+        E["Versioned leave-and-accommodation scoring registry<br>current live profile, candidate revision id,<br>protected-review floors, and prior trusted revisions"]
+        F["HR approval and manifest tooling<br>HR approval owner"]
+        G["Audit, rollback, and restoration controls<br>manifest, validity window, and restore target"]
+    end
+    H["Leave and accommodation review dashboards,<br>specialist-intake queues, and oversight reports"]
+    I["Workflow-family boundary<br>stop at scoring-policy release,<br>not case adjudication or worker communication"]
+
+    A -->|"prepares exact scoring revision"| D
+    B -->|"supplies replay evidence and guardrails"| D
+    D -->|"verifies revision id and rollback readiness"| E
+    D -->|"submits approval packet"| F
+    F -->|"approves exact revision and validity window"| D
+    D -->|"records manifest and restore target"| G
+    D -->|"activates approved live profile"| E
+    G -->|"can restore prior trusted profile"| E
+    E -->|"serves active scoring policy"| H
+    H -.->|"stays outside workflow-family boundary"| I
+```
+
 - Approval-gated execution fits because the scoring revision can be technically ready in the registry while activation remains blocked until a named HR release owner approves that exact version and bounded cohort scope.
 - Human-in-the-loop review remains necessary because accountable leave and employee-relations leaders must accept the trade-offs among review timeliness, fairness protections, and specialist-load impact before live use begins.
 - A governed release agent can compare revision ids, verify replay evidence, register the rollback target, and write the audit trace, but it should not determine leave eligibility, approve accommodations, or assign specialists to individual cases.
