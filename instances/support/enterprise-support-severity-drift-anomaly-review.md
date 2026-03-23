@@ -40,6 +40,24 @@ This grounds `anomaly-detection-review` in support work where the hard problem i
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph delegated["Bounded anomaly review"]
+        support["Support ticketing and<br>chat platforms"] -->|"stream severity, reopen,<br>and escalation events"| agent["Event-driven anomaly monitor<br>and packet assembly"]
+        release["Status, release, and<br>maintenance systems"] -->|"add maintenance and<br>known-issue context"| agent
+        crm["CRM and customer-success<br>records"] -->|"add tenant, tier, and<br>contact context"| agent
+        audit["Audit-grade evidence<br>storage"] -->|"load prior feedback and<br>duplicate lineage"| agent
+        agent -->|"merge tenant, product, and<br>release-window duplicates"| queue["Queue-management and<br>case-review tooling"]
+        agent -->|"write packet lineage,<br>suppression, and routing"| audit
+    end
+
+    subgraph human["Human review boundary"]
+        reviewers["Support duty manager or<br>trust-and-safety reviewer"]
+    end
+
+    queue -->|"present prioritized<br>review packet"| reviewers
+```
+
 - Event-driven monitoring should continuously ingest ticket-state changes, case reopens, chat escalation requests, regional complaint bursts, and maintenance or release updates, then reopen or merge anomaly clusters as new evidence arrives.
 - A tool-using single agent can correlate tenant and product identifiers across support, CRM, and release systems; check whether the anomaly falls inside approved review bands; attach bounded context; and publish a prioritized review packet with explicit anomaly drivers.
 - Bounded delegation fits because routine mid-severity anomaly packets can enter a preapproved support review queue without case-by-case authorization, while uncertain or high-consequence cases still escalate to accountable humans.
