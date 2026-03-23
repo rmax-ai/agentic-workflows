@@ -50,6 +50,24 @@ This grounds the pattern in operations work where teams need one governed transf
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    routing["Authoritative routing sources<br>routing profiles, lane tables, fallback thresholds"]
+    constraints["Constraint sources<br>safety notes, maintenance exceptions, staffing limits"]
+    staging["Shift-release staging state<br>bounded package and trace for one shift window"]
+    hold["Hold state<br>unresolved exceptions and missing lineage"]
+    manifest["Approval manifest tooling<br>package version, scope, and signer record"]
+    handoff["Downstream handoff boundary<br>approved routing package for one shift window"]
+
+    routing --> staging
+    constraints --> staging
+    staging --> hold
+    hold --> staging
+    staging --> manifest
+    hold --> manifest
+    manifest --> handoff
+```
+
 - Approval-gated execution fits because the routing package is ready for one shift handoff but stays blocked until the manifest explicitly authorizes that downstream cutover boundary.
 - Human reviewers should remain in the normal path to confirm facility scope, held maintenance exceptions, and fallback-profile completeness before release.
 - The workflow should emit only the transformed routing bundle, trace, hold register, and manifest rather than a go-live recommendation, readiness verdict, or activation action.
