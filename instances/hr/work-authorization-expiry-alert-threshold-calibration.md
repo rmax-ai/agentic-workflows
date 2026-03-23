@@ -151,6 +151,34 @@ Rollback automatically to `WA-Expiry-Threshold-Calibration-Record-v2` when:
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    CASE["Immigration case-management snapshots<br>expiry dates, receipt status,<br>filing milestones, and renewal evidence"]
+    HRIS["HRIS context<br>worker master, employer entity,<br>location, and effective-dated job changes"]
+    OUTCOMES["Alert outcome store<br>reviewed nuisance alerts, late detections,<br>no-alert backchecks, and overrides"]
+    DASH["Compliance governance dashboard<br>review, freeze, compare `v3` to `v2`,<br>and restore the last trusted record quickly"]
+    STOP["Workflow-family boundary<br>stop at threshold-policy publication,<br>defer, or rollback"]
+
+    subgraph CAL["Adaptive threshold-calibration boundary"]
+        AGENT["Threshold calibration agent<br>checks evidence quality, delegated bounds,<br>protected floors, and cumulative drift"]
+        REG["Policy registry<br>active threshold policy, delegated bounds,<br>protected floors, and prior calibration records"]
+        PUB["Versioned calibration record publication<br>`WA-Expiry-Threshold-Calibration-Record-v3`"]
+        HOLD["Deferred and blocked move record<br>unsupported or out-of-bounds threshold moves"]
+    end
+
+    CASE -->|"authoritative case snapshots"| AGENT
+    HRIS -->|"risk-context updates"| AGENT
+    OUTCOMES -->|"reviewed outcomes and backchecks"| AGENT
+    REG -->|"active policy, bounds, floors, and `v2` lineage"| AGENT
+    AGENT -->|"publishes approved `v3` record"| PUB
+    AGENT -->|"writes deferred or blocked moves"| HOLD
+    PUB -->|"registers versioned calibration lineage"| REG
+    PUB -->|"shows `v3` rationale and diff vs `v2`"| DASH
+    HOLD -->|"surfaces blocked and deferred rationale"| DASH
+    DASH -->|"freeze or fast rollback to `v2`"| REG
+    PUB -.->|"bounded stop before triage or downstream action"| STOP
+```
+
 - Event-driven monitoring should trigger recalibration only after enough reviewed alert
   outcomes and no-alert backchecks accumulate for a protected review window, not when a
   single week of renewal receipts temporarily lowers nuisance volume.
