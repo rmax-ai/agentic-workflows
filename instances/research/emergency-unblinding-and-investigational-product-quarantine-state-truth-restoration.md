@@ -45,6 +45,51 @@ This grounds the pattern in a research workflow where the urgent need is one def
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    irt["Interactive response technology<br>blinding status and kit allocation"]
+    unblind["Restricted emergency<br>unblinding ledger"]
+    pharmacy["Site pharmacy records<br>accountability and quarantine state"]
+    safety["Safety command workspace<br>bridge notes and reviewer context"]
+
+    subgraph orchestration["Orchestrated multi-agent workflow"]
+        retrieve["Restricted unblinding-ledger<br>retrieval"]
+        compare["IRT and pharmacy<br>state comparison"]
+        linkage["Participant-kit linkage<br>verification"]
+        holds["Hold classification<br>and conflict visibility"]
+        packet["Handoff-packet<br>assembly"]
+    end
+
+    ledger["Shared trusted-state ledger<br>authoritative current-state view"]
+    holdreg["Unresolved hold register<br>provisional participant and kit branches"]
+    memory["Shared case memory<br>superseded claims and late notes"]
+    reviewers["Human reviewers<br>medical, governance, pharmacy, and ops"]
+    handoff["Restricted handoff packet<br>ledger, holds, and lineage"]
+    boundary["Bounded stop<br>no site instructions or treatment decisions"]
+
+    unblind -->|"Restricted code-break evidence"| retrieve
+    retrieve -->|"Authorized unblinding state"| compare
+    irt -->|"Current state"| compare
+    pharmacy -->|"Quarantine and custody state"| compare
+    safety -->|"Bridge notes and annotations"| linkage
+    compare -->|"Participant-kit discrepancies"| linkage
+    linkage -->|"Protected conflicts"| holds
+    retrieve -->|"Code-break lineage"| ledger
+    compare -->|"Accepted state"| ledger
+    linkage -->|"Verified linkage state"| ledger
+    holds -->|"Provisional branches"| holdreg
+    compare -->|"Superseded claims"| memory
+    linkage -->|"Late custody notes"| memory
+    holds -->|"Hold rationale"| memory
+    ledger -->|"Shared current state"| packet
+    holdreg -->|"Unresolved holds"| packet
+    memory -->|"Context and history"| packet
+    reviewers -->|"Precedence confirmation<br>and state acceptance"| ledger
+    reviewers -->|"Protected conflict adjudication"| holdreg
+    packet -->|"Restricted package"| handoff
+    handoff -->|"Stop before downstream action"| boundary
+```
+
 - An orchestrated multi-agent workflow can separate restricted unblinding-ledger retrieval, IRT and pharmacy state comparison, participant-kit linkage verification, hold classification, and handoff-packet assembly while preserving one shared trusted-state ledger.
 - Human reviewers should remain embedded to confirm emergency source-precedence rules, accept the authoritative current-state view for participant and kit status, and adjudicate protected conflicts that cannot be resolved safely through delegated reconciliation alone.
 - The workflow should stop at the reconciled current-state ledger, unresolved hold register, and restricted handoff packet rather than issuing site instructions, releasing or extending kit quarantines, updating randomization state, or deciding whether treatment may continue.
