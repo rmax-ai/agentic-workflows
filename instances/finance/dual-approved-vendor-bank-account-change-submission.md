@@ -42,6 +42,35 @@ This grounds the execution pattern in a finance workflow where the browser actio
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph gov["Approval and policy boundary"]
+        case["Finance case-management system<br>change request, dual approvals,<br>and segregation-of-duties record"]
+        policy["Treasury reference data<br>bank-country, payment-method,<br>and sanctioned-jurisdiction rules"]
+    end
+
+    exec["AP controls specialist or<br>tool-using execution agent"]
+
+    subgraph portal_boundary["Browser-only portal boundary"]
+        portal["ERP or supplier-master portal<br>vendor payment profile maintenance"]
+    end
+
+    evidence["Masked evidence store<br>screenshots, confirmations,<br>and exception notes"]
+
+    subgraph handoff["Human review and handoff boundary"]
+        review["AP management and treasury operations<br>approval refresh, takeover,<br>or reconciliation"]
+    end
+
+    case -- "Case state and<br>dual-approval status" --> exec
+    policy -- "Pre-submit policy checks" --> exec
+    exec -- "Validated field entry<br>and document upload" --> portal
+    portal -- "Live remittance state<br>and confirmation signals" --> exec
+    exec -- "Masked evidence bundle" --> evidence
+    exec -- "Mismatch, callback gap,<br>or ambiguous portal state" --> review
+    review -- "Renewed approval or<br>takeover decision" --> case
+    review -- "Handoff notes and<br>reconciliation outcome" --> evidence
+```
+
 - Approval-gated execution should assemble the submission packet, verify that AP and treasury approvals are still current, and block final commit until the dual-approval state is rechecked immediately before save or submit.
 - A tool-using single agent can navigate the supplier-master portal, populate bank and remittance fields, upload the approved attestation packet, and capture masked evidence at each gated checkpoint.
 - Human-in-the-loop control should remain standard for mismatched vendor identity data, unexpected edits to existing remittance details, callback-verification gaps, or any portal warning that suggests the change may affect pending payments already in flight.
