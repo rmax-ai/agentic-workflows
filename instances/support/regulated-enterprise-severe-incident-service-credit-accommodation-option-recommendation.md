@@ -47,6 +47,30 @@ This grounds the pattern in support through a governance-heavy accommodation-ran
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    maya["Maya Chen<br>premium-support escalation manager"]
+    subgraph support["Support governance boundary"]
+        agent["Tool-using single agent<br>bounded option-ranking workflow"]
+        review["Human review<br>local recommendation decision"]
+        artifact["Recommendation audit trail<br>and revision ledger"]
+    end
+    supportCase["Premium-support case timeline,<br>major-incident review notes,<br>service-impact ledger,<br>and prior accommodation history"]
+    matrix["Delegated support concession matrix"]
+    contract["Signed premium-support order form,<br>service-level addenda,<br>and entitlement register"]
+    governance["Account-governance precedent log,<br>renewal-sensitivity notes,<br>prior override register,<br>and exception-packet templates"]
+    board["Account-governance board"]
+
+    maya --> agent
+    supportCase --> agent
+    matrix --> agent
+    contract --> agent
+    governance --> agent
+    agent --> review
+    review --> artifact
+    review -->|"Escalation packet<br>if no in-band option is defensible"| board
+```
+
 - A tool-using single agent can retrieve the concession matrix, contract baseline, incident-impact evidence, prior accommodations, and override history and produce one bounded ranking of in-band accommodation options for Maya Chen to review.
 - Human-in-the-loop review remains necessary because the premium-support escalation manager owns whether the ranked local recommendation is acceptable to send onward inside support governance or whether escalation packaging should be prepared for the higher board.
 - Read-only integration with support, contract, billing-context, and governance systems is preferable so the workflow cannot silently issue credits, extend service terms, assign engineering resources, or transmit a customer-facing offer.
