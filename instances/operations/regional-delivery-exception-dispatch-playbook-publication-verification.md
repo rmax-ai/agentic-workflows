@@ -45,6 +45,22 @@ This instance grounds the pattern in an operations surface that is materially di
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    trigger["Publication-complete claim<br>for one playbook revision"]
+    sources["Approved evidence sources<br>SOP repository, dispatcher console,<br>supervisor portal, tablet-sync status"]
+    policy["Tolerated-lag policy evaluation<br>and corroboration rules"]
+    state["Verification log / state<br>prior runs, evidence trace,<br>current verdict record"]
+    human["Human-owned follow-up boundary<br>for out-of-window or ambiguous cases"]
+
+    trigger --> state
+    trigger --> sources
+    state --> policy
+    sources --> policy
+    policy --> state
+    policy -- "Escalate when lag exceeds tolerance<br>or evidence stays ambiguous" --> human
+```
+
 - Event-driven monitoring fits because the workflow should begin from the publication-complete claim and immediately verify whether the approved playbook revision propagated to the in-scope dispatch surfaces.
 - A tool-using single agent can compare playbook identifiers, revision markers, effective timestamps, and sync freshness across the SOP repository, dispatcher console, supervisor portal, and offline tablet mirror.
 - Bounded delegation is appropriate because operations owners can predefine the authoritative playbook surfaces, tolerated sync delay, and corroboration rules while humans retain ownership of any republish, local exception handling, or dispatch instruction changes.
