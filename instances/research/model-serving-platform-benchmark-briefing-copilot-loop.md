@@ -46,6 +46,33 @@ This grounds the collaboration pattern in benchmark preparation rather than case
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Analyst"]
+    B["Shared research workspace<br>draft benchmark memo + evidence matrix"]
+    C["Internal experiment tracker<br>benchmark runs + reproducibility metadata"]
+    D["Evaluation notebook repository<br>and benchmark dashboards"]
+    E["Vendor documentation portal"]
+    F["Security review queue<br>and ADR archive"]
+    G["Architecture review board"]
+    H["Human approval checkpoint<br>before board publication"]
+    I["Citation + provenance controls<br>run ids, notebook commits, vendor docs"]
+
+    A -->|"directs + reviews"| B
+    B -->|"retrieves benchmark evidence"| C
+    B -->|"compares metrics"| D
+    B -->|"checks vendor claims"| E
+    B -->|"tracks non-performance constraints"| F
+    C -->|"run ids + hardware notes"| I
+    D -->|"notebook commits + dashboards"| I
+    E -->|"published claims + pricing"| I
+    I -->|"grounds material conclusions"| B
+    B -->|"submission package"| H
+    H -->|"human-approved briefing"| G
+    F -->|"governance blockers + review items"| H
+    A -->|"approves final briefing"| H
+```
+
 - Human-in-the-loop collaboration should remain primary because benchmark inclusion criteria, interpretation of conflicting runs, and the final recommendation framing all require accountable human judgment.
 - A tool-using single agent can retrieve experiment metadata, refresh comparison tables, draft section rewrites, and track unresolved evidence gaps inside one shared workbench.
 - The copilot may update the research memo and evidence matrix, but publication to the architecture review board, benchmark score normalization changes, and any downstream procurement or rollout action should remain explicitly human-approved.
