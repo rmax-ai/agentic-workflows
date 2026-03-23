@@ -40,6 +40,40 @@ This grounds the pattern in HR where the primary reusable challenge is collabora
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph WF["Approval-gated collaborative artifact release<br>workflow-family boundary"]
+        subgraph COLLAB["Governed HR collaboration workspace"]
+            PACKET["Return-to-work exception packet"]
+            LEDGER["Objection ledger"]
+            MANIFEST["Release-manifest draft"]
+        end
+
+        HRSYS["Leave-management, HRIS, attendance,<br>and job-profile systems"]
+        MEDSYS["Occupational health, clinician-document,<br>and accommodation records"]
+        POLICY["Leave-policy, site-access,<br>and review-governance repositories"]
+
+        subgraph APPROVAL["Release approval and trace boundary"]
+            OWNER["Named leave-program<br>release owner"]
+            TRACE["Audit, retention, and approval-routing systems"]
+        end
+    end
+
+    subgraph INTAKE["Occupational health intake boundary"]
+        LANE["Bounded occupational health<br>review intake lane"]
+    end
+
+    HRSYS -- "Supplies return dates, role requirements,<br>reporting lines, and leave-status context to" --> PACKET
+    MEDSYS -- "Supplies restriction summaries, case notes,<br>and evidence boundaries to" --> PACKET
+    POLICY -- "Supplies signer rules, lane scope,<br>and release constraints to" --> MANIFEST
+    PACKET -- "Keeps unresolved objections in" --> LEDGER
+    PACKET -- "Binds the exact revision for release in" --> MANIFEST
+    LEDGER -- "Preserves accepted residual disagreement in" --> TRACE
+    MANIFEST -- "Routes exact revision, signer state,<br>and lane scope through" --> TRACE
+    TRACE -- "Presents held-release reasons and approval state to" --> OWNER
+    OWNER -- "Approves one exact packet revision for" --> LANE
+```
+
 - Approval-gated execution fits because the packet can be collaboration-complete while still blocked from occupational health intake until the human release owner approves the exact revision.
 - Human-in-the-loop control is required because only accountable HR leaders may accept residual disagreement, confirm privacy-safe audience scope, and authorize the release boundary.
 - Agents may reconcile restrictions, refresh policy references, and maintain the release trace, but they must not decide fitness-for-duty conditions, notify the employee, or update leave-state records.
