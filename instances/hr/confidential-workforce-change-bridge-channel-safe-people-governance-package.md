@@ -37,6 +37,28 @@ This grounds the pattern in HR people-governance work where the urgent need is n
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    S1["HRIS, position-management,<br>and frozen selection cohort systems"] -->|"authoritative population and cohort state"| W["Orchestrated packaging workflow<br>retrieval, policy-constrained rendering,<br>hold validation, and manifest assembly"]
+    S2["Labor-relations, works-council,<br>and jurisdiction-rule repositories"] -->|"consultation timing and restriction rules"| W
+    S3["Identity, access-governance,<br>and planning-room audit systems"] -->|"manager-exposure and revocation evidence"| W
+    S4["Privileged employment-law<br>and local-counsel repositories"] -->|"held-detail and obligation constraints"| W
+    T["Approved rendering tables<br>jurisdictions, population bands,<br>and role categories"] -->|"controlled bucket mappings"| W
+    C["Audience-scope and source-precedence controls<br>authoritative sources outrank drafts,<br>manager comments, and oral summaries"] -->|"constrains package content"| W
+    subgraph L["Restricted people-governance bridge lane"]
+        G["Governance workspace<br>package versions, held-detail placeholders,<br>blocker state, and release manifests"]
+        R["CHRO office, labor relations,<br>and employment counsel reviewers"]
+        P["Channel-safe people-governance package"]
+        H["Hold register and lineage trace"]
+        M["Handoff manifest"]
+    end
+    W -->|"writes governed state"| G
+    R -->|"confirms audience scope<br>and held-detail movement"| G
+    G -->|"hands off only governed package"| P
+    G -->|"retains visible blockers and lineage"| H
+    G -->|"records bounded release state"| M
+```
+
 - An orchestrated multi-agent workflow can separate authoritative workforce-state retrieval, policy-constrained rendering, blocker and hold validation, and manifest assembly so each stage stays inspectable during the bridge.
 - Human reviewers should remain in the loop because the CHRO office, labor relations, and employment counsel must confirm audience scope and decide whether any held jurisdiction or role-detail can move into a narrower annex.
 - The workflow should emit only the governed package, hold register, lineage trace, and handoff manifest rather than approving selection cohorts, preparing worker communications, sequencing consultations, or mutating HR, payroll, or access systems.
