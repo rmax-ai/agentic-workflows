@@ -39,6 +39,24 @@ This grounds the pattern in a finance workflow where the core challenge is not s
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    bridge["Executive bridge and<br>governance tooling"]
+
+    subgraph family["Workflow family boundary<br>channel-safe exposure packaging"]
+        sources["Treasury source systems<br>liquidity, settlement, collateral, facilities,<br>manual adjustments"] --> renderer["Exposure rendering workflow<br>retrieve, normalize, and assemble package"]
+        refs["Approved rendering tables<br>entity hierarchy, jurisdiction,<br>funding buckets"] --> renderer
+        renderer --> workspace["Restricted package workspace<br>exposure packages and release manifests"]
+        workspace --> lineage["Lineage store<br>withheld values and supersession history"]
+        workspace --> hold["Hold boundary<br>restricted or provisional detail"]
+        hold --> review["Hold-state review queue<br>treasury control, legal, risk"]
+        workspace --> approval["Audience-scope approval boundary<br>package release decision"]
+        review --> approval
+    end
+
+    approval -->|"Approved package"| bridge
+```
+
 - An orchestrated multi-agent workflow can separate authoritative-state retrieval, policy-constrained exposure rendering, held-detail validation, and manifest assembly so each step stays inspectable during the bridge.
 - Human reviewers should remain in the normal loop to confirm audience scope, decide whether named counterparties or account identifiers can move into narrower annexes, and approve each package release.
 - The workflow should stop at the structured exposure package and release manifest rather than recommending funding moves, initiating transfers, or preparing regulator submissions automatically.
