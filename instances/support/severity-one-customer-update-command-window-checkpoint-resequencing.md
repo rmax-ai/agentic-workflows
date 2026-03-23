@@ -48,6 +48,34 @@ This grounds the pattern in a severe support workflow where the urgent problem i
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    I["Incident-status tracker,<br>workaround-validation notes,<br>and restricted security-review log"]
+    C["CRM and contractual-obligation systems<br>with update cadence and review windows"]
+    D["On-call schedules,<br>delegate records, and calendars"]
+    A["Audit and notification tooling<br>for superseded timelines and deltas"]
+    H["Support bridge lead<br>human adoption boundary"]
+
+    subgraph G["Governed support command-window workflow"]
+        O["Support command-window orchestrator"]
+        R["Constraint and checkpoint<br>resequencing services"]
+        W["Support bridge workspace<br>with the authoritative checkpoint ledger,<br>explicit holds, and prior packet lineage"]
+        P["Updated command packet<br>with participant deltas"]
+    end
+
+    W --> O
+    I --> O
+    C --> R
+    D --> R
+    O --> R
+    R --> W
+    R --> P
+    W --> P
+    P --> H
+    H --> W
+    H --> A
+```
+
 - An orchestrated multi-agent workflow can separate authoritative incident-state intake, protected-window checking, checkpoint resequencing, participant-delta assembly, and command-packet publication while preserving one shared support bridge ledger.
 - Human-in-the-loop control fits because the support bridge lead must adopt any materially changed checkpoint order before the new packet becomes authoritative for live customer-update coordination.
 - The workflow should preserve explicit hold states when workaround verification, delegate authority, contractual timing, or restricted review readiness do not yet support an in-policy checkpoint move.
