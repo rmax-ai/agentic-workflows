@@ -39,6 +39,31 @@ This shows a finance workflow where the core value is collaborative ownership of
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    WS["Governed finance collaboration workspace<br>holding the covenant position packet,<br>comment history, objection ledger,<br>and release-manifest state"]
+    LEDGER["Ledger, consolidation, and covenant-calculation systems<br>providing authoritative balances,<br>late adjustments, and threshold calculations"]
+    POLICY["Treasury-policy, debt-agreement,<br>and committee-intake repositories"]
+    AGENT["Agent support for ledger merges,<br>policy excerpt comparison, comment reconciliation,<br>and disputed-wording traceability"]
+    CONTROL["Packet release control for the exact revision,<br>required signers, and committee intake boundary"]
+    RECORD["Approval tooling, audit, and retention systems<br>for signer state, superseded versions,<br>accepted residual disagreement, and held-release reasons"]
+    LANE["Bounded controller-committee<br>intake lane"]
+    STOP["Stop before committee interpretation,<br>funding moves, or accounting changes"]
+
+    subgraph APPROVAL["Controller committee intake approval boundary"]
+        OWNER["Named controller<br>release owner"]
+    end
+
+    AGENT -->|"Maintains reconciled packet state<br>under human control"| WS
+    WS -->|"Provides packet revision, comments,<br>objections, and release-manifest state"| CONTROL
+    LEDGER -->|"Provides authoritative balances,<br>late adjustments, and covenant calculations"| CONTROL
+    POLICY -->|"Provides wording constraints,<br>release criteria, and approved audience scope"| CONTROL
+    CONTROL -->|"Prepares exact revision release state,<br>required signer binding, and lane boundary"| RECORD
+    RECORD -->|"Routes one exact packet revision<br>for human release decision"| OWNER
+    OWNER -->|"Approves release only into one bounded<br>controller-committee intake lane"| LANE
+    LANE -->|"Stops at governed intake handoff"| STOP
+```
+
 - Approval-gated execution fits because the packet can be fully prepared inside collaboration while still blocked from committee intake until the release owner approves the exact revision.
 - Human-in-the-loop control is required because only accountable finance leaders may accept residual disagreement, confirm audience scope, and authorize the release boundary.
 - Agents may reconcile ledger evidence, compare wording alternatives, and maintain release-state traceability, but they must not decide the covenant position or trigger downstream accounting or funding steps.
