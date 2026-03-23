@@ -41,6 +41,35 @@ This grounds the pattern in a high-consequence cold-chain operations exception w
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    SITE["Site operations manager"] --> ROUTER
+
+    subgraph SOURCES["Read-only source systems"]
+        MON["Refrigeration monitoring platform<br>and building alarms"]
+        MAINT["Facilities maintenance system"]
+        OPS["Cold-chain operations dashboard"]
+        POLICY["Business continuity and<br>escalation matrix"]
+        HISTORY["Prior refrigeration-event reviews<br>and duty-manager handoff logs"]
+    end
+
+    subgraph BOUNDARY["Recommendation-only routing boundary"]
+        ROUTER["Escalation routing workflow"]
+        PACKET["Routing recommendation<br>and escalation packet"]
+        LOG["Routing decision log"]
+    end
+
+    MON --> ROUTER
+    MAINT --> ROUTER
+    OPS --> ROUTER
+    POLICY --> ROUTER
+    HISTORY --> ROUTER
+
+    ROUTER --> PACKET
+    ROUTER --> LOG
+    PACKET --> REVIEW["Authorized human reviewer<br>regional duty manager,<br>facilities leadership, or<br>business continuity lead"]
+```
+
 - A recommendation-only workflow can correlate telemetry loss, repair uncertainty, inventory exposure, outbound commitments, and escalation policy thresholds into one ranked routing recommendation.
 - Human-in-the-loop review is mandatory because site, facilities, duty-manager, and continuity leaders must decide whether to accept the recommended route and what operational response to authorize.
 - Read-only integration with monitoring, maintenance, inventory, and continuity systems is preferable so the workflow cannot start rental equipment, reroute inventory, declare emergency posture, or change shipment plans.
