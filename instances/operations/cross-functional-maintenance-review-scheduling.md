@@ -41,6 +41,34 @@ This grounds the pattern in a real coordination problem where the cost is operat
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph sources["Approved operations sources"]
+        calendars["Team calendars<br>shift overlays and on-call rotations"]
+        maint["Maintenance calendar<br>approved change-window tracker"]
+        rooms["Conference-room booking system<br>room availability and remote bridge options"]
+        ticket["Change-management ticket<br>affected-system list<br>rollback notes"]
+        threads["Messaging threads<br>operations, facilities,<br>and network leads"]
+    end
+    subgraph delegated["Bounded scheduling boundary"]
+        agent["Tool-using scheduling agent"]
+        packet["Draft review packet and coordination log<br>ranked slot, tentative holds,<br>and rejected-slot rationale"]
+    end
+    subgraph human["Human exception boundary"]
+        coordinator["Plant operations coordinator<br>reviews no-slot or policy exceptions"]
+    end
+
+    calendars -->|"Free-busy, shift, and on-call metadata"| agent
+    maint -->|"Approved maintenance-window constraints"| agent
+    rooms -->|"Room capacity and dial-in options"| agent
+    ticket -->|"Cutover scope and rollback context"| agent
+    threads -->|"Attendee and logistics updates"| agent
+    agent -->|"Ranks in-policy slots and hold decisions"| packet
+    packet -->|"Requests tentative room and remote holds from"| rooms
+    packet -->|"Routes no-slot, shift, or overtime exceptions to"| coordinator
+    coordinator -->|"Returns approved scheduling guidance to"| agent
+```
+
 - A tool-using single agent gathers availability, shift boundaries, maintenance-window constraints, and room options from approved scheduling systems.
 - Bounded delegation fits because the agent can place tentative holds, rank viable slots, and draft invites, but it should not override blackout windows or executive conflicts silently.
 - Human review stays reserved for cases where no in-policy slot exists, a required lead is unavailable, or the proposed time crosses shift or overtime rules.
