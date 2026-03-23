@@ -40,6 +40,30 @@ This grounds the pattern in research controlled-data governance rather than benc
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Repos["Secure cohort-analysis repository,<br>manuscript supplement workspace,<br>and statistical output registry"]
+    Rules["Disclosure-control rule library"]
+    Records["Data-use agreement records,<br>enclave export notes,<br>and prior disclosure-review findings"]
+    Workspace["Governed collaboration workspace holding one exact<br>small-cell suppression clarification packet revision,<br>disagreement ledger, and release-manifest draft"]
+    Owner["Human research release owner"]
+    Routing["Restricted intake-routing, approval,<br>and access-control systems"]
+    Boundary["Approval-gated restricted data-governance<br>review release boundary"]
+    Lane["Restricted data-governance<br>review intake lane"]
+    Audit["Audit, supersession,<br>and retention systems"]
+
+    Repos --> Workspace
+    Rules --> Workspace
+    Records --> Workspace
+    Workspace --> Owner
+    Workspace --> Routing
+    Owner --> Routing
+    Routing --> Boundary
+    Boundary --> Lane
+    Workspace --> Audit
+    Routing --> Audit
+```
+
 - Approval-gated execution fits because the clarification packet can be collaboration-ready while still blocked from restricted data-governance intake until the human release owner approves the exact revision with its accepted residual caveats.
 - Human-in-the-loop control is required because only accountable research and data-governance leaders may accept residual disclosure risk, confirm small-cell suppression boundaries, and authorize release of the packet itself into the bounded review lane.
 - Agents may compare table revisions, flag threshold violations, cross-check cohort-linkage combinations, refresh rule citations, and maintain the release trace, but they must not decide whether the export is disclosure-safe, provision controlled data, or transmit supplementary artifacts outside the approved lane.
