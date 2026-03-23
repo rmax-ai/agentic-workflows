@@ -40,6 +40,30 @@ This grounds the optimization pattern in an operations setting where queue order
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    dispatch["Field-service dispatch<br>platform"]
+    workforce["Workforce/crew-qualification<br>system"]
+    history["Historical dispatch<br>outcome store"]
+    feeds["Weather/road-closure/<br>heat-safety feeds"]
+    agent["Tool-using<br>single agent"]
+    gate["Exception-gated<br>autonomy"]
+    leads["Human dispatch<br>leads"]
+    audit["Dispatch audit<br>dashboard"]
+
+    dispatch -->|"Open work and<br>current ranking"| agent
+    workforce -->|"Crew certifications,<br>shift limits, and location"| agent
+    history -->|"Repeat visits and<br>override outcomes"| agent
+    feeds -->|"Travel and safety<br>constraints"| agent
+    agent -->|"Proposed reprioritization<br>and rationale"| gate
+    gate -->|"In-policy queue<br>updates"| dispatch
+    gate -->|"Escalated changes"| leads
+    gate -->|"Guardrail status and<br>change record"| audit
+    dispatch -->|"Applied ranked queue"| audit
+    leads -->|"Approve, freeze,<br>or rollback"| gate
+    leads -->|"Review tuning<br>changes"| audit
+```
+
 - Event-driven monitoring should trigger queue reevaluation when storm-related work spikes, crews go offline, weather constraints change, or supervisors repeatedly override the current dispatch order.
 - A tool-using single agent can recompute bounded prioritization weights, publish a revised ranked dispatch queue with rationale, and simulate the impact on crew utilization and appointment risk before changes go live.
 - Exception-gated autonomy fits because in-policy tuning can update dispatch sequencing automatically, but larger shifts that change protected-priority handling, district fairness balance, or safety buffers should require supervisor approval.
