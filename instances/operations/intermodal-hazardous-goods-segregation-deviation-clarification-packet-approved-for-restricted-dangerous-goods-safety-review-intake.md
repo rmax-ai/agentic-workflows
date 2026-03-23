@@ -40,6 +40,28 @@ This grounds the pattern in intermodal dangerous-goods operations governance rat
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    A["Terminal operating,<br>yard-management,<br>and rail-handoff systems"]
+    B["Placard-imaging feeds,<br>gate inspections,<br>packing declarations,<br>and hazardous-goods references"]
+    C["Dangerous-goods coordinator,<br>rail-yard transfer planner,<br>network safety governance lead,<br>and agent support"]
+    D["Governed intermodal-operations<br>collaboration workspace:<br>clarification packet,<br>disagreement ledger,<br>revision history,<br>and release-manifest state"]
+    E["Dangerous-goods policy,<br>restricted review-intake routing,<br>and access-control systems"]
+    F["Approval-routing, audit,<br>and retention systems"]
+    G["Named operations<br>release owner"]
+    H["Restricted dangerous-goods safety<br>review-intake lane"]
+
+    A -->|"Provide container identifiers,<br>slot maps,<br>transfer windows,<br>and consist lineage"| D
+    B -->|"Provide placard evidence,<br>classification claims,<br>overpack notes,<br>and freshness timestamps"| D
+    C -->|"Co-produce the packet,<br>reconcile objections,<br>and maintain release trace"| D
+    E -->|"Provide signer rules,<br>audience constraints,<br>annex limits,<br>and single-lane boundary"| D
+    D -->|"Submit exact packet revision,<br>covered container set,<br>staging snapshot,<br>and residual objections"| F
+    F -->|"Route approval package<br>for release decision"| G
+    G -->|"Approve one exact revision<br>for one bounded intake lane"| F
+    F -->|"Record approval, supersession,<br>held-release reasons,<br>and handoff trace"| D
+    F -->|"Release only approved revision"| H
+```
+
 - Approval-gated execution fits because the clarification packet can be collaboration-ready while still blocked from restricted dangerous-goods safety review intake until the human release owner approves the exact revision.
 - Human-in-the-loop control is required because only accountable operations and safety-governance leaders may accept residual disagreement, confirm audience scope, and authorize release of the packet itself.
 - Agents may crosswalk container maps, refresh placard evidence, normalize objection wording, and maintain the release trace, but they must not decide segregation acceptability, clear a rail handoff, authorize dray moves, or trigger staging changes.
