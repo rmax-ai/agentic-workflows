@@ -38,6 +38,26 @@ This grounds the pattern in engineering work where the value lies in transformin
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph handoff["Downstream handoff boundary"]
+        staging["Release-package staging store<br>for structured change-window bundle"]
+        manifest["Manifest service<br>for approval manifest"]
+        approval["Approval tooling"]
+        hold["Hold and exception queue"]
+        staging --> manifest
+        manifest --> approval
+        staging --> hold
+        approval --> hold
+    end
+
+    artifacts["Artifact registry, provenance store,<br>and CI systems"] --> staging
+    scope["Change-management, rollout-planning,<br>feature-flag, and rollback-reference systems"] --> staging
+    release["Release engineering"] --> approval
+    operations["Operations reviewers"] --> approval
+    approval -- "Approved cutover bundle<br>and manifest" --> queue["Deployment queue boundary<br>and time window"]
+```
+
 - Approval-gated execution fits because the transformed cutover bundle is technically ready but cannot cross into the deployment queue until the manifest is explicitly signed for one change window.
 - Human reviewers should remain in the normal loop to confirm held dependencies, rollback completeness, and the exact downstream handoff boundary before the bundle is marked approved.
 - The workflow should emit only the structured cutover package, lineage trace, hold register, and approval manifest rather than a readiness verdict, deployment command, or rollback execution.
