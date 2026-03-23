@@ -49,6 +49,29 @@ This grounds `approval-gated-triage-dispatch` in research work where there is a 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    Packet["Benchmark study workspace and disclosure-risk<br>triage systems"]
+    Evidence["Experiment-tracking, rerun-manifest,<br>dataset-rights, and embargo-control systems"]
+    Approval["Approval-routing tooling<br>signer state and audience boundary"]
+    Signer["Research-governance signer"]
+    Gate["Restricted disclosure-governance dispatch boundary<br>freshness, redaction, signer, and audience checks"]
+    Manifest["Dispatch-manifest service<br>exact packet revision binding"]
+    Lane["Restricted disclosure-governance<br>review queue"]
+    Audit["Audit and hold-tracking stores<br>hold register, superseded revisions,<br>and manual override history"]
+
+    Packet -- "Provide exact triage packet,<br>alert lineage, and claim scope" --> Gate
+    Evidence -- "Provide rerun, rights, and embargo<br>references for freshness checks" --> Gate
+    Approval -- "Provide signer state,<br>audience boundary, and blocked attempts" --> Gate
+    Gate -- "Submit one packet revision<br>for named approval" --> Signer
+    Signer -- "Record signed dispatch approval<br>for the bounded reviewer audience" --> Approval
+    Approval -- "Return approval status,<br>holds, and release eligibility" --> Gate
+    Gate -- "Bind approved packet revision<br>to one dispatch manifest" --> Manifest
+    Manifest -- "Release only the approved packet revision<br>into the restricted review lane" --> Lane
+    Manifest -- "Write dispatch lineage<br>into the audit boundary" --> Audit
+    Approval -- "Write hold reasons,<br>supersession, and override history" --> Audit
+```
+
 - Event-driven monitoring fits because rerun evidence, dataset-rights status, embargo posture, and outside-review requests can change while the packet waits at the dispatch gate.
 - Approval-gated execution fits because the triaged packet is ready for restricted-lane release but remains concretely blocked until the required research-governance approval is attached to the manifest.
 - Human-in-the-loop review should remain in the normal path because releasing the packet into disclosure-governance review changes who can inspect and act on sensitive benchmark information even though this workflow still stops short of action.
