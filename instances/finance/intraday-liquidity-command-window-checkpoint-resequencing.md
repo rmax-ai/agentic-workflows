@@ -51,6 +51,44 @@ This grounds the pattern in a finance coordination workflow where the main chall
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    subgraph SRC["Authoritative source boundary"]
+        READY["Bank confirmation feeds,<br>cash-state tooling, and collateral dashboards"]
+        AUTH["Delegate records, calendars,<br>and on-call schedules"]
+        DEADLINE["Market-open and lender<br>deadline tracker"]
+    end
+
+    subgraph BRIDGE["Governed bridge resequencing boundary"]
+        WORK["Treasury bridge workspace<br>with declared scope, active checkpoint order,<br>and prior packet versions"]
+        VERIFY["Readiness verification<br>lane"]
+        CHECK["Protected-window and delegate<br>authority checker"]
+        RESEQ["Checkpoint resequencer<br>and hold-state manager"]
+        PACKET["Bridge packet assembler<br>with current ledger and hold register"]
+    end
+
+    subgraph HUMAN["Human adoption boundary"]
+        LEADERS["Treasury and risk leaders"]
+    end
+
+    AUDIT["Audit and notification tooling"]
+    STOP["Workflow stop boundary"]
+
+    READY -->|"Provides authoritative bank,<br>cash-state, and collateral readiness"| VERIFY
+    AUTH -->|"Provides approved delegate<br>and availability authority"| CHECK
+    DEADLINE -->|"Provides protected market-open<br>and lender timing boundaries"| CHECK
+    WORK -->|"Supplies declared bridge scope,<br>active sequence, and prior versions"| RESEQ
+    VERIFY -->|"Passes verified readiness<br>changes and freshness state"| CHECK
+    CHECK -->|"Passes allowed moves,<br>holds, and authority conflicts"| RESEQ
+    RESEQ -->|"Builds the updated checkpoint order<br>and explicit hold states"| PACKET
+    PACKET -->|"Stores superseded timelines,<br>participant deltas, and packet lineage"| WORK
+    RESEQ -->|"Logs blocked checkpoints,<br>hold reasons, and resequencing changes"| AUDIT
+    PACKET -->|"Publishes targeted bridge updates<br>and supersession notices"| AUDIT
+    PACKET -->|"Routes the resequenced bridge packet<br>for human adoption"| LEADERS
+    LEADERS -->|"Adopts the checkpoint order<br>or keeps the bridge on hold"| WORK
+    PACKET -->|"Stops before funding decisions,<br>facility draws, or market communication execution"| STOP
+```
+
 - An orchestrated multi-agent workflow can split readiness verification, protected-window checking, checkpoint resequencing, and bridge-packet assembly while preserving one shared timeline.
 - Human-directed control fits because treasury and risk leaders must adopt any changed checkpoint order before the new sequence can govern market-open coordination.
 - The workflow should preserve explicit hold states when bank-confirmation freshness, delegate authority, or communication-boundary timing remains unresolved.
