@@ -39,6 +39,19 @@ This grounds the gather/synthesize pattern in an engineering workflow where the 
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    architecture["Architecture records<br>decision archive, RFCs, and mesh design docs"] -->|"approved architecture baseline"| synth["Tool-using synthesis agent<br>for migration-readiness brief assembly"]
+    service["Service inventory and traffic-policy sources<br>service catalog, dependency maps,<br>and ingress or egress policy inventories"] -->|"service scope and dependency context"| synth
+    operations["Operational readiness evidence<br>SLO dashboards, latency reports,<br>error budgets, and capacity reviews"] -->|"observed production behavior"| synth
+    testing["Controlled test and rollback evidence<br>load tests, canary notes, rollback drills,<br>and release-readiness checklists"] -->|"performance baselines and rollback prerequisites"| synth
+    controls["Exception and security-control sources<br>postmortems, exception register entries,<br>known-issue trackers, security standards,<br>and policy-as-code results"] -->|"exceptions and control coverage"| synth
+    synth -->|"writes claim-to-source mappings,<br>source precedence, and open questions"| trace["Readiness brief and evidence trace<br>verified facts, stale assumptions,<br>conflicting signals, and open questions"]
+    trace -->|"submits review-ready synthesis"| review["Human-in-the-loop review<br>source-boundary decisions and<br>conflicting readiness-signal interpretation"]
+    review -->|"accepts reviewed brief<br>for architecture review"| output["Reviewed readiness brief<br>for architecture review"]
+    review -->|"holds for missing rollback proof,<br>unresolved traffic-policy dependencies,<br>or source conflicts"| hold["Hold state<br>service-owner or security review needed"]
+```
+
 - A tool-using single agent can retrieve approved architecture records, operational evidence, test artifacts, and policy results, then draft a structured synthesis with claim-to-source mappings.
 - Human-in-the-loop review should remain mandatory for source-boundary decisions, interpretation of conflicting readiness signals, and any conclusion that could influence production migration approval.
 - The workflow should preserve an evidence trace that distinguishes binding platform standards, observed production behavior, controlled test evidence, and lower-authority planning assumptions.
