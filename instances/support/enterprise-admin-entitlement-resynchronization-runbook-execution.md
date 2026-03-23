@@ -40,6 +40,26 @@ This grounds the pattern in support work where the valuable automation is not cu
 
 ## Likely architecture choices
 
+```mermaid
+flowchart LR
+    task["Restricted enterprise support<br>task queue and case record"] -->|"Delegated remediation task<br>and retry budget"| intake["Task intake and<br>state hydration"]
+    subgraph runbook["Approved runbook<br>boundary"]
+        intake -->|"Read current tenant and<br>entitlement state"| authority["Tenant master record,<br>entitlement ledger, and<br>role-assignment service"]
+        intake -->|"Persist checkpoint and<br>retry context"| ledger["Authoritative checkpoint ledger"]
+        intake -->|"Invoke standard entitlement<br>resynchronization"| sync["Provisioning or identity-sync<br>job runner"]
+        sync -->|"Job result and retryable<br>failure status"| ledger
+        sync -->|"Post-action state<br>requires verification"| verify["Verification stage"]
+        verify -->|"Re-read authoritative<br>admin-role state"| authority
+        verify -->|"Verified entitlement state<br>and completion status"| ledger
+        intake -->|"Prerequisite mismatch or<br>policy boundary"| exception["Exception packaging"]
+        sync -->|"Ambiguous result or<br>retries exhausted"| exception
+        verify -->|"Verification failure"| exception
+    end
+    ledger -->|"Checkpoint history,<br>retry ledger, and evidence"| audit["Audit store"]
+    exception -->|"Exception packet"| escalate["Senior support engineering<br>escalation queue"]
+    exception -->|"Escalation evidence"| audit
+```
+
 - An orchestrated execution flow can separate task intake, state hydration, remediation execution, verification, and escalation packaging while keeping one authoritative checkpoint ledger for the task.
 - Durable workflow state should record the current checkpoint, retry count, last sync-job result, and final verified entitlement state so duplicate events or interrupted runs can resume safely.
 - Verification should re-read authoritative role-assignment state after each consequential action rather than trusting the sync job response alone.
